@@ -45,9 +45,22 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bill-of-materials.md`  (https://docs.frappe.io/erpnext/bill-of-materials)
 
 ### Design a BOM with the BOM creator
-- **Path:** open https://your-site/app (the Desk) and find *Multi-level BOM Creator* — the documentation page below shows the screen
-- **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__bom-creator.md`  (https://docs.frappe.io/erpnext/bom-creator)
+- **Path:** https://your-site/app → **Home > Manufacturing > BOM Creator**
+- **Record type:** BOM Creator
+- **Two screens exist. Look before you click.** ERPNext 16.53 rebuilt this tool. If the form has a **Design File** field and the tabs Design, Costing and Details, it is the new one and the steps below apply. If it shows only a tree with an item dialog, the site is older: follow `docs/erpnext/erpnext__bom-creator.md` instead.
+- **Documented steps (new screen):**
+  1. Go to the BOM Creator list and click Add BOM Creator
+  2. In Finished Good, select the item that the design makes, and check that Company is correct
+  3. Optional: attach a design file — a STEP file, or a CSV with the columns Level, Part Number and Quantity. Without one, build the tree by hand with **+** on each row
+  4. Map each part to an item with Map Item, or create the missing items
+  5. Change quantities, add materials that are not in the design (glue, paint, packing), remove parts that do not belong
+  6. Choose how materials are costed on the Costing tab
+  7. Submit, then click **Create BOMs**
+- **What Create BOMs does:** in the background it makes and **submits** one BOM for every assembly in the tree, lowest level first. The line under the tree says how many. Tell the user that number and get a yes before clicking; submitted BOMs are cancelled, never edited.
+- **Producing an item at each operation:** the tick box is labelled *Produce Item per Operation* or *Produce an Item at Each Operation* depending on the patch. Tick it only when each operation makes an item the user keeps in stock. It needs Operation and Workstation Type records, and creates a single BOM that lists the operations and what each one makes.
+- **If it fails:** the status turns Failed, the reason is in Error Log on the Details tab, and no BOM from that run is kept. Fix the cause and click Create BOMs again.
+- **Snapshot first** — reversibility: reversible until Create BOMs is clicked, irreversible after (the BOMs are submitted)
+- **Full page, bundled offline:** `docs/erpnext/erpnext__bom-creator-new.md`  (https://docs.frappe.io/erpnext/bom-creator-new) — older screen: `docs/erpnext/erpnext__bom-creator.md`
 
 ### Update BOMs in bulk
 - **Path:** https://your-site/app → **Home > Manufacturing > Tools > BOM Update Tool**

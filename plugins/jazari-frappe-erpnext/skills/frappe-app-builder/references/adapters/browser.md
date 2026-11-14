@@ -68,6 +68,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path:** https://your-site/app → **Home > Settings > Print Format Builder**
 - **Documented steps:**
   1. Go to the Print Format Builder
+- **PDF engine:** how the format comes out as a PDF depends on **Print Settings → PDF Generator** (`wkhtmltopdf`, `chrome` or `PlutoPrint`). Sites created on Frappe 16.55 or later start on `chrome`. Check a real PDF, not only the screen preview, before calling a format finished.
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__print-format-builder.md`  (https://docs.frappe.io/erpnext/print-format-builder)
 

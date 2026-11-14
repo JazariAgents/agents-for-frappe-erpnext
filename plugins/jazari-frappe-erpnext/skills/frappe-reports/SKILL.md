@@ -68,8 +68,9 @@ Copy this checklist into the conversation and tick as you go:
 
 ## Adapters
 
-Most of what follows can be done either through the API or by clicking in the interface — they are alternatives, not a split. This skill covers browser. Read the adapter that matches `active_adapter`:
+Most of what follows can be done either through the API or by clicking in the interface — they are alternatives, not a split. This skill covers browser, and api for running the standard reports. Read the adapter that matches `active_adapter`:
 
+- `references/adapters/api.md` — the one call that runs a report, the filters that were tested on a live site, grouping by accounting dimension, and how to read the answer
 - `references/adapters/browser.md` — which Frappe interface each action lives in, its documented menu path and steps, and how to verify a label before clicking
 
 **Connected through Frappe's MCP server or `frappectl`** (`active_adapter` is `mcp` or `frappectl`)? Read `${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/references/adapters/mcp.md` or `frappectl.md` first; the same files sit in the `frappe-connect` skill folder beside this one. They say how each call in this skill's `api.md` is made through that connection, and they are preferred over a pasted API key wherever the site offers them.
@@ -109,14 +110,18 @@ Every page behind this skill's 17 capabilities ships inside the plugin, as the e
 - The path in each adapter row (`docs/...`) is relative to the plugin root: `${CLAUDE_PLUGIN_ROOT}/docs/<space>/<file>.md`, or the `docs/` folder two levels above this skill file.
 - **Before doing anything non-trivial, open the bundled page for that capability and read it.** The adapter row is the index; the page is the instruction.
 - Each file keeps its original front matter — `title`, the live `url`, and the date Frappe last updated it. If the site disagrees with the page, say so and cite the date rather than improvising.
-- 1,607 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
+- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
 - **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, convert one to a filename by replacing `/` with `__` (`/erpnext/credit-note` becomes `docs/erpnext/erpnext__credit-note.md`).
 
 ## Gotchas
 
 - Submitted documents (docstatus 1) cannot be edited — amend or cancel, and say which before acting.
-- A 403 means the API user lacks the role for that DocType. Name the missing role instead of retrying.
-- HTTP 429 means the site's rate limit was hit. Back off; do not hammer the site.
+- A 403 means the API user lacks a role: for that DocType, or (ERPNext 16.36 and later) for a record the action touches, such as the account, warehouse or project. Name what is missing instead of retrying.
+- A 401 that says *Access not allowed from this IP Address* is not a bad key. The user has a Restrict IP list, which also applies to API keys from Frappe 16.33; the address has to be added on the User record.
+- HTTP 429 means a rate limit was hit: the site's overall budget, or one method's own. Wait for the time in `Retry-After`; do not hammer the site.
+- Profit and Loss and Balance Sheet can show one column per cost center, project or other accounting dimension through **Group by Dimension** (ERPNext 16.51 and later; the filter is `group_by_dimension`). On an older site the option is not there: filter by one value at a time instead, and say why.
+- The IRS 1099 report (United States) lost its **Print IRS 1099 Forms** button in ERPNext 16.35. The report still runs, but do not promise printed forms from it.
+- The standard reports can be run without clicking: `references/adapters/api.md` has the call and the filters that were tested on a live site. Running a report only reads.
 - Docs describe the current version. If the live site disagrees with this skill, say so plainly rather than improvising.
 
 ## Manual

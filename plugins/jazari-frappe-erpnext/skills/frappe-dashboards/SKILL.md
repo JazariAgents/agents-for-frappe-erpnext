@@ -108,9 +108,11 @@ who has not connected a site yet. Never present demo figures as the user's own.
 | The script says | What it means | What to tell the user |
 |---|---|---|
 | no read permission on X | The API user's roles do not cover that DocType | Name the DocType. A System Manager can add the role, or the dashboard can stay without it. System screens need System Manager; People screens need HR User. |
-| X does not exist on this site | The app is not installed (Attendance, Leave Application, Salary Slip and Expense Claim come from Frappe HR) | That screen stays partly empty until the app is installed. This is not an error. |
+| Frappe HR (the hrms app) is not installed | Attendance, Leave Application, Salary Slip and Expense Claim come from Frappe HR, and the site's app list does not include it | The People screen shows headcount only until Frappe HR is installed. This is not an error. |
+| X does not exist on this site | The app that provides that record type is not installed | That card stays empty until the app is installed. This is not an error. |
 | the site refused the query (HTTP 417) | A field name differs in this version | Say this plugin was built against v16 and that figure may need an update. Do not retry with guessed field names. |
 | the site rejected the API key (401) | Key or secret is wrong or was regenerated | Run **frappe-connect** again. |
+| the site refused this computer's address (401) | The key is fine. The user has a Restrict IP list, and from Frappe 16.33 it applies to API keys too | Someone with access adds this address on the User record, or the user issues a key from an account without the list. Do not ask for a new key. |
 | several companies; pass --company | Multi-company site | Ask which company. |
 | partial lists | A list passed 10,000 rows | The page says so itself. Offer a shorter period with `--months 6`. |
 
@@ -154,9 +156,19 @@ Colors are tokens at the top of the template; change the tokens, not the charts.
 
 ## Verified
 
-`pulse.py` was run end to end against a mock site that serves the v1 REST paths, including paging,
-a missing app (404), a forbidden DocType (403) and a rejected key (401). Every method and field it
-reads was checked against the version-16 source of Frappe, ERPNext and Frappe HR on 2026-11-14. The
-`frappectl` route was run against a stand-in written from frappectl's README and source (v0.24.0),
-not the real tool. It has **not** been run against a live Frappe site. If the live site disagrees with this skill, say so plainly rather than
-improvising.
+`pulse.py` was run against a **live site** on 2026-11-14: ERPNext 16.55 on Frappe 16.56, from
+Frappe's official Docker image, with a throwaway company and six months of invoices, bills, payments,
+orders, quotations and employees. Every finance, sales, people and system figure on the page was
+compared with a query on the site's own database, and all of them matched. It was also run with a
+user who has only the Sales User role (the cards it may not read say so), with a wrong key, with a
+key refused by a Restrict IP list, against a wrong address and with a company that does not exist.
+The six screens were looked at on a desktop and at phone width, in English and Arabic.
+
+That run found and fixed four things: two "not available" notes named the wrong record type; Guest
+was counted as a user; a smoothed line could dip below zero; and a refused address was reported as a
+bad key.
+
+Still not run on a live site: the Frappe HR cards (the test site had no Frappe HR; they are covered
+by the mock site), and the `frappectl` route, which was run against a stand-in written from
+frappectl's README and source (v0.24.0), not the real tool. If the live site disagrees with this
+skill, say so plainly rather than improvising.

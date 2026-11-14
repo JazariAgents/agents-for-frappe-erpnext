@@ -71,6 +71,20 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path:** open https://your-site/app (the Desk) and find *Background Jobs* — the documentation page below shows the screen
 - **Full page, bundled offline:** `docs/framework/framework__user__en__api__background_jobs.md`  (https://docs.frappe.io/framework/user/en/api/background_jobs)
 
+### Build, test and switch on an Automation Flow
+- **Path:** https://your-site/app → type **Automation Flow** in the search box at the top → **New** (Frappe v16.36 and later)
+- **Record type:** Automation Flow
+- **Documented steps:**
+  1. Enter a Title and choose the Document Type the flow is about
+  2. Choose a Trigger Type and fill in the fields it asks for
+  3. Optionally add Match Fields and an Advanced Expression
+  4. Add one or more rows under Actions
+  5. Save and click **Test Run** to try it against a real document (all changes are rolled back)
+  6. Only after the user says yes: tick **Enabled** and save again
+- **Before step 6**, say what the flow will do on its own and who it acts as (Run As is Automation User, which is Administrator unless changed). See `../automation-flows.md`.
+- **Snapshot first** — reversibility: irreversible once enabled (what it sends cannot be recalled); the flow itself is switched off again by clearing Enabled
+- **Full page, bundled offline:** `docs/framework/framework__automations.md`  (https://docs.frappe.io/framework/automations)
+
 ## What cannot be done in the interface
 
 - Test the site connection — an API call (api.md)

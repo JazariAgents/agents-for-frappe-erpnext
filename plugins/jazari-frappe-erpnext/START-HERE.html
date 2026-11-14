@@ -4,65 +4,79 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Jazari Agents for Frappe &amp; ERPNext v1.1 — Start here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;display=swap">
 <style>
-:root{--ink:#151a21;--ink2:#3d4756;--muted:#6b7583;--line:#dee3ea;--bg:#f5f7fa;--card:#fff;
---blue:#1b47c4;--green:#136b45;--amber:#8a5206;--red:#9b2c2c;--redbg:#fdf0f0;--greenbg:#e9f5ee;--bluebg:#e8edfb;}
+:root{--ink:#071A3A;--ink2:#33415C;--muted:#64748B;--line:#E5EAF0;--bg:#F7F9FC;--card:#fff;
+--navy:#06152D;--blue:#087DB9;--cyan:#00B8D9;--aqua:#23E0C5;--green:#0B7A5E;--amber:#8a5206;--red:#9b2c2c;
+--redbg:#fdf0f0;--greenbg:#E6FBF7;--bluebg:#E6F3FA;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Manrope","IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+html[lang=ar] body{font-family:"IBM Plex Sans Arabic","Manrope","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85}
 .wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
-header.top{background:var(--card);border-bottom:1px solid var(--line);padding:34px 0 28px;margin-bottom:34px}
-h1{font-size:34px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
-h2{font-size:24px;margin:44px 0 12px;letter-spacing:-.015em;line-height:1.2}
-h3{font-size:17px;margin:26px 0 8px}
-p{max-width:70ch}
-.sub{color:var(--ink2);font-size:18px;margin:0;max-width:70ch}
-.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--bluebg);color:var(--blue);font-weight:600}
-.safety{background:var(--redbg);border:1px solid #f0cfcf;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:26px 0}
+header.top{background:radial-gradient(120% 160% at 92% -20%,#0C6B9E 0%,#0A3560 40%,#06152D 80%);color:#fff;padding:34px 0 30px;margin-bottom:34px}
+header.top .wrap{padding-bottom:0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:18px;letter-spacing:-.01em;margin-bottom:22px}
+.brand img{width:40px;height:40px;border-radius:11px;background:#F7F9FC;padding:5px}
+.brand em{font-style:normal;color:var(--aqua)}
+h1{font-size:36px;line-height:1.1;margin:10px 0 10px;letter-spacing:-.025em;font-weight:600}
+h2{font-size:24px;margin:46px 0 12px;letter-spacing:-.015em;line-height:1.25;font-weight:600}
+h3{font-size:17px;margin:26px 0 8px;font-weight:600}
+p{max-width:72ch}
+.sub{color:rgba(255,255,255,.84);font-size:18px;margin:0;max-width:70ch}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;background:rgba(35,224,197,.16);color:var(--aqua);font-weight:600}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding:0;list-style:none}
+.toc a{display:block;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink2);text-decoration:none;font-size:14px}
+.toc a:hover{border-color:var(--blue);color:var(--blue)}
+.safety{background:var(--redbg);border:1px solid #f0cfcf;border-inline-start:4px solid var(--red);border-radius:10px;padding:20px 24px;margin:26px 0}
 .safety h2{margin-top:0;color:var(--red);font-size:20px}
-.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:18px 22px;margin:22px 0}
+.note{background:var(--card);border:1px solid var(--line);border-inline-start:4px solid var(--blue);border-radius:10px;padding:16px 22px;margin:22px 0}
+.note.good{border-inline-start-color:var(--aqua);background:var(--greenbg)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
-.agent{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start}
 .agent img{width:56px;height:56px;border-radius:12px;flex:0 0 auto;background:var(--bg)}
 .agent h3{margin:0 0 4px;font-size:17px}
 .agent .role{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
 .agent p{margin:0;font-size:14.5px;color:var(--ink2)}
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:18px 0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:18px 0}
 table{border-collapse:collapse;width:100%;font-size:14.5px}
-th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#eef1f6;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+th,td{padding:9px 14px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#EEF3F8;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 tr:last-child td{border-bottom:none}
-code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-ol,ul{max-width:70ch}li{margin:6px 0}
+code{background:#EEF3F8;padding:1px 6px;border-radius:5px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:isolate}
+pre{background:var(--navy);color:#E6F3FA;border-radius:12px;padding:14px 18px;overflow-x:auto;direction:ltr;text-align:left;margin:10px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+ol,ul{max-width:72ch}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;padding:0}
-.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px 14px 52px;position:relative;margin:10px 0}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps>li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;padding-inline-start:54px;position:relative;margin:10px 0}
+.steps>li::before{content:counter(s);position:absolute;inset-inline-start:16px;top:15px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.shot{display:block;width:100%;border:1px solid var(--line);border-radius:14px;margin:18px 0;box-shadow:0 14px 40px rgba(6,21,45,.10)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0}
+.two>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.two h3{margin:0 0 6px}.two ul{padding-inline-start:20px;margin:6px 0}
+a{color:var(--blue)}
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
 .ok{color:var(--green);font-weight:600}
+@media print{header.top{background:#06152D}.toc{display:none}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap">
-<span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.0</span>
+<header class="top"><div class="wrap"><div class="brand"><img src="manual/assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.1</span>
 <h1>Nine agents that run your Frappe stack</h1>
 <p class="sub">Build apps on the Frappe framework, and run the business on top of it — ERPNext accounting, stock and manufacturing, Frappe HR payroll, CRM, Helpdesk, Insights, the website, bench and Frappe Cloud. In English and Arabic.</p>
 </div></header>
 <div class="wrap">
 <h2>Install in two minutes</h2>
 <ol class="steps">
-<li><strong>Use a Claude surface that keeps files between conversations</strong> — Claude Code, Claude Desktop or Cowork. The agents write snapshots and logs into a workspace folder; a plain web chat sandbox resets and cannot hold them.</li>
-<li><strong>Put the plugin where Claude looks for it.</strong> The documented method, and the one to try first:
-<ul>
-<li>Unzip <code>FrappeAgents-v1.0.zip</code> into your personal skills directory so that <code>~/.claude/skills/jazari-frappe-erpnext/</code> <em>directly</em> contains <code>.claude-plugin/plugin.json</code> (not a nested folder). Claude loads it on the next session — no marketplace, no install command.</li>
-<li>For one project only, use <code>&lt;your-project&gt;/.claude/skills/jazari-frappe-erpnext/</code> instead. That one loads after you accept the trust prompt for the folder.</li>
-<li>On Claude Code you can also try it without installing: <code>claude --plugin-dir /path/to/jazari-frappe-erpnext</code>. To check the files are intact: <code>claude plugin validate ./jazari-frappe-erpnext</code>.</li>
-</ul>
-</li>
-<li><strong>If your Claude app has its own plugin installer</strong>, use that instead and point it at this zip — the zip is already a valid plugin, with <code>.claude-plugin/plugin.json</code> at its top level. Where the app offers no such installer, the folder method above is the way in.</li>
-<li><strong>Start a new session</strong> (or run <code>/reload-plugins</code> in Claude Code) so the 22 skills load.</li>
-<li><strong>Say hello</strong> — type <em>"connect my Frappe site"</em>. The agents introduce themselves, ask which language you want, ask before creating the <code>.frappe/</code> folder, then offer four ways to connect: paste an API key, be guided step by step, have the page opened with you, or skip the API and work through the interface with them.</li>
-<li><strong>Ask for something real</strong> — "show me overdue invoices", "create a DocType for maintenance contracts", "run payroll for August", "back up the site before I update it".</li>
+<li><strong>Use a Claude app that keeps files between conversations</strong> — Claude Code, or the Code tab of the Claude desktop app. The agents write safety copies and logs into a folder on your computer; a plain web chat cannot hold them.</li>
+<li><strong>Add the marketplace.</strong> Type this in Claude:
+<pre><code>/plugin marketplace add JazariAgents/agents-for-frappe-erpnext</code></pre></li>
+<li><strong>Install the plugin.</strong>
+<pre><code>/plugin install jazari-frappe-erpnext@jazari-agents</code></pre></li>
+<li><strong>Start a new session</strong> (or type <code>/reload-plugins</code>) so the skills load.</li>
+<li><strong>Say hello</strong> — type <em>"connect my Frappe site"</em>. The agents introduce themselves, ask which language you want, ask before creating the <code>.frappe/</code> folder, then connect through the best route your site offers: Frappe's own MCP server, frappectl, an API key, or the interface with you.</li>
+<li><strong>Ask for something real</strong> — "show me my dashboard", "show me overdue invoices", "create a DocType for maintenance contracts", "back up the site before I update it".</li>
 </ol>
-<p style="color:#6b7583;font-size:14.5px">The folder and <code>--plugin-dir</code> methods above are from Anthropic's official plugin reference, read on 31 August 2026. Claude apps differ in whether they offer their own installer, so check your app's plugin settings if you would rather use a button.</p>
+<p style="color:var(--muted);font-size:14.5px">Prefer not to use a marketplace? Start Claude Code with <code>claude --plugin-dir &lt;this folder&gt;</code>. To check the files are intact: <code>claude plugin validate &lt;this folder&gt;</code>.</p>
 <h2>Meet the agents</h2>
 <p>The same nine faces across every Jazari Agents product. Each one owns a set of skills; you never have to know which.</p>
 <div class="grid">
@@ -78,7 +92,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </div>
 <p>Full profiles: <a href="manual/Agents-EN.html">Agents (English)</a> · <a href="manual/Agents-AR.html">الوكلاء (بالعربية)</a></p>
 <h2>The documentation comes with it</h2>
-<p><strong>1,607 pages of Frappe's official documentation are bundled inside the plugin</strong>, in the <code>docs/</code> folder — the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio, exactly as Frappe publishes them. Every capability in every skill points at the page it came from, so the agents read the real instructions instead of recalling them, and they work with no internet access at all. Each file keeps Frappe's own front matter, including the date that page was last updated — so when your site disagrees with the documentation, the agents can tell you how old the page is instead of guessing.</p>
+<p><strong>1,612 pages of Frappe's official documentation are bundled inside the plugin</strong>, in the <code>docs/</code> folder — the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio, exactly as Frappe publishes them. Every capability in every skill points at the page it came from, so the agents read the real instructions instead of recalling them, and they work with no internet access at all. Each file keeps Frappe's own front matter, including the date that page was last updated — so when your site disagrees with the documentation, the agents can tell you how old the page is instead of guessing.</p>
 <h2>What you will need</h2>
 <ul>
 <li><strong>A Frappe site</strong> — self-hosted or on Frappe Cloud. ERPNext, HR, CRM, Helpdesk and the rest are optional; the agents detect which apps you actually have.</li>
@@ -103,15 +117,15 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </tbody></table></div>
 <h2>What is in this build</h2>
 <div class="tablewrap"><table><tbody>
-<tr><th>Version</th><td>Jazari Agents for Frappe &amp; ERPNext v1.1 (plugin 1.0.0)</td></tr>
+<tr><th>Version</th><td>Jazari Agents for Frappe &amp; ERPNext v1.1 (plugin 1.1.1)</td></tr>
 <tr><th>Built against</th><td>Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)</td></tr>
-<tr><th>Capabilities</th><td>331 confirmed, every one traced to an official Frappe documentation page</td></tr>
-<tr><th>Bundled documentation</th><td>1,607 pages, offline, in <code>docs/</code></td></tr>
-<tr><th>Verified</th><td>documentation — no live site was available at build time</td></tr>
+<tr><th>Capabilities</th><td>335 documented, every one traced to an official Frappe documentation page, plus a one-page dashboard</td></tr>
+<tr><th>Bundled documentation</th><td>1,612 pages, offline, in <code>docs/</code></td></tr>
+<tr><th>Verified</th><td>on a live ERPNext 16.55 / Frappe 16.56 site on 2026-11-14: the dashboard, the API calls all skills share, Frappe's MCP server, the standard reports and Automation Flows. The individual walkthroughs are traced to documentation and were not each run. Details: the manual, "What was tested".</td></tr>
 <tr><th>Languages</th><td>English · العربية</td></tr>
 </tbody></table></div>
 <p>📖 Ask any agent <strong>"show the manual"</strong> at any time — or open <a href="manual/Manual-EN.html">the manual</a> / <a href="manual/Manual-AR.html">الدليل بالعربية</a>.</p>
-<footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · built 2026-08-31. Not affiliated with Frappe Technologies. Frappe, ERPNext and related names belong to their owners.</footer>
+<footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · reference pages 2026-08-31, checked on a live site 2026-11-14. Not affiliated with Frappe Technologies. Frappe, ERPNext and related names belong to their owners.</footer>
 </div>
 </body>
 </html>

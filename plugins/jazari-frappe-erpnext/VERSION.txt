@@ -1,12 +1,12 @@
-Jazari Agents for Frappe & ERPNext v1.1 (plugin 1.1.0)
+Jazari Agents for Frappe & ERPNext v1.1 (plugin 1.1.1)
 Built against: Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)
 Built: 2026-08-31 · Jazari Agents
-Capabilities: 331 documented (86 API / 195 dashboard / 26 bench / 24 guided), each traced to an official documentation page; not yet run against a live site
+Capabilities: 335 documented (90 API / 195 dashboard / 26 bench / 24 guided), each traced to an official documentation page
 Coverage: 100.0% of in-scope documentation pages read at build time
-Verified: against documentation only
+Verified: on a live ERPNext 16.55 / Frappe 16.56 site on 2026-11-14 — the dashboard (every figure matched the database), the API calls all skills share, the built-in MCP server, the standard reports and Automation Flows. The individual module walkthroughs are traced to documentation and were not each run.
 Licence: MIT (bundled documentation in docs/: CC BY-SA, Frappe Technologies and contributors)
 Languages: EN, AR · Modes: mcp, frappectl, api, browser, bench, guide
 Connection: Frappe's built-in MCP server (v16.53+) or frappectl first; an API key is the fallback
-Checked against: Frappe v16.56.0 / ERPNext v16.55.0 release notes and source on 2026-11-14 (connection, dashboard and review fixes only; the 1,607 bundled pages and the capability tables are still from 2026-08-31)
-Bundled documentation: 1,607 official pages, offline, in docs/
+Checked against: Frappe v16.56.0 / ERPNext v16.55.0 on 2026-11-14; all 13 changes since the reference pages are covered (see compat.json)
+Bundled documentation: 1,612 official pages, offline, in docs/ (1,607 from 2026-08-31, 5 added 2026-11-14)
 Manual: ask any agent "show the manual"

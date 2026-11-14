@@ -10,7 +10,7 @@ Every row was confirmed against an official Frappe documentation page fetched on
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
 | `mfg.bom` | Build a bill of materials | api | yes | reversible | `docs/erpnext/erpnext__bill-of-materials.md` | https://docs.frappe.io/erpnext/bill-of-materials |
-| `mfg.bomcreator` | Design a BOM with the BOM creator | browser | yes | reversible | `docs/erpnext/erpnext__bom-creator.md` | https://docs.frappe.io/erpnext/bom-creator |
+| `mfg.bomcreator` | Design a BOM with the BOM creator | browser | yes | irreversible | `docs/erpnext/erpnext__bom-creator-new.md` (ERPNext 16.53 and later; older screen: `docs/erpnext/erpnext__bom-creator.md`) | https://docs.frappe.io/erpnext/bom-creator-new |
 | `mfg.bomupdate` | Update BOMs in bulk | browser | yes | reversible | `docs/erpnext/erpnext__bom-update-tool.md` | https://docs.frappe.io/erpnext/bom-update-tool |
 | `mfg.workorder` | Run a work order | api | yes | irreversible | `docs/erpnext/erpnext__work-order.md` | https://docs.frappe.io/erpnext/work-order |
 | `mfg.jobcard` | Record work on a job card | api | yes | irreversible | `docs/erpnext/erpnext__job-card.md` | https://docs.frappe.io/erpnext/job-card |

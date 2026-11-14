@@ -3,66 +3,144 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>دليل Jazari Agents for Frappe &amp; ERPNext</title>
+<title>Jazari Agents for Frappe &amp; ERPNext — دليل الاستخدام</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;display=swap">
 <style>
-:root{--ink:#151a21;--ink2:#3d4756;--muted:#6b7583;--line:#dee3ea;--bg:#f5f7fa;--card:#fff;
---blue:#1b47c4;--green:#136b45;--amber:#8a5206;--red:#9b2c2c;--redbg:#fdf0f0;--greenbg:#e9f5ee;--bluebg:#e8edfb;}
+:root{--ink:#071A3A;--ink2:#33415C;--muted:#64748B;--line:#E5EAF0;--bg:#F7F9FC;--card:#fff;
+--navy:#06152D;--blue:#087DB9;--cyan:#00B8D9;--aqua:#23E0C5;--green:#0B7A5E;--amber:#8a5206;--red:#9b2c2c;
+--redbg:#fdf0f0;--greenbg:#E6FBF7;--bluebg:#E6F3FA;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Manrope","IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+html[lang=ar] body{font-family:"IBM Plex Sans Arabic","Manrope","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85}
 .wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
-header.top{background:var(--card);border-bottom:1px solid var(--line);padding:34px 0 28px;margin-bottom:34px}
-h1{font-size:34px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
-h2{font-size:24px;margin:44px 0 12px;letter-spacing:-.015em;line-height:1.2}
-h3{font-size:17px;margin:26px 0 8px}
-p{max-width:70ch}
-.sub{color:var(--ink2);font-size:18px;margin:0;max-width:70ch}
-.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--bluebg);color:var(--blue);font-weight:600}
-.safety{background:var(--redbg);border:1px solid #f0cfcf;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:26px 0}
+header.top{background:radial-gradient(120% 160% at 92% -20%,#0C6B9E 0%,#0A3560 40%,#06152D 80%);color:#fff;padding:34px 0 30px;margin-bottom:34px}
+header.top .wrap{padding-bottom:0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:18px;letter-spacing:-.01em;margin-bottom:22px}
+.brand img{width:40px;height:40px;border-radius:11px;background:#F7F9FC;padding:5px}
+.brand em{font-style:normal;color:var(--aqua)}
+h1{font-size:36px;line-height:1.1;margin:10px 0 10px;letter-spacing:-.025em;font-weight:600}
+h2{font-size:24px;margin:46px 0 12px;letter-spacing:-.015em;line-height:1.25;font-weight:600}
+h3{font-size:17px;margin:26px 0 8px;font-weight:600}
+p{max-width:72ch}
+.sub{color:rgba(255,255,255,.84);font-size:18px;margin:0;max-width:70ch}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;background:rgba(35,224,197,.16);color:var(--aqua);font-weight:600}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding:0;list-style:none}
+.toc a{display:block;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink2);text-decoration:none;font-size:14px}
+.toc a:hover{border-color:var(--blue);color:var(--blue)}
+.safety{background:var(--redbg);border:1px solid #f0cfcf;border-inline-start:4px solid var(--red);border-radius:10px;padding:20px 24px;margin:26px 0}
 .safety h2{margin-top:0;color:var(--red);font-size:20px}
-.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:18px 22px;margin:22px 0}
+.note{background:var(--card);border:1px solid var(--line);border-inline-start:4px solid var(--blue);border-radius:10px;padding:16px 22px;margin:22px 0}
+.note.good{border-inline-start-color:var(--aqua);background:var(--greenbg)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
-.agent{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start}
 .agent img{width:56px;height:56px;border-radius:12px;flex:0 0 auto;background:var(--bg)}
 .agent h3{margin:0 0 4px;font-size:17px}
 .agent .role{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
 .agent p{margin:0;font-size:14.5px;color:var(--ink2)}
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:18px 0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:18px 0}
 table{border-collapse:collapse;width:100%;font-size:14.5px}
-th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#eef1f6;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+th,td{padding:9px 14px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#EEF3F8;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 tr:last-child td{border-bottom:none}
-code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-ol,ul{max-width:70ch}li{margin:6px 0}
+code{background:#EEF3F8;padding:1px 6px;border-radius:5px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:isolate}
+pre{background:var(--navy);color:#E6F3FA;border-radius:12px;padding:14px 18px;overflow-x:auto;direction:ltr;text-align:left;margin:10px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+ol,ul{max-width:72ch}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;padding:0}
-.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px 14px 52px;position:relative;margin:10px 0}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps>li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;padding-inline-start:54px;position:relative;margin:10px 0}
+.steps>li::before{content:counter(s);position:absolute;inset-inline-start:16px;top:15px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.shot{display:block;width:100%;border:1px solid var(--line);border-radius:14px;margin:18px 0;box-shadow:0 14px 40px rgba(6,21,45,.10)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0}
+.two>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.two h3{margin:0 0 6px}.two ul{padding-inline-start:20px;margin:6px 0}
+a{color:var(--blue)}
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
 .ok{color:var(--green);font-weight:600}
-body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{padding:14px 52px 14px 18px}.steps li::before{left:auto;right:16px}code{direction:ltr;display:inline-block}</style>
+@media print{header.top{background:#06152D}.toc{display:none}}
+</style>
 </head>
 <body>
-<header class="top"><div class="wrap"><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.0</span>
-<h1>دليل الاستخدام</h1><p class="sub">تسعة وكلاء يشغّلون منصّة Frappe: بناء التطبيقات وتشغيل ERPNext والموارد البشرية وإدارة العملاء والدعم والتقارير والموقع والاستضافة.</p></div></header>
+<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.1</span>
+<h1>دليل الاستخدام</h1><p class="sub">تسعة وكلاء يبنون على منصّة Frappe ويشغّلون العمل فوقها. 335 قدرة في 22 مهارة، كل واحدة مرجعها صفحة رسمية من Frappe، ومعها لوحة متابعة لعملك في صفحة واحدة.</p></div></header>
 <div class="wrap">
+
+<ul class="toc">
+<li><a href="#install">التثبيت</a></li><li><a href="#first">أول خمس دقائق</a></li><li><a href="#connect">طرق الاتصال</a></li>
+<li><a href="#dashboard">لوحة المتابعة</a></li><li><a href="#agentspage">صفحة الوكلاء</a></li><li><a href="#automation">الأتمتة</a></li>
+<li><a href="#agents">الفريق</a></li><li><a href="#can">ما يستطيع كل وكيل</a></li><li><a href="#update">التحديث</a></li>
+<li><a href="#tested">ما تم اختباره</a></li><li><a href="#faq">أسئلة شائعة</a></li>
+</ul>
 <div class="safety"><h2>الأمان أولاً</h2>
 <p>قبل أي تعديل أو حذف تُحفظ نسخة كاملة محلياً في <code>.frappe/snapshots/</code>. إذا تعذّر حفظ النسخة، لا يتم التنفيذ. اطلب «استعد النسخة» في أي وقت.</p>
 <p><strong>بصراحة عن التراجع:</strong> الإعدادات تُستعاد تماماً. السجلات المحذوفة تعود كسجلات <em>جديدة</em> بمعرّفات جديدة، والروابط القديمة تبقى مكسورة. الفواتير المرحّلة والقيود المؤكدة والرواتب المصروفة والرسائل المرسلة لا يمكن التراجع عنها إطلاقاً؛ الحل هو إشعار دائن أو قيد عكسي، وهذا قرارك أنت.</p>
 <p>لن يحذف الوكلاء أو يعدّلوا بالجملة شيئاً لم تطلبه تحديداً، ولن ينفّذوا تعليمات موجودة داخل بياناتك، ولن يكتبوا كلمة مرورك.</p></div>
-<h2>التثبيت</h2><ol class="steps">
-<li><strong>استخدم بيئة تحتفظ بالملفات</strong> — Claude Code أو تطبيق سطح المكتب أو Cowork. الوكلاء يكتبون النسخ الاحتياطية والسجلات في مجلد عمل، ومحادثة الويب العادية تُصفَّر.</li>
-<li><strong>ضع الإضافة حيث يبحث عنها Claude</strong> — الطريقة الموثّقة، وجرّبها أولاً:
-<ul>
-<li>فُكّ ضغط <code>FrappeAgents-v1.0.zip</code> داخل مجلد المهارات الشخصي بحيث يحتوي <code>~/.claude/skills/jazari-frappe-erpnext/</code> <em>مباشرةً</em> على <code>.claude-plugin/plugin.json</code>. سيُحمّلها Claude في الجلسة التالية دون متجر ودون أمر تثبيت.</li>
-<li>ولمشروع واحد فقط: <code>&lt;مشروعك&gt;/.claude/skills/jazari-frappe-erpnext/</code> — تُحمَّل بعد الموافقة على الوثوق بالمجلد.</li>
-<li>في Claude Code يمكن التجربة دون تثبيت: <code>claude --plugin-dir /path/to/jazari-frappe-erpnext</code>، وللتحقق: <code>claude plugin validate ./jazari-frappe-erpnext</code>.</li>
-</ul>
-</li>
-<li><strong>إن كان تطبيقك يوفّر مثبّت إضافات</strong>، استخدمه وأشر إلى هذا الملف المضغوط — فهو إضافة صالحة أصلاً ويحتوي <code>.claude-plugin/plugin.json</code> في أعلى مستوى.</li>
-<li><strong>ابدأ جلسة جديدة</strong> (أو <code>/reload-plugins</code> في Claude Code) لتُحمَّل المهارات الاثنتان والعشرون.</li>
-<li><strong>ابدأ المحادثة</strong> — اكتب: «اربط موقع Frappe الخاص بي». سيسألك الفريق عن اللغة، ويطلب إذنك قبل إنشاء مجلد <code>.frappe/</code>، ثم يعرض أربع طرق للاتصال.</li>
-<li><strong>اطلب شيئاً حقيقياً</strong> — «أرني الفواتير المتأخرة»، «شغّل الرواتب لشهر أغسطس»، «خذ نسخة احتياطية قبل التحديث».</li>
+
+<h2 id="install">التثبيت</h2>
+<ol class="steps">
+<li><strong>استخدم تطبيق Claude يحتفظ بالملفات بين المحادثات</strong> — Claude Code أو تبويب Code في تطبيق Claude لسطح المكتب. يكتب الوكلاء النسخ الاحتياطية والسجلات في مجلد على جهازك، والمحادثة العادية على الويب لا تحتفظ بها.</li>
+<li><strong>أضف المتجر.</strong> اكتب هذا في Claude:
+<pre><code>/plugin marketplace add JazariAgents/agents-for-frappe-erpnext</code></pre></li>
+<li><strong>ثبّت الإضافة.</strong>
+<pre><code>/plugin install jazari-frappe-erpnext@jazari-agents</code></pre></li>
+<li><strong>ابدأ جلسة جديدة</strong> (أو اكتب <code>/reload-plugins</code>) لتُحمَّل المهارات.</li>
+<li><strong>قل مرحباً</strong> — اكتب <em>«اربط موقع Frappe الخاص بي»</em>.</li>
 </ol>
-<h2>الفريق</h2><div class="grid">
+<p style="color:var(--muted);font-size:14.5px">لا تريد استخدام المتجر؟ نزّل المستودع من <a href="https://github.com/JazariAgents/agents-for-frappe-erpnext">github.com/JazariAgents/agents-for-frappe-erpnext</a> وشغّل Claude Code بالأمر <code>claude --plugin-dir &lt;folder&gt;/plugins/jazari-frappe-erpnext</code>. وللتحقق من سلامة الملفات: <code>claude plugin validate &lt;folder&gt;/plugins/jazari-frappe-erpnext</code>.</p>
+
+<h2 id="first">أول خمس دقائق</h2>
+<ol class="steps">
+<li><strong>يعرّف الوكلاء بأنفسهم</strong> ويسألونك عن اللغة: العربية أو الإنجليزية.</li>
+<li><strong>يستأذنونك قبل إنشاء مجلد</strong> باسم <code>.frappe/</code> في مساحة عملك. فيه تُحفظ النسخ الاحتياطية والسجلات وبيانات الاتصال، على جهازك أنت.</li>
+<li><strong>يسألونك عن طريقة الوصول إلى موقعك</strong> ويختارون أفضل طريقة يتيحها الموقع (القسم التالي). لا تكتب كلمة مرورك في المحادثة أبداً.</li>
+<li><strong>يخبرونك بما وجدوه</strong>: إصدار Frappe و ERPNext، والتطبيقات المثبتة، وهل موقعك أحدث من هذه الحزمة.</li>
+<li><strong>اطلب شيئاً حقيقياً.</strong> «أرني الفواتير المتأخرة». «أرني لوحة المتابعة». «أنشئ نوع مستند لعقود الصيانة». «عند إنشاء طلب كبير أبلغ مدير المبيعات».</li>
+</ol>
+
+<h2 id="connect">طرق الاتصال</h2>
+<p>يجرّب الوكلاء هذه الطرق بالترتيب ويخبرونك بالطريقة المستخدمة. وهي بدائل: أغلب العمل ممكن بأي منها.</p>
+<div class="tablewrap"><table><thead><tr><th>الطريقة</th><th>ما تحتاجه</th><th>تناسب</th></tr></thead><tbody>
+<tr><td><strong>خادم MCP المضمّن في Frappe</strong></td><td>إصدار Frappe 16.53 أو أحدث مع تفعيل <em>Enable MCP</em> (مفعّل تلقائياً في المواقع الجديدة). تضيف موقعك إلى Claude كموصّل وتسجّل الدخول من المتصفح.</td><td>العمل اليومي. لا يُلصق أي مفتاح في أي مكان، وكل إجراء يُنفَّذ بصلاحياتك أنت.</td></tr>
+<tr><td><strong>frappectl</strong>، أداة سطر الأوامر الرسمية من Frappe</td><td>مثبتة على جهازك ومسجّل الدخول بها عبر <code>frappectl auth login</code>.</td><td>التقارير والملفات والقراءات الكبيرة. للقراءة فقط ما لم تطلب غير ذلك.</td></tr>
+<tr><td><strong>مفتاح API والرمز السري</strong></td><td>مفتاح يُنشأ من سجل المستخدم. يُحفظ في <code>.frappe/credentials.txt</code> على جهازك ولا يظهر في المحادثة.</td><td>أي موقع من الإصدار 15. الخيار البديل عند عدم توفر الطريقتين السابقتين.</td></tr>
+<tr><td><strong>من الواجهة</strong></td><td>لا شيء.</td><td>بدون مفتاح، أو للأشياء القليلة التي لا تظهر إلا على الشاشة. الوكيل يرشد وأنت تنقر.</td></tr>
+<tr><td><strong>bench</strong></td><td>طرفية على خادمك.</td><td>المواقع والتطبيقات والترحيل والنسخ الاحتياطي. وفي Frappe Cloud تغني لوحة التحكم عنها.</td></tr>
+</tbody></table></div>
+<div class="note">خادم MCP و frappectl يفتحان لـ Claude طريقاً إلى موقعك، لكنهما لا يسألان «هل أنت متأكد؟» ولا يأخذان نسخة احتياطية ولا يعرفان أي الإجراءات لا يمكن التراجع عنها. هذا ما يضيفه هؤلاء الوكلاء، أياً كانت طريقة الاتصال.</div>
+
+<h2 id="dashboard">لوحة المتابعة</h2>
+<p>قل <em>«أرني لوحة المتابعة»</em>. يقرأ الوكيل موقعك ويبني <strong>Jazari Pulse</strong>: صفحة واحدة فيها ست شاشات.</p>
+<img class="shot" src="assets/pulse-overview-ar.png" alt="شاشة النظرة العامة في لوحة المتابعة ببيانات تجريبية">
+<div class="two">
+<div><h3>ما الذي تعرضه</h3><ul>
+<li><strong>نظرة عامة</strong> — المستحق لك، والمستحق عليك، والطلبات المفتوحة، وما يحتاج انتباهك</li>
+<li><strong>المالية</strong> — المفوتر والمحصّل شهرياً، وأعمار الذمم المدينة، وأكبر الفواتير المتأخرة</li>
+<li><strong>المبيعات</strong> — أهم العملاء، والطلبات حسب الحالة، وعروض الأسعار المفتوحة، والعملاء الجدد</li>
+<li><strong>الموظفون</strong> — عدد الموظفين، والحضور، والإجازات، وآخر مسير رواتب</li>
+<li><strong>النظام</strong> — المجدول، والأخطاء، والمهام الفاشلة، وطابور البريد، والتطبيقات المثبتة</li>
+<li><strong>الوكلاء</strong> — ما أنجزه الوكلاء أنفسهم</li></ul></div>
+<div><h3>ما يجب أن تعرفه</h3><ul>
+<li><strong>تقرأ فقط.</strong> بناء اللوحة لا يغيّر شيئاً في موقعك.</li>
+<li><strong>كل بطاقة تذكر مصدرها</strong>: أي السجلات، وأي حالة، وأي تواريخ.</li>
+<li><strong>لا تخمين.</strong> إذا تعذّرت قراءة رقم، تذكر البطاقة السبب (لا توجد صلاحية، أو التطبيق غير مثبت) بدلاً من عرض صفر.</li>
+<li><strong>لقطة لحظية.</strong> اطلبها مرة أخرى لتحديثها.</li>
+<li><strong>بالعربية والإنجليزية</strong>، وتناسب شاشة الهاتف.</li>
+<li><strong>ليس لديك موقع بعد؟</strong> اطلب <em>اللوحة التجريبية</em>.</li></ul></div>
+</div>
+
+<h2 id="agentspage">صفحة الوكلاء</h2>
+<p>كلما أنهى وكيل طلباً أضاف سطراً واحداً إلى الملف <code>.frappe/activity.jsonl</code> على جهازك: أي وكيل، وما المطلوب، وكيف انتهى (تم، تم جزئياً، فشل، أو رُفض)، وكم سجلاً تغيّر، وهل أُخذت نسخة احتياطية أولاً. شاشة «الوكلاء» في اللوحة تُبنى من هذا الملف: الطلبات في آخر 30 يوماً، وكيف انتهت، ونسبة أخذ النسخ الاحتياطية، وصف لكل وكيل. لا يُرسَل شيء من هذا الملف إلى أي مكان.</p>
+
+<h2 id="automation">الأتمتة: «عندما يحدث كذا، افعل كذا»</h2>
+<p>ابتداءً من Frappe 16.36 يستطيع الموقع تشغيل <strong>Automation Flows</strong>: عند إنشاء سجل أو تغييره أو حلول تاريخ، تُنفَّذ عدة خطوات بالترتيب، مع انتظار وتفريع، وبدون كتابة كود. اطلب ذلك من Urwah بكلماتك، مثلاً: <em>«عند اعتماد أمر بيع يتجاوز 50,000 أسنده إلى مدير المبيعات وأرسل له بريداً، ثم ذكّره بعد يومين إذا بقي مفتوحاً»</em>.</p>
+<ol class="steps">
+<li><strong>ثلاثة أسئلة أولاً.</strong> ما الذي يبدأه، وأي السجلات يشملها، وماذا يحدث بالترتيب.</li>
+<li><strong>يُنشأ وهو متوقف.</strong> لا يحدث شيء في موقعك بعد.</li>
+<li><strong>يُجرَّب على سجل حقيقي واحد.</strong> ينفّذ موقعك كل الخطوات ثم يتراجع عنها كلها، فترى بالضبط ما سيحدث.</li>
+<li><strong>لا يُشغَّل إلا بعد موافقتك</strong>، ويُذكر لك باسم أي مستخدم سيعمل. وبعد تشغيله يعمل دون رقيب، والبريد الذي يرسله لا يمكن استرجاعه.</li>
+</ol>
+<p>لإيقاف أتمتة اطلب إيقافها. والأتمتة التي عملت مرة لا يمكن حذفها، بل إيقافها فقط.</p>
+
+<h2 id="agents">الفريق</h2><div class="grid">
 <div class="agent"><img src="assets/rukaz.png" alt="Rukaz"><div><h3 style="color:#2b6fff">Rukaz</h3><p class="role">الإعداد والتهيئة</p><p>يجهّز الموقع الجديد: الشركة والسنة المالية ودليل الحسابات والمستخدمون والاستضافة على Frappe Cloud.</p></div></div>
 <div class="agent"><img src="assets/wafir.png" alt="Wafir"><div><h3 style="color:#7c5cff">Wafir</h3><p class="role">الاستيراد والترحيل</p><p>ينقل البيانات بالجملة: ملفات إكسل والأرصدة الافتتاحية ودليل الحسابات والترحيل من نظام آخر، مع تجربة أولى دائماً.</p></div></div>
 <div class="agent"><img src="assets/imran.png" alt="Imran"><div><h3 style="color:#6366f1">Imran</h3><p class="role">بناء التطبيقات والتخصيص</p><p>يبني على المنصة نفسها: تطبيقات وأنواع مستندات وحقول وسير عمل وقوالب طباعة، إضافة إلى التصنيع وقوائم المواد.</p></div></div>
@@ -74,16 +152,18 @@ body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{pa
 <div class="agent"><img src="assets/urwah.png" alt="Urwah"><div><h3 style="color:#10b981">Urwah</h3><p class="role">الربط والبنش والأتمتة</p><p>البنية التحتية: الاتصال بالموقع وواجهة REST والويب هوك والمهام الخلفية وأوامر bench والنسخ الاحتياطي والاستعادة.</p></div></div>
 </div>
 <p>الملفات الشخصية: <a href="Agents-AR.html">الوكلاء</a> · <a href="Agents-EN.html">English</a></p>
-<h2>التوثيق مضمّن داخل الإضافة</h2>
-<p>تحتوي الإضافة على 1607 صفحة من توثيق Frappe الرسمي داخل مجلد <code>docs/</code> — كل صفحة تقف خلف كل قدرة. يقرأ الوكلاء هذه الملفات بدل الاعتماد على الذاكرة، فيقتبسون كلام Frappe نفسه، ويعملون بدون إنترنت، ويستطيعون إخبارك بتاريخ آخر تحديث للصفحة عند اختلاف الواقع عن التوثيق.</p>
-<h2>أوضاع العمل</h2>
+
+<h2 id="docs">التوثيق مضمّن داخل الإضافة</h2>
+<p>تأتي 1,612 صفحة من توثيق Frappe الرسمي في المجلد <code>docs/</code>: كل صفحة تقف خلف كل قدرة. يقرأ الوكلاء هذه الملفات ولا يعتمدون على الذاكرة، فينقلون كلام Frappe نفسه، ويعملون دون إنترنت، ويخبرونك بتاريخ آخر تحديث للصفحة إذا اختلف موقعك عنها. الصور غير مضمّنة، وحين تكون الخطوة صورة فقط يقول الوكيل ذلك.</p>
+<h2 id="modes">كيف يُنجز العمل</h2>
+<p>أغلب القدرات ممكنة عبر الاتصال أو بالنقر في الواجهة. الأعداد التالية هي الطريقة التي وُثّقت بها كل قدرة.</p>
 <div class="tablewrap"><table><thead><tr><th>الوضع</th><th>متى يُستخدم</th><th>عدد القدرات</th></tr></thead><tbody>
-<tr><td>واجهة API</td><td>عند توفر مفتاح API — الأسرع والأدق (معظم القدرات متاحة بالطريقتين)</td><td>86</td></tr>
-<tr><td>من الواجهة</td><td>بدون مفتاح، أو لأشياء لا تتوفر إلا في الواجهة</td><td>195</td></tr>
-<tr><td>أوامر bench</td><td>على خادمك عبر SSH — إنشاء المواقع والنسخ الاحتياطي والترقية</td><td>26</td></tr>
-<tr><td>إرشاد</td><td>يشرح Claude وتنفّذ أنت</td><td>24</td></tr>
+<tr><td>واجهة API</td><td>عبر خادم MCP أو frappectl أو مفتاح API — الأسرع والأدق</td><td>90</td></tr>
+<tr><td>من الواجهة</td><td>بدون اتصال، أو لأشياء لا تتوفر إلا في الواجهة</td><td>195</td></tr>
+<tr><td>أوامر bench</td><td>على خادمك: المواقع والتطبيقات والترحيل والنسخ الاحتياطي</td><td>26</td></tr>
+<tr><td>إرشاد</td><td>يشرح Claude ويتحقق، وتنفّذ أنت</td><td>24</td></tr>
 </tbody></table></div>
-<h2>ما يستطيع كل وكيل فعله</h2><h3 style="color:#2b6fff">Rukaz — الإعداد والتهيئة (32 قدرة)</h3><p>يجهّز الموقع الجديد: الشركة والسنة المالية ودليل الحسابات والمستخدمون والاستضافة على Frappe Cloud.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<h2 id="can">ما يستطيع كل وكيل فعله</h2><h3 style="color:#2b6fff">Rukaz — الإعداد والتهيئة (32 قدرة)</h3><p>يجهّز الموقع الجديد: الشركة والسنة المالية ودليل الحسابات والمستخدمون والاستضافة على Frappe Cloud.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
 <tr><td>Add a custom app to a bench</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
 <tr><td>Understand benches and bench groups</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
 <tr><td>Create a bench group on Frappe Cloud</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
@@ -156,7 +236,7 @@ body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{pa
 <tr><td>Choose the right kind of DocType</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
 <tr><td>Use virtual doc fields</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
 <tr><td>Build a bill of materials</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
-<tr><td>Design a BOM with the BOM creator</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Design a BOM with the BOM creator</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-manufacturing</code></td></tr>
 <tr><td>Update BOMs in bulk</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
 <tr><td>Plan capacity</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-manufacturing</code></td></tr>
 <tr><td>Record work on a job card</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-manufacturing</code></td></tr>
@@ -371,7 +451,7 @@ body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{pa
 <tr><td>Create and manage customers</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
 <tr><td>Group customers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
 <tr><td>Organise territories</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
-</tbody></table></div><h3 style="color:#10b981">Urwah — الربط والبنش والأتمتة (51 قدرة)</h3><p>البنية التحتية: الاتصال بالموقع وواجهة REST والويب هوك والمهام الخلفية وأوامر bench والنسخ الاحتياطي والاستعادة.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+</tbody></table></div><h3 style="color:#10b981">Urwah — الربط والبنش والأتمتة (55 قدرة)</h3><p>البنية التحتية: الاتصال بالموقع وواجهة REST والويب هوك والمهام الخلفية وأوامر bench والنسخ الاحتياطي والاستعادة.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
 <tr><td>Authenticate with OAuth 2</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
 <tr><td>Log in with username and password</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
 <tr><td>Authenticate with API key and secret</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
@@ -395,6 +475,10 @@ body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{pa
 <tr><td>Diagnose the scheduler</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
 <tr><td>Create a webhook on document events</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
 <tr><td>Secure a webhook with a shared secret</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Build an Automation Flow, switched off</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Test-run an Automation Flow on a real record</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Turn an Automation Flow on or off</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-api</code></td></tr>
+<tr><td>Read an Automation Flow's run history</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
 <tr><td>Back up a site</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-restore</code></td></tr>
 <tr><td>Run bench CLI commands</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
 <tr><td>Read and change site configuration</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
@@ -423,15 +507,45 @@ body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{pa
 <tr><td>Assign documents automatically</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
 <tr><td>Repeat a document on a schedule</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
 <tr><td>Send notifications on events</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
-</tbody></table></div><h2>مسارات جاهزة</h2><p>هذه المسارات مبنية على ترتيب المستندات الرسمية.</p><div class="tablewrap"><table><thead><tr><th>المسار</th><th>الخطوات</th></tr></thead><tbody><tr><td><strong>Connect Claude to a Frappe site</strong></td><td>Test the site connection → Authenticate with API key and secret → Read DocType metadata to discover a site's schema</td></tr><tr><td><strong>Build a Frappe app from scratch</strong></td><td>Create a new Frappe app → Create a new site for an app → Create a DocType → Pick the right field type → Write controller methods → Run migrations after an update</td></tr><tr><td><strong>Set up a company and go live on ERPNext</strong></td><td>Set up a company → Set the fiscal year → Set up the chart of accounts → Add and manage users → Import records from a spreadsheet → Enter opening balances</td></tr><tr><td><strong>Run order to cash</strong></td><td>Send a quotation → Confirm a sales order → Ship goods with a delivery note → Raise a sales invoice → Record a payment entry</td></tr><tr><td><strong>Run procure to pay</strong></td><td>Raise a material request → Place a purchase order → Receive goods → Record a purchase invoice → Record a payment entry</td></tr><tr><td><strong>Close the month</strong></td><td>Reconcile the bank → Reconcile payments against invoices → Produce a balance sheet → Produce a profit and loss report → Close an accounting period</td></tr><tr><td><strong>Run monthly payroll</strong></td><td>Mark attendance → Build a salary structure → Run payroll → Issue salary slips</td></tr><tr><td><strong>Manufacture to order</strong></td><td>Build a bill of materials → Plan production → Run a work order → Record work on a job card → Make a stock entry</td></tr><tr><td><strong>Back up and restore a site</strong></td><td>Back up a site → Restore a site from a backup → Back up a Frappe Cloud site</td></tr><tr><td><strong>Load data in bulk from spreadsheets</strong></td><td>Import records from a spreadsheet → Update many records at once → Import a chart of accounts → Load opening stock</td></tr></tbody></table></div><h2>حدود صادقة</h2><ul>
-<li>بُنيت هذه النسخة على التوثيق فقط، دون موقع تجريبي حيّ. كل قدرة موثّقة من صفحة رسمية، لكن لم تُختبر على موقع حقيقي بعد.</li>
-<li>تغطي تطبيقات Frappe الرسمية فقط. تطبيقات السوق من جهات أخرى (322 تطبيقاً) غير مشمولة بالاسم؛ يمكن التعامل معها عبر قراءة بنية البيانات في الموقع.</li>
-<li>الهدف هو الإصدار 16، مع دعم احتياطي للإصدار 15. المواقع الأقدم قد تختلف.</li>
-<li>أوامر bench تحتاج وصولاً إلى خادمك؛ لا يمكن تنفيذها عبر الإنترنت.</li></ul>
-<h2>أسئلة شائعة</h2>
-<p><strong>هل يمكن أن يحذف شيئاً بالخطأ؟</strong> لا يحذف إلا بطلب صريح، وبعد نسخة احتياطية وتأكيد.</p>
-<p><strong>أين يُحفظ مفتاحي؟</strong> في <code>.frappe/credentials.txt</code> داخل مساحة عملك فقط.</p>
-<p><strong>ماذا لو تغيّرت واجهة Frappe؟</strong> سيقول الوكيل ذلك بوضوح بدل الارتجال.</p><footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · 2026-08-31 · Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)</footer>
+</tbody></table></div>
+<h2 id="paths">مسارات جاهزة</h2><p>هذه المسارات مبنية على ترتيب المستندات الرسمية.</p><div class="tablewrap"><table><thead><tr><th>المسار</th><th>الخطوات</th></tr></thead><tbody><tr><td><strong>Connect Claude to a Frappe site</strong></td><td>Test the site connection → Authenticate with API key and secret → Read DocType metadata to discover a site's schema</td></tr><tr><td><strong>Build a Frappe app from scratch</strong></td><td>Create a new Frappe app → Create a new site for an app → Create a DocType → Pick the right field type → Write controller methods → Run migrations after an update</td></tr><tr><td><strong>Set up a company and go live on ERPNext</strong></td><td>Set up a company → Set the fiscal year → Set up the chart of accounts → Add and manage users → Import records from a spreadsheet → Enter opening balances</td></tr><tr><td><strong>Run order to cash</strong></td><td>Send a quotation → Confirm a sales order → Ship goods with a delivery note → Raise a sales invoice → Record a payment entry</td></tr><tr><td><strong>Run procure to pay</strong></td><td>Raise a material request → Place a purchase order → Receive goods → Record a purchase invoice → Record a payment entry</td></tr><tr><td><strong>Close the month</strong></td><td>Reconcile the bank → Reconcile payments against invoices → Produce a balance sheet → Produce a profit and loss report → Close an accounting period</td></tr><tr><td><strong>Run monthly payroll</strong></td><td>Mark attendance → Build a salary structure → Run payroll → Issue salary slips</td></tr><tr><td><strong>Manufacture to order</strong></td><td>Build a bill of materials → Plan production → Run a work order → Record work on a job card → Make a stock entry</td></tr><tr><td><strong>Back up and restore a site</strong></td><td>Back up a site → Restore a site from a backup → Back up a Frappe Cloud site</td></tr><tr><td><strong>Load data in bulk from spreadsheets</strong></td><td>Import records from a spreadsheet → Update many records at once → Import a chart of accounts → Load opening stock</td></tr></tbody></table></div>
+<h2 id="update">التحديث</h2>
+<p>تصدر Frappe تحديثات كثيرة. تسجّل هذه الحزمة الإصدارات التي كُتبت صفحاتها لها والإصدارات التي فُحصت عليها. وعند الاتصال يقارن الوكيل ذلك بموقعك ويخبرك بوضوح إن كان موقعك أحدث، وما الذي تغيّر.</p>
+<p>للحصول على أحدث نسخة من الحزمة، نفّذ هذين الأمرين في الطرفية:</p>
+<pre><code>claude plugin marketplace update jazari-agents
+claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
+<p>الإضافات من خارج متجر Anthropic لا تتحدّث تلقائياً إلا إذا فعّلت ذلك للمتجر من <code>/plugin</code>.</p>
+
+<h2 id="tested">ما تم اختباره، وما لم يُختبر</h2>
+<div class="note good"><strong>جُرّبت على موقع حقيقي في 14 نوفمبر 2026</strong> (ERPNext 16.55 و Frappe 16.56، من صورة Docker الرسمية):
+<ul>
+<li><strong>لوحة المتابعة.</strong> قورن كل رقم بقاعدة البيانات فتطابق. وجُرّبت أيضاً بمستخدم ناقص الصلاحيات، وبمفتاح خاطئ، ومن عنوان محظور، للتأكد من أنها تشرح السبب ولا تتعطل.</li>
+<li><strong>طلبات API المشتركة بين كل المهارات</strong>: القراءة والسرد والتصفح والإنشاء والتعديل والحذف والاعتماد والإلغاء ورسائل الخطأ. 27 من 27 عملت كما هو مكتوب.</li>
+<li><strong>خادم MCP في Frappe</strong>: الأدوات الثلاث عشرة التي تتوقعها الحزمة موجودة وتستجيب.</li>
+<li><strong>ثمانية تقارير قياسية</strong> عبر API، ومنها التجميع حسب مركز التكلفة.</li>
+<li><strong>أتمتة واحدة</strong> بُنيت وجُرّبت وشُغّلت وعملت فعلاً.</li>
+</ul></div>
+<p><strong>لم يُختبر:</strong></p>
+<ul>
+<li><strong>كل واحدة من الخطوات الـ 335 على حدة.</strong> هي مأخوذة من توثيق Frappe. وإذا اختلف موقعك عن خطوة، قال الوكيل ذلك ولم يرتجل.</li>
+<li><strong>frappectl على تثبيت حقيقي.</strong> جُرّبت اللوحة عبر بديل يحاكيه وأعطت الأرقام نفسها.</li>
+<li><strong>Frappe HR و CRM و Helpdesk و Insights و Lending و Learning على موقع حي.</strong> موقع الاختبار كان فيه Frappe و ERPNext فقط.</li>
+<li><strong>لوحة تحكم Frappe Cloud وأوامر bench على خادم إنتاج.</strong></li>
+<li><strong>مواقع الإصدار 15.</strong> الإصدار 16 هو المستهدف، والإصدار 15 مدعوم استناداً إلى التوثيق.</li>
+</ul>
+<p><strong>حدود أخرى.</strong> تطبيقات Frappe الرسمية فقط: تطبيقات المتجر الخارجية تُعامَل بشكل عام عبر قراءة أنواع السجلات في موقعك، ويخبرك الوكيل حين يفعل ذلك. والصلاحيات صلاحيات موقعك لا صلاحيات الإضافة: إذا نقص مستخدمك دور، سمّاه الوكيل ولم يلتف عليه.</p>
+
+<h2 id="faq">أسئلة شائعة</h2>
+<p><strong>هل يمكن أن يحذف شيئاً بالخطأ؟</strong> لا يحذف إلا ما طلبت حذفه تحديداً، بعد نسخة احتياطية مؤكدة وموافقة صريحة، ويخبرك أولاً هل يمكن التراجع عن الحذف.</p>
+<p><strong>هل أحتاج مفتاح API؟</strong> لا. في Frappe 16.53 أو أحدث يمكنك الاتصال عبر خادم MCP المضمّن وتسجيل الدخول من المتصفح. المفتاح خيار بديل.</p>
+<p><strong>أين يُحفظ مفتاح API إن استخدمته؟</strong> في <code>.frappe/credentials.txt</code> داخل مجلد عملك. لا في المحادثة، ولا في نسخة احتياطية، ولا في أي ملف قابل للمشاركة.</p>
+<p><strong>هل تغيّر لوحة المتابعة بياناتي؟</strong> لا. هي تقرأ فقط.</p>
+<p><strong>رُفض مفتاحي برسالة «Access not allowed from this IP Address».</strong> المفتاح سليم. لمستخدمك قائمة Restrict IP، وهي تُطبَّق على مفاتيح API أيضاً منذ Frappe 16.33. أضف عنوانك في سجل المستخدم.</p>
+<p><strong>ماذا لو تغيّر Frappe بعد بناء هذه الحزمة؟</strong> يتحقق الوكلاء من التسميات قبل النقر ويقولون بوضوح حين يختلف موقعك عن الحزمة. انظر قسم «التحديث».</p>
+<p><strong>كيف أعرف ما فعله؟</strong> اسأل «ماذا فعلت؟» فيقرأ <code>.frappe/tasklog.md</code> و <code>.frappe/audit.log</code>. وشاشة «الوكلاء» في اللوحة تعرض السجل نفسه كصفحة.</p>
+<p><strong>هل هذا من صنع Frappe؟</strong> لا. هو مشروع مستقل من Jazari Agents برخصة MIT. و Frappe و ERPNext علامتان تجاريتان لشركة Frappe Technologies.</p>
+<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.1 · <a href="https://jazariagents.com">jazariagents.com</a> · صفحات المرجع بتاريخ 2026-08-31 (Frappe 16.32 / ERPNext 16.33) · فُحصت على موقع حي Frappe 16.56 / ERPNext 16.55 بتاريخ 2026-11-14 · <a href="Manual-EN.html">English</a></footer>
+
 </div>
 </body>
 </html>

@@ -3,8 +3,9 @@ name: frappe-api
 description: >-
   Read and write Frappe data over the REST API and automate it: authentication, listing and
   filtering, creating, updating, submitting and cancelling documents, file upload, webhooks,
-  background jobs and rate limits. ALWAYS use when someone wants to integrate, call the API, send
-  data to another system, set up a webhook, or ask why an API call fails.
+  background jobs, rate limits and Automation Flows (when this happens, do that, with waits and
+  branches). ALWAYS use when someone wants to integrate, call the API, send data to another system,
+  set up a webhook, automate a follow-up, or ask why an API call fails.
 ---
 # REST API, webhooks and automation (Frappe)
 
@@ -35,7 +36,7 @@ Append one entry to `.frappe/tasklog.md` for this request before acting — what
 
 ## Snapshot first
 
-This skill can change or destroy existing data (4 of its 23 capabilities are marked destructive). Before any of them:
+This skill can change or destroy existing data (5 of its 27 capabilities are marked destructive). Before any of them:
 
 1. Write a snapshot to `.frappe/snapshots/<date>_<time>_<op>_<rand4>/` containing `SNAPSHOT.md` (when, site, environment, the user's verbatim request, restore instruction, reversibility class), `raw.json` (the untouched API response for every affected record) and `images/` for any attachments.
 2. **Verify** the snapshot exists and parses. If it cannot be written and verified, the action does not happen.
@@ -77,6 +78,15 @@ The path above is the main one, not the only one. For anything else this skill c
 5. **Verify**: re-read the affected records and check they say what you intended. If not, stop and report the difference rather than retrying blindly.
 6. Summarise with record IDs, then write the audit and task log entries.
 
+## Automation Flows
+
+When the user says "when X happens, do Y" and one Notification or Webhook is not enough (several
+steps, a wait, a branch, or a change to a linked record), build an **Automation Flow**. Read
+`references/automation-flows.md` first: it has the three questions to ask, the exact action names
+the site accepts, and the order that keeps it safe — create it switched off, test-run it against a
+real record (everything is rolled back), and turn it on only after a clear yes. A flow that is on
+acts without anyone watching and, unless told otherwise, acts as Administrator.
+
 ## Adapters
 
 Most of what follows can be done either through the API or by clicking in the interface — they are alternatives, not a split. This skill covers api, browser, bench. Read the adapter that matches `active_adapter`:
@@ -91,7 +101,7 @@ Where an operation exists in only one of these, the adapter that cannot do it sa
 
 ## What this skill can do
 
-23 capabilities, every one confirmed against an official Frappe documentation page fetched when this plugin was built (2026-08-31). Full table with source links: `references/capabilities.md`.
+27 capabilities. 23 were confirmed against official Frappe documentation pages fetched when this plugin was built (2026-08-31). The four Automation Flow rows were added on 2026-11-14 from Frappe's newer pages and were run on a live v16.56 site. Full table with source links: `references/capabilities.md`.
 
 Most of these can be done either through the API or by clicking; the column shows the route this plugin documents in detail.
 
@@ -120,24 +130,30 @@ Most of these can be done either through the API or by clicking; the column show
 | Publish and listen to realtime events | api | safe (read or create) |
 | Queue and monitor background jobs | api | safe (read or create) |
 | Diagnose the scheduler | bench | safe (read or create) |
+| Build an Automation Flow, switched off | api | safe (read or create) |
+| Test-run an Automation Flow on a real record | api | safe (read or create) |
+| Turn an Automation Flow on or off | api | irreversible |
+| Read an Automation Flow's run history | api | safe (read or create) |
 
 **Password login is reference-only.** `POST /api/method/login` is listed so it can be explained, but this plugin connects with an API key and secret. Never ask for, type, store or send a user's password; if a user wants a session login, they run that call themselves.
 
 ## The documentation is bundled — read it, do not guess
 
-Every page behind this skill's 23 capabilities ships inside the plugin, as the exact markdown Frappe publishes. No internet access is needed and nothing has to be summarised from memory.
+Every page behind this skill's 27 capabilities ships inside the plugin, as the exact markdown Frappe publishes. No internet access is needed and nothing has to be summarised from memory.
 
 - The path in each adapter row (`docs/...`) is relative to the plugin root: `${CLAUDE_PLUGIN_ROOT}/docs/<space>/<file>.md`, or the `docs/` folder two levels above this skill file.
 - **Before doing anything non-trivial, open the bundled page for that capability and read it.** The adapter row is the index; the page is the instruction.
 - Each file keeps its original front matter — `title`, the live `url`, and the date Frappe last updated it. If the site disagrees with the page, say so and cite the date rather than improvising.
-- 1,607 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
+- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
 - **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, convert one to a filename by replacing `/` with `__` (`/erpnext/credit-note` becomes `docs/erpnext/erpnext__credit-note.md`).
 
 ## Gotchas
 
 - Submitted documents (docstatus 1) cannot be edited — amend or cancel, and say which before acting.
-- A 403 means the API user lacks the role for that DocType. Name the missing role instead of retrying.
-- HTTP 429 means the site's rate limit was hit. Back off; do not hammer the site.
+- A 403 means the API user lacks a role: for that DocType, or (ERPNext 16.36 and later) for a record the action touches, such as the account, warehouse or project. Name what is missing instead of retrying.
+- A 401 that says *Access not allowed from this IP Address* is not a bad key. The user has a Restrict IP list, which also applies to API keys from Frappe 16.33; the address has to be added on the User record.
+- HTTP 429 means a rate limit was hit: the site's overall budget, or one method's own. Wait for the time in `Retry-After`; do not hammer the site.
+- An Automation Flow's `action_type` is the stored name without spaces (`SetFieldValue`), not the label on the screen. A flow that has run cannot be deleted, only switched off.
 - Docs describe the current version. If the live site disagrees with this skill, say so plainly rather than improvising.
 
 ## Manual

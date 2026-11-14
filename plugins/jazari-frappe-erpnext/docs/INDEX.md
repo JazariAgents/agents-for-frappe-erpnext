@@ -1,6 +1,6 @@
 # Bundled documentation — index
 
-1607 pages of Frappe's official documentation, exactly as published, fetched 2026-08-31.
+1612 pages of Frappe's official documentation, exactly as published. 1607 were fetched 2026-08-31; 5 newer pages (Automations, the new BOM Creator) were added 2026-11-14.
 
 ## How to find a page
 
@@ -14,10 +14,11 @@
 - **Links between pages** inside these files are live URLs (`/erpnext/credit-note`). Offline, translate them to a filename with the rule above.
 - **Legacy version manuals** (ERPNext v12–v14, Framework v13–v15) were deliberately excluded: this plugin targets v16 with a v15 fallback.
 
-## ERPNext — the ERP modules — 709 pages
+## ERPNext — the ERP modules — 710 pages
 
 | Page | File | Cited by a capability |
 |---|---|---|
+| Multi-level BOM Creator (New) | `erpnext/erpnext__bom-creator-new.md` | yes |
 | 2 Step 301 Redirect in your ERPNext Website | `erpnext/erpnext__2-step-301-redirect-in-your-erpnext-website.md` | — |
 | 3 Step SEO for your ERPNext Website | `erpnext/erpnext__how-to-setup-seo-for-your-website-on-erpnext.md` | yes |
 | Access Log | `erpnext/erpnext__access-log.md` | — |
@@ -728,10 +729,14 @@
 | Workstation Type | `erpnext/erpnext__workstation_type.md` | — |
 | Zenoti Integration | `erpnext/erpnext__zenoti_integration.md` | — |
 
-## Frappe Framework — building on the platform — 232 pages
+## Frappe Framework — building on the platform — 236 pages
 
 | Page | File | Cited by a capability |
 |---|---|---|
+| Extending Automations | `framework/framework__automations__extending-automations.md` | yes |
+| Triggers and Conditions | `framework/framework__automations__triggers-and-conditions.md` | yes |
+| Automations | `framework/framework__automations.md` | yes |
+| Steps and Actions | `framework/framework__automations__steps-and-actions.md` | yes |
 | Access | `framework/framework__user__en__desk__workspace__access.md` | — |
 | Actions and Links | `framework/framework__user__en__basics__doctypes__actions-and-links.md` | — |
 | Adding Custom Button To Form | `framework/framework__user__en__guides__app-development__adding-custom-button-to-form.md` | — |

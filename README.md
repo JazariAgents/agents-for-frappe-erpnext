@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/licence-MIT-23E0C5?style=flat-square" alt="MIT licence">
-  <img src="https://img.shields.io/badge/version-1.1.0-087DB9?style=flat-square" alt="Version 1.1.0">
+  <img src="https://img.shields.io/badge/version-1.1.1-087DB9?style=flat-square" alt="Version 1.1.1">
   <img src="https://img.shields.io/badge/built%20for-ERPNext%20%26%20Frappe%20v16-06152D?style=flat-square" alt="Built for ERPNext and Frappe v16">
   <img src="https://img.shields.io/badge/languages-English%20%C2%B7%20Arabic-00B8D9?style=flat-square" alt="English and Arabic">
 </p>
@@ -37,7 +37,7 @@ Claude accounting, and it leaves confirming each change to whoever is driving it
 
 This plugin adds the missing part:
 
-- **Know-how.** 23 skills built from 1,607 pages of official Frappe documentation, bundled so the agent
+- **Know-how.** 23 skills built from 1,612 pages of official Frappe documentation, bundled so the agent
   reads the real page instead of guessing.
 - **Care.** It reads before it writes, takes a snapshot before every change, tells you what cannot be
   undone, and waits for a clear yes.
@@ -236,15 +236,31 @@ them, not to replace them.
 
 This is an early public release, and it is honest about what that means.
 
-- **Checked against documentation, not yet against a live site.** Each of the 331 documented capabilities
-  traces to an official Frappe page, and the dashboard's fields and methods were checked against the
-  version-16 source code. Nothing has yet been run end to end on a real ERPNext site. Expect rough edges,
-  and please [open an issue](../../issues) when you find one.
-- **Built on Frappe 16.32 and ERPNext 16.33** (August 2026), with the connection, dashboard and safety
-  rules checked against 16.56 and 16.55 (November 2026). When you connect, the plugin compares itself
-  with your site and tells you what has changed since.
-- **Not yet covered:** Automation rules, the rebuilt BOM Creator, and a few labels renamed since August.
-  [`compat.json`](plugins/jazari-frappe-erpnext/compat.json) lists them all.
+**Run on a real site** (ERPNext 16.55 on Frappe 16.56, 14 November 2026):
+
+- **The dashboard.** Every figure was compared with the site's database and matched. It was also run with
+  a user who lacks permissions, a wrong key and a blocked address, to check that it explains instead of
+  failing.
+- **The API calls all 22 skills share**: read, list, page, create, update, delete, submit, cancel and the
+  error replies. 27 of 27 behaved as written.
+- **Frappe's built-in MCP server.** All 13 tools the plugin expects are there and answer.
+- **Eight standard reports** run through the API, including grouping by cost center.
+- **An Automation Flow** was built, test-run, switched on and seen to fire.
+
+**Not yet run on a real site:**
+
+- Each of the 335 walkthroughs, one by one. They trace to Frappe's official pages; where your site
+  disagrees with a step, the agent says so instead of improvising.
+- `frappectl` on a real installation (it was run against a stand-in).
+- Frappe HR, CRM, Helpdesk, Insights, Lending and Learning. The test site had Frappe and ERPNext only.
+- Frappe Cloud's dashboard, bench on a production server, and version 15 sites.
+
+**Versions.** The reference pages are from Frappe 16.32 and ERPNext 16.33 (August 2026), plus five newer
+pages. All 13 changes between those versions and 16.56 / 16.55 are covered; see
+[`compat.json`](plugins/jazari-frappe-erpnext/compat.json). When you connect, the plugin compares itself
+with your site and tells you what has changed since.
+
+Expect rough edges, and please [open an issue](../../issues) when you find one.
 
 The [changelog](CHANGELOG.md) has the details.
 

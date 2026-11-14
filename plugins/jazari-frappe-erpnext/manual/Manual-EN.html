@@ -4,66 +4,143 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Jazari Agents for Frappe &amp; ERPNext — Manual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600&amp;display=swap">
 <style>
-:root{--ink:#151a21;--ink2:#3d4756;--muted:#6b7583;--line:#dee3ea;--bg:#f5f7fa;--card:#fff;
---blue:#1b47c4;--green:#136b45;--amber:#8a5206;--red:#9b2c2c;--redbg:#fdf0f0;--greenbg:#e9f5ee;--bluebg:#e8edfb;}
+:root{--ink:#071A3A;--ink2:#33415C;--muted:#64748B;--line:#E5EAF0;--bg:#F7F9FC;--card:#fff;
+--navy:#06152D;--blue:#087DB9;--cyan:#00B8D9;--aqua:#23E0C5;--green:#0B7A5E;--amber:#8a5206;--red:#9b2c2c;
+--redbg:#fdf0f0;--greenbg:#E6FBF7;--bluebg:#E6F3FA;}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 "Manrope","IBM Plex Sans Arabic",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+html[lang=ar] body{font-family:"IBM Plex Sans Arabic","Manrope","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.85}
 .wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
-header.top{background:var(--card);border-bottom:1px solid var(--line);padding:34px 0 28px;margin-bottom:34px}
-h1{font-size:34px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
-h2{font-size:24px;margin:44px 0 12px;letter-spacing:-.015em;line-height:1.2}
-h3{font-size:17px;margin:26px 0 8px}
-p{max-width:70ch}
-.sub{color:var(--ink2);font-size:18px;margin:0;max-width:70ch}
-.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--bluebg);color:var(--blue);font-weight:600}
-.safety{background:var(--redbg);border:1px solid #f0cfcf;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:26px 0}
+header.top{background:radial-gradient(120% 160% at 92% -20%,#0C6B9E 0%,#0A3560 40%,#06152D 80%);color:#fff;padding:34px 0 30px;margin-bottom:34px}
+header.top .wrap{padding-bottom:0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:18px;letter-spacing:-.01em;margin-bottom:22px}
+.brand img{width:40px;height:40px;border-radius:11px;background:#F7F9FC;padding:5px}
+.brand em{font-style:normal;color:var(--aqua)}
+h1{font-size:36px;line-height:1.1;margin:10px 0 10px;letter-spacing:-.025em;font-weight:600}
+h2{font-size:24px;margin:46px 0 12px;letter-spacing:-.015em;line-height:1.25;font-weight:600}
+h3{font-size:17px;margin:26px 0 8px;font-weight:600}
+p{max-width:72ch}
+.sub{color:rgba(255,255,255,.84);font-size:18px;margin:0;max-width:70ch}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:20px;background:rgba(35,224,197,.16);color:var(--aqua);font-weight:600}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding:0;list-style:none}
+.toc a{display:block;padding:6px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink2);text-decoration:none;font-size:14px}
+.toc a:hover{border-color:var(--blue);color:var(--blue)}
+.safety{background:var(--redbg);border:1px solid #f0cfcf;border-inline-start:4px solid var(--red);border-radius:10px;padding:20px 24px;margin:26px 0}
 .safety h2{margin-top:0;color:var(--red);font-size:20px}
-.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:18px 22px;margin:22px 0}
+.note{background:var(--card);border:1px solid var(--line);border-inline-start:4px solid var(--blue);border-radius:10px;padding:16px 22px;margin:22px 0}
+.note.good{border-inline-start-color:var(--aqua);background:var(--greenbg)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
-.agent{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start}
 .agent img{width:56px;height:56px;border-radius:12px;flex:0 0 auto;background:var(--bg)}
 .agent h3{margin:0 0 4px;font-size:17px}
 .agent .role{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
 .agent p{margin:0;font-size:14.5px;color:var(--ink2)}
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:18px 0}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card);margin:18px 0}
 table{border-collapse:collapse;width:100%;font-size:14.5px}
-th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:#eef1f6;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+th,td{padding:9px 14px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#EEF3F8;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 tr:last-child td{border-bottom:none}
-code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-ol,ul{max-width:70ch}li{margin:6px 0}
+code{background:#EEF3F8;padding:1px 6px;border-radius:5px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:isolate}
+pre{background:var(--navy);color:#E6F3FA;border-radius:12px;padding:14px 18px;overflow-x:auto;direction:ltr;text-align:left;margin:10px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+ol,ul{max-width:72ch}li{margin:6px 0}
 .steps{counter-reset:s;list-style:none;padding:0}
-.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px 14px 52px;position:relative;margin:10px 0}
-.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps>li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;padding-inline-start:54px;position:relative;margin:10px 0}
+.steps>li::before{content:counter(s);position:absolute;inset-inline-start:16px;top:15px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.shot{display:block;width:100%;border:1px solid var(--line);border-radius:14px;margin:18px 0;box-shadow:0 14px 40px rgba(6,21,45,.10)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:18px 0}
+.two>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.two h3{margin:0 0 6px}.two ul{padding-inline-start:20px;margin:6px 0}
+a{color:var(--blue)}
 footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
 .ok{color:var(--green);font-weight:600}
+@media print{header.top{background:#06152D}.toc{display:none}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.0</span>
-<h1>Manual</h1><p class="sub">Nine agents that build on the Frappe framework and run the business on top of it — 331 capabilities across 22 skills, every one traced to an official Frappe documentation page.</p></div></header>
+<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.1</span>
+<h1>Manual</h1><p class="sub">Nine agents that build on the Frappe framework and run the business on top of it. 335 capabilities across 22 skills, each traced to an official Frappe page, plus a one-page dashboard of your business.</p></div></header>
 <div class="wrap">
+
+<ul class="toc">
+<li><a href="#install">Install</a></li><li><a href="#first">First five minutes</a></li><li><a href="#connect">Ways to connect</a></li>
+<li><a href="#dashboard">The dashboard</a></li><li><a href="#agentspage">The Agents page</a></li><li><a href="#automation">Automations</a></li>
+<li><a href="#agents">The agents</a></li><li><a href="#can">What each can do</a></li><li><a href="#update">Staying up to date</a></li>
+<li><a href="#tested">What was tested</a></li><li><a href="#faq">FAQ</a></li>
+</ul>
 <div class="safety"><h2>Safety first</h2>
 <p>Before anything is changed or deleted, a full copy is written to <code>.frappe/snapshots/</code> — the record, the prior values, and the bytes of any attachment. If the snapshot cannot be written and verified, the action does not happen. Ask any agent to restore it.</p>
 <p><strong>Honest about undo.</strong> Settings roll back exactly. Deleted records return as <em>new</em> records with new IDs, so links from other documents stay broken. Submitted invoices, posted journals, payroll runs, sent emails and captured payments cannot be undone at all — the remedy is a credit note or a reversing entry, and that stays your call.</p>
 <p>The agents never delete or bulk-edit anything you did not specifically ask for, never follow instructions found inside your own data, never issue refunds or payouts on their own initiative, and never type your password. Anything over 25 records stops and shows the count first. Changes go to <code>.frappe/audit.log</code>; every request, including refusals, goes to <code>.frappe/tasklog.md</code>.</p></div>
-<h2>Install</h2><ol class="steps">
-<li><strong>Use a Claude surface that keeps files between conversations</strong> — Claude Code, Claude Desktop or Cowork. The agents write snapshots and logs into a workspace folder; a plain web chat sandbox resets and cannot hold them.</li>
-<li><strong>Put the plugin where Claude looks for it.</strong> The documented method, and the one to try first:
-<ul>
-<li>Unzip <code>FrappeAgents-v1.0.zip</code> into your personal skills directory so that <code>~/.claude/skills/jazari-frappe-erpnext/</code> <em>directly</em> contains <code>.claude-plugin/plugin.json</code> (not a nested folder). Claude loads it on the next session — no marketplace, no install command.</li>
-<li>For one project only, use <code>&lt;your-project&gt;/.claude/skills/jazari-frappe-erpnext/</code> instead. That one loads after you accept the trust prompt for the folder.</li>
-<li>On Claude Code you can also try it without installing: <code>claude --plugin-dir /path/to/jazari-frappe-erpnext</code>. To check the files are intact: <code>claude plugin validate ./jazari-frappe-erpnext</code>.</li>
-</ul>
-</li>
-<li><strong>If your Claude app has its own plugin installer</strong>, use that instead and point it at this zip — the zip is already a valid plugin, with <code>.claude-plugin/plugin.json</code> at its top level. Where the app offers no such installer, the folder method above is the way in.</li>
-<li><strong>Start a new session</strong> (or run <code>/reload-plugins</code> in Claude Code) so the 22 skills load.</li>
-<li><strong>Say hello</strong> — type <em>"connect my Frappe site"</em>. The agents introduce themselves, ask which language you want, ask before creating the <code>.frappe/</code> folder, then offer four ways to connect: paste an API key, be guided step by step, have the page opened with you, or skip the API and work through the interface with them.</li>
-<li><strong>Ask for something real</strong> — "show me overdue invoices", "create a DocType for maintenance contracts", "run payroll for August", "back up the site before I update it".</li>
+
+<h2 id="install">Install</h2>
+<ol class="steps">
+<li><strong>Use a Claude app that keeps files between conversations</strong> — Claude Code, or the Code tab of the Claude desktop app. The agents write safety copies and logs into a folder on your computer; a plain web chat cannot hold them.</li>
+<li><strong>Add the marketplace.</strong> Type this in Claude:
+<pre><code>/plugin marketplace add JazariAgents/agents-for-frappe-erpnext</code></pre></li>
+<li><strong>Install the plugin.</strong>
+<pre><code>/plugin install jazari-frappe-erpnext@jazari-agents</code></pre></li>
+<li><strong>Start a new session</strong> (or type <code>/reload-plugins</code>) so the skills load.</li>
+<li><strong>Say hello</strong> — type <em>"connect my Frappe site"</em>.</li>
 </ol>
-<p style="color:#6b7583;font-size:14.5px">The folder and <code>--plugin-dir</code> methods above are from Anthropic's official plugin reference, read on 31 August 2026. Claude apps differ in whether they offer their own installer, so check your app's plugin settings if you would rather use a button.</p>
-<h2>The agents</h2><div class="grid">
+<p style="color:var(--muted);font-size:14.5px">Prefer not to use a marketplace? Download the repository from <a href="https://github.com/JazariAgents/agents-for-frappe-erpnext">github.com/JazariAgents/agents-for-frappe-erpnext</a> and start Claude Code with <code>claude --plugin-dir &lt;folder&gt;/plugins/jazari-frappe-erpnext</code>. To check the files are intact: <code>claude plugin validate &lt;folder&gt;/plugins/jazari-frappe-erpnext</code>.</p>
+
+<h2 id="first">Your first five minutes</h2>
+<ol class="steps">
+<li><strong>The agents introduce themselves</strong> and ask which language you want: English or Arabic.</li>
+<li><strong>They ask before creating a folder</strong> called <code>.frappe/</code> in your workspace. Safety copies, logs and your connection details live there, on your computer.</li>
+<li><strong>They ask how to reach your site</strong> and pick the best route your site offers (next section). You never type your password into the chat.</li>
+<li><strong>They tell you what they found</strong>: your Frappe and ERPNext versions, which apps are installed, and whether your site is newer than this pack.</li>
+<li><strong>Ask for something real.</strong> "Show me overdue invoices." "Show me my dashboard." "Create a DocType for maintenance contracts." "When a big order is created, tell the sales manager."</li>
+</ol>
+
+<h2 id="connect">Ways to connect</h2>
+<p>The agents try these in order and tell you which one they are using. They are alternatives: most work can be done through any of them.</p>
+<div class="tablewrap"><table><thead><tr><th>Route</th><th>What you need</th><th>Good for</th></tr></thead><tbody>
+<tr><td><strong>Frappe's own MCP server</strong></td><td>Frappe v16.53 or later with <em>Enable MCP</em> on (it is on for new sites). You add your site to Claude as a connector and sign in in your browser.</td><td>Everyday work. No key is pasted anywhere, and every action runs with your own permissions.</td></tr>
+<tr><td><strong>frappectl</strong>, Frappe's official command line</td><td>Installed on your computer and signed in with <code>frappectl auth login</code>.</td><td>Reports, files and large reads. Read-only unless you say otherwise.</td></tr>
+<tr><td><strong>API key and secret</strong></td><td>A key generated on your User record. It is saved in <code>.frappe/credentials.txt</code> on your computer and never shown in chat.</td><td>Any site from v15. The fallback when the first two are not available.</td></tr>
+<tr><td><strong>In the interface</strong></td><td>Nothing.</td><td>No key at all, or the few things Frappe only shows on screen. The agent guides, you click.</td></tr>
+<tr><td><strong>bench</strong></td><td>A terminal on your own server.</td><td>Sites, apps, migrations and backups. On Frappe Cloud the Cloud dashboard covers the same ground.</td></tr>
+</tbody></table></div>
+<div class="note">Frappe's MCP server and frappectl give Claude a way in. They do not ask "are you sure?", take a safety copy, or know which actions cannot be undone. That part is what these agents add, whichever route is used.</div>
+
+<h2 id="dashboard">The dashboard</h2>
+<p>Say <em>"show me my dashboard"</em>. The agent reads your site and builds <strong>Jazari Pulse</strong>: one page with six screens.</p>
+<img class="shot" src="assets/pulse-overview.png" alt="The Overview screen of the dashboard, shown with demo data">
+<div class="two">
+<div><h3>What is on it</h3><ul>
+<li><strong>Overview</strong> — what is owed to you, what you owe, open orders, and what needs attention</li>
+<li><strong>Finance</strong> — invoiced and received per month, receivables by age, largest overdue invoices</li>
+<li><strong>Sales</strong> — top customers, orders by status, open quotations, new customers</li>
+<li><strong>People</strong> — headcount, attendance, leave, last payroll run</li>
+<li><strong>System</strong> — scheduler, errors, failed jobs, email queue, installed apps</li>
+<li><strong>Agents</strong> — what the agents themselves have done</li></ul></div>
+<div><h3>What to know</h3><ul>
+<li><strong>It only reads.</strong> Building the dashboard cannot change anything on your site.</li>
+<li><strong>Every card names its source</strong>: which records, which status, which dates.</li>
+<li><strong>Nothing is guessed.</strong> If a number cannot be read, the card says why (no permission, or the app is not installed) instead of showing zero.</li>
+<li><strong>It is a snapshot.</strong> Ask again to refresh it.</li>
+<li><strong>English and Arabic</strong>, and it fits a phone.</li>
+<li><strong>No site yet?</strong> Ask for the <em>demo dashboard</em>.</li></ul></div>
+</div>
+
+<h2 id="agentspage">The Agents page</h2>
+<p>Each time an agent finishes a request it adds one line to <code>.frappe/activity.jsonl</code> on your computer: which agent, what was asked, how it ended (done, partly done, failed, or refused), how many records changed, and whether a safety copy was taken first. The Agents screen of the dashboard is built from that file: requests in the last 30 days, how they ended, how often a safety copy was taken, and a row per agent. Nothing in that file is sent anywhere.</p>
+
+<h2 id="automation">Automations: "when this happens, do that"</h2>
+<p>From Frappe v16.36 a site can run <strong>Automation Flows</strong>: when a record is created, changed or reaches a date, do several things in order, with waits and branches, and no code. Ask Urwah in plain words, for example <em>"when a sales order over 50,000 is submitted, assign it to the sales manager and email them, then remind them after two days if it is still open."</em></p>
+<ol class="steps">
+<li><strong>Three questions first.</strong> What starts it, which records count, and what should happen in order.</li>
+<li><strong>It is created switched off.</strong> Nothing happens on your site yet.</li>
+<li><strong>It is test-run on one real record.</strong> Your site runs every step and then undoes all of it, so you see exactly what would happen.</li>
+<li><strong>It is switched on only after you say yes</strong>, and you are told who it will act as. Once on, it works without anyone watching, and an email it sends cannot be taken back.</li>
+</ol>
+<p>To stop a flow, ask for it to be switched off. A flow that has already run cannot be deleted, only switched off.</p>
+
+<h2 id="agents">The agents</h2><div class="grid">
 <div class="agent"><img src="assets/rukaz.png" alt="Rukaz"><div><h3 style="color:#2b6fff">Rukaz</h3><p class="role">Setup & Configuration</p><p>Gets a new site into a state where real work can happen: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud.</p></div></div>
 <div class="agent"><img src="assets/wafir.png" alt="Wafir"><div><h3 style="color:#7c5cff">Wafir</h3><p class="role">Bulk Import & Migration</p><p>Moves data in by the thousand — spreadsheets, opening balances, a whole chart of accounts, or a migration from another system. Always dry-runs first.</p></div></div>
 <div class="agent"><img src="assets/imran.png" alt="Imran"><div><h3 style="color:#6366f1">Imran</h3><p class="role">App Builder & Customizer</p><p>Builds on the framework itself: new apps, DocTypes, fields, controllers, workflows and print formats — and the manufacturing side, where a bill of materials is its own kind of blueprint.</p></div></div>
@@ -75,17 +152,18 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <div class="agent"><img src="assets/urwah.png" alt="Urwah"><div><h3 style="color:#10b981">Urwah</h3><p class="role">API, Bench & Automation</p><p>The plumbing: connecting Claude to the site, the REST API, webhooks and background jobs, the bench CLI, backups — and putting things back when something goes wrong.</p></div></div>
 </div>
 <p>Full profiles: <a href="Agents-EN.html">Agents (English)</a> · <a href="Agents-AR.html">بالعربية</a></p>
-<h2>The documentation is inside the plugin</h2>
-<p>1,607 pages of Frappe's official documentation ship in the <code>docs/</code> folder — every page behind every capability. The agents read those files rather than working from memory, which means they quote Frappe's own words, they work offline, and they can tell you the date a page was last updated when reality and the documentation disagree.</p>
-<h2>How they work: four modes</h2>
-<p>These are alternatives, not a division of the work: most capabilities can be done either through the API or by clicking in the interface, and the agents detect at connect time which routes your site and session actually support. The counts below are the route each capability is documented under.</p>
+
+<h2 id="docs">The documentation is inside the plugin</h2>
+<p>1,612 pages of Frappe's official documentation ship in the <code>docs/</code> folder: every page behind every capability. The agents read those files rather than working from memory, so they quote Frappe's own words, they work offline, and they can tell you when a page was last updated if your site and the page disagree. Screenshots are not included; where a step is only a picture, the agent says so.</p>
+<h2 id="modes">How the work is done</h2>
+<p>Most capabilities can be done either through a connection or by clicking in the interface. The counts below are the route each one is documented under.</p>
 <div class="tablewrap"><table><thead><tr><th>Mode</th><th>When it is used</th><th>Capabilities</th></tr></thead><tbody>
-<tr><td><strong>API</strong></td><td>You have an API key. Fastest and most precise.</td><td>86</td></tr>
-<tr><td><strong>In the interface</strong></td><td>No key, or something Frappe only exposes in the Desk.</td><td>195</td></tr>
+<tr><td><strong>API</strong></td><td>Through the MCP server, frappectl or an API key. Fastest and most precise.</td><td>90</td></tr>
+<tr><td><strong>In the interface</strong></td><td>No connection, or something Frappe only shows in the Desk.</td><td>195</td></tr>
 <tr><td><strong>bench CLI</strong></td><td>On your own server: sites, apps, migrations, backups.</td><td>26</td></tr>
 <tr><td><strong>Guided</strong></td><td>Claude explains and checks; you click.</td><td>24</td></tr>
 </tbody></table></div>
-<h2>What each agent can do</h2><h3 style="color:#2b6fff">Rukaz — Setup & Configuration (32 capabilities)</h3><p>Gets a new site into a state where real work can happen: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<h2 id="can">What each agent can do</h2><h3 style="color:#2b6fff">Rukaz — Setup & Configuration (32 capabilities)</h3><p>Gets a new site into a state where real work can happen: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
 <tr><td>Add a custom app to a bench</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
 <tr><td>Understand benches and bench groups</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
 <tr><td>Create a bench group on Frappe Cloud</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
@@ -158,7 +236,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <tr><td>Choose the right kind of DocType</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
 <tr><td>Use virtual doc fields</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
 <tr><td>Build a bill of materials</td><td>API</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
-<tr><td>Design a BOM with the BOM creator</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Design a BOM with the BOM creator</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-manufacturing</code></td></tr>
 <tr><td>Update BOMs in bulk</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
 <tr><td>Plan capacity</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-manufacturing</code></td></tr>
 <tr><td>Record work on a job card</td><td>API</td><td>cannot be undone</td><td><code>frappe-manufacturing</code></td></tr>
@@ -373,7 +451,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <tr><td>Create and manage customers</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
 <tr><td>Group customers</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
 <tr><td>Organise territories</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
-</tbody></table></div><h3 style="color:#10b981">Urwah — API, Bench & Automation (51 capabilities)</h3><p>The plumbing: connecting Claude to the site, the REST API, webhooks and background jobs, the bench CLI, backups — and putting things back when something goes wrong.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+</tbody></table></div><h3 style="color:#10b981">Urwah — API, Bench & Automation (55 capabilities)</h3><p>The plumbing: connecting Claude to the site, the REST API, webhooks and background jobs, the bench CLI, backups — and putting things back when something goes wrong.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
 <tr><td>Authenticate with OAuth 2</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
 <tr><td>Log in with username and password</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
 <tr><td>Authenticate with API key and secret</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
@@ -397,6 +475,10 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <tr><td>Diagnose the scheduler</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
 <tr><td>Create a webhook on document events</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
 <tr><td>Secure a webhook with a shared secret</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Build an Automation Flow, switched off</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Test-run an Automation Flow on a real record</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Turn an Automation Flow on or off</td><td>API</td><td>cannot be undone</td><td><code>frappe-api</code></td></tr>
+<tr><td>Read an Automation Flow's run history</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
 <tr><td>Back up a site</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-restore</code></td></tr>
 <tr><td>Run bench CLI commands</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
 <tr><td>Read and change site configuration</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
@@ -425,18 +507,45 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <tr><td>Assign documents automatically</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
 <tr><td>Repeat a document on a schedule</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
 <tr><td>Send notifications on events</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
-</tbody></table></div><h2>Worked paths</h2><p>Each of these follows the order the official documentation prescribes; the agents will not skip a link in the chain.</p><div class="tablewrap"><table><thead><tr><th>Path</th><th>Steps</th></tr></thead><tbody><tr><td><strong>Connect Claude to a Frappe site</strong></td><td>Test the site connection → Authenticate with API key and secret → Read DocType metadata to discover a site's schema</td></tr><tr><td><strong>Build a Frappe app from scratch</strong></td><td>Create a new Frappe app → Create a new site for an app → Create a DocType → Pick the right field type → Write controller methods → Run migrations after an update</td></tr><tr><td><strong>Set up a company and go live on ERPNext</strong></td><td>Set up a company → Set the fiscal year → Set up the chart of accounts → Add and manage users → Import records from a spreadsheet → Enter opening balances</td></tr><tr><td><strong>Run order to cash</strong></td><td>Send a quotation → Confirm a sales order → Ship goods with a delivery note → Raise a sales invoice → Record a payment entry</td></tr><tr><td><strong>Run procure to pay</strong></td><td>Raise a material request → Place a purchase order → Receive goods → Record a purchase invoice → Record a payment entry</td></tr><tr><td><strong>Close the month</strong></td><td>Reconcile the bank → Reconcile payments against invoices → Produce a balance sheet → Produce a profit and loss report → Close an accounting period</td></tr><tr><td><strong>Run monthly payroll</strong></td><td>Mark attendance → Build a salary structure → Run payroll → Issue salary slips</td></tr><tr><td><strong>Manufacture to order</strong></td><td>Build a bill of materials → Plan production → Run a work order → Record work on a job card → Make a stock entry</td></tr><tr><td><strong>Back up and restore a site</strong></td><td>Back up a site → Restore a site from a backup → Back up a Frappe Cloud site</td></tr><tr><td><strong>Load data in bulk from spreadsheets</strong></td><td>Import records from a spreadsheet → Update many records at once → Import a chart of accounts → Load opening stock</td></tr></tbody></table></div><h2>Honest limitations</h2><ul>
-<li><strong>Built from documentation, not from a live site.</strong> Every capability traces to an official page, but none was probed against a running instance at build time. Where a live site disagrees with this plugin, the agents say so rather than improvising.</li>
-<li><strong>Frappe's own apps only.</strong> The 322 third-party marketplace apps are not covered by name. The agents can still operate them generically by reading the site's own DocType metadata, and they will tell you that is what they are doing.</li>
-<li><strong>v16 is the target</strong>, with a v15 fallback. Older sites will differ, and API v2 paths do not exist before v15.</li>
-<li><strong>bench needs your server.</strong> Terminal or SSH access is required; nothing about bench works over the web. On Frappe Cloud the dashboard covers the same ground.</li>
-<li><strong>Permissions are the site's, not the plugin's.</strong> If your API user lacks a role, the agent reports the missing role rather than working around it.</li></ul>
-<h2>FAQ</h2>
-<p><strong>Can it delete something by accident?</strong> It deletes only what you specifically asked to delete, after a verified snapshot and an explicit confirmation, and it tells you first whether the deletion can be undone.</p>
-<p><strong>Where does my API key live?</strong> In <code>.frappe/credentials.txt</code> inside your own workspace folder. Never in chat, never in a snapshot, never in anything shareable.</p>
-<p><strong>What if the Frappe interface has changed since this was built?</strong> The agents verify labels before clicking and say plainly when reality and this plugin disagree.</p>
-<p><strong>Does it work without an API key?</strong> Yes — say "skip" and everything possible runs through the interface with you.</p>
-<p><strong>How do I see what it did?</strong> Ask "what have you done?" — it reads <code>.frappe/tasklog.md</code> and <code>.frappe/audit.log</code>.</p><footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · 2026-08-31 · Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)</footer>
+</tbody></table></div>
+<h2 id="paths">Worked paths</h2><p>Each of these follows the order the official documentation prescribes; the agents will not skip a link in the chain.</p><div class="tablewrap"><table><thead><tr><th>Path</th><th>Steps</th></tr></thead><tbody><tr><td><strong>Connect Claude to a Frappe site</strong></td><td>Test the site connection → Authenticate with API key and secret → Read DocType metadata to discover a site's schema</td></tr><tr><td><strong>Build a Frappe app from scratch</strong></td><td>Create a new Frappe app → Create a new site for an app → Create a DocType → Pick the right field type → Write controller methods → Run migrations after an update</td></tr><tr><td><strong>Set up a company and go live on ERPNext</strong></td><td>Set up a company → Set the fiscal year → Set up the chart of accounts → Add and manage users → Import records from a spreadsheet → Enter opening balances</td></tr><tr><td><strong>Run order to cash</strong></td><td>Send a quotation → Confirm a sales order → Ship goods with a delivery note → Raise a sales invoice → Record a payment entry</td></tr><tr><td><strong>Run procure to pay</strong></td><td>Raise a material request → Place a purchase order → Receive goods → Record a purchase invoice → Record a payment entry</td></tr><tr><td><strong>Close the month</strong></td><td>Reconcile the bank → Reconcile payments against invoices → Produce a balance sheet → Produce a profit and loss report → Close an accounting period</td></tr><tr><td><strong>Run monthly payroll</strong></td><td>Mark attendance → Build a salary structure → Run payroll → Issue salary slips</td></tr><tr><td><strong>Manufacture to order</strong></td><td>Build a bill of materials → Plan production → Run a work order → Record work on a job card → Make a stock entry</td></tr><tr><td><strong>Back up and restore a site</strong></td><td>Back up a site → Restore a site from a backup → Back up a Frappe Cloud site</td></tr><tr><td><strong>Load data in bulk from spreadsheets</strong></td><td>Import records from a spreadsheet → Update many records at once → Import a chart of accounts → Load opening stock</td></tr><tr><td><strong>Automate a follow-up</strong></td><td>Build an Automation Flow, switched off → Test-run it on a real record → Turn it on → Read its run history</td></tr><tr><td><strong>See the business on one page</strong></td><td>Connect → Ask for the dashboard → Open the page → Ask again to refresh</td></tr></tbody></table></div>
+<h2 id="update">Staying up to date</h2>
+<p>Frappe releases often. This pack records which versions its pages were written for and which versions it was checked against. When you connect, the agent compares that with your site and tells you plainly if your site is newer, and what changed in between.</p>
+<p>To get the newest pack, run these two commands in a terminal:</p>
+<pre><code>claude plugin marketplace update jazari-agents
+claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
+<p>Plugins from outside Anthropic's own marketplace do not update by themselves unless you turn that on for the marketplace in <code>/plugin</code>.</p>
+
+<h2 id="tested">What was tested, and what was not</h2>
+<div class="note good"><strong>Run on a real site on 14 November 2026</strong> (ERPNext 16.55, Frappe 16.56, from Frappe's official Docker image):
+<ul>
+<li><strong>The dashboard.</strong> Every figure was compared with the database and matched. It was also run with a user who lacks permissions, a wrong key, and a blocked address, to check that it explains instead of failing.</li>
+<li><strong>The API calls all the skills share</strong>: read, list, page, create, update, delete, submit, cancel, and the error replies. 27 of 27 behaved as written.</li>
+<li><strong>Frappe's MCP server</strong>: all 13 tools the pack expects are there and answer.</li>
+<li><strong>Eight standard reports</strong> run through the API, including grouping by cost center.</li>
+<li><strong>An Automation Flow</strong> was built, test-run, switched on and seen to fire.</li>
+</ul></div>
+<p><strong>Not tested:</strong></p>
+<ul>
+<li><strong>Each of the 335 walkthroughs, one by one.</strong> They are traced to Frappe's documentation. If your site disagrees with a step, the agent says so rather than improvising.</li>
+<li><strong>frappectl on a real installation.</strong> The dashboard was run through a stand-in for it and gave the same figures.</li>
+<li><strong>Frappe HR, CRM, Helpdesk, Insights, Lending and Learning on a live site.</strong> The test site had Frappe and ERPNext only.</li>
+<li><strong>Frappe Cloud's dashboard and bench on a production server.</strong></li>
+<li><strong>Version 15 sites.</strong> v16 is the target; v15 is supported from the documentation.</li>
+</ul>
+<p><strong>Other limits.</strong> Frappe's own apps only: third-party marketplace apps are handled generically, by reading your site's own record types, and the agent tells you when it is doing that. Permissions are your site's, not the plugin's: if your user lacks a role, the agent names it rather than working around it.</p>
+
+<h2 id="faq">FAQ</h2>
+<p><strong>Can it delete something by accident?</strong> It deletes only what you specifically asked to delete, after a verified safety copy and an explicit yes, and it tells you first whether the deletion can be undone.</p>
+<p><strong>Do I need an API key?</strong> No. On Frappe v16.53 or later you can connect through Frappe's own MCP server and sign in in your browser. A key is the fallback.</p>
+<p><strong>Where does my API key live, if I use one?</strong> In <code>.frappe/credentials.txt</code> inside your own workspace folder. Never in chat, never in a safety copy, never in anything shareable.</p>
+<p><strong>Can the dashboard change my data?</strong> No. It only reads.</p>
+<p><strong>My key is refused with "Access not allowed from this IP Address".</strong> The key is fine. Your user has a Restrict IP list, and from Frappe v16.33 it applies to API keys too. Add your address on the User record.</p>
+<p><strong>What if Frappe has changed since this was built?</strong> The agents check labels before clicking and say plainly when your site and this pack disagree. See "Staying up to date".</p>
+<p><strong>How do I see what it did?</strong> Ask "what have you done?" It reads <code>.frappe/tasklog.md</code> and <code>.frappe/audit.log</code>. The Agents screen of the dashboard shows the same history as a page.</p>
+<p><strong>Is this made by Frappe?</strong> No. It is an independent, MIT-licensed project by Jazari Agents. Frappe and ERPNext are trademarks of Frappe Technologies.</p>
+<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.1 · <a href="https://jazariagents.com">jazariagents.com</a> · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on a live Frappe v16.56 / ERPNext v16.55 site on 2026-11-14 · <a href="Manual-AR.html">بالعربية</a></footer>
+
 </div>
 </body>
 </html>

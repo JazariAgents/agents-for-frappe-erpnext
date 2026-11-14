@@ -62,8 +62,10 @@ never created: use `PUT /api/v2/document/{doctype}/{doctype}` — the record's n
 `/meta` tells you: a Single has `issingle: 1`.
 
 **Reports are not DocTypes.** Balance Sheet, Profit and Loss, General Ledger and the rest are Report
-definitions, not record types — you cannot POST to them. Run them in the interface (see `browser.md`),
-or read the underlying documents (GL Entry, Sales Invoice) with the list call and aggregate yourself.
+definitions, not record types — you cannot POST to them. Run one with
+`GET /api/method/frappe.desk.query_report.run?report_name=<name>&filters=<json>` (the answer has
+`message.columns` and `message.result`), or in the interface (see `browser.md`), or read the underlying
+documents (GL Entry, Sales Invoice) with the list call and aggregate yourself.
 
 Two ERPNext specifics worth knowing before writing: a **return** (credit note, debit note, sales/purchase
 return) is not its own DocType — it is the same DocType with the return flag set and negative quantities, so
@@ -74,14 +76,26 @@ affects the ledger once it is **submitted**; a create alone leaves a draft.
 
 - `fields=["name","status"]` — without it only `name` comes back.
 - `filters=[["DocType","field","=","value"]]` — SQL-style conditions.
-- `limit_page_length` (default 20) and `limit_start` for successive pages. Always page.
+- Paging differs by API version, and the wrong words are **ignored without an error**. On `/api/v2/` use
+  `limit` (default 20) and `start`, and read `has_next_page` in the answer. On `/api/resource/` use
+  `limit_page_length` and `limit_start`. Always page, and stop when a page comes back short.
 Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/listing_documents
 
 ## Errors
 
 - **403** — the API user lacks the role, or the method is not whitelisted. Name the missing permission.
-- **validation** — Frappe returns the message in `_server_messages`. Repeat it to the user verbatim.
-- **429** — rate limited; `X-RateLimit-Remaining` and `X-RateLimit-Reset` say when to resume.
+  From ERPNext 16.36 and 16.50 more actions also check permission on the records they touch (the
+  account, warehouse, asset, work order or project), so a user who could do this on an older site may
+  now be refused. Say which record type the error names; do not retry and do not switch to another user.
+- **401 with "Access not allowed from this IP Address"** — the key is fine. The user has a Restrict IP
+  list, and from Frappe 16.33 that list applies to API keys and OAuth too. Someone with access adds this
+  computer's address on the User record, or the user issues a key from an account without the list.
+- **validation (HTTP 417)** — on `/api/v2/` the reason is in `errors[].message`; on `/api/resource/` it is
+  in `_server_messages`. Repeat it to the user verbatim.
+- **429** — rate limited; `X-RateLimit-Remaining`, `X-RateLimit-Reset` and `Retry-After` say when to
+  resume. It is either the site's overall budget or one method's own limit. From Frappe 16.53 a method's
+  limit follows the method, not the address, so calling it through `/api/method/` instead of
+  `/api/v2/method/` does not get round it. Wait; never retry in a loop.
   Source: https://docs.frappe.io/framework/user/en/rate-limiting
 - **404 on /api/v2/** — the site is v14 or older; switch to the v1 paths.
 - A submitted document (docstatus 1) rejects edits. Amend or cancel instead, and say which before acting.
@@ -105,6 +119,10 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 | Count records of a DocType | — | `GET /api/v2/doctype/{doctype}/count` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
 | Call a whitelisted method on a document | — | `POST /api/v2/method/run_doc_method` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
 | Upload a file through the API | — | `POST /api/v2/method/upload_file` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
+| Build an Automation Flow, switched off | Automation Flow | `POST /api/v2/document/Automation%20Flow` — read `../automation-flows.md` first | `docs/framework/framework__automations.md` |
+| Test-run an Automation Flow on a real record | Automation Flow | `POST /api/v2/method/frappe.automation_engine.api.trial_run` | `docs/framework/framework__automations__steps-and-actions.md` |
+| Turn an Automation Flow on or off | Automation Flow | `PUT /api/v2/document/Automation%20Flow/{name}` with `enabled` 1 or 0 — only after a clear yes | `docs/framework/framework__automations__triggers-and-conditions.md` |
+| Read an Automation Flow's run history | Automation Run | `GET /api/v2/method/frappe.automation_engine.api.get_runs` | `docs/framework/framework__automations.md` |
 
 ## Capabilities that need a schema lookup first
 

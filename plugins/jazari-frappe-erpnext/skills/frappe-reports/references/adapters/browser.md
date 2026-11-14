@@ -52,7 +52,8 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Select Nova Industries
   3. Choose Fiscal Year or Date Range and the comparison periodicity
   4. Apply Finance Book, Cost Center, Project, Department, or another Accounting Dimension only when required
-  5. Refresh and wait for totals, chart, and account rows to load
+  5. To get one column per cost center, project or other accounting dimension, choose it in **Group by Dimension** (ERPNext 16.51 and later; absent on older sites)
+  6. Refresh and wait for totals, chart, and account rows to load
 - **Full page, bundled offline:** `docs/erpnext/erpnext__balance-sheet.md`  (https://docs.frappe.io/erpnext/balance-sheet)
 
 ### Produce a profit and loss report
@@ -63,7 +64,8 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Choose Fiscal Year or Date Range and set the required period
   4. Select Yearly, Half-Yearly, Quarterly, or Monthly periodicity
   5. Apply Finance Book, Cost Center, Department, Project, or another Accounting Dimension only when the question requires that slice
-  6. Refresh and wait for the totals, chart, and account rows to load
+  6. To get one column per cost center, project or other accounting dimension, choose it in **Group by Dimension** (ERPNext 16.51 and later; absent on older sites)
+  7. Refresh and wait for the totals, chart, and account rows to load
 - **Full page, bundled offline:** `docs/erpnext/erpnext__profit-and-loss-report.md`  (https://docs.frappe.io/erpnext/profit-and-loss-report)
 
 ### Produce a cash flow report

@@ -5,7 +5,7 @@
 - capability table (id, mode, destructive, source)
 - version notes
 
-Every row was confirmed against an official Frappe documentation page fetched on 2026-08-31 while this plugin was built. Nothing that could not be traced to a page is in this plugin at all.
+Every row was confirmed against an official Frappe documentation page. The first 23 were fetched on 2026-08-31 while this plugin was built; the four `api.automation.*` rows were added on 2026-11-14 from Frappe's newer pages and run on a live v16.56 site. Nothing that could not be traced to a page is in this plugin at all.
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
@@ -32,9 +32,14 @@ Every row was confirmed against an official Frappe documentation page fetched on
 | `api.realtime` | Publish and listen to realtime events | api | no | reversible | `docs/framework/framework__user__en__api__realtime.md` | https://docs.frappe.io/framework/user/en/api/realtime |
 | `api.background.jobs` | Queue and monitor background jobs | api | no | reversible | `docs/framework/framework__user__en__api__background_jobs.md` | https://docs.frappe.io/framework/user/en/api/background_jobs |
 | `api.scheduler` | Diagnose the scheduler | bench | no | reversible | `docs/framework/framework__user__en__bench__guides__diagnosing-the-scheduler.md` | https://docs.frappe.io/framework/user/en/bench/guides/diagnosing-the-scheduler |
+| `api.automation.build` | Build an Automation Flow, switched off | api | no | reversible | `docs/framework/framework__automations.md` | https://docs.frappe.io/framework/automations |
+| `api.automation.test` | Test-run an Automation Flow on a real record | api | no | reversible | `docs/framework/framework__automations__steps-and-actions.md` | https://docs.frappe.io/framework/automations/steps-and-actions |
+| `api.automation.enable` | Turn an Automation Flow on or off | api | yes | irreversible | `docs/framework/framework__automations__triggers-and-conditions.md` | https://docs.frappe.io/framework/automations/triggers-and-conditions |
+| `api.automation.runs` | Read an Automation Flow's run history | api | no | reversible | `docs/framework/framework__automations.md` | https://docs.frappe.io/framework/automations |
 
 ## Version notes
 
 - Endpoints under `/api/v2/` require Frappe Framework **v15 or newer**. On v14 and older use `/api/resource/...`.
+- Automation Flows require Frappe Framework **v16.36 or newer**. Turning one on is marked irreversible because what it sends or changes while on cannot be recalled; the switch itself can be turned off again.
 - ERPNext v16 and Frappe HR v16 track the framework major; CRM, Helpdesk, Insights, Builder and Learning have their own version lines.
 

@@ -39,7 +39,7 @@ import urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE.parent / "assets" / "pulse.template.html"
 SAMPLE = HERE.parent / "assets" / "sample-data.json"
@@ -82,6 +82,15 @@ class Site:
                 return json.loads(r.read().decode("utf-8"))
         except urllib.error.HTTPError as e:
             if e.code == 401:
+                try:
+                    said = e.read().decode("utf-8", "replace")
+                except Exception:  # noqa: BLE001 - the body is only used to explain the refusal
+                    said = ""
+                if "IP Address" in said:
+                    # Frappe 16.33 and later apply a user's Restrict IP list to API keys too.
+                    raise Fatal("the site refused this computer's address (HTTP 401): the API user has a Restrict IP "
+                                "list and this address is not on it. Add the address on the User record, or use a "
+                                "key from a user without that restriction. The key itself is fine.")
                 raise Fatal("the site rejected the API key (HTTP 401). Generate a new key and secret for the user.")
             raise
         except urllib.error.URLError as e:
@@ -340,18 +349,37 @@ def collect(site, company: str | None, months_n: int, lang: str, activity: str |
 
     co = ["company", "=", company]
 
+    system = {}
+
+    def apps():
+        v = site.method("frappe.utils.change_log.get_versions") or {}
+        system["apps"] = [{"name": k, "version": (d or {}).get("version") or "?", "branch": (d or {}).get("branch")}
+                          for k, d in v.items()]
+    attempt("system.apps", apps)
+    installed = {a["name"] for a in system.get("apps") or []}
+
+    def needs_hr(key, fn):
+        """Leave, attendance, expense claims and payroll live in the Frappe HR app (hrms)."""
+        if installed and "hrms" not in installed:
+            notes[key] = "Frappe HR (the hrms app) is not installed on this site."
+            return None
+        return attempt(key, fn)
+
     # ---- finance
     fin = {"months": months}
-    si = attempt("finance.invoiced", lambda: listed("sales invoices", "Sales Invoice",
+    si = attempt("finance.invoiced.sales", lambda: listed("sales invoices", "Sales Invoice",
                  ["posting_date", "base_net_total", "customer_name"],
                  [["docstatus", "=", 1], co, ["posting_date", ">=", start]]))
-    pi = attempt("finance.invoiced", lambda: listed("purchase invoices", "Purchase Invoice",
+    pi = attempt("finance.invoiced.purchases", lambda: listed("purchase invoices", "Purchase Invoice",
                  ["posting_date", "base_net_total"], [["docstatus", "=", 1], co, ["posting_date", ">=", start]]))
     if si is not None and pi is not None:
         fin["sales_invoiced"] = by_month(si, months, "posting_date", "base_net_total")
         fin["purchases_invoiced"] = by_month(pi, months, "posting_date", "base_net_total")
     else:
         fin["months"] = None
+    si_note, pi_note = notes.pop("finance.invoiced.sales", ""), notes.pop("finance.invoiced.purchases", "")
+    if si_note or pi_note:
+        notes["finance.invoiced"] = " ".join(x for x in (si_note, pi_note) if x)
 
     def receivables():
         rows = listed("unpaid sales invoices", "Sales Invoice",
@@ -406,7 +434,7 @@ def collect(site, company: str | None, months_n: int, lang: str, activity: str |
             per[r.get("customer_name") or "?"] += num(r.get("base_net_total"))
         sales["top_customers"] = [{"name": k, "amount": round(v, 2)} for k, v in sorted(per.items(), key=lambda kv: -kv[1])[:8]]
     else:
-        notes["sales.top_customers"] = notes.get("finance.invoiced", "")
+        notes["sales.top_customers"] = si_note
 
     def orders():
         rows = listed("sales orders", "Sales Order", ["status", "base_net_total"],
@@ -451,7 +479,7 @@ def collect(site, company: str | None, months_n: int, lang: str, activity: str |
         people["leave_requests_open"] = site.count("Leave Application", [co, ["status", "=", "Open"], ["docstatus", "=", 0]])
         people["on_leave_today"] = site.count("Leave Application", [co, ["status", "=", "Approved"], ["docstatus", "=", 1],
                                                                     ["from_date", "<=", tday], ["to_date", ">=", tday]])
-    attempt("people.leave", leave)
+    needs_hr("people.leave", leave)
 
     def attendance():
         rows = listed("attendance", "Attendance", ["status"], [co, ["docstatus", "=", 1], ["attendance_date", "=", tday]])
@@ -459,12 +487,12 @@ def collect(site, company: str | None, months_n: int, lang: str, activity: str |
         people["attendance_today"] = [{"status": k, "count": v} for k, v in c.most_common()]
         if not rows:
             notes["people.attendance"] = "No attendance has been marked for today yet."
-    attempt("people.attendance", attendance)
+    needs_hr("people.attendance", attendance)
 
     def claims():
         rows = listed("expense claims", "Expense Claim", ["total_claimed_amount"], [co, ["docstatus", "=", 0]])
         people["expense_claims_pending"] = {"count": len(rows), "amount": round(sum(num(r.get("total_claimed_amount")) for r in rows), 2)}
-    attempt("people.claims", claims)
+    needs_hr("people.claims", claims)
 
     def payroll():
         since = (today - dt.timedelta(days=92)).isoformat()
@@ -477,16 +505,9 @@ def collect(site, company: str | None, months_n: int, lang: str, activity: str |
         people["payroll_last"] = {"period": last[:7], "employees": len(cur),
                                   "gross": round(sum(num(r.get("gross_pay")) for r in cur), 2),
                                   "net": round(sum(num(r.get("net_pay")) for r in cur), 2)}
-    attempt("people.payroll", payroll)
+    needs_hr("people.payroll", payroll)
 
     # ---- system
-    system = {}
-
-    def apps():
-        v = site.method("frappe.utils.change_log.get_versions") or {}
-        system["apps"] = [{"name": k, "version": (d or {}).get("version") or "?", "branch": (d or {}).get("branch")}
-                          for k, d in v.items()]
-    attempt("system.apps", apps)
 
     def scheduler():
         st = site.method("frappe.utils.scheduler.get_scheduler_status") or {}
@@ -516,7 +537,7 @@ def collect(site, company: str | None, months_n: int, lang: str, activity: str |
     attempt("system.email", email)
 
     def users():
-        system["users"] = {"enabled": site.count("User", [["enabled", "=", 1]]),
+        system["users"] = {"enabled": site.count("User", [["enabled", "=", 1], ["name", "!=", "Guest"]]),
                            "system": site.count("User", [["enabled", "=", 1], ["user_type", "=", "System User"]])}
     attempt("system.users", users)
 

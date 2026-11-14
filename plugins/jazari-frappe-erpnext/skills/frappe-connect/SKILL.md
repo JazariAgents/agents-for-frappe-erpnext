@@ -231,14 +231,15 @@ Every page behind this skill's 8 capabilities ships inside the plugin, as the ex
 - The path in each adapter row (`docs/...`) is relative to the plugin root: `${CLAUDE_PLUGIN_ROOT}/docs/<space>/<file>.md`, or the `docs/` folder two levels above this skill file.
 - **Before doing anything non-trivial, open the bundled page for that capability and read it.** The adapter row is the index; the page is the instruction.
 - Each file keeps its original front matter — `title`, the live `url`, and the date Frappe last updated it. If the site disagrees with the page, say so and cite the date rather than improvising.
-- 1,607 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
+- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
 - **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, convert one to a filename by replacing `/` with `__` (`/erpnext/credit-note` becomes `docs/erpnext/erpnext__credit-note.md`).
 
 ## Gotchas
 
 - Submitted documents (docstatus 1) cannot be edited — amend or cancel, and say which before acting.
-- A 403 means the API user lacks the role for that DocType. Name the missing role instead of retrying.
-- HTTP 429 means the site's rate limit was hit. Back off; do not hammer the site.
+- A 403 means the API user lacks a role: for that DocType, or (ERPNext 16.36 and later) for a record the action touches, such as the account, warehouse or project. Name what is missing instead of retrying.
+- A 401 that says *Access not allowed from this IP Address* is not a bad key. The user has a Restrict IP list, which also applies to API keys from Frappe 16.33; the address has to be added on the User record.
+- HTTP 429 means a rate limit was hit: the site's overall budget, or one method's own. Wait for the time in `Retry-After`; do not hammer the site.
 - Docs describe the current version. If the live site disagrees with this skill, say so plainly rather than improvising.
 
 ## Manual
