@@ -25,5 +25,8 @@
   ],
   "license": "MIT",
   "homepage": "https://jazariagents.com",
-  "repository": "https://github.com/JazariAgents/agents-for-frappe-erpnext"
+  "repository": "https://github.com/JazariAgents/agents-for-frappe-erpnext",
+  "documentationUrl": "https://github.com/JazariAgents/agents-for-frappe-erpnext#readme",
+  "supportUrl": "https://github.com/JazariAgents/agents-for-frappe-erpnext/issues",
+  "privacyPolicyUrl": "https://github.com/JazariAgents/agents-for-frappe-erpnext/blob/main/SECURITY.md#what-this-plugin-does-with-your-data"
 }
