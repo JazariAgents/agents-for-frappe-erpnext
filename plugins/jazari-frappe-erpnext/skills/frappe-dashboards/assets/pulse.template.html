@@ -759,7 +759,7 @@ function render() {
     h('span', { class: 'spacer' }),
     h('button', { class: 'round', type: 'button', id: 'lang-toggle', 'aria-label': t('lang'), title: t('lang'), onclick: () => { lang = lang === 'ar' ? 'en' : 'ar'; store.set('pulse.lang', lang); render(); } }, lang === 'ar' ? 'EN' : 'ع'));
   const top = h('header', { class: 'top' },
-    h('h1', null, v === 'overview' ? (M.company ? t('hello', { g: greeting(), c: M.company }) : greeting()) : t(v)),
+    h('h1', null, v === 'overview' ? (M.company ? t('hello', { g: greeting(), c: '⁨' + M.company + '⁩' }) : greeting()) : t(v)),
     h('p', { class: 'sub' }, v === 'overview' ? t('summary') : t('d' + v)));
   const grid = h('div', { class: 'grid' }, VIEWS[v]());
   const trunc = (M.truncated || []).length ? h('p', { class: 'na', style: 'margin-bottom:16px' }, t('truncated', { l: M.truncated.join(', ') })) : null;
