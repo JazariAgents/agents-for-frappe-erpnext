@@ -182,69 +182,31 @@ def fail(status, body, headers):
     die(msg, 1)
 
 
-WRITE_METHODS = ("frappe.client.submit", "frappe.client.cancel", "frappe.client.delete", "frappe.client.set_value",
-                 "frappe.client.save", "frappe.client.rename_doc", "frappe.model.rename_doc")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import frappe_safety  # noqa: E402  the plugin's one set of snapshot rules, shared with the MCP guard hook
 
 
 def changes_existing(method, path, body):
-    """(doctype, name) when this call changes or removes an existing record, else None.
-    Creating a record, uploading a file and calling read-only or mapper methods change nothing that exists."""
+    """The existing records this call changes, as a list of (doctype, name); ("?", "?") in the list when it is
+    a known write that does not say which records. Reads, creates, uploads and mapper calls change nothing.
+    A method the rules do not know, which names no record, is let through: --write already carries the yes."""
     p = urllib.parse.unquote(path)
     m = re.match(r"^/api/(?:v2/document|resource)/([^/]+)/([^/]+)(?:/method/([^/?]+))?", p)
     if m and (method in ("PUT", "PATCH", "DELETE") or (method == "POST" and m.group(3))):
-        if m.group(3) and m.group(3) not in ("submit", "cancel", "save", "rename", "amend") and not m.group(3).startswith(("set_", "update", "delete", "remove", "close", "reopen", "make_payment")):
-            return None                         # a document method that only reads, such as get_preview_from_template
-        return m.group(1), m.group(2)
-    m = re.match(r"^/api/(?:v2/)?method/([A-Za-z0-9_.]+)", p)
-    if m and method == "POST":
-        meth = m.group(1)
-        last = meth.rsplit(".", 1)[-1]
-        doc = body if isinstance(body, dict) else {}
-        doc = doc.get("doc") if isinstance(doc.get("doc"), dict) else doc
-        target = (doc.get("doctype") or doc.get("dt"), doc.get("name") or doc.get("dn"))
-        if meth in WRITE_METHODS:
-            return target if all(target) else ("?", "?")   # a write that names no record is refused
-        if all(target) and not last.startswith(("get_", "make_")):
-            return target                       # any other method aimed at a named record needs its snapshot
-    return None
-
-
-def snapshot_pairs(data, inherited=None, out=None):
-    """Every (doctype, name) a snapshot holds. A record counts when it names both, or when it sits in a list
-    under something that names the doctype (a list read returns names without the doctype)."""
-    out = set() if out is None else out
-    if isinstance(data, dict):
-        dt = data.get("doctype") if isinstance(data.get("doctype"), str) else inherited
-        if dt and isinstance(data.get("name"), (str, int)):
-            out.add((dt, str(data["name"])))
-        for v in data.values():
-            if isinstance(v, (dict, list)):
-                snapshot_pairs(v, dt, out)
-    elif isinstance(data, list):
-        for v in data:
-            snapshot_pairs(v, inherited, out)
-    return out
-
-
-def snapshot_has(ws, doctype, name, window=3600):
-    """True only when a snapshot from the last hour holds exactly this record."""
-    import time
-    if doctype == "?" or not (doctype and name):
-        return False
-    snaps = ws / ".frappe" / "snapshots"
-    if not snaps.is_dir():
-        return False
-    for d in snaps.iterdir():
-        raw = d / "raw.json"
-        try:
-            if time.time() - raw.stat().st_mtime > window:
-                continue
-            data = json.loads(raw.read_text(encoding="utf-8", errors="replace"))
-        except (OSError, ValueError):
-            continue
-        if (str(doctype), str(name)) in snapshot_pairs(data):
-            return True
-    return False
+        if m.group(3):
+            kind, pairs = frappe_safety.classify_doc_method(m.group(1), m.group(2), m.group(3))
+        else:
+            kind, pairs = "need", [(m.group(1), m.group(2))]
+    else:
+        m = re.match(r"^/api/(?:v2/)?method/([A-Za-z0-9_.]+)", p)
+        if not (m and method == "POST"):
+            return []
+        kind, pairs = frappe_safety.classify_method(m.group(1), body)
+    if kind == "need":
+        return pairs
+    if kind == "unnamed":
+        return [("?", "?")]
+    return []
 
 
 def payload(j):
@@ -336,15 +298,17 @@ def main():
         body_preview = json.loads(Path(a.data_file).read_text(encoding="utf-8"))
     elif a.data:
         body_preview = json.loads(a.data)
-    target = changes_existing(m, api_path(a.path), body_preview)
-    if target and not snapshot_has(ws, *target):
-        dt_, name_ = target
-        if dt_ == "?":
-            die("this call changes a record but its data does not name the record (doctype and name), so its "
-                "snapshot cannot be checked and it is refused. Put the record's doctype and name in the data.")
-        die(f"no snapshot of {dt_} {name_} in .frappe/snapshots/ from the last hour, so this change is refused. "
-            f"Run: frappe_call.py snapshot --op <name> --request \"<the user's words>\" --class <class> --doc \"{dt_}\" \"{name_}\" "
-            "(one --doc per record), get the user's yes, then repeat this command.")
+    targets = changes_existing(m, api_path(a.path), body_preview)
+    if ("?", "?") in targets:
+        die("this call changes records but its data does not say which ones (doctype and name), so their "
+            "snapshot cannot be checked and it is refused. Put each record's doctype and name in the data.")
+    missing = frappe_safety.missing_snapshots(ws, targets)
+    if missing:
+        docs = " ".join(f'--doc "{dt_}" "{name_}"' for dt_, name_ in missing)
+        what = ", ".join(f"{dt_} {name_}" for dt_, name_ in missing[:5]) + (f" and {len(missing) - 5} more" if len(missing) > 5 else "")
+        die(f"no snapshot of {what} in .frappe/snapshots/ from the last hour, so this change is refused. "
+            f"Run: frappe_call.py snapshot --op <name> --request \"<the user's words>\" --class <class> {docs}, "
+            "get the user's yes, then repeat this command.")
 
     if m == "UPLOAD":
         f = Path(a.path)

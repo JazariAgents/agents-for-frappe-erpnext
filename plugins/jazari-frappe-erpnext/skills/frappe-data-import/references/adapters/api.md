@@ -141,7 +141,9 @@ It gives the dry run this skill promises: the preview checks every row and saves
    saved.** Show the user the row count and every warning.
 4. **Fix every warning first.** If there is any warning, the import is accepted in step 5 but **never runs**:
    it stays `Pending` with no log. Correct the file, upload it again, and repeat from step 2.
-5. **Sample, then the rest.** Import a file with the first few rows, check them, then the full file:
+5. **Snapshot, then sample, then the rest.** Snapshot the Data Import record (`--doc "Data Import" <name>`)
+   and, for `Update Existing Records`, every record the file changes; the plugin's safety check refuses the
+   start call otherwise. Import a file with the first few rows, check them, then the full file:
    `POST /api/v2/method/frappe.core.doctype.data_import.data_import.form_start_import` with
    `{"data_import": "<name>"}`. It runs in the background, so the scheduler and workers must be running.
 6. **Check the result.** Read the record's `status` (`Success`, `Partial Success`, `Error`) and the log:

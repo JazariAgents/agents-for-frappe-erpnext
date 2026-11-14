@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.1.5 — one set of safety rules (2026-11-14)
+
+A second security review found that 1.1.4's stricter matching opened two gaps and left a third. All three are
+closed.
+
+- **Starting a data import was no longer refused.** The import call was listed by its short name, which exact
+  matching no longer found. It now needs a snapshot of the import, and of every record an update import changes.
+- **A method run on a record was let through when its name began with `get_` or `make_`.** Only the import
+  dry run is now treated as read-only; every other method on a record needs that record's snapshot. A
+  method such as `make_payment_request` changes things.
+- **The API helper and the MCP guard kept separate lists** of calls that change data, and the helper's
+  missed bulk update, bulk delete and import. Both now use one shared file,
+  `skills/frappe-connect/scripts/frappe_safety.py`. A bulk delete or update needs a snapshot of every record
+  it touches, and a known write under any module path counts as a write.
+- The import and payroll recipes now name their snapshot step.
+
+Tested: 35 of 35 guard checks and 28 of 28 helper checks pass, including each case above and a guard that
+cannot load its rules (it asks you instead of letting the call through).
+
 ## 1.1.4 — the safety check matches records exactly (2026-11-14)
 
 A security review of 1.1.3 found that the snapshot check could be too generous. It is now strict.

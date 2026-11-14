@@ -145,7 +145,8 @@ Then:
 
 1. `POST /api/v2/document/Payroll%20Entry` with `company`, `posting_date`, `payroll_frequency`, `start_date`,
    `end_date`, `currency`, `exchange_rate`, `payroll_payable_account` and `cost_center`.
-2. `POST /api/v2/document/Payroll%20Entry/<name>/method/fill_employee_details`. It fills the employee list
+2. Snapshot the Payroll Entry (the plugin's safety check refuses every later step on it otherwise), then
+   `POST /api/v2/document/Payroll%20Entry/<name>/method/fill_employee_details`. It fills the employee list
    **in the answer only** (`docs[0].employees`); it does not save it. Save it:
    `PUT /api/v2/document/Payroll%20Entry/<name>` with that `employees` list.
 3. Submit the entry (`.../method/submit`). This creates the draft salary slips.
