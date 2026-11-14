@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.1.4 — the safety check matches records exactly (2026-11-14)
+
+A security review of 1.1.3 found that the snapshot check could be too generous. It is now strict.
+
+- **A snapshot covers only the records it holds.** Before, the check looked for the record's type and name
+  anywhere in the snapshot's text, so a snapshot of `TODO-0012` also let through a change to `TODO-001`.
+  It now reads the snapshot and matches each record's type and name exactly, in both the MCP guard and the
+  API helper.
+- **A change that does not name its record is refused.** Before, a submit or cancel that left out the
+  record's name passed whenever any recent snapshot existed.
+- **A method the plugin cannot recognise as read-only now asks you first** when it names no record. Before,
+  a method was treated as read-only if `get_` appeared anywhere in its name.
+- **If the guard itself fails, it asks you** instead of letting the call through.
+- The snapshot rules now say each saved record must carry its type and name.
+
+Tested: 23 of 23 guard checks and 25 of 25 helper checks pass, including each case above.
+
 ## 1.1.3 — everything checked against a live site (2026-11-14)
 
 Every capability the plugin lists was checked against a live site, the main business workflows were run for real,

@@ -196,15 +196,41 @@ def changes_existing(method, path, body):
             return None                         # a document method that only reads, such as get_preview_from_template
         return m.group(1), m.group(2)
     m = re.match(r"^/api/(?:v2/)?method/([A-Za-z0-9_.]+)", p)
-    if m and method == "POST" and m.group(1) in WRITE_METHODS and isinstance(body, dict):
-        doc = body.get("doc") if isinstance(body.get("doc"), dict) else body
-        if doc.get("doctype") and doc.get("name"):
-            return doc["doctype"], doc["name"]
+    if m and method == "POST":
+        meth = m.group(1)
+        last = meth.rsplit(".", 1)[-1]
+        doc = body if isinstance(body, dict) else {}
+        doc = doc.get("doc") if isinstance(doc.get("doc"), dict) else doc
+        target = (doc.get("doctype") or doc.get("dt"), doc.get("name") or doc.get("dn"))
+        if meth in WRITE_METHODS:
+            return target if all(target) else ("?", "?")   # a write that names no record is refused
+        if all(target) and not last.startswith(("get_", "make_")):
+            return target                       # any other method aimed at a named record needs its snapshot
     return None
 
 
+def snapshot_pairs(data, inherited=None, out=None):
+    """Every (doctype, name) a snapshot holds. A record counts when it names both, or when it sits in a list
+    under something that names the doctype (a list read returns names without the doctype)."""
+    out = set() if out is None else out
+    if isinstance(data, dict):
+        dt = data.get("doctype") if isinstance(data.get("doctype"), str) else inherited
+        if dt and isinstance(data.get("name"), (str, int)):
+            out.add((dt, str(data["name"])))
+        for v in data.values():
+            if isinstance(v, (dict, list)):
+                snapshot_pairs(v, dt, out)
+    elif isinstance(data, list):
+        for v in data:
+            snapshot_pairs(v, inherited, out)
+    return out
+
+
 def snapshot_has(ws, doctype, name, window=3600):
+    """True only when a snapshot from the last hour holds exactly this record."""
     import time
+    if doctype == "?" or not (doctype and name):
+        return False
     snaps = ws / ".frappe" / "snapshots"
     if not snaps.is_dir():
         return False
@@ -213,11 +239,10 @@ def snapshot_has(ws, doctype, name, window=3600):
         try:
             if time.time() - raw.stat().st_mtime > window:
                 continue
-            text = raw.read_text(encoding="utf-8", errors="replace")
-            json.loads(text)
+            data = json.loads(raw.read_text(encoding="utf-8", errors="replace"))
         except (OSError, ValueError):
             continue
-        if doctype in text and str(name) in text:
+        if (str(doctype), str(name)) in snapshot_pairs(data):
             return True
     return False
 
@@ -314,6 +339,9 @@ def main():
     target = changes_existing(m, api_path(a.path), body_preview)
     if target and not snapshot_has(ws, *target):
         dt_, name_ = target
+        if dt_ == "?":
+            die("this call changes a record but its data does not name the record (doctype and name), so its "
+                "snapshot cannot be checked and it is refused. Put the record's doctype and name in the data.")
         die(f"no snapshot of {dt_} {name_} in .frappe/snapshots/ from the last hour, so this change is refused. "
             f"Run: frappe_call.py snapshot --op <name> --request \"<the user's words>\" --class <class> --doc \"{dt_}\" \"{name_}\" "
             "(one --doc per record), get the user's yes, then repeat this command.")

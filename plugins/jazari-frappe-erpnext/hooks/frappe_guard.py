@@ -16,9 +16,12 @@ import time
 from pathlib import Path
 
 WINDOW = 3600          # a snapshot counts for one hour
-READ_ONLY_METHOD_HINTS = (".make_", ".get_", "get_", "frappe.desk.query_report.run", "frappe.client.get",
-                          "frappe.client.get_count", "frappe.client.get_list", "frappe.client.get_value",
-                          "get_preview_from_template", "trial_run", "get_runs", "get_automation_capabilities")
+# read-only calls, matched on the method's last part, never as a substring of the whole name
+READ_ONLY_PREFIXES = ("get_", "make_")          # make_* are ERPNext's mappers: they return an unsaved draft
+READ_ONLY_EXACT = {"frappe.desk.query_report.run", "frappe.client.get", "frappe.client.get_count",
+                   "frappe.client.get_list", "frappe.client.get_value", "frappe.client.get_single_value",
+                   "frappe.desk.reportview.get", "frappe.desk.reportview.get_count", "trial_run", "get_runs",
+                   "get_automation_capabilities", "get_preview_from_template"}
 WRITE_METHODS = ("frappe.client.submit", "frappe.client.cancel", "frappe.client.delete", "frappe.client.set_value",
                  "frappe.client.save", "frappe.client.rename_doc", "frappe.model.rename_doc", "form_start_import",
                  "frappe.client.bulk_update", "frappe.desk.reportview.delete_items", "frappe.client.insert_many")
@@ -31,23 +34,47 @@ def out(decision=None, reason=""):
     sys.exit(0)
 
 
+def snapshot_pairs(data, inherited=None, out=None):
+    """Every (doctype, name) a snapshot holds. A record counts when it names both, or when it sits in a list
+    under something that names the doctype (a list read returns names without the doctype)."""
+    out = set() if out is None else out
+    if isinstance(data, dict):
+        dt = data.get("doctype") if isinstance(data.get("doctype"), str) else inherited
+        if dt and isinstance(data.get("name"), (str, int)):
+            out.add((dt, str(data["name"])))
+        for v in data.values():
+            if isinstance(v, (dict, list)):
+                snapshot_pairs(v, dt, out)
+    elif isinstance(data, list):
+        for v in data:
+            snapshot_pairs(v, inherited, out)
+    return out
+
+
 def snapshot_has(ws, doctype, name):
+    """True only when a snapshot from the last hour holds exactly this record."""
+    if not (doctype and name):
+        return False
     snaps = ws / ".frappe" / "snapshots"
     if not snaps.is_dir():
         return False
     now = time.time()
     for d in snaps.iterdir():
         raw = d / "raw.json"
-        if not raw.is_file() or now - raw.stat().st_mtime > WINDOW:
-            continue
         try:
-            text = raw.read_text(encoding="utf-8", errors="replace")
-            json.loads(text)
+            if not raw.is_file() or now - raw.stat().st_mtime > WINDOW:
+                continue
+            data = json.loads(raw.read_text(encoding="utf-8", errors="replace"))
         except (OSError, ValueError):
             continue
-        if (not doctype or doctype in text) and (not name or str(name) in text):
+        if (str(doctype), str(name)) in snapshot_pairs(data):
             return True
     return False
+
+
+def read_only(method):
+    last = method.rsplit(".", 1)[-1]
+    return method in READ_ONLY_EXACT or last in READ_ONLY_EXACT or last.startswith(READ_ONLY_PREFIXES)
 
 
 def main():
@@ -65,7 +92,7 @@ def main():
         out()
     if tool == "call_method":
         method = str(args.get("method") or "")
-        if any(h in method for h in READ_ONLY_METHOD_HINTS) and not any(w in method for w in WRITE_METHODS):
+        if method not in WRITE_METHODS and read_only(method):
             out()
         inner = args.get("args") or {}
         if isinstance(inner, str):
@@ -78,17 +105,25 @@ def main():
             doctype, name = doc.get("doctype"), doc.get("name")
         elif isinstance(inner, dict):
             doctype, name = inner.get("doctype"), inner.get("name")
-        if not (doctype and name) and not any(w in method for w in WRITE_METHODS):
-            out()                               # an unknown method that names no record: leave it to the rules
+        if not (doctype and name):
+            if method in WRITE_METHODS:
+                out("deny", f"Jazari Agents safety rule: {method} changes a record, but this call does not name "
+                            "the record type and name, so its snapshot cannot be checked. Name the record, snapshot "
+                            "it, and try again.")
+            out("ask", f"Jazari Agents safety rule: {method or 'this method'} is not a known read-only call and "
+                       "names no record, so the plugin cannot check it against a snapshot. Allow it only if you "
+                       "know it changes nothing you would want back.")
     if tool not in ("update_document", "delete_document", "call_document_method", "call_method"):
         out()
+    if tool == "call_document_method" and str(args.get("method") or "").startswith(READ_ONLY_PREFIXES):
+        out()                                   # a document method that only reads, such as get_preview_from_template
     if snapshot_has(ws, doctype, name):
         out()
     what = f"{doctype} {name}" if doctype and name else "the records this call changes"
     out("deny",
         f"Jazari Agents safety rule: no snapshot of {what} was saved in the last hour, so this change is blocked. "
         "Load the matching jazari-frappe-erpnext skill, save a snapshot of the record into .frappe/snapshots/ "
-        "(raw.json with the record as read from the site), tell the user the reversibility class and the count, "
+        "(raw.json with the record as read from the site, carrying its doctype and name), tell the user the reversibility class and the count, "
         "get a clear yes, then try again.")
 
 
@@ -97,5 +132,9 @@ if __name__ == "__main__":
         main()
     except SystemExit:
         raise
-    except Exception:                           # a broken guard must never break the session
+    except Exception as exc:                    # a broken guard must not silently allow a change
+        print(json.dumps({"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "ask",
+                                                 "permissionDecisionReason": "The Jazari Agents safety guard could "
+                                                 f"not check this call ({type(exc).__name__}). Allow it only if a "
+                                                 "snapshot of the record exists."}}))
         sys.exit(0)

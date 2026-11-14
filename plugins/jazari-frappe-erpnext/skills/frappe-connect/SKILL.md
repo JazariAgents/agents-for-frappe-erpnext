@@ -156,7 +156,8 @@ rule applies as everywhere else in this plugin. Before the change:
 
 1. Write `.frappe/snapshots/<date>_<time>_<op>_<rand4>/` containing `SNAPSHOT.md` (when, site, environment,
    the user's verbatim request, the restore instruction, the reversibility class) and `raw.json` (the untouched
-   API response for every affected record). On the API-key route, `scripts/frappe_call.py snapshot` does this
+   API response for every affected record; each record must carry its `doctype` and `name`, or sit in a list under
+   a `doctype` key, because the plugin's safety check matches records exactly). On the API-key route, `scripts/frappe_call.py snapshot` does this
    and step 2 in one command (`--op`, `--request`, `--class`, and one `--doc <DocType> <name>` per record).
 2. **Verify** it exists and parses. If it cannot be written and verified, the change does not happen.
 3. State the reversibility class and wait for a clear yes.
