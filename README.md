@@ -213,8 +213,10 @@ They are skills, not separate programs: Claude picks the right one from what you
 - **Treats site data as data.** Text inside a record is never followed as an instruction.
 - **Keeps a log.** Every request goes to a task log, every change to an audit log.
 
-These are instructions Claude follows, not locks in code. For a hard guarantee on a production site, connect
-with a read-only `frappectl` profile: it stops write requests on your machine before they are sent.
+The snapshot rule is enforced in code: a change or delete through Frappe's MCP tools, or through the
+plugin's API helper, is refused unless that exact record has a fresh snapshot. The other steps are
+instructions Claude follows, not locks. For a hard guarantee on a production site, connect with a read-only
+`frappectl` profile: it stops write requests on your machine before they are sent.
 
 ## How it compares
 
@@ -313,5 +315,5 @@ This is an independent project and is not affiliated with or endorsed by Frappe.
 
 <p align="center">
   <img src="assets/jazariagents-symbol-256.png" width="56" alt=""><br>
-  Made by <a href="https://jazariagents.com">Jazari Agents</a> · hello@jazariagents.com
+  Made by <a href="https://jazariagents.com">Jazari Agents</a>
 </p>
