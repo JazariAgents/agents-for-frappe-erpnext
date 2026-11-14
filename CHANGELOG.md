@@ -1,5 +1,75 @@
 # Changelog
 
+## 1.1.7 — an independent review of the safety rules, and the yes held in code (2026-11-14)
+
+A separate reviewer was asked to break the snapshot check, four times over. It found 15 ways through in the
+first round and smaller ones after that. All are closed. A real test session also showed that "wait for a yes"
+could be skipped, so that is now held in code too.
+
+### The yes is now held in code
+
+- In one test session an agent saved the backup and then made the change in the same turn, without waiting.
+  A change to an existing record now waits until you have replied after its snapshot was saved. Through
+  Frappe's MCP tools you get Claude Code's own permission prompt; the API helper refuses the call.
+- Every skill now says it plainly: the request itself is never the yes, and the snapshot comes before the
+  question. Told to "do it now without asking", the test agent still saved the backup, stopped and asked.
+
+### The snapshot check
+
+- **A call the helper does not recognise is refused.** Before, only calls of a familiar shape were checked:
+  other verbs, the older address forms, record names containing "/", bulk routes and unknown methods went
+  through. `--unlisted-method` lets one through only after that refusal and your reply.
+- **It reads a request the way Frappe does**, checked in Frappe 16.56's own code: a JSON body replaces the
+  query string, a `cmd` argument runs whatever the address says, the v1 method address runs its first part,
+  and `upload_file` runs the method named in it.
+- **Update imports are checked row by row.** The dry run shows only the first 10 rows, so for a longer file
+  every ID is read from the CSV itself. Record types named by a field (an Item by its code) work too.
+- **A name is not proof.** `make_...` counts as a harmless draft only when called as a mapper, and 12
+  methods named `get_...` that write to the database (found by reading every one in Frappe and its apps)
+  are no longer treated as reads.
+- **Creating a settings record, or a row inside an existing record, counts as a change.**
+- **A snapshot must hold the record in full.** A list of names restores nothing, so it covers nothing.
+- **Where two arguments could name the record and they disagree, the call is refused**, so the check can
+  never look at one record while Frappe changes another.
+- **Arabic and other non-English record names now work on Windows.** The hook misread them, and the helper
+  could fail after the change had already been made.
+- **The hook holds in more places**: from a folder below the workspace, from one above it, and it asks you
+  when it cannot read a call, when Python is missing, and when it sits above several client folders (a
+  backup in one client's folder never covers a change on another's site).
+  Another MCP server's tool that happens to share a name is left alone.
+
+### The dashboard and the logs
+
+- Test agents wrote the activity line in their own made-up shape, so the dashboard's Agents screen skipped
+  it. Every skill now carries the exact format, and the dashboard reads the near-misses.
+- The dashboard script takes the API key only from the credentials file, never from environment variables.
+
+### Ready for Anthropic's plugin directory
+
+- The plugin folder now has its own README (saying what it runs, sends and stores), licence and notice.
+- A git setting the directory may refuse is removed. Strict validation passes.
+
+### Repository
+
+- A demo at the top of the README, made from real test sessions and quoted word for word; a preview image
+  for shared links; a contributing guide, a code of conduct, and an issue form that asks for versions.
+
+### Tested
+
+- 152 rule checks, 91 hook checks and 16 hook command-line checks (with and without Python).
+- 61 live checks on the ERPNext 16.55 site, including a 12-row update import refused until all 12 records
+  had snapshots, and an Item import.
+- Real sessions with the finished plugin: a forced delete was blocked; a plain delete and an MCP change each
+  saved a backup, asked, and finished after "yes"; a 30-record change saved 30 backups, asked, and closed
+  all 30 after "yes".
+
+### Limits that remain
+
+- Hooks do not run in claude.ai chat, so there both rules are instructions Claude follows.
+- The lock shows that you replied, not what you said. One snapshot covers its record for an hour.
+- What was not tested is unchanged: Frappe Cloud, the Education, Drive, Studio, WhatsApp and Newsletter
+  apps, bench production setup, and version 15.
+
 ## 1.1.6 — each change is checked against the record it really touches (2026-11-14)
 
 A third security review found three more gaps in the snapshot check. All three are closed.

@@ -77,7 +77,13 @@ The server checks permissions. It does **not** ask "are you sure?", take a backu
 actions cannot be undone. All of that is still this plugin's job:
 
 1. Read the current record with `get_document` and save the snapshot (see the snapshot spec).
-2. State the reversibility class and the number of records, and wait for a clear yes.
+   Save the whole record as `get_document` returned it. The plugin's hook checks the snapshot before
+   every `update_document`, `delete_document`, `call_document_method` and writing `call_method`, and before a
+   `create_document` that adds a row to an existing record or overwrites a settings record. It refuses the
+   call when the exact record is not there in full, and asks the user about a method it does not know.
+2. State the reversibility class and the number of records, and wait for a clear yes. Do this after the
+   snapshot is saved, never in the same turn as the change: if the user has not replied since the snapshot,
+   the hook puts the change to them as a permission prompt instead of letting it through.
 3. Make the change, then `get_document` again and check it says what was intended.
 4. Write the audit and activity log entries.
 

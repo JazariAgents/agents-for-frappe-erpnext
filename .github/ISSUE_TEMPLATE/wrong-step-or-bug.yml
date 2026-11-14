@@ -1,0 +1,50 @@
+name: Something is wrong
+description: A step that does not match your site, a wrong answer, or an error
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you. Please remove customer names, keys and anything private before you paste.
+        Security problems do not go here: see SECURITY.md.
+  - type: input
+    id: versions
+    attributes:
+      label: Frappe and ERPNext versions
+      description: The plugin prints them when you connect.
+      placeholder: Frappe 16.56, ERPNext 16.55, HR 16.53
+    validations:
+      required: true
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin version
+      description: Type /plugin in Claude Code to see it.
+      placeholder: 1.1.7
+    validations:
+      required: true
+  - type: dropdown
+    id: route
+    attributes:
+      label: How are you connected?
+      options:
+        - Frappe's MCP server
+        - frappectl
+        - API key
+        - Browser
+        - Not connected (guide only)
+    validations:
+      required: true
+  - type: textarea
+    id: asked
+    attributes:
+      label: What did you ask?
+      placeholder: Close all the open ToDos for project X.
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true

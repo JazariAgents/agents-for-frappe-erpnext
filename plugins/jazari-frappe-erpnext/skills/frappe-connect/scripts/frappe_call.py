@@ -19,6 +19,14 @@ Rules it enforces:
     snapshot is taken and verified and the user has said yes (see the snapshot spec in frappe-connect).
     The ERPNext "mapper" methods (make_sales_order and the like) only return an unsaved document; they are
     POST calls, so they also need --write, and that is fine: they change nothing until the result is saved.
+  * A call that changes or deletes an existing record is refused unless that exact record has a snapshot from
+    the last hour. This holds for every verb and every form of the address (v1 and v2, record methods, bulk
+    calls, and GET calls to methods that write). The rules are in frappe_safety.py, shared with the MCP guard.
+  * A change is refused until the user has replied after its snapshot was saved (the plugin's hooks record
+    the time of each message; where no hook runs, this check cannot be made). Snapshot first, then ask.
+  * A call the rules do not recognise is refused. If it only reads or creates something new, tell the user the
+    plugin cannot check it and stop; after their yes, repeat it with --unlisted-method (the flag works only
+    after that refusal and the user's reply).
   * The answer's `data` (or `message`) is printed as JSON on standard output; --out writes the whole answer
     to a file instead and prints a one-line summary.
   * On an HTTP error it prints the status and the site's own reason, and exits 1.
@@ -186,42 +194,57 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import frappe_safety  # noqa: E402  the plugin's one set of snapshot rules, shared with the MCP guard hook
 
 
-def changes_existing(method, path, body):
-    """The existing records this call changes, as a list of (doctype, name); ("?", "?") in the list when it is
-    a known write that does not say which records. Reads, creates, uploads and mapper calls change nothing.
-    A method the rules do not know, which names no record, is let through: --write already carries the yes."""
-    p = urllib.parse.unquote(path)
-    m = re.match(r"^/api/(?:v2/document|resource)/([^/]+)/([^/]+)(?:/method/([^/?]+))?", p)
-    if m and (method in ("PUT", "PATCH", "DELETE") or (method == "POST" and m.group(3))):
-        if m.group(3):
-            kind, pairs = frappe_safety.classify_doc_method(m.group(1), m.group(2), m.group(3))
-        else:
-            kind, pairs = "need", [(m.group(1), m.group(2))]
-    else:
-        m = re.match(r"^/api/(?:v2/)?method/([A-Za-z0-9_.]+)", p)
-        if not (m and method == "POST"):
-            return []
-        kind, pairs = frappe_safety.classify_method(m.group(1), body)
-    if kind == "need":
-        return pairs
-    if kind == "unnamed":
-        return [("?", "?")]
-    if kind == "import":
-        return [("import", pairs[0][1])]       # resolved against the site in import_records()
-    return []
+def fetch_text(base, auth, file_url):
+    """An uploaded file on the connected site (an import's CSV) as text; None when it cannot be read."""
+    if not str(file_url).startswith(("/private/files/", "/files/")):
+        return None                             # only files stored on the site itself
+    req = urllib.request.Request(base + urllib.parse.quote(urllib.parse.unquote(file_url)), method="GET")
+    req.add_header("Authorization", auth)
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            return r.read().decode("utf-8-sig", "replace")
+    except (urllib.error.HTTPError, urllib.error.URLError):
+        return None
+
+
+def doctype_meta(base, auth, doctype):
+    """The record type's definition as the site gives it, or None when it cannot be read."""
+    if not doctype:
+        return None
+    st, j, _ = request(base, auth, "GET", f"/api/v2/doctype/{urllib.parse.quote(str(doctype), safe='')}/meta")
+    meta = payload(j) if st == 200 else None
+    return meta if isinstance(meta, dict) else None
 
 
 def import_records(base, auth, data_import):
-    """The records starting this import needs snapshots of: the import, plus every record an update import
-    changes, read from the import's dry run (it saves nothing). None when they cannot be worked out."""
+    """(records, reason). The records starting this import needs snapshots of: the import, plus every record an
+    update import changes. Their IDs come from the import's dry run (it saves nothing), or from the file itself
+    when the dry run does not show every row. records is None, with the reason, when they cannot be worked out."""
     di = urllib.parse.quote(str(data_import), safe="")
     st, j, _ = request(base, auth, "GET", f"/api/v2/document/Data%20Import/{di}")
     rec = payload(j) if st == 200 else None
-    preview = None
-    if isinstance(rec, dict) and rec.get("import_type") == "Update Existing Records":
+    if not isinstance(rec, dict):
+        return None, f"the import {data_import} could not be read from the site, so starting it is refused."
+    preview = file_text = id_field = None
+    if rec.get("import_type") == "Update Existing Records":
+        meta = doctype_meta(base, auth, rec.get("reference_doctype"))
+        if isinstance(meta, dict):              # a record type named by one of its fields is identified by that field
+            auto = str(meta.get("autoname") or "")
+            id_field = auto[len("field:"):] if auto.startswith("field:") else "name"
         st, j, _ = request(base, auth, "POST", f"/api/v2/document/Data%20Import/{di}/method/get_preview_from_template", data={})
         preview = payload(j) if st == 200 else None
-    return frappe_safety.import_targets(rec, preview)
+        if isinstance(preview, dict) and preview.get("max_rows_exceeded"):
+            name = str(rec.get("import_file") or "")
+            if not name.lower().endswith(".csv"):
+                return None, ("this update import has more rows than its dry run shows, and its file is not a .csv, so "
+                              "the plugin cannot read every row's ID to check its snapshot. Use a .csv file for an "
+                              "update import of more than 10 rows, or ask the user to start it from the Data Import screen.")
+            file_text = fetch_text(base, auth, name)
+    found = frappe_safety.import_targets(rec, preview, file_text, id_field)
+    if found is None:
+        return None, (f"cannot tell which records the import {data_import} changes (its type, or for an update import "
+                      "the ID column of its rows), so starting it is refused. Check the import's dry run and its file.")
+    return found, ""
 
 
 def payload(j):
@@ -241,20 +264,27 @@ def main():
     ap.add_argument("--data-file", help="file holding the JSON body")
     ap.add_argument("--all", action="store_true", help="GET a list: follow every page (limit 500 per page)")
     ap.add_argument("--write", action="store_true", help="allow a call that changes the site (after snapshot + yes)")
+    ap.add_argument("--unlisted-method", action="store_true",
+                    help="allow a call the plugin's rules do not know, after telling the user it cannot be checked and getting a yes")
     ap.add_argument("--private", action="store_true", default=True, help="UPLOAD as a private file (default)")
     ap.add_argument("--public", action="store_true", help="UPLOAD as a public file")
     ap.add_argument("--out", help="write the whole answer to this file")
     ap.add_argument("--site")
     ap.add_argument("--credentials")
-    ap.add_argument("--workspace", default=".")
+    ap.add_argument("--workspace", help="the folder that holds .frappe/ (default: this folder or the nearest one above it)")
     ap.add_argument("--op", help="snapshot: short name of the operation")
     ap.add_argument("--request", help="snapshot: the user's request, word for word")
     ap.add_argument("--class", dest="rclass", help="snapshot: reversible, recreate or irreversible")
     ap.add_argument("--environment", default=None, help="snapshot: production or test")
     ap.add_argument("--doc", nargs=2, action="append", metavar=("DOCTYPE", "NAME"), help="snapshot: a record to save (repeat)")
     a = ap.parse_args()
+    for stream in (sys.stdout, sys.stderr):     # the site's answer may hold any language; never fail on printing it
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
 
-    ws = Path(a.workspace).resolve()
+    ws = Path(a.workspace).resolve() if a.workspace else (frappe_safety.find_workspace(os.getcwd()) or Path.cwd())
     key, secret = read_credentials(a.credentials or ws / ".frappe" / "credentials.txt")
     auth = f"token {key}:{secret}"
     base = site_url(a, ws)
@@ -295,41 +325,72 @@ def main():
               "come back as new records; submitted or sent documents cannot be undone.\n", encoding="utf-8")
         # verify: it must read back and contain every record
         back = json.loads(raw_path.read_text(encoding="utf-8"))
-        ok = len(back) == len(records) and all(r["response"] for r in back)
-        if not ok:
-            die(f"snapshot at {folder} did not verify. Do not make the change.", 1)
+        held = frappe_safety.snapshot_pairs(back)
+        lost = [f"{d} {n}" for d, n in a.doc if (d, n) not in held]
+        if len(back) != len(records) or not all(r["response"] for r in back) or lost:
+            die(f"snapshot at {folder} did not verify" + (f" (not held in full: {', '.join(lost[:5])}; give each "
+                "record's exact type and name)" if lost else "") + ". Do not make the change.", 1)
         print(json.dumps({"snapshot": str(folder.relative_to(ws)), "records": len(records), "verified": True}))
         return
 
     if m not in ("GET", "POST", "PUT", "DELETE", "UPLOAD", "PATCH"):
         die(f"unknown method {a.method}")
-    if m != "GET" and not a.write:
-        die(f"{m} changes the site. Take and verify the snapshot, tell the user the reversibility class and the count, "
-            "get a clear yes, then repeat this command with --write.")
     if not a.path:
         die("a path is needed")
+    query = json.loads(a.query) if a.query else None
     body_preview = None
     if a.data_file:
-        body_preview = json.loads(Path(a.data_file).read_text(encoding="utf-8"))
+        body_preview = json.loads(Path(a.data_file).read_text(encoding="utf-8-sig"))
     elif a.data:
         body_preview = json.loads(a.data)
-    targets = changes_existing(m, api_path(a.path), body_preview)
-    for t in [t for t in targets if t[0] == "import"]:
-        found = import_records(base, auth, t[1])
-        if found is None:
-            die(f"cannot tell which records the import {t[1]} changes (its type, or for an update import the ID "
-                "column of every row in its dry run), so starting it is refused. Check the import's dry run.")
-        targets = [x for x in targets if x != t] + found
-    if ("?", "?") in targets:
-        die("this call changes records but its data does not say which ones (doctype and name), so their "
-            "snapshot cannot be checked and it is refused. Put each record's doctype and name in the data.")
+    kind, targets = ("allow", []) if m == "UPLOAD" else frappe_safety.classify_request(m, api_path(a.path), body_preview, query)
+    if (m != "GET" or kind != "allow") and not a.write:
+        die(f"{m} {'to this method ' if m == 'GET' else ''}changes the site. Take and verify the snapshot, tell the user "
+            "the reversibility class and the count, get a clear yes, then repeat this command with --write.")
+    if kind == "unnamed":
+        die("this call changes records but does not say which ones (doctype and name), or names them "
+            "inconsistently, so their snapshot cannot be checked and it is refused. Put each record's doctype and "
+            "name in the data, or use the record's own address.")
+    if kind == "unknown":
+        key = m + " " + frappe_safety.split_api_path(api_path(a.path))[2]
+        if isinstance(body_preview, dict) and body_preview.get("cmd"):
+            key += " cmd=" + str(body_preview.get("cmd"))
+        if not frappe_safety.unlisted_call_allowed(ws, key, a.unlisted_method):
+            die("the plugin's rules do not know this call, so they cannot tell which records it changes, and it is "
+                "refused. If it changes an existing record, use the record's own address (PUT or DELETE "
+                "/api/v2/document/<DocType>/<name>, or .../method/<method>), or name the record (doctype and name) "
+                "in the data, so its snapshot can be checked. If it only reads or creates something new, tell the "
+                "user the plugin cannot check this call and stop. After they reply with a clear yes, repeat it with "
+                "--unlisted-method. The flag works only after this refusal and the user's reply.")
+    if kind == "import":
+        targets, why = import_records(base, auth, targets[0][1])
+        if targets is None:
+            die(why)
+    if kind == "allow" and m != "UPLOAD":
+        # The site knows settings record types the bundled list does not. Creating one replaces its settings.
+        for made in list(dict.fromkeys(frappe_safety.created_doctypes(m, api_path(a.path), body_preview, query)))[:8]:
+            meta = doctype_meta(base, auth, made)
+            if meta is None and frappe_safety.settings_like(made):
+                die(f"could not ask the site whether {made} is a settings record type. If it is, creating it replaces "
+                    "the stored settings. Snapshot it and update it with PUT instead, or check the API user can read "
+                    "the record type's definition.")
+            if meta and meta.get("issingle"):
+                targets = targets + [(made, made)]
     missing = frappe_safety.missing_snapshots(ws, targets)
     if missing:
-        docs = " ".join(f'--doc "{dt_}" "{name_}"' for dt_, name_ in missing)
+        docs = " ".join(f'--doc "{dt_}" "{name_}"' for dt_, name_ in missing[:40])
         what = ", ".join(f"{dt_} {name_}" for dt_, name_ in missing[:5]) + (f" and {len(missing) - 5} more" if len(missing) > 5 else "")
         die(f"no snapshot of {what} in .frappe/snapshots/ from the last hour, so this change is refused. "
-            f"Run: frappe_call.py snapshot --op <name> --request \"<the user's words>\" --class <class> {docs}, "
-            "get the user's yes, then repeat this command.")
+            f"Run: frappe_call.py snapshot --op <name> --request \"<the user's words>\" --class <class> {docs}"
+            + (" (and one --doc for each of the rest)" if len(missing) > 40 else "")
+            + ", tell the user what will change, wait for their reply, then repeat this command.")
+    late = frappe_safety.unconfirmed(ws, targets, strict=False)
+    if late:
+        what = ", ".join(f"{dt_} {name_}" for dt_, name_ in late[:5]) + (f" and {len(late) - 5} more" if len(late) > 5 else "")
+        die(f"the user has not replied since the snapshot of {what} was saved, so nothing shows they said yes to "
+            "this change, and it is refused. The request itself is never the yes. Tell the user what will change, "
+            "how many records, and whether it can be undone; wait for their reply; then repeat this command as it "
+            "is. Do not take the snapshot again.")
 
     if m == "UPLOAD":
         f = Path(a.path)
@@ -346,12 +407,7 @@ def main():
         print(json.dumps(payload(j), ensure_ascii=False))
         return
 
-    query = json.loads(a.query) if a.query else None
-    data = None
-    if a.data_file:
-        data = json.loads(Path(a.data_file).read_text(encoding="utf-8"))
-    elif a.data:
-        data = json.loads(a.data)
+    data = body_preview
 
     if m == "GET" and a.all:
         q = dict(query or {})

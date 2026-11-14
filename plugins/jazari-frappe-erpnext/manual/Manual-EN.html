@@ -60,7 +60,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.6</span>
+<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.7</span>
 <h1>Manual</h1><p class="sub">Nine agents that build on the Frappe framework and run the business on top of it. 335 capabilities across 22 skills, each traced to an official Frappe page, plus a one-page dashboard of your business.</p></div></header>
 <div class="wrap">
 
@@ -522,6 +522,7 @@ claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
 <li><strong>Every capability, against the live sites.</strong> All 335 were checked: the screen each one sends you to, its record type and its API call. 244 are exactly where the guide says on the Desk, and the 20 that live in separate apps (CRM, Helpdesk, Learning, Insights, Builder, Wiki) were checked in those apps' own screens. The 167 screen paths that were wrong are fixed in this version.</li>
 <li><strong>The business workflows, for real:</strong> quotation to paid invoice, purchase request to paid bill, stock moves, manufacturing from bill of materials to finished goods, returns with credit and debit notes, a journal entry, closing an accounting period, naming series, a spreadsheet import, attendance, leave, an expense claim, a payroll run (four salary slips and their accounting entry), and a loan from product to repayment.</li>
 <li><strong>The agents themselves, on ten kinds of real request:</strong> connecting; a delete with a safety copy, a yes and a restore; a change to 30 records at once; an instruction planted inside a record (refused); an irreversible journal entry; the dashboard; an automation; and a delete through Frappe's MCP server, which the plugin blocked until a safety copy existed.</li>
+<li><strong>An independent review of the safety rules</strong>, in four rounds. Every way through that it found is closed, and "wait for a yes" is now held in code as well as the backup: a change waits until you have replied after its safety copy was saved.</li>
 <li><strong>The dashboard.</strong> Every figure was compared with the database and matched, the People screen included. It was also run with a user who lacks permissions, a wrong key and a blocked address, to check that it explains instead of failing.</li>
 <li><strong>The connections:</strong> the 27 API calls all skills share, all 13 tools of Frappe's MCP server, and frappectl v0.24.0, whose read-only sign-in refused every change.</li>
 <li><strong>Every bench command the guides give</strong>, on a throwaway site: backup, restore, partial restore, drop, reinstall, migrate, a new app and the rest.</li>
@@ -547,7 +548,7 @@ claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
 <p><strong>What if Frappe has changed since this was built?</strong> The agents check labels before clicking and say plainly when your site and this pack disagree. See "Staying up to date".</p>
 <p><strong>How do I see what it did?</strong> Ask "what have you done?" It reads <code>.frappe/tasklog.md</code> and <code>.frappe/audit.log</code>. The Agents screen of the dashboard shows the same history as a page.</p>
 <p><strong>Is this made by Frappe?</strong> No. It is an independent, MIT-licensed project by Jazari Agents. Frappe and ERPNext are trademarks of Frappe Technologies.</p>
-<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.6 · <a href="https://jazariagents.com">jazariagents.com</a> · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on a live Frappe v16.56 / ERPNext v16.55 site on 2026-11-14 · <a href="Manual-AR.html">بالعربية</a></footer>
+<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.7 · <a href="https://jazariagents.com">jazariagents.com</a> · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on a live Frappe v16.56 / ERPNext v16.55 site on 2026-11-14 · <a href="Manual-AR.html">بالعربية</a></footer>
 
 </div>
 </body>

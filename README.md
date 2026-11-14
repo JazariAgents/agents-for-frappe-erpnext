@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/licence-MIT-23E0C5?style=flat-square" alt="MIT licence">
-  <img src="https://img.shields.io/badge/version-1.1.6-087DB9?style=flat-square" alt="Version 1.1.6">
+  <img src="https://img.shields.io/badge/version-1.1.7-087DB9?style=flat-square" alt="Version 1.1.7">
   <img src="https://img.shields.io/badge/built%20for-ERPNext%20%26%20Frappe%20v16-06152D?style=flat-square" alt="Built for ERPNext and Frappe v16">
   <img src="https://img.shields.io/badge/languages-English%20%C2%B7%20Arabic-00B8D9?style=flat-square" alt="English and Arabic">
 </p>
@@ -25,6 +25,14 @@
   <a href="#how-it-compares">How it compares</a> ·
   <a href="#questions">Questions</a> ·
   <a href="#بالعربية">بالعربية</a>
+</p>
+
+<p align="center">
+  <img src="assets/demo.gif" width="900" alt="Four real sessions: the agent finds 30 ToDos and asks before closing them, then saves a copy and closes them; it refuses an instruction hidden in a customer record; the safety hook blocks a delete that has no snapshot; and it builds the business dashboard">
+</p>
+
+<p align="center">
+  <sub>Real sessions on an ERPNext 16.55 test site. Replies are shortened, not reworded.</sub>
 </p>
 
 ---
@@ -155,7 +163,8 @@ Try these in order. None of the first three changes anything on your site.
 
 ## What a session looks like
 
-An illustration of the flow the skills are written to follow. Your wording will differ.
+The demo at the top of this page shows real sessions. Below is an illustration of the same flow on an
+accounting task. Your wording will differ.
 
 > **You:** Raise a sales invoice for Al Waha Pharmacies for the delivery we made yesterday.
 >
@@ -214,9 +223,12 @@ They are skills, not separate programs: Claude picks the right one from what you
 - **Keeps a log.** Every request goes to a task log, every change to an audit log.
 
 The snapshot rule is enforced in code: a change or delete through Frappe's MCP tools, or through the
-plugin's API helper, is refused unless that exact record has a fresh snapshot. The other steps are
-instructions Claude follows, not locks. For a hard guarantee on a production site, connect with a read-only
-`frappectl` profile: it stops write requests on your machine before they are sent.
+plugin's API helper, is refused unless that exact record has a fresh snapshot, and it is held until you
+have replied after that snapshot was saved. A call the plugin does not recognise is not let through
+quietly. The other steps are instructions Claude follows, not locks, and in claude.ai chat (where hooks do
+not run) so are these two. For a hard guarantee on a production
+site, connect with a read-only `frappectl` profile: it stops write requests on your machine before they
+are sent. [SECURITY.md](SECURITY.md) has the details.
 
 ## How it compares
 
@@ -251,6 +263,8 @@ Webshop, Builder, Wiki, Blog, Payments and Telephony.
 - **The agents themselves**, on ten kinds of real request, including a delete with a safety copy and a
   restore, a change to 30 records, an instruction planted in a record (refused), and a delete through
   Frappe's MCP server, which the plugin blocked until a safety copy existed.
+- **An independent review of the safety rules**, in four rounds. Every way through it found is closed, and
+  the "wait for a yes" step is now held in code as well as the backup.
 - **The dashboard.** Every figure matched the database, the People screen included.
 - **The connections**: the 27 shared API calls, all 13 tools of Frappe's MCP server, and `frappectl`
   v0.24.0.
@@ -289,6 +303,10 @@ labels will differ; the plugin tells you so when you connect.
 **Can it break my books?** It is written to make that hard: it confirms, snapshots, and refuses to call a
 posted document reversible. It is still software following instructions. Try it on a test site first, and
 keep production read-only until you trust it.
+
+**On Windows, cloning fails with "Filename too long".** Installing through `/plugin` works. If you clone the
+repository yourself, use a short folder such as `C:\src`, or run `git config --global core.longpaths true`
+first: some bundled documentation pages have long names.
 
 **I found a mistake.** Please [open an issue](../../issues). Say which Frappe and ERPNext versions you run;
 the plugin tells you when you connect.

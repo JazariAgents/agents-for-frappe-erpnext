@@ -31,6 +31,19 @@ Run it from the workspace folder (the one holding `.frappe/`). If `CLAUDE_PLUGIN
 script is in the `frappe-connect/scripts/` folder beside this skill. Anything but GET is refused unless
 `--write` is given: add it only after the snapshot is verified and the user has said yes. `--all` follows
 every page of a list; `UPLOAD <file> --write` uploads a file; `whoami` tests the key.
+
+The helper also enforces the snapshot rule, whatever the verb or the form of the address: a call that
+changes or deletes an existing record is refused unless that exact record is in a snapshot from the last
+hour. Creating a settings record (a Single) or a row inside an existing record counts as a change. A call
+the helper does not recognise is refused too: if it changes a record, use the record's own address
+(`PUT` or `DELETE /api/v2/document/<DocType>/<name>`, or `.../method/<method>`); if it only reads or creates
+something new, tell the user the plugin cannot check that call, get a clear yes, and repeat it with
+`--unlisted-method`.
+
+The yes is held in code as well. Save the snapshot **before** you ask: a change is refused until the user
+has replied after its snapshot was saved, and the request itself never counts as that reply. If the helper
+says the user has not replied, say what will change and stop; repeat the same command after their answer,
+without taking the snapshot again.
 Source: https://docs.frappe.io/framework/user/en/api/rest
 
 ## The six calls everything is made of

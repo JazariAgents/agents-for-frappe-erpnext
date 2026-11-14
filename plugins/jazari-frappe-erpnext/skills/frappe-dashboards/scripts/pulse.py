@@ -14,9 +14,9 @@ allows. Nothing on the site is created, changed or deleted.
 The Agents screen is built from the workspace file .frappe/activity.jsonl (see frappe-connect,
 "Activity log"); pass --activity to read it from somewhere else.
 
-Credentials come from the environment (FRAPPE_API_KEY / FRAPPE_API_SECRET) or from a file given
-with --credentials that holds `api_key = ...` and `api_secret = ...` lines. They are sent only to
---site, and are never printed or written to any output file.
+Credentials come only from the file given with --credentials, which holds `api_key = ...` and
+`api_secret = ...` lines (the workspace's .frappe/credentials.txt). They are sent only to --site, and
+are never printed or written to any output file. Nothing is read from environment variables.
 
 Uses the v1 REST paths (/api/resource, /api/method), which every Frappe version serves.
 Python 3.8+, standard library only.
@@ -156,7 +156,6 @@ class CtlSite:
             raise Fatal("frappectl is not installed. The user can install it with `uv tool install frappectl` "
                         "or `pip install frappectl`, then sign in with `frappectl auth login <site> --oauth --read-only`.")
         self._cmd = cmd + (["-s", profile] if profile else [])
-        self._env_key = bool(not profile and os.environ.get("FRAPPE_API_KEY"))   # frappectl's sign-in without a profile
         self.base = profile or os.environ.get("FRAPPE_SITE") or "frappectl default profile"
         self.timeout = timeout
         self.requests = 0
@@ -172,12 +171,13 @@ class CtlSite:
             lines = [x for x in (r.stderr or r.stdout or "").strip().splitlines() if x.strip()]
             low = " ".join(lines).lower()
             if "401" in low or "not logged in" in low or "auth login" in low or "unauthorized" in low:
-                if self._env_key or "api key" in low:
-                    raise Fatal("the site refused frappectl's sign-in (401). If frappectl uses a profile, the user "
-                                "signs in again with: frappectl auth login <site> --oauth --read-only. If it uses "
-                                "FRAPPE_API_KEY and FRAPPE_API_SECRET, that key or secret is wrong.")
-                raise Fatal("frappectl is not signed in to this site. The user signs in with: "
-                            "frappectl auth login <site> --oauth --read-only")
+                if "api key" in low:
+                    raise Fatal("the site refused frappectl's sign-in (401): the key or secret frappectl is using "
+                                "is wrong. The user signs in again with: frappectl auth login <site> --oauth --read-only")
+                raise Fatal("frappectl is not signed in to this site, or the site refused its sign-in (401). The "
+                            "user signs in with: frappectl auth login <site> --oauth --read-only. If frappectl is "
+                            "set up with its environment-variable sign-in instead of a profile, that key or secret "
+                            "is wrong.")
             if "403" in low or "permission" in low or "not permitted" in low:
                 raise Unavailable(f"The signed-in user has no read permission on {what}.")
             if "404" in low or "not found" in low or "does not exist" in low:
@@ -233,8 +233,17 @@ def agents_section(path: str | None, days: int = 30):
             ts = dt.datetime.fromisoformat(str(r["ts"]).replace("Z", "+00:00"))
             if ts.tzinfo is None:
                 ts = ts.astimezone()
+            # Lines written from memory rather than from the format: read the common near-misses.
+            if r.get("outcome") not in OUTCOMES:
+                alias = str(r.get("result") or r.get("status") or "").lower()
+                r["outcome"] = {"ok": "done", "success": "done", "completed": "done", "error": "failed"}.get(alias, alias)
             if r.get("outcome") not in OUTCOMES:
                 raise ValueError
+            if "changed" not in r:
+                rec = r.get("count", r.get("records"))
+                r["changed"] = len(rec) if isinstance(rec, list) else rec if isinstance(rec, (int, float)) else 0
+            if not r.get("task"):
+                r["task"] = r.get("action") or ""
         except Exception:
             skipped += 1
             continue
@@ -299,7 +308,7 @@ def by_month(rows, months, date_field, value_field) -> list:
 
 
 def read_credentials(path: str | None) -> tuple:
-    key, secret = os.environ.get("FRAPPE_API_KEY"), os.environ.get("FRAPPE_API_SECRET")
+    key = secret = None
     if path:
         for line in Path(path).read_text(encoding="utf-8", errors="replace").splitlines():
             m = re.match(r"\s*(api[_ ]?key|api[_ ]?secret)\s*[:=]\s*(\S+)", line, re.I)
@@ -310,8 +319,8 @@ def read_credentials(path: str | None) -> tuple:
                 else:
                     key = val
     if not key or not secret:
-        raise Fatal("no API key and secret found. Set FRAPPE_API_KEY and FRAPPE_API_SECRET, or pass "
-                    "--credentials <file> with `api_key = ...` and `api_secret = ...` lines.")
+        raise Fatal("no API key and secret found. Pass --credentials <file> (the workspace's "
+                    ".frappe/credentials.txt) with `api_key = ...` and `api_secret = ...` lines.")
     return key, secret
 
 
@@ -581,6 +590,11 @@ def build(data: dict, fmt: str) -> str:
 
 
 def main() -> int:
+    for stream in (sys.stdout, sys.stderr):     # site and company names may be in any language
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
     ap = argparse.ArgumentParser(description="Build the ERPNext Pulse dashboard. Read-only.")
     sub = ap.add_subparsers(dest="cmd", required=True)
     for name in ("demo", "collect", "build", "run"):

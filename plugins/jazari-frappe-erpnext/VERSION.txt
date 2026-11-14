@@ -1,9 +1,9 @@
-Jazari Agents for Frappe & ERPNext v1.1 (plugin 1.1.6)
+Jazari Agents for Frappe & ERPNext v1.1 (plugin 1.1.7)
 Built against: Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)
 Built: 2026-08-31 · Jazari Agents
 Capabilities: 335 documented (90 API / 195 dashboard / 26 bench / 24 guided), each traced to an official documentation page
 Coverage: 100.0% of in-scope documentation pages read at build time
-Verified: on two live sites on 2026-11-14 (ERPNext 16.55 / Frappe 16.56, and a second with HR, CRM, Helpdesk, Learning, Lending, Insights, Webshop, Builder and Wiki): every capability's screen, record type and API call; the main workflows run for real (sales, buying, stock, manufacturing, accounting, import, HR, payroll, lending); the agents' safety rules on real requests; the dashboard (every figure matched the database); the built-in MCP server, frappectl 0.24.0 and every bench command in the guides. Not tested: Frappe Cloud; the Education, Drive, Studio, WhatsApp and Newsletter apps; bench production setup; version 15.
+Verified: on two live sites on 2026-11-14 (ERPNext 16.55 / Frappe 16.56, and a second with HR, CRM, Helpdesk, Learning, Lending, Insights, Webshop, Builder and Wiki): every capability's screen, record type and API call; the main workflows run for real (sales, buying, stock, manufacturing, accounting, import, HR, payroll, lending); the agents' safety rules on real requests, then an independent review of those rules in four rounds with every finding closed; the dashboard (every figure matched the database); the built-in MCP server, frappectl 0.24.0 and every bench command in the guides. Not tested: Frappe Cloud; the Education, Drive, Studio, WhatsApp and Newsletter apps; bench production setup; version 15.
 Licence: MIT (bundled documentation in docs/: CC BY-SA, Frappe Technologies and contributors)
 Languages: EN, AR · Modes: mcp, frappectl, api, browser, bench, guide
 Connection: Frappe's built-in MCP server (v16.53+) or frappectl first; an API key is the fallback

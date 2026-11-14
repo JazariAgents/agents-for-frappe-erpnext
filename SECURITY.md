@@ -21,13 +21,30 @@ found and how to reproduce it.
 
 ## What it enforces, and what it cannot guarantee
 
-Two safety rules are enforced in code, not just asked for. In a folder connected to a Frappe site, the
-plugin's hook refuses any change or delete made through Frappe's MCP tools unless that exact record has a
-snapshot from the last hour, and the plugin's API helper (`frappe_call.py`) does the same for calls made
-with an API key. The helper also keeps the key out of everything it prints. Both use one set of rules,
-`skills/frappe-connect/scripts/frappe_safety.py`.
+The snapshot rule is enforced in code, not just asked for. In a folder connected to a Frappe site:
 
-The other confirmations (stating whether a change can be undone, waiting for your yes) are instructions that
-Claude follows, not locks. A hook cannot stop a request sent some other way, such as a command you approve
-in your terminal. For a hard guarantee on a production site, connect with a read-only `frappectl` profile:
-it stops write requests on your machine before they are sent.
+- The plugin's hook refuses a change or delete made through Frappe's MCP tools unless that exact record is in
+  a snapshot from the last hour. A method it does not recognise is put to you first.
+- The plugin's API helper (`frappe_call.py`) applies the same rule to calls made with an API key, for every
+  HTTP verb and every form of the address, and refuses a call it does not recognise. It also keeps the key
+  out of everything it prints.
+- A snapshot counts only when it holds the record in full, as read from the site. A list of names does not.
+- The yes is held too. A change waits until you have replied after its snapshot was saved: through the MCP
+  tools you get Claude Code's own permission prompt, and the API helper refuses the call. This shows that
+  you replied, not what you said; reading your answer is still Claude's job.
+- If the hook cannot run (no Python, or an error), it asks you instead of letting the change through.
+
+Both use one set of rules, `skills/frappe-connect/scripts/frappe_safety.py`.
+
+What this does not cover:
+
+- The hook runs in Claude Code and Cowork. In claude.ai chat, hooks do not run, so there the rule is an
+  instruction Claude follows.
+- Saying whether a change can be undone, and the 25-record stop, are instructions that Claude follows, not
+  locks. Creating a new record is not held: nothing existing changes.
+- A snapshot covers its record for an hour, so a second change to the same record in that hour is not
+  backed up again.
+- A hook cannot stop a request sent some other way, such as a command you approve in your terminal.
+
+For a hard guarantee on a production site, connect with a read-only `frappectl` profile: it stops write
+requests on your machine before they are sent.
