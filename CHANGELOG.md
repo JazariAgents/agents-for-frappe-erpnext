@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.10 — the no-Python fallback asks everywhere (2026-11-14)
+
+- In 1.1.9 the fallback that asks you when Python is missing could only see the current folder, so from a
+  subfolder of the workspace it stayed silent. It no longer looks at folders at all: without Python, any
+  call shaped like a change to a Frappe site (it names a doctype, or it is Frappe's `call_method`) is put
+  to you first, wherever the session is. A tool of the same name from another server is left alone.
+
 ## 1.1.9 — what the plugin directory's own check asked for (2026-11-14)
 
 Anthropic's submission portal runs a stricter check than its published checklist. It found four blocking
