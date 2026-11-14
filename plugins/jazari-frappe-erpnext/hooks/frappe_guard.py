@@ -61,6 +61,14 @@ def main():
                     "type and name), so their snapshot cannot be checked and it is blocked. Name the records, "
                     "snapshot them, and try again.")
     missing = fs.missing_snapshots(ws, pairs)
+    if not missing and kind == "import":
+        rec = fs.snapshotted_record(ws, *pairs[0])
+        if rec.get("import_type") == "Insert New Records":
+            out()                               # adds records only; the import record itself is snapshotted
+        out("deny", "Jazari Agents safety rule: this import updates existing records (or its type is not in the "
+                    "snapshot), and the guard cannot list those records without the site. Start it with the "
+                    "plugin's helper, frappe_call.py, which reads them from the import's dry run and checks each "
+                    "one has a snapshot, or ask the user to start it from the Data Import screen.")
     if not missing:
         out()
     what = ", ".join(f"{a} {b}" for a, b in missing[:5]) + (f" and {len(missing) - 5} more" if len(missing) > 5 else "")

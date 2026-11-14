@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.1.6 — each change is checked against the record it really touches (2026-11-14)
+
+A third security review found three more gaps in the snapshot check. All three are closed.
+
+- **Adding a row to an existing record was treated as creating something new.** An insert that adds a child
+  row (it carries `parent` and `parenttype`) changes that parent, so the parent now needs a snapshot. So
+  does an upload that sets a field on a record. The create-only list matches full method names only.
+- **Some writes were checked against the wrong argument.** A rename was checked against `name`, but it
+  renames `old_name`. Each known write now has its own rule for which argument names its record: rename
+  checks `old_name`, plus `new_name` when merging. A call whose arguments name two different records is
+  refused.
+- **An update import needed a snapshot of the import record alone.** The API helper now reads the import's
+  type from the site, and for an update import reads every record ID from its dry run (which saves
+  nothing). Each of those records needs a snapshot; if any row has no ID, the import is refused. Through
+  Frappe's MCP server the guard cannot read the site, so it allows insert-only imports and refuses update
+  imports; the guide says to start those with the helper or from the Data Import screen.
+
+Tested: 46 of 46 guard checks and 30 of 30 helper checks pass, including a real update import on the live
+site that was refused until the import and both customers in its file had snapshots.
+
 ## 1.1.5 — one set of safety rules (2026-11-14)
 
 A second security review found that 1.1.4's stricter matching opened two gaps and left a third. All three are

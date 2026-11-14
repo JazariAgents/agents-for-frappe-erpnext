@@ -143,7 +143,10 @@ It gives the dry run this skill promises: the preview checks every row and saves
    it stays `Pending` with no log. Correct the file, upload it again, and repeat from step 2.
 5. **Snapshot, then sample, then the rest.** Snapshot the Data Import record (`--doc "Data Import" <name>`)
    and, for `Update Existing Records`, every record the file changes; the plugin's safety check refuses the
-   start call otherwise. Import a file with the first few rows, check them, then the full file:
+   start call otherwise. `frappe_call.py` reads the records an update import changes from its dry run and
+   names any without a snapshot. Through Frappe's MCP server an update import is refused, because the
+   plugin cannot list those records there: start it with `frappe_call.py`, or ask the user to start it from
+   the Data Import screen. Import a file with the first few rows, check them, then the full file:
    `POST /api/v2/method/frappe.core.doctype.data_import.data_import.form_start_import` with
    `{"data_import": "<name>"}`. It runs in the background, so the scheduler and workers must be running.
 6. **Check the result.** Read the record's `status` (`Success`, `Partial Success`, `Error`) and the log:

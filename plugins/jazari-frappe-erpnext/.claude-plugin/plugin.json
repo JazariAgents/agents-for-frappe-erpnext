@@ -1,7 +1,7 @@
 {
   "name": "jazari-frappe-erpnext",
   "displayName": "Jazari Agents for Frappe & ERPNext",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Nine agents that run a Frappe stack for you: build apps and DocTypes, operate ERPNext accounting, selling, buying, stock and manufacturing, run Frappe HR payroll, CRM, Helpdesk, Insights and the website, manage bench and Frappe Cloud, import data in bulk, undo it all from local snapshots, and build a one-page dashboard of finance, sales, people, system health and the agents' own activity from your live site. Connects through Frappe's built-in MCP server or frappectl, with an API key as the fallback. English and Arabic. Built against Frappe and ERPNext v16.",
   "author": {
     "name": "Jazari Agents",

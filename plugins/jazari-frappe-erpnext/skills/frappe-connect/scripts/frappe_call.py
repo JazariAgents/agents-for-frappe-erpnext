@@ -206,7 +206,22 @@ def changes_existing(method, path, body):
         return pairs
     if kind == "unnamed":
         return [("?", "?")]
+    if kind == "import":
+        return [("import", pairs[0][1])]       # resolved against the site in import_records()
     return []
+
+
+def import_records(base, auth, data_import):
+    """The records starting this import needs snapshots of: the import, plus every record an update import
+    changes, read from the import's dry run (it saves nothing). None when they cannot be worked out."""
+    di = urllib.parse.quote(str(data_import), safe="")
+    st, j, _ = request(base, auth, "GET", f"/api/v2/document/Data%20Import/{di}")
+    rec = payload(j) if st == 200 else None
+    preview = None
+    if isinstance(rec, dict) and rec.get("import_type") == "Update Existing Records":
+        st, j, _ = request(base, auth, "POST", f"/api/v2/document/Data%20Import/{di}/method/get_preview_from_template", data={})
+        preview = payload(j) if st == 200 else None
+    return frappe_safety.import_targets(rec, preview)
 
 
 def payload(j):
@@ -299,6 +314,12 @@ def main():
     elif a.data:
         body_preview = json.loads(a.data)
     targets = changes_existing(m, api_path(a.path), body_preview)
+    for t in [t for t in targets if t[0] == "import"]:
+        found = import_records(base, auth, t[1])
+        if found is None:
+            die(f"cannot tell which records the import {t[1]} changes (its type, or for an update import the ID "
+                "column of every row in its dry run), so starting it is refused. Check the import's dry run.")
+        targets = [x for x in targets if x != t] + found
     if ("?", "?") in targets:
         die("this call changes records but its data does not say which ones (doctype and name), so their "
             "snapshot cannot be checked and it is refused. Put each record's doctype and name in the data.")
