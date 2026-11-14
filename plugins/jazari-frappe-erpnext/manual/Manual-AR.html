@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>دليل Jazari Agents for Frappe &amp; ERPNext</title>
+<style>
+:root{--ink:#151a21;--ink2:#3d4756;--muted:#6b7583;--line:#dee3ea;--bg:#f5f7fa;--card:#fff;
+--blue:#1b47c4;--green:#136b45;--amber:#8a5206;--red:#9b2c2c;--redbg:#fdf0f0;--greenbg:#e9f5ee;--bluebg:#e8edfb;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:34px 0 28px;margin-bottom:34px}
+h1{font-size:34px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+h2{font-size:24px;margin:44px 0 12px;letter-spacing:-.015em;line-height:1.2}
+h3{font-size:17px;margin:26px 0 8px}
+p{max-width:70ch}
+.sub{color:var(--ink2);font-size:18px;margin:0;max-width:70ch}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--bluebg);color:var(--blue);font-weight:600}
+.safety{background:var(--redbg);border:1px solid #f0cfcf;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:26px 0}
+.safety h2{margin-top:0;color:var(--red);font-size:20px}
+.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:18px 22px;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.agent img{width:56px;height:56px;border-radius:12px;flex:0 0 auto;background:var(--bg)}
+.agent h3{margin:0 0 4px;font-size:17px}
+.agent .role{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
+.agent p{margin:0;font-size:14.5px;color:var(--ink2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef1f6;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+ol,ul{max-width:70ch}li{margin:6px 0}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px 14px 52px;position:relative;margin:10px 0}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+.ok{color:var(--green);font-weight:600}
+body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{padding:14px 52px 14px 18px}.steps li::before{left:auto;right:16px}code{direction:ltr;display:inline-block}</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.0</span>
+<h1>دليل الاستخدام</h1><p class="sub">تسعة وكلاء يشغّلون منصّة Frappe: بناء التطبيقات وتشغيل ERPNext والموارد البشرية وإدارة العملاء والدعم والتقارير والموقع والاستضافة.</p></div></header>
+<div class="wrap">
+<div class="safety"><h2>الأمان أولاً</h2>
+<p>قبل أي تعديل أو حذف تُحفظ نسخة كاملة محلياً في <code>.frappe/snapshots/</code>. إذا تعذّر حفظ النسخة، لا يتم التنفيذ. اطلب «استعد النسخة» في أي وقت.</p>
+<p><strong>بصراحة عن التراجع:</strong> الإعدادات تُستعاد تماماً. السجلات المحذوفة تعود كسجلات <em>جديدة</em> بمعرّفات جديدة، والروابط القديمة تبقى مكسورة. الفواتير المرحّلة والقيود المؤكدة والرواتب المصروفة والرسائل المرسلة لا يمكن التراجع عنها إطلاقاً؛ الحل هو إشعار دائن أو قيد عكسي، وهذا قرارك أنت.</p>
+<p>لن يحذف الوكلاء أو يعدّلوا بالجملة شيئاً لم تطلبه تحديداً، ولن ينفّذوا تعليمات موجودة داخل بياناتك، ولن يكتبوا كلمة مرورك.</p></div>
+<h2>التثبيت</h2><ol class="steps">
+<li><strong>استخدم بيئة تحتفظ بالملفات</strong> — Claude Code أو تطبيق سطح المكتب أو Cowork. الوكلاء يكتبون النسخ الاحتياطية والسجلات في مجلد عمل، ومحادثة الويب العادية تُصفَّر.</li>
+<li><strong>ضع الإضافة حيث يبحث عنها Claude</strong> — الطريقة الموثّقة، وجرّبها أولاً:
+<ul>
+<li>فُكّ ضغط <code>FrappeAgents-v1.0.zip</code> داخل مجلد المهارات الشخصي بحيث يحتوي <code>~/.claude/skills/jazari-frappe-erpnext/</code> <em>مباشرةً</em> على <code>.claude-plugin/plugin.json</code>. سيُحمّلها Claude في الجلسة التالية دون متجر ودون أمر تثبيت.</li>
+<li>ولمشروع واحد فقط: <code>&lt;مشروعك&gt;/.claude/skills/jazari-frappe-erpnext/</code> — تُحمَّل بعد الموافقة على الوثوق بالمجلد.</li>
+<li>في Claude Code يمكن التجربة دون تثبيت: <code>claude --plugin-dir /path/to/jazari-frappe-erpnext</code>، وللتحقق: <code>claude plugin validate ./jazari-frappe-erpnext</code>.</li>
+</ul>
+</li>
+<li><strong>إن كان تطبيقك يوفّر مثبّت إضافات</strong>، استخدمه وأشر إلى هذا الملف المضغوط — فهو إضافة صالحة أصلاً ويحتوي <code>.claude-plugin/plugin.json</code> في أعلى مستوى.</li>
+<li><strong>ابدأ جلسة جديدة</strong> (أو <code>/reload-plugins</code> في Claude Code) لتُحمَّل المهارات الاثنتان والعشرون.</li>
+<li><strong>ابدأ المحادثة</strong> — اكتب: «اربط موقع Frappe الخاص بي». سيسألك الفريق عن اللغة، ويطلب إذنك قبل إنشاء مجلد <code>.frappe/</code>، ثم يعرض أربع طرق للاتصال.</li>
+<li><strong>اطلب شيئاً حقيقياً</strong> — «أرني الفواتير المتأخرة»، «شغّل الرواتب لشهر أغسطس»، «خذ نسخة احتياطية قبل التحديث».</li>
+</ol>
+<h2>الفريق</h2><div class="grid">
+<div class="agent"><img src="assets/rukaz.png" alt="Rukaz"><div><h3 style="color:#2b6fff">Rukaz</h3><p class="role">الإعداد والتهيئة</p><p>يجهّز الموقع الجديد: الشركة والسنة المالية ودليل الحسابات والمستخدمون والاستضافة على Frappe Cloud.</p></div></div>
+<div class="agent"><img src="assets/wafir.png" alt="Wafir"><div><h3 style="color:#7c5cff">Wafir</h3><p class="role">الاستيراد والترحيل</p><p>ينقل البيانات بالجملة: ملفات إكسل والأرصدة الافتتاحية ودليل الحسابات والترحيل من نظام آخر، مع تجربة أولى دائماً.</p></div></div>
+<div class="agent"><img src="assets/imran.png" alt="Imran"><div><h3 style="color:#6366f1">Imran</h3><p class="role">بناء التطبيقات والتخصيص</p><p>يبني على المنصة نفسها: تطبيقات وأنواع مستندات وحقول وسير عمل وقوالب طباعة، إضافة إلى التصنيع وقوائم المواد.</p></div></div>
+<div class="agent"><img src="assets/dhukhr.png" alt="Dhukhr"><div><h3 style="color:#2b9bd6">Dhukhr</h3><p class="role">المخزون</p><p>يعرف مكان كل صنف وقيمته: المستودعات وحركات المخزون والجرد والدفعات والأرقام التسلسلية والتقييم.</p></div></div>
+<div class="agent"><img src="assets/mizan.png" alt="Mizan"><div><h3 style="color:#0f9c5f">Mizan</h3><p class="role">المحاسبة والضرائب والتقارير</p><p>المال: الفواتير والمدفوعات والقيود والتسويات والموازنات والأصول والضريبة والقروض وكل التقارير.</p></div></div>
+<div class="agent"><img src="assets/zahir.png" alt="Zahir"><div><h3 style="color:#a855f7">Zahir</h3><p class="role">التسويق والموقع</p><p>الواجهة العامة: صفحات الموقع والمدونة والقوالب وتحسين الظهور والمتجر وقواعد التسعير والكوبونات والحملات.</p></div></div>
+<div class="agent"><img src="assets/hazim.png" alt="Hazim"><div><h3 style="color:#12b3a0">Hazim</h3><p class="role">العمليات والمشاريع</p><p>يبقي الطلبات تتحرك: عروض الأسعار وأوامر البيع والتجهيز والتسليم ونقاط البيع والمشاريع وساعات العمل.</p></div></div>
+<div class="agent"><img src="assets/anees.png" alt="Anees"><div><h3 style="color:#f0a020">Anees</h3><p class="role">العملاء والدعم والموظفون</p><p>كل من تتعامل معه الشركة: العملاء المحتملون والصفقات وتذاكر الدعم والموظفون والإجازات والرواتب والطلاب.</p></div></div>
+<div class="agent"><img src="assets/urwah.png" alt="Urwah"><div><h3 style="color:#10b981">Urwah</h3><p class="role">الربط والبنش والأتمتة</p><p>البنية التحتية: الاتصال بالموقع وواجهة REST والويب هوك والمهام الخلفية وأوامر bench والنسخ الاحتياطي والاستعادة.</p></div></div>
+</div>
+<p>الملفات الشخصية: <a href="Agents-AR.html">الوكلاء</a> · <a href="Agents-EN.html">English</a></p>
+<h2>التوثيق مضمّن داخل الإضافة</h2>
+<p>تحتوي الإضافة على 1607 صفحة من توثيق Frappe الرسمي داخل مجلد <code>docs/</code> — كل صفحة تقف خلف كل قدرة. يقرأ الوكلاء هذه الملفات بدل الاعتماد على الذاكرة، فيقتبسون كلام Frappe نفسه، ويعملون بدون إنترنت، ويستطيعون إخبارك بتاريخ آخر تحديث للصفحة عند اختلاف الواقع عن التوثيق.</p>
+<h2>أوضاع العمل</h2>
+<div class="tablewrap"><table><thead><tr><th>الوضع</th><th>متى يُستخدم</th><th>عدد القدرات</th></tr></thead><tbody>
+<tr><td>واجهة API</td><td>عند توفر مفتاح API — الأسرع والأدق (معظم القدرات متاحة بالطريقتين)</td><td>86</td></tr>
+<tr><td>من الواجهة</td><td>بدون مفتاح، أو لأشياء لا تتوفر إلا في الواجهة</td><td>195</td></tr>
+<tr><td>أوامر bench</td><td>على خادمك عبر SSH — إنشاء المواقع والنسخ الاحتياطي والترقية</td><td>26</td></tr>
+<tr><td>إرشاد</td><td>يشرح Claude وتنفّذ أنت</td><td>24</td></tr>
+</tbody></table></div>
+<h2>ما يستطيع كل وكيل فعله</h2><h3 style="color:#2b6fff">Rukaz — الإعداد والتهيئة (32 قدرة)</h3><p>يجهّز الموقع الجديد: الشركة والسنة المالية ودليل الحسابات والمستخدمون والاستضافة على Frappe Cloud.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Add a custom app to a bench</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Understand benches and bench groups</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Create a bench group on Frappe Cloud</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Update a bench group</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Manage billing and payments</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Add a custom domain to a Frappe Cloud site</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Install a marketplace app</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Publish an app to the marketplace</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Create a server</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Back up a Frappe Cloud site</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Create a site on Frappe Cloud</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Move a site between benches or servers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Change a site plan</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Connect to a bench over SSH</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Turn on two-factor authentication</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Read the audit trail</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Hide fields with permission levels</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Group roles into a role profile</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Set role-based permissions</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Understand permission types</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Restrict a user to specific records</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Add and manage users</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Set up the chart of accounts</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Set up a company</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Configure currencies and exchange rates</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Connect an email account</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Set the fiscal year</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Run the ERPNext getting-started checklist</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Set global defaults</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Add a letter head</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Configure naming series</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Change system settings</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+</tbody></table></div><h3 style="color:#7c5cff">Wafir — الاستيراد والترحيل (13 قدرة)</h3><p>ينقل البيانات بالجملة: ملفات إكسل والأرصدة الافتتاحية ودليل الحسابات والترحيل من نظام آخر، مع تجربة أولى دائماً.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-accounting</code>, <code>frappe-data-import</code>, <code>frappe-inventory</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Enter opening balances</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Import opening invoices</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Import advances, payments and balances</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Rename records in bulk</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Update many records at once</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import a chart of accounts</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Export records to a spreadsheet</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import records from a spreadsheet</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Prepare and map legacy data</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import accounting masters</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Migrate from QuickBooks</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Validate a migration</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Load opening stock</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+</tbody></table></div><h3 style="color:#6366f1">Imran — بناء التطبيقات والتخصيص (47 قدرة)</h3><p>يبني على المنصة نفسها: تطبيقات وأنواع مستندات وحقول وسير عمل وقوالب طباعة، إضافة إلى التصنيع وقوائم المواد.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-app-builder</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-manufacturing</code>, <code>frappe-website</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Understand the framework architecture</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Bundle app assets</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a new Frappe app</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Query data with the database API</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Read an app's directory structure</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Work with documents in Python</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Wire app behaviour with hooks</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Render templates with the Jinja API</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build portal and web pages</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build safe queries with the query builder</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a new site for an app</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Design an app screen in Frappe Studio</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Test an app before release</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Publish a web form</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Run subcontracting</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Use a child table</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Write controller methods</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a DocType</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Turn on DocType features</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Pick the right field type</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Add a form script</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Set how documents are named</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Choose the right kind of DocType</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Use virtual doc fields</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build a bill of materials</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Design a BOM with the BOM creator</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Update BOMs in bulk</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Plan capacity</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Record work on a job card</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Plan material requirements</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Define operations and routing</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Watch the plant floor</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Plan production</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Handle scrap and disassembly</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Configure manufacturing settings</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Run a work order</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Set up workstations</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Add a client script</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Add a custom field</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Customize a form</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build a print format</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Set up an approval workflow</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Define item attributes</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Sell a product bundle</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Create item variants</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Build pages with Frappe Builder</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Bind data to a Builder page</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+</tbody></table></div><h3 style="color:#2b9bd6">Dhukhr — المخزون (19 قدرة)</h3><p>يعرف مكان كل صنف وقيمته: المستودعات وحركات المخزون والجرد والدفعات والأرقام التسلسلية والتقييم.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-buying</code>, <code>frappe-inventory</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Receive goods</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Return goods to a supplier</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Track batches</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Use the serial and batch bundle</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Close a stock period</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Make a stock entry</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Create and manage items</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Group items</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Read the stock ledger</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Check stock levels</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Set putaway rules</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Inspect incoming quality</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Reconcile physical stock</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Reserve stock for an order</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Track serial numbers</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Configure stock settings</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Manage units of measure</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Choose a valuation method</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Set up warehouses</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+</tbody></table></div><h3 style="color:#0f9c5f">Mizan — المحاسبة والضرائب والتقارير (70 قدرة)</h3><p>المال: الفواتير والمدفوعات والقيود والتسويات والموازنات والأصول والضريبة والقروض وكل التقارير.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-accounting</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-learning</code>, <code>frappe-lending</code>, <code>frappe-projects</code>, <code>frappe-reports</code>, <code>frappe-selling</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Manage fixed assets</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Reconcile the bank</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set and track a budget</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up cost centers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Issue a credit note</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Issue a debit note</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up deferred revenue and expense</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Run asset depreciation</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Use accounting dimensions</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Chase overdue invoices with dunning</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Freeze accounting entries</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Post a journal entry</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Handle multi-currency accounting</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Record a payment entry</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Reconcile payments against invoices</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Send a payment request</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set payment terms</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Close an accounting period</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Record a purchase invoice</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Raise a sales invoice</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Track shareholders and share transfers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Send a statement of accounts</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Bill customers on a subscription</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Agree a blanket order</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Add landed costs</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Raise a material request</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Place a purchase order</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Send a request for quotation</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Score suppliers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Create and manage suppliers</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Record a supplier quotation</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Collect fees</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Chart a result in Insights</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Publish an Insights dashboard</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Connect a data source in Insights</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Use expressions in a query</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Set Insights permissions</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Write a query in Insights</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Share a dashboard and control access</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Charge for a course</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Process a loan application</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Disburse a loan</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Accrue interest</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Set up a loan product</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Record a loan repayment</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Manage loan security</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Set activity costs</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Bill a customer from a timesheet</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Track project costing</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Measure project profitability</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Use the standard accounting reports</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Produce a balance sheet</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Produce a cash flow report</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Build a custom report</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Build ERPNext dashboards</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Read the general ledger</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Produce a profit and loss report</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Age receivables and payables</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Enforce a customer credit limit</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Consolidate POS invoices</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run perpetual inventory</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Use tax categories</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set item-level tax</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up KSA VAT reporting</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Create a purchase tax template</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Apply tax rules automatically</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Create a sales tax template</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up taxes</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up UAE VAT</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up withholding tax</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+</tbody></table></div><h3 style="color:#a855f7">Zahir — التسويق والموقع (22 قدرة)</h3><p>الواجهة العامة: صفحات الموقع والمدونة والقوالب وتحسين الظهور والمتجر وقواعد التسعير والكوبونات والحملات.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-crm</code>, <code>frappe-selling</code>, <code>frappe-setup</code>, <code>frappe-website</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Run a campaign</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Send an email campaign</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Send a newsletter</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Capture leads from a web form</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Issue coupon codes</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Set item prices</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run a loyalty program</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Maintain price lists</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Apply a pricing rule</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run a promotional scheme</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Create an email template</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Publish a blog post</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Share files with Frappe Drive</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Control file access in Drive</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Share a Drive team folder</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Set up SEO for the website</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-website</code></td></tr>
+<tr><td>Run the shopping cart</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Change the website theme</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Publish a web page</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Set up the website</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Publish items to the shop</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+<tr><td>Publish a wiki space</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-website</code></td></tr>
+</tbody></table></div><h3 style="color:#12b3a0">Hazim — العمليات والمشاريع (17 قدرة)</h3><p>يبقي الطلبات تتحرك: عروض الأسعار وأوامر البيع والتجهيز والتسليم ونقاط البيع والمشاريع وساعات العمل.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-helpdesk</code>, <code>frappe-projects</code>, <code>frappe-reports</code>, <code>frappe-selling</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Schedule maintenance visits</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Run a project</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Manage tasks</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Start from a project template</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Record timesheets</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Analyse sales</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Ship goods with a delivery note</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Plan a delivery trip</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Pack an order</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Pick stock for an order</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Sell at the point of sale</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Configure a POS profile</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Send a quotation</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Process a sales return</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Confirm a sales order</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Track sales people and commission</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Book a shipment</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+</tbody></table></div><h3 style="color:#f0a020">Anees — العملاء والدعم والموظفون (60 قدرة)</h3><p>كل من تتعامل معه الشركة: العملاء المحتملون والصفقات وتذاكر الدعم والموظفون والإجازات والرواتب والطلاب.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-crm</code>, <code>frappe-helpdesk</code>, <code>frappe-hr</code>, <code>frappe-learning</code>, <code>frappe-selling</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Move deals through the pipeline</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Reply with email templates</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Capture leads</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Keep notes on a deal</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Work an opportunity in ERPNext</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Track organizations</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Set a CRM service level agreement</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Customize deal statuses</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Track CRM tasks</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Invite your sales team</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Log calls against a deal</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Message a contact on WhatsApp</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Run assessments</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Set up programs and courses</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Enrol students</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Invite and manage agents</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Connect a support email account</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Track an issue in ERPNext</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Publish knowledge base articles</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Set ticket priorities</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Route tickets automatically</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Answer faster with saved replies</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Set service level agreements</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Route tickets to teams</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Handle support tickets</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Define ticket types</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Handle a warranty claim</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Give an employee advance</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run an appraisal cycle</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Mark attendance</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Automate attendance from check-ins</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Record employee check-ins</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Create employee records</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Process expense claims</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Maintain the holiday list</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Track job applicants</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Post a job opening</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Allocate leave</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Approve a leave application</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Set a leave policy</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Define leave types</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Onboard a new employee</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run payroll</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Define salary components</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Issue salary slips</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Build a salary structure</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run employee separation</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Plan shifts</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Collect tax exemption declarations</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Set assignments</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Run a batch of learners</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Issue certificates</td><td>من الواجهة</td><td>لا يمكن التراجع</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Add chapters and lessons</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Create a course</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Host a live class</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Group courses into a program</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Assess learners with quizzes</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Create and manage customers</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Group customers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Organise territories</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+</tbody></table></div><h3 style="color:#10b981">Urwah — الربط والبنش والأتمتة (51 قدرة)</h3><p>البنية التحتية: الاتصال بالموقع وواجهة REST والويب هوك والمهام الخلفية وأوامر bench والنسخ الاحتياطي والاستعادة.</p><p style="color:#6b7583;font-size:14px">المهارات: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Authenticate with OAuth 2</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Log in with username and password</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Authenticate with API key and secret</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Queue and monitor background jobs</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Test the site connection</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Cancel a submitted document</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-api</code></td></tr>
+<tr><td>Create a document through the API</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Delete a document through the API</td><td>واجهة API</td><td>يعود كسجل جديد</td><td><code>frappe-api</code></td></tr>
+<tr><td>Filter and select fields in a list call</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>List documents of any DocType</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Read one document through the API</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Submit a document through the API</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-api</code></td></tr>
+<tr><td>Update a document through the API</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-api</code></td></tr>
+<tr><td>Count records of a DocType</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Read DocType metadata to discover a site's schema</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Upload a file through the API</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Generate API key and secret for a user</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Call a whitelisted method on a document</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Respect the site's rate limits</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Publish and listen to realtime events</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Diagnose the scheduler</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Create a webhook on document events</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Secure a webhook with a shared secret</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Back up a site</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Run bench CLI commands</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Read and change site configuration</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Add a custom domain to a site</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Drop a site</td><td>أوامر bench</td><td>يعود كسجل جديد</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Execute a Python method on a site</td><td>أوامر bench</td><td>لا يمكن التراجع</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Run site-scoped framework commands</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Configure HTTPS for a site</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
+<tr><td>List the apps installed on a site</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Run migrations after an update</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Run several sites on one bench</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Create a site with bench new-site</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Understand bench and the bench directory</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Restore selected tables only</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Understand the bench Procfile</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Set up a production environment</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Reinstall a site from scratch</td><td>أوامر bench</td><td>يعود كسجل جديد</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Restore a site from a backup</td><td>أوامر bench</td><td>يُستعاد كما كان</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Check background services</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Show the current site configuration</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Trim unused database tables</td><td>أوامر bench</td><td>يعود كسجل جديد</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Uninstall an app from a site</td><td>أوامر bench</td><td>يعود كسجل جديد</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Read site and bench logs</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Enable server scripts on a site</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Email a report on a schedule</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Assign documents automatically</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Repeat a document on a schedule</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Send notifications on events</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+</tbody></table></div><h2>مسارات جاهزة</h2><p>هذه المسارات مبنية على ترتيب المستندات الرسمية.</p><div class="tablewrap"><table><thead><tr><th>المسار</th><th>الخطوات</th></tr></thead><tbody><tr><td><strong>Connect Claude to a Frappe site</strong></td><td>Test the site connection → Authenticate with API key and secret → Read DocType metadata to discover a site's schema</td></tr><tr><td><strong>Build a Frappe app from scratch</strong></td><td>Create a new Frappe app → Create a new site for an app → Create a DocType → Pick the right field type → Write controller methods → Run migrations after an update</td></tr><tr><td><strong>Set up a company and go live on ERPNext</strong></td><td>Set up a company → Set the fiscal year → Set up the chart of accounts → Add and manage users → Import records from a spreadsheet → Enter opening balances</td></tr><tr><td><strong>Run order to cash</strong></td><td>Send a quotation → Confirm a sales order → Ship goods with a delivery note → Raise a sales invoice → Record a payment entry</td></tr><tr><td><strong>Run procure to pay</strong></td><td>Raise a material request → Place a purchase order → Receive goods → Record a purchase invoice → Record a payment entry</td></tr><tr><td><strong>Close the month</strong></td><td>Reconcile the bank → Reconcile payments against invoices → Produce a balance sheet → Produce a profit and loss report → Close an accounting period</td></tr><tr><td><strong>Run monthly payroll</strong></td><td>Mark attendance → Build a salary structure → Run payroll → Issue salary slips</td></tr><tr><td><strong>Manufacture to order</strong></td><td>Build a bill of materials → Plan production → Run a work order → Record work on a job card → Make a stock entry</td></tr><tr><td><strong>Back up and restore a site</strong></td><td>Back up a site → Restore a site from a backup → Back up a Frappe Cloud site</td></tr><tr><td><strong>Load data in bulk from spreadsheets</strong></td><td>Import records from a spreadsheet → Update many records at once → Import a chart of accounts → Load opening stock</td></tr></tbody></table></div><h2>حدود صادقة</h2><ul>
+<li>بُنيت هذه النسخة على التوثيق فقط، دون موقع تجريبي حيّ. كل قدرة موثّقة من صفحة رسمية، لكن لم تُختبر على موقع حقيقي بعد.</li>
+<li>تغطي تطبيقات Frappe الرسمية فقط. تطبيقات السوق من جهات أخرى (322 تطبيقاً) غير مشمولة بالاسم؛ يمكن التعامل معها عبر قراءة بنية البيانات في الموقع.</li>
+<li>الهدف هو الإصدار 16، مع دعم احتياطي للإصدار 15. المواقع الأقدم قد تختلف.</li>
+<li>أوامر bench تحتاج وصولاً إلى خادمك؛ لا يمكن تنفيذها عبر الإنترنت.</li></ul>
+<h2>أسئلة شائعة</h2>
+<p><strong>هل يمكن أن يحذف شيئاً بالخطأ؟</strong> لا يحذف إلا بطلب صريح، وبعد نسخة احتياطية وتأكيد.</p>
+<p><strong>أين يُحفظ مفتاحي؟</strong> في <code>.frappe/credentials.txt</code> داخل مساحة عملك فقط.</p>
+<p><strong>ماذا لو تغيّرت واجهة Frappe؟</strong> سيقول الوكيل ذلك بوضوح بدل الارتجال.</p><footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · 2026-08-31 · Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)</footer>
+</div>
+</body>
+</html>

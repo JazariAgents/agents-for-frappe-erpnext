@@ -1,0 +1,113 @@
+{
+  "pack_version": "1.1.0",
+  "knowledge": {
+    "what": "the capability tables, walkthroughs and the 1,607 bundled documentation pages",
+    "date": "2026-08-31",
+    "frappe": "16.32.0",
+    "erpnext": "16.33.0"
+  },
+  "checked": {
+    "what": "the connection routes, the dashboard and the safety rules, against release notes and source",
+    "date": "2026-11-14",
+    "frappe": "16.56.0",
+    "erpnext": "16.55.0",
+    "hrms": "16.53.2"
+  },
+  "features": [
+    {
+      "name": "API v2 (/api/v2/...)",
+      "app": "frappe",
+      "from": "15.0.0"
+    },
+    {
+      "name": "frappectl",
+      "app": "frappe",
+      "from": "16.0.0"
+    },
+    {
+      "name": "the built-in MCP server",
+      "app": "frappe",
+      "from": "16.53.0"
+    }
+  ],
+  "changes": [
+    {
+      "app": "frappe",
+      "since": "16.33.0",
+      "covered": false,
+      "what": "A user's Restrict IP list now also applies to API-key and OAuth requests, so a key can be refused from an unlisted address."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.35.0",
+      "covered": false,
+      "what": "The Print IRS 1099 Forms button was removed from the IRS 1099 report."
+    },
+    {
+      "app": "frappe",
+      "since": "16.36.0",
+      "covered": false,
+      "what": "Automation rules exist (triggers, waits, branches). This pack does not cover building them yet."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.36.0",
+      "covered": false,
+      "what": "More actions and record lookups now check permissions, so an API user may need extra roles."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.50.0",
+      "covered": false,
+      "what": "Permissions are checked on records used in accounting, stock, asset, manufacturing and project actions."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.51.0",
+      "covered": false,
+      "what": "Profit and Loss and Balance Sheet can be grouped by accounting dimension."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.52.0",
+      "covered": false,
+      "what": "In BOM, Work Order and Job Card, Track Semi Finished Goods / Make in Stages is now called Produce an Item at Each Operation. This pack's bundled pages use the old name."
+    },
+    {
+      "app": "frappe",
+      "since": "16.53.0",
+      "covered": true,
+      "what": "Frappe has a built-in MCP server, and lists can be grouped with totals."
+    },
+    {
+      "app": "frappe",
+      "since": "16.53.0",
+      "covered": false,
+      "what": "Rate limits are now counted per endpoint."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.53.0",
+      "covered": false,
+      "what": "BOM Creator was rebuilt as a design workspace; this pack's steps for it describe the old screen."
+    },
+    {
+      "app": "frappe",
+      "since": "16.55.0",
+      "covered": true,
+      "what": "The Desk has Delete All, which removes a record together with everything linked to it. Treat it as irreversible."
+    },
+    {
+      "app": "frappe",
+      "since": "16.55.0",
+      "covered": true,
+      "what": "API responses leave out fields the signed-in user may not view, so a missing field is not an empty one."
+    },
+    {
+      "app": "frappe",
+      "since": "16.55.0",
+      "covered": false,
+      "what": "New sites use Chrome to make PDFs from print formats."
+    }
+  ]
+}

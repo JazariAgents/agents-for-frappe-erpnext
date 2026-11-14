@@ -1,0 +1,645 @@
+{
+  "meta": {
+    "company": "Demo Trading Co.",
+    "site": "demo.example.com",
+    "currency": "SAR",
+    "generated_at": "2026-11-14T09:30:00+03:00",
+    "period_from": "2025-12-01",
+    "period_to": "2026-11-14",
+    "demo": true,
+    "lang": "en",
+    "collector": "1.0.0",
+    "truncated": []
+  },
+  "finance": {
+    "months": [
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03",
+      "2026-04",
+      "2026-05",
+      "2026-06",
+      "2026-07",
+      "2026-08",
+      "2026-09",
+      "2026-10",
+      "2026-11"
+    ],
+    "sales_invoiced": [
+      412000,
+      388500,
+      421300,
+      455800,
+      439200,
+      472600,
+      498100,
+      463400,
+      517900,
+      542300,
+      566800,
+      248700
+    ],
+    "purchases_invoiced": [
+      268000,
+      251200,
+      279900,
+      301400,
+      284700,
+      310500,
+      322800,
+      298600,
+      334100,
+      351900,
+      363200,
+      171400
+    ],
+    "cash_in": [
+      395000,
+      402100,
+      398700,
+      431200,
+      448900,
+      451300,
+      476500,
+      489200,
+      492800,
+      521700,
+      548300,
+      233900
+    ],
+    "cash_out": [
+      271500,
+      259800,
+      268300,
+      295100,
+      291600,
+      303800,
+      318200,
+      307400,
+      326900,
+      344600,
+      358100,
+      162700
+    ],
+    "receivables": {
+      "total": 684300,
+      "overdue": 212900,
+      "count": 143,
+      "overdue_count": 41,
+      "aging": [
+        {
+          "bucket": "not_due",
+          "amount": 471400
+        },
+        {
+          "bucket": "d1_30",
+          "amount": 118600
+        },
+        {
+          "bucket": "d31_60",
+          "amount": 52400
+        },
+        {
+          "bucket": "d61_90",
+          "amount": 24700
+        },
+        {
+          "bucket": "d90_plus",
+          "amount": 17200
+        }
+      ]
+    },
+    "payables": {
+      "total": 402800,
+      "overdue": 58300,
+      "count": 67,
+      "overdue_count": 9
+    },
+    "top_overdue": [
+      {
+        "invoice": "ACC-SINV-2026-00412",
+        "customer": "Riyadh Fresh Markets",
+        "due_date": "2026-08-02",
+        "days_overdue": 104,
+        "amount": 17200
+      },
+      {
+        "invoice": "ACC-SINV-2026-00655",
+        "customer": "Gulf Line Contracting",
+        "due_date": "2026-09-01",
+        "days_overdue": 74,
+        "amount": 24700
+      },
+      {
+        "invoice": "ACC-SINV-2026-00731",
+        "customer": "Najd Hospitality Group",
+        "due_date": "2026-09-28",
+        "days_overdue": 47,
+        "amount": 31900
+      },
+      {
+        "invoice": "ACC-SINV-2026-00788",
+        "customer": "Red Sea Logistics",
+        "due_date": "2026-10-06",
+        "days_overdue": 39,
+        "amount": 20500
+      },
+      {
+        "invoice": "ACC-SINV-2026-00846",
+        "customer": "Al Waha Pharmacies",
+        "due_date": "2026-10-21",
+        "days_overdue": 24,
+        "amount": 46300
+      },
+      {
+        "invoice": "ACC-SINV-2026-00871",
+        "customer": "Eastern Province Supplies",
+        "due_date": "2026-10-30",
+        "days_overdue": 15,
+        "amount": 28400
+      }
+    ]
+  },
+  "sales": {
+    "top_customers": [
+      {
+        "name": "Al Waha Pharmacies",
+        "amount": 612400
+      },
+      {
+        "name": "Najd Hospitality Group",
+        "amount": 548900
+      },
+      {
+        "name": "Riyadh Fresh Markets",
+        "amount": 471300
+      },
+      {
+        "name": "Gulf Line Contracting",
+        "amount": 398200
+      },
+      {
+        "name": "Red Sea Logistics",
+        "amount": 342700
+      },
+      {
+        "name": "Eastern Province Supplies",
+        "amount": 301500
+      },
+      {
+        "name": "Tabuk Agricultural Co-op",
+        "amount": 256800
+      },
+      {
+        "name": "Jeddah Home Stores",
+        "amount": 219600
+      }
+    ],
+    "orders_by_status": [
+      {
+        "status": "Completed",
+        "count": 412,
+        "amount": 4612300
+      },
+      {
+        "status": "To Deliver and Bill",
+        "count": 23,
+        "amount": 318400
+      },
+      {
+        "status": "To Bill",
+        "count": 14,
+        "amount": 176200
+      },
+      {
+        "status": "To Deliver",
+        "count": 9,
+        "amount": 97500
+      },
+      {
+        "status": "Closed",
+        "count": 6,
+        "amount": 41800
+      },
+      {
+        "status": "On Hold",
+        "count": 2,
+        "amount": 28600
+      }
+    ],
+    "open_orders": {
+      "count": 48,
+      "amount": 620700
+    },
+    "open_quotations": {
+      "count": 31,
+      "amount": 742500
+    },
+    "new_customers": [
+      9,
+      7,
+      11,
+      12,
+      8,
+      14,
+      13,
+      10,
+      15,
+      17,
+      16,
+      6
+    ],
+    "customers_total": 486
+  },
+  "people": {
+    "headcount": 84,
+    "joined_12m": 17,
+    "left_12m": 6,
+    "by_department": [
+      {
+        "name": "Sales",
+        "count": 19
+      },
+      {
+        "name": "Operations",
+        "count": 17
+      },
+      {
+        "name": "Warehouse",
+        "count": 14
+      },
+      {
+        "name": "Accounts",
+        "count": 9
+      },
+      {
+        "name": "Customer Support",
+        "count": 8
+      },
+      {
+        "name": "Purchasing",
+        "count": 6
+      },
+      {
+        "name": "IT",
+        "count": 5
+      },
+      {
+        "name": "Human Resources",
+        "count": 4
+      },
+      {
+        "name": "Management",
+        "count": 2
+      }
+    ],
+    "on_leave_today": 5,
+    "attendance_today": [
+      {
+        "status": "Present",
+        "count": 68
+      },
+      {
+        "status": "Work From Home",
+        "count": 7
+      },
+      {
+        "status": "On Leave",
+        "count": 5
+      },
+      {
+        "status": "Half Day",
+        "count": 2
+      },
+      {
+        "status": "Absent",
+        "count": 2
+      }
+    ],
+    "leave_requests_open": 4,
+    "expense_claims_pending": {
+      "count": 7,
+      "amount": 12460
+    },
+    "payroll_last": {
+      "period": "2026-10",
+      "employees": 83,
+      "gross": 612400,
+      "net": 548900
+    }
+  },
+  "system": {
+    "apps": [
+      {
+        "name": "frappe",
+        "version": "16.32.0",
+        "branch": "version-16"
+      },
+      {
+        "name": "erpnext",
+        "version": "16.33.0",
+        "branch": "version-16"
+      },
+      {
+        "name": "hrms",
+        "version": "16.4.1",
+        "branch": "version-16"
+      }
+    ],
+    "scheduler": "active",
+    "errors_by_day": {
+      "days": [
+        "2026-11-01",
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "counts": [
+        3,
+        1,
+        0,
+        4,
+        2,
+        2,
+        0,
+        1,
+        6,
+        2,
+        1,
+        0,
+        18,
+        5
+      ]
+    },
+    "errors_24h": 5,
+    "failed_jobs_24h": [
+      {
+        "job": "frappe.email.doctype.email_account.email_account.pull",
+        "count": 3
+      }
+    ],
+    "email_queue": {
+      "not_sent": 12,
+      "error": 2
+    },
+    "users": {
+      "enabled": 61,
+      "system": 38
+    },
+    "background_jobs_failed": 1
+  },
+  "agents": {
+    "window_days": 30,
+    "total": 137,
+    "done": 121,
+    "partial": 4,
+    "failed": 3,
+    "refused": 9,
+    "records_changed": 1246,
+    "changes": 58,
+    "snapshotted": 58,
+    "median_seconds": 74,
+    "by_agent": [
+      {
+        "agent": "Mizan",
+        "role": "Accounting, Tax & Reporting",
+        "tasks": 34,
+        "done": 31,
+        "refused": 2,
+        "failed": 1,
+        "changed": 212,
+        "last": "2026-11-14"
+      },
+      {
+        "agent": "Hazim",
+        "role": "Sales Operations & Projects",
+        "tasks": 23,
+        "done": 21,
+        "refused": 1,
+        "failed": 1,
+        "changed": 148,
+        "last": "2026-11-14"
+      },
+      {
+        "agent": "Wafir",
+        "role": "Bulk Import & Migration",
+        "tasks": 17,
+        "done": 14,
+        "refused": 2,
+        "failed": 1,
+        "changed": 640,
+        "last": "2026-11-12"
+      },
+      {
+        "agent": "Anees",
+        "role": "Customers, Support & People",
+        "tasks": 16,
+        "done": 15,
+        "refused": 1,
+        "failed": 0,
+        "changed": 61,
+        "last": "2026-11-13"
+      },
+      {
+        "agent": "Dhukhr",
+        "role": "Inventory & Stock",
+        "tasks": 15,
+        "done": 13,
+        "refused": 1,
+        "failed": 1,
+        "changed": 96,
+        "last": "2026-11-13"
+      },
+      {
+        "agent": "Rukaz",
+        "role": "Setup & Configuration",
+        "tasks": 12,
+        "done": 11,
+        "refused": 1,
+        "failed": 0,
+        "changed": 44,
+        "last": "2026-11-10"
+      },
+      {
+        "agent": "Urwah",
+        "role": "API, Bench & Automation",
+        "tasks": 11,
+        "done": 9,
+        "refused": 1,
+        "failed": 1,
+        "changed": 18,
+        "last": "2026-11-14"
+      },
+      {
+        "agent": "Imran",
+        "role": "App Builder & Customizer",
+        "tasks": 6,
+        "done": 5,
+        "refused": 0,
+        "failed": 1,
+        "changed": 21,
+        "last": "2026-11-08"
+      },
+      {
+        "agent": "Zahir",
+        "role": "Marketing & Website",
+        "tasks": 3,
+        "done": 2,
+        "refused": 0,
+        "failed": 1,
+        "changed": 6,
+        "last": "2026-11-05"
+      }
+    ],
+    "by_day": {
+      "days": [
+        "2026-11-01",
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-07",
+        "2026-11-08",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11",
+        "2026-11-12",
+        "2026-11-13",
+        "2026-11-14"
+      ],
+      "counts": [
+        4,
+        2,
+        5,
+        7,
+        6,
+        3,
+        1,
+        2,
+        8,
+        6,
+        5,
+        7,
+        9,
+        4
+      ]
+    },
+    "by_adapter": [
+      {
+        "name": "mcp",
+        "count": 88
+      },
+      {
+        "name": "frappectl",
+        "count": 41
+      },
+      {
+        "name": "browser",
+        "count": 8
+      }
+    ],
+    "recent": [
+      {
+        "ts": "2026-11-14T09:12+03:00",
+        "agent": "Mizan",
+        "skill": "frappe-accounting",
+        "task": "Raise a sales invoice from a delivery note",
+        "outcome": "done",
+        "changed": 1
+      },
+      {
+        "ts": "2026-11-14T08:47+03:00",
+        "agent": "Urwah",
+        "skill": "frappe-dashboards",
+        "task": "Build the company dashboard",
+        "outcome": "done",
+        "changed": 0
+      },
+      {
+        "ts": "2026-11-14T08:31+03:00",
+        "agent": "Hazim",
+        "skill": "frappe-selling",
+        "task": "Close stale quotations older than 90 days",
+        "outcome": "refused",
+        "changed": 0
+      },
+      {
+        "ts": "2026-11-13T16:20+03:00",
+        "agent": "Dhukhr",
+        "skill": "frappe-inventory",
+        "task": "Post a stock reconciliation for the main warehouse",
+        "outcome": "done",
+        "changed": 38
+      },
+      {
+        "ts": "2026-11-13T14:05+03:00",
+        "agent": "Anees",
+        "skill": "frappe-hr",
+        "task": "Approve pending leave requests for one department",
+        "outcome": "done",
+        "changed": 4
+      },
+      {
+        "ts": "2026-11-13T11:42+03:00",
+        "agent": "Mizan",
+        "skill": "frappe-accounting",
+        "task": "Reconcile the bank statement for October",
+        "outcome": "partial",
+        "changed": 52
+      },
+      {
+        "ts": "2026-11-12T15:18+03:00",
+        "agent": "Wafir",
+        "skill": "frappe-data-import",
+        "task": "Import the new price list",
+        "outcome": "done",
+        "changed": 310
+      },
+      {
+        "ts": "2026-11-12T10:03+03:00",
+        "agent": "Wafir",
+        "skill": "frappe-data-import",
+        "task": "Bulk delete duplicate items",
+        "outcome": "refused",
+        "changed": 0
+      }
+    ]
+  },
+  "notes": {
+    "system.backups": "Backup status cannot be read over the REST API. Check it with bench on the server, or on the Frappe Cloud dashboard."
+  },
+  "sources": {
+    "finance.invoiced": "Sales Invoice and Purchase Invoice, submitted, net total in company currency, by posting date",
+    "finance.cash": "Payment Entry, submitted, type Receive and Pay, by posting date",
+    "finance.receivables": "Sales Invoice, submitted, outstanding amount above zero, aged by due date",
+    "finance.payables": "Purchase Invoice, submitted, outstanding amount above zero",
+    "sales.top_customers": "Sales Invoice, submitted, net total by customer, last 12 months",
+    "sales.orders": "Sales Order, submitted, by status, last 12 months",
+    "sales.quotations": "Quotation, submitted, status Open",
+    "sales.customers": "Customer, enabled, by creation date",
+    "people.employees": "Employee, by status, department, joining and relieving date",
+    "people.attendance": "Attendance, submitted, for today",
+    "people.leave": "Leave Application, open requests and approved leave covering today",
+    "people.claims": "Expense Claim, draft",
+    "people.payroll": "Salary Slip, submitted, most recent pay period",
+    "system.apps": "frappe.utils.change_log.get_versions",
+    "system.scheduler": "frappe.utils.scheduler.get_scheduler_status",
+    "system.errors": "Error Log, by creation date, last 14 days",
+    "system.jobs": "Scheduled Job Log, status Failed, last 24 hours",
+    "system.email": "Email Queue, status Not Sent and Error",
+    "system.users": "User, enabled",
+    "agents": ".frappe/activity.jsonl, one line per finished request, written by the agents themselves"
+  }
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>وكلاء Frappe</title>
+<style>
+:root{--ink:#151a21;--ink2:#3d4756;--muted:#6b7583;--line:#dee3ea;--bg:#f5f7fa;--card:#fff;
+--blue:#1b47c4;--green:#136b45;--amber:#8a5206;--red:#9b2c2c;--redbg:#fdf0f0;--greenbg:#e9f5ee;--bluebg:#e8edfb;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:34px 0 28px;margin-bottom:34px}
+h1{font-size:34px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+h2{font-size:24px;margin:44px 0 12px;letter-spacing:-.015em;line-height:1.2}
+h3{font-size:17px;margin:26px 0 8px}
+p{max-width:70ch}
+.sub{color:var(--ink2);font-size:18px;margin:0;max-width:70ch}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--bluebg);color:var(--blue);font-weight:600}
+.safety{background:var(--redbg);border:1px solid #f0cfcf;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:26px 0}
+.safety h2{margin-top:0;color:var(--red);font-size:20px}
+.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:18px 22px;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.agent img{width:56px;height:56px;border-radius:12px;flex:0 0 auto;background:var(--bg)}
+.agent h3{margin:0 0 4px;font-size:17px}
+.agent .role{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
+.agent p{margin:0;font-size:14.5px;color:var(--ink2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef1f6;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+ol,ul{max-width:70ch}li{margin:6px 0}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px 14px 52px;position:relative;margin:10px 0}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+.ok{color:var(--green);font-weight:600}
+body{direction:rtl}.agent{flex-direction:row}th,td{text-align:right}.steps li{padding:14px 52px 14px 18px}.steps li::before{left:auto;right:16px}code{direction:ltr;display:inline-block}</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.0</span><h1>الفريق</h1><p class="sub">تسعة وكلاء، نفس الوجوه في كل منتجات Jazari Agents.</p></div></header>
+<div class="wrap"><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/rukaz.png" alt="Rukaz" style="width:80px;height:80px"><div><h3 style="color:#2b6fff;font-size:22px">Rukaz</h3><p class="role">الإعداد والتهيئة · 32 قدرة</p><p>يجهّز الموقع الجديد: الشركة والسنة المالية ودليل الحسابات والمستخدمون والاستضافة على Frappe Cloud.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Turn on two-factor authentication</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Read the audit trail</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Hide fields with permission levels</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Group roles into a role profile</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Set role-based permissions</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Understand permission types</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Restrict a user to specific records</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Add and manage users</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-users-permissions</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 24 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/wafir.png" alt="Wafir" style="width:80px;height:80px"><div><h3 style="color:#7c5cff;font-size:22px">Wafir</h3><p class="role">الاستيراد والترحيل · 13 قدرة</p><p>ينقل البيانات بالجملة: ملفات إكسل والأرصدة الافتتاحية ودليل الحسابات والترحيل من نظام آخر، مع تجربة أولى دائماً.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-accounting</code>, <code>frappe-data-import</code>, <code>frappe-inventory</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Enter opening balances</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Import opening invoices</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Rename records in bulk</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Update many records at once</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import a chart of accounts</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Export records to a spreadsheet</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import records from a spreadsheet</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Load opening stock</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 5 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/imran.png" alt="Imran" style="width:80px;height:80px"><div><h3 style="color:#6366f1;font-size:22px">Imran</h3><p class="role">بناء التطبيقات والتخصيص · 47 قدرة</p><p>يبني على المنصة نفسها: تطبيقات وأنواع مستندات وحقول وسير عمل وقوالب طباعة، إضافة إلى التصنيع وقوائم المواد.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-app-builder</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-manufacturing</code>, <code>frappe-website</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Create a new Frappe app</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a new site for an app</td><td>أوامر bench</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Write controller methods</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a DocType</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Turn on DocType features</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Pick the right field type</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Set how documents are named</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Choose the right kind of DocType</td><td>إرشاد</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-app-builder</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 39 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/dhukhr.png" alt="Dhukhr" style="width:80px;height:80px"><div><h3 style="color:#2b9bd6;font-size:22px">Dhukhr</h3><p class="role">المخزون · 19 قدرة</p><p>يعرف مكان كل صنف وقيمته: المستودعات وحركات المخزون والجرد والدفعات والأرقام التسلسلية والتقييم.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-buying</code>, <code>frappe-inventory</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Receive goods</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Return goods to a supplier</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Make a stock entry</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Create and manage items</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Group items</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Reconcile physical stock</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Manage units of measure</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Set up warehouses</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-inventory</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 11 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/mizan.png" alt="Mizan" style="width:80px;height:80px"><div><h3 style="color:#0f9c5f;font-size:22px">Mizan</h3><p class="role">المحاسبة والضرائب والتقارير · 70 قدرة</p><p>المال: الفواتير والمدفوعات والقيود والتسويات والموازنات والأصول والضريبة والقروض وكل التقارير.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-accounting</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-learning</code>, <code>frappe-lending</code>, <code>frappe-projects</code>, <code>frappe-reports</code>, <code>frappe-selling</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Issue a credit note</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Issue a debit note</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Post a journal entry</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Record a payment entry</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Send a payment request</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set payment terms</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Record a purchase invoice</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Raise a sales invoice</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-accounting</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 62 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/zahir.png" alt="Zahir" style="width:80px;height:80px"><div><h3 style="color:#a855f7;font-size:22px">Zahir</h3><p class="role">التسويق والموقع · 22 قدرة</p><p>الواجهة العامة: صفحات الموقع والمدونة والقوالب وتحسين الظهور والمتجر وقواعد التسعير والكوبونات والحملات.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-crm</code>, <code>frappe-selling</code>, <code>frappe-setup</code>, <code>frappe-website</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Capture leads from a web form</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Issue coupon codes</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Set item prices</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run a loyalty program</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Maintain price lists</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Apply a pricing rule</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run a promotional scheme</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Create an email template</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-setup</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 14 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/hazim.png" alt="Hazim" style="width:80px;height:80px"><div><h3 style="color:#12b3a0;font-size:22px">Hazim</h3><p class="role">العمليات والمشاريع · 17 قدرة</p><p>يبقي الطلبات تتحرك: عروض الأسعار وأوامر البيع والتجهيز والتسليم ونقاط البيع والمشاريع وساعات العمل.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-helpdesk</code>, <code>frappe-projects</code>, <code>frappe-reports</code>, <code>frappe-selling</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Ship goods with a delivery note</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Plan a delivery trip</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Pack an order</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Pick stock for an order</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Send a quotation</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Process a sales return</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Confirm a sales order</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Book a shipment</td><td>واجهة API</td><td>لا يمكن التراجع</td><td><code>frappe-selling</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 9 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/anees.png" alt="Anees" style="width:80px;height:80px"><div><h3 style="color:#f0a020;font-size:22px">Anees</h3><p class="role">العملاء والدعم والموظفون · 60 قدرة</p><p>كل من تتعامل معه الشركة: العملاء المحتملون والصفقات وتذاكر الدعم والموظفون والإجازات والرواتب والطلاب.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-crm</code>, <code>frappe-helpdesk</code>, <code>frappe-hr</code>, <code>frappe-learning</code>, <code>frappe-selling</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Mark attendance</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Automate attendance from check-ins</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Create employee records</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Onboard a new employee</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run employee separation</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Create and manage customers</td><td>واجهة API</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Group customers</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Organise territories</td><td>من الواجهة</td><td>يُستعاد كما كان</td><td><code>frappe-selling</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 52 قدرة أخرى — انظر الدليل.</p><div class="agent" style="margin:18px 0;align-items:flex-start"><img src="assets/urwah.png" alt="Urwah" style="width:80px;height:80px"><div><h3 style="color:#10b981;font-size:22px">Urwah</h3><p class="role">الربط والبنش والأتمتة · 51 قدرة</p><p>البنية التحتية: الاتصال بالموقع وواجهة REST والويب هوك والمهام الخلفية وأوامر bench والنسخ الاحتياطي والاستعادة.</p><p style="font-size:14px;color:#6b7583">المهارات: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p></div></div><div class="tablewrap"><table><thead><tr><th>ما يستطيع</th><th>الوضع</th><th>التراجع</th><th>المهارة</th></tr></thead><tbody>
+<tr><td>Authenticate with OAuth 2</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Log in with username and password</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Authenticate with API key and secret</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Test the site connection</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Create a document through the API</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Filter and select fields in a list call</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>List documents of any DocType</td><td>واجهة API</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-api</code></td></tr>
+<tr><td>Generate API key and secret for a user</td><td>من الواجهة</td><td>آمن — قراءة أو إنشاء</td><td><code>frappe-connect</code></td></tr>
+</tbody></table></div><p style="color:#6b7583;font-size:14px">… و 43 قدرة أخرى — انظر الدليل.</p><footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · 2026-08-31</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "jazari-agents",
+  "owner": {
+    "name": "Jazari Agents",
+    "email": "hello@jazariagents.com",
+    "url": "https://jazariagents.com"
+  },
+  "metadata": {
+    "description": "Agents from Jazari Agents that run business software by conversation, in English and Arabic.",
+    "version": "1.1.0"
+  },
+  "plugins": [
+    {
+      "name": "jazari-frappe-erpnext",
+      "source": "./plugins/jazari-frappe-erpnext",
+      "description": "Run ERPNext and the other Frappe apps by chatting: nine specialist agents, snapshots before every change, and a one-page business dashboard. English and Arabic.",
+      "version": "1.1.0",
+      "author": {
+        "name": "Jazari Agents",
+        "url": "https://jazariagents.com"
+      },
+      "homepage": "https://jazariagents.com",
+      "license": "MIT",
+      "keywords": ["erpnext", "frappe", "erp", "accounting", "dashboard", "arabic", "mcp"]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Run monthly payroll
+
+Owner: **Anees** · verified: docs (documentation, not a live probe)
+
+## Preconditions
+- `.frappe/state.json` exists (run frappe-connect first)
+- the site is reachable and the API user has the roles for every step below
+
+## Steps
+1. **Mark attendance** (`hr.attendance`, api mode) — SNAPSHOT FIRST, reversible
+   read: `docs/frappe-hr/hr__attendance.md`   (https://docs.frappe.io/hr/attendance)
+2. **Build a salary structure** (`hr.salarystructure`, browser mode) — SNAPSHOT FIRST, reversible
+   read: `docs/frappe-hr/hr__salary-structure.md`   (https://docs.frappe.io/hr/salary-structure)
+3. **Run payroll** (`hr.payrollentry`, api mode) — SNAPSHOT FIRST, irreversible
+   read: `docs/frappe-hr/hr__payroll-entry.md`   (https://docs.frappe.io/hr/payroll-entry)
+4. **Issue salary slips** (`hr.salaryslip`, api mode) — SNAPSHOT FIRST, irreversible
+   read: `docs/frappe-hr/hr__salary-slip.md`   (https://docs.frappe.io/hr/salary-slip)
+
+## Failure modes
+- HTTP 403: the API user lacks the role for that DocType — say which role is missing, do not retry blindly
+- HTTP 429: the site's rate limit was hit; back off and tell the user (see `api.ratelimit`)
+- a submitted document cannot be edited: amend or cancel it instead, and say so before acting
+- the site runs v14 or older: API v2 paths are unavailable (`/api/v2/` returns 404), fall back to `/api/resource/...` (v1)

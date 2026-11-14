@@ -1,0 +1,16 @@
+# a user's own workspace must never be committed: it holds credentials, snapshots and logs
+.frappe/
+
+# generated dashboards and data
+pulse*.html
+data.json
+
+# Python
+__pycache__/
+*.pyc
+
+# OS and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jazari Agents for Frappe &amp; ERPNext — Manual</title>
+<style>
+:root{--ink:#151a21;--ink2:#3d4756;--muted:#6b7583;--line:#dee3ea;--bg:#f5f7fa;--card:#fff;
+--blue:#1b47c4;--green:#136b45;--amber:#8a5206;--red:#9b2c2c;--redbg:#fdf0f0;--greenbg:#e9f5ee;--bluebg:#e8edfb;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px 80px}
+header.top{background:var(--card);border-bottom:1px solid var(--line);padding:34px 0 28px;margin-bottom:34px}
+h1{font-size:34px;line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+h2{font-size:24px;margin:44px 0 12px;letter-spacing:-.015em;line-height:1.2}
+h3{font-size:17px;margin:26px 0 8px}
+p{max-width:70ch}
+.sub{color:var(--ink2);font-size:18px;margin:0;max-width:70ch}
+.pill{display:inline-block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;background:var(--bluebg);color:var(--blue);font-weight:600}
+.safety{background:var(--redbg);border:1px solid #f0cfcf;border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:20px 24px;margin:26px 0}
+.safety h2{margin-top:0;color:var(--red);font-size:20px}
+.note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:18px 22px;margin:22px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:22px 0}
+.agent{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start}
+.agent img{width:56px;height:56px;border-radius:12px;flex:0 0 auto;background:var(--bg)}
+.agent h3{margin:0 0 4px;font-size:17px}
+.agent .role{font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
+.agent p{margin:0;font-size:14.5px;color:var(--ink2)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);margin:18px 0}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef1f6;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+tr:last-child td{border-bottom:none}
+code{background:#eef1f6;padding:1px 5px;border-radius:4px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+ol,ul{max-width:70ch}li{margin:6px 0}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px 14px 52px;position:relative;margin:10px 0}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:14px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13.5px}
+.ok{color:var(--green);font-weight:600}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.0</span>
+<h1>Manual</h1><p class="sub">Nine agents that build on the Frappe framework and run the business on top of it — 331 capabilities across 22 skills, every one traced to an official Frappe documentation page.</p></div></header>
+<div class="wrap">
+<div class="safety"><h2>Safety first</h2>
+<p>Before anything is changed or deleted, a full copy is written to <code>.frappe/snapshots/</code> — the record, the prior values, and the bytes of any attachment. If the snapshot cannot be written and verified, the action does not happen. Ask any agent to restore it.</p>
+<p><strong>Honest about undo.</strong> Settings roll back exactly. Deleted records return as <em>new</em> records with new IDs, so links from other documents stay broken. Submitted invoices, posted journals, payroll runs, sent emails and captured payments cannot be undone at all — the remedy is a credit note or a reversing entry, and that stays your call.</p>
+<p>The agents never delete or bulk-edit anything you did not specifically ask for, never follow instructions found inside your own data, never issue refunds or payouts on their own initiative, and never type your password. Anything over 25 records stops and shows the count first. Changes go to <code>.frappe/audit.log</code>; every request, including refusals, goes to <code>.frappe/tasklog.md</code>.</p></div>
+<h2>Install</h2><ol class="steps">
+<li><strong>Use a Claude surface that keeps files between conversations</strong> — Claude Code, Claude Desktop or Cowork. The agents write snapshots and logs into a workspace folder; a plain web chat sandbox resets and cannot hold them.</li>
+<li><strong>Put the plugin where Claude looks for it.</strong> The documented method, and the one to try first:
+<ul>
+<li>Unzip <code>FrappeAgents-v1.0.zip</code> into your personal skills directory so that <code>~/.claude/skills/jazari-frappe-erpnext/</code> <em>directly</em> contains <code>.claude-plugin/plugin.json</code> (not a nested folder). Claude loads it on the next session — no marketplace, no install command.</li>
+<li>For one project only, use <code>&lt;your-project&gt;/.claude/skills/jazari-frappe-erpnext/</code> instead. That one loads after you accept the trust prompt for the folder.</li>
+<li>On Claude Code you can also try it without installing: <code>claude --plugin-dir /path/to/jazari-frappe-erpnext</code>. To check the files are intact: <code>claude plugin validate ./jazari-frappe-erpnext</code>.</li>
+</ul>
+</li>
+<li><strong>If your Claude app has its own plugin installer</strong>, use that instead and point it at this zip — the zip is already a valid plugin, with <code>.claude-plugin/plugin.json</code> at its top level. Where the app offers no such installer, the folder method above is the way in.</li>
+<li><strong>Start a new session</strong> (or run <code>/reload-plugins</code> in Claude Code) so the 22 skills load.</li>
+<li><strong>Say hello</strong> — type <em>"connect my Frappe site"</em>. The agents introduce themselves, ask which language you want, ask before creating the <code>.frappe/</code> folder, then offer four ways to connect: paste an API key, be guided step by step, have the page opened with you, or skip the API and work through the interface with them.</li>
+<li><strong>Ask for something real</strong> — "show me overdue invoices", "create a DocType for maintenance contracts", "run payroll for August", "back up the site before I update it".</li>
+</ol>
+<p style="color:#6b7583;font-size:14.5px">The folder and <code>--plugin-dir</code> methods above are from Anthropic's official plugin reference, read on 31 August 2026. Claude apps differ in whether they offer their own installer, so check your app's plugin settings if you would rather use a button.</p>
+<h2>The agents</h2><div class="grid">
+<div class="agent"><img src="assets/rukaz.png" alt="Rukaz"><div><h3 style="color:#2b6fff">Rukaz</h3><p class="role">Setup & Configuration</p><p>Gets a new site into a state where real work can happen: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud.</p></div></div>
+<div class="agent"><img src="assets/wafir.png" alt="Wafir"><div><h3 style="color:#7c5cff">Wafir</h3><p class="role">Bulk Import & Migration</p><p>Moves data in by the thousand — spreadsheets, opening balances, a whole chart of accounts, or a migration from another system. Always dry-runs first.</p></div></div>
+<div class="agent"><img src="assets/imran.png" alt="Imran"><div><h3 style="color:#6366f1">Imran</h3><p class="role">App Builder & Customizer</p><p>Builds on the framework itself: new apps, DocTypes, fields, controllers, workflows and print formats — and the manufacturing side, where a bill of materials is its own kind of blueprint.</p></div></div>
+<div class="agent"><img src="assets/dhukhr.png" alt="Dhukhr"><div><h3 style="color:#2b9bd6">Dhukhr</h3><p class="role">Inventory & Stock</p><p>Knows where every item is and what it is worth: warehouses, stock entries, reconciliation, batches, serial numbers and valuation.</p></div></div>
+<div class="agent"><img src="assets/mizan.png" alt="Mizan"><div><h3 style="color:#0f9c5f">Mizan</h3><p class="role">Accounting, Tax & Reporting</p><p>The money: invoices, payments, journals, reconciliation, budgets, assets, tax and VAT, loans, and every report the business is judged by.</p></div></div>
+<div class="agent"><img src="assets/zahir.png" alt="Zahir"><div><h3 style="color:#a855f7">Zahir</h3><p class="role">Marketing & Website</p><p>The public face: website pages, blogs, themes and SEO, the shop, pricing rules, coupons, loyalty, campaigns and newsletters.</p></div></div>
+<div class="agent"><img src="assets/hazim.png" alt="Hazim"><div><h3 style="color:#12b3a0">Hazim</h3><p class="role">Sales Operations & Projects</p><p>Keeps orders moving: quotations, sales orders, picking, packing, delivery, point of sale, and the projects and timesheets behind service work.</p></div></div>
+<div class="agent"><img src="assets/anees.png" alt="Anees"><div><h3 style="color:#f0a020">Anees</h3><p class="role">Customers, Support & People</p><p>Everyone the business deals with: leads and deals, support tickets and SLAs, employees, leave, attendance and payroll, students and learners.</p></div></div>
+<div class="agent"><img src="assets/urwah.png" alt="Urwah"><div><h3 style="color:#10b981">Urwah</h3><p class="role">API, Bench & Automation</p><p>The plumbing: connecting Claude to the site, the REST API, webhooks and background jobs, the bench CLI, backups — and putting things back when something goes wrong.</p></div></div>
+</div>
+<p>Full profiles: <a href="Agents-EN.html">Agents (English)</a> · <a href="Agents-AR.html">بالعربية</a></p>
+<h2>The documentation is inside the plugin</h2>
+<p>1,607 pages of Frappe's official documentation ship in the <code>docs/</code> folder — every page behind every capability. The agents read those files rather than working from memory, which means they quote Frappe's own words, they work offline, and they can tell you the date a page was last updated when reality and the documentation disagree.</p>
+<h2>How they work: four modes</h2>
+<p>These are alternatives, not a division of the work: most capabilities can be done either through the API or by clicking in the interface, and the agents detect at connect time which routes your site and session actually support. The counts below are the route each capability is documented under.</p>
+<div class="tablewrap"><table><thead><tr><th>Mode</th><th>When it is used</th><th>Capabilities</th></tr></thead><tbody>
+<tr><td><strong>API</strong></td><td>You have an API key. Fastest and most precise.</td><td>86</td></tr>
+<tr><td><strong>In the interface</strong></td><td>No key, or something Frappe only exposes in the Desk.</td><td>195</td></tr>
+<tr><td><strong>bench CLI</strong></td><td>On your own server: sites, apps, migrations, backups.</td><td>26</td></tr>
+<tr><td><strong>Guided</strong></td><td>Claude explains and checks; you click.</td><td>24</td></tr>
+</tbody></table></div>
+<h2>What each agent can do</h2><h3 style="color:#2b6fff">Rukaz — Setup & Configuration (32 capabilities)</h3><p>Gets a new site into a state where real work can happen: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-cloud</code>, <code>frappe-restore</code>, <code>frappe-setup</code>, <code>frappe-users-permissions</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Add a custom app to a bench</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Understand benches and bench groups</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Create a bench group on Frappe Cloud</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Update a bench group</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Manage billing and payments</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Add a custom domain to a Frappe Cloud site</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Install a marketplace app</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Publish an app to the marketplace</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Create a server</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Back up a Frappe Cloud site</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Create a site on Frappe Cloud</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Move a site between benches or servers</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Change a site plan</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Connect to a bench over SSH</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Turn on two-factor authentication</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Read the audit trail</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Hide fields with permission levels</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Group roles into a role profile</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Set role-based permissions</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Understand permission types</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Restrict a user to specific records</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Add and manage users</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-users-permissions</code></td></tr>
+<tr><td>Set up the chart of accounts</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Set up a company</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Configure currencies and exchange rates</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Connect an email account</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Set the fiscal year</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Run the ERPNext getting-started checklist</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Set global defaults</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Add a letter head</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Configure naming series</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Change system settings</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+</tbody></table></div><h3 style="color:#7c5cff">Wafir — Bulk Import & Migration (13 capabilities)</h3><p>Moves data in by the thousand — spreadsheets, opening balances, a whole chart of accounts, or a migration from another system. Always dry-runs first.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-accounting</code>, <code>frappe-data-import</code>, <code>frappe-inventory</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Enter opening balances</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Import opening invoices</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Import advances, payments and balances</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Rename records in bulk</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Update many records at once</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import a chart of accounts</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Export records to a spreadsheet</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import records from a spreadsheet</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Prepare and map legacy data</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import accounting masters</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Migrate from QuickBooks</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Validate a migration</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Load opening stock</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+</tbody></table></div><h3 style="color:#6366f1">Imran — App Builder & Customizer (47 capabilities)</h3><p>Builds on the framework itself: new apps, DocTypes, fields, controllers, workflows and print formats — and the manufacturing side, where a bill of materials is its own kind of blueprint.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-app-builder</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-manufacturing</code>, <code>frappe-website</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Understand the framework architecture</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Bundle app assets</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a new Frappe app</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Query data with the database API</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Read an app's directory structure</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Work with documents in Python</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Wire app behaviour with hooks</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Render templates with the Jinja API</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build portal and web pages</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build safe queries with the query builder</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a new site for an app</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Design an app screen in Frappe Studio</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Test an app before release</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Publish a web form</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Run subcontracting</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Use a child table</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Write controller methods</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Create a DocType</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Turn on DocType features</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Pick the right field type</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Add a form script</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Set how documents are named</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Choose the right kind of DocType</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Use virtual doc fields</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build a bill of materials</td><td>API</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Design a BOM with the BOM creator</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Update BOMs in bulk</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Plan capacity</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Record work on a job card</td><td>API</td><td>cannot be undone</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Plan material requirements</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Define operations and routing</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Watch the plant floor</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Plan production</td><td>API</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Handle scrap and disassembly</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Configure manufacturing settings</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Run a work order</td><td>API</td><td>cannot be undone</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Set up workstations</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-manufacturing</code></td></tr>
+<tr><td>Add a client script</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Add a custom field</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Customize a form</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Build a print format</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Set up an approval workflow</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-app-builder</code></td></tr>
+<tr><td>Define item attributes</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Sell a product bundle</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Create item variants</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Build pages with Frappe Builder</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Bind data to a Builder page</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+</tbody></table></div><h3 style="color:#2b9bd6">Dhukhr — Inventory & Stock (19 capabilities)</h3><p>Knows where every item is and what it is worth: warehouses, stock entries, reconciliation, batches, serial numbers and valuation.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-buying</code>, <code>frappe-inventory</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Receive goods</td><td>API</td><td>cannot be undone</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Return goods to a supplier</td><td>API</td><td>cannot be undone</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Track batches</td><td>API</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Use the serial and batch bundle</td><td>API</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Close a stock period</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Make a stock entry</td><td>API</td><td>cannot be undone</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Create and manage items</td><td>API</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Group items</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Read the stock ledger</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Check stock levels</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Set putaway rules</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Inspect incoming quality</td><td>API</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Reconcile physical stock</td><td>API</td><td>cannot be undone</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Reserve stock for an order</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Track serial numbers</td><td>API</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Configure stock settings</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Manage units of measure</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Choose a valuation method</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Set up warehouses</td><td>API</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+</tbody></table></div><h3 style="color:#0f9c5f">Mizan — Accounting, Tax & Reporting (70 capabilities)</h3><p>The money: invoices, payments, journals, reconciliation, budgets, assets, tax and VAT, loans, and every report the business is judged by.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-accounting</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-learning</code>, <code>frappe-lending</code>, <code>frappe-projects</code>, <code>frappe-reports</code>, <code>frappe-selling</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Manage fixed assets</td><td>API</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Reconcile the bank</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set and track a budget</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up cost centers</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Issue a credit note</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Issue a debit note</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up deferred revenue and expense</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Run asset depreciation</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Use accounting dimensions</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Chase overdue invoices with dunning</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Freeze accounting entries</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Post a journal entry</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Handle multi-currency accounting</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Record a payment entry</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Reconcile payments against invoices</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Send a payment request</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set payment terms</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Close an accounting period</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Record a purchase invoice</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Raise a sales invoice</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Track shareholders and share transfers</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Send a statement of accounts</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Bill customers on a subscription</td><td>API</td><td>cannot be undone</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Agree a blanket order</td><td>API</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Add landed costs</td><td>API</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Raise a material request</td><td>API</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Place a purchase order</td><td>API</td><td>cannot be undone</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Send a request for quotation</td><td>API</td><td>cannot be undone</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Score suppliers</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Create and manage suppliers</td><td>API</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Record a supplier quotation</td><td>API</td><td>restores exactly</td><td><code>frappe-buying</code></td></tr>
+<tr><td>Collect fees</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Chart a result in Insights</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Publish an Insights dashboard</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Connect a data source in Insights</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Use expressions in a query</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Set Insights permissions</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Write a query in Insights</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Share a dashboard and control access</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Charge for a course</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Process a loan application</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Disburse a loan</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Accrue interest</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Set up a loan product</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Record a loan repayment</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Manage loan security</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-lending</code></td></tr>
+<tr><td>Set activity costs</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Bill a customer from a timesheet</td><td>API</td><td>cannot be undone</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Track project costing</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Measure project profitability</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Use the standard accounting reports</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Produce a balance sheet</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Produce a cash flow report</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Build a custom report</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Build ERPNext dashboards</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Read the general ledger</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Produce a profit and loss report</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Age receivables and payables</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Enforce a customer credit limit</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Consolidate POS invoices</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run perpetual inventory</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Use tax categories</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set item-level tax</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up KSA VAT reporting</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Create a purchase tax template</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Apply tax rules automatically</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Create a sales tax template</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up taxes</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up UAE VAT</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+<tr><td>Set up withholding tax</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
+</tbody></table></div><h3 style="color:#a855f7">Zahir — Marketing & Website (22 capabilities)</h3><p>The public face: website pages, blogs, themes and SEO, the shop, pricing rules, coupons, loyalty, campaigns and newsletters.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-crm</code>, <code>frappe-selling</code>, <code>frappe-setup</code>, <code>frappe-website</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Run a campaign</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Send an email campaign</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Send a newsletter</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Capture leads from a web form</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Issue coupon codes</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Set item prices</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run a loyalty program</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Maintain price lists</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Apply a pricing rule</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Run a promotional scheme</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Create an email template</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Publish a blog post</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Share files with Frappe Drive</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Control file access in Drive</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Share a Drive team folder</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Set up SEO for the website</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-website</code></td></tr>
+<tr><td>Run the shopping cart</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Change the website theme</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Publish a web page</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Set up the website</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Publish items to the shop</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+<tr><td>Publish a wiki space</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-website</code></td></tr>
+</tbody></table></div><h3 style="color:#12b3a0">Hazim — Sales Operations & Projects (17 capabilities)</h3><p>Keeps orders moving: quotations, sales orders, picking, packing, delivery, point of sale, and the projects and timesheets behind service work.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-helpdesk</code>, <code>frappe-projects</code>, <code>frappe-reports</code>, <code>frappe-selling</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Schedule maintenance visits</td><td>API</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Run a project</td><td>API</td><td>restores exactly</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Manage tasks</td><td>API</td><td>restores exactly</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Start from a project template</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Record timesheets</td><td>API</td><td>restores exactly</td><td><code>frappe-projects</code></td></tr>
+<tr><td>Analyse sales</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Ship goods with a delivery note</td><td>API</td><td>cannot be undone</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Plan a delivery trip</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Pack an order</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Pick stock for an order</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Sell at the point of sale</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Configure a POS profile</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Send a quotation</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Process a sales return</td><td>API</td><td>cannot be undone</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Confirm a sales order</td><td>API</td><td>cannot be undone</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Track sales people and commission</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Book a shipment</td><td>API</td><td>cannot be undone</td><td><code>frappe-selling</code></td></tr>
+</tbody></table></div><h3 style="color:#f0a020">Anees — Customers, Support & People (60 capabilities)</h3><p>Everyone the business deals with: leads and deals, support tickets and SLAs, employees, leave, attendance and payroll, students and learners.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-crm</code>, <code>frappe-helpdesk</code>, <code>frappe-hr</code>, <code>frappe-learning</code>, <code>frappe-selling</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Move deals through the pipeline</td><td>API</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Reply with email templates</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Capture leads</td><td>API</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Keep notes on a deal</td><td>API</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Work an opportunity in ERPNext</td><td>API</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Track organizations</td><td>API</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Set a CRM service level agreement</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Customize deal statuses</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Track CRM tasks</td><td>API</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Invite your sales team</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Log calls against a deal</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Message a contact on WhatsApp</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-crm</code></td></tr>
+<tr><td>Run assessments</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Set up programs and courses</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Enrol students</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Invite and manage agents</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Connect a support email account</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Track an issue in ERPNext</td><td>API</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Publish knowledge base articles</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Set ticket priorities</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Route tickets automatically</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Answer faster with saved replies</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Set service level agreements</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Route tickets to teams</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Handle support tickets</td><td>API</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Define ticket types</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Handle a warranty claim</td><td>API</td><td>restores exactly</td><td><code>frappe-helpdesk</code></td></tr>
+<tr><td>Give an employee advance</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run an appraisal cycle</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Mark attendance</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Automate attendance from check-ins</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Record employee check-ins</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Create employee records</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Process expense claims</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Maintain the holiday list</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Track job applicants</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Post a job opening</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Allocate leave</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Approve a leave application</td><td>API</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Set a leave policy</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Define leave types</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Onboard a new employee</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run payroll</td><td>API</td><td>cannot be undone</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Define salary components</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Issue salary slips</td><td>API</td><td>cannot be undone</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Build a salary structure</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Run employee separation</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Plan shifts</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Collect tax exemption declarations</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-hr</code></td></tr>
+<tr><td>Set assignments</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Run a batch of learners</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Issue certificates</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Add chapters and lessons</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Create a course</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Host a live class</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Group courses into a program</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Assess learners with quizzes</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-learning</code></td></tr>
+<tr><td>Create and manage customers</td><td>API</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Group customers</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+<tr><td>Organise territories</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-selling</code></td></tr>
+</tbody></table></div><h3 style="color:#10b981">Urwah — API, Bench & Automation (51 capabilities)</h3><p>The plumbing: connecting Claude to the site, the REST API, webhooks and background jobs, the bench CLI, backups — and putting things back when something goes wrong.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-api</code>, <code>frappe-bench</code>, <code>frappe-cloud</code>, <code>frappe-connect</code>, <code>frappe-reports</code>, <code>frappe-restore</code>, <code>frappe-setup</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
+<tr><td>Authenticate with OAuth 2</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Log in with username and password</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Authenticate with API key and secret</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Queue and monitor background jobs</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Test the site connection</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Cancel a submitted document</td><td>API</td><td>cannot be undone</td><td><code>frappe-api</code></td></tr>
+<tr><td>Create a document through the API</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Delete a document through the API</td><td>API</td><td>comes back as a new record</td><td><code>frappe-api</code></td></tr>
+<tr><td>Filter and select fields in a list call</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>List documents of any DocType</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Read one document through the API</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Submit a document through the API</td><td>API</td><td>cannot be undone</td><td><code>frappe-api</code></td></tr>
+<tr><td>Update a document through the API</td><td>API</td><td>restores exactly</td><td><code>frappe-api</code></td></tr>
+<tr><td>Count records of a DocType</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Read DocType metadata to discover a site's schema</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Upload a file through the API</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Generate API key and secret for a user</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Call a whitelisted method on a document</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Respect the site's rate limits</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
+<tr><td>Publish and listen to realtime events</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Diagnose the scheduler</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Create a webhook on document events</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Secure a webhook with a shared secret</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Back up a site</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Run bench CLI commands</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Read and change site configuration</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Add a custom domain to a site</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Drop a site</td><td>bench CLI</td><td>comes back as a new record</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Execute a Python method on a site</td><td>bench CLI</td><td>cannot be undone</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Run site-scoped framework commands</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Configure HTTPS for a site</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
+<tr><td>List the apps installed on a site</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Run migrations after an update</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Run several sites on one bench</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Create a site with bench new-site</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Understand bench and the bench directory</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Restore selected tables only</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Understand the bench Procfile</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Set up a production environment</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Reinstall a site from scratch</td><td>bench CLI</td><td>comes back as a new record</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Restore a site from a backup</td><td>bench CLI</td><td>restores exactly</td><td><code>frappe-restore</code></td></tr>
+<tr><td>Check background services</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Show the current site configuration</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Trim unused database tables</td><td>bench CLI</td><td>comes back as a new record</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Uninstall an app from a site</td><td>bench CLI</td><td>comes back as a new record</td><td><code>frappe-bench</code></td></tr>
+<tr><td>Read site and bench logs</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Enable server scripts on a site</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-cloud</code></td></tr>
+<tr><td>Email a report on a schedule</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-reports</code></td></tr>
+<tr><td>Assign documents automatically</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Repeat a document on a schedule</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+<tr><td>Send notifications on events</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-setup</code></td></tr>
+</tbody></table></div><h2>Worked paths</h2><p>Each of these follows the order the official documentation prescribes; the agents will not skip a link in the chain.</p><div class="tablewrap"><table><thead><tr><th>Path</th><th>Steps</th></tr></thead><tbody><tr><td><strong>Connect Claude to a Frappe site</strong></td><td>Test the site connection → Authenticate with API key and secret → Read DocType metadata to discover a site's schema</td></tr><tr><td><strong>Build a Frappe app from scratch</strong></td><td>Create a new Frappe app → Create a new site for an app → Create a DocType → Pick the right field type → Write controller methods → Run migrations after an update</td></tr><tr><td><strong>Set up a company and go live on ERPNext</strong></td><td>Set up a company → Set the fiscal year → Set up the chart of accounts → Add and manage users → Import records from a spreadsheet → Enter opening balances</td></tr><tr><td><strong>Run order to cash</strong></td><td>Send a quotation → Confirm a sales order → Ship goods with a delivery note → Raise a sales invoice → Record a payment entry</td></tr><tr><td><strong>Run procure to pay</strong></td><td>Raise a material request → Place a purchase order → Receive goods → Record a purchase invoice → Record a payment entry</td></tr><tr><td><strong>Close the month</strong></td><td>Reconcile the bank → Reconcile payments against invoices → Produce a balance sheet → Produce a profit and loss report → Close an accounting period</td></tr><tr><td><strong>Run monthly payroll</strong></td><td>Mark attendance → Build a salary structure → Run payroll → Issue salary slips</td></tr><tr><td><strong>Manufacture to order</strong></td><td>Build a bill of materials → Plan production → Run a work order → Record work on a job card → Make a stock entry</td></tr><tr><td><strong>Back up and restore a site</strong></td><td>Back up a site → Restore a site from a backup → Back up a Frappe Cloud site</td></tr><tr><td><strong>Load data in bulk from spreadsheets</strong></td><td>Import records from a spreadsheet → Update many records at once → Import a chart of accounts → Load opening stock</td></tr></tbody></table></div><h2>Honest limitations</h2><ul>
+<li><strong>Built from documentation, not from a live site.</strong> Every capability traces to an official page, but none was probed against a running instance at build time. Where a live site disagrees with this plugin, the agents say so rather than improvising.</li>
+<li><strong>Frappe's own apps only.</strong> The 322 third-party marketplace apps are not covered by name. The agents can still operate them generically by reading the site's own DocType metadata, and they will tell you that is what they are doing.</li>
+<li><strong>v16 is the target</strong>, with a v15 fallback. Older sites will differ, and API v2 paths do not exist before v15.</li>
+<li><strong>bench needs your server.</strong> Terminal or SSH access is required; nothing about bench works over the web. On Frappe Cloud the dashboard covers the same ground.</li>
+<li><strong>Permissions are the site's, not the plugin's.</strong> If your API user lacks a role, the agent reports the missing role rather than working around it.</li></ul>
+<h2>FAQ</h2>
+<p><strong>Can it delete something by accident?</strong> It deletes only what you specifically asked to delete, after a verified snapshot and an explicit confirmation, and it tells you first whether the deletion can be undone.</p>
+<p><strong>Where does my API key live?</strong> In <code>.frappe/credentials.txt</code> inside your own workspace folder. Never in chat, never in a snapshot, never in anything shareable.</p>
+<p><strong>What if the Frappe interface has changed since this was built?</strong> The agents verify labels before clicking and say plainly when reality and this plugin disagree.</p>
+<p><strong>Does it work without an API key?</strong> Yes — say "skip" and everything possible runs through the interface with you.</p>
+<p><strong>How do I see what it did?</strong> Ask "what have you done?" — it reads <code>.frappe/tasklog.md</code> and <code>.frappe/audit.log</code>.</p><footer>Jazari Agents for Frappe &amp; ERPNext v1.1 · Jazari Agents · 2026-08-31 · Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)</footer>
+</div>
+</body>
+</html>
