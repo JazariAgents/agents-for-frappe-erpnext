@@ -13,8 +13,11 @@
 
 `frappectl` is Frappe's own command-line client for REST API v2, built for agents that can run shell
 commands. Secrets stay in the operating system's keyring or in a browser sign-in, so the agent never
-sees them, and a new profile is **read-only**: write requests are stopped on the user's machine
-before they are sent.
+sees them, and a profile is **read-only** unless the user chose otherwise when signing in: write
+requests are stopped on the user's machine before they are sent.
+
+Every command in this file was run with the real tool (v0.24.0) against a live ERPNext 16.55 site on
+2026-11-14, through a read-only browser sign-in and through the environment-variable sign-in.
 
 Sources: https://github.com/frappe/frappectl (v0.24.0, MIT) and
 https://docs.frappe.io/framework/guides-integration/mcp (read 2026-11-14). The tool is young and
@@ -40,13 +43,38 @@ The guide prints the current command set on one screen and lists the user's site
 `[writable]` beside any profile that allows changes. Pass `-s <profile>` on every command when the
 user has more than one site. Add `--json` to get clean JSON; errors go to stderr.
 
+Then check who and what you are connected as:
+
+```bash
+frappectl auth whoami --json
+```
+
+It answers with `site`, `user`, `source` (the profile name, or `env`), `auth` (`oauth` or `api_key`)
+and `read_only`. Tell the user the site, the user and whether writes are possible before doing
+anything else.
+
 ## Signing in
 
 The user runs this themselves, in their own terminal. It opens a browser:
 
 ```bash
-frappectl auth login https://erp.example.com --oauth --name erp --description "Production ERPNext"
+frappectl auth login https://erp.example.com --oauth --read-only --name erp --description "Production ERPNext"
 ```
+
+- Without `--read-only` or `--writable` the tool asks "Allow writes through this profile?" and waits
+  for an answer; the default is no. Recommend `--read-only`.
+- The browser shows the site's own sign-in page and then a "Confirm Access" page naming frappectl.
+  The user presses Allow there; the terminal then says *logged in as … — profile '…'*.
+- If it fails with *Could not reach the registration endpoint*, the site is announcing a different
+  address from the one that was typed: usually a missing port, or a proxy that does not pass the
+  site's public address on. The user signs in with the site's real public address; if that is the
+  one they typed, the site's administrator has to correct the address the site announces.
+
+**The other sign-in: environment variables.** If `FRAPPE_SITE`, `FRAPPE_API_KEY` and
+`FRAPPE_API_SECRET` are set in the session, frappectl uses them, no profile is involved, and
+`auth whoami` shows `"source":"env"`. **That route is not read-only** (`"read_only":false`): every
+write the key allows will go through. Treat it exactly like a writable profile. Do not set those
+variables yourself and never write a key into a command.
 
 Never put a key or secret in a command, a file or the chat. If `frappectl` is not installed, tell the
 user the install command (`uv tool install frappectl` or `pip install frappectl`) and let them run
@@ -121,8 +149,11 @@ Exit code 0 is success, 1 is a failure reported by the site, 2 is a mistake in t
 
 | You see | It means | Do this |
 |---|---|---|
-| a refusal mentioning read-only | the profile blocks writes | tell the user; only they make it writable |
-| 401 or "not logged in" | the sign-in expired | ask the user to run `frappectl auth login` again |
-| 403 / permission | the user lacks the role | name the DocType and permission; do not retry |
-| 404 on a DocType | the app is not installed, or the name is wrong | `frappectl doctype list` and check |
+| *Refusing to send a POST request: this profile is read-only* (also PUT, DELETE) | the profile blocks writes; nothing was sent to the site | tell the user; only they make it writable |
+| *Authentication failed (401)* | the sign-in expired, or the key in the environment is wrong | ask the user to run `frappectl auth login` again, or to correct the key |
+| *Insufficient Permission for <DocType>* | the user lacks the role | name the DocType and permission; do not retry |
+| *DocType <name> not found* | the app is not installed, or the name is wrong | `frappectl doctype list` and check |
+| *<DocType> <name> not found* | no such record | check the name with `doc list` |
+| *Could not reach the registration endpoint* during sign-in | the site announces a different address from the one typed | see "Signing in" |
+| *Discovery cache is being generated; retrying* | the first `method search` on a site builds an index | wait; it finishes by itself and is not an error |
 | a concurrent-edit failure on update | someone changed the record | re-read, show both, ask |

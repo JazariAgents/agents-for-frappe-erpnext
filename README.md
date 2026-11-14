@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/licence-MIT-23E0C5?style=flat-square" alt="MIT licence">
-  <img src="https://img.shields.io/badge/version-1.1.1-087DB9?style=flat-square" alt="Version 1.1.1">
+  <img src="https://img.shields.io/badge/version-1.1.2-087DB9?style=flat-square" alt="Version 1.1.2">
   <img src="https://img.shields.io/badge/built%20for-ERPNext%20%26%20Frappe%20v16-06152D?style=flat-square" alt="Built for ERPNext and Frappe v16">
   <img src="https://img.shields.io/badge/languages-English%20%C2%B7%20Arabic-00B8D9?style=flat-square" alt="English and Arabic">
 </p>
@@ -246,12 +246,13 @@ This is an early public release, and it is honest about what that means.
 - **Frappe's built-in MCP server.** All 13 tools the plugin expects are there and answer.
 - **Eight standard reports** run through the API, including grouping by cost center.
 - **An Automation Flow** was built, test-run, switched on and seen to fire.
+- **`frappectl`**, Frappe's own command-line tool (v0.24.0). The dashboard gave the same figures through it
+  as through an API key, and its read-only sign-in refused every change, as it should.
 
 **Not yet run on a real site:**
 
 - Each of the 335 walkthroughs, one by one. They trace to Frappe's official pages; where your site
   disagrees with a step, the agent says so instead of improvising.
-- `frappectl` on a real installation (it was run against a stand-in).
 - Frappe HR, CRM, Helpdesk, Insights, Lending and Learning. The test site had Frappe and ERPNext only.
 - Frappe Cloud's dashboard, bench on a production server, and version 15 sites.
 

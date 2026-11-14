@@ -57,7 +57,7 @@ Check silently, in this order: are the Frappe MCP tools present; does `frappectl
 > **Add the Frappe connector** (recommended) · **Use frappectl** · **I have an API key** · **Skip, use the dashboard**
 
 - **Add the Frappe connector** → the site needs Frappe v16.53 or later with **System Settings → AI Agents → Enable MCP** on. The endpoint is `https://<site>/api/v2/mcp`. Walk the user through adding it (Claude Desktop: Settings → Connectors → Add custom connector; Claude Code: `claude mcp add --transport http frappe https://<site>/api/v2/mcp`, then `claude mcp login frappe`). They sign in in the browser. The tools appear in the next session.
-- **Use frappectl** → the user installs it (`uv tool install frappectl` or `pip install frappectl`) and signs in themselves with `frappectl auth login https://<site> --oauth --name <name>`. The profile is read-only until they choose otherwise. Do not install it or sign in for them.
+- **Use frappectl** → the user installs it (`uv tool install frappectl` or `pip install frappectl`) and signs in themselves with `frappectl auth login https://<site> --oauth --read-only --name <name>`. The profile is read-only until they choose otherwise. Do not install it or sign in for them.
 - **I have an API key**, **Guide me**, **Open the page with me** → the steps below.
 
 State the boundary up front, whichever rung is used: I never type your password, never sign in for you and never create an account — you log in, I pick up after.

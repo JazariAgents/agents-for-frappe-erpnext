@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.1.2 — the real frappectl (2026-11-14)
+
+`frappectl`, Frappe's official command-line client, was the last connection route not yet run for real.
+It now has been: v0.24.0 against the same live ERPNext 16.55 site.
+
+### Tested
+
+- The dashboard through `frappectl`, twice: a read-only profile made by its browser sign-in, and its
+  environment-variable sign-in. Both gave exactly the figures of the API-key run, card for card.
+- Every command in the plugin's `frappectl` guide: reading, listing every page, filters, reports, method
+  calls, and create, update and delete on a harmless record.
+- The read-only profile refused create and delete on the user's machine, before anything reached the site.
+
+### Changed
+
+- The sign-in command the plugin gives now includes `--read-only`. Without it the tool stops and asks.
+- The guide now warns that the environment-variable sign-in is **not** read-only, and tells the agent to
+  check `frappectl auth whoami` first.
+- The guide's error table uses the tool's real messages, including a failed browser sign-in when a site
+  announces the wrong address for itself.
+- A clearer message from the dashboard when `frappectl`'s key is refused.
+
 ## 1.1.1 — tested on a live site (2026-11-14)
 
 The three gaps listed under 1.1.0 are closed: the plugin was run on a real ERPNext site, the ten newer
@@ -45,7 +67,7 @@ Frappe changes are covered, and the manual is rewritten.
 
 ### Still open
 
-- `frappectl` has only been run against a stand-in, not the real tool.
+- `frappectl` has only been run against a stand-in, not the real tool. (Done in 1.1.2.)
 - Frappe HR, CRM, Helpdesk, Insights, Lending and Learning were not on the test site.
 - The individual walkthroughs trace to documentation and were not each run.
 

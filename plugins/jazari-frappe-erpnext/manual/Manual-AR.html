@@ -60,7 +60,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.1</span>
+<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.2</span>
 <h1>دليل الاستخدام</h1><p class="sub">تسعة وكلاء يبنون على منصّة Frappe ويشغّلون العمل فوقها. 335 قدرة في 22 مهارة، كل واحدة مرجعها صفحة رسمية من Frappe، ومعها لوحة متابعة لعملك في صفحة واحدة.</p></div></header>
 <div class="wrap">
 
@@ -100,7 +100,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <p>يجرّب الوكلاء هذه الطرق بالترتيب ويخبرونك بالطريقة المستخدمة. وهي بدائل: أغلب العمل ممكن بأي منها.</p>
 <div class="tablewrap"><table><thead><tr><th>الطريقة</th><th>ما تحتاجه</th><th>تناسب</th></tr></thead><tbody>
 <tr><td><strong>خادم MCP المضمّن في Frappe</strong></td><td>إصدار Frappe 16.53 أو أحدث مع تفعيل <em>Enable MCP</em> (مفعّل تلقائياً في المواقع الجديدة). تضيف موقعك إلى Claude كموصّل وتسجّل الدخول من المتصفح.</td><td>العمل اليومي. لا يُلصق أي مفتاح في أي مكان، وكل إجراء يُنفَّذ بصلاحياتك أنت.</td></tr>
-<tr><td><strong>frappectl</strong>، أداة سطر الأوامر الرسمية من Frappe</td><td>مثبتة على جهازك ومسجّل الدخول بها عبر <code>frappectl auth login</code>.</td><td>التقارير والملفات والقراءات الكبيرة. للقراءة فقط ما لم تطلب غير ذلك.</td></tr>
+<tr><td><strong>frappectl</strong>، أداة سطر الأوامر الرسمية من Frappe</td><td>مثبتة على جهازك ومسجّل الدخول بها عبر <code>frappectl auth login &lt;your site&gt; --oauth --read-only</code>.</td><td>التقارير والملفات والقراءات الكبيرة. للقراءة فقط ما لم تطلب غير ذلك.</td></tr>
 <tr><td><strong>مفتاح API والرمز السري</strong></td><td>مفتاح يُنشأ من سجل المستخدم. يُحفظ في <code>.frappe/credentials.txt</code> على جهازك ولا يظهر في المحادثة.</td><td>أي موقع من الإصدار 15. الخيار البديل عند عدم توفر الطريقتين السابقتين.</td></tr>
 <tr><td><strong>من الواجهة</strong></td><td>لا شيء.</td><td>بدون مفتاح، أو للأشياء القليلة التي لا تظهر إلا على الشاشة. الوكيل يرشد وأنت تنقر.</td></tr>
 <tr><td><strong>bench</strong></td><td>طرفية على خادمك.</td><td>المواقع والتطبيقات والترحيل والنسخ الاحتياطي. وفي Frappe Cloud تغني لوحة التحكم عنها.</td></tr>
@@ -524,11 +524,11 @@ claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
 <li><strong>خادم MCP في Frappe</strong>: الأدوات الثلاث عشرة التي تتوقعها الحزمة موجودة وتستجيب.</li>
 <li><strong>ثمانية تقارير قياسية</strong> عبر API، ومنها التجميع حسب مركز التكلفة.</li>
 <li><strong>أتمتة واحدة</strong> بُنيت وجُرّبت وشُغّلت وعملت فعلاً.</li>
+<li><strong>frappectl</strong>، أداة سطر الأوامر الرسمية من Frappe (الإصدار 0.24.0): أعطت اللوحة عبرها الأرقام نفسها التي أعطتها عبر مفتاح API، ورفض تسجيل الدخول للقراءة فقط كل تغيير كما يجب.</li>
 </ul></div>
 <p><strong>لم يُختبر:</strong></p>
 <ul>
 <li><strong>كل واحدة من الخطوات الـ 335 على حدة.</strong> هي مأخوذة من توثيق Frappe. وإذا اختلف موقعك عن خطوة، قال الوكيل ذلك ولم يرتجل.</li>
-<li><strong>frappectl على تثبيت حقيقي.</strong> جُرّبت اللوحة عبر بديل يحاكيه وأعطت الأرقام نفسها.</li>
 <li><strong>Frappe HR و CRM و Helpdesk و Insights و Lending و Learning على موقع حي.</strong> موقع الاختبار كان فيه Frappe و ERPNext فقط.</li>
 <li><strong>لوحة تحكم Frappe Cloud وأوامر bench على خادم إنتاج.</strong></li>
 <li><strong>مواقع الإصدار 15.</strong> الإصدار 16 هو المستهدف، والإصدار 15 مدعوم استناداً إلى التوثيق.</li>
@@ -544,7 +544,7 @@ claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
 <p><strong>ماذا لو تغيّر Frappe بعد بناء هذه الحزمة؟</strong> يتحقق الوكلاء من التسميات قبل النقر ويقولون بوضوح حين يختلف موقعك عن الحزمة. انظر قسم «التحديث».</p>
 <p><strong>كيف أعرف ما فعله؟</strong> اسأل «ماذا فعلت؟» فيقرأ <code>.frappe/tasklog.md</code> و <code>.frappe/audit.log</code>. وشاشة «الوكلاء» في اللوحة تعرض السجل نفسه كصفحة.</p>
 <p><strong>هل هذا من صنع Frappe؟</strong> لا. هو مشروع مستقل من Jazari Agents برخصة MIT. و Frappe و ERPNext علامتان تجاريتان لشركة Frappe Technologies.</p>
-<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.1 · <a href="https://jazariagents.com">jazariagents.com</a> · صفحات المرجع بتاريخ 2026-08-31 (Frappe 16.32 / ERPNext 16.33) · فُحصت على موقع حي Frappe 16.56 / ERPNext 16.55 بتاريخ 2026-11-14 · <a href="Manual-EN.html">English</a></footer>
+<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.2 · <a href="https://jazariagents.com">jazariagents.com</a> · صفحات المرجع بتاريخ 2026-08-31 (Frappe 16.32 / ERPNext 16.33) · فُحصت على موقع حي Frappe 16.56 / ERPNext 16.55 بتاريخ 2026-11-14 · <a href="Manual-EN.html">English</a></footer>
 
 </div>
 </body>

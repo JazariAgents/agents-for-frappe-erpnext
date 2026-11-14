@@ -39,7 +39,7 @@ import urllib.request
 from collections import Counter, defaultdict
 from pathlib import Path
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE.parent / "assets" / "pulse.template.html"
 SAMPLE = HERE.parent / "assets" / "sample-data.json"
@@ -154,8 +154,9 @@ class CtlSite:
         cmd = [c.strip(chr(34)) for c in shlex.split(os.environ.get("FRAPPECTL", "frappectl"), posix=(os.name != "nt"))]
         if not (shutil.which(cmd[0]) or Path(cmd[0]).exists()):
             raise Fatal("frappectl is not installed. The user can install it with `uv tool install frappectl` "
-                        "or `pip install frappectl`, then sign in with `frappectl auth login <site> --oauth`.")
+                        "or `pip install frappectl`, then sign in with `frappectl auth login <site> --oauth --read-only`.")
         self._cmd = cmd + (["-s", profile] if profile else [])
+        self._env_key = bool(not profile and os.environ.get("FRAPPE_API_KEY"))   # frappectl's sign-in without a profile
         self.base = profile or os.environ.get("FRAPPE_SITE") or "frappectl default profile"
         self.timeout = timeout
         self.requests = 0
@@ -171,8 +172,12 @@ class CtlSite:
             lines = [x for x in (r.stderr or r.stdout or "").strip().splitlines() if x.strip()]
             low = " ".join(lines).lower()
             if "401" in low or "not logged in" in low or "auth login" in low or "unauthorized" in low:
+                if self._env_key or "api key" in low:
+                    raise Fatal("the site refused frappectl's sign-in (401). If frappectl uses a profile, the user "
+                                "signs in again with: frappectl auth login <site> --oauth --read-only. If it uses "
+                                "FRAPPE_API_KEY and FRAPPE_API_SECRET, that key or secret is wrong.")
                 raise Fatal("frappectl is not signed in to this site. The user signs in with: "
-                            "frappectl auth login <site> --oauth")
+                            "frappectl auth login <site> --oauth --read-only")
             if "403" in low or "permission" in low or "not permitted" in low:
                 raise Unavailable(f"The signed-in user has no read permission on {what}.")
             if "404" in low or "not found" in low or "does not exist" in low:

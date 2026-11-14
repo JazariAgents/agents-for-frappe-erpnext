@@ -168,7 +168,11 @@ That run found and fixed four things: two "not available" notes named the wrong 
 was counted as a user; a smoothed line could dip below zero; and a refused address was reported as a
 bad key.
 
+The `frappectl` route was run the same day with the real tool (v0.24.0), twice: through a read-only
+profile made by its browser sign-in, and through its environment-variable sign-in. Both gave exactly
+the figures of the API-key run, card for card, and the same explanations for a user with limited
+permissions.
+
 Still not run on a live site: the Frappe HR cards (the test site had no Frappe HR; they are covered
-by the mock site), and the `frappectl` route, which was run against a stand-in written from
-frappectl's README and source (v0.24.0), not the real tool. If the live site disagrees with this
-skill, say so plainly rather than improvising.
+by the mock site). If the live site disagrees with this skill, say so plainly rather than
+improvising.
