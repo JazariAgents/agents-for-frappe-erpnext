@@ -31,6 +31,7 @@ from pathlib import Path
 from urllib.parse import parse_qsl, unquote
 
 WINDOW = 3600  # a snapshot counts for one hour
+NO_CHANGE = "allow"  # the kind for a call that changes no existing record: the rules have nothing to say about it
 
 # Known writes by full dotted name, with the rule that says which arguments name the records they change.
 WRITE_TARGETS = {

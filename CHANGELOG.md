@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.9 — what the plugin directory's own check asked for (2026-11-14)
+
+Anthropic's submission portal runs a stricter check than its published checklist. It found four blocking
+issues, all in one file added in 1.1.7. They are fixed.
+
+- The fallback that asks you when Python is missing looked in the folders above the current one. The
+  directory does not allow a hook script to name a path outside the plugin, so it now looks in the current
+  folder only. With Python installed, nothing changes: the hook still finds the workspace from a subfolder.
+- The safety hook's code now shows plainly that it can only refuse a call or ask you. It never approves a
+  call and never changes one.
+- The plugin has a listing icon.
+
 ## 1.1.8 — an install command that works on every machine (2026-11-14)
 
 - The install command now uses the repository's full web address. The short form

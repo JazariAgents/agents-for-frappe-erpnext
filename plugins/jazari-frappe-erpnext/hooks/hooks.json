@@ -1,5 +1,5 @@
 {
-  "description": "Jazari Agents for Frappe & ERPNext: in a folder connected to a Frappe site, route requests through the plugin's rules, block changes made through Frappe's MCP tools unless the record was snapshotted first, and hold a change until the user has replied after the snapshot was saved.",
+  "description": "Jazari Agents for Frappe & ERPNext: in a folder connected to a Frappe site, route requests through the plugin's rules, block changes made through Frappe's MCP tools unless the record was snapshotted first, and hold a change until the user has replied after the snapshot was saved. The hooks only deny a call or ask the user; they never approve a call or change its input.",
   "hooks": {
     "UserPromptSubmit": [
       {
