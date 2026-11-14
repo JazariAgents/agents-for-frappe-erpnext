@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Create and manage suppliers
-- **Path:** https://your-site/app → **Home > Buying > Supplier > Supplier**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Supplier**, or type *Supplier* in the search bar at the top
 - **Record type:** Supplier
 - **Documented steps:**
   1. Go to the Supplier list and click on New
@@ -46,7 +47,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__supplier.md`  (https://docs.frappe.io/erpnext/supplier)
 
 ### Raise a material request
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Material Request**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Material Request**, or type *Material Request* in the search bar at the top
 - **Record type:** Material Request
 - **Documented steps:**
   1. Go to the Material Request list, click on Add Material Request
@@ -61,7 +62,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__material-request.md`  (https://docs.frappe.io/erpnext/material-request)
 
 ### Send a request for quotation
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Request for Quotation**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Request for Quotation**, or type *Request for Quotation* in the search bar at the top
 - **Record type:** Request for Quotation
 - **Documented steps:**
   1. Go to the Request For Quotation list and click on "+ Add Request for Quotation"
@@ -74,7 +75,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__request-for-quotation.md`  (https://docs.frappe.io/erpnext/request-for-quotation)
 
 ### Record a supplier quotation
-- **Path:** https://your-site/app → **Home > Buying > Purchasing > Supplier Quotation**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Supplier Quotation**, or type *Supplier Quotation* in the search bar at the top
 - **Record type:** Supplier Quotation
 - **Documented steps:**
   1. You can also make a Supplier Quotation directly from
@@ -82,7 +83,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__supplier-quotation.md`  (https://docs.frappe.io/erpnext/supplier-quotation)
 
 ### Place a purchase order
-- **Path:** https://your-site/app → **Home > Buying > Purchasing > Purchase Order**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Order**, or type *Purchase Order* in the search bar at the top
 - **Record type:** Purchase Order
 - **Documented steps:**
   1. Go to the Purchase Order list, click on New
@@ -95,7 +96,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__purchase-order.md`  (https://docs.frappe.io/erpnext/purchase-order)
 
 ### Receive goods
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Purchase Receipt**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Receipt**, or type *Purchase Receipt* in the search bar at the top
 - **Record type:** Purchase Receipt
 - **Documented steps:**
   1. Go to the Purchase Receipt list, click on New
@@ -110,26 +111,26 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__purchase-receipt.md`  (https://docs.frappe.io/erpnext/purchase-receipt)
 
 ### Return goods to a supplier
-- **Path:** open https://your-site/app (the Desk) and find *Purchase Return* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Receipt**, or type *Purchase Receipt* in the search bar at the top
 - **Documented steps:**
   1. First open the original Purchase Receipt, against which supplier delivered the Items
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__purchase-return.md`  (https://docs.frappe.io/erpnext/purchase-return)
 
 ### Add landed costs
-- **Path:** open https://your-site/app (the Desk) and find *Landed cost Voucher* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Tools > Landed Cost Voucher**, or type *Landed Cost Voucher* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__landed-cost-voucher.md`  (https://docs.frappe.io/erpnext/landed-cost-voucher)
 
 ### Run subcontracting
-- **Path:** open https://your-site/app (the Desk) and find *Subcontracting* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Subcontracting > Subcontracting Order**, or type *Subcontracting Order* in the search bar at the top
 - **Documented steps:**
   1. Create a Service Item (Non-stock Item). It represents the service cost of the subcontracted operation
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__subcontracting.md`  (https://docs.frappe.io/erpnext/subcontracting)
 
 ### Score suppliers
-- **Path:** https://your-site/app → **Home > Buying > Supplier Scorecard > Supplier Scorecard**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Setup > Supplier Scorecard**, or type *Supplier Scorecard* in the search bar at the top
 - **Record type:** Supplier Scorecard
 - **Documented steps:**
   1. Go to the Supplier Scorecard list, click on New
@@ -141,7 +142,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__supplier-scorecard.md`  (https://docs.frappe.io/erpnext/supplier-scorecard)
 
 ### Agree a blanket order
-- **Path:** https://your-site/app → **Selling > Sales > Blanket Order**
+- **Path (checked on v16.55):** https://your-site/desk → type *Blanket Order* in the search bar at the top and open the doctype
 - **Record type:** Blanket Order
 - **Documented steps:**
   1. Go to Selling > Sales > Blanket Order and select Add Blanket Order

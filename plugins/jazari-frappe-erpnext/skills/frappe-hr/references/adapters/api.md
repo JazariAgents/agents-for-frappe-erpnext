@@ -15,8 +15,22 @@ Base URL is the site itself: `https://your-site`. Every path below is appended t
 ## Authentication
 
 Token: `Authorization: token <api_key>:<api_secret>` — generated at User → Settings → API Access → Generate Keys.
-The secret is shown once. Read it from `.frappe/credentials.txt` into a variable; never print it and never
-interpolate it into a command you display.
+
+**Make every API-key call through the plugin's helper; never write your own code that reads
+`.frappe/credentials.txt`.** In testing, a hand-written script put the whole credentials file into a header
+and the error message printed the key. The helper reads the key itself and removes it from all output:
+
+```bash
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET /api/v2/document/Customer --query '{"fields": ["name"], "limit": 20}'
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET /api/v2/document/ToDo --query '{"filters": [["status", "=", "Open"]]}' --all
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" snapshot --op <name> --request "<user's words>" --class <reversible|recreate|irreversible> --doc <DocType> <name>
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" PUT /api/v2/document/ToDo/<name> --data '{"status": "Closed"}' --write
+```
+
+Run it from the workspace folder (the one holding `.frappe/`). If `CLAUDE_PLUGIN_ROOT` is not set, the
+script is in the `frappe-connect/scripts/` folder beside this skill. Anything but GET is refused unless
+`--write` is given: add it only after the snapshot is verified and the user has said yes. `--all` follows
+every page of a list; `UPLOAD <file> --write` uploads a file; `whoami` tests the key.
 Source: https://docs.frappe.io/framework/user/en/api/rest
 
 ## The six calls everything is made of
@@ -36,6 +50,17 @@ CRM, Helpdesk and any custom app. URL-encode the space in a DocType name: `Sales
 Plus: `GET /api/v2/doctype/{doctype}/meta` (schema), `GET /api/v2/doctype/{doctype}/count`,
 `POST /api/v2/method/upload_file`, `GET /api/v2/method/ping`, `GET /api/method/frappe.auth.get_logged_user`.
 Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api
+
+**When submit or cancel answers "not whitelisted" (403).** On v16, **Journal Entry** and **Stock
+Reconciliation** replace the standard submit and cancel, so the two calls above are refused for them
+(tested on ERPNext 16.55). Use Frappe's general calls instead:
+
+- submit: read the document, then `POST /api/v2/method/frappe.client.submit` with `{"doc": <the whole document as read>}`
+- cancel: `POST /api/v2/method/frappe.client.cancel` with `{"doctype": "<DocType>", "name": "<name>"}`
+
+Through the MCP server this is `call_method` with the same method and arguments; through `frappectl`,
+`frappectl api method/frappe.client.submit --input -` with the same JSON on standard input. The safety
+rules are unchanged: it is still a submit or cancel, with the same reversibility.
 
 ## Payload shape, and how to get the real field names
 
@@ -69,7 +94,7 @@ documents (GL Entry, Sales Invoice) with the list call and aggregate yourself.
 
 Two ERPNext specifics worth knowing before writing: a **return** (credit note, debit note, sales/purchase
 return) is not its own DocType — it is the same DocType with the return flag set and negative quantities, so
-read `/meta` and copy the original document rather than inventing a `... (return)` type. And a document only
+make it with ERPNext's return mapper (listed under "Create the next document from the previous one" in the `frappe-selling` and `frappe-buying` skills' `api.md`) rather than copying the original by hand or inventing a `... (return)` type. And a document only
 affects the ledger once it is **submitted**; a create alone leaves a draft.
 
 ## Listing, filtering, paging
@@ -98,7 +123,39 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
   `/api/v2/method/` does not get round it. Wait; never retry in a loop.
   Source: https://docs.frappe.io/framework/user/en/rate-limiting
 - **404 on /api/v2/** — the site is v14 or older; switch to the v1 paths.
+- **"Please set the document name"** — this record type is named by the user (POS Profile, Email Template, Notification, Assignment Rule and others). Put the chosen name in the body as `"name": "..."` (tested on v16).
 - A submitted document (docstatus 1) rejects edits. Amend or cancel instead, and say which before acting.
+
+## Run payroll: the tested recipe
+
+Run on a live Frappe HR 16.53 site on 2026-11-14: four employees, four salary slips, one accrual journal
+entry. Creating a Payroll Entry alone makes no slips; these are the steps the Desk's buttons perform.
+
+**Before the first payroll run, check these three settings. Each one stopped the test run:**
+
+1. **Holiday lists are assigned, not just set.** On Frappe HR 16 an employee's or company's holiday list
+   comes from a submitted **Holiday List Assignment** (`applicable_for` Company or Employee, `assigned_to`,
+   `holiday_list`, `from_date`). Setting `holiday_list` on the Employee or the Company is not enough.
+   Page: `docs/frappe-hr/hr__hr__leave-management__holiday-list-assignment.md`.
+2. **The payroll payable account must have account type Payable.** ERPNext's standard chart creates
+   "Payroll Payable" without it.
+3. **Every salary component needs an account for the company** (its `accounts` table).
+
+Then:
+
+1. `POST /api/v2/document/Payroll%20Entry` with `company`, `posting_date`, `payroll_frequency`, `start_date`,
+   `end_date`, `currency`, `exchange_rate`, `payroll_payable_account` and `cost_center`.
+2. `POST /api/v2/document/Payroll%20Entry/<name>/method/fill_employee_details`. It fills the employee list
+   **in the answer only** (`docs[0].employees`); it does not save it. Save it:
+   `PUT /api/v2/document/Payroll%20Entry/<name>` with that `employees` list.
+3. Submit the entry (`.../method/submit`). This creates the draft salary slips.
+4. `POST /api/v2/document/Payroll%20Entry/<name>/method/submit_salary_slips`. This submits the slips and
+   posts the accrual journal entry. It is irreversible: cancel the slips and the journal entry to undo it.
+5. **Re-read the entry after steps 3 and 4.** Both calls can answer OK while the work fails: the entry then
+   shows `status` = `Failed` and the reason in `error_message`. Read it to the user word for word.
+
+Employees are picked by company, currency, payroll frequency, dates **and** the payroll payable account
+on their Salary Structure Assignment. If none are found, check those match.
 
 ## Capability → call
 
@@ -117,7 +174,7 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 | Maintain the holiday list | Holiday List | `POST /api/v2/document/Holiday%20List` (and the list/read/update calls above) | `docs/frappe-hr/hr__holiday-list.md` |
 | Build a salary structure | Salary Structure | `POST /api/v2/document/Salary%20Structure` (and the list/read/update calls above) | `docs/frappe-hr/hr__salary-structure.md` |
 | Define salary components | Salary Component | `POST /api/v2/document/Salary%20Component` (and the list/read/update calls above) | `docs/frappe-hr/hr__salary-component.md` |
-| Run payroll | Payroll Entry | `POST /api/v2/document/Payroll%20Entry` (and the list/read/update calls above) | `docs/frappe-hr/hr__payroll-entry.md` |
+| Run payroll | Payroll Entry | follow "Run payroll: the tested recipe" above | `docs/frappe-hr/hr__payroll-entry.md` |
 | Issue salary slips | Salary Slip | `POST /api/v2/document/Salary%20Slip` (and the list/read/update calls above) | `docs/frappe-hr/hr__salary-slip.md` |
 | Process expense claims | Expense Claim | `POST /api/v2/document/Expense%20Claim` (and the list/read/update calls above) | `docs/frappe-hr/hr__expense-claim.md` |
 | Give an employee advance | Employee Advance | `POST /api/v2/document/Employee%20Advance` (and the list/read/update calls above) | `docs/frappe-hr/hr__employee-advance.md` |

@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Build a bill of materials
-- **Path:** https://your-site/app → **Home > Manufacturing > Bill of Materials > Bill of Materials**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > BOM**, or type *BOM* in the search bar at the top
 - **Record type:** BOM
 - **Documented steps:**
   1. Go to the Bill of Materials list, click on New
@@ -45,7 +46,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bill-of-materials.md`  (https://docs.frappe.io/erpnext/bill-of-materials)
 
 ### Design a BOM with the BOM creator
-- **Path:** https://your-site/app → **Home > Manufacturing > BOM Creator**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Tools > BOM Creator**, or type *BOM Creator* in the search bar at the top
 - **Record type:** BOM Creator
 - **Two screens exist. Look before you click.** ERPNext 16.53 rebuilt this tool. If the form has a **Design File** field and the tabs Design, Costing and Details, it is the new one and the steps below apply. If it shows only a tree with an item dialog, the site is older: follow `docs/erpnext/erpnext__bom-creator.md` instead.
 - **Documented steps (new screen):**
@@ -63,13 +64,13 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bom-creator-new.md`  (https://docs.frappe.io/erpnext/bom-creator-new) — older screen: `docs/erpnext/erpnext__bom-creator.md`
 
 ### Update BOMs in bulk
-- **Path:** https://your-site/app → **Home > Manufacturing > Tools > BOM Update Tool**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Tools > BOM Update Tool**, or type *BOM Update Tool* in the search bar at the top
 - **Record type:** BOM Update Tool
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bom-update-tool.md`  (https://docs.frappe.io/erpnext/bom-update-tool)
 
 ### Run a work order
-- **Path:** https://your-site/app → **Home > Manufacturing > Production > Work Order**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Work Order**, or type *Work Order* in the search bar at the top
 - **Record type:** Work Order
 - **Documented steps:**
   1. Go to the Work Order list, click on New
@@ -84,7 +85,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__work-order.md`  (https://docs.frappe.io/erpnext/work-order)
 
 ### Record work on a job card
-- **Path:** https://your-site/app → **Home > Manufacturing > Production > Job Card**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Job Card**, or type *Job Card* in the search bar at the top
 - **Record type:** Job Card
 - **Documented steps:**
   1. Click on the Start Job button, then on Complete Job when you're done
@@ -97,7 +98,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__job-card.md`  (https://docs.frappe.io/erpnext/job-card)
 
 ### Plan production
-- **Path:** https://your-site/app → **Home > Manufacturing > Production > Production Plan**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Production Plan**, or type *Production Plan* in the search bar at the top
 - **Record type:** Production Plan
 - **Documented steps:**
   1. Go to the Production Plan list, click on New
@@ -109,7 +110,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__production-plan.md`  (https://docs.frappe.io/erpnext/production-plan)
 
 ### Set up workstations
-- **Path:** open https://your-site/app (the Desk) and find *Workstation* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Workstation**, or type *Workstation* in the search bar at the top
 - **Documented steps:**
   1. Go to the Workstation list, click on New
   2. Enter a name for the Workstation
@@ -118,7 +119,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__workstation.md`  (https://docs.frappe.io/erpnext/workstation)
 
 ### Define operations and routing
-- **Path:** open https://your-site/app (the Desk) and find *Routing* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Routing**, or type *Routing* in the search bar at the top
 - **Documented steps:**
   1. Go to the Routing list, click on New
   2. Enter a name for the Routing
@@ -127,16 +128,17 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__routing.md`  (https://docs.frappe.io/erpnext/routing)
 
 ### Watch the plant floor
-- **Path:** open https://your-site/app (the Desk) and find *Plant Floor* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Plant Floor**, or type *Plant Floor* in the search bar at the top
 - **Full page, bundled offline:** `docs/erpnext/erpnext__plant-floor.md`  (https://docs.frappe.io/erpnext/plant-floor)
 
 ### Handle scrap and disassembly
-- **Path:** open https://your-site/app (the Desk) and find *Production Scrap Management* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > BOM**, or type *BOM* in the search bar at the top
+- **On this screen:** Scrap items are a table on the BOM; whether scrap is taken from the BOM is set in **Manufacturing Settings**.
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__scrap-management.md`  (https://docs.frappe.io/erpnext/scrap-management)
 
 ### Configure manufacturing settings
-- **Path:** https://your-site/app → **Home > Manufacturing > Settings > Manufacturing Settings**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Settings**, or type *Manufacturing Settings* in the search bar at the top
 - **Record type:** Manufacturing Settings
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__manufacturing-settings.md`  (https://docs.frappe.io/erpnext/manufacturing-settings)

@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Run a project
-- **Path:** https://your-site/app → **Home > Projects > Project**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Project**, or type *Project* in the search bar at the top
 - **Record type:** Project
 - **Documented steps:**
   1. Go to the Project list and click on New
@@ -44,7 +45,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__project.md`  (https://docs.frappe.io/erpnext/project)
 
 ### Manage tasks
-- **Path:** https://your-site/app → **Home > Projects > Task**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Task**, or type *Task* in the search bar at the top
 - **Record type:** Task
 - **Documented steps:**
   1. Go to the Task List and click on New
@@ -53,7 +54,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__tasks.md`  (https://docs.frappe.io/erpnext/tasks)
 
 ### Record timesheets
-- **Path:** https://your-site/app → **Home > Projects > Time Tracking > Timesheet**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Timesheet**, or type *Timesheet* in the search bar at the top
 - **Record type:** Timesheet
 - **Documented steps:**
   1. Go to the Task for which you want to create a new Timesheet
@@ -63,7 +64,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__timesheets.md`  (https://docs.frappe.io/erpnext/timesheets)
 
 ### Start from a project template
-- **Path:** https://your-site/app → **Home > Projects > Projects > Project Template**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Setup > Project Template**, or type *Project Template* in the search bar at the top
 - **Record type:** Project Template
 - **Documented steps:**
   1. Go to the Project Template List and click on New
@@ -72,15 +73,16 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__project-template.md`  (https://docs.frappe.io/erpnext/project-template)
 
 ### Track project costing
-- **Path:** https://your-site/app → **Home > Projects > Activity Type > New**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Project**, or type *Project* in the search bar at the top
 - **Full page, bundled offline:** `docs/erpnext/erpnext__project-costing.md`  (https://docs.frappe.io/erpnext/project-costing)
 
 ### Measure project profitability
-- **Path:** open https://your-site/app (the Desk) and find *Project Profitability* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Profitability Analysis**, or type *Profitability Analysis* in the search bar at the top
+- **On this screen:** Set the report's **Project** filter to see one project. ERPNext v16 has no separate Project Profitability report.
 - **Full page, bundled offline:** `docs/erpnext/erpnext__project-profitability.md`  (https://docs.frappe.io/erpnext/project-profitability)
 
 ### Bill a customer from a timesheet
-- **Path:** open https://your-site/app (the Desk) and find *Sales Invoice from Timesheet* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Timesheet**, or type *Timesheet* in the search bar at the top
 - **Documented steps:**
   1. Once the Timesheet is submitted, click on 'Create Sales Invoice'
   2. Enter the Item Code and name of the Customer who has to be billed against this Timesheet. The Item could be a Product as well as a Service. Click on 'Create Sales Invoice'
@@ -92,7 +94,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-invoice-from-timesheet.md`  (https://docs.frappe.io/erpnext/sales-invoice-from-timesheet)
 
 ### Set activity costs
-- **Path:** https://your-site/app → **Home > Projects > Time Tracking > Activity Cost**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Setup > Activity Cost**, or type *Activity Cost* in the search bar at the top
 - **Record type:** Activity Cost
 - **Documented steps:**
   1. Go to the Activity Cost list and click on New

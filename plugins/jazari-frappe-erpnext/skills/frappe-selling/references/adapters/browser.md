@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Send a quotation
-- **Path:** https://your-site/app → **Selling > Sales > Quotation**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Selling > Quotation**, or type *Quotation* in the search bar at the top
 - **Record type:** Quotation
 - **Documented steps:**
   1. Go to Selling > Sales > Quotation
@@ -43,7 +44,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__quotation.md`  (https://docs.frappe.io/erpnext/quotation)
 
 ### Confirm a sales order
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Sales Order**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Selling > Sales Order**, or type *Sales Order* in the search bar at the top
 - **Record type:** Sales Order
 - **Documented steps:**
   1. Open Sales Order from the Selling workspace
@@ -60,7 +61,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-order.md`  (https://docs.frappe.io/erpnext/sales-order)
 
 ### Ship goods with a delivery note
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Delivery Note**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Selling > Delivery Note**, or type *Delivery Note* in the search bar at the top
 - **Record type:** Delivery Note
 - **Documented steps:**
   1. Go to the Delivery Note list, click on New
@@ -70,7 +71,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__delivery-note.md`  (https://docs.frappe.io/erpnext/delivery-note)
 
 ### Pick stock for an order
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Pick List**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Tools > Pick List**, or type *Pick List* in the search bar at the top
 - **Record type:** Pick List
 - **Documented steps:**
   1. Go to the Pick List list, click on New. !Unsaved Pick List
@@ -78,7 +79,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__pick-list.md`  (https://docs.frappe.io/erpnext/pick-list)
 
 ### Pack an order
-- **Path:** https://your-site/app → **Home > Stock > Tools > Packing Slip**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Tools > Packing Slip**, or type *Packing Slip* in the search bar at the top
 - **Record type:** Packing Slip
 - **Documented steps:**
   1. Go to the Packing Slip list, click on New
@@ -86,7 +87,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__packing-slip.md`  (https://docs.frappe.io/erpnext/packing-slip)
 
 ### Book a shipment
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Shipment**
+- **Path (checked on v16.55):** https://your-site/desk → type *Shipment* in the search bar at the top and open the doctype
 - **Record type:** Shipment
 - **Documented steps:**
   1. Go to the Shipment list, click on New
@@ -94,14 +95,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__shipment.md`  (https://docs.frappe.io/erpnext/shipment)
 
 ### Plan a delivery trip
-- **Path:** open https://your-site/app (the Desk) and find *Delivery Trip* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Delivery Trip* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Select the Driver and Vehicle, create both if not present
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__delivery-trip.md`  (https://docs.frappe.io/erpnext/delivery-trip)
 
 ### Process a sales return
-- **Path:** open https://your-site/app (the Desk) and find *Sales Return* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Selling > Delivery Note**, or type *Delivery Note* in the search bar at the top
 - **Documented steps:**
   1. Open the original submitted Delivery Note
   2. Select Create > Sales Return
@@ -113,7 +114,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-return.md`  (https://docs.frappe.io/erpnext/sales-return)
 
 ### Create and manage customers
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Customer**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Customer**, or type *Customer* in the search bar at the top
 - **Record type:** Customer
 - **Documented steps:**
   1. Open the Customer list from Selling > Customer
@@ -121,7 +122,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__customer.md`  (https://docs.frappe.io/erpnext/customer)
 
 ### Group customers
-- **Path:** open https://your-site/app (the Desk) and find *Customer Group* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Setup > Customer Group**, or type *Customer Group* in the search bar at the top
 - **Documented steps:**
   1. Open Selling > Customer Group
   2. In Tree view, select the parent group
@@ -133,7 +134,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__customer-group.md`  (https://docs.frappe.io/erpnext/customer-group)
 
 ### Organise territories
-- **Path:** https://your-site/app → **Selling > Settings > Territory**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Setup > Territory**, or type *Territory* in the search bar at the top
 - **Record type:** Territory
 - **Documented steps:**
   1. Go to Selling > Settings > Territory
@@ -141,17 +142,17 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__territory.md`  (https://docs.frappe.io/erpnext/territory)
 
 ### Maintain price lists
-- **Path:** https://your-site/app → **Home > Selling/Buying/Stock > Items and Pricing > Price List**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Items > Price List**, or type *Price List* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__price-lists.md`  (https://docs.frappe.io/erpnext/price-lists)
 
 ### Set item prices
-- **Path:** open https://your-site/app (the Desk) and find *Item Price* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Item Price* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__item-price.md`  (https://docs.frappe.io/erpnext/item-price)
 
 ### Apply a pricing rule
-- **Path:** open https://your-site/app (the Desk) and find *Pricing Rule* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Selling > Items > Pricing Rule**, or type *Pricing Rule* in the search bar at the top
 - **Documented steps:**
   1. Click Add Pricing Rule
   2. Enter a clear Title that identifies the audience and offer
@@ -166,7 +167,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__pricing-rule.md`  (https://docs.frappe.io/erpnext/pricing-rule)
 
 ### Run a promotional scheme
-- **Path:** open https://your-site/app (the Desk) and find *Create Promotional Schemes and Discount Slabs* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Promotional Scheme* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open the Promotional Scheme list and select Add Promotional Scheme
   2. Enter a descriptive title
@@ -181,7 +182,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__promotional-scheme.md`  (https://docs.frappe.io/erpnext/promotional-scheme)
 
 ### Issue coupon codes
-- **Path:** open https://your-site/app (the Desk) and find *Create and Apply Coupon Codes* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Coupon Code* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open Pricing Rule and select Add Pricing Rule
   2. Configure the eligible Items, Item Groups, transaction conditions, quantity or amount limits, and validity
@@ -192,7 +193,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__coupon-code.md`  (https://docs.frappe.io/erpnext/coupon-code)
 
 ### Run a loyalty program
-- **Path:** open https://your-site/app (the Desk) and find *Configure Customer Loyalty Programs* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Loyalty Program* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open the Loyalty Program list and select Add Loyalty Program
   2. Enter the Program Name
@@ -207,7 +208,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__loyalty-program.md`  (https://docs.frappe.io/erpnext/loyalty-program)
 
 ### Track sales people and commission
-- **Path:** open https://your-site/app (the Desk) and find *Sales Person* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Setup > Sales Person**, or type *Sales Person* in the search bar at the top
 - **Documented steps:**
   1. Open Sales Person in the Selling or CRM workspace
   2. Review the hierarchy and select New, as highlighted
@@ -222,7 +223,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-person.md`  (https://docs.frappe.io/erpnext/sales-person)
 
 ### Enforce a customer credit limit
-- **Path:** https://your-site/app → **Selling > Settings > Customer Group**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Setup > Customer Group**, or type *Customer Group* in the search bar at the top
 - **Documented steps:**
   1. Go to Selling > Settings > Customer Group
   2. Open the required group
@@ -235,14 +236,15 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__credit-limit.md`  (https://docs.frappe.io/erpnext/credit-limit)
 
 ### Sell at the point of sale
-- **Path:** open https://your-site/app (the Desk) and find *Introduction* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Point Of Sale* in the search bar at the top and open the page
+- **On this screen:** Set up a **POS Profile** first; the Point of Sale screen asks for one.
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__point-of-sale.md`  (https://docs.frappe.io/erpnext/point-of-sale)
 - **Also read:** `docs/erpnext/erpnext__point-of-sale__setup.md` — the step-by-step page for this
 - **Also read:** `docs/erpnext/erpnext__pos-workflows.md` — the step-by-step page for this
 
 ### Configure a POS profile
-- **Path:** https://your-site/app → **Home > Selling > POS > POS Profile**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Selling > POS > POS Profile**, or type *POS Profile* in the search bar at the top
 - **Record type:** POS Profile
 - **Documented steps:**
   1. Go to POS Profile List, click on “Add POS Profile”
@@ -251,7 +253,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__pos-profile.md`  (https://docs.frappe.io/erpnext/pos-profile)
 
 ### Consolidate POS invoices
-- **Path:** open https://your-site/app (the Desk) and find *POS Invoice Consolidation* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *POS Invoice Merge Log* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__pos-invoice-consolidation.md`  (https://docs.frappe.io/erpnext/pos-invoice-consolidation)
 

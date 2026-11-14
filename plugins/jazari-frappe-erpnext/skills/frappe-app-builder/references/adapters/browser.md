@@ -24,6 +24,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -36,20 +37,21 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Create a DocType
-- **Path:** open https://your-site/app (the Desk) and find *Create a DocType* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__user__en__tutorial__create-a-doctype.md`  (https://docs.frappe.io/framework/user/en/tutorial/create-a-doctype)
 - **Also read:** `docs/framework/framework__user__en__basics__doctypes.md` — the step-by-step page for this
 
 ### Turn on DocType features
-- **Path:** open https://your-site/app (the Desk) and find *DocType Features* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__user__en__tutorial__doctype-features.md`  (https://docs.frappe.io/framework/user/en/tutorial/doctype-features)
 
 ### Pick the right field type
-- **Path:** open https://your-site/app (the Desk) and find *Field Types* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__user__en__basics__doctypes__fieldtypes.md`  (https://docs.frappe.io/framework/user/en/basics/doctypes/fieldtypes)
 
 ### Set how documents are named
-- **Path:** open https://your-site/app (the Desk) and find *Naming* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
+- **On this screen:** Naming is set on the DocType form; rules that apply to existing DocTypes are **Document Naming Rule** records.
 - **Documented steps:**
   1. Document Type it is being applied on
   2. Priority of the rule (rules with higher priority will be applied first)
@@ -57,15 +59,15 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/framework/framework__user__en__basics__doctypes__naming.md`  (https://docs.frappe.io/framework/user/en/basics/doctypes/naming)
 
 ### Use a child table
-- **Path:** open https://your-site/app (the Desk) and find *Child / Table DocType* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__user__en__basics__doctypes__child-doctype.md`  (https://docs.frappe.io/framework/user/en/basics/doctypes/child-doctype)
 
 ### Publish a web form
-- **Path:** open https://your-site/app (the Desk) and find *Web Form* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Website > Web Form**, or type *Web Form* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__user__en__web-form.md`  (https://docs.frappe.io/framework/user/en/web-form)
 
 ### Build a print format
-- **Path:** https://your-site/app → **Home > Settings > Print Format Builder**
+- **Path (checked on v16.55):** https://your-site/desk → type *Print Format Builder* in the search bar at the top and open the page
 - **Documented steps:**
   1. Go to the Print Format Builder
 - **PDF engine:** how the format comes out as a PDF depends on **Print Settings → PDF Generator** (`wkhtmltopdf`, `chrome` or `PlutoPrint`). Sites created on Frappe 16.55 or later start on `chrome`. Check a real PDF, not only the screen preview, before calling a format finished.
@@ -73,7 +75,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__print-format-builder.md`  (https://docs.frappe.io/erpnext/print-format-builder)
 
 ### Add a custom field
-- **Path:** https://your-site/app → **Home > Customization > Form Customization > Custom Field**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Custom Field**, or type *Custom Field* in the search bar at the top
 - **Record type:** Custom Field
 - **Documented steps:**
   1. Go to the Custom Field list and click on New
@@ -81,7 +83,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__custom-field.md`  (https://docs.frappe.io/erpnext/custom-field)
 
 ### Customize a form
-- **Path:** https://your-site/app → **Home > Customization > Form Customization > Customize Form**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Customize Form**, or type *Customize Form* in the search bar at the top
 - **Documented steps:**
   1. Click on Customize Form
   2. You will be redirected to a page wherein you will be asked to Enter Form Type
@@ -90,7 +92,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__customize-form.md`  (https://docs.frappe.io/erpnext/customize-form)
 
 ### Add a client script
-- **Path:** open https://your-site/app (the Desk) and find *Client Scripts* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Scripting > Client Script**, or type *Client Script* in the search bar at the top
 - **Documented steps:**
   1. Go to Custom Script List and click on New
   2. You will be redirected to a page wherein you will be asked to enter the DocType for which you wish to create a Custom Script
@@ -99,7 +101,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__client-scripts.md`  (https://docs.frappe.io/erpnext/client-scripts)
 
 ### Set up an approval workflow
-- **Path:** open https://your-site/app (the Desk) and find *Workflow* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Workflow > Workflow**, or type *Workflow* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__workflow.md`  (https://docs.frappe.io/erpnext/workflow)
 - **Also read:** `docs/erpnext/erpnext__easy-steps-to-setup-workflow.md` — the step-by-step page for this
@@ -107,6 +109,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Design an app screen in Frappe Studio
 - **Path:** open https://your-site/studio (Frappe Studio) and find *Editor Interface* — the documentation page below shows the screen
+- **Not checked on a live site:** the Studio app was not on the test site; this path is the documentation's.
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/studio/studio__editor-interface.md`  (https://docs.frappe.io/studio/editor-interface)
 

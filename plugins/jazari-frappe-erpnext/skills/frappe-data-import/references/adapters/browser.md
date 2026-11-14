@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Import records from a spreadsheet
-- **Path:** https://your-site/app → **Home > Data**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Data > Data Import**, or type *Data Import* in the search bar at the top
 - **Documented steps:**
   1. Navigate to Data Import
   2. Select the Document Type and the Import Type as *Insert New Records
@@ -44,7 +45,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__data-import.md`  (https://docs.frappe.io/erpnext/data-import)
 
 ### Export records to a spreadsheet
-- **Path:** https://your-site/app → **Home > Data Export**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Data > Data Export**, or type *Data Export* in the search bar at the top
 - **Documented steps:**
   1. Go to the 'Data Export' DocType
   2. Select the DocType from which the data is to be extracted
@@ -56,17 +57,17 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__data-export.md`  (https://docs.frappe.io/erpnext/data-export)
 
 ### Update many records at once
-- **Path:** https://your-site/app → **Home > Bulk Update**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Desk > Bulk Update**, or type *Bulk Update* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bulk-update.md`  (https://docs.frappe.io/erpnext/bulk-update)
 
 ### Rename records in bulk
-- **Path:** open https://your-site/app (the Desk) and find *Bulk Rename* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Data > Rename Tool**, or type *Rename Tool* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bulk-rename.md`  (https://docs.frappe.io/erpnext/bulk-rename)
 
 ### Import a chart of accounts
-- **Path:** https://your-site/app → **Home > Getting Started > Chart of Accounts Importer**
+- **Path (checked on v16.55):** https://your-site/desk → type *Chart of Accounts Importer* in the search bar at the top and open the doctype
 - **Record type:** Chart of Accounts Importer
 - **Documented steps:**
   1. Select the Company for which you want to import the Chart of Accounts
@@ -74,7 +75,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__chart-of-accounts-importer.md`  (https://docs.frappe.io/erpnext/chart-of-accounts-importer)
 
 ### Import accounting masters
-- **Path:** https://your-site/app → **Home > Data Import and Settings > Import Data**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Data > Data Import**, or type *Data Import* in the search bar at the top
 - **Documented steps:**
   1. Groups and parent records
   2. Company-independent masters
@@ -83,7 +84,8 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__import-accounting-masters.md`  (https://docs.frappe.io/erpnext/import-accounting-masters)
 
 ### Import advances, payments and balances
-- **Path:** open https://your-site/app (the Desk) and find *Import Special Opening Balances* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Opening Invoice Creation Tool* in the search bar at the top and open the doctype
+- **On this screen:** Advances and unallocated payments are Payment Entries; bank, stock and asset balances follow the steps in the page.
 - **Documented steps:**
   1. Select the cutover date and Company
   2. Add each Item and Warehouse
@@ -92,7 +94,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__import-advances-unallocated-payments-bank-stock-and-asset-balances.md`  (https://docs.frappe.io/erpnext/import-advances-unallocated-payments-bank-stock-and-asset-balances)
 
 ### Migrate from QuickBooks
-- **Path:** open https://your-site/app (the Desk) and find *QuickBooks Migrator (Deprecated)* — the documentation page below shows the screen
+- **Path (checked on v16.55):** **Not available on ERPNext v16.** The QuickBooks Migrator was removed. Export the QuickBooks lists to spreadsheets and load them with **Data Import** (the frappe-data-import skill) instead. Tell the user this before starting.
 - **Documented steps:**
   1. From Awesome-bar, Go to "QuickBooks Migrator" DocType
   2. Go to Inuit Developer Portal

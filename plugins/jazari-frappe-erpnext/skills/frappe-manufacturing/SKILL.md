@@ -22,6 +22,7 @@ These rules are non-negotiable and apply to every run, in every language. They h
 - **Money and irreversible operations are the user's to trigger** — never issue refunds, payouts, deletions, sends, or tax-authority reports on your own initiative. Use idempotency keys on money-adjacent calls so retries never duplicate.
 - **State the environment before the first write** in a session: production or test, and the organization name, so the user knows exactly whose data is being touched.
 - **Never expose credentials** — don't echo API keys in chat, never write them into snapshots or any file that could be shared.
+- **Make API-key calls only through `frappe_call.py`; never write your own code that reads `.frappe/credentials.txt`.** Run `python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET <path> --query '<json>'` from the workspace (use `--all` for every page of a list, `snapshot ...` for the safety copy, `--write` only after the snapshot and the user's yes). It keeps the key out of every output, even on errors; hand-written code leaked it in testing.
 - If a documented operation fails against the live system in a way that contradicts this skill's own reference, say so plainly ("this may have changed since the plugin was built") rather than improvising around it.
 - **Keep a human in the loop.** Before applying changes at scale, show the plan; after, show a summary and log the change to the workspace audit log.
 
@@ -133,6 +134,7 @@ Every page behind this skill's 13 capabilities ships inside the plugin, as the e
 - HTTP 429 means a rate limit was hit: the site's overall budget, or one method's own. Wait for the time in `Retry-After`; do not hammer the site.
 - The BOM, Work Order and Job Card option once labelled *Track Semi Finished Goods* or *Make in Stages* was renamed in ERPNext 16.52. Depending on the patch it reads *Produce Item per Operation* or *Produce an Item at Each Operation*. The field underneath is still `track_semi_finished_goods`: use that name through the API, and read the label from the screen before saying it to the user.
 - ERPNext 16.53 rebuilt the BOM Creator. A form with a **Design File** field is the new one (`docs/erpnext/erpnext__bom-creator-new.md`); a plain tree is the older one (`docs/erpnext/erpnext__bom-creator.md`). Its **Create BOMs** button submits a BOM for every assembly at once, so state the count and get a yes first.
+- Make each document **from the one before it** with ERPNext's mapper (table in `references/adapters/api.md`, "Create the next document from the previous one"). A document posted fresh is not linked, so the order it belongs to never shows as delivered or billed.
 - Docs describe the current version. If the live site disagrees with this skill, say so plainly rather than improvising.
 
 ## Manual

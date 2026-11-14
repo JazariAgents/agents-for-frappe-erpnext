@@ -105,7 +105,8 @@ Keep the DocType from the skill's `api.md`, swap the call:
 | `POST /api/v2/document/{doctype}` | `frappectl doc create "<DocType>" --set field=value`, or pipe JSON for child tables |
 | `PUT /api/v2/document/{doctype}/{name}` | `frappectl doc update "<DocType>" <name> --set field=value` |
 | `DELETE /api/v2/document/{doctype}/{name}` | `frappectl doc delete "<DocType>" <name>` |
-| submit, cancel, amend | `frappectl doc submit|cancel|amend "<DocType>" <name>` |
+| submit, cancel, amend | `frappectl doc submit|cancel|amend "<DocType>" <name>`. For **Journal Entry** and **Stock Reconciliation** that is refused on v16: `frappectl api method/frappe.client.submit --input -` with `{"doc": <document>}` on standard input (cancel: `frappectl api method/frappe.client.cancel -F doctype="Journal Entry" -F name=<name> -X POST`) |
+| a mapper such as `make_delivery_note` (see the module's `api.md`) | `frappectl api method/<mapper> -F source_name=<name> -X POST`, then `doc create` with the answer on standard input |
 | `GET` or `POST /api/v2/method/{dotted.path}` | `frappectl method call <dotted.path> -F key=value`, or `frappectl api method/<dotted.path> -X GET` |
 | find a method | `frappectl method search --query="<word>"`, `frappectl method show <dotted.path>` |
 

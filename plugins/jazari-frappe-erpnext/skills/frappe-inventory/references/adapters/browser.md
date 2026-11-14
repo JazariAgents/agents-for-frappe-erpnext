@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Create and manage items
-- **Path:** https://your-site/app → **Home > Stock > Items and Pricing > Item**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Items > Item**, or type *Item* in the search bar at the top
 - **Record type:** Item
 - **Documented steps:**
   1. Go to the Item list, click on new
@@ -44,7 +45,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__item.md`  (https://docs.frappe.io/erpnext/item)
 
 ### Group items
-- **Path:** https://your-site/app → **Home > Stock > Items and Pricing > Item Group**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Items > Item Group**, or type *Item Group* in the search bar at the top
 - **Record type:** Item Group
 - **Documented steps:**
   1. Go to the Item Group list, click on New
@@ -56,14 +57,15 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__item-group.md`  (https://docs.frappe.io/erpnext/item-group)
 
 ### Create item variants
-- **Path:** open https://your-site/app (the Desk) and find *Item Variants* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Items > Item**, or type *Item* in the search bar at the top
+- **On this screen:** Variants are made from a template Item: tick **Has Variants**, add the attributes, then **Create > Variant**.
 - **Documented steps:**
   1. To use Item Variants in ERPNext, create an Item and tick 'Has Variants' under Variants
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__item-variants.md`  (https://docs.frappe.io/erpnext/item-variants)
 
 ### Define item attributes
-- **Path:** https://your-site/app → **Home > Stock > Settings > Item Attribute**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Setup > Item Attribute**, or type *Item Attribute* in the search bar at the top
 - **Record type:** Item Attribute
 - **Documented steps:**
   1. Go to the Item Attribute list, click on 'Add Item Attribute'
@@ -73,7 +75,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__item-attribute.md`  (https://docs.frappe.io/erpnext/item-attribute)
 
 ### Sell a product bundle
-- **Path:** https://your-site/app → **Home > Selling > Items and Pricing > Product Bundle**
+- **Path (checked on v16.55):** https://your-site/desk → type *Product Bundle* in the search bar at the top and open the doctype
 - **Record type:** Product Bundle
 - **Documented steps:**
   1. Go to the Product Bundle list, click on Add Product Bundle
@@ -86,12 +88,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__product-bundle.md`  (https://docs.frappe.io/erpnext/product-bundle)
 
 ### Manage units of measure
-- **Path:** open https://your-site/app (the Desk) and find *Unit of Measure (UoM)* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Setup > Unit of Measure (UOM)**, or type *UOM* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__uom.md`  (https://docs.frappe.io/erpnext/uom)
 
 ### Set up warehouses
-- **Path:** https://your-site/app → **Home > Stock > Settings > Warehouse**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Warehouse**, or type *Warehouse* in the search bar at the top
 - **Record type:** Warehouse
 - **Documented steps:**
   1. Go to the Warehouse list, click on New
@@ -101,7 +103,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__warehouse.md`  (https://docs.frappe.io/erpnext/warehouse)
 
 ### Make a stock entry
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Stock Entry**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Stock Entry**, or type *Stock Entry* in the search bar at the top
 - **Record type:** Stock Entry
 - **Documented steps:**
   1. Go to the Stock Entry list, click on New
@@ -115,7 +117,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-entry.md`  (https://docs.frappe.io/erpnext/stock-entry)
 
 ### Reconcile physical stock
-- **Path:** https://your-site/app → **Home > Stock > Tools > Stock Reconciliation**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Stock Reconciliation**, or type *Stock Reconciliation* in the search bar at the top
 - **Record type:** Stock Reconciliation
 - **Documented steps:**
   1. Go to the Stock Reconciliation list, click on New
@@ -128,7 +130,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-reconciliation.md`  (https://docs.frappe.io/erpnext/stock-reconciliation)
 
 ### Load opening stock
-- **Path:** https://your-site/app → **Stock > Stock Transactions > Stock Entry > New**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Stock Reconciliation**, or type *Stock Reconciliation* in the search bar at the top
 - **Documented steps:**
   1. Go to Stock > Stock Transactions > Stock Entry > New
   2. Select 'Material Receipt' in 'Stock Entry Type'
@@ -136,7 +138,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__opening-stock.md`  (https://docs.frappe.io/erpnext/opening-stock)
 
 ### Track batches
-- **Path:** https://your-site/app → **Home > Stock > Serial No and Batch > Batch**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Serial & Batch > Batch No**, or type *Batch* in the search bar at the top
 - **Record type:** Batch
 - **Documented steps:**
   1. Go to the Batch list, click on New
@@ -144,7 +146,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__batch.md`  (https://docs.frappe.io/erpnext/batch)
 
 ### Track serial numbers
-- **Path:** https://your-site/app → **Home > Stock > Serial No and Batch > Serial No**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Serial & Batch > Serial No**, or type *Serial No* in the search bar at the top
 - **Record type:** Serial No
 - **Documented steps:**
   1. Go to the Serial Number list, click on New
@@ -152,7 +154,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__serial-no.md`  (https://docs.frappe.io/erpnext/serial-no)
 
 ### Use the serial and batch bundle
-- **Path:** open https://your-site/app (the Desk) and find *Serial and Batch Bundle* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Serial & Batch > Serial and Batch Bundle**, or type *Serial and Batch Bundle* in the search bar at the top
 - **Documented steps:**
   1. User has enabled *Use Serial / Batch Fields* in Stock Settings
   2. User wants to create the Serial and Batch Bundle per single batch
@@ -161,7 +163,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__serial-and-batch-bundle.md`  (https://docs.frappe.io/erpnext/serial-and-batch-bundle)
 
 ### Reserve stock for an order
-- **Path:** open https://your-site/app (the Desk) and find *Stock Reservation* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Stock Reservation Entry* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Stock Unreservation from Sales Order or Pick List
   2. Unreserve the stock from the Stock Reservation Entry DocType
@@ -169,7 +171,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-reservation.md`  (https://docs.frappe.io/erpnext/stock-reservation)
 
 ### Set putaway rules
-- **Path:** https://your-site/app → **Home > Stock > Stock Transactions > Putaway Rule**
+- **Path (checked on v16.55):** https://your-site/desk → type *Putaway Rule* in the search bar at the top and open the doctype
 - **Record type:** Putaway Rule
 - **Documented steps:**
   1. Go to the Putaway Rule list, click on New
@@ -177,26 +179,27 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__putaway-rule.md`  (https://docs.frappe.io/erpnext/putaway-rule)
 
 ### Inspect incoming quality
-- **Path:** https://your-site/app → **Home > Stock > Tools > Quality Inspection**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Quality > Quality Inspection**, or type *Quality Inspection* in the search bar at the top
 - **Record type:** Quality Inspection
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__quality-inspection.md`  (https://docs.frappe.io/erpnext/quality-inspection)
 
 ### Configure stock settings
-- **Path:** open https://your-site/app (the Desk) and find *Stock Settings* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > Stock**, or type *Stock Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-settings.md`  (https://docs.frappe.io/erpnext/stock-settings)
 
 ### Read the stock ledger
-- **Path:** open https://your-site/app (the Desk) and find *Stock Ledger Report* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Reports > Stock Ledger**, or type *Stock Ledger* in the search bar at the top
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-ledger.md`  (https://docs.frappe.io/erpnext/stock-ledger)
 
 ### Check stock levels
-- **Path:** open https://your-site/app (the Desk) and find *Stock Level Report* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Reports > Stock Projected Qty**, or type *Stock Projected Qty* in the search bar at the top
+- **On this screen:** Stock Balance and Warehouse Wise Stock Balance are the other stock-level reports on v16.
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-level-report.md`  (https://docs.frappe.io/erpnext/stock-level-report)
 
 ### Close a stock period
-- **Path:** open https://your-site/app (the Desk) and find *Stock Closing Entry* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Stock Closing Entry* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__stock-closing-entry.md`  (https://docs.frappe.io/erpnext/stock-closing-entry)
 

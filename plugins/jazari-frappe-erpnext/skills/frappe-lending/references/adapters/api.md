@@ -15,8 +15,22 @@ Base URL is the site itself: `https://your-site`. Every path below is appended t
 ## Authentication
 
 Token: `Authorization: token <api_key>:<api_secret>` — generated at User → Settings → API Access → Generate Keys.
-The secret is shown once. Read it from `.frappe/credentials.txt` into a variable; never print it and never
-interpolate it into a command you display.
+
+**Make every API-key call through the plugin's helper; never write your own code that reads
+`.frappe/credentials.txt`.** In testing, a hand-written script put the whole credentials file into a header
+and the error message printed the key. The helper reads the key itself and removes it from all output:
+
+```bash
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET /api/v2/document/Customer --query '{"fields": ["name"], "limit": 20}'
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET /api/v2/document/ToDo --query '{"filters": [["status", "=", "Open"]]}' --all
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" snapshot --op <name> --request "<user's words>" --class <reversible|recreate|irreversible> --doc <DocType> <name>
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" PUT /api/v2/document/ToDo/<name> --data '{"status": "Closed"}' --write
+```
+
+Run it from the workspace folder (the one holding `.frappe/`). If `CLAUDE_PLUGIN_ROOT` is not set, the
+script is in the `frappe-connect/scripts/` folder beside this skill. Anything but GET is refused unless
+`--write` is given: add it only after the snapshot is verified and the user has said yes. `--all` follows
+every page of a list; `UPLOAD <file> --write` uploads a file; `whoami` tests the key.
 Source: https://docs.frappe.io/framework/user/en/api/rest
 
 ## The six calls everything is made of
@@ -36,6 +50,17 @@ CRM, Helpdesk and any custom app. URL-encode the space in a DocType name: `Sales
 Plus: `GET /api/v2/doctype/{doctype}/meta` (schema), `GET /api/v2/doctype/{doctype}/count`,
 `POST /api/v2/method/upload_file`, `GET /api/v2/method/ping`, `GET /api/method/frappe.auth.get_logged_user`.
 Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api
+
+**When submit or cancel answers "not whitelisted" (403).** On v16, **Journal Entry** and **Stock
+Reconciliation** replace the standard submit and cancel, so the two calls above are refused for them
+(tested on ERPNext 16.55). Use Frappe's general calls instead:
+
+- submit: read the document, then `POST /api/v2/method/frappe.client.submit` with `{"doc": <the whole document as read>}`
+- cancel: `POST /api/v2/method/frappe.client.cancel` with `{"doctype": "<DocType>", "name": "<name>"}`
+
+Through the MCP server this is `call_method` with the same method and arguments; through `frappectl`,
+`frappectl api method/frappe.client.submit --input -` with the same JSON on standard input. The safety
+rules are unchanged: it is still a submit or cancel, with the same reversibility.
 
 ## Payload shape, and how to get the real field names
 
@@ -69,7 +94,7 @@ documents (GL Entry, Sales Invoice) with the list call and aggregate yourself.
 
 Two ERPNext specifics worth knowing before writing: a **return** (credit note, debit note, sales/purchase
 return) is not its own DocType — it is the same DocType with the return flag set and negative quantities, so
-read `/meta` and copy the original document rather than inventing a `... (return)` type. And a document only
+make it with ERPNext's return mapper (listed under "Create the next document from the previous one" in the `frappe-selling` and `frappe-buying` skills' `api.md`) rather than copying the original by hand or inventing a `... (return)` type. And a document only
 affects the ledger once it is **submitted**; a create alone leaves a draft.
 
 ## Listing, filtering, paging
@@ -98,7 +123,38 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
   `/api/v2/method/` does not get round it. Wait; never retry in a loop.
   Source: https://docs.frappe.io/framework/user/en/rate-limiting
 - **404 on /api/v2/** — the site is v14 or older; switch to the v1 paths.
+- **"Please set the document name"** — this record type is named by the user (POS Profile, Email Template, Notification, Assignment Rule and others). Put the chosen name in the body as `"name": "..."` (tested on v16).
 - A submitted document (docstatus 1) rejects edits. Amend or cancel instead, and say which before acting.
+
+## A loan from product to repayment: the tested recipe
+
+Run on a live Frappe Lending 16.8 site on 2026-11-14, start to finish.
+
+**Set up once per company before the first loan product** (the first attempt failed without it):
+
+1. A **Loan Demand Offset Order** (the order in which a collection pays off what is due), for example
+   `{"title": "Standard", "components": [{"demand_type": "EMI (Principal + Interest)"}, {"demand_type": "Penalty"}, {"demand_type": "Charges"}]}`.
+2. On the **Company**, Lending tab: set the four `collection_offset_sequence_for_...` fields to it.
+   Page: `docs/lending/lending__loan-management__setup__company-level-setup.md`.
+3. The accounts the product posts to: a loan account and interest and penalty receivable and accrued
+   accounts (Asset), interest, penalty and suspense income accounts (Income), plus the disbursement and
+   payment accounts. Ask the user which accounts to use; create any that are missing only after a yes.
+
+Then:
+
+1. `POST /api/v2/document/Loan%20Product` with the code, name, rate, company, `is_term_loan`,
+   `repayment_schedule_type` and the accounts above.
+2. `POST /api/v2/document/Loan%20Application`, set `status` to `Approved` once the user approves it, then submit.
+3. Make the loan **from the application**: `POST /api/v2/method/lending.loan_management.doctype.loan_application.loan_application.create_loan`
+   with `{"source_name": "<application>"}`, save the answer as a Loan, and submit it.
+4. Disburse **from the loan**: `POST /api/v2/method/lending.loan_management.doctype.loan.loan.make_loan_disbursement`
+   with `{"loan": "<loan>", "as_dict": 1}`, save the answer as a Loan Disbursement, and submit it. The loan's
+   status becomes `Disbursed`.
+5. Repayment **from the loan**: `POST /api/v2/method/lending.loan_management.doctype.loan.loan.make_repayment_entry`
+   with `loan`, `applicant_type`, `applicant`, `loan_product`, `company`, `loan_disbursement` and `"as_dict": 1`;
+   set `amount_paid`, save it as a Loan Repayment, and submit it.
+
+Submitting a loan, a disbursement or a repayment posts to the ledger: irreversible, as everywhere else.
 
 ## Capability → call
 

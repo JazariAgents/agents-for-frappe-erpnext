@@ -56,7 +56,8 @@ the call:
 | `POST /api/v2/document/{doctype}` | `create_document` |
 | `PUT /api/v2/document/{doctype}/{name}` | `update_document` |
 | `DELETE /api/v2/document/{doctype}/{name}` | `delete_document` |
-| `.../method/submit`, `.../method/cancel` | `call_document_method` with `submit` or `cancel` |
+| `.../method/submit`, `.../method/cancel` | `call_document_method` with `submit` or `cancel`. For **Journal Entry** and **Stock Reconciliation** that is refused on v16: use `call_method` with `frappe.client.submit` (`{"doc": <document>}`) or `frappe.client.cancel` (`{"doctype", "name"}`) |
+| a mapper such as `make_delivery_note` (see the module's `api.md`) | `call_method` with `{"source_name": "<earlier document>"}`, then `create_document` with the answer |
 | `GET` or `POST /api/v2/method/{dotted.path}` | `call_method` |
 
 The rule from `api.md` still holds and is easier here: **read the schema first, never guess a field

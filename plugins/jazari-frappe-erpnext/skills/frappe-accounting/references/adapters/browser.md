@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Raise a sales invoice
-- **Path:** https://your-site/app → **Accounting > Sales and Receivables > Sales Invoice**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Sales Invoice**, or type *Sales Invoice* in the search bar at the top
 - **Record type:** Sales Invoice
 - **Documented steps:**
   1. Go to Accounting > Sales and Receivables > Sales Invoice
@@ -52,7 +53,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-invoice.md`  (https://docs.frappe.io/erpnext/sales-invoice)
 
 ### Record a purchase invoice
-- **Path:** https://your-site/app → **Accounting > Purchase Invoice**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Purchase Invoice**, or type *Purchase Invoice* in the search bar at the top
 - **Record type:** Purchase Invoice
 - **Documented steps:**
   1. Go to Accounting > Purchase Invoice
@@ -68,7 +69,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__purchase-invoice.md`  (https://docs.frappe.io/erpnext/purchase-invoice)
 
 ### Issue a credit note
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Sales Invoice**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Sales Invoice**, or type *Sales Invoice* in the search bar at the top
 - **Record type:** Sales Invoice
 - **Documented steps:**
   1. Open the original Sales Invoice
@@ -81,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__credit-note.md`  (https://docs.frappe.io/erpnext/credit-note)
 
 ### Issue a debit note
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Purchase Invoice**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Purchase Invoice**, or type *Purchase Invoice* in the search bar at the top
 - **Record type:** Purchase Invoice
 - **Documented steps:**
   1. Open the submitted Purchase Invoice that must be reduced
@@ -97,7 +98,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__debit-note.md`  (https://docs.frappe.io/erpnext/debit-note)
 
 ### Record a payment entry
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Payment Entry**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Payment Entry**, or type *Payment Entry* in the search bar at the top
 - **Record type:** Payment Entry
 - **Documented steps:**
   1. Select Receive, Pay, or Internal Transfer
@@ -110,7 +111,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__payment-entry.md`  (https://docs.frappe.io/erpnext/payment-entry)
 
 ### Send a payment request
-- **Path:** open https://your-site/app (the Desk) and find *Payment Request* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Payment Request* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open the submitted Sales Order or Sales Invoice
   2. Choose Create > Payment to create the Payment Request
@@ -122,7 +123,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__payment-request.md`  (https://docs.frappe.io/erpnext/payment-request)
 
 ### Post a journal entry
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Journal Entry**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Journal Entry**, or type *Journal Entry* in the search bar at the top
 - **Record type:** Journal Entry
 - **Documented steps:**
   1. Open the Journal Entry list and select Add Journal Entry
@@ -135,7 +136,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__journal-entry.md`  (https://docs.frappe.io/erpnext/journal-entry)
 
 ### Set payment terms
-- **Path:** https://your-site/app → **Home > Accounting > Accounting Masters > Payment Term**
+- **Path (checked on v16.55):** https://your-site/desk → type *Payment Term* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open Payment Terms Template
   2. Add terms in the required order
@@ -147,7 +148,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__payment-terms.md`  (https://docs.frappe.io/erpnext/payment-terms)
 
 ### Reconcile the bank
-- **Path:** open https://your-site/app (the Desk) and find *Bank Reconciliation* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Bank Reconciliation Tool* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Select the Company Bank Account and statement date range
   2. Import or synchronize Bank Transactions
@@ -159,12 +160,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__bank-reconciliation.md`  (https://docs.frappe.io/erpnext/bank-reconciliation)
 
 ### Reconcile payments against invoices
-- **Path:** open https://your-site/app (the Desk) and find *Payment Reconciliation* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Payment Reconciliation* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__payment-reconciliation.md`  (https://docs.frappe.io/erpnext/payment-reconciliation)
 
 ### Enter opening balances
-- **Path:** https://your-site/app → **Home > Accounting > General Ledger > Journal Entry**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Journal Entry**, or type *Journal Entry* in the search bar at the top
 - **Documented steps:**
   1. Go to Home > Accounting > General Ledger > Journal Entry
   2. Create a Journal Entry
@@ -173,14 +174,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__opening-balance.md`  (https://docs.frappe.io/erpnext/opening-balance)
 
 ### Import opening invoices
-- **Path:** https://your-site/app → **Home > Accounting > Opening and Closing > Opening Invoice Creation Tool**
+- **Path (checked on v16.55):** https://your-site/desk → type *Opening Invoice Creation Tool* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Go to Home > Accounting > Opening and Closing > Opening Invoice Creation Tool
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__opening-invoice-creation-tool.md`  (https://docs.frappe.io/erpnext/opening-invoice-creation-tool)
 
 ### Set up cost centers
-- **Path:** https://your-site/app → **Home > Accounting > Accounting Masters > Cost Center**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Setup > Chart of Cost Centers**, or type *Cost Center* in the search bar at the top
 - **Record type:** Cost Center
 - **Documented steps:**
   1. Select the parent Cost Center
@@ -188,12 +189,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__cost-center.md`  (https://docs.frappe.io/erpnext/cost-center)
 
 ### Set and track a budget
-- **Path:** open https://your-site/app (the Desk) and find *Budget* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Budgeting > Budget**, or type *Budget* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__budget.md`  (https://docs.frappe.io/erpnext/budget)
 
 ### Use accounting dimensions
-- **Path:** open https://your-site/app (the Desk) and find *Accounting Dimensions* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Setup > Accounting Dimension**, or type *Accounting Dimension* in the search bar at the top
 - **Documented steps:**
   1. Open the Accounting Dimension list and select Add Accounting Dimension
   2. Select the Reference Document Type. ERPNext uses records from this DocType as the available dimension values
@@ -202,7 +203,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__accounting-dimensions.md`  (https://docs.frappe.io/erpnext/accounting-dimensions)
 
 ### Close an accounting period
-- **Path:** open https://your-site/app (the Desk) and find *Period Closing Voucher* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Period Closing Voucher* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open Period Closing Voucher and click Add Period Closing Voucher
   2. Select the company and the fiscal year being closed
@@ -214,7 +215,8 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__period-closing-voucher.md`  (https://docs.frappe.io/erpnext/period-closing-voucher)
 
 ### Freeze accounting entries
-- **Path:** open https://your-site/app (the Desk) and find *Freeze Accounting Entries* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Setup > Settings**, or type *Accounts Settings* in the search bar at the top
+- **On this screen:** On the Accounts Settings form, the date field is **Accounts Frozen Till Date**.
 - **Documented steps:**
   1. Open the Company record
   2. Open the Accounts Closing tab
@@ -225,7 +227,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__freeze-accounting-entries.md`  (https://docs.frappe.io/erpnext/freeze-accounting-entries)
 
 ### Set up deferred revenue and expense
-- **Path:** open https://your-site/app (the Desk) and find *Deferred Accounting* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Process Deferred Accounting* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Open the invoice and confirm the deferred account and service dates on each affected row
   2. Review the Deferred Revenue/Expense Report for invoiced, recognized, and pending amounts
@@ -234,7 +236,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__deferred-accounting.md`  (https://docs.frappe.io/erpnext/deferred-accounting)
 
 ### Chase overdue invoices with dunning
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Dunning**
+- **Path (checked on v16.55):** https://your-site/desk → type *Dunning* in the search bar at the top and open the doctype
 - **Record type:** Dunning
 - **Documented steps:**
   1. Open the overdue Sales Invoice
@@ -246,7 +248,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__dunning.md`  (https://docs.frappe.io/erpnext/dunning)
 
 ### Send a statement of accounts
-- **Path:** open https://your-site/app (the Desk) and find *Process Statement Of Accounts* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Process Statement Of Accounts* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Search for Process Statement Of Accounts and select Add Process Statement Of Accounts
   2. Enter a recognizable Name
@@ -256,7 +258,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__process-statement-of-accounts.md`  (https://docs.frappe.io/erpnext/process-statement-of-accounts)
 
 ### Bill customers on a subscription
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Subscription**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > Subscription**, or type *Subscription* in the search bar at the top
 - **Record type:** Subscription
 - **Documented steps:**
   1. Search for Subscription and select Add Subscription
@@ -270,7 +272,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__subscription.md`  (https://docs.frappe.io/erpnext/subscription)
 
 ### Manage fixed assets
-- **Path:** open https://your-site/app (the Desk) and search the awesomebar for **Asset**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Assets > Asset**, or type *Asset* in the search bar at the top
 - **Record type:** Asset
 - **Documented steps:**
   1. Open Asset and select Add Asset
@@ -283,22 +285,22 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__asset.md`  (https://docs.frappe.io/erpnext/asset)
 
 ### Run asset depreciation
-- **Path:** open https://your-site/app (the Desk) and find *Depreciation* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Assets > Asset**, or type *Asset* in the search bar at the top
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__asset-depreciation.md`  (https://docs.frappe.io/erpnext/asset-depreciation)
 
 ### Track shareholders and share transfers
-- **Path:** open https://your-site/app (the Desk) and find *Share Transfer* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Share Transfer* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__share-transfer.md`  (https://docs.frappe.io/erpnext/share-transfer)
 
 ### Set up taxes
-- **Path:** open https://your-site/app (the Desk) and find *Setting Up Taxes* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Sales Tax Template**, or type *Sales Taxes and Charges Template* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__setting-up-taxes.md`  (https://docs.frappe.io/erpnext/setting-up-taxes)
 
 ### Create a sales tax template
-- **Path:** https://your-site/app → **Accounting > Taxes > Sales Taxes and Charges Template**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Sales Tax Template**, or type *Sales Taxes and Charges Template* in the search bar at the top
 - **Record type:** Sales Taxes and Charges Template
 - **Documented steps:**
   1. Enter a clear Title, such as Nova Standard Sales Tax 8%
@@ -306,14 +308,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-taxes-and-charges-template.md`  (https://docs.frappe.io/erpnext/sales-taxes-and-charges-template)
 
 ### Create a purchase tax template
-- **Path:** https://your-site/app → **Accounting > Taxes > Purchase Taxes and Charges Template**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Purchase Tax Template**, or type *Purchase Taxes and Charges Template* in the search bar at the top
 - **Documented steps:**
   1. Enter a clear Title, such as Nova Standard Purchase Tax 5%
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__purchase-taxes-and-charges-template.md`  (https://docs.frappe.io/erpnext/purchase-taxes-and-charges-template)
 
 ### Set item-level tax
-- **Path:** https://your-site/app → **Accounting > Taxes > Item Tax Template**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Item Tax Template**, or type *Item Tax Template* in the search bar at the top
 - **Record type:** Item Tax Template
 - **Documented steps:**
   1. Enter a descriptive Title, such as Nova Reduced Item Tax 4%
@@ -321,7 +323,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__item-tax-template.md`  (https://docs.frappe.io/erpnext/item-tax-template)
 
 ### Use tax categories
-- **Path:** https://your-site/app → **Accounting > Taxes > Tax Category**
+- **Path (checked on v16.55):** https://your-site/desk → type *Tax Category* in the search bar at the top and open the doctype
 - **Record type:** Tax Category
 - **Documented steps:**
   1. The preferred billing or shipping Address selected by Determine Address Tax Category from
@@ -332,7 +334,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__tax-category.md`  (https://docs.frappe.io/erpnext/tax-category)
 
 ### Apply tax rules automatically
-- **Path:** https://your-site/app → **Accounting > Taxes > Tax Rule**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Tax Rule**, or type *Tax Rule* in the search bar at the top
 - **Record type:** Tax Rule
 - **Documented steps:**
   1. Set Tax Type to Sales or Purchase
@@ -346,7 +348,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__tax-rule.md`  (https://docs.frappe.io/erpnext/tax-rule)
 
 ### Set up withholding tax
-- **Path:** https://your-site/app → **Accounting > Taxes > Tax Withholding Category**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Tax Withholding Category**, or type *Tax Withholding Category* in the search bar at the top
 - **Record type:** Tax Withholding Category
 - **Documented steps:**
   1. Create a Payment Entry with Payment Type Pay
@@ -359,7 +361,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__tax-withholding-category.md`  (https://docs.frappe.io/erpnext/tax-withholding-category)
 
 ### Set up UAE VAT
-- **Path:** open https://your-site/app (the Desk) and find *VAT/EXCISE Tax Implementation for UAE/KSA* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *UAE VAT Settings* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Select the correct Customer and Item and the address where the transaction will happen
   2. Check if the TRN of your Company and Supplier have been correctly set
@@ -370,7 +372,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__uae-vat-setup.md`  (https://docs.frappe.io/erpnext/uae-vat-setup)
 
 ### Set up KSA VAT reporting
-- **Path:** open https://your-site/app (the Desk) and find *KSA VAT Management and Reporting* — the documentation page below shows the screen
+- **Path (checked on v16.55):** **Not part of ERPNext v16.** KSA VAT Setting and the KSA VAT report moved out of ERPNext into a separate app (Frappe's `KSA` app; ZATCA e-invoicing apps are made by other vendors). Check `installed_apps` first. If none of them is installed, say so plainly and do not improvise the report.
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__simplified_ksa_vat_management_and_reporting.md`  (https://docs.frappe.io/erpnext/simplified_ksa_vat_management_and_reporting)
 

@@ -1,4 +1,4 @@
-Jazari Agents for Frappe & ERPNext v1.1 (plugin 1.1.2)
+Jazari Agents for Frappe & ERPNext v1.1 (plugin 1.1.3)
 Built against: Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)
 Built: 2026-08-31 · Jazari Agents
 Capabilities: 335 documented (90 API / 195 dashboard / 26 bench / 24 guided), each traced to an official documentation page

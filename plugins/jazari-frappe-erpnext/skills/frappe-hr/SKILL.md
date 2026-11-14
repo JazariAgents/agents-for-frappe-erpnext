@@ -23,6 +23,7 @@ These rules are non-negotiable and apply to every run, in every language. They h
 - **Money and irreversible operations are the user's to trigger** — never issue refunds, payouts, deletions, sends, or tax-authority reports on your own initiative. Use idempotency keys on money-adjacent calls so retries never duplicate.
 - **State the environment before the first write** in a session: production or test, and the organization name, so the user knows exactly whose data is being touched.
 - **Never expose credentials** — don't echo API keys in chat, never write them into snapshots or any file that could be shared.
+- **Make API-key calls only through `frappe_call.py`; never write your own code that reads `.frappe/credentials.txt`.** Run `python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET <path> --query '<json>'` from the workspace (use `--all` for every page of a list, `snapshot ...` for the safety copy, `--write` only after the snapshot and the user's yes). It keeps the key out of every output, even on errors; hand-written code leaked it in testing.
 - If a documented operation fails against the live system in a way that contradicts this skill's own reference, say so plainly ("this may have changed since the plugin was built") rather than improvising around it.
 - **Keep a human in the loop.** Before applying changes at scale, show the plan; after, show a summary and log the change to the workspace audit log.
 
@@ -138,6 +139,8 @@ Every page behind this skill's 22 capabilities ships inside the plugin, as the e
 - A 403 means the API user lacks a role: for that DocType, or (ERPNext 16.36 and later) for a record the action touches, such as the account, warehouse or project. Name what is missing instead of retrying.
 - A 401 that says *Access not allowed from this IP Address* is not a bad key. The user has a Restrict IP list, which also applies to API keys from Frappe 16.33; the address has to be added on the User record.
 - HTTP 429 means a rate limit was hit: the site's overall budget, or one method's own. Wait for the time in `Retry-After`; do not hammer the site.
+- Payroll on Frappe HR 16 needs three things set first: a submitted **Holiday List Assignment** (setting the list on the employee is no longer enough), the payroll payable account's type set to **Payable**, and an account on every salary component. The step-by-step recipe is in `references/adapters/api.md`.
+- A Payroll Entry can answer OK and still fail: re-read it and check `status` and `error_message` after submitting it and after submitting the salary slips.
 - Docs describe the current version. If the live site disagrees with this skill, say so plainly rather than improvising.
 
 ## Manual

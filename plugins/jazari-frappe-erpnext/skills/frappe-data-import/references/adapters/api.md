@@ -15,8 +15,22 @@ Base URL is the site itself: `https://your-site`. Every path below is appended t
 ## Authentication
 
 Token: `Authorization: token <api_key>:<api_secret>` — generated at User → Settings → API Access → Generate Keys.
-The secret is shown once. Read it from `.frappe/credentials.txt` into a variable; never print it and never
-interpolate it into a command you display.
+
+**Make every API-key call through the plugin's helper; never write your own code that reads
+`.frappe/credentials.txt`.** In testing, a hand-written script put the whole credentials file into a header
+and the error message printed the key. The helper reads the key itself and removes it from all output:
+
+```bash
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET /api/v2/document/Customer --query '{"fields": ["name"], "limit": 20}'
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET /api/v2/document/ToDo --query '{"filters": [["status", "=", "Open"]]}' --all
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" snapshot --op <name> --request "<user's words>" --class <reversible|recreate|irreversible> --doc <DocType> <name>
+python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" PUT /api/v2/document/ToDo/<name> --data '{"status": "Closed"}' --write
+```
+
+Run it from the workspace folder (the one holding `.frappe/`). If `CLAUDE_PLUGIN_ROOT` is not set, the
+script is in the `frappe-connect/scripts/` folder beside this skill. Anything but GET is refused unless
+`--write` is given: add it only after the snapshot is verified and the user has said yes. `--all` follows
+every page of a list; `UPLOAD <file> --write` uploads a file; `whoami` tests the key.
 Source: https://docs.frappe.io/framework/user/en/api/rest
 
 ## The six calls everything is made of
@@ -36,6 +50,17 @@ CRM, Helpdesk and any custom app. URL-encode the space in a DocType name: `Sales
 Plus: `GET /api/v2/doctype/{doctype}/meta` (schema), `GET /api/v2/doctype/{doctype}/count`,
 `POST /api/v2/method/upload_file`, `GET /api/v2/method/ping`, `GET /api/method/frappe.auth.get_logged_user`.
 Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api
+
+**When submit or cancel answers "not whitelisted" (403).** On v16, **Journal Entry** and **Stock
+Reconciliation** replace the standard submit and cancel, so the two calls above are refused for them
+(tested on ERPNext 16.55). Use Frappe's general calls instead:
+
+- submit: read the document, then `POST /api/v2/method/frappe.client.submit` with `{"doc": <the whole document as read>}`
+- cancel: `POST /api/v2/method/frappe.client.cancel` with `{"doctype": "<DocType>", "name": "<name>"}`
+
+Through the MCP server this is `call_method` with the same method and arguments; through `frappectl`,
+`frappectl api method/frappe.client.submit --input -` with the same JSON on standard input. The safety
+rules are unchanged: it is still a submit or cancel, with the same reversibility.
 
 ## Payload shape, and how to get the real field names
 
@@ -69,7 +94,7 @@ documents (GL Entry, Sales Invoice) with the list call and aggregate yourself.
 
 Two ERPNext specifics worth knowing before writing: a **return** (credit note, debit note, sales/purchase
 return) is not its own DocType — it is the same DocType with the return flag set and negative quantities, so
-read `/meta` and copy the original document rather than inventing a `... (return)` type. And a document only
+make it with ERPNext's return mapper (listed under "Create the next document from the previous one" in the `frappe-selling` and `frappe-buying` skills' `api.md`) rather than copying the original by hand or inventing a `... (return)` type. And a document only
 affects the ledger once it is **submitted**; a create alone leaves a draft.
 
 ## Listing, filtering, paging
@@ -98,7 +123,33 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
   `/api/v2/method/` does not get round it. Wait; never retry in a loop.
   Source: https://docs.frappe.io/framework/user/en/rate-limiting
 - **404 on /api/v2/** — the site is v14 or older; switch to the v1 paths.
+- **"Please set the document name"** — this record type is named by the user (POS Profile, Email Template, Notification, Assignment Rule and others). Put the chosen name in the body as `"name": "..."` (tested on v16).
 - A submitted document (docstatus 1) rejects edits. Amend or cancel instead, and say which before acting.
+
+## Import a spreadsheet: the tested recipe
+
+This is Frappe's own Data Import, driven through the API. Every step was run on a live Frappe 16.56 site.
+It gives the dry run this skill promises: the preview checks every row and saves nothing.
+
+1. **Upload the file.** `POST /api/v2/method/upload_file` as `multipart/form-data` with `file` (a `.csv` or
+   `.xlsx`) and `is_private` = `1`. Keep the `file_url` from the answer.
+2. **Make the import record.** `POST /api/v2/document/Data%20Import` with `reference_doctype` (for example
+   `Customer`), `import_type` (`Insert New Records` or `Update Existing Records`) and `import_file` (the
+   `file_url`). Its name contains spaces and colons: URL-encode it in every later call.
+3. **Dry run.** `POST /api/v2/document/Data%20Import/<name>/method/get_preview_from_template`. The answer
+   lists the columns it matched, the rows, and `warnings` (a wrong value, an unknown column). **Nothing is
+   saved.** Show the user the row count and every warning.
+4. **Fix every warning first.** If there is any warning, the import is accepted in step 5 but **never runs**:
+   it stays `Pending` with no log. Correct the file, upload it again, and repeat from step 2.
+5. **Sample, then the rest.** Import a file with the first few rows, check them, then the full file:
+   `POST /api/v2/method/frappe.core.doctype.data_import.data_import.form_start_import` with
+   `{"data_import": "<name>"}`. It runs in the background, so the scheduler and workers must be running.
+6. **Check the result.** Read the record's `status` (`Success`, `Partial Success`, `Error`) and the log:
+   `GET /api/v2/document/Data%20Import%20Log` filtered on `data_import`. Each row says `success` and the
+   record it made. Re-read a few of those records from the site before telling the user it worked.
+
+More than 25 rows stops and shows the count first, as the guardrails say. An import adds records; it does
+not undo itself. To remove an import, the records it made must be deleted one by one (recreate class).
 
 ## Capability → call
 
@@ -115,7 +166,7 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Import records from a spreadsheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__data-import.md` |
+| Import records from a spreadsheet | Data Import — follow "Import a spreadsheet: the tested recipe" above | `docs/erpnext/erpnext__data-import.md` |
 | Export records to a spreadsheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__data-export.md` |
 | Update many records at once | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__bulk-update.md` |
 | Rename records in bulk | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__bulk-rename.md` |

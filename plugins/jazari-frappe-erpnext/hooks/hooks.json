@@ -1,0 +1,30 @@
+{
+  "description": "Jazari Agents for Frappe & ERPNext: in a folder connected to a Frappe site, route requests through the plugin's rules, and block changes made through Frappe's MCP tools unless the record was snapshotted first.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/frappe_context.py\" 2>/dev/null || python \"${CLAUDE_PLUGIN_ROOT}/hooks/frappe_context.py\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "mcp__.*__(update_document|delete_document|call_document_method|call_method)",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "bash",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/frappe_guard.py\" 2>/dev/null || python \"${CLAUDE_PLUGIN_ROOT}/hooks/frappe_guard.py\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

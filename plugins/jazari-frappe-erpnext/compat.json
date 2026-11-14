@@ -1,5 +1,5 @@
 {
-  "pack_version": "1.1.2",
+  "pack_version": "1.1.3",
   "knowledge": {
     "what": "the capability tables, walkthroughs and 1,607 of the 1,612 bundled documentation pages",
     "date": "2026-08-31",
@@ -7,7 +7,7 @@
     "erpnext": "16.33.0"
   },
   "checked": {
-    "what": "the connection routes, the dashboard, the safety rules and the shared API guidance, run on a live site; plus five newer official pages (Automations, the new BOM Creator) added to the bundle",
+    "what": "every capability's screen path, record type and API call, the main business workflows (sales, buying, stock, manufacturing, accounting, import, HR, payroll, lending), the agents' safety rules, the dashboard and the connection routes, run on two live sites; plus five newer official pages (Automations, the new BOM Creator) added to the bundle",
     "date": "2026-11-14",
     "frappe": "16.56.0",
     "erpnext": "16.55.0",
@@ -16,7 +16,9 @@
       "date": "2026-11-14",
       "frappe": "16.56.0",
       "erpnext": "16.55.0",
-      "how": "Frappe's official Docker image, a throwaway company, API key, built-in MCP server and frappectl 0.24.0"
+      "how": "Frappe's official Docker images, a throwaway company, API key, built-in MCP server and frappectl 0.24.0",
+      "apps": "ERPNext, HR, CRM, Helpdesk, Learning, Lending, Insights, Webshop, Builder, Wiki, Blog, Payments, Telephony",
+      "not_checked": "Frappe Cloud; the Education, Drive, Studio, WhatsApp and Newsletter apps; bench production setup; version 15"
     }
   },
   "features": [

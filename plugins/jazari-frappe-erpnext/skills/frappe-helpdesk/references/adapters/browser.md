@@ -24,6 +24,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -36,7 +37,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Handle support tickets
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Ticket* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → **Tickets** in the sidebar
 - **Record type:** HD Ticket
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket.md`  (https://docs.frappe.io/helpdesk/ticket)
@@ -47,13 +48,13 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__service-level-agreement.md`  (https://docs.frappe.io/helpdesk/service-level-agreement)
 
 ### Route tickets to teams
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Team* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Teams**
 - **Record type:** HD Team
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__team.md`  (https://docs.frappe.io/helpdesk/team)
 
 ### Route tickets automatically
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Ticket Routing* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Assignment Rules**
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket-routing.md`  (https://docs.frappe.io/helpdesk/ticket-routing)
 
@@ -68,13 +69,13 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket-priority.md`  (https://docs.frappe.io/helpdesk/ticket-priority)
 
 ### Define ticket types
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Ticket Type* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/desk → type *HD Ticket Type* in the search bar at the top
 - **Record type:** HD Ticket Type
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket-type.md`  (https://docs.frappe.io/helpdesk/ticket-type)
 
 ### Invite and manage agents
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Agent* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Agents**, then **Invite Agents**
 - **Documented steps:**
   1. Click on "Create" button in the center
   2. A dialog will open, enter agent's email ID
@@ -85,7 +86,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__agent.md`  (https://docs.frappe.io/helpdesk/agent)
 
 ### Answer faster with saved replies
-- **Path:** open https://your-site/helpdesk → **Saved Replies** in the sidebar
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Saved Replies** (record type *HD Saved Reply*)
 - **Documented steps:**
   1. Go to the Saved Replies section in the settings modal and open a saved reply, or create a new one
   2. Scroll to the Actions table below the message
@@ -96,12 +97,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__saved-replies.md`  (https://docs.frappe.io/helpdesk/saved-replies)
 
 ### Publish knowledge base articles
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Knowledge Base* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → **Knowledge Base** in the sidebar
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/helpdesk/helpdesk__knowledge-base.md`  (https://docs.frappe.io/helpdesk/knowledge-base)
 
 ### Connect a support email account
-- **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Email Communication* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Email Accounts**
 - **Documented steps:**
   1. Locate the Reply Button: On the Ticket page, find the "Reply" button, typically situated at the bottom of the page
 - **Snapshot first** — reversibility: reversible

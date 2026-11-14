@@ -24,6 +24,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -36,7 +37,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Read the general ledger
-- **Path:** open https://your-site/app (the Desk) and find *General Ledger* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > General Ledger**, or type *General Ledger* in the search bar at the top
 - **Documented steps:**
   1. Open Accounting and select General Ledger
   2. Select Nova Industries and the required date range
@@ -46,7 +47,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__general-ledger.md`  (https://docs.frappe.io/erpnext/general-ledger)
 
 ### Produce a balance sheet
-- **Path:** open https://your-site/app (the Desk) and find *Balance Sheet* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Balance Sheet**, or type *Balance Sheet* in the search bar at the top
 - **Documented steps:**
   1. Open Accounting and select Balance Sheet
   2. Select Nova Industries
@@ -57,7 +58,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__balance-sheet.md`  (https://docs.frappe.io/erpnext/balance-sheet)
 
 ### Produce a profit and loss report
-- **Path:** open https://your-site/app (the Desk) and find *Profit and Loss Report* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Profit and Loss**, or type *Profit and Loss Statement* in the search bar at the top
 - **Documented steps:**
   1. Open Accounting and select Profit and Loss Statement
   2. Select Nova Industries
@@ -69,7 +70,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__profit-and-loss-report.md`  (https://docs.frappe.io/erpnext/profit-and-loss-report)
 
 ### Produce a cash flow report
-- **Path:** open https://your-site/app (the Desk) and find *Cash Flow Report* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Cash Flow**, or type *Cash Flow* in the search bar at the top
 - **Documented steps:**
   1. Open Accounting and select Cash Flow
   2. Select Nova Industries and the required fiscal year or date range
@@ -79,7 +80,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__cash-flow-report.md`  (https://docs.frappe.io/erpnext/cash-flow-report)
 
 ### Age receivables and payables
-- **Path:** open https://your-site/app (the Desk) and find *Accounts Receivable and Payable* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Accounts Receivable**, or type *Accounts Receivable* in the search bar at the top
 - **Documented steps:**
   1. Open Accounts Receivable or Accounts Payable
   2. Select the Company and reporting date
@@ -89,11 +90,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__accounts-receivable-and-payable.md`  (https://docs.frappe.io/erpnext/accounts-receivable-and-payable)
 
 ### Use the standard accounting reports
-- **Path:** open https://your-site/app (the Desk) and find *Accounting Reports* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > General Ledger**, or type *General Ledger* in the search bar at the top
+- **On this screen:** The other statements sit beside it in the same Reports section, and in the **Financial Reports** sidebar.
 - **Full page, bundled offline:** `docs/erpnext/erpnext__accounting-reports.md`  (https://docs.frappe.io/erpnext/accounting-reports)
 
 ### Analyse sales
-- **Path:** open https://your-site/app (the Desk) and find *Sales Reports and Analytics* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Reports > Sales Analytics**, or type *Sales Analytics* in the search bar at the top
 - **Documented steps:**
   1. Open the Selling workspace
   2. Select a report, or search for it by name
@@ -101,12 +103,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__sales-analytics.md`  (https://docs.frappe.io/erpnext/sales-analytics)
 
 ### Build a custom report
-- **Path:** open https://your-site/app (the Desk) and find *Making Custom Reports* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Views > Report**, or type *Report* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__making-custom-reports.md`  (https://docs.frappe.io/erpnext/making-custom-reports)
 
 ### Email a report on a schedule
-- **Path:** https://your-site/app → **Home > Settings > Auto Email Report**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Automation > Auto Email Report**, or type *Auto Email Report* in the search bar at the top
 - **Documented steps:**
   1. Go to the Auto Email Report list, click on New
   2. Select the Report for which you want to generate emails
@@ -115,7 +117,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__auto-email-reports.md`  (https://docs.frappe.io/erpnext/auto-email-reports)
 
 ### Build ERPNext dashboards
-- **Path:** open https://your-site/app (the Desk) and find *ERPNext Dashboards* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Dashboard* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Use Accounting Reports for financial review
   2. Use Sales Reports for sales performance
@@ -129,12 +131,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__erpnext-dashboards.md`  (https://docs.frappe.io/erpnext/erpnext-dashboards)
 
 ### Connect a data source in Insights
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Add Data Source* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Data Sources** in the sidebar
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/insights/insights__connect-data__add-data-source.md`  (https://docs.frappe.io/insights/connect-data/add-data-source)
 
 ### Write a query in Insights
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Overview* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Workbooks** in the sidebar. On Insights v3 a query lives inside a workbook; there is no separate Queries screen
 - **Documented steps:**
   1. Query Builder Visual, no-code interface (recommended for most users)
   2. SQL Editor Write SQL directly (for SQL experts)
@@ -143,29 +145,29 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/insights/insights__querying__overview.md`  (https://docs.frappe.io/insights/querying/overview)
 
 ### Use expressions in a query
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Expressions* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Workbooks** → open the query → **Column Expression**
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/insights/insights__querying__expressions.md`  (https://docs.frappe.io/insights/querying/expressions)
 
 ### Chart a result in Insights
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Overview* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Workbooks** → open the workbook and add a chart to the query
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/insights/insights__charts__overview.md`  (https://docs.frappe.io/insights/charts/overview)
 
 ### Publish an Insights dashboard
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Overview* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Dashboards** in the sidebar
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/insights/insights__dashboards__overview.md`  (https://docs.frappe.io/insights/dashboards/overview)
 
 ### Share a dashboard and control access
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Sharing and Access Control* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → open the dashboard → **Share**
 - **Documented steps:**
   1. Click the "Share" button in dashboard header
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/insights/insights__dashboards__sharing-and-access-control.md`  (https://docs.frappe.io/insights/dashboards/sharing-and-access-control)
 
 ### Set Insights permissions
-- **Path:** open https://your-site/insights (the Frappe Insights interface) and find *Overview* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/insights → open the dashboard or workbook → **Share** → **Teams with access**. Teams themselves are *Insights Team* records (type it in the Desk search bar)
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/insights/insights__permissions-access-control__overview.md`  (https://docs.frappe.io/insights/permissions-access-control/overview)
 

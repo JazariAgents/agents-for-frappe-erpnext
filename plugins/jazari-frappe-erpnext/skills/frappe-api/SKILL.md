@@ -5,7 +5,10 @@ description: >-
   filtering, creating, updating, submitting and cancelling documents, file upload, webhooks,
   background jobs, rate limits and Automation Flows (when this happens, do that, with waits and
   branches). ALWAYS use when someone wants to integrate, call the API, send data to another system,
-  set up a webhook, automate a follow-up, or ask why an API call fails.
+  set up a webhook, automate a follow-up, or ask why an API call fails. ALSO use for ANY request to
+  list, find, count, create, change, close, delete or bulk-update records on a connected Frappe or
+  ERPNext site (a .frappe/ folder exists) that no module skill names: ToDos, notes, comments,
+  assignments, files, custom DocTypes, or records of an app this plugin has no skill for.
 ---
 # REST API, webhooks and automation (Frappe)
 
@@ -23,6 +26,7 @@ These rules are non-negotiable and apply to every run, in every language. They h
 - **Money and irreversible operations are the user's to trigger** — never issue refunds, payouts, deletions, sends, or tax-authority reports on your own initiative. Use idempotency keys on money-adjacent calls so retries never duplicate.
 - **State the environment before the first write** in a session: production or test, and the organization name, so the user knows exactly whose data is being touched.
 - **Never expose credentials** — don't echo API keys in chat, never write them into snapshots or any file that could be shared.
+- **Make API-key calls only through `frappe_call.py`; never write your own code that reads `.frappe/credentials.txt`.** Run `python "${CLAUDE_PLUGIN_ROOT}/skills/frappe-connect/scripts/frappe_call.py" GET <path> --query '<json>'` from the workspace (use `--all` for every page of a list, `snapshot ...` for the safety copy, `--write` only after the snapshot and the user's yes). It keeps the key out of every output, even on errors; hand-written code leaked it in testing.
 - If a documented operation fails against the live system in a way that contradicts this skill's own reference, say so plainly ("this may have changed since the plugin was built") rather than improvising around it.
 - **Keep a human in the loop.** Before applying changes at scale, show the plan; after, show a summary and log the change to the workspace audit log.
 

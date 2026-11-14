@@ -24,6 +24,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -42,7 +43,8 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/crm/crm__lead.md`  (https://docs.frappe.io/crm/lead)
 
 ### Move deals through the pipeline
-- **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Deal* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/crm → **Deals** in the sidebar
+- **On this screen:** On a first visit Frappe CRM opens an email setup screen; connect email or choose **Skip setup**.
 - **Record type:** CRM Deal
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/crm/crm__deal.md`  (https://docs.frappe.io/crm/deal)
@@ -59,7 +61,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/crm/crm__note.md`  (https://docs.frappe.io/crm/note)
 
 ### Track organizations
-- **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Organization* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/crm → **Organizations** in the sidebar
 - **Record type:** CRM Organization
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/crm/crm__organization.md`  (https://docs.frappe.io/crm/organization)
@@ -75,31 +77,31 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/crm/crm__call-log.md`  (https://docs.frappe.io/crm/call-log)
 
 ### Set a CRM service level agreement
-- **Path:** https://your-site/crm → **Settings > SLA Policies**
+- **Path (checked on v16.55 with the app installed):** https://your-site/crm → your name at the top left → **Settings** → **SLA Policies**
 - **Documented steps:**
   1. Go to Settings > SLA Policies and click on +New
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/crm/crm__service-level-agreement.md`  (https://docs.frappe.io/crm/service-level-agreement)
 
 ### Customize deal statuses
-- **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Custom Statuses* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/desk → type *CRM Lead Status* or *CRM Deal Status* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/crm/crm__custom-statuses.md`  (https://docs.frappe.io/crm/custom-statuses)
 
 ### Capture leads from a web form
-- **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Forms* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/crm → your name at the top left → **Settings** → **Forms**
 - **Documented steps:**
   1. Open Settings → Forms. (You'll need the Sales Manager or System Manager role to see this.)
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/crm/crm__capturing-leads__web-form.md`  (https://docs.frappe.io/crm/capturing-leads/web-form)
 
 ### Invite your sales team
-- **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Inviting Your Team* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/crm → your name at the top left → **Settings** → **Users**, then **Invite User**
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/crm/crm__inviting-your-team.md`  (https://docs.frappe.io/crm/inviting-your-team)
 
 ### Message a contact on WhatsApp
-- **Path:** open https://your-site/crm (the Frappe CRM interface) and find *WhatsApp* — the documentation page below shows the screen
+- **Path (checked on v16.55):** **Needs Frappe's WhatsApp integration app**, which is not part of Frappe CRM and was not on the test site. Check `installed_apps` first; if it is missing, say so instead of looking for the screen
 - **Documented steps:**
   1. Navigate to the WhatsApp Templates DocType
   2. Click on Add WhatsApp Template
@@ -126,7 +128,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__email-campaign.md`  (https://docs.frappe.io/erpnext/email-campaign)
 
 ### Send a newsletter
-- **Path:** https://your-site/app → **Home > Settings > Email > Newsletter**
+- **Path (checked on v16.55):** **Not part of Frappe v16 itself**: Newsletter moved out of the framework into a separate app. Check `installed_apps` first; if it is missing, say so instead of looking for the screen
 - **Record type:** Newsletter
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__newsletter.md`  (https://docs.frappe.io/erpnext/newsletter)

@@ -24,6 +24,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -36,14 +37,15 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Create a course
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Create a Course* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Courses** in the sidebar → **New Course**
+- **On this screen:** On a first visit Frappe Learning asks how you heard about it; choose **Skip for now**.
 - **Documented steps:**
   1. Using the Learning Portal
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/learning/learning__create-a-course.md`  (https://docs.frappe.io/learning/create-a-course)
 
 ### Add chapters and lessons
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Add a Chapter* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Courses** → open the course → **Add Chapter**
 - **Documented steps:**
   1. Inside your Course, click the + Add button on the right side of the screen
   2. Enter the Title for your chapter
@@ -52,12 +54,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/learning/learning__add-a-chapter.md`  (https://docs.frappe.io/learning/add-a-chapter)
 
 ### Run a batch of learners
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Create a Batch* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Batches** in the sidebar
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/learning/learning__create-a-batch.md`  (https://docs.frappe.io/learning/create-a-batch)
 
 ### Host a live class
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Create a Live Class* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Batches** → open the batch → **Live Class**. It needs Zoom or Google Meet set up first, under your name → **Settings**
 - **Documented steps:**
   1. Go to Settings - > Google Meet - > + New
   2. Enter your details in the modal
@@ -65,7 +67,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/learning/learning__create-a-live-class.md`  (https://docs.frappe.io/learning/create-a-live-class)
 
 ### Assess learners with quizzes
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Quizzes* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Quizzes** in the sidebar
 - **Documented steps:**
   1. Click the + Create button
   2. In the form that appears, enter the Title of the quiz and click Save
@@ -73,17 +75,18 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/learning/learning__quizzes.md`  (https://docs.frappe.io/learning/quizzes)
 
 ### Set assignments
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Assignments* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Assignments** in the sidebar
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/learning/learning__assignments.md`  (https://docs.frappe.io/learning/assignments)
 
 ### Issue certificates
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Issue a Certificate* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Certifications** in the sidebar
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/learning/learning__issue-a-certificate.md`  (https://docs.frappe.io/learning/issue-a-certificate)
 
 ### Group courses into a program
-- **Path:** open https://your-site/lms (the Frappe Learning portal) and find *Add a Program* — the documentation page below shows the screen
+- **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Programs** in the sidebar
+- **Not checked on a live site:** the Education app was not on the test site; this path is the documentation's.
 - **Documented steps:**
   1. Navigate to the Programs section
   2. Click on the + New button
@@ -101,6 +104,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Enrol students
 - **Path:** https://your-site/app → **Home > Education > Student > Student**
+- **Not checked on a live site:** the Education app was not on the test site; this path is the documentation's.
 - **Record type:** Student
 - **Documented steps:**
   1. Go to the student list and click on New
@@ -111,6 +115,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Set up programs and courses
 - **Path:** https://your-site/app → **Home > Education > Masters > Program**
+- **Not checked on a live site:** the Education app was not on the test site; this path is the documentation's.
 - **Record type:** Program
 - **Documented steps:**
   1. Go to the Program list and click on New
@@ -123,6 +128,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Collect fees
 - **Path:** https://your-site/app → **Home > Education > Fees > Fees**
+- **Not checked on a live site:** the Education app was not on the test site; this path is the documentation's.
 - **Record type:** Fees
 - **Documented steps:**
   1. Go to the Fees list and click on New
@@ -135,6 +141,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Run assessments
 - **Path:** open https://your-site/app (the Desk) and find *Assessment* — the documentation page below shows the screen
+- **Not checked on a live site:** the Education app was not on the test site; this path is the documentation's.
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/education/education__assessment-introduction.md`  (https://docs.frappe.io/education/assessment-introduction)
 

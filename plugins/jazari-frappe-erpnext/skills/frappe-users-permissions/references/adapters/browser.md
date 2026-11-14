@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,16 +36,16 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Add and manage users
-- **Path:** open https://your-site/app (the Desk) and find *Users and Permissions* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Users**, or type *User* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__user__en__basics__users-and-permissions.md`  (https://docs.frappe.io/framework/user/en/basics/users-and-permissions)
 
 ### Set role-based permissions
-- **Path:** https://your-site/app → **Home > Users and Permissions > Role Permissions Manager**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Users > Permissions > Role Permissions Manager**, or type *Role Permissions Manager* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__role-based-permissions.md`  (https://docs.frappe.io/erpnext/role-based-permissions)
 
 ### Restrict a user to specific records
-- **Path:** https://your-site/app → **Home > User and Permissions > User Permissions**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Access > User Permissions**, or type *User Permissions* in the search bar at the top
 - **Record type:** User Permission
 - **Documented steps:**
   1. Allowing user to access data belonging to one Company
@@ -53,7 +54,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__user-permissions.md`  (https://docs.frappe.io/erpnext/user-permissions)
 
 ### Hide fields with permission levels
-- **Path:** open https://your-site/app (the Desk) and find *Perm Levels* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Customize Form**, or type *Customize Form* in the search bar at the top
 - **Documented steps:**
   1. A field is assigned a perm level in the DocType or Customize Form
   2. Role Permission Manager is used to define what each role can do at each perm level
@@ -61,7 +62,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__perm-levels.md`  (https://docs.frappe.io/erpnext/perm-levels)
 
 ### Group roles into a role profile
-- **Path:** https://your-site/app → **Home > Users and Permissions > Role**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Access > Role**, or type *Role* in the search bar at the top
 - **Documented steps:**
   1. Go to the Role list, click on New
   2. Enter a name for the Role
@@ -70,12 +71,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__role-and-role-profile.md`  (https://docs.frappe.io/erpnext/role-and-role-profile)
 
 ### Turn on two-factor authentication
-- **Path:** open https://your-site/app (the Desk) and find *Setup Two Factor Authentication* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > System**, or type *System Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__setup-two-factor-authentication.md`  (https://docs.frappe.io/erpnext/setup-two-factor-authentication)
 
 ### Read the audit trail
-- **Path:** open https://your-site/app (the Desk) and find *Audit Trail* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Audit Trail* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Select the type of the document in the Doctype field
   2. Select the name of the document in the Document field

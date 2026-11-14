@@ -1,5 +1,67 @@
 # Changelog
 
+## 1.1.3 — everything checked against a live site (2026-11-14)
+
+Every capability the plugin lists was checked against a live site, the main business workflows were run for real,
+and the agents themselves were run on real requests to test the safety promises. This found real problems; they
+are fixed here.
+
+### Safety
+
+- **Snapshots are now enforced, not just asked for.** With Frappe's MCP server connected, a test agent deleted a
+  record straight through the MCP tool: no snapshot, no question. The plugin now ships hooks: in a folder connected to
+  a Frappe site, every request is routed through the plugin's rules, and a change or delete through Frappe's MCP tools
+  is refused unless that record was snapshotted in the last hour.
+- **The API key can no longer leak.** In testing, an agent's own script put the whole key file into a request header
+  and the error printed the key. The plugin now ships `frappe_call.py`, which reads the key itself, removes it from
+  every output and error, refuses any change without `--write`, and refuses to change or delete a record that has no
+  fresh snapshot. Every skill now uses it.
+- Requests about records no module names (ToDos, notes, custom record types) now open the plugin's rules; before,
+  they were handled without them.
+
+### Wrong or missing instructions, fixed
+
+- **167 screen paths** rewritten to where things really are on the v16 Desk (`/desk`). About 70 told the agent to
+  "find" a documentation page title, such as "Introduction", that is not on any screen.
+- **Linked documents.** Creating each document of a sale on its own leaves them unlinked: on the live site the order
+  stayed 0% delivered. The guides now give ERPNext's 14 "create from the previous document" calls, each tested.
+- **Journal Entry and Stock Reconciliation** cannot be submitted or cancelled with the standard call on v16; the
+  guides now give the call that works, through the API, the MCP server and frappectl.
+- **Credit notes** keep their own balance by default on v16, so the invoice still shows as unpaid. The guides say so.
+- **Spreadsheet imports**: a tested recipe with a real dry run. An import whose preview shows a warning is accepted
+  and then silently never runs; the guide now says to fix every warning first.
+- **Naming series** is "Document Naming Settings" on v16, with a tested API recipe.
+- **Partial restore** needs a partial backup and the file's full path; both now stated.
+- **Not in ERPNext v16**: the QuickBooks migrator and the Saudi (KSA) VAT setup. The guides now say so instead of
+  sending the agent to look for them.
+- Records named by the user (POS Profile, Email Template and others) need the name in the request; now stated.
+- The helper works from Git Bash on Windows, which rewrites `/api/...` arguments into Windows paths.
+
+### Tested for the first time
+
+- **Frappe HR, CRM, Helpdesk, Learning, Lending, Insights, Webshop, Builder and Wiki**, on a second site
+  with thirteen Frappe apps. Every screen path in their guides now points to the real v16 screen.
+- **Payroll**, start to finish: four salary slips submitted and their accounting entry made. HR 16 needs
+  four things set up first (a submitted Holiday List Assignment, a Payable payroll account, an account on
+  each salary component, and the employee list saved back after filling it); the guide now gives them, and
+  says to re-read the run's status, because a run can fail behind a success reply.
+- **Lending**, from loan product to repayment: 24 of 24 checks. Lending 16 needs a Loan Demand Offset
+  Order and the company's collection sequences before the first product; the guide now gives the setup
+  and the calls that make the loan, the disbursement and the repayment from the record before.
+- **Attendance, leave and expense claims**, and the dashboard's People screen against the database.
+
+### Said plainly where an app is needed
+
+- WhatsApp, Newsletter and Blog are separate apps on v16, and the shop is the Webshop app (its settings
+  are now Webshop Settings). The guides say to check that the app is installed first.
+- Education, Drive and Studio were not on the test site; their paths are marked as the documentation's.
+
+### Not tested
+
+- Frappe Cloud (14 capabilities): it needs a Frappe Cloud account.
+- bench production setup (nginx, HTTPS, domains) on a real server, and version 15 sites.
+
+
 ## 1.1.2 — the real frappectl (2026-11-14)
 
 `frappectl`, Frappe's official command-line client, was the last connection route not yet run for real.

@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Set up a loan product
-- **Path:** https://your-site/app → **Home > Lending > Loan > Loan Product**
+- **Path (checked on v16.55):** https://your-site/desk → type *Loan Product* in the search bar at the top and open the doctype
 - **Record type:** Loan Product
 - **Documented steps:**
   1. Go to the Loan Product List, and click on Add Loan Product
@@ -44,7 +45,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/lending/lending__loan-product.md`  (https://docs.frappe.io/lending/loan-product)
 
 ### Process a loan application
-- **Path:** https://your-site/app → **Home > Lending > Loan > Loan Application**
+- **Path (checked on v16.55):** https://your-site/desk → type *Loan Application* in the search bar at the top and open the doctype
 - **Record type:** Loan Application
 - **Documented steps:**
   1. Go to Loan Application List and click on Add Loan Application
@@ -58,7 +59,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/lending/lending__loan-application.md`  (https://docs.frappe.io/lending/loan-application)
 
 ### Disburse a loan
-- **Path:** https://your-site/app → **Home > Lending > Disbursement and Repayment > Loan Disbursement**
+- **Path (checked on v16.55):** https://your-site/desk → type *Loan Disbursement* in the search bar at the top and open the doctype
 - **Record type:** Loan Disbursement
 - **Documented steps:**
   1. Go to the Loan Disbursement List, and click on Add Loan Disbursement
@@ -68,7 +69,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/lending/lending__loan-disbursement.md`  (https://docs.frappe.io/lending/loan-disbursement)
 
 ### Record a loan repayment
-- **Path:** https://your-site/app → **Home > Lending > Disbursement and Repayment > Loan Repayment**
+- **Path (checked on v16.55):** https://your-site/desk → type *Loan Repayment* in the search bar at the top and open the doctype
 - **Record type:** Loan Repayment
 - **Documented steps:**
   1. Go to the Loan Repayment List, and click on Add Loan Repayment
@@ -77,12 +78,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/lending/lending__loan-repayment.md`  (https://docs.frappe.io/lending/loan-repayment)
 
 ### Accrue interest
-- **Path:** open https://your-site/app (the Desk) and find *Loan Interest Accrual* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → type *Loan Interest Accrual* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: irreversible
 - **Full page, bundled offline:** `docs/lending/lending__loan-interest-accrual.md`  (https://docs.frappe.io/lending/loan-interest-accrual)
 
 ### Manage loan security
-- **Path:** https://your-site/app → **Home > Lending > Loan Security > Loan Security**
+- **Path (checked on v16.55):** https://your-site/desk → type *Loan Security* in the search bar at the top and open the doctype
 - **Record type:** Loan Security
 - **Documented steps:**
   1. Go to the Loan Security List, and click on Add Loan Security

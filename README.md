@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/licence-MIT-23E0C5?style=flat-square" alt="MIT licence">
-  <img src="https://img.shields.io/badge/version-1.1.2-087DB9?style=flat-square" alt="Version 1.1.2">
+  <img src="https://img.shields.io/badge/version-1.1.3-087DB9?style=flat-square" alt="Version 1.1.3">
   <img src="https://img.shields.io/badge/built%20for-ERPNext%20%26%20Frappe%20v16-06152D?style=flat-square" alt="Built for ERPNext and Frappe v16">
   <img src="https://img.shields.io/badge/languages-English%20%C2%B7%20Arabic-00B8D9?style=flat-square" alt="English and Arabic">
 </p>
@@ -236,25 +236,30 @@ them, not to replace them.
 
 This is an early public release, and it is honest about what that means.
 
-**Run on a real site** (ERPNext 16.55 on Frappe 16.56, 14 November 2026):
+**Run on two real sites** (14 November 2026, Frappe's official Docker images): one with ERPNext 16.55 on
+Frappe 16.56, and one with thirteen Frappe apps: ERPNext, HR, CRM, Helpdesk, Learning, Lending, Insights,
+Webshop, Builder, Wiki, Blog, Payments and Telephony.
 
-- **The dashboard.** Every figure was compared with the site's database and matched. It was also run with
-  a user who lacks permissions, a wrong key and a blocked address, to check that it explains instead of
-  failing.
-- **The API calls all 22 skills share**: read, list, page, create, update, delete, submit, cancel and the
-  error replies. 27 of 27 behaved as written.
-- **Frappe's built-in MCP server.** All 13 tools the plugin expects are there and answer.
-- **Eight standard reports** run through the API, including grouping by cost center.
-- **An Automation Flow** was built, test-run, switched on and seen to fire.
-- **`frappectl`**, Frappe's own command-line tool (v0.24.0). The dashboard gave the same figures through it
-  as through an API key, and its read-only sign-in refused every change, as it should.
+- **Every capability.** All 335 were checked against the live sites: the screen, the record type and the
+  API call. 244 are exactly where the guide says on the Desk; the 20 in separate apps were checked in those
+  apps' own screens. 167 wrong screen paths were found and fixed.
+- **The business workflows, for real**: quotation to paid invoice, purchase to paid bill, stock,
+  manufacturing, returns with credit and debit notes, journal entries, period closing, a spreadsheet
+  import, attendance, leave, expense claims, a payroll run and a loan from product to repayment.
+- **The agents themselves**, on ten kinds of real request, including a delete with a safety copy and a
+  restore, a change to 30 records, an instruction planted in a record (refused), and a delete through
+  Frappe's MCP server, which the plugin blocked until a safety copy existed.
+- **The dashboard.** Every figure matched the database, the People screen included.
+- **The connections**: the 27 shared API calls, all 13 tools of Frappe's MCP server, and `frappectl`
+  v0.24.0.
+- **Every bench command** the guides give, on a throwaway site.
 
-**Not yet run on a real site:**
+**Not tested:**
 
-- Each of the 335 walkthroughs, one by one. They trace to Frappe's official pages; where your site
-  disagrees with a step, the agent says so instead of improvising.
-- Frappe HR, CRM, Helpdesk, Insights, Lending and Learning. The test site had Frappe and ERPNext only.
-- Frappe Cloud's dashboard, bench on a production server, and version 15 sites.
+- Frappe Cloud (14 capabilities): it needs a Frappe Cloud account.
+- The Education, Drive and Studio apps (7 capabilities), and the WhatsApp and Newsletter apps: not on
+  the test site. Their guides say so.
+- bench production setup (nginx, HTTPS, domains) on a real server, and version 15 sites.
 
 **Versions.** The reference pages are from Frappe 16.32 and ERPNext 16.33 (August 2026), plus five newer
 pages. All 13 changes between those versions and 16.56 / 16.55 are covered; see

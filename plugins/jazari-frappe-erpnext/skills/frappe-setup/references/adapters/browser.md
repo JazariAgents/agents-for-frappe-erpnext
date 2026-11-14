@@ -23,6 +23,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ## Ground rules
 
+- **The Path line is the checked one.** Lines marked *checked on v16.55* were matched against a live v16 Desk (which lives at `/desk`; old `/app` links redirect there). When a numbered step names a different menu ("Go to Accounting > …"), that is the documentation's older menu: follow the Path line, then continue from the next step.
 - **Verify the label on screen before clicking.** These paths come from Frappe's documentation as it stood
   on 2026-08-31. Interfaces move. If the screen does not match, say so instead of clicking something similar.
 - Ask before each change on a live system, and never type the user's password.
@@ -35,7 +36,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Set up a company
-- **Path:** open https://your-site/app (the Desk) and find *Company* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Setup > Company**, or type *Company* in the search bar at the top
 - **Documented steps:**
   1. Open the Company tree view. Select New to create an independent Company, or select a group and use Add Child to create a subsidiary under it
   2. Enter the Company name, abbreviation, default currency, and Country
@@ -45,7 +46,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__company-setup.md`  (https://docs.frappe.io/erpnext/company-setup)
 
 ### Set the fiscal year
-- **Path:** https://your-site/app → **Home > Accounting > Accounting Masters > Fiscal Year**
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Setup > Fiscal Year**, or type *Fiscal Year* in the search bar at the top
 - **Record type:** Fiscal Year
 - **Documented steps:**
   1. Go to Home > Accounting > Accounting Masters > Fiscal Year
@@ -53,14 +54,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__fiscal-year.md`  (https://docs.frappe.io/erpnext/fiscal-year)
 
 ### Set up the chart of accounts
-- **Path:** open https://your-site/app (the Desk) and find *Chart of Accounts* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Chart of Accounts**, or type *Chart of Accounts* in the search bar at the top
 - **Documented steps:**
   1. Select the parent group
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__chart-of-accounts.md`  (https://docs.frappe.io/erpnext/chart-of-accounts)
 
 ### Configure currencies and exchange rates
-- **Path:** open https://your-site/app (the Desk) and find *Currency Exchange Settings* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > Currency Exchange**, or type *Currency Exchange Settings* in the search bar at the top
 - **Documented steps:**
   1. Open Currency Exchange Settings
   2. Confirm that Disabled is clear when provider fallback is required
@@ -73,8 +74,9 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__currency-exchange-settings.md`  (https://docs.frappe.io/erpnext/currency-exchange-settings)
 
 ### Configure naming series
-- **Path:** https://your-site/app → **Home > Settings > Naming Series**
-- **Record type:** Naming Series
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Data > Naming > Document Naming Settings**, or type *Document Naming Settings* in the search bar at the top
+- **On this screen:** Choose the transaction in **Select Transaction**, edit **Series List for this Transaction**, then press **Update**.
+- **Record type:** Document Naming Settings (called Naming Series before v14)
 - **Documented steps:**
   1. Select the transaction for which you want to make the series. The system will update the current series in the text box
   2. Edit the series as required with unique prefixes for each series
@@ -83,7 +85,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__naming-series.md`  (https://docs.frappe.io/erpnext/naming-series)
 
 ### Add a letter head
-- **Path:** https://your-site/app → **Home > Settings > Letter Head**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Printing > Letter Head**, or type *Letter Head* in the search bar at the top
 - **Record type:** Letter Head
 - **Documented steps:**
   1. Go to the Letter Head list, click on New
@@ -91,7 +93,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__letter-head.md`  (https://docs.frappe.io/erpnext/letter-head)
 
 ### Connect an email account
-- **Path:** https://your-site/app → **Home > Settings > Email Account**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Email > Email Account**, or type *Email Account* in the search bar at the top
 - **Record type:** Email Account
 - **Documented steps:**
   1. Go to the Email Account list, click on New
@@ -99,7 +101,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__email-account.md`  (https://docs.frappe.io/erpnext/email-account)
 
 ### Create an email template
-- **Path:** https://your-site/app → **Home > Settings > Email > Email Template**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Email > Email Template**, or type *Email Template* in the search bar at the top
 - **Record type:** Email Template
 - **Documented steps:**
   1. Go to the Email Template list, click on New
@@ -107,17 +109,17 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__email-template.md`  (https://docs.frappe.io/erpnext/email-template)
 
 ### Change system settings
-- **Path:** open https://your-site/app (the Desk) and find *System Settings* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > System**, or type *System Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__system-settings.md`  (https://docs.frappe.io/erpnext/system-settings)
 
 ### Set global defaults
-- **Path:** open https://your-site/app (the Desk) and find *Global Defaults/ERPNext Settings* — the documentation page below shows the screen
+- **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > Global Defaults**, or type *Global Defaults* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext__global-defaults.md`  (https://docs.frappe.io/erpnext/global-defaults)
 
 ### Assign documents automatically
-- **Path:** https://your-site/app → **Home > Settings > Assignment Rule**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Automation > Assignment Rule**, or type *Assignment Rule* in the search bar at the top
 - **Record type:** Assignment Rule
 - **Documented steps:**
   1. Go to the Assignment Rule list, click on New
@@ -125,7 +127,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__assignment-rule.md`  (https://docs.frappe.io/erpnext/assignment-rule)
 
 ### Repeat a document on a schedule
-- **Path:** https://your-site/app → **Home > Settings > Automation > Auto Repeat**
+- **Path (checked on v16.55):** https://your-site/desk → **Framework > Automation > Auto Repeat**, or type *Auto Repeat* in the search bar at the top
 - **Record type:** Auto Repeat
 - **Documented steps:**
   1. Go to Home > Settings > Automation > Auto Repeat > New
@@ -138,7 +140,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Full page, bundled offline:** `docs/erpnext/erpnext__auto-repeat.md`  (https://docs.frappe.io/erpnext/auto-repeat)
 
 ### Send notifications on events
-- **Path:** https://your-site/app → **Home > Settings > Notification**
+- **Path (checked on v16.55):** https://your-site/desk → type *Notification* in the search bar at the top and open the doctype
 - **Record type:** Notification
 - **Documented steps:**
   1. The completion date of a Task
