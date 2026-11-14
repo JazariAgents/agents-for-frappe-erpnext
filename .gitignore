@@ -1,9 +1,9 @@
 # a user's own workspace must never be committed: it holds credentials, snapshots and logs
 .frappe/
 
-# generated dashboards and data
-pulse*.html
-data.json
+# dashboards and data a user generates at the top of a checkout (the template under plugins/ must stay tracked)
+/pulse*.html
+/data.json
 
 # Python
 __pycache__/

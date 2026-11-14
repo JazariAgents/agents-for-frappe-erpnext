@@ -1,0 +1,775 @@
+<title>Jazari Pulse</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Doto:wght@700;900&display=swap">
+<style>
+/* Layout: the Jazari Agents desk. Sidebar of pill navigation; a greeting, a row of dotted headline
+   figures with floating chips and a month strip; then white cards on the brand's pale ground, with
+   navy gradient cards carrying the story in white and aqua. Colours and type are the brand's own
+   (navy, blue, cyan, aqua; Manrope and IBM Plex Sans Arabic). Light only by design. */
+:root {
+  color-scheme: light;
+  --navy: #06152D; --blue: #087DB9; --cyan: #00B8D9; --aqua: #23E0C5;
+  --page: #F7F9FC; --surface: #FFFFFF; --raised: #FFFFFF; --soft: #FFFFFF; --stone: #EEF2F7; --edge: #E5EAF0;
+  --ink: #071A3A; --ink-2: #44546B; --muted: #64748B; --grid: #E5EAF0; --axis: #C6D0DC;
+  --char: #06152D; --on-char: #FFFFFF; --track: #E3E9F1; --chip: #F1F5FA; --btn: #F1F5FA;
+  --feat: radial-gradient(120% 150% at 88% -10%, #0C6B9E 0%, #0A3560 40%, #06152D 100%);
+  --pale: linear-gradient(165deg, #E4F7FB 0%, #D6F8F1 100%);
+  --s1: #06152D; --s2: #087DB9; --bar: #087DB9;
+  --r1: #06152D; --r2: #0A4877; --r3: #087DB9; --r4: #2F97C9; --r5: #5FAFD8; --on-fill: #ffffff; --on-fill-dark: #06152D;
+  --good: #0E9F6E; --warning: #D99100; --serious: #EC835A; --critical: #D03B3B; --unknown: #8793A6; --neutral: #8793A6;
+  --bad-ink: #B42828; --accent: #087DB9;
+  --font: "Manrope", "IBM Plex Sans Arabic", "Inter", "Tajawal", "Segoe UI", system-ui, -apple-system, Roboto, "Noto Sans", "Noto Sans Arabic", sans-serif;
+  --dot: "Doto", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", Menlo, Consolas, monospace;
+  --r: 26px; --gap: 14px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { background: var(--page); color: var(--ink); font: 400 14px/1.45 var(--font); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--page); }
+.wrap { max-width: 1400px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, p { margin: 0; font-weight: 400; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 14px; }
+[hidden] { display: none !important; }
+.dot { font-family: var(--dot); font-weight: 900; letter-spacing: -.04em; font-variant-numeric: normal; }
+
+/* shell */
+.shell { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 30px; padding-block: 26px 30px; align-items: start; }
+.side { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 26px); display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.brand { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 600; letter-spacing: -.02em; padding-inline: 2px; line-height: 1.1; color: var(--navy); }
+.brand img { width: 44px; height: 44px; flex: none; }
+.brand em { font-style: normal; color: var(--cyan); }
+.brand svg { width: 24px; height: 24px; flex: none; }
+.brand small { font-size: 12px; font-weight: 400; color: var(--muted); letter-spacing: 0; display: block; margin-top: 3px; }
+.nav-in { display: flex; flex-direction: column; gap: 8px; }
+.tab { display: flex; align-items: center; width: 100%; border: 1px solid var(--edge); background: var(--surface); color: var(--ink); padding: 0; border-radius: 999px; cursor: pointer; text-align: start; white-space: nowrap; font-size: 15px; }
+.tab svg { width: 16px; height: 16px; flex: none; }
+.tp { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; padding: 11px 16px; border-radius: 999px; }
+.tab .go { display: inline-flex; align-items: center; justify-content: center; padding-inline-end: 14px; color: var(--muted); }
+[dir="rtl"] .tab .go svg { transform: scaleX(-1); }
+.tab:hover { background: var(--stone); }
+.tab[aria-selected="true"] { background: none; border-color: transparent; gap: 6px; }
+.tab[aria-selected="true"] .tp { background: var(--char); color: var(--on-char); }
+.tab[aria-selected="true"] .go { width: 42px; height: 42px; border-radius: 50%; background: var(--aqua); color: var(--navy); padding: 0; flex: none; }
+.tab[aria-selected="true"] .go svg { transform: rotate(45deg); }
+.sidecard { background: var(--soft); border: 1px solid var(--edge); border-radius: 22px; padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 6px; }
+.sidecard b { font-weight: 500; font-size: 16px; }
+.sidecard p { color: var(--ink-2); font-size: 13px; }
+.chipx { align-self: flex-end; background: var(--aqua); color: var(--navy); border-radius: 999px; padding: 3px 11px; font-size: 12px; }
+.content { min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+.bar { display: flex; align-items: center; gap: 10px; }
+.round { width: 46px; height: 46px; border-radius: 50%; background: var(--soft); border: 1px solid var(--edge); display: grid; place-items: center; flex: none; font-size: 14px; color: var(--ink); }
+button.round { cursor: pointer; }
+button.round:hover { background: var(--stone); }
+.round svg { width: 17px; height: 17px; }
+.infopill { background: var(--soft); border: 1px solid var(--edge); border-radius: 999px; padding: 13px 22px; color: var(--muted); flex: 1; max-width: 520px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.spacer { flex: 1; }
+.top h1 { font-size: 34px; font-weight: 500; letter-spacing: -.025em; line-height: 1.2; text-wrap: balance; }
+.sub { color: var(--ink-2); font-size: 16px; margin-top: 4px; }
+.foot { color: var(--muted); font-size: 12px; display: none; }
+@media (max-width: 1040px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 16px 24px; }
+  .side { position: static; gap: 12px; }
+  .nav-in { flex-direction: row; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .nav-in::-webkit-scrollbar { display: none; }
+  .tab { width: auto; flex: none; }
+  .tab .go { display: none; }
+  .tab[aria-selected="true"] { background: var(--char); }
+  .sidecard { display: none; }
+  .foot { display: block; }
+  .top h1 { font-size: 28px; }
+  .infopill { max-width: none; }
+}
+
+/* grid and cards */
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+.c12 { grid-column: span 12; } .c8 { grid-column: span 8; } .c7 { grid-column: span 7; } .c6 { grid-column: span 6; } .c5 { grid-column: span 5; } .c4 { grid-column: span 4; }
+@media (max-width: 1180px) { .c8, .c4 { grid-column: span 12; } }
+@media (max-width: 900px) { .c7, .c6, .c5 { grid-column: span 12; } }
+.card { background: var(--surface); border: 1px solid var(--edge); border-radius: var(--r); padding: 22px 24px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.card.feature { background: var(--feat); border-color: transparent; color: #fff; --ink: #ffffff; --ink-2: rgba(255,255,255,.88); --muted: rgba(255,255,255,.74); --s1: #ffffff; --s2: #23E0C5; --grid: rgba(255,255,255,.12); --axis: rgba(255,255,255,.3); --surface: #0A3560; --chip: rgba(255,255,255,.1); --track: rgba(255,255,255,.16); --char: #23E0C5; --on-char: #06152D; --bar: #23E0C5; --btn: rgba(255,255,255,.1); }
+.card.pale { background: var(--pale); border-color: transparent; --chip: rgba(255,255,255,.7); --track: rgba(6,21,45,.12); }
+.card.center { align-items: center; text-align: center; justify-content: space-between; }
+.card-body { display: flex; flex-direction: column; gap: 16px; min-width: 0; flex: 1; }
+.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.card h2 { font-size: 19px; font-weight: 500; letter-spacing: -.015em; line-height: 1.25; text-wrap: balance; }
+.card-head p { color: var(--ink-2); font-size: 14px; margin-top: 3px; }
+.mini { width: 44px; height: 44px; border-radius: 50%; border: 0; background: var(--btn); display: grid; place-items: center; cursor: pointer; flex: none; color: var(--ink); }
+.mini svg { width: 16px; height: 16px; }
+.mini:hover { background: var(--chip); }
+.mini[aria-pressed="true"] { background: var(--char); color: var(--on-char); }
+.src { color: var(--muted); font-size: 11.5px; margin-top: auto; padding-top: 2px; }
+.na { color: var(--ink-2); font-size: 13px; padding: 14px 16px; border-radius: 16px; background: var(--chip); }
+.na b { display: block; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
+
+/* headline figures: dotted numerals, a thin unit beside them, a chip floating above */
+.lead { display: flex; flex-direction: column; gap: 26px; justify-content: space-between; padding-block: 4px; min-width: 0; }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px 26px; }
+@media (max-width: 720px) { .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.kpi { position: relative; padding-top: 30px; min-width: 0; }
+.chipf { position: absolute; top: 0; inset-inline-start: 0; background: var(--raised); border: 1px solid var(--edge); border-radius: 999px; padding: 4px 12px; font-size: 12.5px; white-space: nowrap; }
+.chipf.dark { background: var(--navy); color: #fff; border-color: transparent; }
+.lbl { color: var(--muted); font-size: 15px; }
+.val { display: flex; align-items: baseline; gap: 6px; flex-wrap: nowrap; font-size: 34px; line-height: 1.05; margin-top: 4px; white-space: nowrap; }
+.val.big { font-size: clamp(30px, 2.7vw, 44px); }
+.kpi { padding-top: 34px; }
+.dot .sep { font-family: var(--font); font-weight: 600; letter-spacing: 0; margin-inline: .03em; }
+.val .unit { font-family: var(--font); font-size: .46em; font-weight: 300; color: var(--muted); letter-spacing: 0; }
+.kpi .lbl { margin-top: 6px; }
+.note { color: var(--ink-2); font-size: 13px; margin-top: 7px; }
+.note.bad { display: inline-flex; align-items: center; min-height: 22px; background: var(--char); color: var(--on-char); border-radius: 999px; padding: 1px 11px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px 26px; align-items: start; }
+.mstrip { display: flex; align-items: center; gap: 7px; min-height: 66px; }
+.mstrip i { flex: 1; border-radius: 11px; background: var(--blue); min-width: 6px; }
+.mstrip .now { flex: 3.4; min-width: 150px; position: relative; background: linear-gradient(120deg, #087DB9 0%, #00B8D9 100%); color: #fff; border-radius: 18px; padding: 10px 18px 11px; display: flex; flex-direction: column; justify-content: center; }
+.mstrip .now b { font-weight: 400; font-size: 19px; line-height: 1.15; }
+.mstrip .now small { font-size: 12.5px; opacity: .92; }
+.mstrip .when { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff; border-radius: 999px; padding: 3px 12px; font-size: 12px; white-space: nowrap; }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); }
+.orb { width: 58px; height: 58px; border-radius: 50%; margin-block: 6px; background: radial-gradient(circle at 36% 30%, #ffffff 0%, #EAFBFA 34%, #8DEBE0 66%, #23E0C5 100%); box-shadow: 0 0 30px 9px rgba(35,224,197,.5), inset -3px -4px 8px rgba(0,150,170,.25); }
+.say { font-size: 15px; line-height: 1.45; text-align: start; }
+.score { font-size: 68px; line-height: .95; }
+.of { color: var(--muted); font-size: 20px; font-weight: 300; border-top: 1px solid var(--axis); padding-top: 8px; width: 62%; }
+.glass { display: flex; gap: 8px; flex-wrap: wrap; }
+.glass > div { background: var(--chip); border-radius: 13px; padding: 8px 13px; min-width: 86px; }
+.glass small { display: block; color: var(--ink-2); font-size: 12px; }
+.rings { display: grid; grid-template-columns: repeat(auto-fit, minmax(108px, 1fr)); gap: 18px 12px; }
+.ringbox { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.ring { width: 92px; height: 92px; flex: none; }
+.ring text { fill: var(--ink); }
+.ring text.dot { font-size: 25px; }
+.ring text.pc { font: 300 12px var(--font); fill: var(--muted); }
+.rl { font-size: 14px; }
+.ringrow { display: flex; align-items: center; gap: 14px; }
+.ringrow .ring { width: 76px; height: 76px; }
+
+/* chips and lists */
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; white-space: nowrap; background: var(--chip); border-radius: 999px; padding: 4px 12px 4px 9px; justify-self: start; color: var(--ink); }
+.card.feature .pill { color: #fff; }
+.pill.dark { background: var(--char); color: var(--on-char); }
+.pill svg { width: 13px; height: 13px; flex: none; }
+.list { display: flex; flex-direction: column; }
+.row { display: grid; grid-template-columns: 108px minmax(0, 1fr) auto; align-items: center; gap: 4px 12px; padding: 12px 0; border-top: 1px solid var(--grid); }
+.row:first-child { border-top: 0; padding-top: 2px; }
+.row .what { min-width: 0; overflow-wrap: anywhere; font-size: 15px; }
+.row .det { color: var(--ink-2); font-size: 13px; grid-column: 2 / -1; overflow-wrap: anywhere; }
+.row .fig { font-variant-numeric: tabular-nums; text-align: end; font-size: 15px; }
+@media (max-width: 520px) { .row { grid-template-columns: minmax(0, 1fr) auto; } .row .pill { grid-column: 1 / -1; } .row .det { grid-column: 1 / -1; } }
+
+/* ranked bars */
+.bars { display: grid; grid-template-columns: minmax(90px, 34%) minmax(0, 1fr) auto; gap: 12px 14px; align-items: center; }
+.bars .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bars .trk { height: 9px; background: var(--track); border-radius: 999px; }
+.bars .bar { height: 9px; background: var(--bar); border-radius: 999px; min-width: 4px; }
+.bars .fg { font-variant-numeric: tabular-nums; text-align: end; }
+@media (max-width: 520px) { .bars { grid-template-columns: minmax(0, 1fr) auto; } .bars .trk { grid-column: 1 / -1; order: 3; } .bars .fg { order: 2; } }
+
+/* segmented bar and legend */
+.seg { display: flex; gap: 3px; height: 36px; }
+.seg > div { border-radius: 12px; min-width: 5px; display: flex; align-items: center; padding-inline: 11px; font-size: 13px; color: var(--on-fill); white-space: nowrap; overflow: visible; }
+.seg > div.dark-label { color: var(--on-fill-dark); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 4px; margin-inline-end: 6px; vertical-align: -1px; }
+.legend i.line { height: 2px; width: 16px; border-radius: 1px; vertical-align: 3px; }
+.legend i.line.dot { background: none !important; border-top: 2px dotted var(--s2); height: 0; }
+.legend b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+.role { display: block; color: var(--ink-2); font-size: 12.5px; white-space: nowrap; }
+
+/* svg charts */
+.plot { position: relative; min-width: 0; }
+.plot svg { display: block; width: 100%; overflow: visible; }
+.plot text { font: 12px var(--font); fill: var(--muted); font-variant-numeric: tabular-nums; }
+.plot text.end { fill: var(--ink); font-size: 12.5px; }
+.tip { position: absolute; top: 0; z-index: 3; pointer-events: none; background: #ffffff; --muted: #64748B; color: #071A3A; border: 1px solid #E5EAF0; border-radius: 14px; padding: 9px 13px; box-shadow: 0 8px 26px rgba(0,0,0,.14); font-size: 13px; min-width: 124px; text-align: start; }
+.tip .th { color: var(--muted); margin-bottom: 4px; }
+.tip .tr { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.tip .tr span { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.tip .tr span i { width: 12px; height: 2px; border-radius: 1px; display: inline-block; background: #087DB9 !important; }
+.tip .tr b { font-variant-numeric: tabular-nums; font-weight: 500; }
+
+/* tables */
+.tw { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: start; padding-block: 10px; padding-inline: 0 16px; border-top: 1px solid var(--grid); vertical-align: baseline; font-weight: 400; }
+tr > :last-child { padding-inline-end: 0; }
+thead th { border-top: 0; color: var(--muted); font-size: 13px; white-space: nowrap; padding-top: 0; }
+td.n, th.n { text-align: end; font-variant-numeric: tabular-nums; }
+td.id { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+td b { font-weight: 500; }
+.empty { max-width: 560px; margin: 12vh auto; text-align: center; }
+.empty h1 { font-size: 30px; margin-bottom: 8px; }
+@media (max-width: 520px) { .val.big { font-size: 38px; } .card { padding: 18px; border-radius: 20px; } .duo { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: no-preference) { .round, .tab, .tp, .mini { transition: background-color .14s, color .14s; } }
+</style>
+
+<div id="app"></div>
+<script id="pulse-data" type="application/json">__PULSE_DATA__</script>
+<script>
+(() => {
+'use strict';
+/* ---------- data ---------- */
+let D = null;
+try { D = JSON.parse(document.getElementById('pulse-data').textContent); } catch (e) { D = null; }
+const app = document.getElementById('app');
+const NS = 'http://www.w3.org/2000/svg';
+
+/* ---------- tiny DOM helpers: every string goes in as text, never as markup ---------- */
+function h(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const k in (attrs || {})) {
+    const v = attrs[k];
+    if (v == null || v === false) continue;
+    if (k === 'class') e.className = v;
+    else if (k.slice(0, 2) === 'on') e.addEventListener(k.slice(2), v);
+    else e.setAttribute(k, v === true ? '' : v);
+  }
+  for (const c of kids.flat(3)) { if (c == null || c === false) continue; e.append(c.nodeType ? c : document.createTextNode(String(c))); }
+  return e;
+}
+function s(tag, attrs, ...kids) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in (attrs || {})) if (attrs[k] != null) e.setAttribute(k, attrs[k]);
+  for (const c of kids.flat()) if (c != null) e.append(c.nodeType ? c : document.createTextNode(String(c)));
+  return e;
+}
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+/* ---------- language ---------- */
+const STR = {
+  en: {
+    overview: 'Overview', finance: 'Finance', sales: 'Sales', people: 'People', system: 'System', agents: 'Agents',
+    agTasks: 'Agent activity, last {d} days', agHonest: 'Reported by the agents themselves as they work. Not checked against the site.',
+    reqs: 'Requests', agRate: '{p}% completed', agChanged: 'Records changed', agChanges: 'across {n} requests',
+    agSnap: 'Changes with a snapshot first', agSnapD: '{a} of {b} changes', agNoSnap: '{n} without a snapshot',
+    colDone: 'Done', colFailed: 'Failed', colChanged: 'Changed',
+    agRefused: 'Stopped before acting', agRefusedD: 'by a safety rule, or declined at the confirmation',
+    agMedian: 'Typical time per request', sec: '{n} s', min: '{n} min',
+    agByAgent: 'Work by agent', agent: 'Agent', agDone: 'Completed', refused: 'Refused', failedCol: 'Failed or partial', lastActive: 'Last active',
+    agPerDay: 'Requests per day', agPerDaySub: 'Last 14 days', agRecent: 'Latest requests', when: 'When', task: 'Request', outcome: 'Outcome',
+    oDone: 'Done', oPartial: 'Partial', oFailed: 'Failed', oRefused: 'Refused', agVia: 'Connection used',
+    asOf: 'As of', period: 'Last 12 months', demo: 'Demo data', table: 'Table', chart: 'Chart', source: 'Source', month: 'Month', day: 'Day',
+    unavailable: 'Not available', partial: '{m} is month to date', mtd: 'Sales invoiced, {m} so far', closed: '{m} closed at {v}',
+    receivables: 'Receivables outstanding', payables: 'Payables outstanding', overdue: '{v} overdue', noneOverdue: 'Nothing overdue',
+    invoices: '{n} invoices', openOrders: 'Open sales orders', orders: '{n} orders', headcount: 'Headcount', onLeave: '{n} on leave today',
+    attention: 'Needs attention', allClear: 'Nothing needs attention right now.',
+    trend: 'Sales and purchases invoiced', trendSub: 'Net total per month, {c}', salesInv: 'Sales invoiced', purchInv: 'Purchases invoiced',
+    cash: 'Cash received and paid', cashSub: 'Payment entries per month, {c}', cashIn: 'Received', cashOut: 'Paid',
+    aging: 'Receivables by age', agingSub: 'Outstanding amount by days past due, {c}',
+    not_due: 'Not yet due', d1_30: '1–30 days', d31_60: '31–60 days', d61_90: '61–90 days', d90_plus: 'Over 90 days',
+    topOverdue: 'Largest overdue invoices', invoice: 'Invoice', customer: 'Customer', due: 'Due', days: 'Days overdue', amount: 'Amount',
+    topCustomers: 'Top customers', topCustomersSub: 'Invoiced sales, last 12 months, {c}',
+    ordersByStatus: 'Sales orders by status', ordersSub: 'Orders placed in the last 12 months', status: 'Status', count: 'Count',
+    quotations: 'Open quotations', quotes: '{n} quotations', newCustomers: 'New customers per month', customersTotal: 'Customers',
+    joined: 'Joined, last 12 months', left: 'Left, last 12 months', leaveToday: 'On leave today',
+    attendance: 'Attendance today', byDept: 'Headcount by department', department: 'Department',
+    leaveReq: 'Leave requests awaiting approval', expClaims: 'Expense claims awaiting approval', claims: '{n} claims',
+    payroll: 'Last payroll run', gross: 'Gross pay', net: 'Net pay', paid: '{n} employees paid',
+    health: 'Health checks', scheduler: 'Scheduler', schedOn: 'Running', schedOff: 'Stopped: scheduled jobs are not running',
+    errs: 'Errors, last 24 hours', errsDay: 'Errors logged per day', errsSub: 'Error Log entries, last 14 days', errors: 'Errors',
+    failedJobs: 'Failed scheduled jobs, last 24 hours', noFailed: 'No scheduled job failed', job: 'Job', failures: 'Failures',
+    emailQ: 'Email queue', emailDet: '{a} waiting, {b} failed', bgJobs: 'Failed background jobs', backups: 'Backups',
+    apps: 'Installed apps', app: 'App', version: 'Version', branch: 'Branch', users: 'Enabled users', sysUsers: '{n} with desk access',
+    good: 'OK', warning: 'Check', serious: 'Problem', critical: 'Critical', unknown: 'Unknown',
+    aOverdue: 'Overdue receivables', aOverdueD: '{n} invoices past their due date', aSched: 'Scheduler is stopped',
+    aJobs: 'Scheduled jobs failing', aJobsD: '{n} failures in the last 24 hours', aErr: 'Errors in the last 24 hours',
+    aEmail: 'Emails failed to send', aLeave: 'Leave requests waiting', aClaims: 'Expense claims waiting', aPay: 'Overdue payables',
+    aPayD: '{n} supplier invoices past their due date', truncated: 'Some lists hit the row limit, so these figures are partial: {l}.',
+    noData: 'No data yet', noDataBody: 'This page is a template. Ask Claude to “build my ERPNext dashboard” and it will fill it from your site.',
+    footer: 'Figures are as of the time shown. Run the dashboard skill again to refresh them.', lang: 'العربية',
+    insight: 'What stands out', onTime: 'Receivables on time', salesTrend: 'Sales trend', salesTrendSub: 'Invoiced per month, {c}', lastMonth: 'Last month', bestMonth: 'Best month', soFar: 'So far',
+    cashCard: 'Cash received', cashCardSub: 'Payment entries per month, {c}', netCash: 'Net', glance: 'At a glance', glanceSub: 'Ratios worth watching', rPay: 'Payables on time', rAtt: 'At work today', rAgents: 'Agent requests done',
+    daysLate: '{n} days late', mtdChip: 'Month to date', hello: '{g}, {c}', summary: 'Here is your business summary for today.',
+    dfinance: 'Invoices, cash and what is owed.', dsales: 'Customers, orders and quotations.', dpeople: 'Headcount, attendance and payroll.', dsystem: 'The health of the site itself.', dagents: 'What the agents have done for you.',
+    gm: 'Good morning', ga: 'Good afternoon', ge: 'Good evening', greetSub: 'Here is how {c} is doing', live: 'Live data', snapTitle: 'Read-only snapshot'
+  },
+  ar: {
+    overview: 'نظرة عامة', finance: 'المالية', sales: 'المبيعات', people: 'الموظفون', system: 'النظام', agents: 'الوكلاء',
+    agTasks: 'نشاط الوكلاء، آخر {d} يومًا', agHonest: 'كما سجّله الوكلاء أنفسهم أثناء العمل. لم يُطابَق مع الموقع.',
+    reqs: 'الطلبات', agRate: 'اكتمل {p}%', agChanged: 'السجلات المعدّلة', agChanges: 'في {n} طلبًا',
+    agSnap: 'تغييرات سبقتها لقطة', agSnapD: '{a} من {b} تغييرًا', agNoSnap: '{n} بلا لقطة',
+    colDone: 'تم', colFailed: 'فشل', colChanged: 'عُدّل',
+    agRefused: 'أُوقفت قبل التنفيذ', agRefusedD: 'بقاعدة أمان، أو رُفضت عند التأكيد',
+    agMedian: 'الوقت المعتاد لكل طلب', sec: '{n} ث', min: '{n} د',
+    agByAgent: 'العمل حسب الوكيل', agent: 'الوكيل', agDone: 'مكتملة', refused: 'مرفوضة', failedCol: 'فشلت أو جزئية', lastActive: 'آخر نشاط',
+    agPerDay: 'الطلبات يوميًا', agPerDaySub: 'آخر 14 يومًا', agRecent: 'أحدث الطلبات', when: 'الوقت', task: 'الطلب', outcome: 'النتيجة',
+    oDone: 'تم', oPartial: 'جزئي', oFailed: 'فشل', oRefused: 'مرفوض', agVia: 'الاتصال المستخدم',
+    asOf: 'حتى', period: 'آخر 12 شهرًا', demo: 'بيانات تجريبية', table: 'جدول', chart: 'رسم', source: 'المصدر', month: 'الشهر', day: 'اليوم',
+    unavailable: 'غير متاح', partial: '{m} حتى تاريخه', mtd: 'المبيعات المفوترة في {m} حتى الآن', closed: 'أُغلق {m} عند {v}',
+    receivables: 'الذمم المدينة المستحقة', payables: 'الذمم الدائنة المستحقة', overdue: '{v} متأخرة', noneOverdue: 'لا توجد مبالغ متأخرة',
+    invoices: '{n} فاتورة', openOrders: 'أوامر البيع المفتوحة', orders: '{n} أمر', headcount: 'عدد الموظفين', onLeave: '{n} في إجازة اليوم',
+    attention: 'يحتاج إلى متابعة', allClear: 'لا شيء يحتاج إلى متابعة الآن.',
+    trend: 'المبيعات والمشتريات المفوترة', trendSub: 'صافي الإجمالي شهريًا، {c}', salesInv: 'مبيعات مفوترة', purchInv: 'مشتريات مفوترة',
+    cash: 'النقد المستلم والمدفوع', cashSub: 'سندات الدفع شهريًا، {c}', cashIn: 'مستلم', cashOut: 'مدفوع',
+    aging: 'أعمار الذمم المدينة', agingSub: 'المبلغ المستحق حسب أيام التأخير، {c}',
+    not_due: 'غير مستحقة بعد', d1_30: '1–30 يومًا', d31_60: '31–60 يومًا', d61_90: '61–90 يومًا', d90_plus: 'أكثر من 90 يومًا',
+    topOverdue: 'أكبر الفواتير المتأخرة', invoice: 'الفاتورة', customer: 'العميل', due: 'الاستحقاق', days: 'أيام التأخير', amount: 'المبلغ',
+    topCustomers: 'أكبر العملاء', topCustomersSub: 'المبيعات المفوترة، آخر 12 شهرًا، {c}',
+    ordersByStatus: 'أوامر البيع حسب الحالة', ordersSub: 'الأوامر المسجلة في آخر 12 شهرًا', status: 'الحالة', count: 'العدد',
+    quotations: 'عروض الأسعار المفتوحة', quotes: '{n} عرض سعر', newCustomers: 'العملاء الجدد شهريًا', customersTotal: 'العملاء',
+    joined: 'انضموا، آخر 12 شهرًا', left: 'غادروا، آخر 12 شهرًا', leaveToday: 'في إجازة اليوم',
+    attendance: 'الحضور اليوم', byDept: 'عدد الموظفين حسب القسم', department: 'القسم',
+    leaveReq: 'طلبات إجازة بانتظار الموافقة', expClaims: 'مطالبات مصروفات بانتظار الموافقة', claims: '{n} مطالبة',
+    payroll: 'آخر تشغيل للرواتب', gross: 'إجمالي الرواتب', net: 'صافي الرواتب', paid: 'صُرفت رواتب {n} موظفًا',
+    health: 'فحوصات السلامة', scheduler: 'المجدول', schedOn: 'يعمل', schedOff: 'متوقف: المهام المجدولة لا تعمل',
+    errs: 'الأخطاء، آخر 24 ساعة', errsDay: 'الأخطاء المسجلة يوميًا', errsSub: 'سجل الأخطاء، آخر 14 يومًا', errors: 'الأخطاء',
+    failedJobs: 'المهام المجدولة الفاشلة، آخر 24 ساعة', noFailed: 'لم تفشل أي مهمة مجدولة', job: 'المهمة', failures: 'مرات الفشل',
+    emailQ: 'قائمة انتظار البريد', emailDet: '{a} بالانتظار، {b} فشلت', bgJobs: 'مهام خلفية فاشلة', backups: 'النسخ الاحتياطية',
+    apps: 'التطبيقات المثبتة', app: 'التطبيق', version: 'الإصدار', branch: 'الفرع', users: 'المستخدمون المفعّلون', sysUsers: '{n} لديهم صلاحية المكتب',
+    good: 'سليم', warning: 'تنبيه', serious: 'مشكلة', critical: 'حرج', unknown: 'غير معروف',
+    aOverdue: 'ذمم مدينة متأخرة', aOverdueD: '{n} فاتورة تجاوزت تاريخ الاستحقاق', aSched: 'المجدول متوقف',
+    aJobs: 'مهام مجدولة تفشل', aJobsD: '{n} مرة فشل خلال آخر 24 ساعة', aErr: 'أخطاء خلال آخر 24 ساعة',
+    aEmail: 'رسائل بريد فشل إرسالها', aLeave: 'طلبات إجازة بالانتظار', aClaims: 'مطالبات مصروفات بالانتظار', aPay: 'ذمم دائنة متأخرة',
+    aPayD: '{n} فاتورة مورد تجاوزت تاريخ الاستحقاق', truncated: 'بعض القوائم بلغت حد الصفوف، لذا هذه الأرقام جزئية: {l}.',
+    noData: 'لا توجد بيانات بعد', noDataBody: 'هذه الصفحة قالب. اطلب من Claude «ابنِ لوحة ERPNext الخاصة بي» وسيملؤها من موقعك.',
+    footer: 'الأرقام حتى الوقت المبيّن. شغّل مهارة لوحة المتابعة مرة أخرى لتحديثها.', lang: 'English',
+    insight: 'أبرز ما يلفت الانتباه', onTime: 'ذمم مدينة ضمن الأجل', salesTrend: 'اتجاه المبيعات', salesTrendSub: 'المفوتر شهريًا، {c}', lastMonth: 'الشهر الماضي', bestMonth: 'أفضل شهر', soFar: 'حتى الآن',
+    cashCard: 'النقد المستلم', cashCardSub: 'سندات الدفع شهريًا، {c}', netCash: 'الصافي', glance: 'نظرة سريعة', glanceSub: 'نسب تستحق المتابعة', rPay: 'ذمم دائنة ضمن الأجل', rAtt: 'في العمل اليوم', rAgents: 'طلبات الوكلاء المنجزة',
+    daysLate: 'متأخرة {n} يومًا', mtdChip: 'منذ بداية الشهر', hello: '{g}، {c}', summary: 'هذا ملخص أعمالك لليوم.',
+    dfinance: 'الفواتير والنقد والمستحقات.', dsales: 'العملاء والأوامر وعروض الأسعار.', dpeople: 'عدد الموظفين والحضور والرواتب.', dsystem: 'سلامة الموقع نفسه.', dagents: 'ما أنجزه الوكلاء لك.',
+    gm: 'صباح الخير', ga: 'مساء الخير', ge: 'مساء الخير', greetSub: 'هذه حال {c} الآن', live: 'بيانات مباشرة', snapTitle: 'لقطة للقراءة فقط'
+  }
+};
+let lang = store.get('pulse.lang') || (D && D.meta && D.meta.lang) || 'en';
+if (!STR[lang]) lang = 'en';
+const t = (k, v) => { let x = (STR[lang][k] != null ? STR[lang][k] : STR.en[k]) || k; for (const p in (v || {})) x = x.replace('{' + p + '}', v[p]); return x; };
+const loc = () => (lang === 'ar' ? 'ar-u-nu-latn' : 'en');
+
+/* ---------- formatting ---------- */
+const CUR = (D && D.meta && D.meta.currency) || '';
+function money(v, full) {
+  if (v == null || isNaN(v)) return '—';
+  const o = full ? { maximumFractionDigits: 0 } : { notation: 'compact', maximumFractionDigits: Math.abs(v) >= 1e6 ? 2 : 1 };
+  try { return new Intl.NumberFormat(full ? loc() : 'en', Object.assign({ style: 'currency', currency: CUR, currencyDisplay: 'code' }, o)).format(v); }
+  catch (e) { return new Intl.NumberFormat(loc(), o).format(v) + (CUR ? ' ' + CUR : ''); }
+}
+const int = v => (v == null || isNaN(v) ? '—' : new Intl.NumberFormat(loc(), { maximumFractionDigits: 0 }).format(v));
+const compact = v => new Intl.NumberFormat(loc(), { notation: 'compact', maximumFractionDigits: 1 }).format(v);
+const ym = m => { const p = String(m).split('-'); return new Date(Date.UTC(+p[0], +p[1] - 1, 1)); };
+const monShort = m => new Intl.DateTimeFormat(loc(), { month: 'short', timeZone: 'UTC' }).format(ym(m));
+const monLong = m => new Intl.DateTimeFormat(loc(), { month: 'long', timeZone: 'UTC' }).format(ym(m));
+const monFull = m => new Intl.DateTimeFormat(loc(), { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(ym(m));
+const dayShort = d => new Intl.DateTimeFormat(loc(), { day: 'numeric', month: 'short', timeZone: 'UTC' }).format(new Date(d + 'T00:00:00Z'));
+const stamp = iso => { const d = new Date(iso); return isNaN(d) ? String(iso || '') : new Intl.DateTimeFormat(loc(), { dateStyle: 'medium', timeStyle: 'short' }).format(d); };
+const sum = a => (a || []).reduce((x, y) => x + (+y || 0), 0);
+const note = k => (D.notes && D.notes[k]) || null;
+/* the last month is unfinished unless the snapshot was taken on a month's final day */
+const PARTIAL = (() => { const p = D && D.meta && D.meta.period_to; if (!p) return false; const d = new Date(p + 'T00:00:00Z'), nx = new Date(d); nx.setUTCDate(d.getUTCDate() + 1); return nx.getUTCMonth() === d.getUTCMonth(); })();
+const toDate = (sub, months) => sub + (PARTIAL && months && months.length ? ' · ' + t('partial', { m: monLong(months[months.length - 1]) }) : '');
+const srcOf = k => (D.sources && D.sources[k]) || null;
+
+function niceScale(max, n) {
+  if (!(max > 0)) return { max: 1, ticks: [0, 1] };
+  const raw = max / (n || 4), p = Math.pow(10, Math.floor(Math.log10(raw))), f = raw / p;
+  const step = (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p;
+  const top = Math.ceil(max / step - 1e-9) * step, ticks = [];
+  for (let v = 0; v <= top + step / 2; v += step) ticks.push(v);
+  return { max: top, ticks };
+}
+
+/* ---------- status ---------- */
+const ICON = {
+  good: 'M3 7.5l2.8 2.8L11 4.6', warning: 'M7 2.2L12.6 12H1.4L7 2.2zM7 6v3M7 10.6v.2',
+  serious: 'M7 1.6l5.4 5.4L7 12.4 1.6 7 7 1.6zM7 4.6v3M7 9.4v.2', critical: 'M4 4l6 6M10 4l-6 6', unknown: 'M5.2 5.4a1.9 1.9 0 113 1.5c-.7.5-1.2.8-1.2 1.7M7 10.6v.2',
+  neutral: 'M7 1.8a5.2 5.2 0 100 10.4A5.2 5.2 0 007 1.8zM4.6 7h4.8'
+};
+function pill(level, label) {
+  const svg = s('svg', { viewBox: '0 0 14 14', 'aria-hidden': 'true' },
+    level === 'critical' ? s('circle', { cx: 7, cy: 7, r: 6.2, fill: 'var(--critical)' }) : null,
+    s('path', { d: ICON[level], fill: 'none', stroke: level === 'critical' ? '#fff' : 'var(--' + level + ')', 'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
+  return h('span', { class: 'pill' + (level === 'serious' || level === 'critical' ? ' dark' : '') }, svg, label || t(level));
+}
+function ring(share, label) {
+  const p = Math.max(0, Math.min(1, share || 0)), r = 38, c = 2 * Math.PI * r, arc = c * 0.75, pct = String(Math.round(p * 100));
+  const g = s('svg', { class: 'ring', viewBox: '0 0 92 92', role: 'img', 'aria-label': (label ? label + ' ' : '') + pct + '%' },
+    s('circle', { cx: 46, cy: 46, r, fill: 'none', stroke: 'var(--track)', 'stroke-width': 2.5, 'stroke-linecap': 'round', 'stroke-dasharray': arc.toFixed(1) + ' ' + c.toFixed(1), transform: 'rotate(135 46 46)' }),
+    s('circle', { cx: 46, cy: 46, r, fill: 'none', stroke: 'var(--char)', 'stroke-width': 2.5, 'stroke-linecap': 'round', 'stroke-dasharray': (arc * p).toFixed(1) + ' ' + c.toFixed(1), transform: 'rotate(135 46 46)' }),
+    s('text', { class: 'dot', x: 41, y: 55, 'text-anchor': 'middle' }, pct), s('text', { class: 'pc', x: 44 + pct.length * 7.5, y: 55 }, '%'));
+  return label ? h('div', { class: 'ringbox' }, g, h('div', { class: 'rl' }, label)) : g;
+}
+/* the past months as a strip of pills (taller and deeper blue = more invoiced), ending in a card for the current month */
+function monthStrip(months, values) {
+  const mx = Math.max(1, ...values), last = values.length - 1;
+  return h('div', { class: 'mstrip', dir: 'ltr', role: 'img', 'aria-label': months.map((m, i) => monFull(m) + ' ' + money(values[i], true)).join(', ') },
+    values.map((v, i) => i === last
+      ? h('div', { class: 'now', dir: document.documentElement.dir }, h('span', { class: 'when' }, monShort(months[i])), h('b', null, money(v)), h('small', null, PARTIAL ? t('mtdChip') : t('salesInv')))
+      : h('i', { style: 'height:' + (16 + 26 * v / mx).toFixed(0) + 'px;opacity:' + (0.32 + 0.68 * v / mx).toFixed(2), title: monFull(months[i]) + ': ' + money(v, true) })));
+}
+/* a figure: the number in dotted numerals, its unit thin and grey beside it */
+function figure(str, cls) {
+  const m = /^(?:([A-Z]{3})\s)?([-+]?[\d.,]+)\s?([A-Za-z%]*)$/.exec(String(str));
+  if (!m) return h('div', { class: cls || 'val' }, String(str));
+  const unit = [m[3], m[1]].filter(Boolean).join(' ');
+  return h('div', { class: cls || 'val', dir: 'ltr' }, h('span', { class: 'dot' }, m[2].split(/([.,])/).map(x => (x === '.' || x === ',') ? h('span', { class: 'sep' }, x) : x)), unit ? h('span', { class: 'unit' }, unit) : null);
+}
+const kpi = (label, value, chip, dark) => h('div', { class: 'kpi' }, chip ? h('span', { class: 'chipf' + (dark ? ' dark' : '') }, chip) : null, figure(value, 'val big'), h('div', { class: 'lbl' }, label));
+const glass = items => h('div', { class: 'glass' }, items.filter(Boolean).map(x => h('div', null, h('small', null, x[0]), x[1])));
+function curve(pts) {
+  const f = p => p[0].toFixed(1) + ' ' + p[1].toFixed(1);
+  if (pts.length < 3) return pts.map((p, i) => (i ? 'L' : 'M') + f(p)).join('');
+  let d = 'M' + f(pts[0]); const k = 0.17;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const a = pts[i - 1] || pts[i], b = pts[i], c = pts[i + 1], e = pts[i + 2] || c;
+    d += 'C' + f([b[0] + (c[0] - a[0]) * k, b[1] + (c[1] - a[1]) * k]) + ' ' + f([c[0] - (e[0] - b[0]) * k, c[1] - (e[1] - b[1]) * k]) + ' ' + f(c);
+  }
+  return d;
+}
+const LOGO = 'data:image/png;base64,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';
+const NAV = {
+  overview: 'M2.5 2.5h4.6v4.6H2.5zM8.9 2.5h4.6v4.6H8.9zM2.5 8.9h4.6v4.6H2.5zM8.9 8.9h4.6v4.6H8.9z',
+  finance: 'M2.5 12.5l3.4-4 2.6 2.2 5-6.2M10.6 4.5h2.9v2.9',
+  sales: 'M3.2 5.2h9.6l-.8 8.1H4zM5.8 5.2V4.3a2.2 2.2 0 014.4 0v.9',
+  people: 'M8 8.2a2.7 2.7 0 100-5.4 2.7 2.7 0 000 5.4zM2.9 13.4c.5-2.3 2.5-3.6 5.1-3.6s4.6 1.3 5.1 3.6',
+  system: 'M1.8 8h2.6l1.5-3.8 2.6 7.6 1.7-5 .8 1.2h3.2',
+  agents: 'M8 1.8l1.5 4.2 4.2 1.5-4.2 1.5L8 13.2 6.5 9 2.3 7.5 6.5 6z'
+};
+const icon = d => s('svg', { viewBox: '0 0 16 16', 'aria-hidden': 'true' }, s('path', { d, fill: 'none', stroke: 'currentColor', 'stroke-width': 1.5, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }));
+const greeting = () => { const hr = new Date().getHours(); return t(hr < 12 ? 'gm' : hr < 18 ? 'ga' : 'ge'); };
+const dur = sec => (sec < 90 ? t('sec', { n: int(sec) }) : t('min', { n: int(Math.round(sec / 60)) }));
+const stampShort = iso => { const d = new Date(iso); return isNaN(d) ? String(iso || '') : new Intl.DateTimeFormat(loc(), { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }).format(d); };
+
+/* ---------- building blocks ---------- */
+const pending = [];
+function unavailable(reason) { return h('div', { class: 'na' }, h('b', null, t('unavailable')), reason || ''); }
+function card(o) {
+  const body = h('div', { class: 'card-body' });
+  const c = h('section', { class: 'card ' + (o.span || 'c6') + (o.feature ? ' feature' : '') });
+  const head = h('div', { class: 'card-head' }, h('div', null, h('h2', null, o.title), o.sub ? h('p', null, o.sub) : null));
+  c.append(head, body);
+  if (o.missing) { body.append(unavailable(o.missing)); return c; }
+  if (o.body) body.append(...[].concat(o.body));
+  if (o.draw) {
+    const plot = h('div', { class: 'plot', dir: 'ltr' }); body.append(plot); pending.push(() => o.draw(plot));
+    if (o.table) {
+      const tbl = h('div', { class: 'tw', hidden: true }, table(o.table.head, o.table.rows, o.table.num));
+      const btn = h('button', { class: 'mini', type: 'button', 'aria-pressed': 'false', onclick: () => {
+        const on = tbl.hidden; tbl.hidden = !on; plot.hidden = on; if (o.legendEl) o.legendEl.hidden = on;
+        btn.setAttribute('aria-label', on ? t('chart') : t('table')); btn.title = on ? t('chart') : t('table'); btn.setAttribute('aria-pressed', String(on));
+      } }, icon('M2.5 4h11M2.5 8h11M2.5 12h11M6.2 4v8'));
+      btn.setAttribute('aria-label', t('table')); btn.title = t('table');
+      head.append(btn); body.append(tbl);
+    }
+  }
+  if (o.after) body.append(o.after);
+  if (o.source) c.append(h('p', { class: 'src' }, t('source') + ': ' + o.source));
+  return c;
+}
+function table(head, rows, num) {
+  num = num || [];
+  return h('table', null,
+    h('thead', null, h('tr', null, head.map((x, i) => h('th', { class: num.includes(i) ? 'n' : null, scope: 'col' }, x)))),
+    h('tbody', null, rows.map(r => h('tr', null, r.map((x, i) => h('td', { class: num.includes(i) ? 'n' : (i === 0 && typeof x === 'string' && /^[A-Z]{2,}-/.test(x) ? 'id' : null) }, x))))));
+}
+function bars(items, fmt) {
+  const max = Math.max(1, ...items.map(i => i.value));
+  return h('div', { class: 'bars' }, items.map(i => [
+    h('div', { class: 'nm', title: i.name }, i.name),
+    h('div', { class: 'trk' }, h('div', { class: 'bar', style: 'width:' + Math.max(0, i.value / max * 100).toFixed(2) + '%' })),
+    h('div', { class: 'fg' }, fmt(i.value))
+  ]));
+}
+function legend(series, line) {
+  return h('div', { class: 'legend' }, series.map(x => h('span', null, h('i', { class: line ? 'line' + (x.dash ? ' dot' : '') : null, style: 'background:' + x.color }), x.name, x.value != null ? [' ', h('b', null, x.value)] : null)));
+}
+function segBar(parts, fmt) {
+  const total = sum(parts.map(p => p.value)) || 1;
+  const bar = h('div', { class: 'seg', role: 'img', 'aria-label': parts.map(p => p.name + ' ' + fmt(p.value)).join(', ') },
+    parts.filter(p => p.value > 0).map(p => h('div', { class: p.darkLabel ? 'dark-label' : null, style: 'flex:' + p.value + ' 1 0;background:' + p.color, title: p.name + ': ' + fmt(p.value) + ' (' + Math.round(p.value / total * 100) + '%)', 'data-label': fmt(p.value) }, h('span', null, fmt(p.value)))));
+  pending.push(() => { for (const b of bar.children) { const sp = b.firstChild; if (sp && sp.offsetWidth + 14 > b.clientWidth) sp.remove(); } });
+  return [bar, legend(parts.map(p => ({ name: p.name, color: p.color, value: fmt(p.value) })))];
+}
+function tip(plot) {
+  const el = h('div', { class: 'tip', hidden: true }); plot.append(el);
+  return {
+    show(x, title, rows) {
+      el.replaceChildren(h('div', { class: 'th' }, title), ...rows.map(r => h('div', { class: 'tr' }, h('span', null, h('i', { style: 'background:' + r.color }), r.name), h('b', null, r.value))));
+      el.hidden = false; const w = el.offsetWidth, W = plot.clientWidth;
+      el.style.left = Math.max(0, Math.min(W - w, x + 14 + w > W ? x - w - 14 : x + 14)) + 'px';
+    },
+    hide() { el.hidden = true; }
+  };
+}
+
+/* ---------- line chart: crosshair snaps to the nearest month, one tooltip lists every series ---------- */
+function lineChart(plot, o) {
+  plot.replaceChildren();
+  const W = Math.max(280, plot.clientWidth), H = 250, m = { t: 14, r: 62, b: 26, l: 42 };
+  const pw = W - m.l - m.r, ph = H - m.t - m.b, n = o.labels.length;
+  const sc = niceScale(Math.max(1, ...o.series.flatMap(x => x.values))), X = i => m.l + (n > 1 ? i / (n - 1) : .5) * pw, Y = v => m.t + ph - v / sc.max * ph;
+  const svg = s('svg', { viewBox: '0 0 ' + W + ' ' + H, height: H, role: 'img', 'aria-label': o.title });
+  for (const v of sc.ticks) svg.append(s('line', { x1: m.l, x2: m.l + pw, y1: Y(v), y2: Y(v), stroke: v === 0 ? 'var(--axis)' : 'var(--grid)', 'stroke-width': 1 }), s('text', { x: m.l - 8, y: Y(v) + 4, 'text-anchor': 'end' }, compact(v)));
+  const every = Math.max(1, Math.ceil(n / Math.max(2, Math.floor(pw / 52))));
+  o.labels.forEach((l, i) => { if ((n - 1 - i) % every === 0) svg.append(s('text', { x: X(i), y: H - 6, 'text-anchor': 'middle' }, l)); });
+  const ends = [], solid = o.partial && n > 2 ? n - 2 : n - 1;   // an unfinished last period is drawn apart from the trend
+  for (const x of o.series) {
+    const pt = i => X(i).toFixed(1) + ' ' + Y(x.values[i]).toFixed(1);
+    const d = curve(x.values.slice(0, solid + 1).map((v, i) => [X(i), Y(v)]));
+    if (o.series.length === 1) svg.append(s('path', { d: d + 'L' + X(solid) + ' ' + Y(0) + 'L' + X(0) + ' ' + Y(0) + 'Z', fill: x.color, opacity: .14 }));
+    svg.append(s('path', { d, fill: 'none', stroke: x.color, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', 'stroke-dasharray': x.dash || null }));
+    if (solid < n - 1) svg.append(s('path', { d: 'M' + pt(solid) + 'L' + pt(n - 1), fill: 'none', stroke: x.color, 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-dasharray': '1 6', opacity: .8 }),
+      s('circle', { cx: X(solid), cy: Y(x.values[solid]), r: 4, fill: x.color, stroke: 'var(--surface)', 'stroke-width': 2 }));
+    svg.append(s('circle', { cx: X(n - 1), cy: Y(x.values[n - 1]), r: 4, fill: solid < n - 1 ? 'var(--surface)' : x.color, stroke: solid < n - 1 ? x.color : 'var(--surface)', 'stroke-width': 2 }));
+    ends.push({ y: Y(x.values[n - 1]), v: x.values[n - 1] });
+  }
+  ends.sort((a, b) => a.y - b.y).forEach((e, i, a) => { if (!i || e.y - a[i - 1].y >= 15) svg.append(s('text', { class: 'end', x: X(n - 1) + 10, y: e.y + 4 }, compact(e.v))); });
+  const cross = s('line', { y1: m.t, y2: m.t + ph, stroke: 'var(--axis)', 'stroke-width': 1, visibility: 'hidden' });
+  const dots = o.series.map(x => s('circle', { r: 4.5, fill: x.color, stroke: 'var(--surface)', 'stroke-width': 2, visibility: 'hidden' }));
+  svg.append(cross, ...dots); plot.append(svg);
+  const tp = tip(plot); let cur = -1;
+  const at = i => {
+    cur = Math.max(0, Math.min(n - 1, i)); cross.setAttribute('x1', X(cur)); cross.setAttribute('x2', X(cur)); cross.setAttribute('visibility', 'visible');
+    dots.forEach((dt, k) => { dt.setAttribute('cx', X(cur)); dt.setAttribute('cy', Y(o.series[k].values[cur])); dt.setAttribute('visibility', 'visible'); });
+    tp.show(X(cur) / W * plot.clientWidth, o.full ? o.full[cur] : o.labels[cur], o.series.map(x => ({ name: x.name, color: x.color, value: o.fmt(x.values[cur]) })));
+  };
+  const off = () => { cur = -1; cross.setAttribute('visibility', 'hidden'); dots.forEach(dt => dt.setAttribute('visibility', 'hidden')); tp.hide(); };
+  svg.addEventListener('pointermove', e => { const r = svg.getBoundingClientRect(); at(Math.round(((e.clientX - r.left) / r.width * W - m.l) / pw * (n - 1))); });
+  svg.addEventListener('pointerleave', off);
+  svg.setAttribute('tabindex', '0');
+  svg.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { e.preventDefault(); at((cur < 0 ? n - 1 : cur) + (e.key === 'ArrowRight' ? 1 : -1)); } else if (e.key === 'Escape') off(); });
+  svg.addEventListener('focus', () => { if (cur < 0) at(n - 1); }); svg.addEventListener('blur', off);
+}
+
+/* ---------- column chart: thin columns, rounded data end, each column is its own hover target ---------- */
+function columnChart(plot, o) {
+  plot.replaceChildren();
+  const W = Math.max(280, plot.clientWidth), H = o.height || 230, m = { t: 14, r: 8, b: 26, l: 42 };
+  const pw = W - m.l - m.r, ph = H - m.t - m.b, n = o.labels.length, k = o.series.length;
+  const sc = niceScale(Math.max(1, ...o.series.flatMap(x => x.values))), band = pw / n, Y = v => m.t + ph - v / sc.max * ph;
+  const bw = Math.max(3, Math.min(9, (band - 8 - (k - 1) * 2) / k)), gw = bw * k + (k - 1) * 2;
+  const svg = s('svg', { viewBox: '0 0 ' + W + ' ' + H, height: H, role: 'img', 'aria-label': o.title });
+  for (const v of sc.ticks) svg.append(s('line', { x1: m.l, x2: m.l + pw, y1: Y(v), y2: Y(v), stroke: v === 0 ? 'var(--axis)' : 'var(--grid)', 'stroke-width': 1 }), s('text', { x: m.l - 8, y: Y(v) + 4, 'text-anchor': 'end' }, compact(v)));
+  const every = Math.max(1, Math.ceil(n / Math.max(2, Math.floor(pw / 46))));
+  const tp = tip(plot);
+  o.labels.forEach((l, i) => {
+    const cx = m.l + band * i + band / 2;
+    if ((n - 1 - i) % every === 0) svg.append(s('text', { x: cx, y: H - 6, 'text-anchor': 'middle' }, l));
+    const base = o.partial && i === n - 1 ? .45 : 1;   // an unfinished last period reads lighter
+    const marks = o.series.map((x, j) => {
+      const v = x.values[i] || 0, x0 = cx - gw / 2 + j * (bw + 2), y = Y(v), y0 = Y(0), r = Math.min(bw / 2, Math.max(0, y0 - y));
+      return s('path', { d: v > 0 ? 'M' + x0 + ' ' + y0 + 'V' + (y + r) + 'Q' + x0 + ' ' + y + ' ' + (x0 + r) + ' ' + y + 'H' + (x0 + bw - r) + 'Q' + (x0 + bw) + ' ' + y + ' ' + (x0 + bw) + ' ' + (y + r) + 'V' + y0 + 'Z' : '', fill: x.color, opacity: base });
+    });
+    const hit = s('rect', { x: m.l + band * i, y: m.t, width: band, height: ph, fill: 'transparent', tabindex: 0, 'aria-label': (o.full ? o.full[i] : l) + ': ' + o.series.map(x => x.name + ' ' + o.fmt(x.values[i])).join(', ') });
+    const on = () => { marks.forEach(p => p.setAttribute('opacity', base * .78)); tp.show(cx / W * plot.clientWidth, o.full ? o.full[i] : l, o.series.map(x => ({ name: x.name, color: x.color, value: o.fmt(x.values[i]) }))); };
+    const offF = () => { marks.forEach(p => p.setAttribute('opacity', base)); tp.hide(); };
+    hit.addEventListener('pointerenter', on); hit.addEventListener('pointerleave', offF); hit.addEventListener('focus', on); hit.addEventListener('blur', offF);
+    svg.append(...marks, hit);
+  });
+  plot.append(svg);
+}
+function spark(values) {
+  const W = 132, H = 40, n = values.length, mx = Math.max(1, ...values), X = i => 4 + i / (n - 1) * (W - 8), Y = v => H - 5 - v / mx * (H - 10);
+  return s('svg', { viewBox: '0 0 ' + W + ' ' + H, width: W, height: H, 'aria-hidden': 'true' },
+    s('path', { d: values.map((v, i) => (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(v).toFixed(1)).join(''), fill: 'none', stroke: 'var(--axis)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }),
+    s('circle', { cx: X(n - 1), cy: Y(values[n - 1]), r: 4, fill: 'var(--accent)', stroke: 'var(--surface)', 'stroke-width': 2 }));
+}
+const tile = (label, value, sub, bad) => h('div', null, h('div', { class: 'lbl' }, label), figure(value), sub ? h('div', { class: 'note' + (bad ? ' bad' : '') }, sub) : null);
+
+/* ---------- derived: what needs a person's attention, worst first ---------- */
+const RANK = { critical: 0, serious: 1, warning: 2, unknown: 3, good: 4 };
+function attention() {
+  const a = [], f = D.finance, p = D.people, y = D.system;
+  if (y && y.scheduler && y.scheduler !== 'active') a.push({ lv: 'critical', what: t('aSched'), det: t('schedOff') });
+  if (f && f.receivables && f.receivables.overdue > 0) a.push({ lv: 'serious', what: t('aOverdue'), det: t('aOverdueD', { n: int(f.receivables.overdue_count) }), fig: money(f.receivables.overdue) });
+  if (y && y.failed_jobs_24h && y.failed_jobs_24h.length) a.push({ lv: 'serious', what: t('aJobs'), det: t('aJobsD', { n: int(sum(y.failed_jobs_24h.map(j => j.count))) }) });
+  if (f && f.payables && f.payables.overdue > 0) a.push({ lv: 'warning', what: t('aPay'), det: t('aPayD', { n: int(f.payables.overdue_count) }), fig: money(f.payables.overdue) });
+  if (y && y.email_queue && y.email_queue.error > 0) a.push({ lv: 'warning', what: t('aEmail'), fig: int(y.email_queue.error) });
+  if (y && y.errors_24h > 0) a.push({ lv: y.errors_24h > 20 ? 'serious' : 'warning', what: t('aErr'), fig: int(y.errors_24h) });
+  if (p && p.leave_requests_open > 0) a.push({ lv: 'warning', what: t('aLeave'), fig: int(p.leave_requests_open) });
+  if (p && p.expense_claims_pending && p.expense_claims_pending.count > 0) a.push({ lv: 'warning', what: t('aClaims'), det: t('claims', { n: int(p.expense_claims_pending.count) }), fig: money(p.expense_claims_pending.amount) });
+  return a.sort((x, z) => RANK[x.lv] - RANK[z.lv]);
+}
+const rows = items => h('div', { class: 'list' }, items.map(i => h('div', { class: 'row' }, pill(i.lv, i.chip), h('div', { class: 'what' }, i.what), h('div', { class: 'fig' }, i.fig || ''), i.det ? h('div', { class: 'det' }, i.det) : null)));
+
+/* ---------- views ---------- */
+function trendCard(span) {
+  const f = D.finance; if (!f || !f.months) return card({ span, title: t('trend'), missing: note('finance.invoiced') || '' });
+  const series = [{ name: t('salesInv'), color: 'var(--s1)', values: f.sales_invoiced }, { name: t('purchInv'), color: 'var(--s2)', values: f.purchases_invoiced, dash: '1 5' }];
+  const lg = legend(series, true);
+  return card({ span, feature: true, title: t('trend'), sub: toDate(t('trendSub', { c: CUR }), f.months), source: srcOf('finance.invoiced'), body: lg, legendEl: lg,
+    draw: el => lineChart(el, { title: t('trend'), partial: PARTIAL, labels: f.months.map(monShort), full: f.months.map(monFull), series, fmt: v => money(v, true) }),
+    table: { head: [t('month'), t('salesInv'), t('purchInv')], rows: f.months.map((mo, i) => [monFull(mo), money(f.sales_invoiced[i], true), money(f.purchases_invoiced[i], true)]), num: [1, 2] } });
+}
+const VIEWS = {
+  overview() {
+    const f = D.finance, sl = D.sales, p = D.people, g = D.agents, out = [];
+    const R = f && f.receivables, P = f && f.payables;
+    out.push(h('div', { class: 'c8 lead' }, h('div', { class: 'kpis' },
+      R ? kpi(t('receivables'), money(R.total), R.overdue > 0 ? t('overdue', { v: money(R.overdue) }) : t('noneOverdue'), R.overdue > 0) : kpi(t('receivables'), '—', t('unavailable')),
+      P ? kpi(t('payables'), money(P.total), P.overdue > 0 ? t('overdue', { v: money(P.overdue) }) : t('noneOverdue'), P.overdue > 0) : kpi(t('payables'), '—', t('unavailable')),
+      sl && sl.open_orders ? kpi(t('openOrders'), money(sl.open_orders.amount), t('orders', { n: int(sl.open_orders.count) })) : kpi(t('openOrders'), '—', t('unavailable')),
+      p && p.headcount != null ? kpi(t('headcount'), int(p.headcount), p.on_leave_today != null ? t('onLeave', { n: int(p.on_leave_today) }) : null) : kpi(t('headcount'), '—', t('unavailable'))),
+      f && f.months ? monthStrip(f.months, f.sales_invoiced) : null));
+    const a = attention();
+    const onTime = R && R.total > 0 ? Math.round((R.total - R.overdue) / R.total * 100) : null;
+    out.push(h('div', { class: 'c4 duo' },
+      h('section', { class: 'card pale center' }, h('h2', null, t('insight')), h('div', { class: 'orb', 'aria-hidden': 'true' }),
+        h('p', { class: 'say' }, a.length ? a.slice(0, 2).map(i => i.what + (i.fig ? ' ' + i.fig : '') + '.').join(' ') : t('allClear'))),
+      h('section', { class: 'card center' }, h('h2', null, t('onTime')), h('div', { class: 'score dot' }, onTime == null ? '—' : String(onTime)), h('div', { class: 'of' }, '100'),
+        pill(onTime == null ? 'unknown' : onTime >= 90 ? 'good' : onTime >= 75 ? 'warning' : 'serious'))));
+    if (f && f.months) {
+      const n = f.months.length, full = PARTIAL ? n - 2 : n - 1, best = f.sales_invoiced.slice(0, full + 1).reduce((bi, v, i, arr) => (v > arr[bi] ? i : bi), 0);
+      out.push(card({ span: 'c4', feature: true, title: t('salesTrend'), sub: t('salesTrendSub', { c: CUR }), source: srcOf('finance.invoiced'),
+        draw: el => lineChart(el, { title: t('salesTrend'), partial: PARTIAL, labels: f.months.map(monShort), full: f.months.map(monFull), series: [{ name: t('salesInv'), color: 'var(--s1)', values: f.sales_invoiced }], fmt: v => money(v, true) }),
+        table: { head: [t('month'), t('salesInv')], rows: f.months.map((mo, i) => [monFull(mo), money(f.sales_invoiced[i], true)]), num: [1] },
+        after: glass([[t('lastMonth'), money(f.sales_invoiced[Math.max(0, full)])], [t('bestMonth'), monShort(f.months[best])], PARTIAL ? [t('soFar'), money(f.sales_invoiced[n - 1])] : null]) }));
+    } else out.push(card({ span: 'c4', title: t('salesTrend'), missing: note('finance.invoiced') || '' }));
+    if (f && f.cash_in) {
+      out.push(card({ span: 'c4', feature: true, title: t('cashCard'), sub: t('cashCardSub', { c: CUR }), source: srcOf('finance.cash'),
+        draw: el => columnChart(el, { title: t('cashCard'), partial: PARTIAL, labels: f.months.map(monShort), full: f.months.map(monFull), series: [{ name: t('cashIn'), color: 'var(--s1)', values: f.cash_in }], fmt: v => money(v, true) }),
+        table: { head: [t('month'), t('cashIn'), t('cashOut')], rows: f.months.map((mo, i) => [monFull(mo), money(f.cash_in[i], true), money(f.cash_out[i], true)]), num: [1, 2] },
+        after: glass([[t('cashIn'), money(sum(f.cash_in))], [t('cashOut'), money(sum(f.cash_out))], [t('netCash'), money(sum(f.cash_in) - sum(f.cash_out))]]) }));
+    } else out.push(card({ span: 'c4', title: t('cashCard'), missing: note('finance.cash') || '' }));
+    out.push(card({ span: 'c4', title: t('attention'), body: a.length ? rows(a) : h('p', { class: 'note' }, t('allClear')) }));
+    const rs = [];
+    if (onTime != null) rs.push(ring(onTime / 100, t('onTime')));
+    if (P && P.total > 0) rs.push(ring((P.total - P.overdue) / P.total, t('rPay')));
+    if (p && p.attendance_today && p.attendance_today.length) { const tot = sum(p.attendance_today.map(x => x.count)), inn = sum(p.attendance_today.filter(x => x.status === 'Present' || x.status === 'Work From Home').map(x => x.count)); if (tot) rs.push(ring(inn / tot, t('rAtt'))); }
+    if (g && g.total) rs.push(ring(g.done / g.total, t('rAgents')));
+    out.push(card({ span: 'c6', title: t('glance'), sub: t('glanceSub'), body: rs.length ? h('div', { class: 'rings' }, rs) : unavailable('') }));
+    out.push(card({ span: 'c6', title: t('topOverdue'), source: srcOf('finance.receivables'), missing: f && f.top_overdue ? null : (note('finance.receivables') || ''),
+      body: f && f.top_overdue ? (f.top_overdue.length ? rows(f.top_overdue.slice(0, 4).map(r => ({ lv: r.days_overdue > 60 ? 'serious' : 'warning', chip: t('daysLate', { n: int(r.days_overdue) }), what: r.customer, det: r.invoice + ' · ' + dayShort(r.due_date), fig: money(r.amount) }))) : h('p', { class: 'note' }, t('noneOverdue'))) : null }));
+    return out;
+  },
+  finance() {
+    const f = D.finance; if (!f) return [card({ span: 'c12', title: t('finance'), missing: note('finance') || '' })];
+    const out = [trendCard('c7')];
+    if (f.receivables) {
+      const R = f.receivables;
+      out.push(card({ span: 'c5', title: t('aging'), sub: t('agingSub', { c: CUR }), source: srcOf('finance.receivables'),
+        body: [h('div', { class: 'tiles' }, tile(t('receivables'), money(R.total), t('invoices', { n: int(R.count) })), tile(t('payables'), f.payables ? money(f.payables.total) : '—', f.payables && f.payables.overdue > 0 ? t('overdue', { v: money(f.payables.overdue) }) : null, f.payables && f.payables.overdue > 0)),
+          bars(R.aging.map(b => ({ name: t(b.bucket), value: b.amount })), v => money(v))] }));
+    } else out.push(card({ span: 'c5', title: t('aging'), missing: note('finance.receivables') || '' }));
+    if (f.cash_in) {
+      const series = [{ name: t('cashIn'), color: 'var(--s1)', values: f.cash_in }, { name: t('cashOut'), color: 'var(--s2)', values: f.cash_out }];
+      const lg = legend(series);
+      out.push(card({ span: 'c6', title: t('cash'), sub: toDate(t('cashSub', { c: CUR }), f.months), source: srcOf('finance.cash'), body: lg, legendEl: lg,
+        draw: el => columnChart(el, { title: t('cash'), partial: PARTIAL, labels: f.months.map(monShort), full: f.months.map(monFull), series, fmt: v => money(v, true) }),
+        table: { head: [t('month'), t('cashIn'), t('cashOut')], rows: f.months.map((mo, i) => [monFull(mo), money(f.cash_in[i], true), money(f.cash_out[i], true)]), num: [1, 2] } }));
+    } else out.push(card({ span: 'c6', title: t('cash'), missing: note('finance.cash') || '' }));
+    out.push(card({ span: 'c6', title: t('topOverdue'), source: srcOf('finance.receivables'), missing: f.top_overdue ? null : (note('finance.receivables') || ''),
+      body: f.top_overdue ? h('div', { class: 'tw' }, table([t('invoice'), t('customer'), t('due'), t('days'), t('amount')], f.top_overdue.map(r => [r.invoice, r.customer, dayShort(r.due_date), int(r.days_overdue), money(r.amount, true)]), [3, 4])) : null }));
+    return out;
+  },
+  sales() {
+    const x = D.sales; if (!x) return [card({ span: 'c12', title: t('sales'), missing: note('sales') || '' })];
+    const out = [];
+    out.push(card({ span: 'c12', title: t('sales'), body: h('div', { class: 'tiles' },
+      x.open_orders ? tile(t('openOrders'), money(x.open_orders.amount), t('orders', { n: int(x.open_orders.count) })) : tile(t('openOrders'), '—', note('sales.orders')),
+      x.open_quotations ? tile(t('quotations'), money(x.open_quotations.amount), t('quotes', { n: int(x.open_quotations.count) })) : tile(t('quotations'), '—', note('sales.quotations')),
+      tile(t('customersTotal'), int(x.customers_total), null)) }));
+    out.push(card({ span: 'c6', title: t('topCustomers'), sub: t('topCustomersSub', { c: CUR }), source: srcOf('sales.top_customers'), missing: x.top_customers ? null : (note('sales.top_customers') || ''),
+      body: x.top_customers ? bars(x.top_customers.map(c => ({ name: c.name, value: c.amount })), v => money(v)) : null }));
+    out.push(card({ span: 'c6', title: t('ordersByStatus'), sub: t('ordersSub'), source: srcOf('sales.orders'), missing: x.orders_by_status ? null : (note('sales.orders') || ''),
+      body: x.orders_by_status ? h('div', { class: 'tw' }, table([t('status'), t('count'), t('amount')], x.orders_by_status.map(o => [o.status, int(o.count), money(o.amount, true)]), [1, 2])) : null }));
+    if (x.new_customers && D.finance && D.finance.months) {
+      const mo = D.finance.months;
+      out.push(card({ span: 'c12', title: t('newCustomers'), source: srcOf('sales.customers'),
+        draw: el => columnChart(el, { title: t('newCustomers'), height: 200, partial: PARTIAL, labels: mo.map(monShort), full: mo.map(monFull), series: [{ name: t('newCustomers'), color: 'var(--s1)', values: x.new_customers }], fmt: int }),
+        table: { head: [t('month'), t('count')], rows: mo.map((m2, i) => [monFull(m2), int(x.new_customers[i])]), num: [1] } }));
+    }
+    return out;
+  },
+  people() {
+    const p = D.people; if (!p) return [card({ span: 'c12', title: t('people'), missing: note('people') || '' })];
+    const out = [];
+    out.push(card({ span: 'c12', title: t('people'), source: srcOf('people.employees'), body: h('div', { class: 'tiles' },
+      tile(t('headcount'), int(p.headcount)), tile(t('joined'), int(p.joined_12m)), tile(t('left'), int(p.left_12m)),
+      p.on_leave_today != null ? tile(t('leaveToday'), int(p.on_leave_today)) : tile(t('leaveToday'), '—', note('people.leave'))) }));
+    const COL = ['var(--r1)', 'var(--r2)', 'var(--r3)', 'var(--r4)', 'var(--r5)'];
+    out.push(card({ span: 'c7', title: t('attendance'), source: srcOf('people.attendance'), missing: p.attendance_today && p.attendance_today.length ? null : (note('people.attendance') || ''),
+      body: p.attendance_today && p.attendance_today.length ? segBar(p.attendance_today.slice(0, 5).map((a, i) => ({ name: a.status, value: a.count, color: COL[i], darkLabel: i >= 3 })), int) : null }));
+    const P = p.payroll_last;
+    out.push(card({ span: 'c5', title: t('payroll'), sub: P ? monFull(P.period) : null, source: srcOf('people.payroll'), missing: P ? null : (note('people.payroll') || ''),
+      body: P ? h('div', { class: 'tiles' }, tile(t('gross'), money(P.gross)), tile(t('net'), money(P.net), t('paid', { n: int(P.employees) }))) : null }));
+    out.push(card({ span: 'c7', title: t('byDept'), source: srcOf('people.employees'), missing: p.by_department ? null : (note('people.employees') || ''),
+      body: p.by_department ? bars(p.by_department.map(d => ({ name: d.name, value: d.count })), int) : null }));
+    const w = [];
+    if (p.leave_requests_open != null) w.push({ lv: p.leave_requests_open > 0 ? 'warning' : 'good', what: t('leaveReq'), fig: int(p.leave_requests_open) });
+    if (p.expense_claims_pending) w.push({ lv: p.expense_claims_pending.count > 0 ? 'warning' : 'good', what: t('expClaims'), det: money(p.expense_claims_pending.amount, true), fig: int(p.expense_claims_pending.count) });
+    out.push(card({ span: 'c5', title: t('attention'), body: w.length ? rows(w) : unavailable(note('people.leave') || ''), source: srcOf('people.leave') }));
+    return out;
+  },
+  system() {
+    const y = D.system; if (!y) return [card({ span: 'c12', title: t('system'), missing: note('system') || '' })];
+    const out = [], ch = [];
+    ch.push(y.scheduler ? { lv: y.scheduler === 'active' ? 'good' : 'critical', what: t('scheduler'), det: y.scheduler === 'active' ? t('schedOn') : t('schedOff') } : { lv: 'unknown', what: t('scheduler'), det: note('system.scheduler') });
+    ch.push(y.errors_24h != null ? { lv: y.errors_24h === 0 ? 'good' : y.errors_24h > 20 ? 'serious' : 'warning', what: t('errs'), fig: int(y.errors_24h) } : { lv: 'unknown', what: t('errs'), det: note('system.errors') });
+    const fj = y.failed_jobs_24h ? sum(y.failed_jobs_24h.map(j => j.count)) : null;
+    ch.push(fj != null ? { lv: fj === 0 ? 'good' : 'serious', what: t('failedJobs'), fig: int(fj) } : { lv: 'unknown', what: t('failedJobs'), det: note('system.jobs') });
+    ch.push(y.email_queue ? { lv: y.email_queue.error > 0 ? 'warning' : 'good', what: t('emailQ'), det: t('emailDet', { a: int(y.email_queue.not_sent), b: int(y.email_queue.error) }) } : { lv: 'unknown', what: t('emailQ'), det: note('system.email') });
+    if (y.background_jobs_failed != null) ch.push({ lv: y.background_jobs_failed > 0 ? 'warning' : 'good', what: t('bgJobs'), fig: int(y.background_jobs_failed) });
+    ch.push({ lv: 'unknown', what: t('backups'), det: note('system.backups') || '' });
+    out.push(card({ span: 'c6', title: t('health'), body: rows(ch) }));
+    if (y.errors_by_day) {
+      const e = y.errors_by_day;
+      out.push(card({ span: 'c6', title: t('errsDay'), sub: t('errsSub'), source: srcOf('system.errors'),
+        draw: el => columnChart(el, { title: t('errsDay'), labels: e.days.map(dayShort), series: [{ name: t('errors'), color: 'var(--s1)', values: e.counts }], fmt: int }),
+        table: { head: [t('day'), t('errors')], rows: e.days.map((d, i) => [dayShort(d), int(e.counts[i])]), num: [1] } }));
+    } else out.push(card({ span: 'c6', title: t('errsDay'), missing: note('system.errors') || '' }));
+    out.push(card({ span: 'c6', title: t('apps'), source: srcOf('system.apps'), missing: y.apps ? null : (note('system.apps') || ''),
+      body: y.apps ? [h('div', { class: 'tw' }, table([t('app'), t('version'), t('branch')], y.apps.map(a => [a.name, a.version, a.branch || '—']))),
+        y.users ? h('div', { class: 'tiles' }, tile(t('users'), int(y.users.enabled), t('sysUsers', { n: int(y.users.system) }))) : null] : null }));
+    out.push(card({ span: 'c6', title: t('failedJobs'), source: srcOf('system.jobs'), missing: y.failed_jobs_24h ? null : (note('system.jobs') || ''),
+      body: y.failed_jobs_24h ? (y.failed_jobs_24h.length ? h('div', { class: 'tw' }, table([t('job'), t('failures')], y.failed_jobs_24h.map(j => [j.job, int(j.count)]), [1])) : h('p', { class: 'note' }, t('noFailed'))) : null }));
+    return out;
+  },
+  /* what the plugin's own agents did, from the workspace activity log: self-reported, and labelled so */
+  agents() {
+    const g = D.agents; if (!g) return [card({ span: 'c12', title: t('agents'), missing: note('agents') || '' })];
+    const out = [], rate = g.total ? Math.round(g.done / g.total * 100) : 0, cov = g.changes ? g.snapshotted / g.changes : 1;
+    out.push(card({ span: 'c12', feature: true, title: t('agTasks', { d: g.window_days }), sub: t('agHonest'), source: srcOf('agents'), body: h('div', { class: 'tiles' },
+      h('div', { class: 'ringrow' }, ring(rate / 100), tile(t('reqs'), int(g.total), t('agDone'))),
+      tile(t('agChanged'), int(g.records_changed), t('agChanges', { n: int(g.changes) })),
+      h('div', { class: 'ringrow' }, ring(cov), h('div', null, h('div', { class: 'lbl' }, t('agSnap')),
+        h('div', { class: 'note' + (cov < 1 ? ' bad' : '') }, cov < 1 ? t('agNoSnap', { n: int(g.changes - g.snapshotted) }) : t('agSnapD', { a: int(g.snapshotted), b: int(g.changes) })))),
+      tile(t('agRefused'), int(g.refused), t('agRefusedD')),
+      g.median_seconds != null ? tile(t('agMedian'), dur(g.median_seconds)) : null) }));
+    out.push(card({ span: 'c7', title: t('agByAgent'), body: h('div', { class: 'tw' }, table(
+      [t('agent'), t('reqs'), t('colDone'), t('refused'), t('colFailed'), t('colChanged'), t('lastActive')],
+      (g.by_agent || []).map(a => [h('span', null, h('b', null, a.agent), a.role ? h('span', { class: 'role' }, a.role) : null), int(a.tasks), int(a.done), int(a.refused), int(a.failed), int(a.changed), a.last ? dayShort(a.last) : '—']), [1, 2, 3, 4, 5])) }));
+    if (g.by_day) out.push(card({ span: 'c5', title: t('agPerDay'), sub: t('agPerDaySub'),
+      draw: el => columnChart(el, { title: t('agPerDay'), height: 210, labels: g.by_day.days.map(dayShort), series: [{ name: t('reqs'), color: 'var(--s1)', values: g.by_day.counts }], fmt: int }),
+      table: { head: [t('day'), t('reqs')], rows: g.by_day.days.map((d, i) => [dayShort(d), int(g.by_day.counts[i])]), num: [1] } }));
+    const LV = { done: 'good', partial: 'warning', failed: 'serious', refused: 'neutral' }, LB = { done: 'oDone', partial: 'oPartial', failed: 'oFailed', refused: 'oRefused' };
+    out.push(card({ span: 'c7', title: t('agRecent'), body: (g.recent || []).length ? h('div', { class: 'tw' }, table(
+      [t('when'), t('agent'), t('task'), t('outcome'), t('colChanged')],
+      g.recent.map(r => [stampShort(r.ts), r.agent, r.task, pill(LV[r.outcome] || 'unknown', t(LB[r.outcome] || 'unknown')), int(r.changed)]), [4])) : h('p', { class: 'note' }, note('agents') || '') }));
+    if ((g.by_adapter || []).length) out.push(card({ span: 'c5', title: t('agVia'), body: bars(g.by_adapter.map(a => ({ name: a.name, value: a.count })), int) }));
+    return out;
+  }
+};
+
+/* ---------- shell ---------- */
+const ORDER = ['overview', 'finance', 'sales', 'people', 'system', 'agents'];
+const view = () => { const v = location.hash.replace('#', ''); return ORDER.includes(v) ? v : 'overview'; };
+function render() {
+  document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  pending.length = 0;
+  if (!D || !D.meta) { app.replaceChildren(h('div', { class: 'wrap' }, h('div', { class: 'empty' }, h('h1', null, t('noData')), h('p', null, t('noDataBody'))))); return; }
+  const v = view(), M = D.meta;
+  const side = h('aside', { class: 'side' },
+    h('div', { class: 'brand' }, h('img', { src: LOGO, alt: '', width: 44, height: 44 }),
+      h('div', { dir: 'ltr' }, 'Jazari', h('em', null, 'Agents'), h('small', null, 'Pulse'))),
+    h('nav', { 'aria-label': 'Sections' }, h('div', { class: 'nav-in', role: 'tablist' },
+      ORDER.map(k => h('button', { class: 'tab', role: 'tab', type: 'button', id: 'tab-' + k, 'aria-selected': String(k === v), onclick: () => { location.hash = k; } },
+        h('span', { class: 'tp' }, icon(NAV[k]), h('span', null, t(k))), h('i', { class: 'go', 'aria-hidden': 'true' }, icon('M3.5 8h9M9 4.5L12.5 8 9 11.5')))))),
+    h('div', { class: 'sidecard' }, h('span', { class: 'chipx' }, M.demo ? t('demo') : t('live')), h('b', null, t('snapTitle')), h('p', null, t('footer'))));
+  const bar = h('div', { class: 'bar' },
+    h('span', { class: 'round', 'aria-hidden': 'true' }, icon('M8 2a6 6 0 100 12A6 6 0 008 2zM2.2 8h11.6M8 2.2c2.2 2.3 2.2 9.3 0 11.6M8 2.2c-2.2 2.3-2.2 9.3 0 11.6')),
+    h('div', { class: 'infopill' }, [M.site, t('asOf') + ' ' + stamp(M.generated_at)].filter(Boolean).join('  ·  ')),
+    h('span', { class: 'spacer' }),
+    h('button', { class: 'round', type: 'button', id: 'lang-toggle', 'aria-label': t('lang'), title: t('lang'), onclick: () => { lang = lang === 'ar' ? 'en' : 'ar'; store.set('pulse.lang', lang); render(); } }, lang === 'ar' ? 'EN' : 'ع'));
+  const top = h('header', { class: 'top' },
+    h('h1', null, v === 'overview' ? (M.company ? t('hello', { g: greeting(), c: M.company }) : greeting()) : t(v)),
+    h('p', { class: 'sub' }, v === 'overview' ? t('summary') : t('d' + v)));
+  const grid = h('div', { class: 'grid' }, VIEWS[v]());
+  const trunc = (M.truncated || []).length ? h('p', { class: 'na', style: 'margin-bottom:16px' }, t('truncated', { l: M.truncated.join(', ') })) : null;
+  app.replaceChildren(h('div', { class: 'wrap shell' }, side, h('div', { class: 'content' }, bar, top,
+    h('main', { role: 'tabpanel', 'aria-labelledby': 'tab-' + v }, trunc, grid), h('p', { class: 'foot' }, t('footer')))));
+  for (const fn of pending.splice(0)) fn();
+}
+let lastW = 0, timer = 0;
+addEventListener('hashchange', () => { render(); scrollTo(0, 0); });
+addEventListener('resize', () => { clearTimeout(timer); timer = setTimeout(() => { if (innerWidth !== lastW) { lastW = innerWidth; render(); } }, 120); });
+lastW = innerWidth; render();
+})();
+</script>
