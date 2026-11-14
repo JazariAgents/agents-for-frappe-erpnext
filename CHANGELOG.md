@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.8 — an install command that works on every machine (2026-11-14)
+
+- The install command now uses the repository's full web address. The short form
+  (`JazariAgents/agents-for-frappe-erpnext`) made Claude Code try SSH on machines that have an SSH key but
+  have never connected to GitHub with it, and the install failed there with "Host key verification
+  failed". Found on a fresh install test; the full address installed cleanly on the same machine.
+- Nothing else changed from 1.1.7. If you already added the marketplace, you do not need to add it again.
+
 ## 1.1.7 — an independent review of the safety rules, and the yes held in code (2026-11-14)
 
 A separate reviewer was asked to break the snapshot check, four times over. It found 15 ways through in the

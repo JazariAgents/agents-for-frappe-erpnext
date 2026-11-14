@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/licence-MIT-23E0C5?style=flat-square" alt="MIT licence">
-  <img src="https://img.shields.io/badge/version-1.1.7-087DB9?style=flat-square" alt="Version 1.1.7">
+  <img src="https://img.shields.io/badge/version-1.1.8-087DB9?style=flat-square" alt="Version 1.1.8">
   <img src="https://img.shields.io/badge/built%20for-ERPNext%20%26%20Frappe%20v16-06152D?style=flat-square" alt="Built for ERPNext and Frappe v16">
   <img src="https://img.shields.io/badge/languages-English%20%C2%B7%20Arabic-00B8D9?style=flat-square" alt="English and Arabic">
 </p>
@@ -98,7 +98,7 @@ You need [Claude Code](https://claude.com/claude-code) and a site on Frappe v15 
 **1. Add the marketplace.** In Claude Code, type:
 
 ```
-/plugin marketplace add JazariAgents/agents-for-frappe-erpnext
+/plugin marketplace add https://github.com/JazariAgents/agents-for-frappe-erpnext
 ```
 
 **2. Install the plugin.**
@@ -303,6 +303,10 @@ labels will differ; the plugin tells you so when you connect.
 **Can it break my books?** It is written to make that hard: it confirms, snapshots, and refuses to call a
 posted document reversible. It is still software following instructions. Try it on a test site first, and
 keep production read-only until you trust it.
+
+**Adding the marketplace fails with "Host key verification failed".** Use the full address shown in the
+install steps (it starts with `https://`). The short `owner/name` form makes Claude Code try SSH on some
+machines.
 
 **On Windows, cloning fails with "Filename too long".** Installing through `/plugin` works. If you clone the
 repository yourself, use a short folder such as `C:\src`, or run `git config --global core.longpaths true`
