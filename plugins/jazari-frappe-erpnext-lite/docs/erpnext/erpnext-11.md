@@ -42,13 +42,13 @@ The sales discount account appears under Expenses in this example.
 
 
 
-![Sales Discounts Allowed account highlighted in the Chart of Accounts](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-sales-discount-account.png)
+[Screenshot on the live page: Sales Discounts Allowed account highlighted in the Chart of Accounts]
 
 The purchase discount account appears under Income.
 
 
 
-![Purchase Discounts Received account highlighted in the Chart of Accounts](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-purchase-discount-account.png)
+[Screenshot on the live page: Purchase Discounts Received account highlighted in the Chart of Accounts]
 
 ## Book a discount allowed on a Sales Invoice
 
@@ -56,25 +56,25 @@ The purchase discount account appears under Income.
 2. In **Sales Taxes and Charges**, add a row. A reusable [Sales Taxes and Charges Template](/erpnext/sales-taxes-and-charges-template) can provide the same row when this treatment is standard.
 3. Select the highlighted pencil icon to open the complete row editor.
 
-![Sales Invoice discount row with the pencil icon highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-sales-discount-row.png)
+[Screenshot on the live page: Sales Invoice discount row with the pencil icon highlighted]
 
 4. Set **Type** to **On Net Total**.
 5. Set **Account Head** to the discount-allowed account.
 6. Enter the discount percentage as a negative **Tax Rate**. For a 10% discount, enter **-10**.
 7. Enter a clear Description and the required Cost Center or other [Accounting Dimensions](/erpnext/accounting-dimensions).
 
-![Sales discount Type, Account Head, and negative Tax Rate highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-sales-discount-fields.png)
+[Screenshot on the live page: Sales discount Type, Account Head, and negative Tax Rate highlighted]
 
 The example starts with two phones at $699 each, or $1,398. A -10% row produces -$139.80, reducing the Grand Total to $1,258.20.
 
 
 
-![Submitted Sales Invoice with the discount and Grand Total highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-sales-submitted-total.png)
+[Screenshot on the live page: Submitted Sales Invoice with the discount and Grand Total highlighted]
 
 8. Review taxes, rounding, Grand Total, and the charge row, then submit.
 9. Open **View &gt; Accounting Ledger** and verify the result in the [General Ledger](/erpnext/general-ledger).
 
-![Sales Invoice ledger with the separate discount row highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-sales-general-ledger.png)
+[Screenshot on the live page: Sales Invoice ledger with the separate discount row highlighted]
 
 The ledger debits Debtors by $1,258.20, debits Sales Discounts Allowed by $139.80, and credits Sales by the gross $1,398.00.
 
@@ -87,17 +87,17 @@ The ledger debits Debtors by $1,258.20, debits Sales Discounts Allowed by $139.8
 5. Set **Account Head** to the discount-received income or contra-expense account approved by your accountant.
 6. Enter the percentage as a negative **Tax Rate**. The example uses **-10**.
 
-![Purchase discount Type, Account Head, and negative Tax Rate highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-purchase-discount-fields.png)
+[Screenshot on the live page: Purchase discount Type, Account Head, and negative Tax Rate highlighted]
 
 The gross purchase is $1,040. The -10% row deducts $104, so the Supplier is owed $936.
 
 
 
-![Submitted Purchase Invoice with the discount and Grand Total highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-purchase-submitted-total.png)
+[Screenshot on the live page: Submitted Purchase Invoice with the discount and Grand Total highlighted]
 
 7. Submit and open the Accounting Ledger.
 
-![Purchase Invoice ledger with the separate discount row highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-purchase-general-ledger.png)
+[Screenshot on the live page: Purchase Invoice ledger with the separate discount row highlighted]
 
 The ledger credits Creditors by $936, debits the purchase or stock-received account by $1,040, and credits Purchase Discounts Received by $104.
 
@@ -111,13 +111,13 @@ For the sales example, the Customer pays $1,258.20. The Payment References row a
 
 
 
-![Customer Payment Entry allocating the net Sales Invoice amount](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-sales-payment-entry.png)
+[Screenshot on the live page: Customer Payment Entry allocating the net Sales Invoice amount]
 
 For the purchase example, the Company pays $936 to the Supplier.
 
 
 
-![Supplier Payment Entry allocating the net Purchase Invoice amount](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-separate-discount-booking-purchase-payment-entry.png)
+[Screenshot on the live page: Supplier Payment Entry allocating the net Purchase Invoice amount]
 
 The discount was already posted by the invoice. Do not add the same discount again as a deduction in Payment Entry unless a separate payment-time adjustment genuinely occurred.
 
@@ -204,7 +204,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 5. Attach or reference the withholding certificate when available.
 6. Confirm that the Difference Amount is zero and submit.
 
-![Booking Customer Deducted TDS in Payment Entry in ERPNext in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-05-payment-entry-references.png)
+[Screenshot on the live page: Booking Customer Deducted TDS in Payment Entry in ERPNext in ERPNext]
 
 ## Important fields and what they mean
 
@@ -283,15 +283,15 @@ To enable Braintree in your ERPNext account, you need to configure the following
 
 You can setup several Braintree payment gateways if needed. The choice of payment gateway account will determine which braintree account is used for the payment.
 
-![Braintree Settings](/files/braintree_account.png)
+[Screenshot on the live page: Braintree Settings]
 
 On enabling service, the system will create Payment Gateway record and an Account head in chart of account with account type as Bank.
 
-![Braintree COA](/files/braintree_coa.png)
+[Screenshot on the live page: Braintree COA]
 
 It will also create a payment gateway account. You can change the default bank account if needed and create a template for the payment request.
 
-![Payment Gateway Account](/files/payment_gateway_account_braintree.png)
+[Screenshot on the live page: Payment Gateway Account]
 
 After configuring the Payment Gateway Account, your system is able to accept online payments through Braintree.
 
@@ -332,17 +332,17 @@ To access the Brand list, go to:
 1. Go to the Brand list and click on New.
 2. Enter a Brand name and enter a description if needed.
 3. Save.
-  [Brand](/files/brand.png)
+  Brand (picture on the live page)
 
 Now this Brand can be associated with different Items.
 
-![](/files/item_brand.png)
+[Screenshot on the live page]
 
 ## 2. Features
 
 ### 2.1 Setting defaults for Items of this Brand
 
-![](/files/brand_defaults.png)
+[Screenshot on the live page]
 
 The following defaults can be set for a Brand. On assigning this brand to an Item, the set defaults will be fetched when performing Sales/Purchase transactions with Item of this Brand.
 
@@ -405,7 +405,7 @@ Open the submitted Budget that needs to change. From the actions menu, select **
 
 
 
-![Submitted Budget opened in ERPNext before revision](/files/budget-scope-and-period.webp)
+[Screenshot on the live page: Submitted Budget opened in ERPNext before revision]
 
 Confirm that you want to continue. ERPNext creates a new draft based on the existing Budget, so you do not need to enter the complete plan again.
 
@@ -415,7 +415,7 @@ Update the **Budget Amount** and, when required, the monthly distribution. Keep 
 
 
 
-![Budget amount and distribution settings being revised](/files/budget-amount-and-distribution.webp)
+[Screenshot on the live page: Budget amount and distribution settings being revised]
 
 Save and submit the revised Budget.
 
@@ -494,7 +494,7 @@ Create and submit a Budget against the required [Cost Center](/erpnext/cost-cent
 
 Open **Budget Variance Report** from Accounting. Select the Company, Fiscal Year, Budget Against, and reporting frequency. Use Monthly for operational reviews and Quarterly or Yearly for a higher-level view.
 
-![Budget Variance Report comparing a 120,000 budget with 27,500 of actual marketing expense](https://novacompanies.m.frappe.cloud/files/budgets-capital-equity-20260814-budget-variance-report.png)
+[Screenshot on the live page: Budget Variance Report comparing a 120,000 budget with 27,500 of actual marketing expense]
 
 Select **Show Cumulative** when you want to compare total budget and total actual spending up to each period. This is useful when spending is seasonal and one month should not be judged in isolation.
 
@@ -570,7 +570,7 @@ Open the Budget list and select **Add Budget**.
 
 
 
-![Budget list in ERPNext](/files/budget-list.webp)
+[Screenshot on the live page: Budget list in ERPNext]
 
 
 
@@ -582,7 +582,7 @@ Set **From Fiscal Year** and **To Fiscal Year**. A budget can cover one fiscal y
 
 
 
-![Budget scope, account, and fiscal year fields](/files/budget-scope-and-period.webp)
+[Screenshot on the live page: Budget scope, account, and fiscal year fields]
 
 
 
@@ -594,7 +594,7 @@ Enable **Distribute Equally** when each period should receive the same share. Ot
 
 
 
-![Budget amount and distribution settings](/files/budget-amount-and-distribution.webp)
+[Screenshot on the live page: Budget amount and distribution settings]
 
 ## Choose budget control actions
 
@@ -617,7 +617,7 @@ For each enabled stage, choose an action for the annual limit and the accumulate
 
 
 
-![Purchase Order and actual expense controls in a Budget](/files/budget-control-actions.webp)
+[Screenshot on the live page: Purchase Order and actual expense controls in a Budget]
 
 
 
@@ -713,12 +713,12 @@ updated: "2026-02-27"
 1) Create a Project.  
 2) Create Tasks in that Project.  
 3) Go to Task List and filter the Tasks based on the Project as shown below:  
-![](/files/JWvaO3x.png)  
+[Screenshot on the live page]  
 4) Select all the Tasks (or the Tasks you wish to assign to the User).  
-![](/files/mpSG2p6.png)  
+[Screenshot on the live page]  
 5) Go to Actions > "Assign To" and select the User to whom you wish to assign these Tasks.  
-![](/files/GZFTC86.png)  
-![](/files/5pvnr02.png)  
+[Screenshot on the live page]  
+[Screenshot on the live page]  
 You can also enter other details such as Comments, Completed By and bulk set the Priority of the Tasks.  
 6) Click on Add.  
 **Note:** You can follow the above steps to bulk assign any documents in ERPNext.  
@@ -803,7 +803,7 @@ updated: "2026-02-26"
 
 You can rename a document in ERPNext by going to **Menu > Rename**. This option will only be visible if you have the required permissions.
 
-![](/files/image3a97ad.png)
+[Screenshot on the live page]
 
 ### Rename Tool
 
@@ -838,7 +838,7 @@ To upload the data file, search for "Rename Tool" on the awesomebar.
 
 Select the DocType that you want to rename. Here, DocType will be Item. Then browse and upload the data file and click Rename.
 
-![](/files/image36fdf6.png)
+[Screenshot on the live page]
 
 The Bulk Rename Jobs shows the progress of the process for each entry, from the queuing state to either finished or failed.
 
@@ -881,7 +881,7 @@ To do this,
 6. Select the limit, i.e. number of documents (Quotations) to be updated.
 7. Click on Save
 
-![](/files/imagea8e50c.png)
+[Screenshot on the live page]
 
 :::note
 You can only update fields that can be updated normally in a particular stage. For example, valid till date cannot be updated for submitted Quotations.

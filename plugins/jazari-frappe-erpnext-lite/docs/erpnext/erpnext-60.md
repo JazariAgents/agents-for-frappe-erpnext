@@ -1,41 +1,5 @@
 <!-- Frappe documentation: erpnext, part 60 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__stock-masters.md -->
----
-title: "Stock Masters"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/stock-masters"
-updated: "2026-03-06"
----
-
-In ERPNext, the masters play a crucial role in managing stock-related data, such as items, warehouses, batches, and stock transactions. They provide a structured way to input, store, and retrieve data related to stock items, their attributes, and movements within the system.
-
-Masters in the stock enables businesses to maintain accurate inventory records, track stock movements, and make informed decisions regarding procurement, sales, and stock optimisation. The following are the quick links to some of the important masters in the stock module.
-
-- [Item](/erpnext/user/manual/en/item)
-- [Item Group](/erpnext/user/manual/en/item-group)
-- [Brand](/erpnext/user/manual/en/brand)
-- [Item Variants](/erpnext/user/manual/en/item-variants)
-- [Item Attribute](/erpnext/user/manual/en/item-attribute)
-- [Unit of Measure](/erpnext/user/manual/en/uom)
-
-<!-- page: erpnext/erpnext__stock-received-but-not-billed.md -->
----
-title: "Purpose of Stock Received but not Billed\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/stock-received-but-not-billed"
-updated: "2026-03-02"
----
-
-
-When purchased items are received, an accounts posting is done based on the value of the purchased items in the Stock-in-hand / fixed-assets account. When you sell and deliver those items, an expense (cost-of-goods-sold) is booked, equal to the buying cost of the items.
-
-As stock balance increases through Purchase Receipt, Warehouse account is debited and an adjustment account called **Stock Received But Not Billed** account is credited. At the same time, the negative expense is booked in account head having category as "Valuation" or "Total and Valuation" in taxes and charges table for the amount added for valuation purpose, to avoid double expense booking.
-
-On receiving Bill from the supplier, you will make Purchase Invoice against a Purchase Receipt. Here **Stock Received But Not Billed** account is debited, hence nullifies the balance in the Stock Received but not Billed Account.
-
-The balance in the Stock Received but not Billed account indicates the value of items for which Purchase Receipt has been made, but billing is pending.
-
 <!-- page: erpnext/erpnext__stock-reconciliation.md -->
 ---
 title: "Stock Reconciliation"
@@ -72,7 +36,7 @@ Using stock reconciliation, you can update the number of specific items in a war
 5. The Difference Account will be set as 'Temporary Opening'.
 6. Save and Submit.
 
-![](/files/stock-reco.png)
+[Screenshot on the live page]
 
 > Note: Maintain Stock option should be enabled in Item master for this to work.
 
@@ -94,7 +58,7 @@ To reconcile the stock:
 6. The Cost Centre default will be 'Main', change if needed.
 7. Save and Submit.
 
-![](/files/stock-rec.png)
+[Screenshot on the live page]
 
 ## 3. Reconciliation Features
 
@@ -106,25 +70,25 @@ If you have a lot of items, you can upload the details via a spreadsheet.
 
 Open a new Stock Reconciliation and click on the Download button to download the template in CSV format.
 
-![](/files/rec-upl.png)
+[Screenshot on the live page]
 
 2. Enter Data in CSV Template.
 
 The CSV format is case-sensitive. Do not edit the headers that are preset in the template. In the Item Code and Warehouse column, enter the exact Item Code and Warehouse as created in your ERPNext account. For quantity, enter the stock level you wish to set for that item in a specific warehouse.
 
-![Stock Reconciliation](/files/stock-reco-data.png)
+[Screenshot on the live page: Stock Reconciliation]
 
 3. Upload the CSV file with the data by clicking on the 'Upload' button.
 4. Review, Save and Submit.
 5. Check the Stock Ledger Report for the updated stock balance.
 
-![](/files/stock-led.png)
+[Screenshot on the live page]
 
 ### 3.2 Get Stock Balance and Valuation as of Specific Date and Time
 
 You can import the stock balance and valuation as of a specific date and time from a selected Warehouse by clicking on the **Items** button. You can update the Quantity and Valuation Rate as needed.
 
-![](/files/stock-rec-fet-item.gif)
+[Screenshot on the live page]
 
 ### 3.3 Using a barcode scanner to scan physical inventory
 
@@ -134,7 +98,7 @@ If you have configured barcodes for your items, you can use a barcode scanner to
 2. Enable "Scan Mode" This will disable fetching existing quantity and let you add quantities by incrementally scanning items.
 3. Click on the "Scan Barcode" field and use your barcode scanner to send input. The reconciliation items table will keep getting updated as you scan items. The following video demonstrates this process.
 
-![Stock Reconciliation Scanning](/files/stock_reco_scanning.gif)
+[Screenshot on the live page: Stock Reconciliation Scanning]
 
 ## 4. Serial and Batch Bundle
 
@@ -145,7 +109,7 @@ In version 15, the [serial and batch bundle](https://docs.erpnext.com/docs/user
 The user can use the old serial/batch fields to make a serial and batch bundle automatically. In this case user has to enable the checkbox "  
 Use Serial No / Batch Fields" in the line item
 
-![Screenshot 2024-05-31 at 10.07.33 AM](/files/Screenshot 2024-05-31 at 10.07.33 AM.png)
+[Screenshot on the live page: Screenshot 2024-05-31 at 10.07.33 AM]
 
 ## **5. Use Serial & Batch Bundle**
 
@@ -161,7 +125,7 @@ The user needs to enable the checkbox "Reconcile All Serial Nos / Batches" and c
 
 For example, if the user has 10 batches and wants to reconcile and keep only one batch. Using the stock reconciliation, the user will be able to consume 9 batches automatically and retain one batch. For that, the user has to enable the "Reconcile All Serial Nos / Batches" checkbox in the Stock Reconciliation Item, and then the system will automatically consume 9 batches and add one batch on submission of the stock reconciliation.
 
-![Screenshot 2024-05-31 at 10.25.35 AM](/files/Screenshot 2024-05-31 at 10.25.35 AM.png)
+[Screenshot on the live page: Screenshot 2024-05-31 at 10.25.35 AM]
 
 <!-- page: erpnext/erpnext__stock-reposting-settings.md -->
 ---
@@ -171,7 +135,7 @@ url: "https://docs.frappe.io/erpnext/stock-reposting-settings"
 updated: "2026-05-15"
 ---
 
-![Screenshot 2024-04-24 at 12.54.08 PM](/files/Screenshot 2024-04-24 at 12.54.08 PM.png)
+[Screenshot on the live page: Screenshot 2024-04-24 at 12.54.08 PM]
 
 
 
@@ -197,7 +161,7 @@ If reposting fails due to any issues, the system sends emails to the system mana
 
 ### **Enable Parallel Reposting**
 
-![Screenshot 2025 12 10 at 5.54.21 PM](/files/Screenshot%202025-12-10%20at%205.54.21%20PM.png)
+[Screenshot on the live page: Screenshot 2025 12 10 at 5.54.21 PM]
 
 Allows the system to use multiple background workers to repost stock entries in parallel per item. This setting is effective only when Item-Based Reposting is enabled.
 
@@ -250,7 +214,7 @@ updated: "2026-02-27"
 
 
 
-![Screenshot 2025 12 30 at 12.48.14 PM](/files/Screenshot%202025-12-30%20at%2012.48.14%20PM.png)
+[Screenshot on the live page: Screenshot 2025 12 30 at 12.48.14 PM]
 
 
 The Stock Ledger Variance report in the ERPNext helps identify incorrect Stock Ledger Entries (SLEs) where the Running Available Stock and Stock Balance are inconsistent. These inconsistencies usually occur due to reposting issues, backdated entries, or data mismatches.
@@ -323,7 +287,7 @@ Stock reservation in a production plan is important because it ensures that the 
 The user activity diagram for the production plan reservation is shown below.
 
 
-![](/files/Screenshot%202025-05-11%20at%203.58.41%20PM.png)
+[Screenshot on the live page]
 
 
 The user must enable the checkbox "Enable Stock Reservation" in the stock settings to use this feature. After enabling it, the checkbox "Reserve Stock" will appear in the Production Plan.
@@ -358,7 +322,7 @@ The user must enable the checkbox "Enable Stock Reservation" in the stock settin
 If the "Reserve Stock" checkbox is selected, the system will automatically create a stock reservation entry against the source warehouse for the available stock upon submission of the work order.
 
 
-![](/files/Screenshot%202025-01-28%20at%202.46.07%20PM.png)
+[Screenshot on the live page]
 
 The reserved stock can only be used for the respective work order and cannot be used in any other transactions.
 
@@ -366,7 +330,7 @@ The reserved stock can only be used for the respective work order and cannot be 
 
 If the reserved stock needs to be assigned to another work order, unreserve it from the current work order and assign it to the work order that does not have stock reserved.
 
-![](/files/Screenshot%202025-01-28%20at%202.47.58%20PM.png)
+[Screenshot on the live page]
 
 
 ## Reservation for WIP
@@ -394,20 +358,20 @@ Stock reservation, also known as inventory reservation, refers to the practice o
 
 ### 1. Prerequisites
 
-* Enable Stock Reservation in Stock Settings. ![stock-settings](/files/stock-settings.png)
+* Enable Stock Reservation in Stock Settings. [Screenshot on the live page: stock-settings]
 
 ### 2. Stock Reservation against Sales Order
 
-* Create a Sales Order. ![sales-order](/files/sales-order.png)
-* Check the reserve stock for items you want to reserve. ![sales-order-item](/files/sales-order-item.png)
-* Click on **Stock Reservation**, then select **Reserve**. Choose the warehouse and quantity, then click on the **Reserve Stock** button. ![sales-order-reserve](/files/sales-order-reserve.gif)
-* Stock reservation entries are created against the sales order items. ![stock-reservation-entries](/files/stock-reservation-entries.gif)
+* Create a Sales Order. [Screenshot on the live page: sales-order]
+* Check the reserve stock for items you want to reserve. [Screenshot on the live page: sales-order-item]
+* Click on **Stock Reservation**, then select **Reserve**. Choose the warehouse and quantity, then click on the **Reserve Stock** button. [Screenshot on the live page: sales-order-reserve]
+* Stock reservation entries are created against the sales order items. [Screenshot on the live page: stock-reservation-entries]
 
 ### 3. Stock Reservation from Pick List
 
 * Create a Sales Order.
 * Create a Pick List for the Sales Order.
-* In Pick List click on **Stock Reservation**, then select **Reserve**, the Stock Reservation Entries will be created against the Pick List. ![sales-order-pick-list-reserve](/files/sales-order-pick-list-reserve.gif)
+* In Pick List click on **Stock Reservation**, then select **Reserve**, the Stock Reservation Entries will be created against the Pick List. [Screenshot on the live page: sales-order-pick-list-reserve]
 
 ### 4. Auto Reserve Stock on Purchase
 
@@ -424,12 +388,12 @@ There are two ways to unreserve the stock.
 1. Stock Unreservation from Sales Order or Pick List:
 
 
-	* Open a document and click on **Stock Reservation > Unreserve** button, the listed Stock Reservation Entries get cancelled. ![sales-order-unreserve](/files/sales-order-unreserve.gif)
+	* Open a document and click on **Stock Reservation > Unreserve** button, the listed Stock Reservation Entries get cancelled. [Screenshot on the live page: sales-order-unreserve]
 2. Unreserve the stock from the Stock Reservation Entry DocType:
 
 
-	* 2.1 Open a Stock Reservation Entry and cancel it by clicking the **Cancel** button. ![stock-reservation-entry-cancel](/files/stock-reservation-entry-cancel.gif)
-	* 2.2 Go to the Stock Reservation Entry List, select the entries you wish to cancel, and then click on **Actions > Cancel**. ![stock-reservation-entries-cancel](/files/stock-reservation-entries-cancel.gif)
+	* 2.1 Open a Stock Reservation Entry and cancel it by clicking the **Cancel** button. [Screenshot on the live page: stock-reservation-entry-cancel]
+	* 2.2 Go to the Stock Reservation Entry List, select the entries you wish to cancel, and then click on **Actions > Cancel**. [Screenshot on the live page: stock-reservation-entries-cancel]
 
 ### 6. Related Topics
 
@@ -450,7 +414,7 @@ You can set default settings for your stock-related transactions from the Stock 
 
 ---
 
-![Stock Settings](/files/stock-settings-1.png)
+[Screenshot on the live page: Stock Settings]
 
 
 
@@ -472,7 +436,7 @@ The default unit of measure for stock is set as numbers (Nos), it can be changed
 
 Set the default Warehouse from which the stock transactions are done. This will be fetched into the Default Warehouse in the Item master: 
 
-![Stock Settings](/files/stock-settings-def.png)
+[Screenshot on the live page: Stock Settings]
 
 
 
@@ -516,7 +480,7 @@ If you want to control your description, views, and allow any HTML to be embedde
 
 ---
 
-![Stock Settings](/files/stock-settings-2.png)
+[Screenshot on the live page: Stock Settings]
 
 
 
@@ -552,7 +516,7 @@ The quantity of items will be set according to the serial numbers. For example, 
 
 ---
 
-![Stock Settings](/files/stock-settings-3.png)
+[Screenshot on the live page: Stock Settings]
 
 
 
@@ -568,7 +532,7 @@ An email will be sent to notify the User with the role 'Purchase Manager' when a
 
 ---
 
-![Delivery Note Material Transfer](/files/inter-warehouse.png)
+[Screenshot on the live page: Delivery Note Material Transfer]
 
 
 
@@ -588,7 +552,7 @@ To know more about inter warehouse material transfer via Delivery Note and Purch
 
 The User will not be allowed to make stock postings beyond this date.
 
-![Stock Settings](/files/stock-settings-4.png)
+[Screenshot on the live page: Stock Settings]
 
 
 
@@ -612,13 +576,13 @@ Global setting for batches of stocks to be identified by a [Naming Series](/erpn
 
 Enable "Allow to Edit Stock UOM Qty for Sales Documents / Allow to Edit Stock UOM Qty for Purchase Documents" in the stock settings.
 
-![stock_settings_edit_stock_qty](/files/stock_settings_edit_stock_qty.png "stock_settings_edit_stock_qty.png")
+[Screenshot on the live page: stock_settings_edit_stock_qty]
 
 ## Allow to Edit Qty as per Stock UOM in Stock Entry
 
 ---
 
-![](/files/Screenshot 2026-06-13 at 7.35.49 PM.png)
+[Screenshot on the live page]
 
 
 
@@ -630,7 +594,7 @@ If you're using multi-uom and your stock uom is a whole number, then you might f
 
 User will set the Stock Quantity and system will calculate the conversion factor
 
-![stock_qty_editable](/files/stock_qty_editable.gif "stock_qty_editable.gif")
+[Screenshot on the live page: stock_qty_editable]
 
 
 
@@ -640,7 +604,7 @@ User will set the Stock Quantity and system will calculate the conversion factor
 
 If enabled, the system will allow selecting UOMs in sales and purchase transactions only if the conversion rate is set in the item master.
 
-![UOM Restriction](/files/Screenshot%202025-03-31%20at%204.03.34%20PM.png)
+[Screenshot on the live page: UOM Restriction]
 
 <!-- page: erpnext/erpnext__stock-transactions-landed-cost-voucher.md -->
 ---
@@ -687,13 +651,13 @@ We will then use the **Landed Cost Voucher** to decrease the costs recorded thro
 6. Enter the Expense Account and the Amount for Additional Costs in the Taxes and Charges table. The amount will be distributed equally based on the quantity or amount as per your selection.
 7. Save and Submit.
 
-![Landed Cost Voucher](/files/landed-cost-voucher.png)
+[Screenshot on the live page: Landed Cost Voucher]
 
 In the document, you can select multiple Purchase Receipts/Invoices and fetch all items from those Purchase Receipts. Then you should add applicable charges in “Taxes and Charges” table. You can easily delete an item if the added charges do not apply to that item.
 
 The added charges are proportionately distributed among all the items based their amount or quantity. If you selected based on the amount, the Item with the highest amount will be allocated the highest proportion of the charges. In case of quantity, Item with the highest quantity will be allocated most of the charges and the other Items will be allocated lesser amounts. This is shown in the following screenshot:
 
-![Landed Cost Voucher](/files/landed-cost-distribution.png)
+[Screenshot on the live page: Landed Cost Voucher]
 
 
 
@@ -723,13 +687,13 @@ From version 16 of ERPNext, users can create a Landed Cost Voucher against a Sub
 
 This feature allows users to include additional costs—such as freight charges, excise duty into the final valuation rate of the subcontracted product.
 
-![](/files/Screenshot%202025-06-16%20at%208.07.42%20PM.png)
+[Screenshot on the live page]
 
 ### 3.5 Vendor Invoices
 
 You can link vendor invoices in the Landed Cost Voucher, and the system will ensure that the Landed Cost matches the total vendor invoice amount. Make sure the vendor invoices do not include any stock items.
 
-![](/files/Screenshot%202025-07-30%20at%2011.19.43%20PM.png)
+[Screenshot on the live page]
 
 ### 4. Related Topics
 
@@ -780,12 +744,12 @@ In certain situations, there are statutory requirements where taxes are to be ap
 
 **Step 1 - Add default Unrealized Profit and loss account and default In-Transit warehouse in the company master** 
 
-![](/files/hoGYPBt.png)
+[Screenshot on the live page]
 
   
 
 
-![](/files/250xhKo.png)
+[Screenshot on the live page]
 
   
 
@@ -798,7 +762,7 @@ In certain situations, there are statutory requirements where taxes are to be ap
   
 
 
-![](/files/GjUFk7x.png)
+[Screenshot on the live page]
 
   
 
@@ -806,7 +770,7 @@ In certain situations, there are statutory requirements where taxes are to be ap
   
 
 
-![](/files/LlwQALr.png)
+[Screenshot on the live page]
 
   
 
@@ -825,7 +789,7 @@ In certain situations, there are statutory requirements where taxes are to be ap
   
 
 
-![](/files/vM04qRB.png)
+[Screenshot on the live page]
 
   
 
@@ -837,14 +801,14 @@ In certain situations, there are statutory requirements where taxes are to be ap
 
 Stock Ledger
 
-![](/files/E2SBSfX.png)
+[Screenshot on the live page]
 
   
 
 
 Accounting Ledger
 
-![](/files/WEPKbfQ.png)
+[Screenshot on the live page]
 
   
 
@@ -859,28 +823,28 @@ Use the "Create Internal Purchase Invoice" button from the sales invoice to crea
   
 
 
-![](/files/ApyzjiH.png)
+[Screenshot on the live page]
 
   
 
 
 Select the Accepted Warehouse (warehouse at which stock has been received) and save and submit
 
-![](/files/LHdMlQX.png)
+[Screenshot on the live page]
 
   
 
 
 Stock Ledger
 
-![](/files/8pwRilO.png)
+[Screenshot on the live page]
 
   
 
 
 Accounting Ledger
 
-![](/files/z4uAaLS.png)
+[Screenshot on the live page]
 
   
 
@@ -901,7 +865,7 @@ To view the report, go to:
 
 > Home > Stock > Other Reports > Stock and Account Value Comparison
 
-![Stock Report](/files/stock-value-account-value-comparison.png)
+[Screenshot on the live page: Stock Report]
 
 <!-- page: erpnext/erpnext__stock.md -->
 ---
@@ -933,7 +897,7 @@ url: "https://docs.frappe.io/erpnext/stock/reports/negative-batch-report"
 updated: "2026-02-27"
 ---
 
-![](/files/Screenshot 2026-02-17 at 3.18.20 PM.png)
+[Screenshot on the live page]
 
 The **Negative Batch Report** is designed to identify and analyze transactions where batch stock has gone into negative quantity. This report helps users detect inconsistencies caused by backdated entries, incorrect stock movements, or improper batch usage, enabling timely corrections and accurate stock valuation.
 
@@ -959,7 +923,7 @@ updated: "2026-03-02"
 After enabling Shopping Cart for your app you can create a custom landing page for your
 store using the [Web Page Builder](/erpnext/web-page-builder).
 
-![Store Landing Page](/files/store-landing-page.png)
+[Screenshot on the live page: Store Landing Page]
 *Custom Store Landing Page*
 
 ## 1. How to create a Custom Store Landing Page
@@ -974,7 +938,7 @@ store using the [Web Page Builder](/erpnext/web-page-builder).
 
  The configuration for the page in the screenshot above looks like this:
 
- ![Store Web Templates](/files/store-web-templates.png)
+ [Screenshot on the live page: Store Web Templates]
  *Store Page Building Blocks*
 
 1. Add Values.
@@ -987,7 +951,7 @@ store using the [Web Page Builder](/erpnext/web-page-builder).
  - **Hero Slider:**
  Up to 5 slides can be created. The image, title, primary action, alignment, theme for each slide
  is configurable.
- ![Store Hero Slider](/files/store-hero-slider.png)
+ [Screenshot on the live page: Store Hero Slider]
  *Hero Slider Configuration*
 
  - **Product Category Cards:**
@@ -996,7 +960,7 @@ store using the [Web Page Builder](/erpnext/web-page-builder).
  Ensure that the **Show in Website** option is ticked in the Item Group form so that the
  route for the product category is generated.
 
- ![Store Product Category Cards](/files/store-product-category.png)
+ [Screenshot on the live page: Store Product Category Cards]
  *Product Categories Configuration*
 
  - **Item Card Group:**
@@ -1004,7 +968,7 @@ store using the [Web Page Builder](/erpnext/web-page-builder).
  Each card will link to an [Item](/erpnext/item). If **featured** is checked,
  the item will take up 2 columns of space.
 
- ![Store Item Card Group](/files/store-item-card-group.png)
+ [Screenshot on the live page: Store Item Card Group]
  *Item Cards Configuration*
 
 
@@ -1014,10 +978,197 @@ store using the [Web Page Builder](/erpnext/web-page-builder).
  Once the page is published, click on **See on Website** on the sidebar or visit the configured route
  and check out the page!
 
- ![Store Page Published](/files/store-page-published.png)
+ [Screenshot on the live page: Store Page Published]
  *Publish your Web Page*
 
 1. Set as your Home Page.
 
  Follow the steps [here](/erpnext/website-home-page) to set
  this page as your Website home page.
+
+<!-- page: erpnext/erpnext__stripe-integration.md -->
+---
+title: "Setting up Stripe"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/stripe-integration"
+updated: "2026-02-26"
+---
+
+
+To setup Stripe,
+`Explore > Integrations > Stripe Settings`
+
+#### Setup Stripe
+
+To enable Stripe payment service, you need to configure parameters like Publishable Key, Secret Key
+[Screenshot on the live page: Razorpay Settings]
+
+On enabling service, the system will create Payment Gateway record and Account head in chart of account with account type as Bank.
+
+[Screenshot on the live page: Stripe COA]
+
+Also it will create Payment Gateway Account entry. Payment Gateway Account is configuration hub from this you can set account head from existing COA, default Payment Request email body template.
+
+[Screenshot on the live page: Payment Gateway Account]
+
+After configuring Payment Gateway Account your system is able to accept online payments.
+
+### Setup subscriptions plans
+
+If you need to bill a recurring amount instead of a one-time charge, you can use Stripe's subscription system.
+
+Once you have created your billing plans in Stripe, add one or several new "Payment Plan" in Frappe.
+
+[Screenshot on the live page: Payment Plan]
+
+
+Afterwards, when you create your payment request, click the check field "Is a subscription" and add the system will fetch the corresponding susbscription plans from within the corresponding subscription.
+
+[Screenshot on the live page: Payment Request]
+
+ERPNext will automatically create a new subscription for this customer in Stripe.
+
+
+####Supporting transaction currencies
+```
+ "AED",
+ "ALL",
+ "ANG",
+ "ARS",
+ "AUD",
+ "AWG",
+ "BBD",
+ "BDT",
+ "BIF",
+ "BMD",
+ "BND",
+ "BOB",
+ "BRL",
+ "BSD",
+ "BWP",
+ "BZD",
+ "CAD",
+ "CHF",
+ "CLP",
+ "CNY",
+ "COP",
+ "CRC",
+ "CVE",
+ "CZK",
+ "DJF",
+ "DKK",
+ "DOP",
+ "DZD",
+ "EGP",
+ "ETB",
+ "EUR",
+ "FJD",
+ "FKP",
+ "GBP",
+ "GIP",
+ "GMD",
+ "GNF",
+ "GTQ",
+ "GYD",
+ "HKD",
+ "HNL",
+ "HRK",
+ "HTG",
+ "HUF",
+ "IDR",
+ "ILS",
+ "INR",
+ "ISK",
+ "JMD",
+ "JPY",
+ "KES",
+ "KHR",
+ "KMF",
+ "KRW",
+ "KYD",
+ "KZT",
+ "LAK",
+ "LBP",
+ "LKR",
+ "LRD",
+ "MAD",
+ "MDL",
+ "MNT",
+ "MOP",
+ "MRO",
+ "MUR",
+ "MVR",
+ "MWK",
+ "MXN",
+ "MYR",
+ "NAD",
+ "NGN",
+ "NIO",
+ "NOK",
+ "NPR",
+ "NZD",
+ "PAB",
+ "PEN",
+ "PGK",
+ "PHP",
+ "PKR",
+ "PLN",
+ "PYG",
+ "QAR",
+ "RUB",
+ "SAR",
+ "SBD",
+ "SCR",
+ "SEK",
+ "SGD",
+ "SHP",
+ "SLL",
+ "SOS",
+ "STD",
+ "SVC",
+ "SZL",
+ "THB",
+ "TOP",
+ "TTD",
+ "TWD",
+ "TZS",
+ "UAH",
+ "UGX",
+ "USD",
+ "UYU",
+ "UZS",
+ "VND",
+ "VUV",
+ "WST",
+ "XAF",
+ "XOF",
+ "XPF",
+ "YER",
+ "ZAR"
+```
+
+<!-- page: erpnext/erpnext__subcontracting-in-erpnext.md -->
+---
+title: "Introduction"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/subcontracting-in-erpnext"
+updated: "2026-02-26"
+---
+
+## Subcontracting 
+
+Subcontracting is a type of job contract that seeks to **outsource** certain types of work to other companies. It allows work on more than one phase of the project to be done at once, often leading to quicker completion. It is practiced by various industries.
+
+For example, manufacturers who make a number of products from complex components subcontract certain components and package them at their facilities.
+
+
+
+[Screenshot on the live page]
+
+
+
+If your business involves outsourcing certain processes to a third party Supplier where you supply the raw materials and the third party does the labor/production, you can track this by using the [subcontracting feature](https://docs.frappe.io/erpnext/user/manual/en/subcontracting) of ERPNext. 
+
+## Subcontracting Inward
+
+ERPNext also supports **[Subcontracting Inward](https://docs.frappe.io/erpnext/user/manual/en/subcontracting-inward)**, where your company acts as the subcontractor. In this case, a customer provides materials to you for processing or manufacturing. ERPNext enables you to track customer-supplied materials, manage production activities, and bill for the services performed.

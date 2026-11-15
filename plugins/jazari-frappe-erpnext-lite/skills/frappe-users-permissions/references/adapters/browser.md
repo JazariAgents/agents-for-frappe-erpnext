@@ -73,7 +73,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Turn on two-factor authentication
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > System**, or type *System Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-57.md` lines 987–1042  (https://docs.frappe.io/erpnext/setup-two-factor-authentication)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-57.md` lines 610–665  (https://docs.frappe.io/erpnext/setup-two-factor-authentication)
 
 ### Read the audit trail
 - **Path (checked on v16.55):** https://your-site/desk → type *Audit Trail* in the search bar at the top and open the doctype

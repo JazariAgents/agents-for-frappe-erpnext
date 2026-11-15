@@ -1,82 +1,5 @@
 <!-- Frappe documentation: cloud, part 6 of 9. Index: docs/INDEX.md -->
 
-<!-- page: cloud/cloud__private-benches__common-issues__pkg-resources-error-when-updating-site.md -->
----
-title: "pkg_resources error when updating site"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/private-benches/common-issues/pkg-resources-error-when-updating-site"
-updated: "2026-08-04"
----
-
-# Update fails with "No module named 'pkg\_resources'"
-
-Your site update failed and the traceback ends with:
-
-```
-ModuleNotFoundError: No module named 'pkg_resources'
-```
-
-The update is rolled back, so your site is still running on the old bench. Nothing is lost — but the update will keep failing until you do one of the things below.
-
-## Why it happens
-
-`pkg_resources` used to ship with **setuptools**. setuptools removed it in version 82.
-
-Every deploy builds a fresh bench with a fresh Python environment, and that environment now gets a setuptools that no longer has `pkg_resources`. Any app that still imports it — older **Frappe** versions, and **Payments** and **LMS** (both pull it in through `razorpay`) — breaks the moment the site is migrated.
-
-## Fix: update the app
-
-All three apps have newer releases that don't import `pkg_resources` any more. This is the fix — the rest of this page is for when you can't take it.
-
-Open your bench group and go to the **Apps** tab. If an update is available you will see the **Update Available** button.
-
-![](/files/image3b6df7.webp)
-
-Click it, tick **Frappe Framework**, **Payments** and **LMS** — whichever are listed as having an update — and go through **Next** until you can deploy.
-
-![](/files/imaged87cec.webp)
-
-Once the deploy finishes, retry the site update.
-
-## If you don't want to update those apps
-
-Some teams pin app versions deliberately. In that case you have two options.
-
-### Option 1: install the older setuptools yourself
-
-The deploy creates a **new bench**. You can SSH into it and put the older setuptools back before the site is migrated.
-
-1. Open the bench group, go to the **Sites** tab, click the `...` next to the new bench and choose **SSH Access**.  
-![](/files/imaged7cf64.webp)
-2. Run the two commands the dialog gives you — the first stores a certificate that is valid for 6 hours, the second opens the SSH session.  
-![](/files/imagef339b1.webp)
-
-  If the dialog says your SSH public key is missing, add it under **Settings → Developer** first.
-3. Once you are in, run:
-  ```bash
-   cd /home/frappe/frappe-bench
-   env/bin/pip install setuptools==80.9.0
-  ```
-4. Retry the site update from the dashboard.
-
-> **This is not a one-time fix.** Every deploy creates a brand new bench with a brand new environment, so you have to do this again after *every* update. If that isn't practical, use Option 2.
-
-### Option 2: change the Bench version
-
-The bench CLI used to pull in the newest setuptools when it built the environment, without telling anyone. Newer bench releases pin it back below 82, but the versions in between will keep picking up the broken one.
-
-You can move your bench group to a Bench version that isn't affected. Go to the **Dependencies** tab of your bench group.
-
-![](/files/image5d5471.webp)
-
-Click the `...` next to **Bench Version**, choose **Edit**, pick **5.26.0** from the list and click **Update**. Deploy afterwards for it to take effect.
-
-![](/files/image467bde.webp)
-
-If 5.26.0 is not in the list for your Frappe version, pick the highest version below it that is.
-
-This survives future deploys, so you won't have to repeat Option 1 every time. Updating the app is still the better long-term answer.
-
 <!-- page: cloud/cloud__private-benches__common-issues__request-timed-out.md -->
 ---
 title: "Request Timed Out"
@@ -551,25 +474,25 @@ The second question is tricky. Because the moment you create a role, you are opt
 
 You can access roles from the team settings page.
 
-![image92687f](/files/image92687f.png)
+[Screenshot on the live page: image92687f]
 
 You can also create a new role with users and resources.
 
-![image8a260f](/files/image8a260f.png)
+[Screenshot on the live page: image8a260f]
 
 ### Gettting members and resources
 
 Click on individual roles to get a detailed view of members and resources.
 
-![imagee94032](/files/imagee94032.png)
+[Screenshot on the live page: imagee94032]
 
-![imagef5473f](/files/imagef5473f.png)
+[Screenshot on the live page: imagef5473f]
 
 ### Permissions
 
 Each role can be tweaked to allow or deny certain permissions. These can be seen along with members and resources.
 
-![imageb6db2e](/files/imageb6db2e.png)
+[Screenshot on the live page: imageb6db2e]
 
 ### Notes
 
@@ -591,14 +514,14 @@ You can configure multiple notifications at the server level to ensure that aler
 - Under Notification Settings, click `Manage` to open the configuration screen.
 
 
-![](/files/Screenshot%202025-10-06%20at%2015-51-41%20Settings%20-%20Profile.png)
+[Screenshot on the live page]
 
 ### Configuring Notifications
 
 The Notification Configuration screen allows you to set up how and where notifications are sent.
 
 
-![](/files/Screenshot%202025-10-06%20at%2015-52-53%20Settings%20-%20Profile.png)
+[Screenshot on the live page]
 
 ### Notification Flow Logic
 
@@ -609,7 +532,7 @@ The notification delivery follows a top-down hierarchy:
 - If General is also not configured, fallback to the Team-level configuration.
 
 
-![](/files/shapes%20at%2025-10-06%2015.57.22.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__server-snapshot.md -->
 ---
@@ -636,7 +559,7 @@ Frappe Cloud automatically takes snapshots of all servers every **24 hours** and
 You can go to the **Server Overview** page and open the **Snapshots** tab.  
 Here you can view all your snapshots along with their details (for AWS servers).
 
-![](/files/view-snapshots.png)
+[Screenshot on the live page]
 
 ### Create Snapshot
 
@@ -649,37 +572,37 @@ You can create a snapshot with just one click. There are two types of snapshots
 
 To create a snapshot, click on the **New Snapshot** icon, choose the snapshot type, and submit.
 
-![](/files/create-snapshot.png)
+[Screenshot on the live page]
 
 ### View Snapshot Details
 
 Each snapshot shows important information such as the size, exact timestamp, status, and the list of sites that can be recovered from it.
 
-![](/files/view-snapshot-details-in-list.png)
+[Screenshot on the live page]
 
-![](/files/view-snapshot-details.png)
+[Screenshot on the live page]
 
 ### Recover Sites
 
 You can recover sites by clicking on the **Recover Sites** button and selecting the sites you want. This process does not directly restore data to your deployed site. Instead, you will receive database and file backups.
 
-![](/files/recover-site-0.png)
+[Screenshot on the live page]
 
-![](/files/recover-site-1.png)
+[Screenshot on the live page]
 
-![](/files/recover-site-2.png)
+[Screenshot on the live page]
 
-![](/files/recover-site-3.png)
+[Screenshot on the live page]
 
 Once the recovery is completed, you will get an email notification, and the backups will be available to download for **24 hours**.
 
-![](/files/recover-site-4.png)
+[Screenshot on the live page]
 
 You can visit the snapshot list and open the `Recover Sites` tab. You will be able to view the status and options to download the backups and view the encryption keys (in case that's available). 
 
-![](/files/recover-site-5.png)
+[Screenshot on the live page]
 
-![](/files/recover-site-6.png)
+[Screenshot on the live page]
 
 ### Lock / Unlock Snapshot
 
@@ -689,29 +612,29 @@ However, only snapshots created manually by you can be locked. Automated 24h/48h
 
 ##### Steps For Locking Snapshot
 
-![](/files/lock-snapshot-0.png)
+[Screenshot on the live page]
 
-![](/files/lock-snapshot-1.png)
+[Screenshot on the live page]
 
 ##### Steps For Unlocking Snapshot
 
-![](/files/unlock-snapshot-0.png)
+[Screenshot on the live page]
 
-![](/files/unlock-snapshot-1.png)
+[Screenshot on the live page]
 
 ### Delete Snapshot
 
 If you no longer need a snapshot, you can delete it. Any charges linked to the snapshot will stop once it is deleted.
 
-![](/files/delete-snapshot-0.png)
+[Screenshot on the live page]
 
-![](/files/delete-snapshot-1.png)
+[Screenshot on the live page]
 
 ### Accessing Snapshots of Archived Servers
 
 Even if a server is archived, you can still access its snapshots from the **sidebar**, where all server snapshots are listed, including those from archived servers.
 
-![](/private/files/snapshot-list.png)
+[Screenshot on the live page]
 
 ### Supported Cloud Providers
 
@@ -733,11 +656,11 @@ If you want to know, what is consuming storage on your dedicated database server
 
 1. Click on the `pie` icon in your server overview page.
 
-![](/files/Screenshot 2026-03-02 at 14.30.58.png)
+[Screenshot on the live page]
 
 2. You will get storage breakdown in this way.
 
-![](/files/Screenshot%20from%202025-05-28%2018-56-28.png)
+[Screenshot on the live page]
 
 3. You can click on the `Site Name` to view tablewise usage in the database.
 
@@ -760,9 +683,9 @@ The way to display the storage breakdown is same as for the database server
 
 1. Click on the `pie` icon on your application server's storage section
 2. You will get the storage breakdown as such
-  ![](/files/Screenshot%202025-08-01%20at%2012.08.10%E2%80%AFPM.png)
+  [Screenshot on the live page]
 3. This can be further expanded to represent the storage of each bench in a hierarchical tree structure.
-  ![](/files/Screenshot%202025-08-01%20at%2012.10.14%E2%80%AFPM.png)
+  [Screenshot on the live page]
 
 #### Additional Usage disclaimer -
 
@@ -791,13 +714,13 @@ updated: "2026-02-16"
 If you want to create a new site under your dedicated server, you need to follow the steps given below.
 
 1. Click on the server dashboard and select the server under which you want your site to be.
-  ![](/files/imageb4e79d.png)
+  [Screenshot on the live page]
 2. Click on the bench group on the selected server under which you want your site.
-  ![](/files/imagef9bcca.png)
+  [Screenshot on the live page]
 3. Click on create a new site under the selected bench group.
-  ![](/files/image911390.png)
+  [Screenshot on the live page]
 4. Select the apps you want and the region, and then select the plan.
-  ![](/files/image8d59c9.png)
+  [Screenshot on the live page]
 
 > Note:- Only 5 sites can be **Unlimited - Supported**, those site will be supported by the apps team for app related support.
 
@@ -815,10 +738,96 @@ Deleting a server will delete both the application and the database server immed
 
 Go to the Server Dashboard>**Actions**>Dangerous Actions>Drop Server
 
-![](/files/image709561.png)
+[Screenshot on the live page]
 
-![](/private/files/Screenshot%202025-06-18%20at%201.40.00%E2%80%AFPMf5f2e6.png)
+[Screenshot on the live page]
 
 Type in the entire server's name or title to confirm, and click on **Drop Server**
 
-![](/files/image0225e7.png)
+[Screenshot on the live page]
+
+<!-- page: cloud/cloud__servers__guidelines-for-choosing-a-server-plan.md -->
+---
+title: "Guidelines for choosing a server plan"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/servers/guidelines-for-choosing-a-server-plan"
+updated: "2026-03-10"
+---
+
+We offer a number of plans for both your application and your database server, and you may be confused as to which plan to choose for both. This document will help you rectify that confusion.
+
+90% of the time, you won't be picking the correct plan for your server from the get go, which is why we have the provision to change plan whenever you desire. This is because you can only see the workload on the servers once you start using your sites.
+
+The best tool to help you analyse the workload on the server is the **Analytics** tab on your Frappe Cloud Servers dashboard. You'll see many charts. I'll try to go over some of the important ones that you have quick control over with plans.
+
+## Server Analytics
+
+## **CPU**
+
+This is a graph of the CPU Time consumed by the processes on your server.
+
+**Idle** means there are no processes consuming CPU on the machine. This will go down as CPU is being used i.e there are requests hitting your sites or when background jobs run in your site.
+
+[Screenshot on the live page]
+
+**iowait** means there are processes waiting for disk operations to finish on your server. This may be reading/writing a big file or loading a table from the database into memory.
+
+**nice** means there are processes which don't take priority but will run when there aren't other processes that are to run. This usually attributes to background jobs as background jobs in Frappe are [niced](https://en.wikipedia.org/wiki/Nice_(Unix)).
+
+> **For database server, servers spike in iowait is generally a sign to upgrade for more memory . This is because it's best practice to give Mariadb as much memory as possible so the database can mostly reside in RAM. This'll make all the database operations fast as memory is faster than disk.**
+
+## **Load Average**
+
+If you're not familiar with load average concept in Linux, refer [https://www.digitalocean.com/community/tutorials/load-average-in-linux](https://www.digitalocean.com/community/tutorials/load-average-in-linux) to learn a bit about it.  
+
+[Screenshot on the live page]
+
+In the above chart `Load Average 1` is the load average in a time frame of 1 minute, `Load Average 5` is the load average in a time frame of 5 minutes and so on.
+
+> Spike in `Load Average 1` may be harmless and normal but a spike in `Load Average 15` might be an issue  
+>  
+> 
+
+If load average comes to more than no. of cpu cores, it may be an indication to optimise your code or upgrade server for more cpu.
+
+### Bench Memory Usage
+
+Benches you create on the server will use around **400 MB** (appx.) of memory at minimum number of sites (2 [gunicorn workers](#gunicorn-workers) and 1 set of [background workers](https://frappecloud.com/docs/servers/guidelines-for-choosing-a-server-plan#background-workers)). The system will try to allocate as much free memory that is available to existing bench on the basis of sites on the bench. This means that you should be careful adding too many bench to a server that has only 4 GB total RAM available. You can watch free memory available on the server from the **Analytics** tab on the server dashboard.
+
+#### Gunicorn workers (or web workers)
+
+These are [processes](https://en.wikipedia.org/wiki/Process_(computing)) that serve the web requests to your site. Only 2 workers is enough for a bench with small sites who don't get a lot of concurrent requests. This is because most web requests happen within a span of milliseconds. If you run into a [gateway timeout](https://frappecloud.com/docs/faq/site#site-slow-gateway-timeout) , it is because the web workers are busy executing some long request.
+
+The number within a bench is decided by the system. There is no provision for users to decide this as of now. The system allocates workers based on the plan of site and number of sites in the bench.
+
+#### Background workers
+
+These are [processes](https://en.wikipedia.org/wiki/Process_(computing)) that execute the background jobs in your site. These can be scheduled jobs or jobs created with `frappe.enqueue`. Long-running jobs/queries/reports should be run here so that you can use your site freely. Even 1 of this worker is enough, as these jobs aren't expected to run instantaneously and go in a queue if the worker is busy.
+
+## FAQ
+
+### Very High Database Server Memory Usage
+
+MariaDB on all servers is configured to use as much memory as possible. This ensures that almost all db operations are done in memory and hence fast. So it's normal to see 90% or higher memory usage on your database server. [read more](https://mariadb.com/kb/en/innodb-buffer-pool/)
+
+We also try to limit the maximum memory mariadb uses in order to avoid a [OOM](https://en.wikipedia.org/wiki/Out_of_memory) situation and hence downtime.
+
+One rule of thumb is to have as much RAM on the database server as the total database size. Eg: Here: 16 GB would be good as total database size is 17GB
+
+[Screenshot on the live page: imagee20b17]
+
+If all the data within the server is accessed all the time, it can cause memory contention.
+
+Backups could also contribute to high memory consumption and there, you can schedule backups sporadically across the sites on your site. Please raise a ticket on support.frappe.io if you'd like for us to do that
+
+### Work-horse terminated unexpectedly
+
+If your background jobs fail with this particular error, it indicates not enough memory on your application server. You should upgrade the same in such cases.
+
+### Why separate Database and Application servers
+
+This is because both database and application servers run different kind of software. And as they do, it is better to keep them on separate VMs as we can configure the VM to be better suited for running the software. For example, database servers tend to be machines with more memory and less cpu as keeping data in memory makes the site run faster. And we can scale the same as the database size increases.
+
+### How do I decide on a dedicated server plan for a year
+
+You may find [this spreadsheet](https://docs.google.com/spreadsheets/d/1_RW1sMqAUSkoTV7vSlqiUn5O3oq1WPE9yW3sKcWq2zQ/edit#gid=1671562397) useful. Note that this is a guess and not a guarantee. You may well need to upgrade/downgrade your plan depending on your usage.

@@ -13,7 +13,7 @@ A submitted [Sales Order](/erpnext/sales-order) does not need to be delivered or
 
 ERPNext calculates the remaining quantity from the submitted documents linked to each Sales Order row. This preserves one confirmed order while giving the warehouse and billing teams the flexibility to work in stages.
 
-![A partially fulfilled Sales Order for Northstar Retail, containing stock and drop-ship Items.](https://novacompanies.m.frappe.cloud/files/sales-order-overview-collapsed.png)
+[Screenshot on the live page: A partially fulfilled Sales Order for Northstar Retail, containing stock and drop-ship Items.]
 
 ## Before you begin
 
@@ -64,7 +64,7 @@ You can split billing independently of physical delivery:
 6. Save and submit the invoice.
 7. Create another invoice from the same Sales Order for the next billing stage.
 
-![A Sales Invoice billing selected lines and quantities from the Sales Order.](https://novacompanies.m.frappe.cloud/files/partial-sales-invoice.png)
+[Screenshot on the live page: A Sales Invoice billing selected lines and quantities from the Sales Order.]
 
 ERPNext updates **% Billed** from submitted invoices. A direct invoice from the Sales Order does not create a stock movement unless **Update Stock** is enabled. When your process uses Delivery Notes, create the invoice from the relevant Delivery Note when you want its delivered quantities and references carried into billing.
 
@@ -82,7 +82,7 @@ Before using this method, define what each decimal represents in the contract—
 
 Open the **Connections** tab on the Sales Order to see the Delivery Notes, Sales Invoices, [Pick Lists](/erpnext/pick-list), and purchasing documents linked to it. This is the quickest way to confirm how many stages have been completed and open the underlying transactions.
 
-![The Connections tab showing multiple Sales Invoices and Delivery Notes linked to one Sales Order.](https://novacompanies.m.frappe.cloud/files/linked-deliveries-and-invoices.png)
+[Screenshot on the live page: The Connections tab showing multiple Sales Invoices and Delivery Notes linked to one Sales Order.]
 
 The Delivery Note count can include a return because a sales return is recorded as a return Delivery Note. Use the document list and its **Is Return** value to distinguish outbound deliveries from returned stock.
 
@@ -225,7 +225,7 @@ After the rule is saved, ERPNext can use it to control which items are allowed f
 
 
 
-![](/files/party specific item225519.webp)
+[Screenshot on the live page]
 
 ## Creating A Rule
 
@@ -236,7 +236,7 @@ After the rule is saved, ERPNext can use it to control which items are allowed f
 5. Select the corresponding value in **Based On Value**.
 6. Save the document.
 
-![](/files/Party specific item 2.webp)
+[Screenshot on the live page]
 
 
 
@@ -292,7 +292,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. Enter the bank reference and posting date.
 5. Submit and verify the General Ledger.
 
-![Payment Entry for Capital Account in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-04-payment-entry-party-amount.png)
+[Screenshot on the live page: Payment Entry for Capital Account in ERPNext]
 
 ## Important fields and what they mean
 
@@ -484,9 +484,9 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 5. Use **Get Outstanding Invoices** or add references manually.
 6. Review allocations and deductions, then submit.
 
-![Payment Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-03-payment-entry-list.png)
+[Screenshot on the live page: Payment Entry in ERPNext]
 
-![Payment Entry details](https://novacompanies.m.frappe.cloud/files/payments-04-payment-entry-party-amount.png)
+[Screenshot on the live page: Payment Entry details]
 
 ## Important fields and what they mean
 
@@ -593,25 +593,25 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 
 1. Create a Payment Order for the correct Company.
 
-![The Payment Order list containing a draft payment run for Nova Electronics Trading.](https://novacompanies.m.frappe.cloud/files/payment-workflows-07-payment-order-list.png)
+[Screenshot on the live page: The Payment Order list containing a draft payment run for Nova Electronics Trading.]
 
 2. Select the Company bank account from which the payment run will be made.
 3. Under **Get Payments from**, choose **Payment Request** or **Payment Entry**.
 
-![The Get Payments from control highlighted on a draft Payment Order.](https://novacompanies.m.frappe.cloud/files/payment-workflows-08-payment-order-source-control.png)
+[Screenshot on the live page: The Get Payments from control highlighted on a draft Payment Order.]
 
 
 
-![The Payment Request and Payment Entry source options highlighted in the Payment Order menu.](https://novacompanies.m.frappe.cloud/files/payment-workflows-09-payment-order-source-options.png)
+[Screenshot on the live page: The Payment Request and Payment Entry source options highlighted in the Payment Order menu.]
 
 4. Filter and select the approved Supplier references.
 5. Verify the Supplier, reference document, amount, Mode of Payment, and beneficiary bank account in every row.
 
-![The Payment Order Type and Company Bank Account highlighted on the payment run.](https://novacompanies.m.frappe.cloud/files/payment-workflows-10-payment-order-bank-and-type.png)
+[Screenshot on the live page: The Payment Order Type and Company Bank Account highlighted on the payment run.]
 
 
 
-![Two Supplier Payment Entries included in the Payment Order reference table.](https://novacompanies.m.frappe.cloud/files/payment-workflows-11-payment-order-references.png)
+[Screenshot on the live page: Two Supplier Payment Entries included in the Payment Order reference table.]
 
 6. Review the batch total and submit the Payment Order according to your approval process.
 7. Complete the action provided for the selected Payment Order Type, then verify the resulting accounting documents and bank processing.

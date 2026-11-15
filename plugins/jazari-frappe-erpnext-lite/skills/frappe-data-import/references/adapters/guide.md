@@ -16,7 +16,7 @@ that follow from the answer.
 - **What the page says:** Data exported from an older accounting system rarely matches ERPNext exactly. Preparing and mapping means cleaning that export and translating its customers, suppliers, accounts, tax codes, currencies, and identifiers into values ERPNext can import safely.
 - **It covers:** Freeze the source extract, Clean source records, Build mapping tables, Map the Chart of Accounts, Prepare outstanding invoices, Prepare the opening Trial Balance, Prepare stock and assets, Run pre-import checks
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 446–583  (https://docs.frappe.io/erpnext/prepare-and-map-legacy-data)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 392–529  (https://docs.frappe.io/erpnext/prepare-and-map-legacy-data)
 
 ### Validate a migration
 - **What the page says:** A successful import only proves that ERPNext accepted the rows. Validation proves that the new books represent the same financial position as the signed-off source system.

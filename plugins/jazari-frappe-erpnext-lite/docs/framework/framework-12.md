@@ -1302,43 +1302,43 @@ To access the Blog Post, go to:
 The Blog Intro is a short description of your blog that appears just after the
 title and before the content.
 
-![New Blog Post](/files/v-14-new-blog-post.png)
+[Screenshot on the live page: New Blog Post]
 
 You can write your blog in Rich Text, Markdown, or HTML. If you want to write
 simple content pages, Rich Text and Markdown are great options.
 
 > Learn markdown in a few minutes at [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
 
-![Blog Post in Markdown](/files/v-14-blog-post-in-markdown.png)
+[Screenshot on the live page: Blog Post in Markdown]
 *Blog Post in Markdown*
 
 View your Blog Post by clicking on **See on Website** in the sidebar.
-![Blog Post](/files/blog-post.png)
+[Screenshot on the live page: Blog Post]
 *Blog Post*
 
 Readers can comment on the blog post. The guest user will have to enter their **Name** and **Email** to comment.
 
-![Blog Post](/files/blog-post-comment-closed.png)
-![Blog Post](/files/blog-post-comment-open.png)
+[Screenshot on the live page: Blog Post]
+[Screenshot on the live page: Blog Post]
 
 Check the **Disable Comments** option if you'd like to disable the ability for readers to add comments to the current blog post.
-![Blog Post](/files/v-14-blog-post-disable-comments.png)
+[Screenshot on the live page: Blog Post]
 
-![Blog Post](/files/blog-post-no-comments.png)
+[Screenshot on the live page: Blog Post]
 *Adding Comments Disabled*
 
 Readers can give likes on their favorite blog posts.
-![Blog Post](/files/blog-post-like-default.png)
-![Blog Post](/files/blog-post-liked.png)
+[Screenshot on the live page: Blog Post]
+[Screenshot on the live page: Blog Post]
 *Like*
 
 Check the **Disable Likes** option if you'd like to disable the ability for readers to give like to the current blog post.
-![Blog Post](/files/v-14-blog-post-disable-likes.png)
-![Blog Post](/files/blog-post-no-like.png)
+[Screenshot on the live page: Blog Post]
+[Screenshot on the live page: Blog Post]
 
 When a reader comments on a blog post or gives a like, an email is sent to the blogger with a link to the comment/like on the blog post.
 If the blogger doesn't want to receive any email he/can uncheck the **Enable Email Notification** checkbox.
-![Blog Post](/files/v14-blog-post-enable-email-notification.png)
+[Screenshot on the live page: Blog Post]
 
 ## 2. Features
 
@@ -1349,11 +1349,11 @@ Blogger is a user who can post blogs. To create a Blogger, go to:
 
 You can mention a short bio about the blogger and also set an avatar here.
 
-![Blogger](/files/v-14-blogger.png)
+[Screenshot on the live page: Blogger]
 *Blogger*
 
 The preview will be shown at the end of the blog post.
-![Blogger Preview](/files/v-14-blogger-preview.png)
+[Screenshot on the live page: Blogger Preview]
 *Blogger Preview*
 
 ### 2.2 Blog Category
@@ -1362,13 +1362,13 @@ You can group your blogs into categories. To create a new Blog Category, go to:
 
 **Home > Website > Blog > Blog Category**.
 
-![Blog Category](/files/blog-category.png)
+[Screenshot on the live page: Blog Category]
 *Blog Category*
 
 If you click on **See on Website** in the sidebar, you'll be redirected to a
 list of blogs under that category.
 
-![Blog Category - General](/files/blog-category-web-view.png)
+[Screenshot on the live page: Blog Category - General]
 *Blog Category - General*
 
 ### 2.3 Meta Tags
@@ -1387,7 +1387,7 @@ Under the SEO section, you can add the meta description and image for your blog 
 
 If you leave this section empty, the blog introduction or the first 140 characters of the blog will be shown as the meta description. In the same way, if you leave the meta image empty, the first image in the blog will be selected.
 
-![Google Search Preview](/files/v-14-blog-post-seo-meta.png)
+[Screenshot on the live page: Google Search Preview]
 *Blog Post Google Search Preview*
 
 On submitting the blog, you can also preview how the blog will look when shared on a social media platform like Facebook or Twitter. To check this, use the debugging tools offered by the platforms:
@@ -1400,7 +1400,7 @@ On submitting the blog, you can also preview how the blog will look when shared 
 
 To check the post preview, simply enter the webpage/blog link in the tool:
 
-![Facebook Sharing Debugger](/files/blog-post-facebook-debugger.png)
+[Screenshot on the live page: Facebook Sharing Debugger]
 *Using Facebook's Sharing Debugger Tool*
 
 Using these tools, you can optimize your blog post for sharing.

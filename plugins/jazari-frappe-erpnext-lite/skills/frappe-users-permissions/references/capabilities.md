@@ -15,7 +15,7 @@ Every row was confirmed against an official Frappe documentation page fetched on
 | `perm.levels` | Hide fields with permission levels | browser | yes | reversible | `docs/erpnext/erpnext-42.md` lines 130–202 | https://docs.frappe.io/erpnext/perm-levels |
 | `perm.types` | Understand permission types | guide | no | reversible | `docs/framework/framework-03.md` lines 363–440 | https://docs.frappe.io/framework/permission-types |
 | `perm.roleprofile` | Group roles into a role profile | browser | yes | reversible | `docs/erpnext/erpnext-51.md` lines 510–550 | https://docs.frappe.io/erpnext/role-and-role-profile |
-| `perm.2fa` | Turn on two-factor authentication | browser | yes | reversible | `docs/erpnext/erpnext-57.md` lines 987–1042 | https://docs.frappe.io/erpnext/setup-two-factor-authentication |
+| `perm.2fa` | Turn on two-factor authentication | browser | yes | reversible | `docs/erpnext/erpnext-57.md` lines 610–665 | https://docs.frappe.io/erpnext/setup-two-factor-authentication |
 | `perm.audit` | Read the audit trail | browser | no | reversible | `docs/framework/framework-07.md` lines 550–591 | https://docs.frappe.io/framework/user/en/audit-trail |
 
 ## Version notes

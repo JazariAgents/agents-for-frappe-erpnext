@@ -40,7 +40,7 @@ Go to **Accounting &gt; Taxes &gt; Purchase Taxes and Charges Template** and sel
 8. Add dependent rows in their intended calculation order.
 9. Save.
 
-![Purchase tax template title, company, and Tax Category](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-overview.png)
+[Screenshot on the live page: Purchase tax template title, company, and Tax Category]
 
 Use **Disabled** to stop new selection while preserving transactions that already reference the template.
 
@@ -50,13 +50,13 @@ The table provides a compact view of the formulas. Use the pencil icon to open f
 
 
 
-![Open a Purchase Taxes and Charges row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-tax-row.png)
+[Screenshot on the live page: Open a Purchase Taxes and Charges row]
 
 Set the calculation type, account, and rate. The row values remain zero on the master because Net Amount, Amount, and Total are calculated only in a transaction.
 
 
 
-![Purchase tax calculation type, account, and rate](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-calculation-fields.png)
+[Screenshot on the live page: Purchase tax calculation type, account, and rate]
 
 ## Decide whether the row affects Total, Valuation, or both
 
@@ -76,7 +76,7 @@ Use **Add or Deduct** to determine whether the row increases or reduces the rele
 
 
 
-![Purchase valuation, add or deduct, description, and inclusive pricing](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-posting-fields.png)
+[Screenshot on the live page: Purchase valuation, add or deduct, description, and inclusive pricing]
 
 For example, a recoverable input tax normally affects **Total** because it is part of the supplier payable but is posted to an input tax asset rather than added to stock value. Known inbound freight can use **Valuation and Total** when it is charged by the supplier and should increase both payable and item value.
 
@@ -148,7 +148,7 @@ In this example, a 5% input-tax row calculates $26 on a $520 net purchase, creat
 
 
 
-![Purchase tax and Grand Total result](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-result.png)
+[Screenshot on the live page: Purchase tax and Grand Total result]
 
 For a submitted Purchase Invoice, review the [General Ledger](/erpnext/general-ledger). A recoverable input tax normally debits the input tax asset, the purchased stock or expense debits the relevant account, and the supplier payable is credited for the Grand Total.
 
@@ -261,7 +261,7 @@ Create the [Asset Category](https://docs.frappe.io/erpnext/asset-category), its 
 3. Select the Asset Category.
 4. Enable **Auto Create Assets on Purchase** when every purchased unit should create an Asset automatically. Leave it disabled when the asset must be created or grouped manually.
 
-![ERPNext Item marked as a fixed asset with an Asset Category](https://novacompanies.m.frappe.cloud/files/06-fixed-asset-item.png)
+[Screenshot on the live page: ERPNext Item marked as a fixed asset with an Asset Category]
 
 ## Record the purchase
 
@@ -275,11 +275,11 @@ Create the [Asset Category](https://docs.frappe.io/erpnext/asset-category), its 
 
 Check the location, purchase date, available-for-use date, quantity, net purchase amount, and depreciation settings. The Available for Use Date determines when depreciation can start.
 
-![Purchased Asset details and depreciation controls in ERPNext](https://novacompanies.m.frappe.cloud/files/07-asset-core-details.png)
+[Screenshot on the live page: Purchased Asset details and depreciation controls in ERPNext]
 
 Review each Finance Book row before submission. The row is the source of the schedule for that reporting basis.
 
-![Finance Book rows on an ERPNext Asset](https://novacompanies.m.frappe.cloud/files/08-asset-finance-books.png)
+[Screenshot on the live page: Finance Book rows on an ERPNext Asset]
 
 ## What happens after submission
 
@@ -348,33 +348,33 @@ In the Purchase Order, you will find two UoM fied.
   
 In both fields, the default UoM of an item will be fetched by default. You should edit UoM field, and select Purchase UoM (Box in this case). Updating Purchase UoM is mainly for the reference of the supplier. In the print format, you will see item qty in the Purchase UoM.
 
-![Item Purchase UoM](/files/editing-uom-in-po.gif)  
+[Screenshot on the live page: Item Purchase UoM]  
 
 
 #### Step 2: Update UoM Conversion Factors
 
 In one Box, if you get 20 Nos. of Pen, UoM Conversion Factor will be 20.
 
-![Item Conversion Factor](/files/po-conversion-factor.png)  
+[Screenshot on the live page: Item Conversion Factor]  
 
 
 Based on the Qty and Conversion Factor, qty will be calculated in the Stock UoM of an item. If you purchase just one Box, then the Qty in the stock UoM will be set as 20.
 
-![Purchase Qty in Default UoM](/files/po-qty-in-stock-uom.png)  
+[Screenshot on the live page: Purchase Qty in Default UoM]  
 
 
 ### Stock Ledger Posting
 
 Irrespective of the Purchase UoM selected, stock ledger posting will be done in the Default UoM of an item. Hence, you should ensure that the conversion factor is entered correctly while purchasing an item in a different UoM.
 
-![Print Format in Purchase UoM](/files/po-stock-uom-ledger.png)  
+[Screenshot on the live page: Print Format in Purchase UoM]  
 
 
 ### Set Conversion Factor in Item
 
 In the Item master, under the Purchase section, you can list all the possible UOM purchases of an item, with its UoM Conversion Factor.
 
-![Purchase UoM master](/files/item-purchase-uom-conversion.png)  
+[Screenshot on the live page: Purchase UoM master]  
 
 <!-- page: erpnext/erpnext__purpose-of-stock-delivered-but-not-billed.md -->
 ---
@@ -392,7 +392,7 @@ The balance in this account at any point represents the value of items for which
 
 ### How It Works
 
-![](/files/Delivery Note to Sales Invoice.mp4)
+[Screenshot on the live page]
 
 
 
@@ -404,7 +404,7 @@ The balance in this account at any point represents the value of items for which
 
 *Example: Sales Invoice raised for ₹400 → Stock Delivered but Not Billed credited ₹400, COGS debited ₹400.*
 
-![](/files/Screenshot 2026-07-02 at 12.30.00 PM.webp)
+[Screenshot on the live page]
 
 ### Configuration
 
@@ -446,12 +446,12 @@ Before creating and using a Putaway Rule, it is advised that you create the foll
 ## 2. How to create a Putaway Rule
 
 1. Go to the Putaway Rule list, click on New.
- ![Unsaved Putaway Rule](/files/unsaved-putaway-rule.png)
+ [Screenshot on the live page: Unsaved Putaway Rule]
 
 1. Set the Company and Select an Item.
 1. Select the Warehouse on which this rule is applicable.
 1. Set the Capacity. You can also select a UOM if you want to set the Capacity in a different UOM. The Capacity in Stock UOM will be set automatically.
- ![Multi UOM Putaway Rule](/files/multi-uom-putaway-rule.png)
+ [Screenshot on the live page: Multi UOM Putaway Rule]
 
 1. Set the Priority. This can begin from 1 onwards, 1 being the highest priority.
 1. Save.
@@ -470,22 +470,22 @@ The rule is unique to each Item-Warehouse combination.
 As mentioned before, the Putaway Rules are applied on **Purchase Receipts** and **Stock Entries** (Material Receipt & Material Transfer).
 
 A checkbox called **Apply Putaway Rule** will allocate items to Warehouses based on the Putaway Rules.
- ![Apply Putaway Rule checkbox](/files/apply-putaway-rule.png)
+ [Screenshot on the live page: Apply Putaway Rule checkbox]
 
 Putaway Rules are applied on checking this checkbox. They are also re-applied on save if this checkbox is enabled.
 
 Let us see the same in action:
 
 1. Here is a Purchase Order with a requirement of 5 Cartons (60 Nos) of Mineral Water.
- ![Purchase Order](/files/po-putaway-demo.png)
+ [Screenshot on the live page: Purchase Order]
 
 1. Two active Putaway Rules have been created below with capacity 4 Cartons (48 Nos) each. One has a higher priority than the other.
- ![Active Putaway Rules List](/files/active-putaway-rules-list.png)
+ [Screenshot on the live page: Active Putaway Rules List]
 
 1. A Purchase Receipt is created from this Purchase Order.
 
 1. On checking **Apply Putaway Rule**, one row of 5 Cartons is split and assigned according to the rules.
- ![Putaway Rules applied in a Purchase Receipt](/files/pr-putaway-apply.gif)
+ [Screenshot on the live page: Putaway Rules applied in a Purchase Receipt]
 
 1. First, 4 out of 5 Cartons are accommodated in the 'Finished Goods - UPI' Warehouse. Once this Warehouse is at capacity, it assigns the rest (1 Carton) to the 'Stores - UPI' Warehouse.
 
@@ -495,7 +495,7 @@ The **Warehouse Capacity Summary** Report shows Warehouse capacities and their r
 
 Only Warehouses having Putaway Rules will be listed here. The **Edit Capacity** button gives provision to edit the Putaway Rule capacity.
 
- ![Warehouse Capacity Summary](/files/warehouse-capacity-summary.png)
+ [Screenshot on the live page: Warehouse Capacity Summary]
 
 
 ## 6. Types of Putaway Application
@@ -540,7 +540,7 @@ To access the Quality Feedback Template, go to:
 3. In the Parameters table, list down the various processes/parameters on which you want the user to rate and give the feedback.
 4. Save.
 
-![](/files/Screenshot 2026-01-22 at 11.50.28 PM.png)
+[Screenshot on the live page]
 
 ## 2. Related Topics
 
@@ -559,7 +559,7 @@ To access the Quality Inspction Summary, go to:
 
 > Home > Manufacturing > Reports > Quality Inspction Summary
 
-![Task](/files/quality-inspection-summary.png)
+[Screenshot on the live page: Task]
 
 This report will give information about the Quality Inspections as well as the status of the Quality Inspections like Accepted or Rejected.
 
@@ -586,8 +586,8 @@ To access this feature go to:
 Before creating and using a Quality Inspection, it is advised that you do the following first:
 
 * **Create an** [**Item**](/erpnext/item).
-* **Enable Quality Inspection Criteria in the Item master**. On enabling either checkboxes, **submission** of a stock delivery/receipt document will be allowed only after a Quality Inspection is done against it: ![Enable Quality Inspection](/files/quality-inspection-pre-requisite.png)
-* (Optional) **Create a Quality Inspection Template**. You can add inspection parameters and acceptance criteria in the template, which can be easily fetched into any Quality Inspection. After saving the template, you can set this template in the Item Master (as shown above). ![Quality Inspection Template](/files/quality-inspection-template.png)
+* **Enable Quality Inspection Criteria in the Item master**. On enabling either checkboxes, **submission** of a stock delivery/receipt document will be allowed only after a Quality Inspection is done against it: [Screenshot on the live page: Enable Quality Inspection]
+* (Optional) **Create a Quality Inspection Template**. You can add inspection parameters and acceptance criteria in the template, which can be easily fetched into any Quality Inspection. After saving the template, you can set this template in the Item Master (as shown above). [Screenshot on the live page: Quality Inspection Template]
 
 2. How to create a new Quality Inspection
 -----------------------------------------
@@ -601,7 +601,7 @@ Before creating and using a Quality Inspection, it is advised that you do the fo
 7. Any additional Remarks about the Inspection can be added.
 8. Save. Set the Status. Submit.
 
-![Quality Inspection](/files/quality-inspection-1.png)  
+[Screenshot on the live page: Quality Inspection]  
 
 
 3. Features
@@ -617,7 +617,7 @@ E.g. checking if a reading is in a certain range.
 
 By default the checks are numeric. There are two fields: **Minimum Value** and **Maximum Value**, to define a range that **each** reading must be in. These fields can be set in the Quality Inspection Template once and be simply fetched into the Quality Inspection.
 
-![Numeric Quality Check](/files/quality-inspection-numeric-reading.png)  
+[Screenshot on the live page: Numeric Quality Check]  
 
 
 If any of the readings entered are not within this range, the status on the row will be set to 'Rejected' automatically on Save.
@@ -632,7 +632,7 @@ For Non-numeric checks, enable the 'Non-numeric' checkbox. You will notice the f
 
 Enter the field Reading Value. The Acceptance Criteria Value can be set in the Quality Inspection Template once and then be fetched into the Quality Inspection.
 
-![Non-numeric Quality Check](/files/quality-inspection-non-numeric-reading.png)  
+[Screenshot on the live page: Non-numeric Quality Check]  
 
 
 If the Reading Value does not match the Acceptance Criteria Value, the status on the row will be set to 'Rejected' automatically on Save.
@@ -647,7 +647,7 @@ Formula-Based Quality Checks are applicable to Numeric and Non-numeric Quality C
 
 Enable the 'Formula Based Criteria' checkbox to perform a Formula-Based Quality Check. You will then notice a field called **Acceptance Criteria Formula** where you can specify a formula that determines whether a certain check is Accepted or Rejected. This formula can be set in the Quality Inspection Template once and then be fetched into the Quality Inspection.
 
-![Acceptance Criteria Formula](/files/acceptance-criteria-formula.png)  
+[Screenshot on the live page: Acceptance Criteria Formula]  
 
 
 This formula depends on the many Reading fields in the Readings table.
@@ -681,7 +681,7 @@ So far, all the Quality Checks have automatic acceptance/rejection on Save. In t
 
 Such cases will require the user to determine the row-level status. To avoid any system interference in such checks, enable the 'Manual Inspection' checkbox. You can now set the status manually and it will be untouched on Save.
 
-![Manual Inspection](/files/quality-inspection-manual-reading.png)  
+[Screenshot on the live page: Manual Inspection]  
 
 
 Here Reading 1 is outside the defined range, this check would be rejected. But, since it is not very far from 0.153 we accept it manually.
@@ -754,7 +754,7 @@ Before creating and using a Quality Action it is advised to create the following
 5. Enter a Resolution proposed for the problem in the Resolution field.
 6. Save.
 
-![](/files/action0e0bc8.gif)
+[Screenshot on the live page]
 
 The Status field indicates whether the Quality Action is Open and ongoing or Closed.
 
@@ -797,7 +797,7 @@ To access Quality Feedback, go to:
    Feedback: Feedback based on the given Rating.
 7. Save.
 
-![](/files/feedback58d87a.gif)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__quality_goal.md -->
 ---
@@ -817,7 +817,7 @@ To access the Quality Goal list, go to:
 
 > Home > Quality > Quality Goal
 
-![](/files/Screenshot 2026-01-23 at 12.16.34 AM.png)
+[Screenshot on the live page]
 
 ## 1. How to Create a Quality Goal
 
@@ -837,7 +837,7 @@ The Revision field shows The number of times the document was saved.
 
 Creating a Quality Goal:
 
-![](/files/goal.gif)
+[Screenshot on the live page]
 
 ## 2. Related Topics
 
@@ -867,6 +867,56 @@ To access Quality Meeting, go to:
 3. In the Minutes table, select the Quality Review, Action, Feedback discussed inthe meeting along with the references to the appropriate documents.
 4. Save.
 
-![](/files/meetingf9c910.gif)
+[Screenshot on the live page]
 
 The Status of the Meeting can be set to Closed once the agenda is done.
+
+<!-- page: erpnext/erpnext__quality_procedure.md -->
+---
+title: "Quality Procedure"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/quality_procedure"
+updated: "2026-02-26"
+---
+
+**A Quality Procedure is a Standard Operating Procedure (SOP) used as a reference to carry out routine actions**
+
+A standard operating procedure (SOP) is a set of step-by-step instructions compiled by an organization to help the employees execute routine operations. SOPs aim to achieve efficiency, quality output and uniformity of performance while reducing miscommunication and failure to comply with industry regulations.
+
+A Quality Procedure can be of two types:
+
+1. A Procedure consisting of simple steps that you must follow to achieve a [Quality Goal](https://docs.frappe.io/erpnext/user/manual/en/quality_goal)
+2. A procedure having sub-Procedures which may also have its own steps
+
+To access the Quality Procedure list, go to:
+
+> Home > Quality > Goal and Procedure > Quality Procedure
+
+## How to create a Quality Procedure
+
+1. Go to the Quality Procedure list, click on New.
+2. Enter a name for the Quality Procedure.
+3. In the Processes table, enter Process Descriptions.
+4. **Child Procedure**: If the Quality Procedure being created a is a parent procedure that contains sub-procedures, link the sub-procedure here. On doing this, the current procedure becomes a parent and the 'Is Group' checkbox is enabled.
+5. Save.
+  Quality Procedure can also be saved without entering the Process descriptions if the title is self explanatory.
+
+[Screenshot on the live page]
+
+The 'Parent Procedure' is linked to the child procedure. For example 'Issue Classification' needs to be done before a resolution and hence 'Issue Resolution' is the parent here:
+
+[Screenshot on the live page]
+
+## Features
+
+#### 1. Using Quality Procedure in Quality Goal
+
+Once a Quality Procedure is created, it can be used in a [Quality Goal](https://docs.frappe.io/erpnext/user/manual/en/quality_goal):
+
+[Screenshot on the live page]
+
+#### 2. Sub Procedures
+
+Process can either be just a instruction or a different Quality Procedure. You can link a Quality Procedure as a sub-procedure to another one:
+
+[Screenshot on the live page]

@@ -1,622 +1,5 @@
 <!-- Frappe documentation: erpnext, part 25 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__erpnext-dashboards.md -->
----
-title: "ERPNext Dashboards"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/erpnext-dashboards"
-updated: "2026-07-05"
----
-
-ERPNext includes dashboards, analytics pages, reports, and workspaces that help teams monitor business activity across modules. These views bring important information into one place so users can review trends, exceptions, transactions, and operational status without opening each document individually.
-
-Dashboards are useful for day-to-day monitoring, while reports and analytics pages are useful for deeper review. In practice, most ERPNext teams use a combination of module workspaces, dashboards, and reports.
-
-## Accounting Dashboard And Reports
-
-The Accounting dashboard and reports help finance teams track receivables, payables, profitability, taxes, ledgers, and financial statements.
-
-- [Accounting Reports](/erpnext/accounting-reports): Index of standard accounting reports.
-- [Financial Report Template](/erpnext/financial-report-template): Configure custom financial report layouts.
-- [Budget Variance Report](/erpnext/budget-variance-report): Compare budgets with actual values.
-- [Deferred Revenue/Expense Report](/erpnext/expense_report): Review deferred revenue and expense schedules.
-- [Customise Cash Flow Report](/erpnext/customise-cash-flow-report): Customize cash flow reporting.
-- [VAT Audit Report](/erpnext/vat_audit_report): Review VAT audit reporting.
-- [UAE VAT 201 Report](/erpnext/uae-vat-201-report): Review UAE VAT reporting.
-
-## Selling Dashboard And Sales Analytics
-
-Selling dashboards and reports help teams review sales performance, quotations, sales orders, invoices, customers, and sales trends.
-
-- [Sales Reports](/erpnext/sales-analytics): Review sales analytics and sales reports.
-- [Payment Terms Status Report](/erpnext/payment_terms_status_report): Track payment term status for transactions.
-- [Brandwise Items and Profitability Report](/erpnext/brandwise-items-and-profitability-report): Analyze profitability by brand and item.
-- [Setting Company Sales Goal](/erpnext/setting-company-sales-goal): Set and track company sales goals.
-
-## Buying Dashboard And Purchase Reports
-
-Buying dashboards and reports help procurement teams monitor purchase activity, suppliers, purchase orders, pending receipts, and procurement performance.
-
-- [Buying Reports](/erpnext/buying_reports): Review buying and purchase-related reports.
-- [Procurement Tracker Report](/erpnext/procurement-tracker-report): Track procurement progress.
-- [Supplier Scorecard](/erpnext/supplier-scorecard): Evaluate supplier performance.
-
-## Stock Dashboard And Inventory Reports
-
-Stock dashboards and reports help inventory teams track stock levels, valuation, ledger movement, batches, serial numbers, and stock reconciliation.
-
-- [Stock Level Report](/erpnext/stock-level-report): Review current stock levels.
-- [Stock Ledger Report](/erpnext/stock-ledger): Review stock ledger entries and stock movement.
-- [Stock Value and Account Value Comparison Report](/erpnext/stock-value-account-value-comparison): Compare stock value with accounting value.
-- [Stock Ledger Variance Report](/erpnext/stock-reposting): Review stock ledger variance and reposting.
-- [Serial No and Batch Traceability Report](/erpnext/serial-and-batch-traceability-report): Trace serial numbers and batches.
-- [Negative Batch Report](/erpnext/stock/reports/negative-batch-report): Identify negative batch quantity issues.
-
-## Manufacturing Dashboard And Reports
-
-Manufacturing dashboards and reports help production teams monitor work orders, production planning, BOMs, operations, and material requirements.
-
-- [Manufacturing Dashboard](/erpnext/manufacturing-dashboard): Review manufacturing activity in a dashboard-style view.
-- [Manufacturing Reports](/erpnext/manufacturing-reports): Index of manufacturing reports.
-- [Production Analytics](/erpnext/production-analytics): Analyze production trends.
-- [Production Planning Report](/erpnext/production-planning-report): Review production planning data.
-- [Open Work Order Report](/erpnext/open-work-orders): Track open work orders.
-- [BOM Stock Report](/erpnext/bom-stock-report): Review BOM-related stock availability.
-- [Item Where Used Report](/erpnext/item-where-used-report): Find where an item is used in BOMs.
-
-## CRM Dashboard And Reports
-
-CRM dashboards and analytics help sales teams monitor leads, opportunities, campaigns, pipeline movement, and customer interactions.
-
-- [CRM Analytics](/erpnext/sales_funnel): Review sales funnel and CRM analytics.
-- [CRM Reports](/erpnext/crm_reports): Index of CRM reports.
-- [CRM Settings](/erpnext/crm_settings): Configure CRM behavior before using CRM dashboards and reports.
-
-## Projects Dashboard And Reports
-
-Project dashboards and reports help teams monitor project progress, profitability, tasks, timesheets, and billing.
-
-- [Project Reports](/erpnext/project-reports): Review project-related reports.
-- [Project Profitability Report](/hr/project-profitability-report): Analyze project profitability.
-- [Project Settings](/erpnext/projects/project-settings): Configure project behavior before using project reports.
-
-## Support Dashboard And Reports
-
-Support dashboards and reports help service teams monitor issues, support workload, maintenance activity, and customer support performance.
-
-- [Support Reports](/erpnext/support_reports): Review support-related reports.
-- [Support Settings](/erpnext/support-settings): Configure support behavior before using support dashboards and reports.
-- [Maintenance Visit](/erpnext/maintenance-visit): Track maintenance visits and service activity.
-
-## Asset Dashboard And Reports
-
-Asset dashboards and reports help finance and operations teams review fixed assets, depreciation, asset movement, and asset accounting.
-
-- [Asset Reports](/erpnext/asset-reports): Review asset-related reports.
-- [Using Finance Book for Asset Depreciation](/erpnext/using-finance-book-for-asset-depreciation): Understand depreciation reporting by finance book.
-
-## HR And Payroll Dashboards
-
-HR and payroll dashboards and reports help teams monitor employees, leave, attendance, appraisals, salary structures, payroll, and compliance.
-
-- [Human Resources Reports](/hr/human-resources-reports): Review HR reports.
-- [HR Reports](/hr/reports): Index of HR reports.
-- [Appraisal Overview Report](/hr/appraisal-overview-report): Review appraisal progress and status.
-- [Leave Ledger Report](/hr/leave-ledger-report): Review leave ledger entries.
-- [Employee CTC Break-Up](/hr/reports/employee-ctc-break-up): Review employee cost-to-company details.
-- [India Payroll Reports](/hr/india-payroll/reports): Review India payroll reports.
-
-## Loan And Lending Dashboards
-
-Lending dashboards and reports help teams monitor loan applications, disbursements, repayments, outstanding balances, securities, and cash flow.
-
-- [Lending Reports](/lending/lending-reports): Index of lending reports.
-- [Loan Outstanding Report](/lending/loan-outstanding-report): Review outstanding loan balances.
-- [Future Cashflow Report](/lending/future-cashflow-report): Review expected future cash flows.
-- [Past Cashflow Report](/lending/past-cashflow-report): Review past cash flows.
-- [Loan Statement of Account](/lending/loan-management/lending-reports/loan-statement-of-account): Review statement of account for loans.
-- [Loan Repayment and Closure](/lending/loan-management/lending-reports/loan-repayment-and-closure): Track repayment and closure details.
-- [Loan Security Status](/lending/loan-management/lending-reports/loan-security-status): Review loan security status.
-- [Loan Security Exposure](/lending/loan-management/lending-reports/loan-security-exposure): Review exposure against securities.
-- [Credit Reporting](/lending/credit-reporting): Review credit reporting tools.
-
-## Analytics And Custom Dashboards
-
-ERPNext also works with reporting and dashboard tools in the Frappe ecosystem. These are useful when a standard report is not enough and a team needs custom charts, grouped metrics, or cross-module analysis.
-
-- [ERPNext Analytics](/erpnext/analytics): Review analytics features in ERPNext.
-- [Insights Dashboards](/insights/dashboards): Build dashboards using Frappe Insights.
-- [Insights Dashboard Overview](/insights/dashboards/overview): Understand dashboard concepts in Insights.
-- [Creating Your First Dashboard](/insights/dashboards/creating-your-first-dashboard): Create a custom dashboard in Insights.
-- [Sharing and Access Control](/insights/dashboards/sharing-and-access-control): Control who can view dashboards.
-- [Desk Reports](/framework/desk---reports): Understand report types in Frappe Desk.
-- [Report Builder](/framework/user/en/desk/reports/report-builder): Create reports without code.
-- [Query Report](/framework/user/en/desk/reports/query-report): Create SQL-based reports.
-- [Script Report](/framework/user/en/desk/reports/script-report): Create script-based reports.
-- [Workspace](/framework/user/en/desk/workspace): Use workspaces to organize module-level shortcuts, charts, and links.
-
-## Choosing The Right Dashboard
-
-Use a module dashboard or report when you want to monitor a specific area of ERPNext:
-
-1. Use [Accounting Reports](/erpnext/accounting-reports) for financial review.
-2. Use [Sales Reports](/erpnext/sales-analytics) for sales performance.
-3. Use [Buying Reports](/erpnext/buying_reports) for procurement tracking.
-4. Use [Stock Level Report](/erpnext/stock-level-report) and [Stock Ledger Report](/erpnext/stock-ledger) for inventory monitoring.
-5. Use [Manufacturing Dashboard](/erpnext/manufacturing-dashboard) and [Production Analytics](/erpnext/production-analytics) for production review.
-6. Use [Project Reports](/erpnext/project-reports) for project tracking.
-7. Use [Support Reports](/erpnext/support_reports) for customer support review.
-8. Use [Insights Dashboards](/insights/dashboards) when you need custom dashboards across modules.
-
-## Related Topics
-
-- [ERPNext Analytics](/erpnext/analytics)
-- [Accounting Reports](/erpnext/accounting-reports)
-- [Sales Reports](/erpnext/sales-analytics)
-- [Buying Reports](/erpnext/buying_reports)
-- [Manufacturing Dashboard](/erpnext/manufacturing-dashboard)
-- [Project Reports](/erpnext/project-reports)
-- [Support Reports](/erpnext/support_reports)
-- [Desk Reports](/framework/desk---reports)
-- [Workspace](/framework/user/en/desk/workspace)
-- [Insights Dashboards](/insights/dashboards)
-
-<!-- page: erpnext/erpnext__erpnext-for-services-organization.md -->
----
-title: "ERPNext for Service Organization\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/erpnext-for-services-organization"
-updated: "2026-07-23"
----
-
-# ERPNext for Service Organization
-
-ERPNext supports service organizations such as software companies, certification providers, agencies, professional-services firms, and independent consultants. You can use it to manage sales, accounting, projects, support, assets, and—when Frappe HR is installed—HR operations without running a warehouse-based fulfillment process for every sale.
-
-The main difference from a trading or manufacturing setup is that services are normally configured as non-stock Items. A service Sales Order can then be invoiced without a Delivery Note and marked **Completed** after it is fully billed.
-
-The original overview of how the ERPNext team used ERPNext for its own service-business operations is retained below:
-
-<iframe src="https://www.youtube.com/embed/b6r7WxJMfFA" title="How ERPNext uses ERPNext for service-business operations" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
-
-## Before you begin
-
-Set up the following records:
-
-- a [Company](/erpnext/company) with its Chart of Accounts and default currency;
-- a [Customer](/erpnext/customer) for each organization you serve;
-- one or more non-stock service [Items](/erpnext/item);
-- income accounts, taxes, payment terms, and Cost Centers required by your accounting process;
-- [Projects](/erpnext/project) and [Timesheets](/erpnext/timesheet) when you bill or measure work by project or time.
-
-Decide whether you will bill a fixed fee, recurring amount, milestone, or time and expenses. That decision affects the Items, Sales Orders, Projects, and invoicing process you configure.
-
-## Create a service Item
-
-Use a non-stock Item for consulting, implementation, support, subscriptions, or other work that does not move through a Warehouse.
-
-1. Open **Item** and select **Add Item**.
-2. Enter an Item Code and Item Name that describe the service.
-3. Disable **Maintain Stock**.
-4. Select an Item Group and the default unit of measure, such as **Nos** or **Hour**.
-5. Under accounting defaults, select the appropriate income account when your setup requires one.
-6. Save the Item.
-
-![The Item form configured for a service by disabling Maintain Stock.](/files/service-item.png)
-
-A non-stock service Item does not require a source Warehouse and does not create stock-ledger entries. You can still use quantities, rates, taxes, and accounting dimensions on sales transactions.
-
-## Sell and invoice a service
-
-The recommended flow for an agreed service is:
-
-**[Quotation](/erpnext/quotation) → [Sales Order](/erpnext/sales-order) → [Sales Invoice](/erpnext/sales-invoice) → [Payment Entry](/erpnext/payment-entry)**
-
-A Quotation is optional when the Customer has already confirmed the work.
-
-### Complete a Sales Order without a Delivery Note
-
-Use this flow when the service does not require a stock or delivery transaction:
-
-1. Create a Sales Order and select the Customer.
-2. Set **Order Type** to **Maintenance**.
-3. Enable **Skip Delivery Note**.
-4. Add the non-stock service Item, quantity, rate, taxes, payment terms, and commercial terms.
-5. Save and submit the Sales Order.
-6. From the submitted Sales Order, select **Create > Sales Invoice**.
-7. Review and submit the Sales Invoice.
-
-When **Skip Delivery Note** is enabled, delivery is not required for the order. After the Sales Invoice bills the full ordered quantity, ERPNext sets the Sales Order to **Completed**. If you invoice only part of the order, it remains open until the remaining quantity is billed or the order is closed.
-
-Use a normal Delivery Note flow when the order includes physical goods that must leave a Warehouse. For an order containing both services and stock Items, choose the workflow that preserves the required stock movement and audit trail.
-
-## Track delivery through Projects and Timesheets
-
-Create a Project when the service has tasks, milestones, budgets, or a defined delivery period. Link the Sales Order and subsequent transactions to the Project so revenue and costs can be reviewed together.
-
-Use Timesheets when employees record billable or non-billable hours. Depending on the commercial model, you can invoice time through the relevant project-and-timesheet billing workflow instead of using only a fixed-quantity service Item.
-
-Service organizations can also use [Issues](/erpnext/issue) for customer support, Service Level Agreements for response commitments, and Maintenance Visits or Schedules when work is performed at planned intervals.
-
-## Manage equipment and fixed assets
-
-A service company may still purchase and track physical assets such as laptops, servers, furniture, or test equipment. Configure those purchases and [Assets](/erpnext/asset) separately from the non-stock Items sold to Customers.
-
-Use stock Items only when you genuinely need inventory quantities and Warehouse movements. An office asset does not need to become a sales Item merely because the company owns it.
-
-## Hide workspaces you do not use
-
-Service organizations may not need Manufacturing, Stock, or other operational workspaces. Keep the interface focused by controlling workspace visibility and user roles:
-
-- assign each user only the roles required for their work;
-- remove Stock or Manufacturing roles from users who should not use those modules;
-- configure workspace visibility or customize the workspace when your version supports it.
-
-The older **Setup > Permissions > Show/Hide Modules** instruction may appear in legacy documentation. In current ERPNext versions, use role-based permissions and workspace configuration available on your site.
-
-## Configure permissions
-
-ERPNext is role- and permission-controlled. A hidden workspace is not a substitute for access control: use [Role Permissions Manager](/erpnext/role-permission-manager) to define which documents a role can read, create, submit, amend, or cancel.
-
-Test permissions using a non-administrator account that has the same roles as the intended user. Confirm both what the user can see and what the user can do.
-
-The existing permissions walkthrough is retained below:
-
-<iframe src="https://www.youtube.com/embed/8Slw1hsTmUI" title="ERPNext user and permissions setup video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
-
-## Troubleshooting
-
-### A Warehouse is required for a service Item
-
-Open the Item and confirm that **Maintain Stock** is disabled. Also confirm that the Sales Order row contains the intended service Item rather than a stock Item with a similar name.
-
-### Skip Delivery Note is not visible
-
-Set the Sales Order **Order Type** to **Maintenance**. The checkbox is conditional and does not appear for every order type.
-
-### The Sales Order is not Completed after invoicing
-
-Confirm that **Skip Delivery Note** was enabled and that the Sales Invoice was submitted for the full ordered quantity. Review the Sales Order's billing percentage and linked invoices. A partial or draft invoice does not complete the order.
-
-### A user can still access an unwanted module
-
-Review the user's assigned roles and Role Permission Manager settings. Workspace visibility affects navigation, while document permissions control access.
-
-## Frequently asked questions
-
-### Do service organizations need Warehouses?
-
-Not for non-stock services. Warehouses are still useful when the company buys, stores, or sells physical Items.
-
-### Must every service sale use a Sales Order?
-
-No. You can create a Sales Invoice directly when your process does not require a confirmed-order stage. Use a Sales Order when you need to record scope, value, terms, or progress before billing.
-
-### Should every service Sales Order use Maintenance order type?
-
-Use **Maintenance** with **Skip Delivery Note** for the delivery-free completion flow described here. If the transaction includes physical fulfillment, use the order type and delivery process appropriate to that sale.
-
-## Related topics
-
-- [Item](/erpnext/item)
-- [Sales Order](/erpnext/sales-order)
-- [Maintenance Sales Orders](/erpnext/maintenance-sales-orders)
-- [Sales Invoice](/erpnext/sales-invoice)
-- [Project](/erpnext/project)
-- [Timesheet](/erpnext/timesheet)
-- [Role Permission Manager](/erpnext/role-permission-manager)
-
-<!-- page: erpnext/erpnext__erpnext_integration.md -->
----
-title: "Integration Categories"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/erpnext_integration"
-updated: "2026-02-26"
----
-
-ERPNext provides a wide range of integration capabilities that allow businesses to seamlessly connect with various third-party applications and services to enhance operational efficiency and data flow. 
-
-These integrations span across e-commerce platforms, payment gateways, shipping providers, Google services, e-commerce providers, etc. By integrating ERPNext with these systems, businesses can streamline their processes, reduce manual data entry, improve data accuracy, and gain deeper insights into their operations, which will eventually help in making informed business decisions.
-
-To integrate ERPNext with other applications that aren't listed here, you can use Frappe's REST API. Visit this link to learn more about it:
-
-[Frappe Rest API](https://frappeframework.com/docs/user/en/guides/integration/rest_api)
-
-### Authentication Integrations
-
-- [Setting up LDAP](/erpnext/user/manual/en/ldap-integration)
-- [Setting up Fairlogin](/erpnext/user/manual/en/fairlogin-integration)
-
-### Backup Integrations
-
-- [Setting up Dropbox Backups](/erpnext/user/manual/en/dropbox-backup)
-- [Google Drive Integration](/erpnext/user/manual/en/google_drive)
-- [Upload Backups to Amazon S3](/erpnext/user/manual/en/aws_s3)
-
-### Bank Integrations
-
-- [Plaid Integration](/erpnext/user/manual/en/plaid_integration)
-
-### E-commerce Integrations
-
-- [Shopify Integration](/erpnext/user/manual/en/shopify_integration)
-- [WooCommerce Integration](/erpnext/user/manual/en/woocommerce_integration)
-- [Amazon SP-API Integration](/erpnext/user/manual/en/amazon_integration)
-- [Unicommerce Integration](/erpnext/user/manual/en/unicommerce_integration)
-- [Zenoti Integration](/erpnext/user/manual/en/zenoti_integration)
-
-### Shipping Integrations
-
-- [ERPNext Shipping](/erpnext/user/manual/en/erpnext_shipping)
-
-### Payment Integrations
-
-- [RazorPay Integration](/erpnext/user/manual/en/razorpay-integration)
-- [GoCardless Integration](/erpnext/user/manual/en/gocardless-integration)
-- [Stripe Integration](/erpnext/user/manual/en/stripe-integration)
-- [Braintree Integration](/erpnext/user/manual/en/braintree-integration)
-- [Paytm Integration](/erpnext/user/manual/en/paytm-integration)
-- [M-pesa Integration](/erpnext/user/manual/en/mpesa-integration)
-
-### Telephony Integrations
-
-- [Exotel Integrations](/erpnext/user/manual/en/exotel_integration)
-
-### Google Integrations
-
-- [Google Settings](/erpnext/user/manual/en/google_settings)
-- [Google Calendar Integration](/erpnext/user/manual/en/google_calendar)
-- [Google Contact Integration](/erpnext/user/manual/en/google_contacts)
-- [Google Maps Integration](/erpnext/user/manual/en/google_maps)
-
-<!-- page: erpnext/erpnext__erpnext_shipping.md -->
----
-title: "ERPNext Shipping"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/erpnext_shipping"
-updated: "2026-03-02"
----
-
-> Introduced in version 13
-
-**The ERPNext Shipping app helps you compare shipping rates being offered by multiple service providers, generate labels, and track your shipments' status.**
-
-Integration with the following service providers is available:
-
-1. [LetMeShip](https://www.letmeship.com/en/)
-2. [SendCloud](https://www.sendcloud.com)
-
-> To avail these features, the **ERPNext Shipping** app will have to be installed on your site. You can the avail the app [on GitHub](https://github.com/frappe/erpnext-shipping/tree/master), [on Frappe Cloud Marketplace](https://cloud.frappe.io/marketplace/apps/erpnext_shipping) or you can contact your hosting platform.
-
-1. Setting Up
--------------
-
-For the app to work smoothly, you will have to generate an API key from **at least one** of the platforms listed above. Here is a guide to set them up:
-
-### 1.1 SendCloud
-
-1. Register on [SendCloud](https://panel.sendcloud.sc/accounts/signup/).
-2. Follow [these steps](https://support.sendcloud.com/hc/en-us/articles/360024967612-Service-points-for-API-Integrations#step-1-) to generate a **Public Key** and a **Secret Key**.
-3. Search for **SendCloud** in the awesomebar.
-4. Add the **Public Key** in the 'API Key' field and the **Secret Key** in the 'API Secret' field of the SendCloud DocType.
-5. Check the **Enabled** field.
-6. Save.
-
-![Sendcloud API](/files/sendcloud_api.png)  
-
-
-### 1.2 LetMeShip
-
-1. Register on [LetMeShip](https://www.letmeship.com/en/).
-2. Follow [these steps](https://www.letmeship.com/en-de/shipping-api/) to generate an **API ID** and **API Password**.
-3. Search for **LetMeShip** in the awesomebar.
-4. Add the **API ID** and **API Password** to the LetMeShip DocType. Check the **Enabled** field.
-5. Save.
-
-![LetMeShip API](/files/letmeship_api.png)  
-
-
-2. Features
------------
-
-### 2.1 Comparison of Shipping Rates
-
-Once a [Shipment](/erpnext/shipment) is submitted, if the app is installed, the button **Fetch Shipping Rates** will appear. On clicking, you will get a list of services along with their service providers and rates.
-
-![Fetch Rates](/files/fetch_rates.png)  
-
-
-You can also add frequently used services to your **Preferred Services** using **Parcel Service Type**:
-
-1. Assuming the highlighted service is our frequently used service, let us add it to our **Preferred Services**
-
-![Highlight Service](/files/service_highlight.png)
-2. Go to **Parcel Service Type** > **New**. Create a new **Parcel Service**. In our case, it is 'TNT'.
-3. Add a **Parcel Service Type**. In our case, it will be 'Economy'.
-4. Add 'Economy' to the **Parcel Service Type Alias** table as well.
-5. Add a description (optional).
-6. Enable the **Show in Preferred Services List** field. Save.
-
-Now when you click on the **Fetch Shipping Rates** button, you will always see the previously highlighted service under **Preferred Services**.
-
-![Preferred Service](/files/preferred_service.png)  
-
-
-### 2.2 Creation of Shipment
-
-After comparing rates, you can proceed with any one of the services by clicking **Select** against the appropriate service row. On clicking, a Shipment is automatically created on your service provider's platform.
-
-You will notice that the **Shipment Information** section is updated automatically, based on the Shipment created.
-
-![Shipment Creation](/files/create_shipment.gif)  
-
-
-You can also search for your transaction on your service provider's platform using the **Shipment ID** field.
-
-### 2.3 Printing Labels
-
-To avail the **Print Shipping Label** button, the **Shipment ID** must be generated in the current record.
-
-![Print Label Button](/files/print_label_button.png)  
-
-
-You can then click on it and generate your shipping label.
-
-![Dummy Shipping Label](/files/dummy_shipping_label.png)  
-
-
-You can also track your shipment's status by clicking on **View** > **Track Status**.
-
-> **Note** : The currently integrated platforms may not serve your region. Please visit the links attached against them to know more.
-
-<!-- page: erpnext/erpnext__exchange-rate-field-frozen.md -->
----
-title: "Freeze Exchange Rate | ERPNext Documentation"
-description: "Understand why an ERPNext exchange-rate field may be read-only and how stale-rate settings affect manual and fetched rates."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/exchange-rate-field-frozen"
-updated: "2026-08-14"
----
-
-A Nova Industries sales user may find that an exchange rate cannot be edited on a foreign-currency invoice.
-
-
-
-A Nova sales user opens a foreign-currency invoice, sees an unexpected Exchange Rate, and cannot edit it. The field may appear frozen because the document is submitted, the selected accounts determine the currencies, the user lacks permission, or ERPNext has applied a stored-rate policy from Accounts Settings.
-
-
-
-This guide helps you identify the actual cause on a Draft before changing configuration. A submitted invoice is intentionally locked and should not be repriced to solve a setup problem. When a manual override is approved, record its source so finance can explain the rate later.
-
-## Before you begin
-
-Confirm that the document is Draft and that at least two currencies are involved. A Company-currency transaction with Company-currency accounts needs no conversion rate. Check the user's write permission for the transaction and [Accounts Settings](/erpnext/accounts-settings).
-
-Read the rate label carefully. `1 EUR = 1.15 USD` is a direction, not a generic ratio. Verify the [Currency Exchange](/erpnext/currency-exchange) record for that exact direction and date.
-
-## Review Allow Stale Exchange Rates
-
-Open Accounting &gt; Settings &gt; Accounts Settings and locate Currency Exchange Settings.
-
-
-
-![Allow Stale Exchange Rates in Accounts Settings](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-accounts-settings-allow-stale-rate.png)
-
-The current behavior is best understood as a rate-selection policy:
-
-
-| Setting                             | Lookup behavior                                                                                                            |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Allow Stale Exchange Rates enabled  | The latest matching stored rate may be used without an age limit. This supports rates that remain valid until replaced.    |
-| Allow Stale Exchange Rates disabled | ERPNext limits stored-rate age using Stale Days, then tries the configured provider when no eligible manual record exists. |
-
-
-The existing documentation associates this setting with whether the Exchange Rate field is editable. Because field behavior has changed across releases and can vary by document, verify the Draft page after changing the setting instead of relying only on the word “stale.” In current develop, users can often override a fetched rate on a Draft when permissions and document logic allow it.
-
-## If you need a controlled fixed rate
-
-Create a dated Currency Exchange record with the approved value and the correct buying or selling flag. Then decide whether the record may remain valid until another is entered.
-
-
-
-![Approved EUR to USD rate](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-exchange-rate.png)
-
-For a contract rate, enabling stale rates can be appropriate because the latest manual record remains eligible. For daily treasury rates, disable stale rates and use a small Stale Days value or import a new approved rate regularly.
-
-This is not a true record-level “freeze” that prevents authorized users from changing the master. Control update permission and establish an approval process if rates must be protected.
-
-For a stronger control, assign rate maintenance to a small finance role and have another person review the Draft transaction before submission. Keep the approved source and effective date with the treasury workpaper. This separates rate approval from transaction entry without misusing the stale-rate setting as a security control.
-
-## If you need the current provider rate
-
-Disable stale rates or ensure there is no eligible manual record that should win. Review [Currency Exchange Settings](/erpnext/currency-exchange-settings) and verify that the provider covers the pair and historical date.
-
-ERPNext first searches an eligible stored record. The provider is a fallback, so changing provider settings does not override a matching manual record.
-
-## If you need to enter the rate manually on a transaction
-
-1. Keep the transaction in Draft.
-2. Select the correct foreign Currency.
-3. Confirm the receivable, payable, bank, or cash [Account](/erpnext/chart-of-accounts) currencies.
-4. Review the Exchange Rate field and its direction.
-5. Enter the approved rate if the field is editable.
-6. Compare the transaction and Company-currency totals.
-7. Save and reload the Draft to confirm the value persisted.
-
-![Exchange Rate on a Draft EUR Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-sales-invoice-eur-currency-rate.png)
-
-The **Price List Exchange Rate** is a different field. It converts [Price List](/erpnext/price-lists) currency to transaction currency. Do not change it when the issue concerns the accounting conversion between transaction and Company currency.
-
-## Submitted transactions
-
-A submitted [Sales Invoice](/erpnext/sales-invoice), [Purchase Invoice](/erpnext/purchase-invoice), or [Payment Entry](/erpnext/payment-entry) represents an accounting event. ERPNext locks material fields to preserve the audit trail. If the rate is materially wrong, follow the document's cancel and amend process, subject to permissions, linked records, [Immutable Ledger](/erpnext/immutable-ledger-in-erpnext) rules, and the open [Accounting Period](/erpnext/accounting-period).
-
-Do not update Currency Exchange and expect old submitted documents to change. They retain their own saved rates.
-
-Before cancelling, inspect downstream payments, returns, credit notes, stock consequences, and reconciliations. A correct amendment should reproduce the commercial facts with the approved rate and preserve a readable audit trail. Ask finance to confirm whether the difference is truly an invoice error or a legitimate exchange movement that belongs at settlement.
-
-## Common causes of a read-only field
-
-
-| Cause                                 | What to check                                                              |
-| ------------------------------------- | -------------------------------------------------------------------------- |
-| Document is submitted                 | Cancel and amend only when accounting policy and links permit it.          |
-| No currency conversion is needed      | Company, transaction, and relevant account currencies are the same.        |
-| Account currency determines the flow  | The selected party or bank account fixes the amount currency.              |
-| Stored rate policy controls selection | Review Allow Stale Exchange Rates, Stale Days, date, direction, and flags. |
-| Provider supplied the value           | Verify the provider and whether Draft override is permitted.               |
-| User lacks permission                 | Review role permissions rather than weakening accounting controls.         |
-| Custom script or customization        | Test in a clean role and inspect client or server customization.           |
-
-
-## Troubleshooting
-
-### The field remains read-only after changing Accounts Settings
-
-Reload the transaction, confirm it is Draft, and check account currencies, permissions, and customizations. Test a new Draft instead of a document whose state was already submitted or mapped from another transaction.
-
-### ERPNext keeps using the old rate
-
-Search Currency Exchange for the latest eligible record. Check Allow Stale Exchange Rates and Stale Days. A later transaction date does not force a provider call while an eligible manual record still wins.
-
-### ERPNext cannot fetch a rate after stale rates are disabled
-
-The provider may not support the pair or historical date. Create a manual record or select an approved provider that covers it.
-
-### Changing the rate also changes item prices
-
-Separate Exchange Rate from Price List Exchange Rate. If the Price List currency differs, item rates can be converted independently.
-
-## FAQs
-
-### Does Allow Stale Exchange Rates literally freeze a rate?
-
-No, it allows the latest matching manual record to remain eligible without an age limit. Permissions and transaction logic determine editability.
-
-### Can I lock a rate after finance approves it?
-
-Restrict Currency Exchange write permission and use an approval or import process. The stale-rate option alone is not a master-record lock.
-
-### Why can I edit a Draft but not a submitted invoice?
-
-Submission posts accounting consequences and locks material fields for audit integrity.
-
-### Will a new Currency Exchange record update old Drafts?
-
-Not necessarily. Reload or retrigger the currency and date logic, then verify the saved field. Submitted documents remain unchanged.
-
-### Should I disable the provider to force manual rates?
-
-You can, but first ensure all required directions and dates have manual records and define what users should do when a rate is missing.
-
-## Related topics
-
-- [Currency Exchange](/erpnext/currency-exchange)
-- [Currency Exchange Settings](/erpnext/currency-exchange-settings)
-- [Accounts Settings](/erpnext/accounts-settings)
-- [Managing Transactions in Multiple Currency](/erpnext/managing-transactions-in-multiple-currencies)
-- [Manage Foreign Exchange Difference](/erpnext/manage-foreign-exchange-difference)
-
 <!-- page: erpnext/erpnext__exchange-rate-revaluation.md -->
 ---
 title: "Exchange Rate Revaluation | ERPNext Documentation"
@@ -653,7 +36,7 @@ In the [Company](/erpnext/company-setup), set **Unrealized Exchange Gain/Loss Ac
 
 
 
-![Company accounts for exchange gains and losses](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-company-exchange-gain-loss-accounts.png)
+[Screenshot on the live page: Company accounts for exchange gains and losses]
 
 Create an eligible closing-date rate in [Currency Exchange](/erpnext/currency-exchange) or verify the active provider in [Currency Exchange Settings](/erpnext/currency-exchange-settings). Confirm that the [Accounting Period](/erpnext/accounting-period) is open and the user can submit revaluations and Journal Entries.
 
@@ -667,7 +50,7 @@ Review the currency controls in [Accounts Settings](/erpnext/accounts-settings) 
 4. Set Rounding Loss Allowance only when a small balance should be treated as zero. The allowed value is from 0 inclusive to less than 1.
 5. Select **Get Entries**.
 
-![Company and posting date on the revaluation](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-exchange-rate-revaluation-header.png)
+[Screenshot on the live page: Company and posting date on the revaluation]
 
 ERPNext fetches eligible foreign-currency accounts, their account and base balances, the current carrying rate, the new rate for the posting date, the new base balance, and the calculated gain or loss.
 
@@ -677,17 +60,17 @@ Do not submit immediately. Review each account against the General Ledger, the a
 
 
 
-![Revaluation account row and calculated gain](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-exchange-rate-revaluation-account-pencil.png)
+[Screenshot on the live page: Revaluation account row and calculated gain]
 
 Select the highlighted pencil to open the full child-row editor.
 
 
 
-![Current foreign and base balances](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-exchange-rate-revaluation-current-balance.png)
+[Screenshot on the live page: Current foreign and base balances]
 
 
 
-![New rate, new base balance, and gain](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-exchange-rate-revaluation-new-balance.png)
+[Screenshot on the live page: New rate, new base balance, and gain]
 
 
 | Field                           | Meaning                                                                                    |
@@ -712,7 +95,7 @@ The parent document separates ordinary revaluation gain or loss from gain or los
 
 
 
-![Revaluation totals](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-exchange-rate-revaluation-totals.png)
+[Screenshot on the live page: Revaluation totals]
 
 
 | Total                      | Meaning                                                                    |
@@ -754,7 +137,7 @@ The Company can automatically create Exchange Rate Revaluation records at a Dail
 
 
 
-![Automatic revaluation setting](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-company-auto-revaluation-setting.png)
+[Screenshot on the live page: Automatic revaluation setting]
 
 Start with manual review. Automate only after finance trusts the provider, closing-date selection, account coverage, unrealized account, and reversal or closing procedure. Automatic submission reduces the opportunity to catch an unexpected rate or account balance.
 
@@ -811,3 +194,891 @@ Only when the process has been tested and finance accepts the reduced review ste
 - [Manage Foreign Exchange Difference](/erpnext/manage-foreign-exchange-difference)
 - [Journal Entry](/erpnext/journal-entry)
 - [Accounting Reports](/erpnext/accounting-reports)
+
+<!-- page: erpnext/erpnext__exotel_integration.md -->
+---
+title: "Exotel Integration\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/exotel_integration"
+updated: "2026-02-26"
+---
+
+
+This integration allows you to integrate Exotel into your ERPNext account. Leads and their phone numbers captured via Exotel can be saved directly to your ERPNext.
+
+## 1. Features
+
+- Track incoming calls in your ERPNext account.
+- Shows existing lead/customer information pop-up to employees when an incoming call is received.
+
+## 2. How to setup
+
+### 2.1 Setup your Exotel account
+
+- Login to your Exotel account and go to App Bazar.
+- Create a new App for a new flow.
+- Setup the flow as you wish it to be.
+- In your connect API under "Create popup..." and paste following URL:
+`https://<your-site>/api/method/erpnext.erpnext_integrations.exotel_integration.handle_incoming_call`
+
+[Screenshot on the live page: Connect Applet]
+[Screenshot on the live page: Call Popup Section]
+
+> **Note:** Replace `<your-site>` in URL with your site name. For example, if the site name is **frappe.erpnext.com** then the URL will be:
+`https://frappe.erpnext.com/api/method/erpnext.erpnext_integrations.exotel_integration.handle_incoming_call`
+
+- After that add a Passthru applet under "After Call Conversation ends" and paste following URL:
+`https://<your-site>/api/method/erpnext.erpnext_integrations.exotel_integration.handle_end_call`
+
+[Screenshot on the live page: After Conversation Ends Section]
+
+[Screenshot on the live page: After call ends section]
+
+> **Note:** Make sure to check "Make Passthru Async".
+
+- Similary, add a Passthru applet under "If nobody answers..." section and paste following URL:
+`https://<your-site>/api/method/erpnext.erpnext_integrations.exotel_integration.handle_missed_call`
+
+[Screenshot on the live page: No Response Section]
+
+[Screenshot on the live page: After call ends section]
+
+> **Note:** Make sure to check "Make Passthru Async".
+
+- Save the flow.
+- Now assign this newly created app to your ExoPhone from which you receive your business calls.
+
+### 2.2 Setup in ERPNext
+
+- From Awesome Bar, go to 'Exotel Settings'.
+- Set your "Exotel SID" and "Exotel Token". You can find your Exotel API key and token on your [Exotel Dashboard](https://my.exotel.com/apisettings/site#api-credentials).
+- Go to Communication Medium.
+- Add your ExoPhone and schedule that number. Based on this schedule employees will receive the popup.
+
+<!-- page: erpnext/erpnext__expense_report.md -->
+---
+title: "Deferred Revenue/Expense Report"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/expense_report"
+updated: "2026-08-14"
+---
+
+Nova Industries sells a $1,200 annual warranty service and also prepays $1,200 for a year of software support. The invoices show the full contractual amounts, but finance should recognise only the portion earned or consumed in each accounting period.
+
+
+
+
+
+The Deferred Revenue and Expense Report compares the expected recognition schedule with actual deferred-accounting postings. It helps finance identify what has already been recognised, what remains deferred, and which invoice or item requires investigation.
+
+## Before you begin
+
+Configure deferred accounts in [Accounts Settings](/erpnext/accounts-settings), enable deferred accounting on the relevant Item or invoice row, and enter valid service start and end dates. Submit the invoice and run [Process Deferred Accounting](/erpnext/process-deferred-accounting) according to the company's schedule.
+
+## Review deferred revenue
+
+[Screenshot on the live page: Open the Sales Invoice Item row to review deferred accounting fields]
+
+
+
+[Screenshot on the live page: Deferred revenue account and service period on a Sales Invoice Item]
+
+
+
+1. Open the Deferred Revenue and Expense Report.
+2. Select Nova Industries and the reporting period.
+3. Choose the revenue view or filter for Sales Invoices.
+4. Review the invoice, item, service dates, expected recognition, actual posting, and remaining amount.
+5. Open the invoice or generated Journal Entry when a line needs explanation.
+
+[Screenshot on the live page: Loaded Deferred Revenue and Expense Report for Nova annual service revenue]
+
+## Review deferred expense
+
+[Screenshot on the live page: Deferred expense account and service period on a Purchase Invoice Item]
+
+
+
+
+
+Use the expense view for prepaid costs from Purchase Invoices. The same report logic shows the portion already recognised as expense and the amount that remains in the deferred asset account.
+
+[Screenshot on the live page: Loaded Deferred Revenue and Expense Report for Nova prepaid service expense]
+
+## Understand the result
+
+
+| Value                        | What to check                                                 |
+| ---------------------------- | ------------------------------------------------------------- |
+| Invoice amount               | The original deferred item value and currency.                |
+| Service period               | The dates over which revenue or expense should be recognised. |
+| Expected amount              | The schedule amount calculated for the selected period.       |
+| Actual amount                | The value already posted by deferred accounting entries.      |
+| Upcoming or remaining amount | The portion still expected in future periods.                 |
+
+
+## Verify the accounting
+
+Open the generated Journal Entry and compare the deferred account with the income or expense account in the [General Ledger](/erpnext/general-ledger). Revenue recognition normally debits the deferred revenue liability and credits income. Expense recognition normally credits the deferred expense asset and debits expense.
+
+## Troubleshooting
+
+### An invoice does not appear
+
+Confirm that it is submitted, its item row has deferred accounting enabled, deferred and income or expense accounts are set, and the service dates overlap the report period.
+
+### Expected and actual values differ
+
+Run Process Deferred Accounting for the missing period and inspect failed or draft entries. Also check the Accounts Settings basis and whether generated Journal Entries require submission.
+
+### The same amount appears in the wrong period
+
+Review posting date, service start and end dates, and the deferred-recognition basis. Correct the source through the approved amendment process rather than editing ledger rows.
+
+## Frequently asked questions
+
+### Does this report create accounting entries?
+
+The report explains expected and actual recognition. Process Deferred Accounting creates the recognition entries.
+
+### Can one invoice contain deferred and immediate items?
+
+Deferred behavior is configured at item-row level, allowing other rows to post immediately when their settings and accounts require it.
+
+### Why is the full invoice still visible as receivable or payable?
+
+Deferral changes when income or expense is recognised. It does not normally change the customer's or supplier's contractual invoice balance.
+
+## Related topics
+
+- [Deferred Accounting](/erpnext/deferred-accounting)
+- [Deferred Revenue](/erpnext/deferred-revenue)
+- [Deferred Expense](/erpnext/deferred-expense)
+- [Process Deferred Accounting](/erpnext/process-deferred-accounting)
+- [General Ledger](/erpnext/general-ledger)
+
+<!-- page: erpnext/erpnext__export-data-for-specific-year-or-filter.md -->
+---
+title: "Export Data for Specific Year or Filter"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/export-data-for-specific-year-or-filter"
+updated: "2026-03-29"
+---
+
+**Question:** I need to export Sales Invoices for Particular Fiscal Year only.
+
+**Answer:**
+
+The system allows you to use any combination of filters including a Date Range to extract the data whether from the List view or from the Report View.
+
+**List View**
+
+[Screenshot on the live page]
+
+
+
+**Report View**
+
+[Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__fairlogin-integration.md -->
+---
+title: "Setting up fairlogin\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/fairlogin-integration"
+updated: "2026-02-26"
+---
+
+
+fairlogin is an GDPR aware oAuth provider by fairkom.eu.
+
+To setup fairlogin as an oAuth provider, go to:
+> Home > Integrations > Social Login Key
+
+## Setup keycloak
+
+fairlogin is based on keycloak, so the parameters may be similar for any custom oAuth setting facilitating keycloak.
+
+There you add a new client, select open-id as client protocol and enter the address of your ERPnext instance as the Root, Redirect and Base URL.
+
+Adding your ERNext service as a client is being [offered as a service by fairkom](https://erp.fairkom.net/cloud/fairlogin-client).
+
+[Screenshot on the live page: ERPnext keycloak Settings]
+
+## Setup fairlogin
+
+To enable fairlogin as an ERPNext login option, you need to configure the following parameters:
+
+- Base URL https://id.fairkom.net/auth/realms/fairlogin/
+- Authorize URL https://id.fairkom.net/auth/realms/fairlogin/protocol/openid-connect/auth
+- Redirect URL /api/method/frappe.integrations.oauth2_logins.login_via_fairlogin
+- Access Token URL https://id.fairkom.net/auth/realms/fairlogin/protocol/openid-connect/token
+- API Endpoint https://id.fairkom.net/auth/realms/fairlogin/protocol/openid-connect/userinfo
+
+[Screenshot on the live page: ERPnext fairlogin Settings]
+
+On enabling service, the system will allow to login with any fairlogin account.
+
+The default role of a new user is Blogger (currently hardcoded).
+
+<!-- page: erpnext/erpnext__faqs.md -->
+---
+title: "Stock FAQs"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/faqs"
+updated: "2026-07-02"
+---
+
+Is any integration required for using Barcode reader in ERPNext?  
+How Valuation Rate is Calculated for an Item  
+How to Update valuation after purchase transaction
+
+<!-- page: erpnext/erpnext__feedback-request-using-web-form.md -->
+---
+title: "Feedback Request Using a Web Form"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/feedback-request-using-web-form"
+updated: "2026-03-04"
+---
+
+In the ERPNext version 11, we have a feature which allowed collecting a Feedback from a Customer and users. In ERPNext, this feature is now manageable using built-in customisation tools like:  
+* Custom DocType
+* Web Form
+* Notification
+
+  
+Following are the steps on how you should configure a feature and start collecting feedback.  
+**Feedback as a DocType**  
+Create a Custom DocType for Rating on these lines  
+[Screenshot on the live page]  
+1. In the first fields, list a DocTypes for which you want to collect a rating
+2. In the Document Name field, just enter the name of first field "document", so that it becomes a [Dynamic Link](https://docs.erpnext.com/docs/v14/user/manual/en/customize-erpnext/articles/dynamic-link-fields) field.
+3. Enter a Rating field. You can also choose other data or select field, if you wish to take rating on those lines.
+
+  
+**Web Form for Feedback Form**  
+Once a DocType is created, simply create a Web Form by fetching all the standard fields from Feedback doctype.  
+[Screenshot on the live page]  
+**Create a Notification**  
+
+A Notification should be created to send a link to a user following which they will submit a rating. You can define the conditions for triggering an email based on standard features of [Notification](/erpnext/notifications). Following is the help on how to define a message and link which would take user to a Web Form and allow submitting a rating.  
+
+```
+https://example.erpnext.com/feedback?new=1&document=Sales%20Order&document_name={{doc.name}}
+```
+  
+Where:  
+* **example.erpnext.com** will be URL of your ERPNext account
+* **feedback** will be the name of custom doctype added for collecting a feedback
+* **document=Sales%20Order&** will be a name of DocType for which you want to sent a notification
+* document_name={{doc.name}} will pick-up specific document name and update in the Document Name field of Feedback form.
+
+  
+[Screenshot on the live page]  
+  
+**Quick Demo:**  
+Here is the demo of how link would be generated, Web Form would be filled and capture in ERPNext.  
+[Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__fetch-child-table-values-using-jinja-tags.md -->
+---
+title: "Fetch child table values using Jinja tags"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/fetch-child-table-values-using-jinja-tags"
+updated: "2026-03-04"
+---
+
+Jinja templating can be used to reference any field on any DocType in ERPNext. This can simply be done by calling {{doc.field_name}} on a print format, where 'doc.name' is the variable name for a certain field.
+
+ 
+
+However this approach does not work for Child Tables inside a DocType. This article will help you traverse and display all rows pertaining to a child table inside any DocType.
+
+ 
+
+**Pre Requisites**
+
+ 
+
+We would require the variable name of the child table on the corresponding DocType. This can be viewed from the 'Customize Form' section for the required DocType. The same is illustrated below
+
+[Screenshot on the live page]
+
+We will also require the variable names of all the fields inside the child table which need to be referenced. This can be obtained from the 'Customize Form' section of the corresponding child table as shown below
+
+[Screenshot on the live page]
+
+ 
+
+[Screenshot on the live page]
+
+ 
+
+[Screenshot on the live page]
+
+ 
+
+[Screenshot on the live page]
+
+**Method 1. Displaying rows of a Child Table on an unordered list**
+
+
+
+{% for row in doc.items %}
+
+* Item Code: {{ row.get_formatted("item_code", doc) }}
+
+Quantity: {{ row.get_formatted("qty", doc) }}
+
+Rate: {{ row.get_formatted("rate", doc) }}
+
+Amount: {{ row.get_formatted("amount", doc) }}
+
+
+{% endfor %}
+
+
+
+
+ 
+
+The output on a print format would be as follows
+
+[Screenshot on the live page]
+
+ 
+
+ 
+
+**Method 2. Displaying rows of a Child Table as a table**
+
+ 
+
+
+
+  
+
+   
+
+  
+
+  
+
+ 
+
+ 
+
+| Item Code | Quantity | Rate | Amount |
+| --- | --- | --- | --- |
+| {{item.item_code }} | {{item.qty}} | {{item.rate}} | {{item.amount}} |
+
+
+
+ 
+
+The output on a print format would be as follows
+
+ 
+
+[Screenshot on the live page]
+
+ 
+
+This template can be used for reference. Any additional fields on the child table field can be fetched in a similar manner, by amending the Jinja template.
+
+<!-- page: erpnext/erpnext__fetch-the-entire-address-text-on-a-custom-field.md -->
+---
+title: "Fetch the entire address text on a custom field"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/fetch-the-entire-address-text-on-a-custom-field"
+updated: "2026-03-02"
+---
+
+This article will help you to add a custom field for fetching full addresses on any DocType, using a 3 step approach.
+
+
+
+
+
+**Step 1. Cosmetic customisations on the required DocType**
+
+
+
+
+
+We would first need to add two new fields on the DocType for fetching addresses:-
+
+
+
+
+
+a) A field of type 'Link' which points to our Address master
+
+b) A field of type 'Read Only' which would display the full address
+
+
+
+
+
+Take note of the variable names of the new fields you create. This information will be required later in the process.
+
+
+
+
+
+[Screenshot on the live page]
+
+
+
+
+
+For information on creating custom fields on a DocType you can refer to the following link - [Custom Fields in ERPNext](https://docs.erpnext.com/docs/v13/user/manual/en/customize-erpnext/custom-field)
+
+
+
+
+
+Once this step is done you should have two new fields on the selected DocType, as illustrated below:-
+
+
+
+
+
+[Screenshot on the live page]
+
+
+
+
+
+
+
+
+
+
+
+**Step 2. Adding a Client Script for fetching the full address from our Address master**
+
+
+
+
+
+Search for 'Client Script' on the search bar, and create a new Client Script. Select the required DocType on which we need to fetch the address on.
+
+
+
+
+
+In the section for the script paste the following Client Script:-
+
+
+
+
+
+
+
+```
+frappe.ui.form.on("DocType Name", "address_link_field", function(frm, cdt, cdn) {    if(frm.doc.address_link_field){     return frm.call({      method: "frappe.contacts.doctype.address.address.get_address_display",      args: {       "address_dict": frm.doc.address_link_field      },      callback: function(r) {       if(r.message)           frm.set_value("full_address_field", r.message);              }     });    }    else{        frm.set_value("full_address_field", "");    }});
+```
+
+
+
+
+
+Here we will need to replace the the following changes based on your use case:-
+
+a) Replace 'DocType Name' with the Name of the DocType we need to fetch the address on. Eg. Sales Invoice, Purchase Order etc.
+
+b) Replace 'addresslinkfield' with the variable name of the custom link field we created in Step 1
+
+c) Replace 'fulladdressfield' with the variable name of the custom read only field we created in Step 1
+
+
+
+
+
+Once this is done, you would have a Client Script which looks as below:-
+
+
+
+
+
+[Screenshot on the live page]
+
+
+
+
+
+**Step 3. Save, enable and test the Client Script**
+
+
+
+
+
+Once the Client Script is amended as per your use case, we can Save it and enable it by clicking the 'Enabled' checkbox.
+
+Go to the required DocType and refresh the page for the changes to take effect.
+
+
+
+
+
+Now when an address is selected on our custom link field, the entire address will be fetched on our custom read only field, as illustrated below:-
+
+
+
+
+
+[Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__fetch-values-from-master.md -->
+---
+title: "Fetching Values From Master"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/fetch-values-from-master"
+updated: "2026-03-02"
+---
+
+
+To pull a value of a link on selection, use the `add_fetch` method.
+
+ 
+ 
+ add_fetch(link_fieldname, source_fieldname, target_fieldname)
+ 
+
+### Example
+
+Let' say you have created a Custom Field **VAT ID** (`vat_id`) in **Customer** and **Sales Invoice** and want to make sure that this value gets updated every time you select a Customer in a Sales Invoice.
+
+To configure this, in the Sales Invoice Custom Script, you can add this line:
+
+ 
+ 
+ cur_frm.add_fetch('customer','vat_id','vat_id')
+ 
+
+<!-- page: erpnext/erpnext__fetching-data-from-a-document.md -->
+---
+title: "Fetching Data from a Document\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/fetching-data-from-a-document"
+updated: "2026-03-04"
+---
+
+
+**Question:** We track Customer's PO Number and PO Date field in the Sales Order. To have these values fetched into Sales Invoice as well, we have inserted Custom Field in the Sales Invoice. However, when we create Sales Invoice from the Sales Order, Customer's PO details are not being fetched.
+
+**Answer:** When data is fetched from one transaction to the another, then mapping of the data is done based on the field names. If two transactions have fields with the exact same name, then it's values are mapped.
+
+For example, if you want Customer's PO No. and PO Date to be fetched from Sales Order to Sales Invoice, then you should ensure that Custom Fields added in the Sales Invoice has an exact same field name as in the Sales Order.
+
+Sales Order (standard fields)
+
+[Screenshot on the live page: Standard fields in Sales Order]
+
+Sales Invoice (custom fields)
+
+[Screenshot on the live page: Custom Field in Sales Invoice]
+
+Since names for the Customer's PO related fields are same in the Sales Order and Sales Invoice, when creating Sales Invoice from the Sales Order, values in these fields are auto-fetched.
+
+[Screenshot on the live page: Values fetching from Sales Order to Sales Invoice]
+[Screenshot on the live page: Values fetching from Sales Order to Sales Invoice]
+
+<!-- page: erpnext/erpnext__fichier_des_ecritures_comptables.md -->
+---
+title: "Le Fichier des \u00c9critures Comptables [FEC]\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/fichier_des_ecritures_comptables"
+updated: "2026-07-02"
+---
+
+
+Since 2014, a legal requirement makes it mandatory for companies operating in France to provide a file of their general accounting postings by fiscal year corresponding to an electronic accounting journal.
+
+For ERPNext users this file can be generated using a report available if you system's country is France.
+
+
+### Requirements
+
+To generate the report correctly, your Chart of Account needs to be setup according to the french accounting rules.
+
+All accounts need to have a number in line with the General Chart of Account (PCG) and a name.
+
+The SIREN number of your company can be added in the "Company" doctype.
+
+
+### CSV generation
+
+You can generate the required CSV file by clicking on "Export" in the top right corner of the report.
+
+
+### Testing Instructions
+
+To test the validity of your file, the tax administration provides a testing tool at the following address: [Outil de test des fichiers des écritures comptables (FEC)](http://www.economie.gouv.fr/dgfip/outil-test-des-fichiers-des-ecritures-comptables-fec)
+
+<!-- page: erpnext/erpnext__field-types.md -->
+---
+title: "Field Types"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/field-types"
+updated: "2026-03-04"
+---
+
+The following are the types of fields you can define while creating new ones, or while amending standard ones.
+
+#### Link
+
+Link field is connected to another master from where it fetches data. For example, in the Quotation master, the Customer is a Link field. To know more, [click here](/erpnext/creating-custom-link-field).
+
+#### Dynamic Link
+
+Dynamic Link field is one which can search and hold value of any document/doctype. [Click here](/erpnext/dynamic-link-fields) to learn how Dynamic Link Field functions.
+
+#### Check
+
+This will enable you to have a checkbox here.
+
+[Screenshot on the live page: Check Field TYpe]  
+
+
+#### Select
+
+Select will be a drop-down field. You can add multiple results in the Option field, separated by row.
+
+[Screenshot on the live page: Select Field Type]  
+
+
+#### Table
+
+A table will be a kind of Link field which renders another DocType within the current form. For example, the Item Table in the Sales Order is a Table field, which is linked to Sales Order Item DocType.
+
+[Screenshot on the live page: Table Field Type]  
+
+
+#### Attach
+
+Attach field allows you to browse a field from the File Manager and attach the same herein.
+
+[Screenshot on the live page: Attach Field Type]  
+
+
+#### Attach Image
+
+Attach Image is a field wherein you will be allowed to attach Images of the format jpeg, png, etc. This becomes the Image representing that particular DocType. For e.g., you would want the image of an Item in its DocType, you can choose your field to be an Attach Image Field.
+
+[Screenshot on the live page: Field Type Image]  
+
+
+#### Text Editor
+
+Text Editor is a text field. It has text-formatting options. In ERPNext, this field is generally used for defining Terms and Conditions.
+
+[Screenshot on the live page: Field Type Text Editor]  
+
+
+#### Date
+
+This field will enable you to enter the Date in this field.
+
+[Screenshot on the live page: Field Type Date]  
+
+
+#### Date and Time
+
+This field will give you a date and time picker. The current date and time (as provided by your computer) are set by default.
+
+[Screenshot on the live page: Field Type Date and Time]  
+
+
+#### Barcode
+
+In this field, you can specify the field as Barcode which will allow you to enter a Barcode number. Oce you do that, the Barcode would automatically get generated against the number.
+
+[Screenshot on the live page: Field Type Barcode]  
+
+
+#### Button
+
+This kind of field will be an action button, like Save, Submit, etc.
+
+[Screenshot on the live page: Field Type Button]  
+
+
+#### Code
+
+If the Field Type is selected as code, you will be able to enter a Code to the field.
+
+[Screenshot on the live page: Field Type Code]  
+
+
+#### Color
+
+You will have the option of specifying the color for this Form.
+
+[Screenshot on the live page: Field Type Colour]  
+
+
+#### Column Break
+
+Since ERPNext has multiple column layouts, using Column Breaks, you can divide a set of fields into a maximum of two columns.
+
+[Screenshot on the live page: Field Type Column Break]  
+
+
+#### Currency
+
+Currency field holds numeric value, like Item Price, Amount, etc. Currency field can have value up to six decimal places. Also, you can have a currency symbol being shown for the currency field.
+
+[Screenshot on the live page: Field Type Currency]  
+
+
+#### Data
+
+The data field will be a simple text field. It allows you to enter a value of up to 140 characters, making this the most generic field type. To enable validations for Email, Name, or Phone Number inputs, set options to "Email", "Name", "Phone" in Settings > DocType.
+
+[Screenshot on the live page: Field Type Data]  
+
+
+#### Float
+
+Float field carries numeric value, up to nine decimal places. Precision for the float field is set via [Set Precision](/erpnext/set-precision)
+
+> Setup > Settings > System Settings
+
+The setting will be applicable on all the float field.
+
+[Screenshot on the live page: Field Type Float]  
+
+
+#### Geolocation
+
+Use Geolocation field to store GeoJSON [feature_collection](https://tools.ietf.org/html/rfc7946#section-3.3). Stores polygons, lines, and points. Internally it uses the following custom properties for identifying a circle.
+
+Read [Geolocation field](/erpnext/geolocation-field) for more understanding.
+
+[Screenshot on the live page: Field Type Geolocation]  
+
+
+#### HTML
+
+You can select the field to be an HTML field when you want the data to be entered in HTML format.
+
+[Screenshot on the live page: Field Type HTML]  
+
+
+#### Image
+
+Image field will render an image file selected in another attach field.
+
+For the Image field, under Option (in Doctype), a field name should be provided where the image file is attached. By referring to the value in that field, the image will be a reference in the Image field.
+
+[Screenshot on the live page: Field Type Image]  
+
+
+#### Int (Integer)
+
+The integer field holds numeric value, without decimal place.
+
+[Screenshot on the live page: Field Type Integer]  
+
+
+#### Small Text
+
+Small Text field carries text content and has more character limit than the Data field.
+
+[Screenshot on the live page: Field Type Small Text]  
+
+
+#### Long Text
+
+You can define your field to a Long Text Field when you would want to enter data with an unlimited character limit.
+
+[Screenshot on the live page: Field Type Long Text]  
+
+
+#### Text
+
+This field type would allow you to add text in the field. The character limit in Small text, Long text and Text fields shall be determined based on the Relational Database Management System.
+
+[Screenshot on the live page: Field Type Text]  
+
+
+#### Markdown Editor
+
+This field will allow you to add the text in Markup language.
+
+[Screenshot on the live page: Field Type Markdown Editor]  
+
+
+#### Password
+
+The password field will have decoded value in it.
+
+[Screenshot on the live page: Field Type Password]  
+
+
+#### Percent
+
+You can define the field as a Percentage field which in the background will be calculated as a percentage.
+
+[Screenshot on the live page: Field Type Percent]  
+
+
+#### Rating
+
+You can define the field as a Rate field which in the background will be calculated as Rating.
+
+[Screenshot on the live page: Field Type Rating]  
+
+
+#### Read Only
+
+Read Only field will carry data fetched from another form which will be non-editable. You should set Read Only as field type if its source for value is predetermined.
+
+[Screenshot on the live page: Field Type Read Only]  
+
+
+#### Section Break
+
+Section Break is used to divide the form into multiple sections.
+
+[Screenshot on the live page: Field Type Section Break]  
+
+
+#### Signature
+
+You can define the field to be a Signature field wherein you can add the Digital Signature in this field.
+
+[Screenshot on the live page: Screenshot 2024-08-28 at 3.01.56 PM]  
+
+
+#### Table MultiSelect
+
+This is a combination of 'Link' type and 'Table' type fields. Instead of a child table with 'Add Row' button, in one field multiple values can be selected.
+
+[Screenshot on the live page: Field Type Table MultiSelect]  
+
+
+#### Time
+
+This is a Time field where you can define the Time in the field.
+
+[Screenshot on the live page: Field Type Time]  
+
+
+#### Duration
+
+You can use the Duration field if you want to define a timespan.
+
+[Screenshot on the live page: Field Type Duration]  
+
+
+If you don't want to track duration in terms of days or seconds, you can enable "Hide Days" and "Hide Seconds" options respectively in your Form.
+
+[Screenshot on the live page: Field Type Duration Options]  
+
+
+This is how the duration field looks after the above changes.
+
+[Screenshot on the live page: Field Type Duration]  

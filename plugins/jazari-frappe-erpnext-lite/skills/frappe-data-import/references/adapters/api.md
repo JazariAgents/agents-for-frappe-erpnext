@@ -162,13 +162,13 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Import records from a spreadsheet | Data Import — follow "Import a spreadsheet: the tested recipe" above | `docs/erpnext/erpnext-18.md` lines 490–730 |
-| Export records to a spreadsheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 462–488 |
+| Import records from a spreadsheet | Data Import — follow "Import a spreadsheet: the tested recipe" above | `docs/erpnext/erpnext-18.md` lines 392–632 |
+| Export records to a spreadsheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 364–390 |
 | Update many records at once | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 858–888 |
 | Rename records in bulk | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 794–856 |
-| Import accounting masters | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-30.md` lines 541–643 |
-| Import advances, payments and balances | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-30.md` lines 645–753 |
-| Migrate from QuickBooks | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-49.md` lines 135–333 |
+| Import accounting masters | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-30.md` lines 3–105 |
+| Import advances, payments and balances | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-30.md` lines 107–215 |
+| Migrate from QuickBooks | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-49.md` lines 85–283 |
 
 ## Not an API job
 

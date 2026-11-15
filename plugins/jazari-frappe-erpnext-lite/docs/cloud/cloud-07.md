@@ -1,91 +1,5 @@
 <!-- Frappe documentation: cloud, part 7 of 9. Index: docs/INDEX.md -->
 
-<!-- page: cloud/cloud__servers__guidelines-for-choosing-a-server-plan.md -->
----
-title: "Guidelines for choosing a server plan"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/servers/guidelines-for-choosing-a-server-plan"
-updated: "2026-03-10"
----
-
-We offer a number of plans for both your application and your database server, and you may be confused as to which plan to choose for both. This document will help you rectify that confusion.
-
-90% of the time, you won't be picking the correct plan for your server from the get go, which is why we have the provision to change plan whenever you desire. This is because you can only see the workload on the servers once you start using your sites.
-
-The best tool to help you analyse the workload on the server is the **Analytics** tab on your Frappe Cloud Servers dashboard. You'll see many charts. I'll try to go over some of the important ones that you have quick control over with plans.
-
-## Server Analytics
-
-## **CPU**
-
-This is a graph of the CPU Time consumed by the processes on your server.
-
-**Idle** means there are no processes consuming CPU on the machine. This will go down as CPU is being used i.e there are requests hitting your sites or when background jobs run in your site.
-
-![](https://frappecloud.com/files/9jQqyMm.png)
-
-**iowait** means there are processes waiting for disk operations to finish on your server. This may be reading/writing a big file or loading a table from the database into memory.
-
-**nice** means there are processes which don't take priority but will run when there aren't other processes that are to run. This usually attributes to background jobs as background jobs in Frappe are [niced](https://en.wikipedia.org/wiki/Nice_(Unix)).
-
-> **For database server, servers spike in iowait is generally a sign to upgrade for more memory . This is because it's best practice to give Mariadb as much memory as possible so the database can mostly reside in RAM. This'll make all the database operations fast as memory is faster than disk.**
-
-## **Load Average**
-
-If you're not familiar with load average concept in Linux, refer [https://www.digitalocean.com/community/tutorials/load-average-in-linux](https://www.digitalocean.com/community/tutorials/load-average-in-linux) to learn a bit about it.  
-
-![](https://frappecloud.com/files/IpCh0a4.png)
-
-In the above chart `Load Average 1` is the load average in a time frame of 1 minute, `Load Average 5` is the load average in a time frame of 5 minutes and so on.
-
-> Spike in `Load Average 1` may be harmless and normal but a spike in `Load Average 15` might be an issue  
->  
-> 
-
-If load average comes to more than no. of cpu cores, it may be an indication to optimise your code or upgrade server for more cpu.
-
-### Bench Memory Usage
-
-Benches you create on the server will use around **400 MB** (appx.) of memory at minimum number of sites (2 [gunicorn workers](#gunicorn-workers) and 1 set of [background workers](https://frappecloud.com/docs/servers/guidelines-for-choosing-a-server-plan#background-workers)). The system will try to allocate as much free memory that is available to existing bench on the basis of sites on the bench. This means that you should be careful adding too many bench to a server that has only 4 GB total RAM available. You can watch free memory available on the server from the **Analytics** tab on the server dashboard.
-
-#### Gunicorn workers (or web workers)
-
-These are [processes](https://en.wikipedia.org/wiki/Process_(computing)) that serve the web requests to your site. Only 2 workers is enough for a bench with small sites who don't get a lot of concurrent requests. This is because most web requests happen within a span of milliseconds. If you run into a [gateway timeout](https://frappecloud.com/docs/faq/site#site-slow-gateway-timeout) , it is because the web workers are busy executing some long request.
-
-The number within a bench is decided by the system. There is no provision for users to decide this as of now. The system allocates workers based on the plan of site and number of sites in the bench.
-
-#### Background workers
-
-These are [processes](https://en.wikipedia.org/wiki/Process_(computing)) that execute the background jobs in your site. These can be scheduled jobs or jobs created with `frappe.enqueue`. Long-running jobs/queries/reports should be run here so that you can use your site freely. Even 1 of this worker is enough, as these jobs aren't expected to run instantaneously and go in a queue if the worker is busy.
-
-## FAQ
-
-### Very High Database Server Memory Usage
-
-MariaDB on all servers is configured to use as much memory as possible. This ensures that almost all db operations are done in memory and hence fast. So it's normal to see 90% or higher memory usage on your database server. [read more](https://mariadb.com/kb/en/innodb-buffer-pool/)
-
-We also try to limit the maximum memory mariadb uses in order to avoid a [OOM](https://en.wikipedia.org/wiki/Out_of_memory) situation and hence downtime.
-
-One rule of thumb is to have as much RAM on the database server as the total database size. Eg: Here: 16 GB would be good as total database size is 17GB
-
-![imagee20b17](/files/imagee20b17.png)
-
-If all the data within the server is accessed all the time, it can cause memory contention.
-
-Backups could also contribute to high memory consumption and there, you can schedule backups sporadically across the sites on your site. Please raise a ticket on support.frappe.io if you'd like for us to do that
-
-### Work-horse terminated unexpectedly
-
-If your background jobs fail with this particular error, it indicates not enough memory on your application server. You should upgrade the same in such cases.
-
-### Why separate Database and Application servers
-
-This is because both database and application servers run different kind of software. And as they do, it is better to keep them on separate VMs as we can configure the VM to be better suited for running the software. For example, database servers tend to be machines with more memory and less cpu as keeping data in memory makes the site run faster. And we can scale the same as the database size increases.
-
-### How do I decide on a dedicated server plan for a year
-
-You may find [this spreadsheet](https://docs.google.com/spreadsheets/d/1_RW1sMqAUSkoTV7vSlqiUn5O3oq1WPE9yW3sKcWq2zQ/edit#gid=1671562397) useful. Note that this is a guess and not a guarantee. You may well need to upgrade/downgrade your plan depending on your usage.
-
 <!-- page: cloud/cloud__servers__instance-types.md -->
 ---
 title: "Server Instance Types"
@@ -132,7 +46,7 @@ You can now choose a **Unified Server** setup, where both the application (bench
 
 This simplifies the architecture and enables you to run a dedicated setup at a **lower cost**.
 
-![](/files/image0d442a.png)
+[Screenshot on the live page]
 *Architecture for Unified Server*
 
 Unified servers are now available for all cloud providers on Frappe Cloud.
@@ -147,7 +61,7 @@ updated: "2026-05-22"
 
 From the [Servers](https://frappecloud.com/dashboard/servers) tab on the dashboard, click on **New** **Server.** 
 
-![](/files/Screenshot 2026-02-24 at 18.03.40.png)
+[Screenshot on the live page]
 
 
 
@@ -155,7 +69,7 @@ From the [Servers](https://frappecloud.com/dashboard/servers) tab on the dashboa
 
 Enter the **Server Name.** 
 
-![](/files/Screenshot 2026-02-24 at 18.06.16.png)
+[Screenshot on the live page]
 
 
 
@@ -163,13 +77,13 @@ Enter the **Server Name.**
 
 Select the **Cloud Provider**. (Note - [Click here](https://docs.frappe.io/cloud/servers/provider-comparision) to know how providers differ from each other)
 
-![](/files/Screenshot 2026-02-24 at 18.08.31.png)
+[Screenshot on the live page]
 
 
 
 Select the **Region**. 
 
-![](/files/image74ae1d.png)
+[Screenshot on the live page]
 
 
 
@@ -178,7 +92,7 @@ Select the **Deployment Mode**.
 - Unified Server - Appropriate for most small and medium business workloads. 
 - Separate Server - Recommended for enterprise workloads that may need separate scaling for Application and Database in future.
 
-![](/files/imagea0326d.png)
+[Screenshot on the live page]
 
 
 
@@ -187,29 +101,29 @@ Select the **Service Type**.
 - Standard - Regular SLA
 - Premium - Priority SLA and Performance Consulting (Recommended for Large Enterprises)
 
-![](/files/Screenshot 2026-02-24 at 18.16.10.png)
+[Screenshot on the live page]
 
 
 
 Select the desired **Application Server configuration**. 
 
-![](/files/Screenshot 2026-02-24 at 18.19.17.png)
+[Screenshot on the live page]
 
 
 
 Select the desired **Database Server configuration**. (Note - This step is applicable only if you have chosen "Separate Server" as the Deployment Mode).
 
-![](/files/image4ddab5.png)
+[Screenshot on the live page]
 
 
 
 Click the checkbox to **Enable Auto Add-on Storage** if you wish to allow automatic scaling of Application and Database Servers based on usage. (Note - This option is available only on select cloud providers.)
 
-![](/files/Screenshot 2026-02-24 at 18.22.38.png)
+[Screenshot on the live page]
 
 Review the Server Configuration and click the checkbox to provide **Consent for Local Compliances** and click on **Create Server**.
 
-![](/files/Screenshot 2026-02-24 at 18.26.58.png)
+[Screenshot on the live page]
 
 
 
@@ -219,13 +133,13 @@ A new server will be created based on the selected configuration. It takes 5-10 
 
 You can check the **Plays** tab to track the progress. (Note - Notice the "Installing" status on the top bar.)
 
-![](/files/Screenshot 2026-02-24 at 18.29.27.png)
+[Screenshot on the live page]
 
 
 
 Once the server is created, the status will turn to "Active". You can start working with the server now. 
 
-![](/files/image4ea013.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__servers__new_bench.md -->
 ---
@@ -235,9 +149,9 @@ url: "https://docs.frappe.io/cloud/servers/new_bench"
 updated: "2026-02-16"
 ---
 
-From the server dashboard go to Bench Groups and click on New Bench Group ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdzAhq0dHMhG40H2jh4gj0r7R9Avq7QX7EQadMCIXkHDdqOrfS6R8oOeitF_p5pBUoMmWQ0XUPcb7a8lugmgw6yK7TNnGZiVcMLeSF39NMhpIWeew-MH0tKYWZStk4BzP13PAPPiQ?key=B8rSwy69a11PMxQbCQftVilN)  
+From the server dashboard go to Bench Groups and click on New Bench Group [Screenshot on the live page]  
 Choose the version for which you want to create a new bench group, enter the title for the new bench group, check the "I agree" box, and then click on "Create Bench Group."  
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfb9RcgjZOkU0245q47VsyfbiVGRIzPUbVw07Bg_62MVX1tpooNbhomVD0FzIxNtO9xuasb7kG4EugTdcbEsOboH5RGyuAngBg_b4Y5UNo3wplK8PhzHucD0v4Soy0_CRRnJfLwkA?key=B8rSwy69a11PMxQbCQftVilN)  
+[Screenshot on the live page]  
   
 Follow steps mentioned in [Private Bench Groups > Creating a new bench group](https://frappecloud.com/docs/benches/create-new).
 
@@ -283,7 +197,7 @@ Frappe Cloud does not provision or manage these servers - you are responsible fo
 
 ### Architecture
 
-![](/files/imagecfc51a.png)
+[Screenshot on the live page]
 
 Frappe Cloud sets up a dedicated WireGuard P2P mesh between:
 
@@ -297,19 +211,19 @@ Afterwards, Frappe Cloud will setup a database replica to your on-prem server an
 
 Once support enables the feature, you will see **“Manage On-Prem Replication”** under server actions.
 
-![](/files/image0a7d33.png)
+[Screenshot on the live page]
 
 Click **Manage** to view the setup guide for connecting your on-prem server to Frappe Cloud.
 
-![](/files/image6864ea.png)
+[Screenshot on the live page]
 
 Complete the on-prem setup and initiate the replication setup from the UI.
 
-![](/files/image1022e2.png)
+[Screenshot on the live page]
 
 You can track progress on the same page.
 
-![](/files/image5a1f62.png)
+[Screenshot on the live page]
 
 Once successful :
 
@@ -324,7 +238,7 @@ After setup, a small daemon runs on your on-prem server to assist with failover.
 
 **Access the dashboard at :**  `http://<your_on_prem_server_ip_address>:5000`
 
-![](/files/image63629e.png)
+[Screenshot on the live page]
 
 From the dashboard, you can :
 
@@ -335,7 +249,7 @@ From the dashboard, you can :
 
 Once completed, each site will be accessible on a specific port.
 
-![](/files/image9a3479.png)
+[Screenshot on the live page]
 
 **Example:** To access `test-failover-1.nbg.frappe.cloud`, you have to visit `http://<your_on_prem_server_ip>:8394`
 
@@ -343,7 +257,7 @@ Once completed, each site will be accessible on a specific port.
 
 If you want to stop syncing changes from Frappe Cloud to your on-prem server, use the **Stop Replication** option.
 
-![](/files/image0373c9.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__servers__plan.md -->
 ---
@@ -365,7 +279,7 @@ You can change your server plan to resize the server. Application and Database s
 
 Go to the Server Overview tab and find the Plan card. Click on **Change** button.
 
-![](/files/oo6tvfK.png)  
+[Screenshot on the live page]  
 
 
 Choose new plan. Click on Change plan.
@@ -388,10 +302,10 @@ Storage Add-on Plan
 
 You can increase the storage of your server without upgrading your server's plan through Storage Add-ons. To buy Storage Add-on
 
-1. Go to the Server Overview and click on the + button beside storage![](/files/WNI1Uun.png)
+1. Go to the Server Overview and click on the + button beside storage[Screenshot on the live page]
 2. Select the amount of storage you want to buy and click on confirm
 
-![](/files/flJZVgK.png)
+[Screenshot on the live page]
 
 
 > Note: You can't reduce/revert the storage you've bought for your server
@@ -557,18 +471,18 @@ Setup Guide
 
 
 
-![](/files/Screenshot%20from%202025-04-09%2013-51-37.png)
+[Screenshot on the live page]
 
 4. Next, click on the `Activate` button of webhook record.
 
-![Screenshot 2024-09-25 at 4.29.43 PM](/files/Screenshot 2024-09-25 at 4.29.43 PM.png "Screenshot 2024-09-25 at 4.29.43 PM.png")
+[Screenshot on the live page: Screenshot 2024-09-25 at 4.29.43 PM]
 5. Click on `Validate Webhook`
 6. If everything looks good, you can activate the webhook from there
 
   
 
 
-![Screenshot 2024-09-25 at 4.32.06 PM](/files/Screenshot 2024-09-25 at 4.32.06 PM.png "Screenshot 2024-09-25 at 4.32.06 PM.png")  
+[Screenshot on the live page: Screenshot 2024-09-25 at 4.32.06 PM]  
 
 
   
@@ -657,21 +571,21 @@ updated: "2026-05-22"
 1. Go to desk of your site.
 2. Click on `Login to Frappe Cloud` button inside the menu.
 
-![Screenshot 2024-10-28 at 5.50.14 PM](/files/Screenshot 2024-10-28 at 5.50.14 PM.png "Screenshot 2024-10-28 at 5.50.14 PM.png")
+[Screenshot on the live page: Screenshot 2024-10-28 at 5.50.14 PM]
 3. It will take few seconds to initiate the login request, after that you will be presented a modal like this
 
-![Screenshot 2024-10-28 at 5.51.08 PM](/files/Screenshot 2024-10-28 at 5.51.08 PM.png "Screenshot 2024-10-28 at 5.51.08 PM.png")
+[Screenshot on the live page: Screenshot 2024-10-28 at 5.51.08 PM]
 4. Check your mailbox. You will recieve an e-mail with a verification code.
 
-![Screenshot 2024-10-28 at 5.51.51 PMb](/files/Screenshot 2024-10-28 at 5.51.51 PMdb8d68.png "Screenshot 2024-10-28 at 5.51.51 PMb.png")
+[Screenshot on the live page: Screenshot 2024-10-28 at 5.51.51 PMb]
 5. Put the verification code in input box and click on `Verify`  
-![Screenshot 2024-10-28 at 5.52.15 PM](/files/Screenshot 2024-10-28 at 5.52.15 PM.png "Screenshot 2024-10-28 at 5.52.15 PM.png")
+[Screenshot on the live page: Screenshot 2024-10-28 at 5.52.15 PM]
 6. You should be now logged-in and redirected to Frappe Cloud dashboard
 
-![Screenshot 2024-10-28 at 5.52.58 PM](/files/Screenshot 2024-10-28 at 5.52.58 PM.png "Screenshot 2024-10-28 at 5.52.58 PM.png")
+[Screenshot on the live page: Screenshot 2024-10-28 at 5.52.58 PM]
 7. You will also get a `Login Successful` banner
 
-![Screenshot 2024-10-28 at 5.52.51 PM](/files/Screenshot 2024-10-28 at 5.52.51 PM.png "Screenshot 2024-10-28 at 5.52.51 PM.png")  
+[Screenshot on the live page: Screenshot 2024-10-28 at 5.52.51 PM]  
 
 
   
@@ -683,10 +597,10 @@ updated: "2026-05-22"
 > 
 > 	1. Tap on `Click Here to login` link inside the modal.
 > 	
-> 	![Screenshot 2024-10-28 at 5.52.51 PM](/files/Screenshot 2024-10-28 at 5.52.51 PM77e6e1.png "Screenshot 2024-10-28 at 5.52.51 PM.png")
+> 	[Screenshot on the live page: Screenshot 2024-10-28 at 5.52.51 PM]
 > 	2. Your browser will show a message that popup has been blocked. This message can be vary based on the browser.
 > 	
-> 	![Screenshot 2024-10-28 at 5.52.36 PM](/files/Screenshot 2024-10-28 at 5.52.36 PM.png "Screenshot 2024-10-28 at 5.52.36 PM.png")  
+> 	[Screenshot on the live page: Screenshot 2024-10-28 at 5.52.36 PM]  
 > 	
 > 	
 > 	In case of firefox, you can choose `Show https://....` option.
@@ -707,13 +621,13 @@ You can configure multiple notifications at the site level to ensure that mails 
 - Under Notification Settings, click `Manage` to open the configuration screen.
 
 
-![](/files/Screenshot%202025-10-06%20at%2015-56-26%20Settings%20-%20Profile.png)
+[Screenshot on the live page]
 
 ### Configuring Notifications
 
 The Notification Configuration screen allows you to set up how and where notifications are sent.
 
-![](/files/Screenshot%202025-10-06%20at%2015-55-33%20Settings%20-%20Profile.png)
+[Screenshot on the live page]
 
 
 ### Notification Flow Logic
@@ -726,7 +640,7 @@ The notification delivery follows a top-down hierarchy:
 
 
 
-![](/files/shapes%20at%2025-10-06%2015.58.51.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__site-process-list.md -->
 ---
@@ -738,10 +652,10 @@ updated: "2026-02-16"
 
 You can view running mariadb queries in your site by opening **Insights** tab, and then **Reports ->**  **Process List Report**
 
-![](/files/XnwpZ4e.png)  
+[Screenshot on the live page]  
 
 
-![](/files/jsXP8Fw.png)  
+[Screenshot on the live page]  
 
 
 You'll see running queries in the above page when using your site
@@ -760,15 +674,15 @@ This usually indicates an application related issue. If your site is on custom [
 
 1. Go to your site's **Bench Group** dashboard and check **Sites** tab
 
-![](/files/image84f365.png)
+[Screenshot on the live page]
 
 1. Click on **View Logs**
 
-![](/files/image471f35.png)
+[Screenshot on the live page]
 
 1. Open **web.error.log** and scroll to bottom. You should be able to see the traceback:
 
-![](/files/image89f8fe.png)
+[Screenshot on the live page]
 *In this example, the site can't connect to the database server. Restarting the database server might a solution here.*
 
 #### Using SSH Access (Option 2)
@@ -924,7 +838,7 @@ If `/api/method/frappe.desk.query_report.run` is at the top of the list, your re
 
 The **Query Report Durations** chart names the reports that take the most time.
 
-![](/files/prepared-report.jpg)
+[Screenshot on the live page]
 
 ## What does "Other" mean in chart
 
@@ -932,7 +846,7 @@ The **Other** bucket holds all requests that are not in the top slowest paths.
 
 When **Other** is the largest bar, one pattern of endpoint is usually slow. In this example, the `/custom_app/view/` endpoint is slow, and the developer of that app must examine it.
 
-![](/files/slow-other-bucket.png)
+[Screenshot on the live page]
 
 If you see no pattern and **Other** is still the largest bar, the server itself is slow.
 
@@ -974,7 +888,7 @@ To run the migration:
 
 Once triggered, that will run the equivalent of the `bench migrate` command on your site.
 
-![](/files/image525c9e.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__site__site-migrations__introduction-to-site-migration.md -->
 ---
@@ -986,7 +900,7 @@ updated: "2026-03-06"
 
 The **Site Migration** feature allows you to seamlessly move your site across benches and servers with minimal effort.
 
-![](/files/image2a0150.png)
+[Screenshot on the live page]
 
 This supports the following migration types :
 
@@ -1003,3 +917,136 @@ For most migration types, you can choose one of the following options :
 2. **Clone and Create a New Bench Automatically** : Automatically creates a new bench with the same configuration and apps as the current one.
 
 In the next pages, we will cover the details of each migration type.
+
+<!-- page: cloud/cloud__site__site-migrations__move-site-from-shared-to-private-bench.md -->
+---
+title: "Move Site From Shared To Private Bench"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/site/site-migrations/move-site-from-shared-to-private-bench"
+updated: "2026-03-06"
+---
+
+If your site is currently running on a **shared bench**, you can move it to a **private bench** to gain access to **Server Scripts**, install **custom apps**, and have better control over your bench environment.
+
+
+
+1. **Verify Plan Eligibility :** First, confirm that your **site plan supports private benches**. If your current plan does not support this feature, a **banner will appear on the site page** indicating that an upgrade is required. Click the **Upgrade Plan** button to proceed.
+  [Screenshot on the live page]
+2. **Upgrade Your Plan :**  To enable private bench support, upgrade your site to **any plan priced at $25/month or higher**.
+  [Screenshot on the live page]
+  After upgrading, a new banner will appear on the site page prompting you to move the site. Click **Move to Private Bench**.
+  [Screenshot on the live page]
+3. **Confirm the Migration Configuration :** A dialog will appear with **pre-filled configuration details** for the migration.  
+In most cases, you can keep the default values and click **Move to Private Bench** to proceed.  
+  [Screenshot on the live page]
+  Additional options are also available in the dialog, such as - Moving the site to a dedicated server or to an existing bench. You can explore these options if your setup requires a different configuration.  
+
+4. **Track the Migration Progress :** After triggering the migration, you will be redirected to a **progress page** where you can monitor the status of the operation.
+  [Screenshot on the live page]
+5. **Migration Completion :** Once the migration process finishes, your site will be running on a **private bench** according to the selected configuration.
+  [Screenshot on the live page]
+  You can now start using features such as **server scripts and custom app** for your site.
+
+<!-- page: cloud/cloud__site__site-migrations__move-site-to-different-region.md -->
+---
+title: "Move Site To Different Region"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-region"
+updated: "2026-03-06"
+---
+
+To move your site to a **different region**, follow the steps below.
+
+> If your site is currently running on a **Shared Bench**, you can skip the region setup steps described below.
+
+### 1. Add the Target Region
+
+Go to your **Private Bench** and open the **Regions** tab.
+
+Click **Add Region** and select the region where you want to deploy your site.
+
+[Screenshot on the live page]
+
+### 2. Wait for Bench Provisioning
+
+After adding the region, return to the **Sites** tab.
+
+A **new bench** will appear with the status **Installing**. Wait until the bench becomes **Active** before proceeding.
+
+[Screenshot on the live page]
+
+### 3. Trigger the Migration
+
+Once the bench becomes active, open your **Site** and go to the **Migrations** tab.
+
+Click **Trigger Migration**. From the migration type options, select **Move Site to Different Region**, then choose the **target region** where you want the site to be moved.
+
+[Screenshot on the live page]
+
+### 4. Migration Completion
+
+Once the migration process completes, your site will be **successfully moved to the selected region**.
+
+<!-- page: cloud/cloud__site__site-migrations__move-site-to-different-server-or-bench.md -->
+---
+title: "Move Site To Different Server or Bench"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench"
+updated: "2026-03-08"
+---
+
+If you want to move your site to another **server** or **bench**, you can do so from the **Migrations** tab.
+
+Go to the **Migrations** tab and click **Trigger Migration**.
+
+[Screenshot on the live page]
+
+
+
+## **Choose a Migration Option**
+
+You will see two available options :
+
+### 1. Use New Bench
+
+Select this option if you want to **create a new bench** and move your site there.  
+When choosing this option, you can deploy the new bench in one of two ways :
+
+- **Shared Server** – Create the new bench on a shared server (managed by Frappe).
+- **Dedicated Server** – Deploy the new bench on a dedicated server.
+
+After selecting your preferred configuration, click the button to **proceed with the migration setup**.
+
+[Screenshot on the live page]
+
+**Note:** If you are moving your site **from dedicated server to shared server**, the system will set **100 USD** as **default plan** after migration. Thereafter, you can upgrade / downgrade site plan according to your requirement.
+
+### **2. Use an Existing Bench :**
+
+Select this option if you already have a **bench with the required apps installed**.
+
+You will need to :
+
+- Select the **bench**
+- Select the **server where the bench should be deployed**
+
+After selecting the appropriate options, click the button to **proceed with the migration configuration**.
+
+[Screenshot on the live page]
+
+<!-- page: cloud/cloud__sites__activity.md -->
+---
+title: "Activity"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/sites/activity"
+updated: "2026-02-16"
+---
+
+Frappe Cloud maintains a log of all actions taken on your sites.
+
+
+
+
+[Screenshot on the live page]
+
+All actions taken on the sites from the dashboard or triggered directly by the system are logged in Frappe Cloud. This log may be viewed from your site's Activity tab.

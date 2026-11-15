@@ -1,168 +1,5 @@
 <!-- Frappe documentation: cloud, part 9 of 9. Index: docs/INDEX.md -->
 
-<!-- page: cloud/cloud__sites__move-site-across-server.md -->
----
-title: "Move site across server"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/move-site-across-server"
-updated: "2026-03-09"
----
-
-> **Note:** This option is now part of the **Site Migration** feature.
->
-> For instructions on moving a site to a different server / bench, see the documentation : [https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench](https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
-
----
-
-You can directly schedule Site Migration across server from a site's dashboard.
-
-> For moving your site to a dedicated server from a public bench group
->
-> 1. Use [Change Bench Group](https://frappecloud.com/docs/sites/move-site-to-private-bench) option to move the site to a private bench group
-> 2. Follow the below steps to move the site to your dedicated server
-
-1. To change the server for the site go to your site Dashboard>Actions>Change Server.
-
-![](/files/2ZNP8AO.png)
-
-2. Select the server you want to move to (Your team should own the server).
-
-![image](https://user-images.githubusercontent.com/63963181/285370002-4558082a-6271-4271-a6a7-c0bd10dcea7e.png)
-
-3. If the selected server isn't added to the bench group add it by clicking on Add Server to Bench Group.
-
-![image](https://user-images.githubusercontent.com/63963181/285370190-e81da89e-a8dd-4226-9d1d-e0eb0188f87d.png)
-
-4. Click Migrate Site to Server if the target server is added to the bench group and the Site Migration will be done in the scheduled time (or leave it untouched if you want it to start immediately).
-
-![image](https://user-images.githubusercontent.com/63963181/285369952-7d262852-3340-41e4-95fc-b7a3a695aced.png)
-
-
-
-
-
-### Why is so much additional storage required when moving site to dedicated server?
-
-The reason for storage that is much larger than backup size is because during site/backup restore, the backup files are uncompressed, due to which the disk storage spikes much higher than your database size. To avoid any failure during the restore, it is recommended you have enough storage on the server.   
-
-
-
-In such cases, you can [add the required add-on storage](https://docs.frappe.io/cloud/storage-addons) on the server to continue with restoration.
-
-<!-- page: cloud/cloud__sites__move-site-to-private-bench.md -->
----
-title: "Move site to private bench"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/move-site-to-private-bench"
-updated: "2026-06-17"
----
-
-**Note:** This option is now part of the **Site Migration** feature.
-
-For instructions on moving a site to a different server / bench, see the documentation : [https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench](https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
-
----
-
-> If you want to move to a dedicated server refer [Move site across server](https://frappecloud.com/docs/sites/move-site-across-server)
->
-> **Note:** If you need to move to a bench on another server, you need to move the current bench [to the server](https://frappecloud.com/docs/sites/move-site-across-server) first, and after that is done, do **Change bench** by following this doc.
-
-You can directly schedule Site Migration to a private bench from a site's dashboard.
-
-1. To change your site to a private bench, go to your site Dashboard>Actions>Change Bench
-
-![](/files/Ceb7DH0.png)
-
-2. If you don't have an available private bench, click on Clone current Bench to create a compatible private bench for your site to move to.
-
-![](/files/UvskiT2.png)
-
-3. If there's a compatible private bench, click on Change Bench to start moving the site to the chosen bench.
-
-![](/files/5KyGxnV.png)
-
-<!-- page: cloud/cloud__sites__site-config.md -->
----
-title: "Site Config"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/site-config"
-updated: "2026-02-19"
----
-
-[Site Config](https://frappeframework.com/docs/v13/user/en/basics/sites#site-config) is the Frappe Framework way of specifying environment variables.
-
-Site Config let's you configure options that is specific to a single site.
-
-For e.g.
-
-- Configure an Email account to send emails from.
-- Disable Website Cache
-- Disable [Global Search](https://docs.erpnext.com/docs/user/manual/en/using-erpnext/Global-search)
-- Enable [Server Scripts](https://docs.erpnext.com/docs/user/manual/en/customize-erpnext/server-script)
-
-## Update Site Config
-
-1. Go to the **Site Config** tab.
-2. Enter values in the corresponding input field.
-3. Click on **Update Configuration**.
-
-![](/files/w9v6T9E.png)
-
-# FAQ
-
-## Why can't I enable developer mode?
-
-Developer Mode lets you create standard documents like DocType, Page, Report, Workspace, etc. These are standard as they are persisted on disk as JSON files. These must be part of an app. You cannot add these files to the standard Frappe and ERPNext apps. Therefore, you will need to [create your own app](https://frappecloud.com/docs/benches/custom-app).
-
-
-
-Furthermore, apps on Frappe Cloud are ephemeral. We pull a fresh copy from Github every time a new bench is deployed.Therefore, even if you do manage to enable developer mode, your changes shall not persist.  
- 
-
-That is why you cannot enable developer mode on Frappe Cloud. You must create those features as a part of a custom app and then upload it on Frappe Cloud to use it.
-
-<!-- page: cloud/cloud__sites__version-upgrade.md -->
----
-title: "Version Upgrade"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/version-upgrade"
-updated: "2026-03-12"
----
-
-You can directly schedule version upgrades from a site's dashboard.
-
-### Sites on Private Benches
-
-1. To upgrade the version for your site, go to your Frappe cloud site Dashboard > **Actions** > **Version** **Upgrade**.
-  ![](/files/Z2MWPOI.png)
-2. If you have any custom frappe apps on your bench, you will be prompted to select the branch.
-  ![](/files/Screenshot 2026-02-26 at 1.40.13 PM.png)
-3. Click on Upgrade.
-4. A new bench will be created and the site will be moved there.
-
-### Sites on Public Bench
-
-1. To upgrade the version for your site, go to your Frappe cloud site Dashboard > **Actions** > **Version** **Upgrade**.
-2. Click on Upgrade if your site is not on the latest version.
-
-![](/files/flBiOZD.png)
-
-<!-- page: cloud/cloud__soc-2-report.md -->
----
-title: "SOC 2 (Systems and Organization Controls) Report"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/soc-2-report"
-updated: "2026-02-16"
----
-
-Frappe has successfully attained SOC 2 Type II attestation for the review period of 1st June 2024 to 31st May 2025, in addition to its existing ISO 27001:2022 certification.
-
-The SOC 2 Type II report, issued by an independent audit firm indicating that Frappe’s internal controls related to security, availability, and confidentiality have been effectively designed and operated throughout the review period in a satisfactory manner.
-
-This milestone highlights our commitment and continual improvement related to data security and privacy. With both ISO 27001 and SOC 2 Type II in place, Frappe provides customers and partners with increased assurance that their data is handled securely and responsibly.
-
-Frappe's ISO 9001 and ISO 27001 certifications along with the SOC 2 Type II attestation report are available [here](https://frappe.io/quality-and-information-security).
-
 <!-- page: cloud/cloud__storage-addons.md -->
 ---
 title: "Storage Addons"
@@ -179,11 +16,11 @@ In case the base storage included in the Server's plan is not enough, you can al
 
 1. Click on the + button adjacent to the server you want to add storage to
 
-![](/files/lqujBfZ.png)
+[Screenshot on the live page]
 
 2. Select the amount of storage you want to add. Note that you can't add storage again for a period of 6 hours.
 
-![](/files/NcZAh9c.png)
+[Screenshot on the live page]
 
 3. Select confirm to increase the storage
 
@@ -195,11 +32,11 @@ In case the base storage included in the Server's plan is not enough, you can al
 
 1. Click on the spanner icon adjacent to the server you want to disable auto add storage
 
-![](/files/lqujBfZ.png)
+[Screenshot on the live page]
 
 2. Uncheck the box
 
-![](/files/Screenshot%202025-07-29%20at%2017-57-51%20Frappe%20Cloud.png)
+[Screenshot on the live page]
 
 3. Click on confirm to disable the feature.
 
@@ -207,7 +44,7 @@ In case the base storage included in the Server's plan is not enough, you can al
 
 ### Why does application server storage take so much more than sum of sites' storage
 
-![](/files/gfTicLd.png)
+[Screenshot on the live page]
 
 
 
@@ -219,7 +56,7 @@ Once you drop a Bench Group, you may notice that the storage doesn't go down imm
 
 This happens majorly as we take table-wise backup of the site during update. This is done so that in case of any failure during migration (eg: some breaking patch), all the changes done so far to the tables can be quickly rolled back. They're stored in the .migrate folder. This files in this folder should **NOT** be removed/updated manually as this can cause data loss
 
-![.migrate folder](/files/Screenshot_20250724_191323.png)
+[Screenshot on the live page: .migrate folder]
 
 You may therefore find it useful to update sites one at a time to reduce this increase in storage.
 
@@ -233,9 +70,9 @@ The feature automatically increases available storage as it reaches over **90%**
 
 Under server actions, you can find option to **Cleanup Server**. If you have performed too many site updates recently, you can force cleanup of older bench versions from your server.
 
-![](/files/image0d8c65.png)
+[Screenshot on the live page]
 
-![](/files/imageca30a8.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__switching_between_teams.md -->
 ---
@@ -247,10 +84,10 @@ updated: "2026-02-16"
 
 You can switch easily between teams from the Team section in Settings.
 
-![](/files/cTjeBOU.png)  
+[Screenshot on the live page]  
 
 
-If you want to leave a team, first switch to some other team and then click on the Switch button under the Change Team action.![](/files/fCpXfpP.png)  
+If you want to leave a team, first switch to some other team and then click on the Switch button under the Change Team action.[Screenshot on the live page]  
 
 
 Rememeber you can't leave your own team(created when you signup) since your the owner of that team.
@@ -424,15 +261,15 @@ Webhook attempt logs are essential for diagnosing issues on the webhook backend.
 
 From the webhook record's actions button, you will be able to open the `Webhook Attempts List`
 
-![Screenshot 2024-09-25 at 4.54.33 PM](/files/Screenshot 2024-09-25 at 4.54.33 PM.png "Screenshot 2024-09-25 at 4.54.33 PM.png")  
+[Screenshot on the live page: Screenshot 2024-09-25 at 4.54.33 PM]  
 
 
-![Screenshot 2024-09-25 at 5.00.30 PM](/files/Screenshot 2024-09-25 at 5.00.30 PM.png "Screenshot 2024-09-25 at 5.00.30 PM.png")  
+[Screenshot on the live page: Screenshot 2024-09-25 at 5.00.30 PM]  
 
 
 You can click on a row to view the details of a specific webhook attempt.
 
-![Screenshot 2024-09-25 at 5.01.41 PM](/files/Screenshot 2024-09-25 at 5.01.41 PM.png "Screenshot 2024-09-25 at 5.01.41 PM.png")  
+[Screenshot on the live page: Screenshot 2024-09-25 at 5.01.41 PM]  
 
 <!-- page: cloud/cloud__webhook-events.md -->
 ---
@@ -586,7 +423,7 @@ updated: "2026-02-16"
 
 Frappe Cloud Webhooks help deliver events related to various resources directly to your backend service.
 
-![webhook-slide](/files/webhook-slide.png "webhook-slide.png")  
+[Screenshot on the live page: webhook-slide]  
 
 
 This makes it easier to build tools and custom SaaS workflows on top of Frappe Cloud using the Frappe Cloud API and webhook events.
@@ -610,13 +447,13 @@ A **Bench** is a collection of apps and sites. All sites on a **Bench** share 
 
 Frappe Cloud creates the benches from templates which can be viewed under the **Benches** menu.
 
-![](/files/Screenshot 2026-02-27 at 3.20.37 PM.png)
+[Screenshot on the live page]
 
 > For a more technical explanation of what a **Bench** is, see the [Bench confusion](#bench-confusion) section.
 
 The template holds information such as:
 
-- Which apps to install.![](/files/WtN8r0p.png)
+- Which apps to install.[Screenshot on the live page]
 - What common site config flags to be set for benches deployed from the current template.
 - The version of dependencies to be used for the benches.
 
@@ -629,9 +466,9 @@ The template holds information such as:
 A bench template by itself does not run your site. For this you have to *deploy* that template. This takes place when you click on *Deploy* or *Update Available* on your **Bench** page.
 
 1. When you do this, a *Deploy* job (visible in the **Deploys** tab) is created. This job builds a [Docker image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image) from the template and uploads it to the Frappe Cloud [Docker registry](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry).
-  ![](/files/Screenshot 2026-02-27 at 2.44.37 PM.png)
+  [Screenshot on the live page]
 2. After the Deploy job succeeds, a *New Bench* job (visible in the **Jobs** tab) is created. This job downloads the template’s image and runs it on the server.
-  ![](/files/Screenshot 2026-02-27 at 2.52.20 PM.png)
+  [Screenshot on the live page]
 
 Once the **Bench** is up and running, a new site can be created on it, or an existing site can be moved to it from another **Bench**.
 

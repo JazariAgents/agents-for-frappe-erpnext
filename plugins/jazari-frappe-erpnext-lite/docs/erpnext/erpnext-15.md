@@ -37,7 +37,7 @@ This page explains how to build the Cost Center tree, set sensible defaults, use
 
 Go to **Home &gt; Accounting &gt; Accounting Masters &gt; Cost Center** and select the company.
 
-![Cost Center tree](/files/cost-center-tree.webp)
+[Screenshot on the live page: Cost Center tree]
 
 Use group Cost Centers to organize the hierarchy. Use non-group Cost Centers on transactions.
 
@@ -47,7 +47,7 @@ Use group Cost Centers to organize the hierarchy. Use non-group Cost Centers on 
 4. Enable **Is Group** only when the record will contain child Cost Centers.
 5. Save.
 
-![Cost Center details](/files/cost-center-details.webp)
+[Screenshot on the live page: Cost Center details]
 
 ## Use Cost Centers in transactions
 
@@ -64,7 +64,7 @@ Suppose Nova Electronics Trading wants to measure revenue from its online channe
 5. Close the row editor and verify the remaining invoice details.
 6. Save and submit the invoice.
 
-![Open a Sales Invoice item row to select its Cost Center](/files/cost-center-sales-invoice.webp)
+[Screenshot on the live page: Open a Sales Invoice item row to select its Cost Center]
 
 The Cost Center is stored on the item row. This means one invoice can allocate different lines to different Cost Centers. When the invoice is submitted, ERPNext includes the selected Cost Center in the income and expense ledger entries. You can then filter the Profit and Loss Statement or General Ledger by **Online Sales - NET** without using a separate income account.
 
@@ -125,7 +125,7 @@ Open the Cost Center Allocation list and select **Add Cost Center Allocation**.
 
 
 
-![Cost Center Allocation list in ERPNext](/files/cost-center-allocation-list.webp)
+[Screenshot on the live page: Cost Center Allocation list in ERPNext]
 
 
 
@@ -133,7 +133,7 @@ Select the **Main Cost Center**. This is the cost center that users will choose 
 
 
 
-![Main Cost Center and Valid From fields in a Cost Center Allocation](/files/allocation-main-and-date.webp)
+[Screenshot on the live page: Main Cost Center and Valid From fields in a Cost Center Allocation]
 
 
 
@@ -141,7 +141,7 @@ In **Cost Center Allocation Percentages**, add each receiving cost center and it
 
 
 
-![Cost centers and percentages in a Cost Center Allocation](/files/allocation-percentages.webp)
+[Screenshot on the live page: Cost centers and percentages in a Cost Center Allocation]
 
 
 
@@ -252,13 +252,13 @@ For Nova Industries in the United States, the Country record keeps US formatting
 
 Search for **Country** from the Awesomebar and open the list. Select the required record.
 
-![Country list showing included country records and their formatting defaults](https://novacompanies.m.frappe.cloud/files/setup-20260814-country-list.png)
+[Screenshot on the live page: Country list showing included country records and their formatting defaults]
 
 
 
 ## Review localization fields
 
-![United States Country record showing code, date format, time format, and time zones](https://novacompanies.m.frappe.cloud/files/setup-20260814-country-form.png)
+[Screenshot on the live page: United States Country record showing code, date format, time format, and time zones]
 
 
 
@@ -333,7 +333,7 @@ Coupon Code does not define the discount by itself. The linked Pricing Rule defi
 4. Enable **Coupon Code Based**.
 5. Save the rule.
 
-![A Pricing Rule with Coupon Code Based highlighted.](https://novacompanies.m.frappe.cloud/files/coupon-pricing-rule.png)
+[Screenshot on the live page: A Pricing Rule with Coupon Code Based highlighted.]
 
 Avoid overlapping coupon rules unless their intended priority is tested.
 
@@ -350,7 +350,7 @@ Avoid overlapping coupon rules unless their intended priority is tested.
 7. Add a description that can be reused in campaign communication.
 8. Save.
 
-![An ERPNext Coupon Code with type, Pricing Rule, dates, and usage limit.](https://novacompanies.m.frappe.cloud/files/coupon-code-form.png)
+[Screenshot on the live page: An ERPNext Coupon Code with type, Pricing Rule, dates, and usage limit.]
 
 The generated Coupon Code is unique and read-only. Review it before sending campaign material.
 
@@ -448,7 +448,7 @@ You can insert Custom Link Field by following the steps below.
 
 In Customize Form, select Document Type (Quotation, Sales Order, Purchase Invoice Item etc.). Once fields are updated in the accompanying table below, open a field above the one you wish to insert your Custom Field. Then click on "Insert Above" to insert the new Custom Field.
 
-![Select Docytpe](/files/customize-custom-link-field.gif)  
+[Screenshot on the live page: Select Docytpe]  
 
 
 #### Step 4: Custom Field Values
@@ -460,7 +460,7 @@ To set field as Link, enter values as below.
 3. Name: Desired name for the field
 4. Options: Enter the name of the DocType to which the field is linked
 
-![Enter Values](/files/customize-creating-custom-link-fields.png)  
+[Screenshot on the live page: Enter Values]  
 
 
 Adding Filters to Link Field
@@ -473,22 +473,22 @@ Adding Filters to Link Field
 
 Frappe provides a user-friendly approach to apply filters on Link Fields using the Form Builder.
 
-You'll notice an action icon on all Link Fields within a Doctype, which gives you the option to select the filters you want to apply.![1](/files/1.png "1.png")  
+You'll notice an action icon on all Link Fields within a Doctype, which gives you the option to select the filters you want to apply.[Screenshot on the live page: 1]  
 
 
 For example, in the case of "Company", clicking on the icon will open a dialogue box where you can choose your desired filters.
 
-![2](/files/2.png "2.png")  
+[Screenshot on the live page: 2]  
 
 
 Once you've made your selection and clicked on apply, the filtered results will be displayed accordingly.
 
-![3](/files/3.png "3.png")  
+[Screenshot on the live page: 3]  
 
 
 If you're customizing a form and decide to change the filters, a "Reset To Default" button will appear. Clicking on this will revert the filters back to their original state. **However, it's important to note that any filters in "Customize Form" will override the default filters**
 
-![4](/files/4.png "4.png")  
+[Screenshot on the live page: 4]  
 
 
 **Eval Support**
@@ -503,7 +503,7 @@ or
 
 `eval: doc.fieldname1 + doc.fieldname2`
 
-![Screenshot 2024-03-14 at 11.25.07 PM](/files/Screenshot 2024-03-14 at 11.25.07 PM.png)  
+[Screenshot on the live page: Screenshot 2024-03-14 at 11.25.07 PM]  
 
 
 **For Child Tables:**  
@@ -512,7 +512,7 @@ or
 * From the Child Table Row: to add these filters use `doc.child_table_field_name`
 * From Parent Document: to add these use `parent.parent_doc_fieldname`
 
-![Screenshot 2024-03-19 at 12.28.35 PM](/files/Screenshot 2024-03-19 at 12.28.35 PM.png)  
+[Screenshot on the live page: Screenshot 2024-03-19 at 12.28.35 PM]  
 
 
 the expression added after "eval:" is evaluated and its value is returned.
@@ -575,7 +575,7 @@ A value of **0** does not create an effective limit at that level. ERPNext conti
 6. Choose whether to enable **Bypass credit limit check at sales order**.
 7. Save the Customer.
 
-![Customer Accounting tab with the Credit and Overdue Limits table highlighted](https://novacompanies.m.frappe.cloud/files/customer-credit-limit.png)
+[Screenshot on the live page: Customer Accounting tab with the Credit and Overdue Limits table highlighted]
 
 The highlighted row gives Summit Digital Stores a USD 50,000 limit for Nova Electronics Trading. A Customer can have a different row for each Company.
 
@@ -589,7 +589,7 @@ The highlighted row gives Summit Digital Stores a USD 50,000 limit for Nova Elec
 4. Select the Company and enter the Credit Limit.
 5. Save the Customer Group.
 
-![Customer Group with its company-specific Credit Limit row highlighted](https://novacompanies.m.frappe.cloud/files/customer-group-credit-limit.png)
+[Screenshot on the live page: Customer Group with its company-specific Credit Limit row highlighted]
 
 Use a group limit to apply the same policy to customers in that group that do not have a customer-specific limit. It is not a combined pool shared by every customer in the group. The limit is evaluated for each customer.
 
@@ -600,7 +600,7 @@ Use a group limit to apply the same policy to customers in that group that do no
 3. Enter the fallback value in **Credit Limit**.
 4. Save the Company.
 
-![Company Buying and Selling tab with Credit Limit highlighted](https://novacompanies.m.frappe.cloud/files/company-credit-limit.png)
+[Screenshot on the live page: Company Buying and Selling tab with Credit Limit highlighted]
 
 The Company limit is useful as a safety net, but it is usually broader than an individually approved customer facility. Review it together with the more specific limits before changing your credit policy.
 
@@ -642,7 +642,7 @@ Use this option carefully. It does not mean the Customer has unlimited credit. A
 3. Select the required role in **Credit Manager**.
 4. Save Accounts Settings.
 
-![Accounts Settings Credit Limits tab with the Credit Manager role highlighted](https://novacompanies.m.frappe.cloud/files/credit-manager.png)
+[Screenshot on the live page: Accounts Settings Credit Limits tab with the Credit Manager role highlighted]
 
 When the validation is triggered, a user with the configured role can approve the exception and submit the transaction. Keep membership of this role limited to people who are authorized to accept credit risk. In older ERPNext documentation this setting may be called Credit Controller. The current field is Credit Manager and it selects a role.
 
@@ -740,7 +740,7 @@ Identify the original submitted [Sales Invoice](/erpnext/sales-invoice). If stoc
 1. Open the original Sales Invoice.
 2. Select **Create &gt; Return / Credit Note**.
 
-![Create a Return or Credit Note from the submitted Sales Invoice](https://novacompanies.m.frappe.cloud/files/credit-note-credit-note-create-action.png)
+[Screenshot on the live page: Create a Return or Credit Note from the submitted Sales Invoice]
 
 3. Review the Customer, Company, posting date, return Warehouse, and reference invoice.
 4. Keep only the returned lines and enter the returned quantity. ERPNext displays return quantities and amounts as negative values.
@@ -751,7 +751,7 @@ Creating the Credit Note from the original invoice preserves the reference and c
 
 
 
-![Credit Note with the return reference and Update Stock setting](https://novacompanies.m.frappe.cloud/files/credit-note-credit-note-reference-and-stock.png)
+[Screenshot on the live page: Credit Note with the return reference and Update Stock setting]
 
 ## Full and partial credits
 
@@ -759,7 +759,7 @@ For a full return, return the complete invoiced quantity. For a partial return, 
 
 
 
-![Returned quantities, amounts, receiving Warehouse, and the item-row edit action on a Credit Note](https://novacompanies.m.frappe.cloud/files/credit-note-credit-note-negative-items.png)
+[Screenshot on the live page: Returned quantities, amounts, receiving Warehouse, and the item-row edit action on a Credit Note]
 
 For price-only corrections where no goods move, leave **Update Stock** off. The Credit Note will reverse the receivable and income or tax effect without changing the Stock Ledger.
 

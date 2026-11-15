@@ -1,53 +1,5 @@
 <!-- Frappe documentation: erpnext, part 44 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__print-headings.md -->
----
-title: "Print Headings\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/print-headings"
-updated: "2026-03-02"
----
-
-
-**Print Headings are the names/titles you can give your transactions.**
-
-These transactions include Sales Invoices, Supplier Quotations, etc. You can create a list of names for different business communications.
-
-If you want to rename a transaction on how it appears when printing, you can do so via Print Headings. For example, a Quotation is also called a "Proposal", Estimate", or "Pro Forma Invoice".
-
-To access Print Headings go to:
-
-> Home > Settings > Print Heading
-
-## 1. How to create a Print Heading
-1. Go to the Print Heading list, click on New.
-1. Enter the heading that will appear on the document.
-1. Save.
-
- ![Print Heading](/files/print-heading.png)
-
-To use the print heading, select the created print heading in the 'Print Heading' field transaction, shown as follows:
-
-![Using a Print Heading](/files/use-print-heading.gif)
-
-Example of a change in print heading is shown as follows:
-
-![Print Heading](/files/print-heading-1.png)
-
-## 2. Video
-
-<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/cKZHcx1znMc?start=58&amp;end=82&amp;rel=0">
-</iframe>
-
-
-
-### 3. Related Topics
-1. [Print Format](/erpnext/print-format)
-1. [Print Style](/erpnext/print-style)
-1. [Letter Head](/erpnext/letter-head)
-1. [Cheque Print Template](/erpnext/cheque-print-template)
-1. [Quotation](/erpnext/quotation)
-
 <!-- page: erpnext/erpnext__print-settings.md -->
 ---
 title: "Print Settings\n"
@@ -64,7 +16,7 @@ Since ERPNext is a browser-based application, the actual print command is execut
 To edit Print Settings, go to:
 > Home > Settings > Print Settings
 
-![Print Settings](/files/print-settings.png)
+[Screenshot on the live page: Print Settings]
 
 There are various configurations available in the Print Settings. Let's learn about them.
 
@@ -96,10 +48,10 @@ As per this setting, there will be only four columns in the Print Format, namely
 The values of other columns (like name, description, image, serial nos. etc.) are concatenated in the Description column.
 
 When the checkbox is unticked, the print format looks like this:
-![Incompact Print Format Settings](/files/incompact-print.png)
+[Screenshot on the live page: Incompact Print Format Settings]
 
 This is what the Compact Print Format looks like:
-![Compact Print Format Settings](/files/compact-print.png)
+[Screenshot on the live page: Compact Print Format Settings]
 
 
 ### 2.3 Allow Print for Draft
@@ -189,7 +141,7 @@ A default Print Style, can be set from [Print Settings](/erpnext/print-settings)
 
 All Print Format styles are based on Bootstrap (Version 3) CSS Framework.
 
-![Screenshot 2023-12-29 at 12.08.10 PM](/files/Screenshot 2023-12-29 at 12.08.10 PM.png "Screenshot 2023-12-29 at 12.08.10 PM.png")![Screenshot 2023-12-29 at 12.08.10 PM](/files/Screenshot 2023-12-29 at 12.08.10 PM.png "Screenshot 2023-12-29 at 12.08.10 PM.png")  
+[Screenshot on the live page: Screenshot 2023-12-29 at 12.08.10 PM][Screenshot on the live page: Screenshot 2023-12-29 at 12.08.10 PM]  
 
 
 If you have enabled developer mode and tick on Standard then system will generate the JSON file for the Print Style. You can contribute a default print style with this.
@@ -288,7 +240,7 @@ The list contains automatic and manual processing logs. Review recent records be
 
 
 
-![Process Deferred Accounting list](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-process-deferred-accounting-list.png)
+[Screenshot on the live page: Process Deferred Accounting list]
 
 Complete the fields:
 
@@ -307,13 +259,13 @@ For deferred revenue, select **Income**. The example limits processing to **Cust
 
 
 
-![Manual deferred-income processing run](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-process-deferred-income.png)
+[Screenshot on the live page: Manual deferred-income processing run]
 
 For prepaid costs, select **Expense** and use the applicable deferred asset account, such as **Prepaid Expenses - NET**.
 
 
 
-![Manual deferred-expense processing run](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-process-deferred-expense.png)
+[Screenshot on the live page: Manual deferred-expense processing run]
 
 Use the Account filter when you deliberately want a narrow run. Leave it blank when all eligible deferred accounts for the Company and date range should be processed.
 
@@ -457,7 +409,7 @@ Confirm that the payments and invoices are submitted, use the same Company and p
 
 Open **Accounts Settings**, select the **Payments** tab, enable **Auto reconcile Payments**, and save. The job trigger controls how often queued work is picked up. The queue size controls how many documents are processed in each run.
 
-![Auto reconcile Payments enabled in the Payments tab of Accounts Settings](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-05-enable-auto-reconciliation-v3.png)
+[Screenshot on the live page: Auto reconcile Payments enabled in the Payments tab of Accounts Settings]
 
 ## Create and run a reconciliation process
 
@@ -465,7 +417,7 @@ Open **Accounts Settings**, select the **Payments** tab, enable **Auto reconcile
 
 Open **Process Payment Reconciliation** and click **Add Process Payment Reconciliation**.
 
-![Process Payment Reconciliation list with the add action highlighted](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-01-open-process-payment-reconciliation-v3.png)
+[Screenshot on the live page: Process Payment Reconciliation list with the add action highlighted]
 
 ### 2. Define the scope
 
@@ -473,37 +425,37 @@ Select the **Company**, **Party Type**, **Party**, and **Receivable/Payable Acco
 
 In this example, select **Nova Electronics Trading**, **Customer**, **Northstar Retail**, **Debtors - NET**, and **Nova Operating Bank - NET**.
 
-![Process Payment Reconciliation configured for Northstar Retail](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-02-select-party-and-account-v3.png)
+[Screenshot on the live page: Process Payment Reconciliation configured for Northstar Retail]
 
 ### 3. Save and submit
 
 Save the record, review the scope, and click **Submit**. Submitting places the process in the queue. It does not itself confirm that every entry was reconciled.
 
-![Saved Process Payment Reconciliation with Submit highlighted](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-03-save-and-submit-process-v3.png)
+[Screenshot on the live page: Saved Process Payment Reconciliation with Submit highlighted]
 
 ### 4. Start the queued process
 
 When the status is **Queued**, click **Start / Resume** to begin processing immediately.
 
-![Queued reconciliation process with Start or Resume and the status highlighted](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-04-start-queued-reconciliation-v3.png)
+[Screenshot on the live page: Queued reconciliation process with Start or Resume and the status highlighted]
 
 ### 5. Monitor progress
 
 Keep the record open while ERPNext processes the eligible entries. The progress area, reconciliation log count, and **Running** status show that the job is active.
 
-![Running reconciliation process with progress and reconciliation log](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-06-monitor-reconciliation-progress-v3.png)
+[Screenshot on the live page: Running reconciliation process with progress and reconciliation log]
 
 ### 6. Review the completed process
 
 Wait for the status to become **Completed**. In this example, ERPNext processed **2/2** eligible entries.
 
-![Completed reconciliation process showing two of two entries processed](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-07-review-completed-reconciliation-v3.png)
+[Screenshot on the live page: Completed reconciliation process showing two of two entries processed]
 
 ### 7. Verify the accounting result
 
 Open the affected Payment Entry or invoice and verify the allocation. Payment Entry **ACC-PAY-2026-00006** now contains a USD 600 reference to **ACC-SINV-2026-00008**. Its **Unallocated Amount** is USD 0, and the invoice outstanding amount is USD 3,153.
 
-![Payment Entry showing the invoice reference, allocated amount, and zero unallocated amount](https://novacompanies.m.frappe.cloud/files/docs-process-payment-reconciliation-08-verify-payment-allocation-v3.png)
+[Screenshot on the live page: Payment Entry showing the invoice reference, allocated amount, and zero unallocated amount]
 
 ## Important fields and what they mean
 
@@ -589,7 +541,7 @@ Use **Process Statement Of Accounts** to generate and send account statements to
 3. Select the report and set the date, Company, account, currency, Cost Center, or Project filters.
 4. Use **Categorize By** to control how entries are grouped in the PDF.
 
-![Process Statement Of Accounts report filters](https://novacompanies.m.frappe.cloud/files/process-statement-of-accounts-statement-filters.png)
+[Screenshot on the live page: Process Statement Of Accounts report filters]
 
 ## Select customers
 
@@ -611,7 +563,7 @@ If a customer cannot be added, check the Contact linked to that Customer. A bill
 | Subject and Body          | Email content; both support Jinja values                              |
 
 
-![Customer selection, print preferences, and email settings](https://novacompanies.m.frappe.cloud/files/process-statement-of-accounts-customer-email-settings.png)
+[Screenshot on the live page: Customer selection, print preferences, and email settings]
 
 Save the document. Use **Download** to review the consolidated PDF before sending. Use **Send Emails** for an immediate batch. Scheduled emails are queued by the background job at the configured frequency.
 
@@ -623,13 +575,13 @@ The example below shows the email composer with the customer-specific statement 
 
 
 
-![Customer statement email preview](https://novacompanies.m.frappe.cloud/files/customer-email-preview.png)
+[Screenshot on the live page: Customer statement email preview]
 
 The attached statement shows the opening balance, each invoice or payment in the selected period, and the closing balance. Its ageing summary groups the outstanding amount by due date so the customer can see what needs attention.
 
 
 
-![Customer ledger and ageing summary](https://novacompanies.m.frappe.cloud/files/customer-ledger-and-ageing.png)
+[Screenshot on the live page: Customer ledger and ageing summary]
 
 ## Use dynamic values
 
@@ -712,7 +664,7 @@ To access this report, go to:
 
 The procurement tracker allows a user to monitor the process of obtaining goods. It provides information about the user requesting the purchase, the warehouse it was requested from, along with the quantity of the requested item. It also provides a comparison between the estimated cost of the goods at the time of requisition versus actual cost of obtaining them along with the date at which the goods where obtained. This ensures reviewing, ordering, delivery, and billing management for goods involved in the procurement process.
 
-![Procurement Tracker](/files/procurement_tracker.png)
+[Screenshot on the live page: Procurement Tracker]
 
 <!-- page: erpnext/erpnext__product-bundle.md -->
 ---
@@ -754,7 +706,7 @@ Before creating and using a Product Bundle, it is advised that you create the fo
 5. Enter the products to be bundled in the Items table and enter their quantities.
 6. Save.
 
-![Screenshot 2024-08-29 at 11.41.56 AM](/files/Screenshot 2024-08-29 at 11.41.56 AM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 11.41.56 AM]  
 
 
 ### 2.1 Selecting Parent Item
@@ -776,12 +728,12 @@ In the Items table, you have to list all the child items for which we maintain s
 
 When making Sales transactions (Sales Invoice, Sales Order, Delivery Note) the Parent Item will be selected in the main item table.
 
-![Screenshot 2024-08-29 at 11.42.41 AM](/files/Screenshot 2024-08-29 at 11.42.41 AM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 11.42.41 AM]  
 
 
 On selection of a Parent Item in the main item table, its child items will be fetched in Packing List table of the transaction. If child item is the serialized item, you will be able to specify its Serial No. in packing List table itself. On submission of the transaction, the system will reduce the stock level of child items from warehouse specified in Packing List table.
 
-![Screenshot 2024-08-29 at 11.44.47 AM](/files/Screenshot 2024-08-29 at 11.44.47 AM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 11.44.47 AM]  
 
 
 **Use Product Bundle to Manage Offers/Schemes:**   
@@ -813,11 +765,11 @@ Here there are two views available that can be toggled:
 
 ### Product List View
 The List View can hold additional data in it such as a short description which can be mentioned in the Website Item's **Short Website Description** field. 
-![Product List View](/files/product-list-2.png)
+[Screenshot on the live page: Product List View]
 *Product List View*
 
 ### Product Grid View
-![Product Grid View](/files/product-grid.png)
+[Screenshot on the live page: Product Grid View]
 *Product Grid View*
 
 ### Filters
@@ -839,7 +791,7 @@ To access the Production Analytics, go to:
 
 > Home > Manufacturing > Reports > Production Analytics
 
-![Task](/files/production-analytics.png)
+[Screenshot on the live page: Task]
 
 This report shows the overall analytics of all Work Orders.
 
@@ -857,7 +809,7 @@ Capacity planning has been enabled by default in your account, to know more go t
 
 > Home > Manufacturing > Settings > Manufacturing Settings
 
-![Work Order](/files/capacity_planning_settings.png)
+[Screenshot on the live page: Work Order]
 
 ## 1. Prerequisites
 
@@ -876,7 +828,7 @@ The user has to define the number of days in the "Capacity Planning For" field u
 
 User needs to create the Work Orders with Operations so that the system will track the Job Card timings against the Work Order.
 
-![Work Order](/files/work_order_with_operations.png)
+[Screenshot on the live page: Work Order]
 
 Once the user submits the Work Order, system will generate the Job Card with the available Workstation's time details. If 'Allow Overtime' is disabled in Manufacturing Settings then the system schedules the job as per the timings defined in the Workstation. If "Allow Production on Holidays" is disabled then the system schedules job only on working days.
 
@@ -884,13 +836,13 @@ Once the user submits the Work Order, system will generate the Job Card with the
 
 In the Workstation, the user can set the 'Production Capacity'. This is the number of Operations the system will allow you work on in this Workstation. For example, if a certain Workstation can handle 10 operations at the same time, enter the 'Production Capacity' as 10.
 
-![Work Order](/files/work_station_capacity.png)
+[Screenshot on the live page: Work Order]
 
 ### 2.3 Job Card With Timing
 
 The system will auto-create the Job Card with timing against each operation based upon the time required to complete that operation and Workstation's availability. The user has to set the planned start date and based on the operation time, system calculates the planned end date.
 
-![Work Order](/files/job_card_timing.png)
+[Screenshot on the live page: Work Order]
 
 ### 2.4 Work Order Planned Start Date and End Date
 
@@ -900,13 +852,13 @@ To view calendar, goto:
 
 > Work Order List > Calendar > Default
 
-![Work Order](/files/work_order_calendar.png)
+[Screenshot on the live page: Work Order]
 
 ### 2.5 Capacity Planning Error
 
 If the Production Capacity days is less than time required to complete the operation then system throws a capacity planning error. In this case, user has to increase the number under "Production Capacity" days in the Manufacturing Settings or reduce the number of finished goods as per the capacity of the Workstations
 
-![Work Order](/files/capacity_planning_error.png)
+[Screenshot on the live page: Work Order]
 
 <!-- page: erpnext/erpnext__production-and-material-planning.md -->
 ---

@@ -1,342 +1,5 @@
 <!-- Frappe documentation: frappe-hr, part 6 of 10. Index: docs/INDEX.md -->
 
-<!-- page: frappe-hr/hr__integrating-frappe-hr-with-biometric-attendance-devices.md -->
----
-title: "Integrating Frappe HR With Biometric Attendance Devices"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/integrating-frappe-hr-with-biometric-attendance-devices"
-updated: "2026-02-04"
----
-
-**Background**
---------------
-
-The Attendance punch logs from the biometric device are check-in and check-out logs of an employee. Frappe HR has a provision to store these logs in a document called Employee Checkin.
-
-Attendance can then be marked based on the [Employee Checkin](https://docs.frappe.io/hr/employee-checkin) records and the [Shift Type](https://docs.frappe.io/hr/shift-type) of the employee by using [Auto Attendance](https://docs.frappe.io/hr/auto-attendance)
-
-Hence, integrating your Biometric Device (*or any access control system that collects IN/OUT logs*), can be done using the following steps:
-
-### **1. Setting up Auto Attendance to mark attendance from the Employee Checkin**
-
-Before you import/sync employees' Check-in and Check-out logs into your Frappe HR system, you will have to set up the employees and their shifts to be able to generate attendance using the Auto Attendance feature in Frappe HR.
-
-Please refer to the following link to set up Auto Attendance: [Set up Auto Attendance](https://docs.frappe.io/hr/auto-attendance)
-
-Once you have set up the employee master and assigned shifts to the employees, you are now ready to proceed to the next step.
-
-### **2. Populating the Biometric Punch Logs into Frappe HR's Employee Checkin**
-
-Depending on your biometric system and its features, there can be a lot of ways you can populate the Punch logs into Frappe HR:
-
-1. **Use the Data Import Tool**:
-
-
-	* The simplest possible solution (in terms of implementation complexity) would be to generate an Excel/CSV of the Check-in/Check-out and use the built-in data import tool in Frappe HR to periodically import the logs to your Employee Checkin Document
-	* Please refer to [Documentation on Data Import Tool](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/data/data-import) for more on how to do this.
-2. **API Integration**:
-
-
-	* You can automate the process of syncing the Biometric Punch Logs by integrating it with the available API in Frappe HR.
-	* This method requires some technical knowledge and you should probably get in touch with your Frappe HR implementor or Biometric system vendor.
-	* Steps:
-	
-	
-		1. You will first need to create a [user](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/users-and-permissions/adding-users) in your Frappe HR instance that would be used for creating logs since this API method requires login. Make sure this user has all the required permissions to create Employee Checkin.
-		2. [Generate API Key and API Secret](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/users-and-permissions/adding-users#210-api-access) for the user which will be used for authentication.
-		3. Make sure you have set the [Attendance Device ID (Biometric/RF tag ID)](https://docs.frappe.io/hr/auto-attendance#3-setup-attendance-device-id-field-in-employee) for the employees based on your Biometric Device.
-		4. The API implementation details can be found [here](https://github.com/frappe/hrms/blob/d2529e03f92bf50efb65d3163bfcfdacbcf0b8f5/hrms/hr/doctype/employee_checkin/employee_checkin.py#L63-L109) and the API can be accessed at: `/api/method/hrms.hr.doctype.employee_checkin.employee_checkin.add_log_based_on_employee_field`.
-		5. You can write a script to send a POST request to the API. This endpoint finds the relevant Employee using the employee field value and creates an Employee Checkin. Details of the API endpoint:
-		
-		
-			+ URL: `/api/method/hrms.hr.doctype.employee_checkin.employee_checkin.add_log_based_on_employee_field`
-			+ Method: `POST`
-			+ Params:
-			
-			
-				- `employee_field_value`: The value to look for in the employee field. This will be the Attendance Device ID found in your biometric logs and also set in the employee record.
-				- `timestamp`: The timestamp of the Log. Currently expected in the following format as a string: '2022-04-08 10:48:08.000000'
-				- `device_id`: (optional) Location / Device ID. A short string is expected.
-				- `log_type`: (optional) Direction of the punch if available (IN/OUT).
-				- `skip_auto_attendance`: (optional) Skip auto attendance field will be set for this log (0/1)
-				- `employee_fieldname`: (Default: `attendance_device_id`) Name of the field in Employee DocType based on which employee lookup will happen.
-				- `latitude`: (optional) Latitude of the shift location if shift location is assigned.
-				- `longitude`: (optional) Longitude of the shift location if shift location is assigned.
-			+ Response: Returns an Employee Checkin document object which was inserted.
-3. **Set up a python script on your computer to integrate ZKTeco or similar devices**:
-
-
-	* This method works only for ZKTeco or similar devices that use the ZKProtocol to communicate over TCP/IP.
-	* This script is available at: [github:frappe/biometric-attendance-sync-tool](https://github.com/frappe/biometric-attendance-sync-tool).
-	* Please follow the instructions given on the script page to set it up on your computer.
-	* This Script pulls biometric logs from a supported device and uses the API mentioned in the above step to push the data into Frappe HR.
-
-**Frequently Asked Questions**
-------------------------------
-
-### **1. How do I select a Biometric Device which is compatible with Frappe HR?**
-
-If you are using method 1 or 2, you don't need to worry about compatibility.
-
-However, for the third method, the push biometric app internally uses a script that is compatible with the devices listed over [here](https://github.com/fananimi/pyzk#compatible-devices). Typically, any ZKTeco or similar device that uses the ZKProtocol to communicate over TCP/IP should work. As far as buying the device is concerned, we suggest you opt for a device trial with the vendor if possible, where the device can be tested with the sync tool, as it's dependent on multiple factors when it comes to compatibility.
-
-### **2. How do I know which method to use for integrating my biometric device with Frappe HR?**
-
-Method 1 is feasible in any situation but requires you to manually import logs periodically. Methods 2 and 3 need some monitoring and work for a one-time setup for the log syncing to be automated.
-
-**For a single location set up:**
-
-In the Push Biometric Device approach, the tool needs to be able to communicate with your biometric device via TCP/IP. So, it is usually the case that it needs to run on the same LAN Network as the biometric device. To sync these fetched logs to your Frappe HR instance it uses API access. This works best when you have a single location set up.
-
-**For a multi-location set up:**
-
-In this case, we usually recommend method 2 where most biometric vendors provide services to sync the biometric device logs from multiple locations to Frappe HR via API access. Method 3 (push biometric attendance tool) can also work in this case if you have some networking knowledge.
-
-  
-
-<!-- page: frappe-hr/hr__interview-feedback.md -->
----
-title: "Interview Feedback"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/interview-feedback"
-updated: "2026-02-04"
----
-
-**Interview feedback refers to the information and comments provided about a job applicant after an interview.**
-
-The Interview Feedback doctype allows you to assess a Job Applicant's Skills and comment on the Interview in general.
-
-To access Interview Feedback, go to:
-
-
-> **Home > Human Resources > Recruitment > Interview Feedback**
-> 
-> 
-
-**1. Prerequisites**
---------------------
-
-Before creating an Interview Feedback, it is advisable you create the following:
-
-* [Interview Round](https://docs.frappe.io/hr/interview-round)
-* [Interview](https://docs.frappe.io/hr/interview)
-
-**2. How to Create an Interview Feedback**
-------------------------------------------
-
-1. Go to the Interview Feedback list and click on Add Interview Feedback.
-2. Select the Interview, Interviewer and Result.
-3. Selecting the Interview should automatically populate the Skill Assessment table with the Skills defined in the Interview Round corresponding to the selected Interview. You can then fill out stars for each Skill based on the Job Applicant's performance.
-4. Fill in the Feedback section with general feedback regarding the Interview (optional).
-5. Click on Save, and then Submit.
-
-![](https://frappehr.com/files/Qg0MQwo.png)  
-
-
-**3. Features**
----------------
-
-### **3.1 Feedback Summary**
-
-After submitting the Interview Feedback, you can view a summary of all the feedback associated with the Interview under its [Feedback Tab](https://docs.frappe.io/hr/interview#3-2-interview-feedback).
-
-### **3.2 Interview Feedback Reminder**
-
-You can [configure](https://docs.frappe.io/hr/hr-settings#4-2-send-interview-feedback-reminder) Frappe HR to send reminder emails to Interviewers for their Feedback.
-
-**4. Related Topics**
----------------------
-
-1. [Job Opening](https://docs.frappe.io/hr/job-opening)
-2. [Job Applicant](https://docs.frappe.io/hr/job-applicant)
-
-  
-
-
-  
-
-<!-- page: frappe-hr/hr__interview-management.md -->
----
-title: "Interview Management"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/interview-management"
-updated: "2026-02-04"
----
-
-Frappe HR makes it easy to manage and track multiple interview rounds for job applicants interested in joining your company.
-
-Using this sub-module, you can:
-
-1. [Define Interview Types](https://docs.frappe.io/hr/interview-type) (optional)
-2. [Set up Interview Rounds](https://docs.frappe.io/hr/interview-round)
-3. [Create Interviews](https://docs.frappe.io/hr/interview)
-4. [Fill out Interview Feedbacks](https://docs.frappe.io/hr/interview-feedback)
-
-  
-
-<!-- page: frappe-hr/hr__interview-round.md -->
----
-title: "Interview Round"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/interview-round"
-updated: "2026-02-04"
----
-
-**Interview rounds are a series of interviews that a candidate goes through during the recruitment process. For example, technical interviews, HR interviews, etc.**
-
-The Interview Round doctype enables you to define and set up these rounds for future [Interviews](https://docs.frappe.io/hr/interview).
-
-To access Interview Round, go to:
-
-
-> **Home > Human Resources > Recruitment > Interview Round**
-> 
-> 
-
-**1. How to create an Interview Round**
----------------------------------------
-
-1. From the Interview Round list, click on Add Interview Round.
-2. Enter the Round Name.
-3. Enter the Interview Type and the Expected Average Rating (optional).
-4. You can assign Interviewers, authorizing them to provide feedback for upcoming Interviews of this round.
-5. You can also enter Designation to filter Job Applicants during Interview creation.
-6. Fill in the Expected Skillset table by clicking on Skill and creating Skills as shown below.
-
-![](https://frappehr.com/files/RgZapW8.png)
-7. Save
-
-![135508716-5c416fef-7ceb-44b4-b0f4-4994f8a8a4a1](https://frappehr.com/files/135508716-5c416fef-7ceb-44b4-b0f4-4994f8a8a4a1.png "135508716-5c416fef-7ceb-44b4-b0f4-4994f8a8a4a1.png")  
-
-
-After saving the Interview Round, you can [Create Interviews](https://docs.frappe.io/hr/interview) directly from the dashboard. The assigned Interviewers can then provide [Feedback](https://docs.frappe.io/hr/interview-feedback) for the created Interviews.
-
-**2. Related Topics**
----------------------
-
-1. [Interview Type](https://docs.frappe.io/hr/interview-type)
-2. [Interview](https://docs.frappe.io/hr/interview)
-3. [Job Opening](https://docs.frappe.io/hr/job-opening)
-4. [Designation](https://docs.frappe.io/hr/designation)
-
-  
-
-<!-- page: frappe-hr/hr__interview-type.md -->
----
-title: "Interview Type"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/interview-type"
-updated: "2026-02-04"
----
-
-**Interview type refers to the various types of interviews conducted by an organization, such as panel interviews, walk-in interviews, etc.**
-
-Interview Types can be used to specify the type of interview for a particular [Interview Round](https://docs.frappe.io/hr/interview-round).
-
-To access Interview Type, go to:
-
-
-> **Home > Human Resources > Recruitment > Interview Type**
-> 
-> 
-
-**1. How to Create an Interview Type**
---------------------------------------
-
-1. Click on Add Interview Type.
-2. Enter the Name and Description
-3. Save
-
-![image](https://user-images.githubusercontent.com/24353136/135508652-94fbd439-f953-423c-ba10-990067f308c4.png)  
-
-
-**2. Related Topics**
----------------------
-
-1. [Interview Round](https://docs.frappe.io/hr/interview-round)
-2. [Interview](https://docs.frappe.io/hr/interview)
-3. [Interview Feedback](https://docs.frappe.io/hr/interview-feedback)
-
-  
-
-<!-- page: frappe-hr/hr__interview.md -->
----
-title: "Interview"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/interview"
-updated: "2026-02-04"
----
-
-**Interviews are formal meetings between Job Applicants and Interviewers to assess whether the former is suitable for the Job Opening they're applying for.**
-
-Frappe HR allows you to maintain a record of all Interviews conducted with Job Applicants.
-
-To access Interview, go to:
-
-
-> **Home > Human Resources > Recruitment > Interview**
-> 
-> 
-
-**1. Prerequisites**
---------------------
-
-Before creating an Interview, it is advisable you create the following:
-
-* [Interview Round](https://docs.frappe.io/hr/interview-round)
-* [Job Applicant](https://docs.frappe.io/hr/job-applicant)
-
-**2. How to Create an Interview**
----------------------------------
-
-1. Go to Interview list, click on Add Interview.
-2. First select the Interview Round and then Job Applicant. Order is important.
-3. Enter the date (Scheduled On) and time (From Time & To Time).
-4. Enter the Resume Link (optional).
-5. Click on Save.
-
-![](https://frappehr.com/files/wNX9smG.png)  
-
-
-After saving the Interview, you can reschedule the interview using the Reschedule Interview button. You can also directly [Submit Feedback](https://docs.frappe.io/hr/interview-feedback) from the dashboard.
-
-> **Note:** Only Interviewers associated with the selected [Interview Round](https://docs.frappe.io/hr/interview-round) can submit Feedback.
-
-**3. Features**
----------------
-
-### **3.1 Calendar View**
-
-Scheduled interviews can be viewed in a color-coded calendar format by going to the Interview list, clicking on List View, and selecting Calendar.
-
-![image](https://user-images.githubusercontent.com/24353136/135509119-e9584525-7c4e-4384-ab1f-d32e605fcde5.png)  
-
-
-### **3.2 Interview Feedback**
-
-After an interview has received [Feedback](https://docs.frappe.io/hr/interview-feedback), you can click on the Feedback tab to access a summary of the feedback. This summary includes the overall average rating, the distribution of ratings for each Feedback, the average rating for each Skill, and the individual Feedback comments.
-
-![](https://frappehr.com/files/T7SxrmG.png)  
-
-
-### **3.3 Tracking Interviews**
-
-Interviews related to a Job Applicant can be easily [tracked](https://docs.frappe.io/hr/job-applicant#3-2-tracking-interviews) from its dashboard.
-
-### **3.4 Interview Reminder**
-
-You can [configure](https://docs.frappe.io/hr/hr-settings#4-2-send-interview-reminder) Frappe HR to send reminder emails to Interviewers for upcoming Interviews.
-
-**4. Related Topics**
----------------------
-
-1. [Job Opening](https://docs.frappe.io/hr/job-opening)
-2. [Interview Type](https://docs.frappe.io/hr/interview-type)
-3. [Interview Feedback](https://docs.frappe.io/hr/interview-feedback)
-4. [Job Offer](https://docs.frappe.io/hr/job-offer)
-
-  
-
 <!-- page: frappe-hr/hr__introduction.md -->
 ---
 title: "Frappe HR"
@@ -347,7 +10,7 @@ updated: "2026-02-04"
 
 Frappe HR is an open Source, modern, and easy-to-use HR and Payroll Software for all organizations. It has everything you need to drive excellence within the company. It is a complete HRMS solution with over 13 different modules right from Employee Management, Onboarding, Leaves, to Payroll, Taxation, and more!
 
-![](/files/imagee5004c.png)
+[Screenshot on the live page]
 
 ## Why Frappe HR
 
@@ -419,7 +82,7 @@ Before creating a Job Applicant, it is advisable you create the following:
 
 > **Note:** If you select the Source as Employee Referral, you will have to select the Employee name in the Source Name Field.
 
-![Job Applicant](https://frappehr.com/files/job-applicant.png)  
+[Screenshot on the live page: Job Applicant]  
 
 
 **3. Features**
@@ -436,14 +99,14 @@ You can link Job Application with an Email account. Suppose you link Job Applica
 * Enter the Email Address and the password, and select 'Enable Incoming'
 * In 'Append To' select 'Job Applicant'
 
-![Email Account](https://frappehr.com/files/email-account.png)  
+[Screenshot on the live page: Email Account]  
 
 
 ### **3.2 Tracking Interviews**
 
 After creating [Interviews](https://docs.frappe.io/hr/interview), you can easily track them within the Job Applicant dashboard. This enables you to compare all the interviews conducted with the applicant and evaluate their overall performance to make an acceptance decision.
 
-![image](https://user-images.githubusercontent.com/24353136/135509483-97c4f78b-66a4-4a7a-b86f-37f20cf86956.png)  
+[Screenshot on the live page: image]  
 
 
 **4. Related Topics**
@@ -486,7 +149,7 @@ Before creating a Job Offer, it is advisable to create the following:
 3. Set the Status of the Job Offer (Awaiting Response, Accepted, Rejected).
 4. Save and Submit.
 
-![Job Offer](https://frappehr.com/files/job-offer.png)
+[Screenshot on the live page: Job Offer]
 
 > **Note:** A Job Offer can be made only against a [Job Applicant](https://docs.frappe.io/hr/job-applicant)
 
@@ -505,7 +168,7 @@ All the Terms and Conditions related to the Job Offer can be specified in this s
 
 You can create a pre-designed print format to print you Job Offer. To do so, select the Letter Head and Print Heading in the Printing Details section.
 
-![Job Offer](https://frappehr.com/files/job-offer-print.png)  
+[Screenshot on the live page: Job Offer]  
 
 
   
@@ -548,7 +211,7 @@ Before creating a Job Opening, it is advisable you create the following:
 3. Select the Designation and Department. Based on Designation selected, appropriate Staffing Plan and Planned Number of Positions will be fetched.
 4. Save.
 
-![](/files/Screenshot From 2026-08-10 14-16-21.webp)
+[Screenshot on the live page]
 *You can also use Job Opening Template to populate the common fields*
 
 Once the Job Opening is saved, you can directly create a new [Job Applicant](https://docs.frappe.io/hr/job-opening) from the dashboard.
@@ -565,7 +228,7 @@ You can close/reopen a Job Opening as and when required. Once a Job Opening is C
 
 You can enable 'Publish on website' to publish a Job Opening to the [Job Portal](https://docs.frappe.io/hr/job-portal). This will make it possible for users to view and apply to these openings from your site.
 
-![](/files/Screenshot From 2026-08-10 14-24-20.webp)
+[Screenshot on the live page]
 
 ## **4. Related Topics**
 
@@ -604,26 +267,26 @@ Before using the Job Portal, it is advisable you create the following:
   
 
 
-![273578470-fdc33ca4-12b1-49e6-958c-6d627faee6fc](https://frappehr.com/files/273578470-fdc33ca4-12b1-49e6-958c-6d627faee6fc.png "273578470-fdc33ca4-12b1-49e6-958c-6d627faee6fc.png")
+[Screenshot on the live page: 273578470-fdc33ca4-12b1-49e6-958c-6d627faee6fc]
 2. You can use the search bar to search for jobs by title or description. You can also filter jobs by company, department, location, or employment type, and sort them by the latest or oldest posting date.
 3. Click on a job card to view it in detail.
 
   
 
 
-![](https://frappehr.com/files/0CTCsNp.png)
+[Screenshot on the live page]
 4. Click on the 'Apply Now' button at the top-right corner. This will open a web form where applicants can enter their details.
 
   
 
 
-![](https://frappehr.com/files/tyfAC5s.png)
+[Screenshot on the live page]
 5. Fill in the appropriate details and click on Submit. This will result in the creation of the corresponding Job Applicant document.
 
   
 
 
-![](https://frappehr.com/files/xj3PDmO.png)
+[Screenshot on the live page]
 
 **3. Related Topics**
 ---------------------
@@ -670,10 +333,10 @@ Before creating a Job Requisition, you should create the following:
 7. Save.
 8. By default, the status will be Pending. You can set up [workflows](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/workflows) to change the status to Open & Approved.
 
-![Job Requisition](https://frappehr.com/files/job_req.png)  
+[Screenshot on the live page: Job Requisition]  
 
 
-![Job Requisition List](https://frappehr.com/files/job_req_list.png)
+[Screenshot on the live page: Job Requisition List]
 
 **3. Actions**
 --------------
@@ -682,14 +345,14 @@ Before creating a Job Requisition, you should create the following:
 
 Once the Job Requisition is **Open & Approved**, you can create a new Job Opening against the Job Requisition or associate an existing one.
 
-![create job opening](https://frappehr.com/files/create-job-openingafcb2d.gif)  
+[Screenshot on the live page: create job opening]  
 
 
 ### **3.2 Associate Job Opening**
 
 If you already have an existing Open Job Opening for that designation, you can associate it with the requisition.
 
-![Associate Job Opening](https://frappehr.com/files/associate-job-opening.gif)  
+[Screenshot on the live page: Associate Job Opening]  
 
 
 Once the Job Opening is closed, the Job Requisition's status is updated to **Filled**
@@ -701,14 +364,14 @@ Once the Job Opening is closed, the Job Requisition's status is updated to **Fil
 
 If there is an existing Employee Referral for that designation, you might want to consider referrals instead of creating new openings. A banner is visible on the Job Requisition form with the links to these employee referrals in these cases.
 
-![employee referral](https://frappehr.com/files/employee-referral.png)  
+[Screenshot on the live page: employee referral]  
 
 
 ### **4.2 Get Job Requisitions in Staffing Plan**
 
 While creating a budget with the Staffing Plan, you can fetch the existing **Pending** or **Open & Approved** Job Requisitions.
 
-![Get Job Requisition](https://frappehr.com/files/get-job-req8e955b.gif)  
+[Screenshot on the live page: Get Job Requisition]  
 
 
 ### **4.3 Time to Fill Metric**
@@ -717,7 +380,7 @@ Time to Fill measures the number of days it takes to fill an open position, from
 
 The Average Time to Fill is also displayed on the Hiring Dashboard:
 
-![time to fill](https://frappehr.com/files/time-to-fill.png)  
+[Screenshot on the live page: time to fill]  
 
 
 **5. Related Topics**
@@ -742,24 +405,24 @@ updated: "2026-02-04"
 
 2) Attendance should be marked for the Employee, it is mandatory for the employee to be marked as present on the Holiday [this Holiday should be in the Holiday List.]
 
-![](https://docs.erpnext.com/files/9NHbSR1.png)  
+[Screenshot on the live page]  
 
 
 3) Create a **Leave allocation** for the **Employee**.
 
 4) In the **Leave Type list**, for all the types that allow Compensatory off, tick the checkbox.
 
-![](https://docs.erpnext.com/files/zO860kS.png)  
+[Screenshot on the live page]  
 
 
 5) Now, create a **Compensatory Leave Request** for the employee.
 
-![](https://docs.erpnext.com/files/QuIeV7V.png)  
+[Screenshot on the live page]  
 
 
 6) Go back and check the **Leave allocation** for the leave added for the Employee.
 
-![](https://docs.erpnext.com/files/PstYtuX.png)
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__leave-allocation.md -->
 ---
@@ -793,7 +456,7 @@ Before creating a Leave Allocation, it is advisable you create the following doc
 3. Enter the number of New Leaves Allocated for that particular Leave Type.
 4. Save and Submit.
 
-![Leave Allocation](https://frappehr.com/files/leave-allocation.png)
+[Screenshot on the live page: Leave Allocation]
 
 > **Note:** Enable the 'Add unused leaves from previous allocations' option in case you want to carry forward unused leaves from the previous allocation period for this particular Leave Type.
 
@@ -807,11 +470,11 @@ If your earned leave allocation failed due to some reasons like background jobs 
 
 Click on **Actions > Allocate Leaves**
 
-![Allocate Leaves Button](/files/allocate.png)
+[Screenshot on the live page: Allocate Leaves Button]
 
 And set the number of leaves you want to allocate. You can also set the **From Date** from when these leaves will be applicable. By default, it will consider today’s date.
 
-![Manual Leave Allocation](/files/manual-allocation.png)
+[Screenshot on the live page: Manual Leave Allocation]
 
 Click on allocate to add leaves to the balance
 
@@ -861,19 +524,19 @@ Before you create a Leave Application, it is advisable you have the following do
 1. Go to Leave Application list, click on New.
 2. A table of Allocated Leaves will be shown. Based on the Leaves taken, the available leaves are displayed for each Leave Type.
 
-![Leave Application](https://frappehr.com/files/leave-app.png)
+[Screenshot on the live page: Leave Application]
 3. Select the Employee Name and Leave Type.
 4. Set the Leave duration using From Date and To Date. Based on the dates selected, the 'Total Leave Days' and the 'Leave Balance Before Application' fields will be displayed.
 5. If the Leave applied is for a half-day, select the 'Half Day' checkbox.
 6. Enter the Reason for Leave.
 
-![Leave Application](https://frappehr.com/files/leave-app1.png)
+[Screenshot on the live page: Leave Application]
 7. Select Leave Approver.
 8. Select the Posting Date of the Leave Application.
 9. Check the 'Follow via Email' checkbox to send notification of the Leave Application to the Leave Approver.
 10. You can also link the Salary Slip of the Employee in the Leave Application for the record.
 
-![Leave Application](https://frappehr.com/files/leave-app3.png)
+[Screenshot on the live page: Leave Application]
 11. Click on Save. Once the Employee saves the Leave Application, the status of the Leave Application changes to 'Open', and an email is sent to the Leave Approver for approval. The Leave Approval Notification Template can be configured in [HR Settings](https://docs.frappe.io/hr/hr-settings) under the Leave Settings section.
 12. Once the Leave Approver receives the email, they can Approve, Reject, or Cancel the Leave Application. Once this is done, the Leave Approver can submit the Leave Application. On submission, the status of the document changes accordingly, and an email is sent to the Employee notifying them the same.
 
@@ -899,13 +562,13 @@ A leave approver is a user who can approve a Leave Application of an Employee. I
 
 * **Department Level:** Leave Approvers for each department can be configured in the [Department](https://docs.frappe.io/hr/department) master. Multiple Leave Approvers can be set in a Department. The first Leave Approver in the list will be considered as the default Leave Approver.
 
-![Leave Application - Leave Approvers](https://frappehr.com/files/leave-app4.png)  
+[Screenshot on the live page: Leave Application - Leave Approvers]  
 
 
 When an Employee belonging to a particular department applies for leave, the Leave Approvers set in that Employee's department master will be considered as his Leave Approvers.
 * **Employee Level:** Leave Approvers can also be set Employee-wise in the employee master.
 
-![Leave Application - Leave Approvers](https://frappehr.com/files/employee-level-approvers.png)
+[Screenshot on the live page: Leave Application - Leave Approvers]
 
 If Leave Approvers are set at both Employee-level and Department-level, the Employee-level Leave Approver will be considered as the default Leave Approver in this case.
 
@@ -972,7 +635,7 @@ Before you create a Leave Block List, it is advisable you have the following doc
 4. Enter Users to approve Leave Applications for Blocked Days in the 'Leave BLock List Allowed' table.
 5. Save.
 
-![Leave Block List](https://frappehr.com/files/leave-block-list.png)
+[Screenshot on the live page: Leave Block List]
 
 > **Note:** Enable the 'Applies to Company' option if you want the Leave Block List to be applicable for the entire Company. If not checked, the list will have to be added to each [Department](https://docs.frappe.io/hr/department) where it has to be applied.
 
@@ -1039,7 +702,7 @@ Before using the Leave Control Panel, it is advisable to create the following do
 4. Use Quick Filters for filtering employees based on specific fields, or add additional custom filters through Advanced Filters.
 5. Select suitable employees from the Select Employees table below and click on the Allocate Leave button at the top right corner.
 
-![](https://frappehr.com/files/dZbeNka.png)  
+[Screenshot on the live page]  
 
 
 
@@ -1051,9 +714,411 @@ Before using the Leave Control Panel, it is advisable to create the following do
 
 * Leave Policy Assignment
 
-![](https://frappehr.com/files/91LxRtw.png)  
+[Screenshot on the live page]  
 
 
 * Leave Allocation
 
-![](https://frappehr.com/files/2fi9z2Z.png)  
+[Screenshot on the live page]  
+
+<!-- page: frappe-hr/hr__leave-encashment.md -->
+---
+title: "Leave Encashment                                          "
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/leave-encashment"
+updated: "2026-02-04"
+---
+
+**Leave Encashment refers to an amount of money received in exchange for Leaves not availed by an Employee. You can submit Leave Encashment for Leave Types which are encashable.**
+
+To access Leave Encashment, go to:
+
+> Home > Human Resources > Leaves > Leave Encashment
+
+**1. Prerequisites**
+--------------------
+
+Before creating Leave Encashment, it is advisable you create the following documents:
+
+1. [Employee](https://docs.frappe.io/hr/leave-allocation)
+2. [Leave Type](https://docs.frappe.io/hr/leave-type)
+3. [Leave Policy](https://docs.frappe.io/hr/leave-policy)
+4. [Leave Period](https://docs.frappe.io/hr/leave-period)
+5. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+6. [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
+
+**2. How to create a Leave Encashment**
+---------------------------------------
+
+1. Go to Leave Encashment list, click on New.
+2. Select Leave Period.
+3. Select the Employee. Once the Employee is selected, the Employee's Department is automatically fetched.
+4. Select Leave Type for which the Leave is encashed. Make sure the Leave Type is encashable (the 'Allow Encashment' checkbox in the Leave Type is checked).
+5. Select Encashment Date, if you want payment via Salary Slip. Based on the date selected, the amount will be encashed in that particular Payroll Entry.
+6. Save and Submit.
+
+[Screenshot on the live page: Leave Encashment]
+
+> **Note:** As you select Employee and Leave Type, Leave Balance and Encashable Days (which is total leave balance minus the threshold days set in Leave Type) will be shown along with the Encashment Amount based on the Leave Encashment per day as configured in the Employee's assigned Salary Structure.
+
+**3. Leave Encashment Payment Methods**
+---------------------------------------
+
+In Frappe HR, we allow you to pay the encashment amount via Salary Slip or Payment Entry.
+
+### **3.1 Payment via Payment Entry**
+
+1. To pay the Leave Encashment amount via Payment Entry you need to check Pay via Payment Entry checkbox. 
+2. After that, it will allow you to select Payable Account and Expense Account. 
+3. After Submitting the record click on the button "Create Payment Entry" which will redirect you to the Payment Entry Form fill in the details, save, and submit.
+
+### **3.2 Payment via Salary Slip**
+
+1. To pay the Leave Encashment amount via Salary Slip you need to make sure that checkbox Pay via Payment Entry is unchecked.
+2. Select the Encashment Date. Based on the date selected, the amount will be encashed in that particular Payroll Entry. Save and Submit. 
+On submitting a Leave Encashment for an Employee, Frappe HR automatically creates an [Additional Salary](https://docs.frappe.io/hr/additional-salary) which will get added to the Salary Slip of the Employee when processing the payroll.
+
+
+**3. Related Topics**
+---------------------
+
+1. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
+2. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
+3. [Additional Salary](https://docs.frappe.io/hr/additional-salary)
+
+  
+
+<!-- page: frappe-hr/hr__leave-ledger-entry.md -->
+---
+title: "Leave Ledger Entry"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/leave-ledger-entry"
+updated: "2026-02-26"
+---
+
+A unified ledger for all leave related transactions for an employee. This maintains all the leaves related transactions, this includes the leave allocations, leave applications and leave encashments of your employees.
+
+[Screenshot on the live page: Leave Ledger Entry]  
+
+
+  
+
+<!-- page: frappe-hr/hr__leave-ledger-report.md -->
+---
+title: "Leave Ledger Report"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/leave-ledger-report"
+updated: "2026-02-26"
+---
+
+This report allows you to view the ledger impact for all your leave-related transactions:
+
+1. Leave Allocation
+2. Leave Application
+3. Leave Encashment
+
+[Screenshot on the live page: ledger-report]  
+
+
+This report gives you an overview of:
+
+1. Ledger entry creation date
+2. Ledger transaction dates (From Date - To Date)
+3. Leaves (added/consumed/deducted)
+4. Leave Type
+5. Linked transaction details (Type & Name)
+6. Any special flags: Is Carry Forward, Is Expired, Is Leave Without Pay
+7. Company & Holiday List linked to it
+
+You can use the **View Ledger** button in transactions to view the linked ledger entries in the report view
+
+[Screenshot on the live page: leave-ledger]  
+
+
+  
+
+<!-- page: frappe-hr/hr__leave-management__help-articles__how-to-sanction-leave-encashment-amount-in-salary-slip.md -->
+---
+title: "How to Sanction Leave Encashment Amount in Salary Slip"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/leave-management/help-articles/how-to-sanction-leave-encashment-amount-in-salary-slip"
+updated: "2026-07-05"
+---
+
+Leave Encashment is used to pay an employee for unused leaves. In Frappe HR, this amount can be paid through a **Salary Slip** or through a separate **Payment Entry**.
+
+This article explains how to sanction the leave encashment amount through Salary Slip.
+
+## When To Use This
+
+Use this method when the encashment amount should be paid along with the employee's regular payroll.
+
+For example, if an employee has unused earned leaves at the end of the year, you can create a Leave Encashment record and include the encashment amount in the employee's Salary Slip for that payroll period.
+
+## Prerequisites
+
+Before creating Leave Encashment, make sure the following are configured:
+
+- The employee has an active **Salary Structure Assignment**.
+- The **Leave Type** is marked as encashable.
+- The Leave Type has an **Earning Component** set for encashment.
+- The employee has a submitted **Leave Allocation** for that Leave Type.
+- The employee has unused leave balance available for encashment.
+- The per-day encashment amount is set in the Salary Structure or Salary Structure Assignment.
+
+## Step 1: Enable Encashment In Leave Type
+
+Open the relevant **Leave Type** and enable **Allow Encashment**.
+
+You can also configure limits such as:
+
+- Non-encashable leaves
+- Maximum encashable leaves
+- Earning Component
+
+The Earning Component is important because it decides which salary component will be used when the encashment amount is added to payroll.
+
+## Step 2: Set Leave Encashment Amount Per Day
+
+Open the employee's **Salary Structure** or **Salary Structure Assignment** and set the leave encashment amount per day.
+
+Frappe HR uses this amount to calculate:
+
+```text
+Encashment Amount = Encashment Days x Leave Encashment Amount Per Day
+```
+
+If the per-day amount is not set, the encashment amount may be calculated as zero.
+
+## Step 3: Create Leave Encashment
+
+Go to:
+
+```text
+Home > Human Resources > Leaves > Leave Encashment
+```
+
+Create a new Leave Encashment record and select:
+
+- Leave Period
+- Employee
+- Leave Type
+- Encashment Date
+
+The system fetches the employee's leave balance and calculates the encashable days and encashment amount.
+
+## Step 4: Pay Through Salary Slip
+
+To pay the amount through Salary Slip, keep **Pay Via Payment Entry** unchecked.
+
+When the Leave Encashment is submitted, Frappe HR creates an **Additional Salary** record for the employee. This Additional Salary record is linked to the Leave Encashment and uses the earning component selected in the Leave Type.
+
+## Step 5: Process Payroll
+
+Create the **Payroll Entry** or **Salary Slip** for the payroll period that includes the encashment date.
+
+When the Salary Slip is created, the Additional Salary from the Leave Encashment is included in the employee's earnings.
+
+Review the Salary Slip and check that:
+
+- The encashment earning component is visible.
+- The amount is correct.
+- The total earnings include the encashment amount.
+
+Submit the Salary Slip to sanction and pay the amount through payroll.
+
+## Example
+
+An employee has 5 earned leaves available for encashment.
+
+The leave encashment amount per day is set to 1,000.
+
+```text
+5 x 1,000 = 5,000
+```
+
+When the Leave Encashment is submitted, Frappe HR creates an Additional Salary for 5,000. The amount is then added to the Salary Slip for the payroll period that includes the encashment date.
+
+## Common Checks
+
+If the encashment amount is not appearing in the Salary Slip, check the following:
+
+- The Leave Encashment is submitted.
+- **Pay Via Payment Entry** is not checked.
+- The encashment date falls within the Salary Slip or Payroll Entry period.
+- The Additional Salary record was created.
+- The Additional Salary payroll date is within the payroll period.
+- The Leave Type has an earning component.
+- The employee has an active Salary Structure Assignment.
+- The leave encashment amount per day is configured.
+
+## Salary Slip Or Payment Entry?
+
+Use **Salary Slip** when the encashment should be part of payroll and paid along with salary.
+
+Use **Payment Entry** when the encashment should be paid separately and accounted for directly through accounts.
+
+## Related Topics
+
+- [Leave Encashment](https://docs.frappe.io/hr/leave-encashment)
+- [Leave Type](https://docs.frappe.io/hr/leave-type)
+- [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+- [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
+- [Salary Slip](https://docs.frappe.io/hr/salary-slip)
+- [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
+- [Additional Salary](https://docs.frappe.io/hr/additional-salary)
+
+<!-- page: frappe-hr/hr__leave-management__help-articles__leave-calculation-in-salary-slip.md -->
+---
+title: "Leave Calculation in Salary Slip"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/leave-management/help-articles/leave-calculation-in-salary-slip"
+updated: "2026-07-05"
+---
+
+Frappe HR calculates leave impact in the Salary Slip by reducing the employee's payable days for the payroll period. This is mainly controlled by Leave Without Pay, Partially Paid Leave, attendance records, holidays, and the employee's joining or relieving date.
+
+The calculation decides two important values in the Salary Slip:
+
+- **Total Working Days**
+- **Payment Days**
+
+The salary components that depend on payment days are calculated based on the final Payment Days.
+
+## How Leave Affects Salary Slip
+
+When a Salary Slip is created, Frappe HR checks the payroll period and calculates how many days the employee should be paid for.
+
+In simple terms:
+
+```text
+Payment Days = Eligible Working Days - Leave Without Pay - Absent Days
+```
+
+The exact calculation can change depending on payroll settings, holiday settings, attendance records, and leave type settings.
+
+## Leave Without Pay
+
+If an employee has an approved Leave Application for a Leave Type marked as **Leave Without Pay**, those days reduce the Payment Days in the Salary Slip.
+
+For example, if the payroll period has 30 working days and the employee has 2 days of Leave Without Pay:
+
+```text
+Payment Days = 30 - 2 = 28
+```
+
+Salary components that depend on payment days are then calculated for 28 days instead of 30.
+
+## Partially Paid Leave
+
+Frappe HR also supports **Partially Paid Leave**. In this case, the leave does not reduce the full day's salary. It reduces salary based on the fraction configured in the Leave Type.
+
+For example, if a leave type pays 50% of daily salary for one day, the Salary Slip treats it as a partial reduction instead of a full Leave Without Pay day.
+
+Use Partially Paid Leave when employees should receive part of their salary during a leave period.
+
+## Calculation Based On Leave Application Or Attendance
+
+Payroll can be calculated based on either leave applications or attendance records, depending on the payroll configuration.
+
+### Based On Leave Application
+
+When payroll is based on leave applications, Frappe HR checks approved leave records during the Salary Slip period.
+
+It considers:
+
+- Leave Without Pay
+- Partially Paid Leave
+- Half-day leave
+- Whether the Leave Type includes holidays
+
+### Based On Attendance
+
+When payroll is based on attendance, Frappe HR checks submitted Attendance records for the Salary Slip period.
+
+It considers:
+
+- Absent days
+- Half-day attendance
+- Attendance marked on holidays, depending on settings
+- Leave Type used in attendance records
+- Unmarked attendance, depending on payroll settings
+
+If unmarked attendance is configured to be treated as absent, those unmarked days can also reduce Payment Days.
+
+## Half-Day Leave And Half-Day Attendance
+
+Half-day leave or half-day attendance reduces salary based on the half-day fraction configured in payroll settings.
+
+For example, if the daily wages fraction for half day is 0.5, then one half-day Leave Without Pay reduces Payment Days by 0.5.
+
+## Holidays In Salary Slip Calculation
+
+Holiday handling depends on payroll settings and the employee's holiday list.
+
+If holidays are included in total working days, holidays are part of the working day count.
+
+If holidays are not included, holidays are removed from Total Working Days before Payment Days are calculated.
+
+Some Leave Types can also be configured to include holidays. If holidays are included for that Leave Type, leave falling on holidays may be considered in the leave calculation.
+
+## Joining Date And Relieving Date
+
+Salary Slip calculation also considers the employee's joining and relieving dates.
+
+If an employee joins in the middle of the payroll period, Payment Days are calculated from the joining date.
+
+If an employee leaves in the middle of the payroll period, Payment Days are calculated only up to the relieving date.
+
+This prevents salary from being calculated for dates before joining or after relieving.
+
+## Example
+
+Suppose the payroll period is from 1 April to 30 April.
+
+- Total days in period: 30
+- Holidays excluded from working days: 4
+- Total Working Days: 26
+- Leave Without Pay: 2
+- Half-day Leave Without Pay: 0.5
+
+The Payment Days will be:
+
+```text
+26 - 2 - 0.5 = 23.5
+```
+
+Salary components that depend on payment days are calculated for 23.5 payment days.
+
+## Why The Salary Amount May Look Different
+
+If the salary amount in the Salary Slip is not what you expected, check:
+
+- Whether payroll is based on Attendance or Leave Application.
+- Whether the Leave Application is submitted and approved.
+- Whether the Leave Type is marked as Leave Without Pay or Partially Paid Leave.
+- Whether holidays are included in Total Working Days.
+- Whether the Leave Type includes holidays.
+- Whether attendance is marked for the full period.
+- Whether unmarked attendance is treated as absent.
+- Whether the employee joined or left during the payroll period.
+- Whether the salary component depends on payment days.
+
+## Components That Depend On Payment Days
+
+Only salary components configured to depend on payment days are reduced based on leave calculation.
+
+If a component does not depend on payment days, it may remain the same even when Payment Days are reduced.
+
+Check the Salary Component and Salary Structure configuration if a particular earning or deduction is not changing as expected.
+
+## Related Topics
+
+- [Salary Slip](https://docs.frappe.io/hr/salary-slip)
+- [Payroll Settings](https://docs.frappe.io/hr/payroll-settings)
+- [Leave Application](https://docs.frappe.io/hr/leave-application)
+- [Leave Type](https://docs.frappe.io/hr/leave-type)
+- [Attendance](https://docs.frappe.io/hr/attendance)
+- [Holiday List](https://docs.frappe.io/hr/holiday-list)
+- [Salary Component](https://docs.frappe.io/hr/salary-component)
+- [Salary Structure](https://docs.frappe.io/hr/salary-structure)

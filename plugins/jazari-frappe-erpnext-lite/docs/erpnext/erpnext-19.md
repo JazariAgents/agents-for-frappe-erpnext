@@ -1,152 +1,5 @@
 <!-- Frappe documentation: erpnext, part 19 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__debit-note.md -->
----
-title: "Debit Note | ERPNext Documentation"
-description: "Create and submit an ERPNext Debit Note to return purchases or reduce a Supplier invoice."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/debit-note"
-updated: "2026-08-14"
----
-
-Apex Components, a supplier to Nova Industries, delivered phone batteries, but two were damaged and must be returned. Nova Industries needs to reduce what it owes the supplier without changing or deleting the original Purchase Invoice.
-
-
-
-A Debit Note records that supplier return or credit as a separate return Purchase Invoice. It reverses the relevant payable, tax, expense, and stock effects while preserving the original transaction.
-
-
-
-Use a Debit Note when goods are returned to a supplier, a supplier invoice must be reduced, or a supplier credit must be recorded against an earlier Purchase Invoice.
-
-
-
-## Before you begin
-
-You need a submitted [Purchase Invoice](/erpnext/purchase-invoice). Confirm:
-
-- which Items and quantities are being returned;
-- whether ERPNext must also reverse stock;
-- whether a linked Purchase Receipt exists;
-- whether the Supplier has already been paid;
-- the posting date on which the return should affect the ledgers.
-
-If you are correcting only the price while keeping the goods, follow [Debit Note for price adjustment](/erpnext/debit-note-for-price-adjustment).
-
-## Create a Debit Note
-
-1. Open the submitted Purchase Invoice that must be reduced.
-2. Select **Create &gt; Return / Debit Note**.
-
-![Return or Debit Note action on a submitted Purchase Invoice](https://novacompanies.m.frappe.cloud/files/purchase-payables-05-create-debit-note.png)
-
-3. ERPNext creates a new Purchase Invoice with **Is Return (Debit Note)** selected and **Return Against Purchase Invoice** linked to the original invoice. Verify both fields before changing the Items.
-
-![Debit Note return setting and original Purchase Invoice reference](https://novacompanies.m.frappe.cloud/files/purchase-payables-06-debit-note-reference.png)
-
-4. Keep only the Items being returned. Remove unaffected rows.
-5. Enter the return quantity as a negative number. For example, use `-2` to return two units from an original quantity of ten.
-6. Select the pencil icon on the Item row to open the full row editor. Verify the returned quantity, original rate, Warehouse, expense account, Cost Center, and source-document references.
-
-![Negative quantity and original rate in the Debit Note Item row](https://novacompanies.m.frappe.cloud/files/purchase-payables-07-debit-note-negative-quantity.png)
-
-7. If the return must move stock out, select **Update Stock** and verify the Warehouse. Leave it clear when stock was already returned through a Purchase Return against the Purchase Receipt.
-8. Review taxes and totals. A return should have negative amounts.
-9. Save and submit the Debit Note.
-
-## What the Debit Note updates
-
-On submission, ERPNext reduces the Supplier payable and reverses the relevant expense, asset, tax, or receipt-clearing values. When **Update Stock** is selected, it also posts the stock movement out of the selected Warehouse.
-
-The original Purchase Invoice remains submitted. Its outstanding amount is reduced by the Debit Note. This maintains a clear audit trail instead of rewriting the original bill.
-
-If the Supplier invoice was unpaid, the Debit Note reduces the amount to pay. If the Supplier was already paid, the result may be a Supplier credit that can be allocated against another invoice or settled through a payment. Use [Payment Reconciliation](/erpnext/payment-reconciliation) when allocations need correction.
-
-## Important fields and what they mean
-
-
-| Field                                    | What it controls                                                                                                                                                |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Is Return (Debit Note)                   | Marks the Purchase Invoice as a return and changes amounts to reversal values.                                                                                  |
-| Return Against Purchase Invoice          | Links the Debit Note to the original invoice and supports outstanding and document-status updates.                                                              |
-| Update Outstanding for Self              | Updates the Debit Note's own outstanding amount even when it references an original invoice. Use the default unless your accounting process requires otherwise. |
-| Update Billed Amount in Purchase Order   | Reduces the billed amount on the linked Purchase Order when applicable.                                                                                         |
-| Update Billed Amount in Purchase Receipt | Reduces the billed amount on the linked Purchase Receipt when applicable.                                                                                       |
-| Update Stock                             | Posts the physical purchase return from the Warehouse through this document.                                                                                    |
-| Items                                    | Identifies what is returned. Quantities and amounts are normally negative.                                                                                      |
-| Posting Date and Time                    | Determines the accounting and optional stock period for the return.                                                                                             |
-| Credit To                                | The Supplier payable account affected by the Debit Note.                                                                                                        |
-
-
-## Partial returns
-
-You can return selected Items or only part of an Item quantity. Retain the original rate unless the Debit Note is specifically a price adjustment. ERPNext limits the return against the quantities and amounts available on the referenced document.
-
-Example: an invoice contains ten phones at $520 each. If two damaged phones are returned, enter quantity `-2` at rate `$520`. The Debit Note total is `$1,040` before tax, and the original payable is reduced by that amount.
-
-## Submit and next steps
-
-After submission:
-
-- check the original invoice's outstanding amount;
-- review the Supplier balance in [Accounts Payable](/erpnext/accounts-payable);
-- inspect the General Ledger entries from **View &gt; Accounting Ledger**;
-- inspect the Stock Ledger when **Update Stock** was enabled;
-- allocate any remaining Supplier credit to a later Purchase Invoice or payment.
-
-## Status
-
-
-| Status   | Meaning                                                                             |
-| -------- | ----------------------------------------------------------------------------------- |
-| Draft    | The Debit Note has not affected ledgers.                                            |
-| Return   | The return Purchase Invoice is submitted.                                           |
-| Unpaid   | The submitted Debit Note has an outstanding credit that is not allocated.           |
-| Paid     | The Debit Note has been fully allocated or settled.                                 |
-| Canceled | Its accounting and stock effect has been reversed under ERPNext cancellation rules. |
-
-
-## Troubleshooting
-
-### The return quantity is rejected
-
-Confirm that the quantity is negative, does not exceed the remaining returnable quantity, and references the correct original Item row.
-
-### Stock is reversed twice
-
-Use either a stock-updating Debit Note or a Purchase Return against the Purchase Receipt for the same physical movement. Do not post both for the same returned units.
-
-### The original invoice outstanding amount did not change as expected
-
-Check **Return Against Purchase Invoice**, the update-outstanding option, existing payments, and reconciliations. Then review the Payment Ledger entries for both documents.
-
-### The Supplier was already paid
-
-The Debit Note creates a Supplier credit. Reconcile it against a later invoice or record the appropriate refund payment according to your process.
-
-## Frequently asked questions
-
-### Can I create a Debit Note without an original Purchase Invoice?
-
-ERPNext can support an unlinked return in some configurations, but linking the original invoice gives better quantity validation, outstanding updates, and audit evidence. Prefer the linked workflow.
-
-### Can a Debit Note return only one line?
-
-You can. Remove all unaffected rows and retain only the returned line and quantity.
-
-### Does every Debit Note update stock?
-
-It does not. Stock changes only when the document is configured to update stock. A price-only adjustment should not move stock.
-
-## Related topics
-
-- [Purchase Invoice](/erpnext/purchase-invoice)
-- [Debit Note for price adjustment](/erpnext/debit-note-for-price-adjustment)
-- [Purchase Receipt](/erpnext/purchase-receipt)
-- [Payment Entry](/erpnext/payment-entry)
-- [Payment Reconciliation](/erpnext/payment-reconciliation)
-- [Accounts Payable](/erpnext/accounts-payable)
-
 <!-- page: erpnext/erpnext__default-receivable-payable-account.md -->
 ---
 title: "Default Receivable / Payable Account"
@@ -200,7 +53,7 @@ A party-specific account overrides the Company default for that Customer or Supp
 3. Add a row for the Company and select the required receivable or payable account.
 4. Save the party.
 
-![Customer-specific receivable account with the native modal overlay visible](/files/customer-default-eur-receivable-native-overlay.webp)
+[Screenshot on the live page: Customer-specific receivable account with the native modal overlay visible]
 
 
 
@@ -298,7 +151,7 @@ Open **Accounts Settings** and find **Deferred Accounting Settings** under **Inv
 
 
 
-![Deferred accounting settings](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-accounts-settings-deferred-accounting.png)
+[Screenshot on the live page: Deferred accounting settings]
 
 
 | Setting                                         | What it controls                                                                                                            |
@@ -331,7 +184,7 @@ Open the service Item and select **Enable Deferred Revenue**, **Enable Deferred 
 
 
 
-![Enable deferred accounting on the Item](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-item-deferred-accounting.png)
+[Screenshot on the live page: Enable deferred accounting on the Item]
 
 Enabling an Item does not post anything. The accounting effect begins when a submitted Sales Invoice or Purchase Invoice contains an enabled row with a valid deferred account and service period.
 
@@ -473,7 +326,7 @@ Open the Item used for the prepaid service. In **Accounting**, enable **Deferred
 
 
 
-![Enable deferred expense on the Item](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-item-deferred-accounting.png)
+[Screenshot on the live page: Enable deferred expense on the Item]
 
 The current Item form identifies the Item as eligible. The actual deferred asset account and service dates are confirmed on each Purchase Invoice Item row.
 
@@ -485,7 +338,7 @@ In **Items**, select the pencil icon to open the full row editor.
 
 
 
-![Open the Purchase Invoice Item row](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-purchase-invoice-item-pencil.png)
+[Screenshot on the live page: Open the Purchase Invoice Item row]
 
 Expand **Deferred Expense** and complete:
 
@@ -500,7 +353,7 @@ Expand **Deferred Expense** and complete:
 | Expense Head             | Final account that receives recognized expense         |
 
 
-![Deferred expense account and service period](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-purchase-invoice-service-period.png)
+[Screenshot on the live page: Deferred expense account and service period]
 
 The example uses **Prepaid Expenses - NET** and **Software Subscription Expenses - NET**. The service dates cover one year. Submit only after confirming every eligible row.
 
@@ -586,3 +439,326 @@ Normally no. Use ERPNext's Asset and depreciation workflow for fixed assets. Def
 - [Purchase Invoice](/erpnext/purchase-invoice)
 - [Journal Entry](/erpnext/journal-entry)
 - [General Ledger](/erpnext/general-ledger)
+
+<!-- page: erpnext/erpnext__deferred-revenue.md -->
+---
+title: "Deferred Revenue | ERPNext Documentation"
+description: "Configure ERPNext deferred revenue for prepaid services, invoice the customer, recognize income over time, and verify the ledger."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/deferred-revenue"
+updated: "2026-08-14"
+---
+
+Northstar Retail, a customer of Nova Industries, pays $1,200 upfront for a one-year warranty program. The invoice is raised today, but Nova Industries earns the revenue month by month as it provides the service.
+
+
+
+Deferred Revenue keeps the unearned portion out of current income. ERPNext first posts the invoice amount to a liability account, then recognizes the appropriate share as income over the service period.
+
+
+
+Use deferred revenue when a customer pays or is invoiced before your company has completed the related service, such as annual support, maintenance contracts, subscriptions, or prepaid service plans.
+
+
+
+## Understand the accounting effect
+
+Assume the invoice has no tax for simplicity.
+
+
+| Event                           | Debit                      | Credit                            |
+| ------------------------------- | -------------------------- | --------------------------------- |
+| Submit the $1,200 Sales Invoice | Debtors $1,200             | Deferred Revenue liability $1,200 |
+| Recognize one eligible period   | Deferred Revenue liability | Service Income                    |
+| Receive the Customer payment    | Bank $1,200                | Debtors $1,200                    |
+
+
+A [Payment Entry](/erpnext/payment-entry) clears the receivable. It does not determine when the income is earned. Recognition is controlled by the deferred settings and service dates.
+
+## Before you begin
+
+Prepare:
+
+- A deferred revenue liability account in the [Chart of Accounts](/erpnext/chart-of-accounts).
+- The final Income Account, such as Service Income.
+- A service [Item](/erpnext/item).
+- The contract or coverage start and end dates.
+- A Customer and a valid [Sales Invoice](/erpnext/sales-invoice) setup.
+- The applicable [Accounts Settings](/erpnext/accounts-settings) for automatic processing and day- or month-based allocation.
+
+Do not use an ordinary Income Account as the deferred account. The unearned balance belongs on the Balance Sheet until the service is delivered.
+
+## Configure deferred settings
+
+In Accounts Settings, choose whether ERPNext books deferred entries by **Days** or **Months**, whether processing runs automatically, and whether recognition is posted directly or through [Journal Entries](/erpnext/journal-entry).
+
+If $12,000 covers a 12-month service period, **Months** normally recognizes $1,000 for each complete month. With **Days**, a 30-day month may recognize about $986.30 and a 31-day month about $1,019.17, depending on the exact dates. This original example is retained because it shows why monthly recognition amounts can differ without being wrong.
+
+See [Deferred Accounting](/erpnext/deferred-accounting) for the full setting behavior.
+
+## Enable deferred revenue on the Item
+
+Open the Item used for the service or plan, select the **Accounting** tab, and enable **Deferred Revenue**. Enter a standard number of revenue months when it is useful for the Item.
+
+
+
+[Screenshot on the live page: Enable deferred revenue on the service Item]
+
+Current ERPNext keeps the deferred account and actual service dates on the Sales Invoice Item row. The Item option identifies that the line is eligible for deferred treatment.
+
+## Create the Sales Invoice
+
+Create a Sales Invoice for the Customer and add the deferred-revenue Item. Confirm the Company, posting date, currency, rate, taxes, and Cost Center as you would for any invoice.
+
+In the Items table, select the pencil icon to open the complete row editor.
+
+
+
+[Screenshot on the live page: Open the Sales Invoice Item row]
+
+Expand **Deferred Revenue** and complete:
+
+
+| Field                    | What it means                                                             |
+| ------------------------ | ------------------------------------------------------------------------- |
+| Enable Deferred Revenue  | Applies deferred treatment to this invoice row                            |
+| Deferred Revenue Account | Liability account holding the unearned balance                            |
+| Service Start Date       | First date on which the service is provided                               |
+| Service End Date         | Final date of the service period                                          |
+| Service Stop Date        | Optional earlier stop date when service ends before the original end date |
+| Income Account           | Final account that receives recognized revenue                            |
+
+
+[Screenshot on the live page: Deferred revenue account and service dates]
+
+The screenshot uses **Customer Advances - NET** as the deferred liability and **Service - NET** as the final income account. Use dedicated accounts if that gives your company clearer reporting.
+
+Submit the invoice only after verifying every deferred row. One invoice can contain several rows with different service periods.
+
+## What happens on submission
+
+ERPNext creates the normal Customer receivable, but credits the deferred liability instead of immediately crediting the Income Account for the eligible row. This keeps unearned revenue out of the Profit and Loss Statement.
+
+If tax is present, tax accounting follows the configured tax rules. Deferred revenue controls the eligible Item's net income recognition; it does not automatically defer every tax or charge on the invoice.
+
+## Recognize the revenue
+
+When automatic processing is enabled, ERPNext processes eligible schedules through a background job. Otherwise, create a [Process Deferred Accounting](/erpnext/process-deferred-accounting) document with **Type = Income**.
+
+For each eligible period, the recognition entry debits the deferred revenue account and credits the Sales Invoice row's Income Account. When posting through Journal Entry is enabled, ERPNext creates Journal Entry documents. They either remain Draft for review or are submitted automatically, depending on Accounts Settings.
+
+The original page described monthly Journal Entries. That remains valid when Journal Entry posting is enabled. With direct posting, the same accounting effect appears in the General Ledger without a separate Journal Entry document.
+
+## Verify recognized and pending revenue
+
+Run the [Deferred Revenue/Expense Report](/erpnext/deferred-revenue-expense-report). Check the invoice, service period, invoiced amount, recognized amount, and pending balance.
+
+Then review the [General Ledger](/erpnext/general-ledger):
+
+- The deferred liability should begin with the invoice amount.
+- Each recognition period should reduce that liability.
+- The same amount should increase the Income Account.
+- After the complete service term, the eligible deferred balance should be fully recognized, subject to rounding or approved changes.
+
+Also verify the Customer receivable separately. The invoice can be unpaid, partially paid, or fully paid while revenue recognition continues according to the service period.
+
+## Stop, cancel, or amend the service
+
+If a service ends early, record the supported **Service Stop Date** and follow your version's processing behavior. Check the deferred report after the next run.
+
+If the invoice itself is wrong, use the normal cancellation and amendment process. Do not manually delete recognition ledger entries. A credit note, cancellation, or amended invoice may need corresponding deferred processing and verification.
+
+## Video
+
+<iframe src="https://www.youtube.com/embed/j6mx-EHU4aY" title="Deferred Revenue in ERPNext" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
+
+## Troubleshooting
+
+
+| Problem                                              | What to check                                                                                      |
+| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Full amount appears in income immediately            | Confirm the row has Enable Deferred Revenue, a deferred liability account, and valid service dates |
+| No recognition entry appears                         | Check automatic processing, the date range, background jobs, and Draft generated Journal Entries   |
+| Monthly amounts are unequal                          | Check whether Accounts Settings uses Days rather than Months                                       |
+| Deferred report has a pending balance after the term | Check the processing end date, stop date, invoice status, and unsubmitted Journal Entries          |
+| Income posts to the wrong account                    | Review the Income Account on the Sales Invoice Item row                                            |
+
+
+## FAQs
+
+### Is deferred revenue the same as a Customer advance?
+
+No, a Customer advance is money received before allocation to an invoice. Deferred revenue is an invoiced amount that has not yet been earned. The example account name may include “Customer Advances,” but the underlying concepts and workflows remain different.
+
+### Can revenue be recognized before the Customer pays?
+
+Yes, payment status and revenue recognition are separate. ERPNext follows the service period for recognition and the invoice allocation for receivables.
+
+### Can different invoice lines use different service periods?
+
+Yes, configure deferred revenue and dates on each Item row.
+
+### Why are recognition Journal Entries Draft?
+
+Journal Entry posting is enabled while automatic submission is disabled. Review and submit the generated entries before expecting them in the General Ledger.
+
+### Does deferred revenue defer tax too?
+
+Not automatically. Taxes follow their configured tax and accounting rules. Confirm the required jurisdictional treatment with your accountant.
+
+## Related topics
+
+- [Deferred Accounting](/erpnext/deferred-accounting)
+- [Deferred Expense](/erpnext/deferred-expense)
+- [Process Deferred Accounting](/erpnext/process-deferred-accounting)
+- [Deferred Revenue/Expense Report](/erpnext/deferred-revenue-expense-report)
+- [Sales Invoice](/erpnext/sales-invoice)
+- [Journal Entry](/erpnext/journal-entry)
+- [General Ledger](/erpnext/general-ledger)
+
+<!-- page: erpnext/erpnext__delete-entries-linked-with-gl-entries.md -->
+---
+title: "Delete entries linked with GL entries"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/delete-entries-linked-with-gl-entries"
+updated: "2026-08-14"
+---
+
+ERPNext prevents Nova Industries from deleting a cancelled invoice because its accounting and stock ledger rows form part of the audit trail. Deleting a transaction is different from cancelling it, and should be rare. First decide whether you only need to reverse the business effect, which cancellation already does.
+
+## Before enabling deletion
+
+- Confirm the document is cancelled and no statutory or audit rule requires it to remain.
+- Take a backup and test in a non-production environment.
+- Understand that deleting ledger rows reduces traceability and may allow the naming series number to be reused depending on configuration.
+
+## Enable the setting
+
+1. Open **Accounts Settings**.
+2. Find **Delete Accounting and Stock Ledger Entries on deletion of Transaction**.
+3. Enable it, save, and reload.
+4. Delete only the intended cancelled document.
+5. Disable the setting again if it was approved for a one-time cleanup.
+
+[Screenshot on the live page: Accounts Settings option for deleting linked accounting and stock ledger entries]
+
+
+
+## Troubleshooting
+
+### The document is still linked
+
+Open the document’s links and identify dependent records, allocations, returns, or amendments. Remove or resolve dependencies in the correct business order. Do not delete database rows directly.
+
+## Frequently asked questions
+
+### Should I delete an incorrect submitted invoice?
+
+Normally cancel and amend it. That preserves the original document, its reversal, and the correction for audit.
+
+## Related topics
+
+- [Accounting overview](/erpnext/accounting/introduction)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [General Ledger](/erpnext/general-ledger)
+- [Fiscal Year](/erpnext/fiscal-year)
+
+<!-- page: erpnext/erpnext__delete-submitted-document.md -->
+---
+title: "Delete Submitted Document"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/delete-submitted-document"
+updated: "2026-03-04"
+---
+
+To delete a submitted document, you need to cancel it first. Following are the steps to delete a submitted document.
+
+These steps assume that you have the appropriate permissions on the document that you wish to cancel and delete.
+
+#### Step 1: Cancel Submitted Document
+
+You will find the 'Cancel' button on upper right corner of submitted document.
+
+[Screenshot on the live page: Screenshot 2023-12-27 at 12.24.48 PM]  
+
+
+#### Step 2: Delete the document
+
+On cancellation of the submitted document, the 'Amend' button becomes visible with the document status set to 'Cancelled'. This means that the document has been cancelled successfully.
+
+To delete the document, now click on Menu, then Delete. This will delete the selected document.
+
+[Screenshot on the live page: Screenshot 2023-12-27 at 12.39.59 PM]  
+
+
+**Note:** To delete multiple submitted documents in one go, you can select them in the list view and proceed to cancel and delete.
+
+[Screenshot on the live page: Screenshot 2023-12-27 at 12.34.25 PM]  
+
+
+If your document is linked with other documents, then you will need to cancel dependent document before trying to delete the parent document.
+
+[Screenshot on the live page: Screenshot 2023-12-27 at 12.37.51 PM]  
+
+
+All deleted documents disappear from the respective DocType but can be seen in 'Deleted Documents'. They can either be deleted permanently or restored.
+
+[Screenshot on the live page: Screenshot 2023-12-27 at 12.53.50 PM]  
+
+
+The restored documents are indicated in Deleted Documents.
+
+[Screenshot on the live page: Screenshot 2024-08-26 at 4.53.00 PM]  
+
+
+  
+
+<!-- page: erpnext/erpnext__delete_company_transactions.md -->
+---
+title: "Delete Company Transactions"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/delete_company_transactions"
+updated: "2026-03-12"
+---
+
+ERPNext allows you to delete all the transactions like Sales Invoices, Sales Order, Payment Entries etc associated with a company, while keeping the master data intact.
+
+
+
+Often, users setup all the master data and then create a few dummy records to test/explore the system. Then, they want to delete the dummy records and start over again.
+
+### Transaction Deletion Record
+
+---
+
+This feature allows you to delete all the records associated with a specified company, except for the ones belonging to the DocTypes listed in the **Excluded DocTypes** table.
+
+If you really want to wipe out the transactions, then follow these steps. However, the deleted transactions can't be restored.
+
+1. Create a new "Transaction Deletion Record" document.
+2. Enter the name of the Company whose records you wish to delete.
+3. Modify the "Excluded DocTypes" table if needed.
+4. Save and Submit.
+
+[Screenshot on the live page]
+
+The **Summary** table displays the names of the DocTypes whose records were deleted as well as the number of records that were deleted.
+
+
+
+## Delete Transactions
+
+---
+
+1. Go to **Home > Accounting > Company** and find your company.
+2. On the top right, you'll find the **Delete Transactions** button under **Manage**.
+3. Enter your password.
+4. Enter the company name to confirm.
+
+[Screenshot on the live page]
+
+This will submit a record in the Transaction Deletion Record DocType.
+
+:::note
+To perform this action, the user must have the role of System Manager.
+:::

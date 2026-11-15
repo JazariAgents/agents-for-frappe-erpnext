@@ -19,12 +19,12 @@ To configure Exotel for use within the Helpdesk, follow these steps:
 
 1. **Exotel Subscription:** Obtain an active Exotel subscription (refer to Exotel's documentation for details).
 2. **Exotel Credentials:** From your Exotel account, retrieve your Account SID, Subdomain, API Key, API Token and Exotel Mobile Number (Exophones).
-    ![](/files/Screenshot%202025-01-20%20at%206.51.13%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%206.56.49%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
 3. **Settings**: Click the dropdown menu on the top left logo and select "Settings."
-    ![](/files/Screenshot%202025-08-19%20122908.png)
+    [Screenshot on the live page]
 4. **Telephony Settings:** Navigate to Telephony Settings and enable Exotel. Add your Account SID, Subdomain, API Key, API Token, Webhook verify token (it can be anything it will be used later in Exotel incoming call flow configuration), exotel number and personal number also. You can also enable call recording at this point.
-![](/files/exotel-telephony-settings.png)
+[Screenshot on the live page]
 
 
 
@@ -37,17 +37,17 @@ For your Helpdesk's API to connect with Exotel, perform the following configurat
 
 1. Login to your Exotel account and go to App Bazar.
 2. Create a new "App" for a new flow.
-    ![](/files/Screenshot%202025-01-20%20at%207.02.50%E2%80%AFPM0a6a6d.png)
+    [Screenshot on the live page]
 3. Setup the flow as you wish it to be.
     
     * [Dial Whom](https://support.exotel.com/support/solutions/articles/3000088074-working-with-connect-applet-dial-whom-)
     * [Passthru](https://support.exotel.com/support/solutions/articles/48283-working-with-passthru-applet)
     * Check the documentation to learn about all the applets in flow builder - [Link](https://developer.exotel.com/applet)
 4. Set "Dial Whom" as user group. In user group there can be multiple agents. Incoming call will be redirected to agents in this group in the order they are added.
-    ![](/files/Screenshot%202025-01-20%20at%207.19.44%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%207.37.38%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
 5. You can also set how you want to distribute calls.
-    ![](/files/Screenshot%202025-01-20%20at%207.44.03%E2%80%AFPM.png)
+    [Screenshot on the live page]
 6. In your connect API under "Create popup...", copy and paste URL (Callback API) mentioned below. Here use webhook verify token which was mentioned in **Exotel Setup (point 4)**.
 
 
@@ -55,28 +55,28 @@ For your Helpdesk's API to connect with Exotel, perform the following configurat
     https://<yoursitename>/api/method/telephony.exotel.handler.handle_request?key=<webhook-verify-token>
     ```
     
-    ![](/files/Screenshot%202025-01-20%20at%207.08.08%E2%80%AFPM.png)
+    [Screenshot on the live page]
 7. After that add a "Passthru applet" under "After Call Conversation ends" and paste the same URL.
     
-    ![](/files/Screenshot%202025-01-20%20at%207.20.05%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%207.20.46%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
     > Note: Make sure to check "Make Passthru Async".
 
 8. Similary, add another "Passthru applet" under "If nobody answers..." section and paste the same URL.
-    ![](/files/Screenshot%202025-01-20%20at%207.20.14%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%207.24.51%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
     > Note: Make sure to check "Make Passthru Async".
 
 9. Save the flow.
 10. Now assign this newly created "App" to your ExoPhone from which you receive your business calls.
-    ![](/files/Screenshot%202025-01-20%20at%207.26.56%E2%80%AFPM.png)
+    [Screenshot on the live page]
 
 
 Make call
 -----------
 
 * **Ticket page:** A call button is available in the right section above ticket details. Use this button to initiate a call, but ensure the **Mobile No** field in the **Person** section includes the country code.
-    ![](/files/ticket-view-call.png)
+    [Screenshot on the live page]
 
 > Make sure to complete your KYC on Exotel before making calls [docs](https://support.exotel.com/support/solutions/articles/110606-trial-accounts-how-do-i-test-outbound-calling-)
 
@@ -92,12 +92,12 @@ Upon making or receiving a call, a pop-up window appears displaying:
 * Action buttons (Close or Minimize)
 
 
-![](/files/Diler.png)
+[Screenshot on the live page]
 
 
 This window can be minimized, allowing navigation to other screens, while remaining accessible in the far-right corner of the navbar.  
 
-![](/files/diler-minimized.png)
+[Screenshot on the live page]
 
 <!-- page: helpdesk/helpdesk__faq.md -->
 ---
@@ -113,7 +113,7 @@ Go to desk => Server Script => Add Server Script
 
 Use this configuration
 
-![imageb182fe](/files/imageb182fe.png)
+[Screenshot on the live page: imageb182fe]
 
 In the script paste this code:
 `frappe.call("frappe.email.doctype.email_account.email_account.pull_emails",email_account="Sales")`
@@ -180,38 +180,38 @@ You can connect a Microsoft 365 / Outlook mailbox to Frappe using OAuth instead 
 ### Step 1: Create the app registration
 
 1. Sign in to the [Azure Portal](https://portal.azure.com) and open **Microsoft Entra ID → App registrations**.
-  ![](/files/imageff427d.png)
+  [Screenshot on the live page]
 2. Click **New registration**.
-  ![](/files/image56b32e.png)
+  [Screenshot on the live page]
   *New app registration button*
 3. Give it a name (for example, `Frappe Email App`), leave the supported account type as default, and click **Register**. You will add the redirect URI later, once Frappe generates it.
-  ![](/files/imagefd693d.png)
+  [Screenshot on the live page]
 4. Once done successfully click on the register button below the form.
 
 ### Step 2: Add API permissions
 
 1. Open your new app and go to **API permissions → Add a permission**
-  ![](/files/imagea4cec0.png)
+  [Screenshot on the live page]
   *Guide to API Permissions*
-  ![](/files/imaged7d057.png)
+  [Screenshot on the live page]
   *Add Permission*
 2. Add the following Permissions under select Microsoft Graph option and inside go to  **Microsoft Graph → Delegated permissions**.
-  ![](/files/image476ca7.png)
+  [Screenshot on the live page]
 3. Click **Grant admin consent for**   and confirm. Each permission should show a green check under **Status**.
-  ![](/files/image3483b7.png)
+  [Screenshot on the live page]
   *Click Grant admin consent*
-  ![](/files/image6f40bf.png)
+  [Screenshot on the live page]
   *Updated status message*
 
 ### Step 3: Create a client secret
 
 1. Go to **Certificates & secrets → New client secret** or in **Overview** click **Add a secret**.
-  ![](/files/image3454e8.png)
-  ![](/files/imagee26167.png)
+  [Screenshot on the live page]
+  [Screenshot on the live page]
 2. Add a description, choose an expiry, and click **Add**.
-  ![](/files/image7b6a71.png)
+  [Screenshot on the live page]
 3. Copy the secret **Value** immediately and store it safely.
-  ![](/files/image0ec9c5.png)
+  [Screenshot on the live page]
 
 > **Note:** Copy the **Value**, not the **Secret ID**. The value is shown only once and cannot be retrieved again after you leave the page.
 
@@ -223,7 +223,7 @@ From the app's **Overview** page, copy:
 - **Directory (tenant) ID**
 - **OpenID Connect Metatdata Document ID** (Under endpoints)
 
-![](/files/acb494e027c6e635843dee5bd28bff95f89eb228.png)
+[Screenshot on the live page]
 
 Your OpenID configuration URL follows this format — keep it for the next part:
 
@@ -234,15 +234,15 @@ https://login.microsoftonline.com/your_tenant_id/v2.0/.well-known/openid-configu
 ## Part 2: Create a Connected App in Frappe
 
 1. In Frappe, go to **Connected App** and click **New** (`/app/connected-app/new`).
-  ![](/files/image150cfa.png)
+  [Screenshot on the live page]
 2. Paste your OpenID configuration URL into the **OpenID Configuration** field, then click **Get OpenID Configuration**. Frappe auto-fills the authorization, token, and revocation endpoints.
-  ![](/files/imagee2cc0c.png)
+  [Screenshot on the live page]
   On clicking **Get OpenID Configuration**, the field values will be filled automatically. Add the Provider name as Outlook.
-  ![](/files/imagecde89d.png)
+  [Screenshot on the live page]
 3. Enter the **Client ID** and the **client secret Value** from Part 1 which you have stored from the overview section.
-  ![](/files/imagef6c1d2.png)
+  [Screenshot on the live page]
 4. Add the required **Scopes**:
-  ![](/files/image227dc0.png)
+  [Screenshot on the live page]
 
 ```
 https://outlook.office365.com/.default
@@ -258,7 +258,7 @@ offline_access
 
 After saving, Frappe generates a **Redirect URI** on the Connected App. It looks like this:
 
-![](/files/image0d15cf.png)
+[Screenshot on the live page]
 
 ```text
 https://your_site.com/api/method/frappe.integrations.doctype.connected_app.connected_app.callback
@@ -268,14 +268,14 @@ Copy that value, go back to your Azure app, open **Authentication → Add a plat
 
 
 
-![](/files/imageee4504.png)
+[Screenshot on the live page]
 
-![](/files/image08eb8c.png)
+[Screenshot on the live page]
 *add your redirect URI and then configure*
 
 Lastly click on the Connect to Provider button to grant permissions for frappe to access resources from your outlook based on the scope defined.
 
-![](/files/image418979.png)
+[Screenshot on the live page]
 
 
 
@@ -294,7 +294,7 @@ Log in to Frappe as the **actual mailbox user** (not Administrator) before autho
 5. **Save**, then click **Authorize API Access**. Microsoft will ask you to sign in and approve the request. Once approved, you're returned to Frappe and the account is connected.
 6. Mark the account as **Default Incoming** and/or **Default Outgoing** as needed, Use OAuth option for authentication and then click **Authorize API Access**.
 
-![](/files/image988c3d.png)
+[Screenshot on the live page]
 
 If everything is correctly done you will be taken to the outlook page where you select the account you want to gain access to. On approval you have then successfully connected your email account to Frappe.
 
@@ -341,7 +341,7 @@ Only Select or Link fieldtypes are supported.
 
 e.g. 
 
-![](/files/Screenshot%202025-03-29%20at%209.15.22%20PM.png)
+[Screenshot on the live page]
 
 
 # Implementing Field Dependency
@@ -363,7 +363,7 @@ To create field dependencies from the portal UI, follow these steps:
 
 4. For each parent field value, select the corresponding child field values that should be available when that parent value is chosen. If there are no child values selected for the parent value, the child field will not be editable.
 
-![](/files/New%20FD.png)
+[Screenshot on the live page]
 
 
 
@@ -372,7 +372,7 @@ Set the condition for the child field to be visible or hidden based on the paren
 If enabled, you can control when the child field appears - either for any parent field value ("Any") or only when specific parent field values are selected. You can click on "Clear" button to reset the value to "Any".
 
 
-![](/files/Display%20depends%20on.png)
+[Screenshot on the live page]
 
 In this example, the child field "Sub Category", will be visible as soon as some value is set in the "Category" field.
 
@@ -383,7 +383,7 @@ If disabled, the child field will not be mandatory. If enabled, you can control 
 
 > Note: If the child field is required, user can't keep that field as empty
 
-![](/files/Display%20depends%20on.png)
+[Screenshot on the live page]
 In this example, the child field "Sub Category", will be require only if "Category" field's value is one of "Billing / Accounting / Payroll".
 
 
@@ -436,7 +436,7 @@ this function takes 2 values as an argument
 2. The Options you wanna show in the dropdown. (make sure to use the correct spelling). If null is passed then the options will reset to default.
 
 Here is an example of implementation:
-![](/files/New%20Option%20Depends.gif)
+[Screenshot on the live page]
 
 
 **Some more customisations**
@@ -455,7 +455,7 @@ e.g for making a application field mandatory use this expression:
 
 video showcasing `mandatory_depends_on` & `display_depends_on` 
 
-![](/files/Display%20and%20mandatory%20depends%20on.gif)
+[Screenshot on the live page]
 
 <!-- page: helpdesk/helpdesk__helpdesk__customization__outside-working-hours-banner.md -->
 ---
@@ -469,11 +469,11 @@ When users raise a ticket outside regular working hours, they may be confused ab
 
 To display the after-hours banner in the customer view, navigate to the **General** tab in the Settings view and enable the "**Outside working hours notice"** toggle, as shown below.
 
-![](/files/Adobe Express - Screen Recording 2026-01-21 at 12.39.30 PM77d642.gif)
+[Screenshot on the live page]
 
 When you enable the toggle, a text input appears, allowing you to customize the banner message. Your customized message takes effect once you save the settings.
 
-![](/files/Untitled design6ed650.gif)
+[Screenshot on the live page]
 
 Currently, you can use the following variables to personalize your banner message.
 
@@ -490,11 +490,11 @@ Suppose your business working hours are set from 9 am to 6 pm on a working day. 
 
 Voila! A notice banner is now displayed for the ticket. Why? because according to the configured SLA for the ticket, the time 9pm is *outside working hours.*
 
-![](/files/highlighted-banner.png)
+[Screenshot on the live page]
 
 Now, in the same scenario, let's say a day has passed, and now it's 12 pm on a working day according to your SLA.
 
-![](/files/image313c83.png)
+[Screenshot on the live page]
 
 As you can see, the banner is no longer there. Why? because the ticket is now being viewed inside working hours. Seems confusing, but it's really simple.
 
@@ -528,7 +528,7 @@ Comment reactions allow users to interact with comments using emojis. This featu
 4. Switch the toggle **on.**
 5. Click the **Save** button at the top right of the page.
 
-![](/files/img1.png)
+[Screenshot on the live page]
 
 
 
@@ -538,7 +538,7 @@ Comment reactions allow users to interact with comments using emojis. This featu
 2. See comments, under each comment you will see the **Reaction Icon** (plus-face emoji)
 3. Select your desired emoji from the reaction picker.
 
-![](/files/image060f45.png)
+[Screenshot on the live page]
 
 
 
@@ -550,7 +550,7 @@ When someone reacts to your comment, you’ll receive a notification.
 
 Clicking the notification takes you directly to the comment that received the reaction.
 
-![](/files/image50dde7.png)
+[Screenshot on the live page]
 
   
   
@@ -639,7 +639,7 @@ ERPNext must be installed on the same Frappe bench as Helpdesk. If ERPNext is no
 
 
 
-![](/files/imagefd7e25.png)
+[Screenshot on the live page]
 
 ## Enabling the Integration
 
@@ -648,13 +648,13 @@ ERPNext must be installed on the same Frappe bench as Helpdesk. If ERPNext is no
 
 Once enabled, you will see this banner at the bottom, and a "Sync Now" button
 
-![](/files/image962c92.png)
+[Screenshot on the live page]
 
 
 
 The same button will also be visible in ERPNext HD Settings doctype.
 
-![](/files/imagef6e57e.png)
+[Screenshot on the live page]
 
 
 
@@ -685,7 +685,7 @@ Once the syncing is done
 
 This is how the UI will look in Settings of the Helpdesk Portal:
 
-![](/files/imageea93eb.png)
+[Screenshot on the live page]
 
 ## Disabling the Integration
 
@@ -710,26 +710,26 @@ updated: "2026-01-06"
 
 The Invite Agents tab in the settings modal can be used to invite new or existing (haven't been invited yet) users to Helpdesk.
 
-![invite agents tab in the settings modal](/files/Screenshot%202025-08-12%20at%201.11.50%E2%80%AFPM.png)
+[Screenshot on the live page: invite agents tab in the settings modal]
 
 ## Steps to invite
 
 1. List out the emails you wish to invite in a comma-separated format.
     
     
-    !['invite by email' field filled example](/files/Screenshot%202025-08-12%20at%201.23.22%E2%80%AFPM.png)
+    [Screenshot on the live page: 'invite by email' field filled example]
 
 2. Select a suitable role.
     
     > If you are a `Manager`, you will be only shown `Agent` or `Manager` options
 
     
-    !['role' field select expanded example](/files/Screenshot%202025-08-12%20at%201.26.35%E2%80%AFPM.png)
+    [Screenshot on the live page: 'role' field select expanded example]
 
 3. Trigger the invitation action using the 'Send Invites' button.
     
     
-    ![invites sent example](/files/Screenshot%202025-08-12%20at%205.11.42%E2%80%AFPM.png)
+    [Screenshot on the live page: invites sent example]
 
 All of the email addresses that were successfully invited will receive an invitation email with a link to accept the invitation. The sent invitations auto-expire in 3 days. Once an invitation expires, an email will be sent to the sender of the invitation.
 
@@ -738,7 +738,7 @@ All of the email addresses that were successfully invited will receive an invita
 To cancel a pending invitation, you can trigger the cancel invitation action using the 'Cancel Invitation' button in the UI.
 
 
-![cancel a pending invitation](/files/Screenshot%202025-08-12%20at%205.20.45%E2%80%AFPM.png)
+[Screenshot on the live page: cancel a pending invitation]
 
 Once the invitation is cancelled, an email is sent to let the invitee know that the invitation was cancelled.
 
@@ -749,7 +749,7 @@ To accept an invitation, use the link present in the invitation email. The link 
 To disable redirecting the invitee to set a password, you can disable username/password login present under the System Settings section of the Desk view.
 
 
-![system settings](/files/Screenshot%202025-08-12%20at%205.42.02%E2%80%AFPM.png)
+[Screenshot on the live page: system settings]
 
 <!-- page: helpdesk/helpdesk__knowledge-base.md -->
 ---
@@ -761,7 +761,7 @@ updated: "2026-01-06"
 
 The Knowledge Base in Frappe Helpdesk is a centralized repository of information designed to assist both support agents and customers in finding solutions to common issues. It serves as a self-service tool that helps reduce the number of support tickets by enabling users to resolve problems on their own.
 
-![Screenshot 2024-07-19 at 2.20.12 PM](/files/Screenshot 2024-07-19 at 2.20.12 PM.png)  
+[Screenshot on the live page: Screenshot 2024-07-19 at 2.20.12 PM]  
 
 
 Key Features of the Knowledge Base
@@ -804,7 +804,7 @@ When you land on Helpdesk for the first time your URL should be "/helpdesk/ticke
 
 This view shows you the list of all the tickets, in the begining you will see only one ticket:
 
-![](/files/Screenshot%202025-04-21%20at%201.44.27%20AM.png)
+[Screenshot on the live page]
 
 ## Channels to create tickets
 In Frappe Helpdesk you can create tickets by many ways:
@@ -824,7 +824,7 @@ When you set up your email account, and enable that account as incoming or defau
 <!--Let us talk about creating tickets from the *Customer Portal* first:-->
 
 Agents/Admins can navigate to Customer Portal and create ticket by:
-![](/files/CP%20new.gif)
+[Screenshot on the live page]
 
 When you click on "Customer Portal" in the dropdown you will be navigated to the route
 
@@ -841,7 +841,7 @@ When the customer login they will be directed to Customer Portal directly.
 
 On the top right corner (agent portal) you will see a button called "Create", click on it and you will be navigated to "New Ticket Page" with url `/helpdesk/tickets/new`.
 
-![](/files/Screenshot%202025-04-21%20at%201.46.29%20AM.png)
+[Screenshot on the live page]
 
 Fill the subject & description using our Rich Text Editor which provides support for headings, list, attachments and much more.
 
@@ -849,7 +849,7 @@ Once you fill the information, click on "Submit" button or use the shortcut "cmn
 
 When a ticket is created you will be navigated to the created ticket. 
 
-![](/files/Screenshot%202025-04-21%20at%201.48.58%20AM.png)
+[Screenshot on the live page]
 
 
 **Emails**
@@ -871,7 +871,7 @@ url: "https://docs.frappe.io/helpdesk/lesson-2understanding-ticket-view"
 updated: "2026-01-16"
 ---
 
-![](/files/Ticket%20Basic%20Info.png)
+[Screenshot on the live page]
 
 - SLA information: Here you can see the SLA information, like when is the first response due or when is the resolution due, we will cover how to create & manage SLA's in the upcoming lessons.
 - Description: Whatever we added as description (in above img) shows up as the first communication.
@@ -881,17 +881,17 @@ updated: "2026-01-16"
 
 Let us try to assign this ticket to an agent, click on "Assign" button at the top
 
-![](/files/Assign%20btn.png)
+[Screenshot on the live page]
 
 Once you click on the button, a dialog will open
 
-![](/files/Screenshot%202025-04-21%20at%202.25.52%20AM.png)
+[Screenshot on the live page]
 
 When you click on "Select an option", you will see "No results found", this is because we now need to add agents to our system, follow this link to add agents, and get back here.
 
 Now when you click on "Assign" button, the new agent will be populated, select the agent and the ticket will be assigned to that agent.
 
-![](/files/Screenshot%202025-04-21%20at%202.48.35%20AM.png)
+[Screenshot on the live page]
 
 As you can see the ticket is assigned to the agent.
 
@@ -899,7 +899,7 @@ As you can see the ticket is assigned to the agent.
 
 You can reply to tickets in two ways:
 
-![](/files/Reply%20buttons.png)
+[Screenshot on the live page]
 
 1. Reply Button at bottom corner:
 
@@ -915,7 +915,7 @@ This editor has various functionalities like:
 - Adding attachments
 - Auto applying canned responsed (email button), read more about it from here.
 
-![](/files/Reply.png)
+[Screenshot on the live page]
 
 1. Reply Icon on each email:
 
@@ -923,7 +923,7 @@ Sometimes in a long conversation, agents wants to reply on a particular "email" 
 
 Agents can click on the "reply icon" on an email, and all the context related to that email will be shown in the text editor. This saves the agent the hastle to manulalyt copying & pasting the replies and formatting them.
 
-![](/files/Screenshot%202025-04-22%20at%2012.45.07%20AM.png)
+[Screenshot on the live page]
 
 ### Adding a private note (comment)
 
@@ -931,7 +931,7 @@ Sometimes you need to jot down a quick thought or share internal info without th
 
 Comments are for internal team, they will never be displayed to the customer.
 
-![](/files/Commentfdcacc.gif)
+[Screenshot on the live page]
 
 When you click on comment, you can mention any agent from your system, whoever you mention will receive an Email saying "you were mentioned in this comment, on this ticket".
 
@@ -945,7 +945,7 @@ You can also **react** to **comments**, read more about it from [here.](https://
 
 In Frappe Helpdesk, each support ticket moves through one of the following four statuses, the SLA applied on the ticket is used.
 
-![](/files/Screenshot%202025-04-22%20at%201.28.53%20AM.png)
+[Screenshot on the live page]
 
 1. 🔴 **Open**
 2. 🔵 **Replied**
@@ -1075,7 +1075,7 @@ You can manage the members of a team anytime — adding or removing agents immed
 Helpdesk creates two teams for you by default. Try adding members in each team and then try to assign a ticket to another team. You will notice that on changing the team (Agent Group), the ticket gets re-assigned to the agent of the selected team.
 
 
-![](/files/Auto%20Assignment.gif)
+[Screenshot on the live page]
 
 #### Custom Assignment Logic
 
@@ -1088,10 +1088,10 @@ This server script below ensures that based on priority, the teams & agents are 
 Here is an example of auto agent group assignment:
 
 
-![](/files/Server%20Script%20Assg.gif)
+[Screenshot on the live page]
 
 
-![](/files/Screenshot%202025-04-22%20at%205.08.05%20PM.png)
+[Screenshot on the live page]
 
 ```
 if doc.priority == "Low":
@@ -1102,3 +1102,118 @@ else:
 
 
 Now let us understand how you can reduce your ticket count and provide your customers with resolution faster using Knowledge Base.
+
+<!-- page: helpdesk/helpdesk__lesson-4-knowledge-base.md -->
+---
+title: "Knowledge Base"
+space: "Helpdesk"
+url: "https://docs.frappe.io/helpdesk/lesson-4-knowledge-base"
+updated: "2026-01-06"
+---
+
+The Knowledge Base is a powerful tool for agents to create, organize, and reuse helpful articles when responding to tickets. It helps ensure accurate and consistent replies while reducing time spent typing the same responses.
+
+In addition, these articles are shown on the Customer Portal, allowing customers to find answers and solve issues on their own — which can lead to a **reduction in ticket volume** and faster resolution times. (We will talk about the Customer Portal in the next lesson)
+
+On the sidebar click on "Knowledge Base" or the "book icon" to navigate to Knowledge Base.
+
+
+---
+
+### Creating a new article
+
+To create a new article:
+
+1. Click the **“+ Add New”** button on the top-right corner
+2. A dropdown will appear with two options:
+   - **Article**
+   - **Category**
+
+Click **“Article”** to get started.
+
+
+[Screenshot on the live page]
+
+> The article will be created under the **General** category by default. You can change the category later inside the article editor.
+
+Edit the title and add some description of the article and click on "Create"
+
+[Screenshot on the live page]
+
+You have successfully created your first article🎉
+
+#### Publishing
+
+- New articles are saved in **Draft Mode** (internal only)
+- Click **“Publish”** to make it **Public**
+  - **Draft Mode**: Visible only to the internal team
+  - **Public Mode**: Visible to customers on the Customer Portal
+
+#### Article Actions:
+
+- **Edit** – Modify title, content, or category
+- **Move** – Change category of the article.
+- **Share Link** – Copy article URL (for customers, if public)
+- **Delete** – Remove the article
+
+---
+
+### Creating a new category
+
+Creating categories is optional but important as it helps your organisation to maintain the articles and find them easily.
+
+To create a new category:
+
+1. Click the **“+ Add New”** button on the top-right corner
+2. A dropdown will appear with two options:
+   - **Article**
+   - **Category**
+
+Click on **“Category”**
+
+[Screenshot on the live page]
+
+When you create a new category, a dialog box popus up, add the category name and click on "Create". When a category is created, an article named "New Article" is also created under the newly created category, you can edit the article and click on "Save".
+
+Here is a small video to understand the flow:
+
+[Screenshot on the live page]
+
+---
+
+
+### Knowledge Base List View
+
+After creating articles and categories, your Knowledge Base would look something like this
+In the list view, articles are grouped by categories. You can filter and manage everything from here.
+
+[Screenshot on the live page]
+
+
+#### Features in the List View
+
+Each category has "three dots" icon on the right side of it. Clicking on it opens various options:
+
+[Screenshot on the live page]
+
+- **Add New Article**
+- **Edit Category Title**
+- **Merge** this category into another
+- **Share** category link
+- **Delete** the category  
+
+
+#### Bulk Actions
+
+- Select multiple articles using checkboxes present on the left side of each row.
+- A popover menu appears click on three dots icon, you will see 2 buttons:
+  - **Delete** – Removes all selected articles
+  - **Move To** – Move selected articles to a different category
+
+
+> ⚠️ If a category is deleted, all its articles are automatically moved to the **General** category.
+
+> ℹ️ A category must contain at least one article. To move its only article, delete the category instead.
+
+
+Now that you've understood how the Knowledge Base works from the agent's side — from creating articles to managing categories — let's move on to explore the **Customer Portal** and how customers interact with your support system.

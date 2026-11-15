@@ -1,407 +1,5 @@
 <!-- Frappe documentation: frappe-hr, part 7 of 10. Index: docs/INDEX.md -->
 
-<!-- page: frappe-hr/hr__leave-encashment.md -->
----
-title: "Leave Encashment                                          "
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/leave-encashment"
-updated: "2026-02-04"
----
-
-**Leave Encashment refers to an amount of money received in exchange for Leaves not availed by an Employee. You can submit Leave Encashment for Leave Types which are encashable.**
-
-To access Leave Encashment, go to:
-
-> Home > Human Resources > Leaves > Leave Encashment
-
-**1. Prerequisites**
---------------------
-
-Before creating Leave Encashment, it is advisable you create the following documents:
-
-1. [Employee](https://docs.frappe.io/hr/leave-allocation)
-2. [Leave Type](https://docs.frappe.io/hr/leave-type)
-3. [Leave Policy](https://docs.frappe.io/hr/leave-policy)
-4. [Leave Period](https://docs.frappe.io/hr/leave-period)
-5. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-6. [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
-
-**2. How to create a Leave Encashment**
----------------------------------------
-
-1. Go to Leave Encashment list, click on New.
-2. Select Leave Period.
-3. Select the Employee. Once the Employee is selected, the Employee's Department is automatically fetched.
-4. Select Leave Type for which the Leave is encashed. Make sure the Leave Type is encashable (the 'Allow Encashment' checkbox in the Leave Type is checked).
-5. Select Encashment Date, if you want payment via Salary Slip. Based on the date selected, the amount will be encashed in that particular Payroll Entry.
-6. Save and Submit.
-
-![Leave Encashment](https://frappehr.com/files/leave-encashment-new.png)
-
-> **Note:** As you select Employee and Leave Type, Leave Balance and Encashable Days (which is total leave balance minus the threshold days set in Leave Type) will be shown along with the Encashment Amount based on the Leave Encashment per day as configured in the Employee's assigned Salary Structure.
-
-**3. Leave Encashment Payment Methods**
----------------------------------------
-
-In Frappe HR, we allow you to pay the encashment amount via Salary Slip or Payment Entry.
-
-### **3.1 Payment via Payment Entry**
-
-1. To pay the Leave Encashment amount via Payment Entry you need to check Pay via Payment Entry checkbox. 
-2. After that, it will allow you to select Payable Account and Expense Account. 
-3. After Submitting the record click on the button "Create Payment Entry" which will redirect you to the Payment Entry Form fill in the details, save, and submit.
-
-### **3.2 Payment via Salary Slip**
-
-1. To pay the Leave Encashment amount via Salary Slip you need to make sure that checkbox Pay via Payment Entry is unchecked.
-2. Select the Encashment Date. Based on the date selected, the amount will be encashed in that particular Payroll Entry. Save and Submit. 
-On submitting a Leave Encashment for an Employee, Frappe HR automatically creates an [Additional Salary](https://docs.frappe.io/hr/additional-salary) which will get added to the Salary Slip of the Employee when processing the payroll.
-
-
-**3. Related Topics**
----------------------
-
-1. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
-2. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
-3. [Additional Salary](https://docs.frappe.io/hr/additional-salary)
-
-  
-
-<!-- page: frappe-hr/hr__leave-ledger-entry.md -->
----
-title: "Leave Ledger Entry"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/leave-ledger-entry"
-updated: "2026-02-26"
----
-
-A unified ledger for all leave related transactions for an employee. This maintains all the leaves related transactions, this includes the leave allocations, leave applications and leave encashments of your employees.
-
-![Leave Ledger Entry](https://frappehr.com/files/leave-ledger-entry.png)  
-
-
-  
-
-<!-- page: frappe-hr/hr__leave-ledger-report.md -->
----
-title: "Leave Ledger Report"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/leave-ledger-report"
-updated: "2026-02-26"
----
-
-This report allows you to view the ledger impact for all your leave-related transactions:
-
-1. Leave Allocation
-2. Leave Application
-3. Leave Encashment
-
-![ledger-report](https://frappehr.com/files/ledger-report.png "ledger-report.png")  
-
-
-This report gives you an overview of:
-
-1. Ledger entry creation date
-2. Ledger transaction dates (From Date - To Date)
-3. Leaves (added/consumed/deducted)
-4. Leave Type
-5. Linked transaction details (Type & Name)
-6. Any special flags: Is Carry Forward, Is Expired, Is Leave Without Pay
-7. Company & Holiday List linked to it
-
-You can use the **View Ledger** button in transactions to view the linked ledger entries in the report view
-
-![leave-ledger](https://frappehr.com/files/leave-ledger.gif "leave-ledger.gif")  
-
-
-  
-
-<!-- page: frappe-hr/hr__leave-management__help-articles__how-to-sanction-leave-encashment-amount-in-salary-slip.md -->
----
-title: "How to Sanction Leave Encashment Amount in Salary Slip"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/leave-management/help-articles/how-to-sanction-leave-encashment-amount-in-salary-slip"
-updated: "2026-07-05"
----
-
-Leave Encashment is used to pay an employee for unused leaves. In Frappe HR, this amount can be paid through a **Salary Slip** or through a separate **Payment Entry**.
-
-This article explains how to sanction the leave encashment amount through Salary Slip.
-
-## When To Use This
-
-Use this method when the encashment amount should be paid along with the employee's regular payroll.
-
-For example, if an employee has unused earned leaves at the end of the year, you can create a Leave Encashment record and include the encashment amount in the employee's Salary Slip for that payroll period.
-
-## Prerequisites
-
-Before creating Leave Encashment, make sure the following are configured:
-
-- The employee has an active **Salary Structure Assignment**.
-- The **Leave Type** is marked as encashable.
-- The Leave Type has an **Earning Component** set for encashment.
-- The employee has a submitted **Leave Allocation** for that Leave Type.
-- The employee has unused leave balance available for encashment.
-- The per-day encashment amount is set in the Salary Structure or Salary Structure Assignment.
-
-## Step 1: Enable Encashment In Leave Type
-
-Open the relevant **Leave Type** and enable **Allow Encashment**.
-
-You can also configure limits such as:
-
-- Non-encashable leaves
-- Maximum encashable leaves
-- Earning Component
-
-The Earning Component is important because it decides which salary component will be used when the encashment amount is added to payroll.
-
-## Step 2: Set Leave Encashment Amount Per Day
-
-Open the employee's **Salary Structure** or **Salary Structure Assignment** and set the leave encashment amount per day.
-
-Frappe HR uses this amount to calculate:
-
-```text
-Encashment Amount = Encashment Days x Leave Encashment Amount Per Day
-```
-
-If the per-day amount is not set, the encashment amount may be calculated as zero.
-
-## Step 3: Create Leave Encashment
-
-Go to:
-
-```text
-Home > Human Resources > Leaves > Leave Encashment
-```
-
-Create a new Leave Encashment record and select:
-
-- Leave Period
-- Employee
-- Leave Type
-- Encashment Date
-
-The system fetches the employee's leave balance and calculates the encashable days and encashment amount.
-
-## Step 4: Pay Through Salary Slip
-
-To pay the amount through Salary Slip, keep **Pay Via Payment Entry** unchecked.
-
-When the Leave Encashment is submitted, Frappe HR creates an **Additional Salary** record for the employee. This Additional Salary record is linked to the Leave Encashment and uses the earning component selected in the Leave Type.
-
-## Step 5: Process Payroll
-
-Create the **Payroll Entry** or **Salary Slip** for the payroll period that includes the encashment date.
-
-When the Salary Slip is created, the Additional Salary from the Leave Encashment is included in the employee's earnings.
-
-Review the Salary Slip and check that:
-
-- The encashment earning component is visible.
-- The amount is correct.
-- The total earnings include the encashment amount.
-
-Submit the Salary Slip to sanction and pay the amount through payroll.
-
-## Example
-
-An employee has 5 earned leaves available for encashment.
-
-The leave encashment amount per day is set to 1,000.
-
-```text
-5 x 1,000 = 5,000
-```
-
-When the Leave Encashment is submitted, Frappe HR creates an Additional Salary for 5,000. The amount is then added to the Salary Slip for the payroll period that includes the encashment date.
-
-## Common Checks
-
-If the encashment amount is not appearing in the Salary Slip, check the following:
-
-- The Leave Encashment is submitted.
-- **Pay Via Payment Entry** is not checked.
-- The encashment date falls within the Salary Slip or Payroll Entry period.
-- The Additional Salary record was created.
-- The Additional Salary payroll date is within the payroll period.
-- The Leave Type has an earning component.
-- The employee has an active Salary Structure Assignment.
-- The leave encashment amount per day is configured.
-
-## Salary Slip Or Payment Entry?
-
-Use **Salary Slip** when the encashment should be part of payroll and paid along with salary.
-
-Use **Payment Entry** when the encashment should be paid separately and accounted for directly through accounts.
-
-## Related Topics
-
-- [Leave Encashment](https://docs.frappe.io/hr/leave-encashment)
-- [Leave Type](https://docs.frappe.io/hr/leave-type)
-- [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-- [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
-- [Salary Slip](https://docs.frappe.io/hr/salary-slip)
-- [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
-- [Additional Salary](https://docs.frappe.io/hr/additional-salary)
-
-<!-- page: frappe-hr/hr__leave-management__help-articles__leave-calculation-in-salary-slip.md -->
----
-title: "Leave Calculation in Salary Slip"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/leave-management/help-articles/leave-calculation-in-salary-slip"
-updated: "2026-07-05"
----
-
-Frappe HR calculates leave impact in the Salary Slip by reducing the employee's payable days for the payroll period. This is mainly controlled by Leave Without Pay, Partially Paid Leave, attendance records, holidays, and the employee's joining or relieving date.
-
-The calculation decides two important values in the Salary Slip:
-
-- **Total Working Days**
-- **Payment Days**
-
-The salary components that depend on payment days are calculated based on the final Payment Days.
-
-## How Leave Affects Salary Slip
-
-When a Salary Slip is created, Frappe HR checks the payroll period and calculates how many days the employee should be paid for.
-
-In simple terms:
-
-```text
-Payment Days = Eligible Working Days - Leave Without Pay - Absent Days
-```
-
-The exact calculation can change depending on payroll settings, holiday settings, attendance records, and leave type settings.
-
-## Leave Without Pay
-
-If an employee has an approved Leave Application for a Leave Type marked as **Leave Without Pay**, those days reduce the Payment Days in the Salary Slip.
-
-For example, if the payroll period has 30 working days and the employee has 2 days of Leave Without Pay:
-
-```text
-Payment Days = 30 - 2 = 28
-```
-
-Salary components that depend on payment days are then calculated for 28 days instead of 30.
-
-## Partially Paid Leave
-
-Frappe HR also supports **Partially Paid Leave**. In this case, the leave does not reduce the full day's salary. It reduces salary based on the fraction configured in the Leave Type.
-
-For example, if a leave type pays 50% of daily salary for one day, the Salary Slip treats it as a partial reduction instead of a full Leave Without Pay day.
-
-Use Partially Paid Leave when employees should receive part of their salary during a leave period.
-
-## Calculation Based On Leave Application Or Attendance
-
-Payroll can be calculated based on either leave applications or attendance records, depending on the payroll configuration.
-
-### Based On Leave Application
-
-When payroll is based on leave applications, Frappe HR checks approved leave records during the Salary Slip period.
-
-It considers:
-
-- Leave Without Pay
-- Partially Paid Leave
-- Half-day leave
-- Whether the Leave Type includes holidays
-
-### Based On Attendance
-
-When payroll is based on attendance, Frappe HR checks submitted Attendance records for the Salary Slip period.
-
-It considers:
-
-- Absent days
-- Half-day attendance
-- Attendance marked on holidays, depending on settings
-- Leave Type used in attendance records
-- Unmarked attendance, depending on payroll settings
-
-If unmarked attendance is configured to be treated as absent, those unmarked days can also reduce Payment Days.
-
-## Half-Day Leave And Half-Day Attendance
-
-Half-day leave or half-day attendance reduces salary based on the half-day fraction configured in payroll settings.
-
-For example, if the daily wages fraction for half day is 0.5, then one half-day Leave Without Pay reduces Payment Days by 0.5.
-
-## Holidays In Salary Slip Calculation
-
-Holiday handling depends on payroll settings and the employee's holiday list.
-
-If holidays are included in total working days, holidays are part of the working day count.
-
-If holidays are not included, holidays are removed from Total Working Days before Payment Days are calculated.
-
-Some Leave Types can also be configured to include holidays. If holidays are included for that Leave Type, leave falling on holidays may be considered in the leave calculation.
-
-## Joining Date And Relieving Date
-
-Salary Slip calculation also considers the employee's joining and relieving dates.
-
-If an employee joins in the middle of the payroll period, Payment Days are calculated from the joining date.
-
-If an employee leaves in the middle of the payroll period, Payment Days are calculated only up to the relieving date.
-
-This prevents salary from being calculated for dates before joining or after relieving.
-
-## Example
-
-Suppose the payroll period is from 1 April to 30 April.
-
-- Total days in period: 30
-- Holidays excluded from working days: 4
-- Total Working Days: 26
-- Leave Without Pay: 2
-- Half-day Leave Without Pay: 0.5
-
-The Payment Days will be:
-
-```text
-26 - 2 - 0.5 = 23.5
-```
-
-Salary components that depend on payment days are calculated for 23.5 payment days.
-
-## Why The Salary Amount May Look Different
-
-If the salary amount in the Salary Slip is not what you expected, check:
-
-- Whether payroll is based on Attendance or Leave Application.
-- Whether the Leave Application is submitted and approved.
-- Whether the Leave Type is marked as Leave Without Pay or Partially Paid Leave.
-- Whether holidays are included in Total Working Days.
-- Whether the Leave Type includes holidays.
-- Whether attendance is marked for the full period.
-- Whether unmarked attendance is treated as absent.
-- Whether the employee joined or left during the payroll period.
-- Whether the salary component depends on payment days.
-
-## Components That Depend On Payment Days
-
-Only salary components configured to depend on payment days are reduced based on leave calculation.
-
-If a component does not depend on payment days, it may remain the same even when Payment Days are reduced.
-
-Check the Salary Component and Salary Structure configuration if a particular earning or deduction is not changing as expected.
-
-## Related Topics
-
-- [Salary Slip](https://docs.frappe.io/hr/salary-slip)
-- [Payroll Settings](https://docs.frappe.io/hr/payroll-settings)
-- [Leave Application](https://docs.frappe.io/hr/leave-application)
-- [Leave Type](https://docs.frappe.io/hr/leave-type)
-- [Attendance](https://docs.frappe.io/hr/attendance)
-- [Holiday List](https://docs.frappe.io/hr/holiday-list)
-- [Salary Component](https://docs.frappe.io/hr/salary-component)
-- [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-
 <!-- page: frappe-hr/hr__leave-management__help-articles__setting-employee-wise-leave-approver.md -->
 ---
 title: "Setting Employee Wise Leave Approver"
@@ -529,7 +127,7 @@ The Leave Period also allows you to select a [Holiday List for Optional Leaves](
 
 Additionally, you can check the 'Is Active' checkbox if you want to enable this particular Leave Period.
 
-![Leave Period](https://frappehr.com/files/leave-period.png)  
+[Screenshot on the live page: Leave Period]  
 
 
 **3. Granting leaves based on Leave Period**
@@ -588,12 +186,12 @@ Before creating a Leave Policy Assignment, it is advisable to create the followi
 	* If "Assignment based on" is left blank, then you will have to set the Effective From and Effective To date manually.
 4. Save and Submit.
 
-![Leave Policy Assignment](https://frappehr.com/files/leave-policy-assignment.png)  
+[Screenshot on the live page: Leave Policy Assignment]  
 
 
 On submission, Leave Allocation documents would be created automatically based on the [Leave Policy](https://docs.frappe.io/hr/leave-policy) as shown below.
 
-![Leave Allocations](https://frappehr.com/files/granted-leaves.png)  
+[Screenshot on the live page: Leave Allocations]  
 
 
 **3. Features**
@@ -607,7 +205,7 @@ Frappe HR also allows creating Leave Policy Assignments for multiple employees a
 2. Click on Bulk Leave Policy Assignment.
 3. This will take you to the [Leave Control Panel](https://docs.frappe.io/hr/leave-control-panel), where you can assign Leave Policies in bulk.
 
-![](https://frappehr.com/files/NUL3M8C.png)  
+[Screenshot on the live page]  
 
 
 ### **3.2 Allocating Earned Leaves**
@@ -642,7 +240,7 @@ To access Leave Policy, go to:
 2. Select the Leave Type and enter its Annual Allocation.
 3. Save and Submit.
 
-![Leave Policy](https://frappehr.com/files/leave-policy.png)
+[Screenshot on the live page: Leave Policy]
 
 Once submitted, you can create [Leave Policy Assignment](https://docs.frappe.io/hr/leave-policy-assignment) to assign this policy to multiple employees.
 
@@ -682,7 +280,7 @@ To access Leave Type, go to:
 3. Enter Maximum Leave Allocation Allowed, Applicable After (Working Days), Maximum Consecutive Leaves Allowed (optional).
 4. Save.
 
-![](/files/leave-type-settings.png)
+[Screenshot on the live page]
 
 Below is a detailed explanation of all the fields and checkboxes in Leave Type.
 
@@ -704,7 +302,7 @@ Below is a detailed explanation of all the fields and checkboxes in Leave Type.
 
 * **Is Partially Paid Leaves:** This checkbox ensures that Leave Type will be treated as partially paid and some part of daily earnings will be paid through salary slip. If this checkbox is enabled then a field "Fraction of Daily Salary Per Leave" appears where you can define the fraction of daily salary paid on the partial leave day.
 
-![](https://frappehr.com/files/8IeXPo5.png)
+[Screenshot on the live page]
 
 
 > **Note: The Leave Type can be either Leave Without pay or Partially Paid.**
@@ -723,7 +321,7 @@ It is possible that Employees can receive cash from their Employer for unused le
 > 
 > 
 
-![](https://frappehr.com/files/N7AiiYE.png)  
+[Screenshot on the live page]  
 
 
 **Non-Encashable Leaves:** This field indicates the number of leave days the Employees won't be able to encash. Above the mentioned days, the Employee is eligible to encash leaves.
@@ -743,7 +341,7 @@ Earned Leaves are leaves earned by an Employee after working with the company fo
 
 For example, an Employee is allotted 24 Privilege Leaves in a year, wherein the Privilege Leave is set as Earned Leave with Monthly allotment. In this case, the Employee will earn 2 (24 leaves/12 months) Privilege Leaves at the end of every month. The leave allotment process (background job) will only allot leaves considering the max leaves for the leave type and will round to 'Rounding' for fractions.
 
-![](https://frappehr.com/files/1SrI5mm.png)  
+[Screenshot on the live page]  
 
 
 
@@ -836,7 +434,7 @@ Before creating a Loan Application, it is advisable to create the following docu
 4. Select the [Repayment Method](https://docs.frappe.io/hr/loan-application#3-1-repayment-method) and based on loan information, information such as Total Payable Amount and Interest will be calculated.
 5. Save and Submit.
 
-![Loan Application](https://frappehr.com/files/loan-application99399a.png)
+[Screenshot on the live page: Loan Application]
 
 **3. Features**
 ---------------
@@ -852,7 +450,7 @@ There are two types of Repayment Methods in Loan Application:
 * Once saved, based on the Rate of Interest, the Total Payable Interest and Total Payable Amount will be calculated along with Period in Months.
 * Submit.
 
-![Repayment Fixed Amount Per Period](https://frappehr.com/files/repayment-period-in-months.png)
+[Screenshot on the live page: Repayment Fixed Amount Per Period]
 
 #### **2. Repay Over Number Of Periods**
 
@@ -861,7 +459,7 @@ There are two types of Repayment Methods in Loan Application:
 * Once saved, based on the Rate of Interest, the Total Payable Interest and Total Payable Amount will be calculated along with Monthly Repayment Amount.
 * Submit.
 
-![Repayment Fixed Amount Per Period](https://frappehr.com/files/repayment2.png)
+[Screenshot on the live page: Repayment Fixed Amount Per Period]
 
 **4. Related Topics**
 ---------------------
@@ -896,7 +494,7 @@ To access Loan Type go to:
 4. Optionally, you can also enter the Maximum Loan Amount and Description of the Loan Type.
 5. Save.
 
-![Loan Type](https://frappehr.com/files/loan-type.png)
+[Screenshot on the live page: Loan Type]
 
 **2. Related Topics**
 ---------------------
@@ -937,11 +535,11 @@ Before creating a Loan record, it is necessary that you create the following doc
 3. Select the Loan Application. Once selected, loan information such as Loan Type, Loan Amount, Rate of Interest, Repayment Method, Repayment Period in Months and Monthly Repayment Amount will be fetched.
 4. Enter Repayment Start Date.
 
-![Loan](https://frappehr.com/files/loan1.png)
+[Screenshot on the live page: Loan]
 5. Enter Account Information such as Mode of Payment, Payment Account, Loan Account and Interest Income Account.
 6. Save. Once saved, a Repayment Schedule is automatically generated. The first repayment payment date would be set as per the "Repayment Start Date". The
 
-![Repayment Schedule](https://frappehr.com/files/loan2.png)
+[Screenshot on the live page: Repayment Schedule]
 
 > Note: Check "Repay from Salary" if the loan repayment will be deducted from the salary
 
@@ -954,21 +552,21 @@ You can alternatively create a Loan record directly from [Loan Application](http
 
 After submitting the Loan document, if the status is "Sanctioned", you can click on "Create Disbursement Entry" to create a Journal Entry of the Loan.
 
-![Disbursement Entry](https://frappehr.com/files/disbursement-entry.png)  
+[Screenshot on the live page: Disbursement Entry]  
 
 
 ### **3.2 Loan repayment deduction from Salary**
 
 To auto deduct the Loan repayment from Salary, check "Repay from Salary" in Loan. It will appear as Loan Repayment in Salary Slip.
 
-![Salary Slip](https://frappehr.com/files/salary-slip-loan.png)  
+[Screenshot on the live page: Salary Slip]  
 
 
 ### **3.3 Extending the Loan**
 
 Loan amount is deducted from the salary. If the employee is on leave without pay for some period, the existing loan can be extended without the need for creating a new loan. This can be done be editing the Repayment Schedule table even after submitting the loan.
 
-![Extending Loan](https://frappehr.com/files/change-loan-amount.gif)  
+[Screenshot on the live page: Extending Loan]  
 
 
 **4. Related Topics**
@@ -998,11 +596,11 @@ Go to this URL on your mobile browser (Chrome/Safari) and install the app.
 3. Tap on Install, and wait for a few seconds.
 4. You will then be able to find the Frappe HR app in your applications. You can login to this app with your site credentials. 
 
-![](https://gameplan.frappe.cloud/files/wqkysO0.jpg) 
+[Screenshot on the live page] 
 
 ### Installation GIF
 
-<img src="/files/frappehr-android-pwa.gif" alt="frappehr-android-pwa-install" width="350"> 
+[Screenshot on the live page] 
 
 ## iOS
 
@@ -1011,11 +609,11 @@ Go to this URL on your mobile browser (Chrome/Safari) and install the app.
 3. If you do not see "Add to Home Screen", click on "Edit Actions" and you should find the option. 
 4. The icon will then appear on your home screen. You can login to this app with your site credentials. 
 
-![](https://gameplan.frappe.cloud/files/bG9exfR.jpg) 
+[Screenshot on the live page] 
 
 ### Installation GIF
 
-<img src="/files/frappehr-ios-pwa.gif" alt="frappehr-ios-pwa-install" width="350">
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__multicurrency-employee-advance-expense-claim.md -->
 ---
@@ -1050,14 +648,14 @@ Before creating multicurrency records, make sure your **Expense Claim Types** an
 
 For example, the standard **Expense Claim Type** (such as *Travel*) may be linked to an account in the company’s base currency. So such a type won’t accept a claim in a different currency. In these cases, create a separate expense type (e.g., *Travel — USD*) and link it to an account that uses the same transaction currency
 
-![](/files/Expense Claim Type.png)
+[Screenshot on the live page]
 *Expense Claim Type*
 
 
 
 Similarly, if you are paying via Bank or Cash in a foreign currency, the Mode of Payment must link to a corresponding currency account. This ensures that expense claims and advances in currencies other than the company’s base currency are captured and processed correctly.
 
-![](/files/Mode of Payment.png)
+[Screenshot on the live page]
 *Mode of Payment*
 
 ## **2. Multi-Currency in Employee Advance**
@@ -1078,7 +676,7 @@ A new field **Employee Advance Account** is added in the Employee master. This a
   - Select **Mode of Payment** if applicable
 5. Save the document
 
-![emp-advance](/files/MultiCurrencyEmployeeAdvance.png)
+[Screenshot on the live page: emp-advance]
 
 ## **3. Payment of Multi-Currency Advances**
 
@@ -1107,11 +705,11 @@ If the same advance has multiple payments:
 - Base currency values are auto-calculated based on the exchange rate at the time of claim.  
 - If the same advance has multiple payments, each payment will appear as a separate row in Advances Table with the corresponding **Payment Entry** reference. This helps in reconciling partially claimed advances.
 
-![multi-payments](/files/multi-payments.jpeg)
+[Screenshot on the live page: multi-payments]
 
 Once the Expense Claim is Submitted, the claim amount is allocated from the Advance table
 
-![advance-claimed](/files/advance-claimed.jpeg)
+[Screenshot on the live page: advance-claimed]
 
 ## **5. Exchange Gain/Loss Handling**
 
@@ -1119,11 +717,418 @@ Once the Expense Claim is Submitted, the claim amount is allocated from the Adva
   - Exchange gain/loss is calculated for each advance row  
   - Total gain/loss is posted via **Journal Entry**, ensuring accurate accounting
 
-![gain_loss](/files/gain_loss.jpeg)
+[Screenshot on the live page: gain_loss]
 
-![gain_loss-booked](/files/gain_loss-booked.jpeg)
+[Screenshot on the live page: gain_loss-booked]
 
 **References:**  
 
 - Employee Advance
 - Expense Claim
+
+<!-- page: frappe-hr/hr__organizational-chart.md -->
+---
+title: "Organizational Chart"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/organizational-chart"
+updated: "2026-02-04"
+---
+
+**An organizational chart shows the organizational structure by depicting connections between different employees with their designation, image, and name. In large organizations where it's difficult to remember names, people can interact with the org chart and know the hierarchy through faces and other info.**
+
+To access Employee Grade, go to:
+
+> Home > Human Resources > Employee > Organizational Chart
+
+* The org chart is created based on the "Reports To" field in Employee master.
+* The employees that don't report to anyone are shown in the first level.
+* The chart expands horizontally on the desktop view and vertically on mobile.
+* Each node has details like the Employee Name, Image, Designation, and the total number of connections.
+* The connections are the total number of descendants a particular node has till the end of the hierarchy.
+* The edit button in every node navigates to the Employee Master.
+* As you navigate through the chart, the active hierarchy is highlighted.
+* You can use the Company filter to check the org chart for individual companies.
+
+[Screenshot on the live page: Org Chart]  
+
+
+[Screenshot on the live page: Org Chart Mobile]  
+
+
+  
+
+<!-- page: frappe-hr/hr__overtime.md -->
+---
+title: "Overtime"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/overtime"
+updated: "2026-02-04"
+---
+
+Overtime allows employees to be compensated or granted compensatory leave for working beyond their standard working hours. Overtime is calculated based on employee check-in and check-out times and processed through Attendance and Overtime Slip records
+
+### Create an Overtime Type
+
+Navigate to the **Overtime Type** doctype to configure how overtime is handled:
+
+- **Maximum Overtime Hours Allowed Per Day**: If set, overtime exceeding this limit won’t be considered for payment.
+- **Overtime Salary Component**: The salary component through which overtime earnings are paid.
+- **Overtime Amount Calculation**:
+  - **Fixed Hourly Rate**: A predefined per-hour rate multiplied by total overtime hours.
+  - **Salary Component-Based**: Select applicable salary components. The total amount is divided by the salary cycle's payment days and standard working hours to determine the hourly rate.
+- **Pay Rate Multipliers**:
+  - **Standard Multiplier**: The hourly rate is multiplied by this value.
+  - **Holiday/Weekend Multipliers**: If enabled, separate multipliers can be set for public holidays and weekends; otherwise, the standard multiplier applies.
+ 
+[Screenshot on the live page]
+
+
+### To allow overtime for a specific **Shift Type**:
+
+1. Navigate to the **Shift Type** doctype.
+2. Enable **Allow Overtime**.
+3. Set the applicable **Overtime Type**.
+4. Assign the shift to employee(s).
+
+[Screenshot on the live page]
+
+### Record Employee Check-ins & Mark Attendance
+
+- Employees' **check-in and check-out times** must be recorded.
+- **Attendance must be processed** for the shift type as overtime details are fetched based on this.
+
+
+### Generate & Approve Overtime Slip
+
+1. Create an **Overtime Slip** and select the **employee** and **date range**.
+2. Click **Fetch Overtime Details** to populate the **Overtime Details** table based on attendance records.
+3. **HR can approve or reject** the overtime slip.
+4. Upon approval, an **Additional Salary** record is created, ensuring payment is included in the salary cycle corresponding to the slip’s **from date**.
+
+[Screenshot on the live page]
+
+<!-- page: frappe-hr/hr__payroll-articles__make-bank-entry-from-payroll-entry.md -->
+---
+title: "Make Bank Entry from Payroll Entry"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/payroll-articles/make-bank-entry-from-payroll-entry"
+updated: "2026-07-02"
+---
+
+After payroll is processed, companies usually need to record the actual salary payment made from the bank account. In Frappe HR, this can be done from the Payroll Entry by creating a Bank Entry.
+
+A Bank Entry records the movement of money from the company's bank account to settle the payroll liability created during payroll processing.
+
+## When to use this
+
+Use Make Bank Entry when:
+
+- Payroll Entry has been created for a payroll period.
+- Salary Slips have been created and submitted.
+- Payroll accounting entries have been posted.
+- The company is ready to record payment of salaries through a bank account.
+
+## Before you begin
+
+Make sure the following setup is complete:
+
+- Employees have valid salary structures and salary slips.
+- Payroll Entry has been processed for the correct payroll period.
+- Salary Slips are submitted.
+- Payroll accounting has been posted.
+- The company has a bank account configured in ERPNext.
+- The payable account and bank account used for payroll are correct.
+
+## How it works
+
+When payroll is processed, ERPNext/Frappe HR records the salary expense and the amount payable to employees. The Bank Entry is then used to record the payment of that payable amount from the bank.
+
+Simple flow:
+
+```
+Create Payroll Entry
+        |
+        v
+Create Salary Slips
+        |
+        v
+Submit Salary Slips
+        |
+        v
+Post Payroll Accounting Entry
+        |
+        v
+Make Bank Entry
+        |
+        v
+Submit Bank Entry
+        |
+        v
+Salary Payable is settled
+```
+
+## Steps to make a Bank Entry
+
+1. Open the submitted Payroll Entry.
+2. Check that the Salary Slips are created and submitted.
+3. Check that the payroll accounting entry has been created.
+4. Click Make Bank Entry from the Payroll Entry actions.
+5. Review the generated Bank Entry.
+6. Confirm the bank account, payable account, posting date, and amount.
+7. Save and submit the Bank Entry.
+
+Once submitted, the Bank Entry records the salary payment and reduces the outstanding payroll payable balance.
+
+## What the Bank Entry represents
+
+The Bank Entry usually records two sides of the transaction:
+
+- Debit: Payroll payable or salary payable account
+- Credit: Bank account from which salaries are paid
+
+This means the liability created during payroll processing is reduced, and the bank balance is reduced by the salary payment amount.
+
+## Things to check before submitting
+
+Before submitting the Bank Entry, verify:
+
+- The posting date matches the salary payment date.
+- The bank account is correct.
+- The payable account is correct.
+- The amount matches the salary amount to be paid.
+- The company and cost center details are correct, if applicable.
+
+## Common mistakes
+
+### Salary Slips are not submitted
+
+The Bank Entry should be made only after salary slips are submitted and payroll accounting is posted.
+
+### Wrong bank account selected
+
+If the wrong bank account is selected, the accounting impact will be incorrect. Always review the bank account before submission.
+
+### Payroll accounting not posted
+
+If the salary payable entry has not been created, the Bank Entry may not correctly settle the payroll liability.
+
+## Summary
+
+Make Bank Entry from Payroll Entry is used to record salary payment after payroll has been processed. It connects payroll processing with accounting by settling the salary payable amount against the company's bank account.
+
+<!-- page: frappe-hr/hr__payroll-correction.md -->
+---
+title: "Payroll Correction"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/payroll-correction"
+updated: "2026-02-04"
+---
+
+The feature ensures accurate payroll calculations by allowing users to reverse a portion of LWP days, automatically recalculating earnings and deductions based on the reversal.
+
+How to Use
+
+Step 1: Navigate to Payroll Correction
+1.	Go to HR > Payroll > Payroll Correction.
+2.	Click New to create a new Payroll Correction entry.
+Step 2: Select Employee and Payroll Period
+
+- Choose the Employee whose LWP needs correction.
+- Select the Payroll Period.
+- The system will fetch available Salary Slips with LWP and absent days applied.
+
+Step 3: Select the Month for LWP Reversal
+
+- In the "Select Month for LWP Reversal" field, choose the month from the dropdown.
+- Once that is done system fetches:
+  - Salary Slip Reference
+  - Absent Days
+  - LWP Days
+  - Total Working Days
+  - Total LWP Applied
+
+Step 4: Enter the number of days to reverse in the Days to Reverse field.
+
+Step 5: Save
+
+- Upon save arrear details will be populated for Earnings, Deductions and Accrued Benefits
+
+Step 5: Submit the Payroll Correction
+
+- •	Once validated, submit the document.
+- •	The system will:
+  - Create Additional Salary Entries against earnings and deductions for the reversed amount.
+  - Record accruals in Employee Benefit Ledger
+
+<!-- page: frappe-hr/hr__payroll-entry.md -->
+---
+title: "Payroll Entry"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/payroll-entry"
+updated: "2026-02-04"
+---
+
+**Payroll is the sum total of all compensation a business must pay to its employees for a set period of time or on a given date.**
+
+In Frappe HR, Payroll Entry enables bulk processing of payroll for employees. In other words, processing salary slips of all employees in one go. The bulk processing can be Company-wide or based on these categories: Branch, Department, or Designation.
+
+To access Payroll Entry, go to:
+
+
+> **Home > Human Resources > Payroll > Payroll Entry**
+> 
+> 
+
+**1. How to create a Payroll Entry**
+------------------------------------
+
+1. Go to to Payroll Entry list, click on New.
+2. Select the Payroll Frequency.
+3. Select Branch, Designation and Department to filter out employees (optional).
+4. Select Project (optional) if you want to run the payroll against a project.
+5. Select 'Validate Attendance' and 'Salary Slip Based on Timesheet' checkboxes in case you want to deduct the salary based on attendance and if you want to also consider the timesheets of the employees respectively.
+6. Select the Payment Account to make the Bank Entry.
+7. Save.
+
+Once the information is saved, click on the **Get Employees** button to get a list of Employees for which the Salary Slips will be created based on the selected criteria.
+
+Once the list of Employees is fetched, click on the **Create Salary Slips** button to generate Salary Slips.
+
+[Screenshot on the live page: Payroll Entry]  
+
+
+
+> **Note: If the Salary Slips are already created, the system will not create any more Salary Slips. You can also just save the form as Draft and create the Salary Slips later.**
+> 
+> 
+
+**2. Features**
+---------------
+
+### **2.1 Salary Accrual**
+
+After verifying the Salary Slips, you can Submit them all together by clicking on the **Submit Salary Slip** button.
+
+[Screenshot on the live page: Payroll Entry]  
+
+
+This will also book the default Payroll Payable account against respective Expense Heads (as configured in Salary Components) to record the accrual of salary to employees.
+
+**Cost Center:**
+
+You can select Cost Center in the Payroll Entry against which the expenses will be posted.
+
+If you want to book expenses against multiple cost centers based on Employee/Department, you can do so by setting Payroll Cost Center in the Employee/Department master.
+
+[Screenshot on the live page]  
+
+
+Even multiple cost centers can be assigned against a single Employee. You can do so via the Salary Structure Assignment document.
+
+[Screenshot on the live page]  
+
+
+Cost Center assigned in Salary Structure Assignment gets the highest priority and then Employee and Department master respectively. The least priority is given to the Cost Center selected in Payroll Entry.
+
+[Screenshot on the live page: Payroll Entry]  
+
+
+
+> **Note: Submitting Salary Slips one by one manually will not create the Journal Entry to record salary accrual.**
+> 
+> 
+
+### **2.2 Salary Payment**
+
+The final step is to book the Salary Payment.
+
+Salaries in businesses are usually dealt with extreme privacy. In most cases, companies issue a single payment to the bank combining all salaries and the bank distributes the salaries to each employee’s salary account.
+
+This way there is only one payment entry in the company’s books of accounts and anyone with access to the company’s accounts will not have access to the individual salaries.
+
+The salary payment entry is a Journal Entry that debits the total of the Earnings type salary component and credits the total of Deductions type salary component of all Employees to the default account set at the Salary Component level for each component.
+
+To generate your salary payment voucher from Payroll Entry, click on the **Make Bank Entry** button.
+
+Payroll Entry will route you to Journal Entry with relevant filters to view the draft Journal Vouchers created. You will have to set the reference number and date for the transactions and Submit the Journal Entry.
+
+[Screenshot on the live page: Payroll Entry]  
+
+
+
+> **Note: For Salary Components which are Flexible Benefits and has *Create Separate Payment Entry Against Benefit Claim* checked, Frappe HR will book separate draft Journal Entries.**
+> 
+> 
+
+**3. Related Topics**
+---------------------
+
+1. [Salary Component](https://docs.frappe.io/hr/salary-component)
+2. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+3. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
+4. [Journal Entry](https://docs.erpnext.com/docs/user/manual/en/journal-entry)
+
+  
+
+<!-- page: frappe-hr/hr__payroll-management.md -->
+---
+title: "Payroll Management"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/payroll-management"
+updated: "2026-02-04"
+---
+
+Payroll processing is an important function of every enterprise HR. Frappe HR greatly simplifies this process by offering an array of features that you can utilize from Salary Structure management to bulk processing Payroll of employees. Read the following documentation to understand how to configure and use Frappe HR Human Resources to super power your Payroll processing.
+
+**Related Topics**
+------------------
+
+1. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
+2. [Salary Component](https://docs.frappe.io/hr/salary-component)
+3. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+4. [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
+5. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
+6. [Additional Salary](https://docs.frappe.io/hr/additional-salary)
+7. [Retention Bonus](https://docs.frappe.io/hr/retention-bonus)
+8. [Employee Incentive](https://docs.frappe.io/hr/employee-incentive)
+
+  
+
+<!-- page: frappe-hr/hr__payroll-period.md -->
+---
+title: "Payroll Period"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/payroll-period"
+updated: "2026-02-04"
+---
+
+**A Payroll Period is a period for which Employees get paid for their occupation with the Company.**
+
+Payroll Period helps you define Salary Structures and to calculate tax for a specific period based on applicable Income Tax Slab.
+
+To access Payroll Period, go to:
+
+
+> **Home > Human Resources > Payroll > Payroll Period**
+> 
+> 
+
+**1. How to create a Payroll Period**
+-------------------------------------
+
+1. Go to Payroll Period list, click on New.
+2. Enter Name.
+3. Select Start Date and End Date of Payroll Period.
+4. Save.
+
+**2. Related Topics**
+---------------------
+
+1. [Salary Component](https://docs.frappe.io/hr/salary-component)
+2. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+3. [Income Tax Slab](https://docs.frappe.io/hr/income-tax-slab)
+4. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
+5. [Employee Tax Exemption Proof Submission](https://docs.frappe.io/hr/employee-tax-exemption-proof-submission)
+6. [Employee Tax Exemption Declaration](https://docs.frappe.io/hr/employee-tax-exemption-declaration)
+
+  

@@ -165,15 +165,15 @@ You can edit builder scripts in VS Code or in any of its forks. This guide will 
 2. Complete extension setup, here is the [guide](https://github.com/frappe/frappe-script-editor#setup)
 3. Open builder settings > Developer Settings
 
-![](/files/image181b34.png)
+[Screenshot on the live page]
 
 4. Click on **Request Access** button and click **Allow** in the popup
 
-![](/files/image6b2da2.png)
+[Screenshot on the live page]
 
 5. Open scripts in an external editor by right-clicking the block and selecting "Open Client Script in Windsurf", the editor's name will change in the option based on which one you are using.
 
-![](/files/image77878f.png)
+[Screenshot on the live page]
 
 ## Common issues
 
@@ -183,7 +183,7 @@ You can edit builder scripts in VS Code or in any of its forks. This guide will 
 2. Enable **Apps on device** option, doing this will grant builder permission to open external editor directly, no need to click **Request access** button again
 3. Click on **Reset Permission** button, reload the site and then the button will be visible
 
-![](/files/imageda94f8.png)
+[Screenshot on the live page]
 
 <!-- page: builder/builder__introduction.md -->
 ---
@@ -197,15 +197,7 @@ updated: "2026-01-06"
 
 Frappe Builder is a low-code website builder designed for simplicity, speed, and flexibility. Craft beautiful websites effortlessly with an intuitive visual builder. Whether you're a designer looking for ease or a developer seeking customization, Frappe Builder empowers you. It also features a click-to-publish option that gives you the complete end-to-end website creation experience.
 
-<video
-    preload="auto"
-    width="100%"
-    height="auto"
-    poster="https://frappe.io/files/builder-hero.png"
-    data-setup="{}">
-    <source src="/files/builder-intro.mp4" type="video/mp4" />
-    </p>
-  </video>
+[Video on the live page]
 
 ### Motivation
 

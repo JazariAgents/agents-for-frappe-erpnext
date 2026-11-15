@@ -1,307 +1,5 @@
 <!-- Frappe documentation: erpnext, part 37 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__material-request.md -->
----
-title: "Material Request"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/material-request"
-updated: "2026-02-27"
----
-
-**A Material Request is a simple document identifying a requirement of a set of Items (products or services) for a particular reason.**
-
-A Material Request can have the following purposes:
-
-* **Purchase**: If the material being requested is to be purchased.
-* **Material Transfer**: If the material being requested is to be shifted from one Warehouse to another.
-* **Material Issue**: If the material being requested is to be Issued for some purpose like manufacturing.
-* **Manufacture:** If the material being requested is to be produced.
-* **Subcontracting:** If the material being requested is to be subcontracted to a vendor.
-* **Customer Provided**: If the material being requested is to be provided by Customer. To know more about this, visit the [Customer Provided Item](/erpnext/customer-provided-items) page.
-
-![Material Request](/files/material-request-flowchart.png)  
-
-
-To access the Material Request list, go to:
-
-
-> Home > Stock > Stock Transactions > Material Request
-> 
-> 
-
-1. How to create a Material Request
------------------------------------
-
-1. Go to the Material Request list, click on Add Material Request.
-2. Enter the Required By date.
-3. Select the appropriate purpose from the list.
-4. You can fetch Items from a BOM, Sales Order, or Product Bundle.
-
-![Screenshot 2024-07-09 at 2.36.44 PM](/files/Screenshot 2024-07-09 at 2.36.44 PM.png)
-5. Select the Item and set the quantity.
-6. Select the Warehouse for which Items are required.
-7. You can change the Required By date for individual Items in this table.
-8. Save and Submit.
-
-![Screenshot 2024-07-09 at 2.40.52 PM](/files/Screenshot 2024-07-09 at 2.40.52 PM.png)  
-
-
-### 1.1 Alternate ways of creating a Material Request
-
-A Material Request can be generated automatically:
-
-* From a [Sales Order](/erpnext/sales-order). While creating MR, user can choose to ignore or include Projected Quantity. Accordingly, Sales Order Items are fetched to MR.
-* When the Projected Quantity of an Item in Stores (Warehouses) reaches a particular level.
-* From your a [Production Plan](/erpnext/production-plan) to plan your manufacturing activities.
-
-If your Items are inventory items, you must also mention the Warehouse where you expect these Items to be delivered. This helps to keep track of the [Projected Quantity](/erpnext/projected-quantity) for this Item.
-
-> Info: Material Request is not mandatory. It is ideal if you have centralized buying so that you can collect this information from various departments.
-
-### 1.2 Statuses
-
-These are the statuses a Material Request can be in:
-
-* **Draft**: A draft is saved but yet to be submitted to the system.
-* **Submitted**: Document is submitted to the system.
-* **Stopped**: If no more materials are needed the Material Request can be stopped.
-* **Canceled**: The materials are not needed at all and the request is canceled.
-* **Pending**: The Purchase/Manufacture is pending to complete the Material Request.
-* **Partially Ordered**: Purchase Orders for some Items from the Material Request are made and some are pending.
-* **Ordered**: All Items in the Material Request are ordered via Purchase Orders.
-* **Issued**: The materials are issued using a Material Issue Stock Entry.
-* **Transferred**: The required materials are transferred from one Warehouse to another using a Stock Entry.
-* **Received**: The materials were ordered and have been received at your Warehouse using a Purchase Receipt.
-
-2. Features
------------
-
-### 2.1 Items table
-
-* **Barcode**: You can track Items using [barcodes](/erpnext/track-items-using-barcode).
-* The Item Code, name, description, Image, and Manufacturer will be fetched from the Item master.
-* **Scan Barcode**: You can add Items in the Items table by scanning their barcodes if you have a barcode scanner. Read documentation for [tracking items using barcode](/erpnext/track-items-using-barcode) to know more.
-* The UoM, Conversion Factor, and Amount will be fetched. You change the Warehouse for which the material is being requested.
-* Accounting details like Expense Account and Accounting Dimensions can be set for the Items.
-* Page Break will create a page break just before this item when printing.
-
-### 2.2 Setting Warehouses
-
-* **Set Warehouse**: Optionally, you can set the Warehouse where the requested Items will arrive. This will be fetched into the 'For Warehouse' fields in the Item table rows.
-
-### 2.3 More Information
-
-In the 'Job Card' and 'Work Order' fields, it sets a reference from where the Material Request was generated.
-
-### 2.4 Printing Details
-
-#### Letterhead
-
-You can print your Material Request on your company's letterhead. Read [Letter head documentation](/erpnext/letter-head) to learn more.
-
-#### Print Headings
-
-Material Request headings can also be changed when printing the document. You can do this by selecting a **Print Heading**. To create new Print Headings go to: Home > Settings > Printing > Print Heading. Know more [here](/erpnext/print-headings).
-
-### 2.5 Terms and Conditions
-
-In Sales/Purchase transactions there might be certain Terms and Conditions based on which the Supplier provides goods or services to the Customer. You can apply the Terms and Conditions to transactions to transactions and they will appear when printing the document. To know about Terms and Conditions, [click here](/erpnext/terms-and-conditions)
-
-### 2.6 After Submitting
-
-You can create the following documents:
-
-* [Request For Quotation](/erpnext/request-for-quotation)
-* [Purchase Order](/erpnext/purchase-order)
-* [Supplier Quotation](/erpnext/supplier-quotation)
-
-![Screenshot 2024-07-09 at 2.38.58 PM](/files/Screenshot 2024-07-09 at 2.38.58 PM.png)  
-
-
-### 2.7 Automatically generate Material Requests
-
-Material Requests can be generated automatically by enabling the setting in [Stock Settings](/erpnext/stock-settings#9-automatic-material-request) and setting the level in the [Item form](/erpnext/item#34-automatic-reordering). When the stock level dips below a certain quantity, setting a reorder will automatically create material requests for the Item.
-
-### Note:
-Material Request Purpose "Subcontracting" is newly added and only present in the develop branch of ERPNext. It will be there by default in the next major release i.e v16
-
-A subcontracted Material Request enables the user to create a Subcontracted Purchase Order directly from the Material Request itself after submission.
-
-<!-- page: erpnext/erpnext__material-requirements-planning-mrp.md -->
----
-title: "Material Requirements Planning (MRP)"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/material-requirements-planning-mrp"
-updated: "2026-04-29"
----
-
-The ERPNext currently have the MRP inside the production plan which is difficult for new users to understand and also it only uses sales order or material request data to generate the MRP.
-
-## Purpose
-
-The main purpose of MRP is to ensure that the right materials are available at the right time, helping the company to avoid the overproduction and delays in delivery. To know how MRP works first needs to understand how demand planning works.
-
-## Demand Planning
-
-We already had sales orders and material requests to generate demand planning. However, this only works for short-term MRP requirements and does not cover longer periods of time. To address this, we have added sales forecasting and delivery schedules to generate demand.
-
-## Sales Forecast
-
-The users has to manually enter the forecasting data by calculating it outside the system.
-
-![](/files/sales%20forcast%20(1)
-
-## Delivery Schedules
-
-Some customers do not prefer a one time delivery against a sales order and they require multiple deliveries. The delivery schedules are very helpful for MRP because they provide visibility of when materials are actually needed, instead of assuming everything must be delivered at once.  
-To make Delivery Schedules, users has to click on Add Schedule button in the sales order item table
-
-![](/files/delivery_schedules.png)
-
-
-
-## Master Production Schedule
-
-To capture the demand for finished items, the Master Production Schedule (MPS) document was introduced. The system collects data from various sources such as sales orders, material requests, sales forecasts, and delivery schedules to generate the demand in the MPS.
-
-![](/files/mps.png)
-
-## Material Requirements Planning Report
-
-The Material Requirements Planning (MRP) report calculates the required quantities of raw materials and components, along with the dates when they are needed, based on the demand for finished items.
-
-
-
-![](/files/mrp_report.png)
-
-Users can see the MRP report in the bucket view
-
-![](/files/mrp-bucket.png)
-
-## Item Lead Time
-
-To calculate the dates of when to release the purchase order for raw materials and work order for components, the system needs to be aware of the lead time for manufacturing and the lead time for material procurement. For this purpose, a new document Item Lead Time was added.
-
-
-
-![](/files/item-lead-time.png)
-
-<!-- page: erpnext/erpnext__material-transfer-from-delivery-note.md -->
----
-title: "Material Transfer from Delivery Note and Purchase Receipt\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/material-transfer-from-delivery-note"
-updated: "2026-03-02"
----
-
-
-
-In ERPNext, you can create Material Transfer entry from [Stock Entry](/erpnext/stock-entry.html) document. However, there are some scenarios in the Material Transfer where it needs to be presented as a Delivery Note and Purchase Receipt.
-
-## Material Transfer from Delivery Note
-
-### Scenarios
-
-1. One of the examples is when you transfer a Material from your stores to project site, however, you need to present it as a Delivery Note to the client.
-
-2. Also, there are statutory requirements where taxes are to be applied on each transfer of Material. It is easier to manage in a transaction like Delivery Note, than in the Stock Entry.
-
-Considering these scenarios, the provision of Material Transfer has been added in the Delivery Note as well. Following are the steps to use Delivery Note for creating Material Transfer entry.
-
-### Steps
-
-#### Enable Target Warehouse
-
-Delivery Note Item doctype has a hidden field of Target Warehouse (previously Customer Warehouse). You can enable it from [Stock Settings](/erpnext/stock-settings) by enabling "Allow Material Transfer From Delivery Note and Sales Invoice".
-
-Also note that the selected customer should represent the same company. For this, enable the 'Is Internal Customer' option in the customer form and select your company in the 'Represents Company' field.
-
-
-
-### Select Warehouses
-
-When creating a Delivery Note for Material Transfer, for an item select source Warehouse as From Warehouse.
-
-In the Customer Warehouse, select a Warehouse where Material is to be transferred or select a target warehouse.
-
-![Delivery Note Material Transfer](/files/customer-warehouse-2.png)
-
-On the submission of a Delivery Note, item's stock will be deducted from "From Warehouse" and added to the "Customer Warehouse".
-
-## Material Transfer from Purchase Receipt
-
-### Scenarios
-
-There are statutory requirements where taxes are to be applied on each transfer of Material. It is easier to manage a situation like this in a transaction like Purchase Receipt, than in the Stock Entry as taxes cannot be applied on transfers of items via Stock Entry
-
-Following are the steps to use Purchase Receipt for creating Material Transfer Entry.
-
-### Steps
-
-#### Enable Supplier Warehouse
-
-Similar to the Customer Warehouse shown above, the first step is to enable the Supplier Warehouse from [Stock Settings](/erpnext/stock-settings) as shown above.
-
-Also note that the selected supplier should represent the same company. For this, enable the 'Is Internal Supplier' option in the Supplier form and select your company in the 'Represents Company' field.
-
-
-
-### Select Warehouses
-
-When creating a Purchase Receipt for Material Transfer, for an Item, select the target Warehouse as Accepted Warehouse.
-
-This is how you create an internal Purchase Receipt from an internal Delivery Note:
-
-![Purchase Receipt Material Transfer](/files/supplier-warehouse-1.png)
-
-In the Supplier Warehouse, select a Warehouse from where Material is to be transferred.
-
-![Purchase Receipt Material Transfer](/files/supplier-warehouse.png)
-
-On submission of the Purchase Receipt, item's stock will be deducted from "Supplier Warehouse" and added to the "Accepted Warehouse".
-
-<!-- page: erpnext/erpnext__material_consumption.md -->
----
-title: "Material consumption\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/material_consumption"
-updated: "2026-03-02"
----
-
-
-Material Consumption functionality allows you to have multiple consumption `Stock Entry` against a Work Order. To enable this, go to Manufacturing > Manufacturing Settings.
-
-![Item Alternative](/files/allow-material-consumption.png)
-
-Once enabled, a `Material Consumption` button will be available in Work Order once started.
-
-![Item Alternative](/files/material-consumption-button.png)
-
-When button is clicked, it will do the following:
-
-1. It will create Stock Entry with purpose `Material Consumption for Manufacture`.
-
-![Item Alternative](/files/material-consumption-for-manufacture.png)
-
-2. If the "Backflush Raw Materials Based On" in the Manufacturing Settings is set to `BOM`, if will propose to consume all required qty for manufacture.
-3. If the "Backflush Raw Materials Based On" in the Manufacturing Settings is set to `Material Transferred for Manufacture`, if will propose to consume all transferred qty for manufacture.
-4. Once submitted, it will update `Consumed Qty` column in the Work Order.
-
-![Item Alternative](/files/consumed-qty.png)
-
-5. In succeeding Material Consumption, it will suggest unconsumed qty.
-6. Once "Finish" button is clicked in Work Order, it will take into account consumed qty.
-
-### Validations
-
-* If "Allow Multiple Material Consumption" is not set in Manufacturing Settings but "Material Consumption for Manufacture" is use in Stock Entry.
-
-![Item Alternative](/files/material-consumption-stock-entry.gif)
-
-* Cannot cancel "Material Consumption for Manufacture" for completed Work Order.
-
-![Item Alternative](/files/cancel-material-consumption-stock-entry.gif)
-
 <!-- page: erpnext/erpnext__maximum-number-of-fields-in-a-form.md -->
 ---
 title: "Maximum Number of Fields in a Form"
@@ -323,13 +21,13 @@ When you hit the limit, ERPNext may show one of these two errors on screen:
 
 ### Error 1:  "Unknown column in INSERT INTO"
 
-![](/files/custom field-server error.png)
+[Screenshot on the live page]
 
  This error appears when you submit a form after adding a new Custom Field. ERPNext is trying to save data for a column it cannot find in the database yet,  a sign that the underlying table has hit its structural limit and the new field could not be properly registered.
 
 ### Error 2: "Row size too large"
 
-![](/files/row-size-error.png)
+[Screenshot on the live page]
 
  This error is more direct. The database table's row has exceeded its maximum allowed size of **65,535 bytes**. 
 
@@ -491,7 +189,7 @@ Open **Chart of Accounts**, select the company, and find the Account that should
 
 
 
-![Filtered Account list showing the duplicate source Account](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-merging-accounts-account-list-source-account.png)
+[Screenshot on the live page: Filtered Account list showing the duplicate source Account]
 
 Open the source Account and verify its Company, Root Type, Report Type, Currency, Account Type, and whether it is a group. In this example, **SaaS Subscription Expenses - NET** is the duplicate source.
 
@@ -501,7 +199,7 @@ On the source Account, select **Actions &gt; Merge Account**.
 
 
 
-![Merge Account action on an Account record](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-merging-accounts-account-actions-merge-account.png)
+[Screenshot on the live page: Merge Account action on an Account record]
 
 Do not use **Update Account Name / Number** for this task. That action renames one Account; it does not combine two existing Account records.
 
@@ -511,7 +209,7 @@ In **Merge with Existing Account**, enter the full name of the Account that must
 
 
 
-![Target Account and Merge button in the Merge with Existing Account dialog](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-merging-accounts-merge-account-target-dialog.png)
+[Screenshot on the live page: Target Account and Merge button in the Merge with Existing Account dialog]
 
 Review the direction before selecting **Merge**:
 
@@ -659,7 +357,7 @@ For the users who are currently following periodic inventory valuation system, a
 
 1. Go to: **Home > Accounting > Company**
 
- ![Perpetual Inventory](/files/perpetual-1.png)
+ [Screenshot on the live page: Perpetual Inventory]
 
 #### 2. Related Topics
 1. [Accounting Of Inventory Stock](/erpnext/accounting-of-inventory-stock)
@@ -695,7 +393,7 @@ Once this is set, a new **Milestone** record is created every time the status of
 
 The Milestone can be viewed in the timeline of the view:
 
-![Assign](/files/milestone-in-timeline.png)
+[Screenshot on the live page: Assign]
 
 Note: Milestones work independently of Versions.
 
@@ -734,7 +432,7 @@ Create the required cash and bank ledgers in the [Chart of Accounts](/erpnext/ch
 4. In **Accounts**, add each Company and its default cash or bank ledger.
 5. Save the record, then test it in a Payment Entry or [POS Profile](/erpnext/pos-profile).
 
-![Mode of Payment list in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-01-mode-of-payment-list.png)
+[Screenshot on the live page: Mode of Payment list in ERPNext]
 
 ## Important fields and what they mean
 
@@ -815,7 +513,7 @@ Nova Industries is a fictional electronics manufacturer and distributor used thr
 
 Module Settings is the map that takes the administrator to the settings owned by each business process. It helps Nova change how Sales Orders behave without accidentally changing login security, accounting rules, or another module. Use it to find the correct settings page, then test the change in the transaction that consumes it.
 
-![ERPNext Desk showing the business modules available to Nova Industries](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-module-settings-overview411fd1.png)
+[Screenshot on the live page: ERPNext Desk showing the business modules available to Nova Industries]
 
 ## How module settings are organised
 
@@ -876,3 +574,147 @@ Change one business decision at a time and verify it in a new transaction. This 
 - [Domain Settings](/erpnext/domain-settings)
 - [Role Based Permissions](/erpnext/role-based-permissions)
 - [Workspace](/erpnext/workspace)
+
+<!-- page: erpnext/erpnext__moving-asset-from-stock-item-to-fixed-asset-item.md -->
+---
+title: "Moving Asset from Stock Item to Fixed Asset Item | ERPNext Documentation"
+description: "Correct an ERPNext Item that was treated as stock but should be a fixed asset without losing accounting control."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/moving-asset-from-stock-item-to-fixed-asset-item"
+updated: "2026-08-15"
+---
+
+Imagine Nova Industries bought a laptop intending to sell it, so it was received as inventory. Later, the company decides to give that laptop to an employee. It is no longer stock for sale, but simply selecting **Is Fixed Asset** can leave the same value appearing in both inventory and fixed assets.
+
+
+
+The correction must remove the approved inventory position first, then create the fixed-asset Item and Asset record with the right original cost and opening depreciation. This keeps the Stock Ledger, General Ledger, and Asset Register from counting the laptop twice.
+
+## Before you begin
+
+Back up the site, identify every stock transaction for the Item, reconcile its current quantity and valuation, and agree the correction date and accounts with the accounting owner. Do not use this procedure to rewrite genuine historical sales inventory.
+
+## Correct the stock position
+
+1. Stop new transactions for the Item during the correction.
+2. Use the appropriate [Stock Reconciliation](https://docs.frappe.io/erpnext/stock-reconciliation) or supported stock transaction to bring the stock position to the approved result.
+3. Verify Stock Ledger and General Ledger impact.
+4. If submitted transactions prevent changing Item type, create a new fixed-asset Item rather than forcing the existing record.
+
+## Configure the fixed-asset Item
+
+Enable **Is Fixed Asset**, select the Asset Category, and decide whether future purchases should auto-create Assets.
+
+[Screenshot on the live page: ERPNext Item configured as a fixed asset]
+
+## Create the Asset
+
+Create an Existing Asset using the approved original cost, available-for-use date, opening accumulated depreciation, and number of already booked depreciation entries.
+
+[Screenshot on the live page: Existing Asset created after reclassification]
+
+## Verify the correction
+
+Confirm stock quantity is no longer carried incorrectly, the Asset appears in the register, opening value and depreciation reconcile, and no cost was counted twice.
+
+[Screenshot on the live page: Asset list used to verify the reclassified item]
+
+## Troubleshooting
+
+### Is Fixed Asset cannot be enabled
+
+The Item has submitted stock transactions or quantity. Create a new fixed-asset Item and use controlled accounting entries instead of forcing the flag.
+
+### The asset cost appears in both stock and fixed assets
+
+Reverse or correct the stock side, then reconcile Stock Ledger, General Ledger, and Fixed Asset Register on the same date.
+
+### Opening depreciation is missing
+
+Enter approved opening accumulated depreciation and the number of booked depreciations on the Existing Asset before final submission.
+
+## Frequently asked questions
+
+### Can I convert an Item after years of stock transactions?
+
+Usually a new fixed-asset Item is safer because historical inventory transactions must remain valid.
+
+### Should the reclassification use a Journal Entry only?
+
+A Journal Entry may correct accounts but does not create the operational Asset history or remove stock quantity. Use the full controlled process.
+
+### What date should the Asset use?
+
+Use the approved original purchase and available-for-use dates, with opening depreciation as of the migration or correction cut-off.
+
+## Related topics
+
+- [Asset Category](https://docs.frappe.io/erpnext/asset-category)
+- [Asset Location](https://docs.frappe.io/erpnext/asset-location)
+- [Asset](https://docs.frappe.io/erpnext/asset)
+- [Purchasing an Asset](https://docs.frappe.io/erpnext/purchasing-an-asset)
+- [Depreciation](https://docs.frappe.io/erpnext/asset-depreciation)
+- [Asset Movement](https://docs.frappe.io/erpnext/asset-movement)
+- [Asset Repair](https://docs.frappe.io/erpnext/asset-repair)
+- [Asset Reports](https://docs.frappe.io/erpnext/asset-reports)
+
+<!-- page: erpnext/erpnext__mpesa-integration.md -->
+---
+title: "M-Pesa Integration\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/mpesa-integration"
+updated: "2026-02-26"
+---
+
+
+**M-Pesa integration allows processing transactions with the payment gateway provider M-Pesa.**
+
+M-Pesa Integration facilitates the processing of payments between the M-Pesa application and ERPNext. M-Pesa Integration only works with the POS to facilitate the payments for the same. This feature doesn't work with the shopping cart.
+
+To set up M-Pesa, go to:
+> Integrations > Payments > M-Pesa Settings
+
+## 1.How to get your M-Pesa credentials?
+1. In order to activate your API credentials, you need to log in to your M-Pesa account.
+2. Then, open the Go Live section of the application and follow the steps to get the approval for the app.
+3. When all the test cases are satisfied and expected results match the final results, you need to submit the document and follow the steps to get the final credentials for your application.
+4. Details mentioned in the Production URL and Credentials section are the credentials that you are supposed to use in M-Pesa Settings.
+
+[Screenshot on the live page: Mpesa Credentials]
+
+
+## 2.Setting up M-Pesa
+
+To enable M-Pesa Express, you need to configure all the mandatory parameters which you have received from M-Pesa. If you want to use the staging environment of the integration, you can select the staging option and use the staging credentials provided by M-Pesa by creating a separate application for the same.
+[Screenshot on the live page: Mpesa Settings]
+
+On enabling the M-Pesa integration in ERPNext, the system will create a Payment Gateway record and an Account head in the Chart of Accounts with the Account type as Bank as seen in the following screenshot.
+
+[Screenshot on the live page: Mpesa COA]
+[Screenshot on the live page: Mpesa POS Settings]
+
+It will also create a Mode of Payment with the same name and account as the payment gateway's, along with certain custom fields in POS Settings to handle the POS payments.
+
+[Screenshot on the live page: Payment Gateway Account]
+
+After configuring the Payment Gateway Account, you will be able to accept online payments via M-Pesa.
+
+
+## 3. M-Pesa POS Payments
+
+On setting up the POS profile with M-Pesa mode of payment, the POS checkout would show an additional information section. This section contains two fields that were automatically set-up on adding M-Pesa settings.
+
+[Screenshot on the live page: POS Additional Information]
+
+As soon as a POS user fills the mobile number of the customer, they can initiate a request for payment from the customer. A request is sent to the customer's M-Pesa mobile application linked with the specified mobile number. Once the payment is processed by the user, the user is prompted by a confirmation dialog to submit the payment.
+
+## 4. M-Pesa Account Balance
+
+Account balance linked with an individual M-Pesa can be fetched via the Get Account Balance button. This will load the M-Pesa account balance details in the dashboard.
+
+[Screenshot on the live page: POS Account Balance]
+
+
+## 5. Supporting transaction currencies
+
+M-Pesa will only work for the Company which has KSH (Kenyan Shilling) as the Company Currency.

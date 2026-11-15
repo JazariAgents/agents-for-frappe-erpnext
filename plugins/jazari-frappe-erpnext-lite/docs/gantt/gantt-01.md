@@ -98,7 +98,7 @@ You can use it anywhere from hobby projects to tracking the goals of your team a
 
 [ERPNext](https://erpnext.com/) uses Frappe Gantt.
 
-![](https://github.com/frappe/gantt/raw/master/.github/hero-image.png)
+[Screenshot on the live page]
 
 
 ## Why Frappe Gantt?

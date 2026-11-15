@@ -19,7 +19,7 @@ To access Academic term, go to:
 
 The **Academic term** form in ERPNext enables you to create academic terms within in an Academic Year. Based on the term schedule enter the start and end date for the schedule and generate the Academic Term.
 
-![KzzYqR0](/files/KzzYqR0.png)  
+[Screenshot on the live page: KzzYqR0]  
 
 
   
@@ -57,12 +57,12 @@ The **Academic year** form have the Start and End date for the Academic year.
 
 Within an Academic Year, you can have multiple **Academic Terms**.
 
-![Academic Year](/files/education-academic-year-1.png)  
+[Screenshot on the live page: Academic Year]  
 
 
 An academic year can be further linked to a [Student group](/education/student-group), which can be created from an Academic Year.
 
-![Academic Year](/files/education-academic-year-2.png)  
+[Screenshot on the live page: Academic Year]  
 
 
 If the Academic Year has been specified in the [Education Settings](/education/education-settings) then it will become the default Academic Term in all the forms and will be editable if required.
@@ -115,7 +115,7 @@ updated: "2026-02-09"
 
 **Assessment Criteria is the parameter based on which you assess the Student.**
 
-![Assessment Criteria](/files/education-assessment-criteria.png)
+[Screenshot on the live page: Assessment Criteria]
 
 After an assessment is conducted for a Course, marks earned are entered based on the Assessment Criteria. For example, if the assessment was conducted for science subjects, then you can evaluate Student in Science on various criteria like Writing, Practicals, Presentation, etc.
 
@@ -143,7 +143,7 @@ updated: "2026-02-09"
 
 For example, if you wish to conduct an assessment for each Academic Term within an Academic Year, then setup Assessment Group as follows.
 
-![Assessment Group](/files/education-assessment-group.png)
+[Screenshot on the live page: Assessment Group]
 
 To access the Assessment Group, go to
 
@@ -200,7 +200,7 @@ Apart from the mandatory fields, you may also add the following details to the a
 1. **Program**: Select the Program under which the assessment has been conducted.
 1. **Academic Year and Academic Term**: Select and enter the Academic Year and the Academic Year for which the Assessment is being done.
 
-![Assessment Plan](/files/assessment-plan-4.png)
+[Screenshot on the live page: Assessment Plan]
 
 ## 3. Features
 
@@ -213,13 +213,13 @@ Apart from the mandatory fields, you may also add the following details to the a
 1. **Examiner**: Add the name of the Examining Instructor for this assessment.
 1. **Supervisor**: Add the name of the Supervising Instructor for this assessment.
 
-![Assessment Plan](/files/education-assessment-plan-2.png)
+[Screenshot on the live page: Assessment Plan]
 
 ### 3.2. Evaluate
 
 Once you select the Course and the Grading Scale gets updated, you will be required to enter the Maximum Assessment Score and the Assessment Criteria would get automatically updated in the system.
 
-![Assessment Plan](/files/education-assessment-plan-3.png)
+[Screenshot on the live page: Assessment Plan]
 
 #### Video Tutorial on Assessment Plan
 
@@ -243,7 +243,7 @@ updated: "2026-02-09"
 
 An Assessment Result is created in the backend based on the marks entered in the [Assessment Result Tool](/education/assessment_result_tool).
 
-![Assessment Result]({{docs_base_url}}/img/education/assessment/assessment-result.png)
+[Screenshot on the live page: Assessment Result]
 
 #### Video Tutorial on Assessment Result
 
@@ -266,7 +266,7 @@ updated: "2026-02-09"
 
 Also, Columns for Assessment Criteria will be where marks earned can be entered for each Student.
 
-![Assessment Result Tool](/files/education-assessment-result-tool.png)
+[Screenshot on the live page: Assessment Result Tool]
 
 As you go on entering marks for a Student, and switch to the next student, in the backend, Student Result record will be auto-created for that Student.
 
@@ -292,7 +292,7 @@ updated: "2026-02-09"
 
 Using this feature, a time table or an itinerary can be created in the Institute, wherein each slot will be scheduled via Course schedule.
 
-![Course Schedule](/files/education-course-schedule-1.png)
+[Screenshot on the live page: Course Schedule]
 
 To access Course schedule, go to:
 
@@ -317,17 +317,17 @@ Before creating a Course Schedule, it is advised that you create the following f
 1. Add the **From Time** and **To Time** for the Course Schedule.
 1. Select and add the **Room** wherein the Lecture would be conducted.
 
-![Course Schedule](/files/education-course-schedule-1.gif)
+[Screenshot on the live page: Course Schedule]
 
 ## 3. Marking Attendance
 
 You can mark attendance for a Student Group against a Course Schedule.
 
-![Course Schedule](/files/education-course schedule-3.png)
+[Screenshot on the live page: Course Schedule]
 
 To mark attendance for a course, click on **Attendance** in the Course Schedule. You will be redirected to a page, wherein the name of all the students will be listed along with check-boxes for marking attendance. You can check the Present students and **Mark Attendance**. You can also **Check All** or **Uncheck All** and mark attendance.
 
-![Course Schedule](/files/education-course-schedule-4.gif)
+[Screenshot on the live page: Course Schedule]
 
 ## 4. Video Tutorial on Course Scheduling
 
@@ -346,7 +346,7 @@ updated: "2026-02-09"
 
 **A Course Scheduling Tool will allow you to create Course Schedules in bulk for a particular Student Group and an Instructor.**
 
-![Course Scheduling Tool](/files/education-course-schedule-1.png)  
+[Screenshot on the live page: Course Scheduling Tool]  
 
 
 To access the Course Scheduling Tool, go to:
@@ -378,7 +378,7 @@ Before creating a Course Schedule, it is advised that you create the following f
 7. Select the **Day** of the week on which the Course Lecture has to be scheduled.
 8. Click on **Schedule Course** button, based on the dates selected and days for the course selected, the Tool will schedule the required course lectures.
 
-![Course Scheduling Tool](/files/education-course-scheduling-tool.gif)  
+[Screenshot on the live page: Course Scheduling Tool]  
 
 
 3.**Rescheduling**
@@ -413,7 +413,7 @@ updated: "2026-02-09"
 
 For example, if for a particular term, Economics Major is a program taught in the institute, then Mathematical Methods for Economics would be a Course covered under the program.
 
-![Course](/files/education-program-workflow.png)
+[Screenshot on the live page: Course]
 
 A course will have a set of [topics](/education/topic) that are to be covered under it's scope.
 
@@ -437,7 +437,7 @@ Before creating a course, it is advised to create:
 5. Add the Description for the course.
 6. Save.
 
- ![Course](/files/education-course-1.png)
+ [Screenshot on the live page: Course]
 
 ## 3. Features
 
@@ -448,7 +448,7 @@ For every new Course a User can have a New Assessment setting where in they can 
 1. **Default Grading Scale**: A default [Grading Scale](/education/grading_scale) can be set up for the course, wherein you can define what would be the achievement level of the student based on the scores they earn for a course.
 2. **Assessment Criteria**: You can define the [Assessment Criteria](/education/assessment_criteria) for this course wherein based on the different parameters of assessment, the student's understanding of the subject would be assessed.
 
- ![Course](/files/education-course-2.png)
+ [Screenshot on the live page: Course]
 
 ## 4. More Actions
 
@@ -459,7 +459,7 @@ Once the course has been created, the following documents can be created from th
 3. [Course Schedule](/education/course-schedule)
 4. [Assessment Plan](/education/assessment_plan)
 
- ![Course](/files/education-course-3.png)
+ [Screenshot on the live page: Course]
 
 ## 5. Video Tutorial for Course
 
@@ -499,7 +499,7 @@ To access Academic term, go to:
   
 
 
-![edu_settings](/files/edu_settings.png)
+[Screenshot on the live page: edu_settings]
 
 ### 1.1. Configuring Properties
 
@@ -514,7 +514,7 @@ To access Academic term, go to:
 
 The Education module is bundled with a Student Portal from v15.2.0 onwards.
 
-![edu_settings1](/files/edu_settings1.png)  
+[Screenshot on the live page: edu_settings1]  
 
 
 * **Attendance Based on Course Schedule:** From Portal if the student applies for a leave, the attendance is marked based on this setting. If disabled the attendance will be marked for the whole day and if enabled the attendance will be marked for all the course schedule on which the student has applied for leave.
@@ -534,7 +534,7 @@ updated: "2026-02-09"
 
 For example, Tuition Fees and Hostel fees would make the different categories of fees.
 
-![Fee Category](/files/education-fee-category-1 (1).png)  
+[Screenshot on the live page: Fee Category].png)  
 
 
 To access Fee Category, go to:
@@ -546,12 +546,12 @@ To access Fee Category, go to:
 
 To create a new Fee Category, go to the Fee Category list, and click on new. Add the **Name** and **Description** of the Fee Category.
 
-![Fee Category](/files/education-fee-category-2.gif)  
+[Screenshot on the live page: Fee Category]  
 
 
 For example, Tuition Fees and Hostel fees would make the different categories of fees.
 
-![Fee Category](/files/education-fee-category-1 (1).png)  
+[Screenshot on the live page: Fee Category].png)  
 
 
 To access Fee Category, go to:
@@ -563,7 +563,7 @@ To access Fee Category, go to:
 
 To create a new Fee Category, go to the Fee Category list, and click on new. Add the **Name** and **Description** of the Fee Category.
 
-![Fee Category](/files/education-fee-category-2.gif)  
+[Screenshot on the live page: Fee Category]  
 
 
 Version 15.1
@@ -577,7 +577,7 @@ From Version 15.1.0 onwards, when a Fee Category is created an Item Master for t
   
 
 
-![Screenshot 2024-02-23 at 8.18.15 PM](/files/Screenshot 2024-02-23 at 8.18.15 PM.png)  
+[Screenshot on the live page: Screenshot 2024-02-23 at 8.18.15 PM]  
 
 
 Version 15.4
@@ -585,7 +585,7 @@ Version 15.4
 
 From 15.4.0 onwards, a child table named "Accounting Defaults" will be present inside the Fee Category DocType.
 
-![Screenshot 2024-06-30 at 2.32.20 AM](/files/Screenshot 2024-06-30 at 2.32.20 AM.png)  
+[Screenshot on the live page: Screenshot 2024-06-30 at 2.32.20 AM]  
 
 
   
@@ -656,7 +656,7 @@ To access Fee Schedule, go to:
 5. Select and add the **Student Group**.
 6. Save and Submit.
 
-![Fee Schedule](/files/education-fee-schedule-1.gif)  
+[Screenshot on the live page: Fee Schedule]  
 
 
 2. Features
@@ -687,14 +687,14 @@ To facilitate that smoothly, you can add your Accounts details in the fee struct
 
 When the document is submitted, you get an option to Create Sales Invoice.
 
-![Screenshot 2024-04-01 at 12.41.38 PM](/files/Screenshot 2024-04-01 at 12.41.38 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.41.38 PM]  
 
 
 As soon as you submit the document, the status changes from "Draft" to "Invoice Pending".
 
 On clicking the "Create Sales Invoice" button, sales invoices will be created for all the students for all the student groups present in the document, and the status will change from "Invoice Pending" to "Invoice Created".
 
-![Screenshot 2024-04-01 at 12.43.23 PM](/files/Screenshot 2024-04-01 at 12.43.23 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.43.23 PM]  
 
 
 Sales Invoice is created with the customer field filled as Student's Name, the Fee Schedule Name is also stored in the Sales Invoice Document, and all the Fee Categories are linked to Sales Invoice Item Table.
@@ -703,7 +703,7 @@ By default the Sales Invoice will be created in the Draft mode, you can change t
 
 If this is enabled then clicking on "Create Sales Invoice" button in the Fee Schedule DocType, all the Sales Invoice will be automatically submitted.
 
-![Screenshot 2024-04-01 at 12.45.18 PM](/files/Screenshot 2024-04-01 at 12.45.18 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.45.18 PM]  
 
 
 ### 2.5. Version 15.3.0
@@ -716,17 +716,17 @@ To enable this feature, go to:
 
 Education Settings > Create Sales Order instead of Sales Invoice.
 
-![Screenshot 2024-04-01 at 12.39.28 PM](/files/Screenshot 2024-04-01 at 12.39.28 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.39.28 PM]  
 
 
 After enabling, whenever a Fee Schedule is submitted. The status of the document will be "Order Pending" and "Create Sales Order" button will be shown instead of "Create Sales Invoice" button.
 
-![Screenshot 2024-04-01 at 12.53.36 PM](/files/Screenshot 2024-04-01 at 12.53.36 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.53.36 PM]  
 
 
 On clicking the "Create Sales Order" button, sales order will be created for all the students for all the student groups present in the document, and the status will change from "Order Pending" to "Order Created".
 
-![Screenshot 2024-04-01 at 12.55.22 PM](/files/Screenshot 2024-04-01 at 12.55.22 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.55.22 PM]  
 
 
 All the Sales Order by default will be created in Draft Mode. If you want to submit the Sales Order directly when created, you can enable "Submit Sales Order from Program Enrollment / Fee Schedule" in the Education Settings(as shown above).
@@ -759,7 +759,7 @@ updated: "2026-02-09"
 
 The Fee structure can be fetched while creating the [Fees](/education/fees) for each student.
 
-![Fee Structure](/files/education-fee-structure-2.png)  
+[Screenshot on the live page: Fee Structure]  
 
 
 To access fee Structure, go to:
@@ -784,7 +784,7 @@ Before creating a Fee Structure, it is advisable to create the following first:
 3. In the Components Table, enter the **Fees Category** and **Amount**.
 4. Save and Submit.
 
-![Fee Structure](/files/education-fee-structure-1.gif)
+[Screenshot on the live page: Fee Structure]
 
 ### 2.1. Additional Options while creating a Fee Structure.
 
@@ -808,7 +808,7 @@ To facilitate that smoothly, you can add your Accounts details in the fee struct
 
 * **Cost Center**: Select and add the name of the Cost Center of your Institute for Accounting Dimensions.
 
-![Fee Structure](/files/education-fee-structure-3.png)  
+[Screenshot on the live page: Fee Structure]  
 
 
 3. After submitting the Fee Structure
@@ -816,12 +816,12 @@ To facilitate that smoothly, you can add your Accounts details in the fee struct
 
 Once you have submitted the Fee Structure, you will be able to create the [Fee Schedule](/education/fee-schedule) from within Fee Structure.
 
-![Fee Structure](/files/education-fee-structure-4.png)  
+[Screenshot on the live page: Fee Structure]  
 
 
 ##### **Old flow**
 
-![fee_sch_old](/files/fee_sch_old.gif)  
+[Screenshot on the live page: fee_sch_old]  
 
 
 4. Version 15.1.0
@@ -840,7 +840,7 @@ If you want to create a fee schedule just for a particular Academic Term, then y
   
 Here is the demo:
 
-![fee_sch_demo_new](/files/fee_sch_demo_new.gif)  
+[Screenshot on the live page: fee_sch_demo_new]  
 
 
   
@@ -879,7 +879,7 @@ Before you create Fees record, it is advisable that you create the following fir
 4. Add the **Due Date** of the payment of the Fees.
 5. Save.
 
-![Fees](/files/education-fee-1.gif)
+[Screenshot on the live page: Fees]
 
 ### 2.1. Additional Options while Creating Fees
 
@@ -893,21 +893,21 @@ Before you create Fees record, it is advisable that you create the following fir
 
 Add all the relevant details of the student which includes **Program Enrollment**, **Program**, **Academic Term** and **Academic Year.** The **Student Email ID** gets fetched from the Student details given earlier.
 
-![Fees](/files/education-fees-2.png)  
+[Screenshot on the live page: Fees]  
 
 
 ### 3.2. Fee Structure
 
 You can select a **Fee Structure** for the given Fees Record. The moment you do so, all the **Fee Components** will be auto-populated from the Fee Structure.
 
-![Fees](/files/education-fee-4.gif)  
+[Screenshot on the live page: Fees]  
 
 
 ### 3.3. Fee Components
 
 You can also add the **Fee Components** by selecting and adding the **Fee Category**, **Description** and **Fee Amount**.
 
-![Fees](/files/education-fees-5.png)  
+[Screenshot on the live page: Fees]  
 
 
 ### 3.4. Printing Settings
@@ -929,13 +929,13 @@ To facilitate that smoothly, you can add your Accounts details in the fee struct
 
 * **Cost Center**: Select and add the name of the Cost Center of your Institute for Accounting Dimensions.
 
-![Fees](/files/education-fees-3.png)
+[Screenshot on the live page: Fees]
 
 ### Payment
 
 Directly make a payment from fee, select Mode of Payment in payment entry and submit the payment.
 
-![Fee Payment]({{docs_base_url}}/v13/assets/img/education/fees/fee-payment.png)  
+[Screenshot on the live page: Fee Payment]  
 
 
 ### v15.1.0
@@ -954,7 +954,7 @@ To enable Sales Order functionality.
 
 Open Education Settings > Create Sales Order instead of Sales Invoice.
 
-![Screenshot 2024-04-01 at 12.39.28 PM](/files/Screenshot 2024-04-01 at 12.39.28 PM.png)  
+[Screenshot on the live page: Screenshot 2024-04-01 at 12.39.28 PM]  
 
 
   
@@ -982,7 +982,7 @@ updated: "2026-02-09"
 
 For example, Students obtaining a score of 90% and above would be graded as A+, students obtaining a score of 80% and above would be graded A- and so on.
 
-![Grading Scale](/files/education-grading-scale-1.png)
+[Screenshot on the live page: Grading Scale]
 
 #### Video Tutorial on Grading Scale
 
@@ -1004,7 +1004,7 @@ updated: "2026-02-09"
 
 **Guardian allows you to record the details of the Guardians of a Student.**
 
-![Guardian](/files/education-guardian-1.png)
+[Screenshot on the live page: Guardian]
 
 Every student can have multiple guardians like Father, Mother, Brother, or Sister.
 
@@ -1038,7 +1038,7 @@ Apart from the mandatory details of the Guardian, you can also add the following
 8. **Designation**: You can enter the designation of the Guardian here.
 9. **Work Address**: The Work Address of the Guardian can be recorded here for emergency purposes.
 
- ![Guardian](/files/education-guardian-1.png)
+ [Screenshot on the live page: Guardian]
 
 ## 3. Features
 
@@ -1046,19 +1046,19 @@ Apart from the mandatory details of the Guardian, you can also add the following
 
 While creating a Student, if you have selected a Particular Guardian for them, the name of that Student will automatically be fetched here. Multiple students can have the same person as their guardian. In that case, multiple entries will be made in this section. However, on the front end, one will not be able to add more students to this section.
 
-![Guardian](/files/education-guardian-2.png)
+[Screenshot on the live page: Guardian]
 
 ### 3.2. Guardian Interests
 
 Interests could be a list of activities that the Guardian would be willing to do for the institute or would like their Dependent or Ward to do as a part of extra-curricular activities.
 
-![Guardian](/files/education-guardian-3.png)
+[Screenshot on the live page: Guardian]
 
 ## 4. Making the Guardian A User
 
 Once Guardian has been saved, you can find a button **Invite As User** on the top right corner of the form. This button would allow you to invite the guardian as a User of ERPNext by sending them an invitation email on the recorded email ID.
 
-![Guardian](/files/education-guardian-4.png)
+[Screenshot on the live page: Guardian]
 
 ## 5. Related Topics
 
@@ -1076,7 +1076,7 @@ updated: "2026-02-09"
 
 This document can be used to maintain the Instructor Log in the form of a list of topics/courses covered by the Instructor. This log will have the entire history of the courses taught by the Instructor.
 
-![](/files/vDpjU6T.png)  
+[Screenshot on the live page]  
 
 
 To access the instructor list, go to:
@@ -1104,7 +1104,7 @@ Before creating an instructor, it is advisable to first create the following:
 3. Select the Department for which you are creating an Instructor.
 4. Save.
 
-![](/files/LyThgam.png)
+[Screenshot on the live page]
 
 3. Features
 -----------
@@ -1119,7 +1119,7 @@ Before creating an instructor, it is advisable to first create the following:
 * **Student Group**: The Student Group for which the user is making the Instructor Log.
 * **Other Details**: Any other details regarding the Instructor Log can be recorded here.
 
-![](/files/H0lCkO4.png)
+[Screenshot on the live page]
 
 ### 3.2. After Submitting
 
@@ -1129,11 +1129,11 @@ Once the Instructor and Instructor Log is saved, you can create the following fr
 2. [Course Schedule](/docs/v13/user/manual/en/education/course-schedule)
 3. [Assessment Plan](/docs/v13/user/manual/en/education/assessment_plan)
 
-![](/files/JA8Cueq.png)
+[Screenshot on the live page]
 
 > Note: While creating an Assessment Plan from the Instructor, the user can select whether the Instructor has to be kept as a Supervisor or as an Examiner for the Assessment plan.
 
-![](/files/ZQeVNRf.png)  
+[Screenshot on the live page]  
 
 
 4. Video Tutorial for Instructor
@@ -1159,7 +1159,7 @@ Frappe Education is an open-source and user-friendly Education Management System
 
 Whether you are running a B-School, an Academy or even a Primary School, Frappe Education helps you in organizing your entire set-up. You can have your entire Student Database, Fee Structure, Staffing Information, Courses, Curriculum, all defined in this app.
 
-![](/files/399563531-46af048c-749f-41f7-8d10-47e4fa643592.png)
+[Screenshot on the live page]
 
 ## Why Frappe Education
 
@@ -1221,15 +1221,15 @@ Once you click on the **Get Students** button, the system will fetch the list of
 
 * If the student list is fetched from the Student Applicant list, you can enter a New Student BAtch Name under which all the New Students will be enrolled.
 
- ![Student Enrollment Tool](/files/education-student-tool-5.png)
+ [Screenshot on the live page: Student Enrollment Tool]
 
 * If the student list is fetched from the existing Program Enrollment, you will be asked to enter the details of the new Program like Program Name, Academic Year, Academic Term and New Student Batch.
 
- ![Student Enrollment Tool](/files/education-student-tool-6.png)
+ [Screenshot on the live page: Student Enrollment Tool]
 
 * Once all the details have been entered, click on **Enroll Students** to create Program Enrollment in bulk.
 
- ![Student Enrollment Tool](/files/education-student-tool-7.png)
+ [Screenshot on the live page: Student Enrollment Tool]
 
 ## 2. Video Tutorial for Program Enrollment Tool
 

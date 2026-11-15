@@ -95,7 +95,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   8. Review taxes and totals. A return should have negative amounts
   9. Save and submit the Debit Note
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-19.md` lines 3–148  (https://docs.frappe.io/erpnext/debit-note)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 815–960  (https://docs.frappe.io/erpnext/debit-note)
 
 ### Record a payment entry
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Payment Entry**, or type *Payment Entry* in the search bar at the top
@@ -133,7 +133,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Add a clear User Remark and, when applicable, a Reference Number, Reference Date, Bill Number, Bill Date, and Due Date. These supporting fields do not replace a formal link to an ERPNext document
   6. Save, review the accounts and dimensions, then submit. Submission posts the debit and credit to the General Ledger
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 395–566  (https://docs.frappe.io/erpnext/journal-entry)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 3–174  (https://docs.frappe.io/erpnext/journal-entry)
 
 ### Set payment terms
 - **Path (checked on v16.55):** https://your-site/desk → type *Payment Term* in the search bar at the top and open the doctype
@@ -157,7 +157,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Record bank fees, interest, and timing differences explicitly
   6. Confirm that the closing balance agrees with the bank statement
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-08.md` lines 735–822  (https://docs.frappe.io/erpnext/bank-reconciliation)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-08.md` lines 708–795  (https://docs.frappe.io/erpnext/bank-reconciliation)
 
 ### Reconcile payments against invoices
 - **Path (checked on v16.55):** https://your-site/desk → type *Payment Reconciliation* in the search bar at the top and open the doctype
@@ -171,14 +171,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Create a Journal Entry
   3. Select the Company and cutover date
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-39.md` lines 390–493  (https://docs.frappe.io/erpnext/opening-balance)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-39.md` lines 162–265  (https://docs.frappe.io/erpnext/opening-balance)
 
 ### Import opening invoices
 - **Path (checked on v16.55):** https://your-site/desk → type *Opening Invoice Creation Tool* in the search bar at the top and open the doctype
 - **Documented steps:**
   1. Go to Home > Accounting > Opening and Closing > Opening Invoice Creation Tool
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-39.md` lines 495–610  (https://docs.frappe.io/erpnext/opening-invoice-creation-tool)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-39.md` lines 267–382  (https://docs.frappe.io/erpnext/opening-invoice-creation-tool)
 
 ### Set up cost centers
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Setup > Chart of Cost Centers**, or type *Cost Center* in the search bar at the top
@@ -224,7 +224,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Select Roles Allowed to Set and Edit Frozen Account Entries
   5. Save the Company and test with a non-privileged account before relying on the control
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-27.md` lines 633–688  (https://docs.frappe.io/erpnext/freeze-accounting-entries)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-27.md` lines 128–183  (https://docs.frappe.io/erpnext/freeze-accounting-entries)
 
 ### Set up deferred revenue and expense
 - **Path (checked on v16.55):** https://your-site/desk → type *Process Deferred Accounting* in the search bar at the top and open the doctype
@@ -233,7 +233,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Review the Deferred Revenue/Expense Report for invoiced, recognized, and pending amounts
   3. Open the General Ledger for the deferred account and the final income or expense account
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-19.md` lines 252–410  (https://docs.frappe.io/erpnext/deferred-accounting)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-19.md` lines 105–263  (https://docs.frappe.io/erpnext/deferred-accounting)
 
 ### Chase overdue invoices with dunning
 - **Path (checked on v16.55):** https://your-site/desk → type *Dunning* in the search bar at the top and open the doctype
@@ -245,7 +245,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Select a Dunning Type, or enter the fee, interest, and letter text manually
   5. Save and submit
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-23.md` lines 386–490  (https://docs.frappe.io/erpnext/dunning)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-22.md` lines 775–879  (https://docs.frappe.io/erpnext/dunning)
 
 ### Send a statement of accounts
 - **Path (checked on v16.55):** https://your-site/desk → type *Process Statement Of Accounts* in the search bar at the top and open the doctype
@@ -255,7 +255,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Select the report and set the date, Company, account, currency, Cost Center, or Project filters
   4. Use Categorize By to control how entries are grouped in the PDF
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-44.md` lines 568–672  (https://docs.frappe.io/erpnext/process-statement-of-accounts)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-44.md` lines 520–624  (https://docs.frappe.io/erpnext/process-statement-of-accounts)
 
 ### Bill customers on a subscription
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > Subscription**, or type *Subscription* in the search bar at the top
@@ -269,7 +269,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   6. Add taxes, a Cost Center, or an additional discount when needed
   7. Save
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-61.md` lines 735–838  (https://docs.frappe.io/erpnext/subscription)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-61.md` lines 548–651  (https://docs.frappe.io/erpnext/subscription)
 
 ### Manage fixed assets
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Assets > Asset**, or type *Asset* in the search bar at the top
@@ -292,12 +292,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Track shareholders and share transfers
 - **Path (checked on v16.55):** https://your-site/desk → type *Share Transfer* in the search bar at the top and open the doctype
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-58.md` lines 67–140  (https://docs.frappe.io/erpnext/share-transfer)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-57.md` lines 731–804  (https://docs.frappe.io/erpnext/share-transfer)
 
 ### Set up taxes
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Sales Tax Template**, or type *Sales Taxes and Charges Template* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-57.md` lines 755–833  (https://docs.frappe.io/erpnext/setting-up-taxes)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-57.md` lines 378–456  (https://docs.frappe.io/erpnext/setting-up-taxes)
 
 ### Create a sales tax template
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Sales Tax Template**, or type *Sales Taxes and Charges Template* in the search bar at the top
@@ -305,7 +305,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Enter a clear Title, such as Nova Standard Sales Tax 8%
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-54.md` lines 510–706  (https://docs.frappe.io/erpnext/sales-taxes-and-charges-template)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-54.md` lines 359–555  (https://docs.frappe.io/erpnext/sales-taxes-and-charges-template)
 
 ### Create a purchase tax template
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Taxes > Purchase Tax Template**, or type *Purchase Taxes and Charges Template* in the search bar at the top
@@ -320,7 +320,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Enter a descriptive Title, such as Nova Reduced Item Tax 4%
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-33.md` lines 3–215  (https://docs.frappe.io/erpnext/item-tax-template)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-32.md` lines 323–535  (https://docs.frappe.io/erpnext/item-tax-template)
 
 ### Use tax categories
 - **Path (checked on v16.55):** https://your-site/desk → type *Tax Category* in the search bar at the top and open the doctype
@@ -374,7 +374,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Set up KSA VAT reporting
 - **Path (checked on v16.55):** **Not part of ERPNext v16.** KSA VAT Setting and the KSA VAT report moved out of ERPNext into a separate app (Frappe's `KSA` app; ZATCA e-invoicing apps are made by other vendors). Check `installed_apps` first. If none of them is installed, say so plainly and do not improvise the report.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-58.md` lines 718–751  (https://docs.frappe.io/erpnext/simplified_ksa_vat_management_and_reporting)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-58.md` lines 364–397  (https://docs.frappe.io/erpnext/simplified_ksa_vat_management_and_reporting)
 
 ## What cannot be done in the interface
 

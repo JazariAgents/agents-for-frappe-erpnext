@@ -23,7 +23,7 @@ Transactions can be synchronized through a supported integration, imported from 
 
 The list should show real statement activity rather than an empty example.
 
-![Bank Transaction list with deposits and withdrawals](https://novacompanies.m.frappe.cloud/files/banking-14-bank-transaction-list.png)
+[Screenshot on the live page: Bank Transaction list with deposits and withdrawals]
 
 Before importing a full statement:
 
@@ -39,11 +39,11 @@ Use the Bank master's transaction mapping when the source headings differ from t
 
 Open a transaction and verify the Date, Bank Account, currency, and amount direction. A receipt is stored as **Deposit**. A payment or charge is stored as **Withdrawal**.
 
-![Date, Bank Account, and deposit amount](https://novacompanies.m.frappe.cloud/files/banking-15-bank-transaction-amount.png)
+[Screenshot on the live page: Date, Bank Account, and deposit amount]
 
 Review the description, bank reference number, transaction identifier, and transaction type. These fields help find the correct accounting voucher and detect duplicates.
 
-![Description, reference number, and transaction type](https://novacompanies.m.frappe.cloud/files/banking-16-bank-transaction-reference.png)
+[Screenshot on the live page: Description, reference number, and transaction type]
 
 Do not overwrite the bank's description merely to make matching easier. Preserve original evidence and use party, allocation, or comments for internal classification.
 
@@ -169,12 +169,12 @@ Collect the official Bank name, SWIFT or BIC code when applicable, website, and 
 1. Go to **Accounting &gt; Banking &gt; Bank**.
 2. Select **Add Bank**.
 
-![Bank list with Add Bank highlighted](https://novacompanies.m.frappe.cloud/files/banking-02-bank-list.png)
+[Screenshot on the live page: Bank list with Add Bank highlighted]
 
 3. Enter the Bank name. Use the full institution name so users can distinguish it from similarly named banks.
 4. Enter the **SWIFT number** and **Website** when they are relevant.
 
-![SWIFT number and website on the Bank master](https://novacompanies.m.frappe.cloud/files/banking-03-bank-details.png)
+[Screenshot on the live page: SWIFT number and website on the Bank master]
 
 5. Save the Bank.
 6. Create one or more [Bank Accounts](/erpnext/bank-account) linked to it.
@@ -269,7 +269,7 @@ updated: "2026-07-31"
 
 ERPNext banking connects your bank statement activity with accounting entries. The workflow has four parts: create the Bank and Bank Account masters, record or import Bank Transactions, create the corresponding payments or journals, and reconcile both sides.
 
-![Bank Transactions with realistic deposits and withdrawals](https://novacompanies.m.frappe.cloud/files/banking-01-banking-overview-transactions.png)
+[Screenshot on the live page: Bank Transactions with realistic deposits and withdrawals]
 
 ## Before you begin
 
@@ -531,7 +531,7 @@ updated: "2026-03-06"
 
 To enable serial / batch feature for the item, first check the 'Enable Serial and Batch No for Item' checkbox in the 'Stock Settings'.
 
-![](/files/Screenshot 2026-03-06 at 11.52.18 AM.png)
+[Screenshot on the live page]
 
 
 
@@ -548,7 +548,7 @@ To access the Batch No list, go to: > Home > Stock > Serial No and Batch > Batch
 Before creating and using a Batch, it is advised that you create the following first:
 
 - [Item](/erpnext/item)
-- Enable 'Has Batch No' in the Item master ![Batch No Enabled](/files/batch-no-enabled.png)
+- Enable 'Has Batch No' in the Item master [Screenshot on the live page: Batch No Enabled]
 
 2. How to create a new Batch
 
@@ -570,7 +570,7 @@ When Batches are enabled for an Item, the option to [retain sample stock](/erpne
 
 If you want automatic batch creation at the time of Purchase Receipt, you must tick 'Automatically Create New Batch' in the Item master:
 
-![Item Setup for Batches](/files/item_setup_for_batch.png)
+[Screenshot on the live page: Item Setup for Batches]
 
 
 
@@ -582,14 +582,14 @@ If you want automatic batch creation at the time of Purchase Receipt, you must t
 
 When you open a batch, you will see all the quantities that belong to that batch on the page.
 
-![Batch View](/files/batch_view.png)
+[Screenshot on the live page: Batch View]
 
 
 
 - To move the batch from one Warehouse to another, you can click on the **Move** button.
 - You can also split the batch into smaller one by clicking on the **Split** button. This will create a new Batch based on this Batch and the quantities will be split between the batches.
 
-![Split Batch](/files/batch_split.png)
+[Screenshot on the live page: Split Batch]
 
 - If you set expiry date, the Batch will show 'Not Expired' until the expiry date, after which it'll show 'Expired'. If a date is not set, the Batch will show 'Not Set'.
 
@@ -625,7 +625,7 @@ The **BOM** is a list of all materials (either bought or made) and operations
 that go into manufacturing a finished product or sub-assembly. In ERPNext, each item (sub-assembly) could  
 have its own BOM hence forming a tree of Items with multiple levels.
 
-![Work Order](/files/manufacturing-flow-bom.png)
+[Screenshot on the live page: Work Order]
 
 To make accurate Purchase Requests, you must always maintain correct BOMs.
 
@@ -657,7 +657,7 @@ Before creating and using a BOM, it is advised that you create the following fir
   5. Enter the scrap percentage that will remain after this raw material is used.  
   BOM Materials\](/files/bom-materials.png)
 5. Under the Scrap section, select the scrap Item that will be created when manufacturing and its quantity. The scrap Item can also have a Rate if it is a by-product and not waste. Skip this section if 100% of raw materials are completely utilized. If the scrap Item is the same as the Item to be manufactured, it is set as a Process Loss Item and its quantity is subtracted from the manufactured Item quantity.  
-![](/files/imageb61113.png)  
+[Screenshot on the live page]  
 :::note  
 **In ERPNext v16, the Scrap Items table has been replaced with Secondary Items. Read more about it here.**  
 :::
@@ -667,13 +667,13 @@ In the Items table, you'll see an option 'Include Item in Manufacturing'. Raw Ma
 
 
 
-![Task](/files/bom-item-include.png)
+[Screenshot on the live page: Task]
 
 ### 2.1 **Consume Components Based On**
 
 “Consume Components” in ERPNext automates raw material consumption when a Work Order is completed, reducing the need for manual inventory updates. It consumes stock automatically based on either the Bill of Materials (BOM) or actual material transfers, making it ideal for high-volume, standardized production environments that aim to improve inventory accuracy and minimize manual data entry. 
 
-![](/files/Screenshot 2026-04-20 at 3.21.01 PM.png)
+[Screenshot on the live page]
 
 - **Consumption Methods:**
   - **BOM:** Automatically consumes raw materials based on the quantities defined in the BOM, multiplied by the finished goods quantity.
@@ -685,7 +685,7 @@ If you want to set default "**Consumption Components Based On**" instead of BOM 
 
 To add [Operations](/erpnext/operation) tick the 'With Operations' checkbox. Now, an Operations table can be seen. This option is useful for tracking the costing of various Operations performed to manufacture the [Item](/erpnext/item). Operations can be added easily by setting a template with the [Routing](/erpnext/routing) master.
 
-![Task](/files/bom-operations.png)
+[Screenshot on the live page: Task]
 
 1. In the “Operations” table, add the operations that need to be performed to manufacture this particular Item.
 2. For each operation, you will be asked to enter a [Workstation](/erpnext/workstation) where the Operation will be performed. A default Workstation can be set from the [Operation](/erpnext/operation) document.
@@ -695,7 +695,7 @@ To add [Operations](/erpnext/operation) tick the 'With Operations' checkbox. Now
 
 Transfer Material Against needs to be set for a BOM With Operations. Materials can be transferred against a [Work Order](/erpnext/work-order) in bulk or individual [Job Cards](/erpnext/job-card). Changing this affects whether the 'Material Transfer for Manufacture' is done against the Work Order at once or multiple times against the individual Job Cards. Setting this option depends on factors like time taken to manufacture the item, value of the items manufactured, number of parts used in manufacturing, the skill of your labor involved, etc.
 
-![BOM transfer materials against](/files/bom-transfer-materials.png)
+[Screenshot on the live page: BOM transfer materials against]
 
 ### 2.3 Additional options when creating a Bill of Materials
 
@@ -720,11 +720,11 @@ The Costing section in a BOM gives an approximate cost of manufacturing the Item
 
 The costing is calculated from the Valuation Rate of the raw materials/sub-assemblies involved and the Operation costs.
 
-![Costing](/files/bom-costing.png)
+[Screenshot on the live page: Costing]
 
 In case the BOM was submitted when the costs for Items/Operations were not updated, you can update the costs using the **Update Cost** button. This will fetch the latest price/costs.
 
-![Update Cost](/files/bom-update-cost.png)
+[Screenshot on the live page: Update Cost]
 
 The BOM cost can also be set to be updated automatically via Manufacturing Settings, 'Update BOM Cost Automatically' option.
 
@@ -734,7 +734,7 @@ This table lists down all the raw materials required to manufacture an Item. It 
 
 For example, to manufacture a plastic shaving brush you need some raw materials and the bristles as a sub-assembly. For the handle, you manufacture your own plastic, but for the bristles, you use raw plastic crystals.
 
-![Exploded Section](/files/bom-exploded.png)
+[Screenshot on the live page: Exploded Section]
 
 #### 3.2.1 Do Not Explode
 
@@ -749,7 +749,7 @@ If user wants to exclude the exploded items then they have to enable the checkbo
 A company manufacture the Laptop which required two sub-assembly items as Motherboard and Keyboard. The company does the manufacturing once they received the order from the customer. The Manufacturing Time required for the Motherboard is more than the Keyboard, therefore the company does the manufacturing of the Motherboard individually irrespective of the sales orders and kept in the stock. As the item Motherboard is already in stock it helps to reduce the overall Manufacturing Time of the main item Laptop.  
 Now while preparing the BOM for the Laptop in the ERPNext, they don't want to Explode the BOM of the item Motherboard but they want to Explode the BOM of the item Keyboard. Therefore we have added the checkbox "Do Not Explode" for the BOM Item. With this user will enable the checkbox "Do Not Explode" for the item Motherboard and not for the item Keyboard.
 
-![Exploded Section](/files/dont_explode_items.png)
+[Screenshot on the live page: Exploded Section]
 
 ### 3.3 Project and Website
 
@@ -759,11 +759,11 @@ The BOM can also be shown in the [Website](/erpnext/website) for Open-source har
 
 ### 3.4 BOM Template
 
-![BOM Template](/files/bom-template.png)
+[Screenshot on the live page: BOM Template]
 
 With BOM template you can create BOMs for template items (against which you create variant items). These BOMs can be used as the default BOM while making Work Orders against the template Item's variants. You can also add the template items as raw materials in the template BOM. While making Work Order from the BOM Template, ERPNext gives provision to select the Item Variant against the template Item, for more details check following screenshot.
 
-![Variant Selection](/files/variant-selection-against-template.png)
+[Screenshot on the live page: Variant Selection]
 
 The user can also make the BOM for the variant item using the template BOM. To make the variant BOM:
 
@@ -773,13 +773,13 @@ The user can also make the BOM for the variant item using the template BOM. To m
 - Select the Variant Item for which you want to make the BOM.
 - If the raw materials in the BOM is a template Item, then system gives provision to select the Item Variant.
 
-![Variant BOM](/files/variant-bom.png)
+[Screenshot on the live page: Variant BOM]
 
 ### 3.5 After Submitting
 
 Once the BOM is submitted, the following document types can be created against the BOM from the Dashboard:
 
-![BOM submit](/files/bom-submit.png)
+[Screenshot on the live page: BOM submit]
 
 ## 4. **Set Component Quantities Based On Percentage**
 
@@ -793,7 +793,7 @@ Once the BOM is submitted, the following document types can be created against t
 
 Output Qty 200 kg: coriander 40% → 80 kg, chilli 35% → 70 kg, turmeric marked as balance item → 25% → 50 kg (if not manually added).
 
-![](/files/Screenshot 2026-08-19 at 12.17.49 PM.webp)
+[Screenshot on the live page]
 
 ### 5. Related Topics
 

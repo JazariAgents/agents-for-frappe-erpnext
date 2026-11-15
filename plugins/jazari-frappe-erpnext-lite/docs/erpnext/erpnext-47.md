@@ -38,13 +38,13 @@ Confirm whether the goods have already been received. If a Purchase Receipt exis
 1. Go to **Accounting &gt; Purchase Invoice**.
 2. Select **Add Purchase Invoice**.
 
-![Purchase Invoice list with Add Purchase Invoice highlighted](https://novacompanies.m.frappe.cloud/files/purchase-payables-01-purchase-invoice-list.png)
+[Screenshot on the live page: Purchase Invoice list with Add Purchase Invoice highlighted]
 
 3. Select the **Supplier**. ERPNext fetches the payable account, currency, price list, addresses, and payment terms from the relevant defaults.
 4. Enter the Supplier's invoice number in **Supplier Invoice No** and its date in **Supplier Invoice Date**. Use the date printed on the Supplier's bill, not the date on which you enter it.
 5. Review the **Posting Date** and **Due Date**.
 
-![Supplier, bill reference, and due date on a Purchase Invoice](https://novacompanies.m.frappe.cloud/files/purchase-payables-02-supplier-bill-and-dates.png)
+[Screenshot on the live page: Supplier, bill reference, and due date on a Purchase Invoice]
 
 6. Add the Items. Enter the billed quantity and rate, then verify the expense account, Cost Center, Warehouse, and tax treatment.
 
@@ -52,11 +52,11 @@ The colored dot before an Item Code shows stock availability at a glance. Green 
 
 Select the highlighted pencil icon to open the full Item row. This is where you can review fields that are not shown as columns in the table.
 
-![Purchase Invoice Items table with the row pencil highlighted](https://novacompanies.m.frappe.cloud/files/purchase-payables-03-items-and-edit-row.png)
+[Screenshot on the live page: Purchase Invoice Items table with the row pencil highlighted]
 
 Check the **Accepted Qty**, **Rate**, UOM, expense account, Cost Center, and any linked Purchase Order or Purchase Receipt row. ERPNext calculates the amount from the quantity and rate.
 
-![Quantity and rate in a Purchase Invoice Item row](https://novacompanies.m.frappe.cloud/files/purchase-payables-04-item-quantity-and-rate.png)
+[Screenshot on the live page: Quantity and rate in a Purchase Invoice Item row]
 
 7. Review taxes, discounts, additional charges, payment schedule, rounding, and the Grand Total.
 8. Save the draft and compare it with the Supplier's bill.
@@ -132,7 +132,7 @@ After submission, use **Create &gt; Payment** to make a [Payment Entry](/erpnext
 
 To reduce or reverse the bill, open the submitted invoice and select **Create &gt; Return / Debit Note**.
 
-![Create Return or Debit Note from a submitted Purchase Invoice](https://novacompanies.m.frappe.cloud/files/purchase-payables-05-create-debit-note.png)
+[Screenshot on the live page: Create Return or Debit Note from a submitted Purchase Invoice]
 
 Use **View &gt; Accounting Ledger** to inspect the General Ledger effect. If stock was updated, review the Stock Ledger as well.
 
@@ -215,7 +215,7 @@ It is similar to a Sales Order but instead of sending it to an external party, y
 
 > Home > Buying > Purchasing > Purchase Order
 
-![Buying Flow](/files/buying_flow_po.png)
+[Screenshot on the live page: Buying Flow]
 
 1. Prerequisites
 
@@ -239,7 +239,7 @@ A Purchase Order can be automatically created from a Material Request or Supplie
 5. Set taxes.
 6. Save and Submit. 
 
-![](/files/Screenshot 2026-01-19 at 12.13.45 PM.png)
+[Screenshot on the live page]
 
 ### 2.1 Setting Warehouses
 
@@ -258,7 +258,7 @@ Items can be fetched into the Purchase Order automatically from open [Material R
 
 
 
-![](/files/Screenshot 2026-01-19 at 12.20.15 PM.png)
+[Screenshot on the live page]
 
 
 
@@ -313,12 +313,12 @@ For example, if you have bought your raw material in large quantities with UOM -
 2. In the Purchase Order mention UOM as Box. (Since material arrives in Boxes)
 3. In the Warehouse and Reference section, the UOM will be pulled in as Nos (from the Item form):
 
-![Purchase Order - UOM](/files/purchase-order-uom.png)
+[Screenshot on the live page: Purchase Order - UOM]
 
 1. Mention the UOM conversion factor. For example, (1); If one box has 1 kilo.
 2. Notice that the stock quantity will be updated accordingly.
 
-![Purchase Order - UOM](/files/po-stock-uom.png)
+[Screenshot on the live page: Purchase Order - UOM]
 
 ### 3.6 Taxes and Charges
 
@@ -336,7 +336,7 @@ Make sure to mark all your taxes in the Taxes and Charges table correctly for an
 
 A Shipping Rule helps set the cost of shipping an Item. The cost will usually increase with the distance of shipping. To know more, visit the [Shipping Rule](/erpnext/shipping-rule) page.
 
-![Purchase Order Taxes](/files/po-taxes.png)
+[Screenshot on the live page: Purchase Order Taxes]
 
 For example, you buy Items worth X and sell them for 1.3X. So, your Customer pays 1.3 times the tax you pay your Supplier. Since you have already paid tax to your Supplier for X, what you owe your government is only the tax on 0.3X.
 
@@ -388,7 +388,7 @@ Once you “Submit” your Purchase Order, you can trigger actions these actions
   - [Payment Entry](/erpnext/payment-entry) - A payment entry indicates that payment has been made against a purchase order.
   - [Journal Entry](/erpnext/journal-entry) - A Journal Entry is recorded in the general ledger.
 
-![](/files/Screenshot 2026-01-19 at 12.22.53 PM.png)
+[Screenshot on the live page]
 
 ### 4. Related Topics
 
@@ -414,7 +414,7 @@ To access the Purchase Receipt list, go to:
 
 > Home > Stock > Stock Transactions > Purchase Receipt
 
-![Purchase Receipt flow](/files/purchase-receipt-flow.png)
+[Screenshot on the live page: Purchase Receipt flow]
 
 ## 1. Prerequisites
 
@@ -488,7 +488,7 @@ The following Warehouses set will apply to all Items in the Items table of the P
 
 
 
-![Purchase Receipt Items table](/files/purchase-receipt-item.png)
+[Screenshot on the live page: Purchase Receipt Items table]
 
 - **Rate**: The Rate is fetched if set in the Price List and the total Amount is calculated.
 - **Item Tax Template**: You can set an Item Tax Template to apply a specific Tax amount to this particular Item. To know more, visit this page.
@@ -519,13 +519,13 @@ After enabling Inspection Criteria in the Item form for Purchase and attaching a
 
 To know more, visit the Quality Inspection page.
 
-![Quality Inspection](/files/quality-inspection.png)
+[Screenshot on the live page: Quality Inspection]
 
 ### 3.5 Raw Materials Consumed
 
 - The **Consumed Items** table contains the Raw Materials consumed by the Supplier in order to receive the Finished Item.
 - The **Get Current Stock** button will fetch the current stock of the Consumed Items from the Supplier Warehouse.  
- ![Purchase Receipt](/files/purchase-receipt-consumed-items.png)
+ [Screenshot on the live page: Purchase Receipt]
 
 ### 3.6 Taxes and Valuation
 
@@ -632,7 +632,7 @@ After submitting the Purchase Receipt, the following can be created:
 - Purchase Invoice
 - Retaining Sample Stock
 
-![Purchase Receipt submit](/files/purchase-receipt-submit.png)
+[Screenshot on the live page: Purchase Receipt submit]
 
 ### 3.11 Returning a Purchase Order
 
@@ -689,19 +689,19 @@ Before creating and using a Purchase Return, it is advised that you create the f
 ## 2. How to create a Purchase Return
 1. First open the original Purchase Receipt, against which supplier delivered the Items.
 
- ![Original Purchase Receipt](/files/purchase-return-original-purchase-receipt.png)
+ [Screenshot on the live page: Original Purchase Receipt]
 
 1. Click on 'Create > Return', it will open a new Purchase Receipt with 'Is Return' checked. Items, Rate, and taxes will negative numbers.
 
- ![Return Against Purchase Receipt](/files/purchase-return-against-purchase-receipt.png)
+ [Screenshot on the live page: Return Against Purchase Receipt]
 
 1. On submission of Return Purchase Return, the system will decrease item quantity from the mentioned Warehouse. To maintain correct stock valuation, stock balance will also go up according to the original purchase rate of the returned items.
 
- ![Return Stock Ledger](/files/purchase-return-stock-ledger.png)
+ [Screenshot on the live page: Return Stock Ledger]
 
 1. In the Accounting Ledger, the Stock In Hand account will be credited and the Stock Received but Not Billed account will be debited.
 
- ![Return Stock Ledger](/files/purchase-return-general-ledger.png)
+ [Screenshot on the live page: Return Stock Ledger]
 
 If Perpetual Inventory enabled, the system will also post accounting entry against warehouse account to sync warehouse account balance with stock balance as per Stock Ledger.
 
@@ -711,7 +711,7 @@ On Creating a Purchase Return against a Purchase Receipt:
 * The **Returned Quantity** in the original Purchase Receipt along with any Purchase Order linked to it, is updated.
 
 * The original Purchase Receipt's status is changed to **Return Issued** if 100% returned:
- ![Return Issued](/files/purchase-return-issue.png)
+ [Screenshot on the live page: Return Issued]
 
 ### 4. Related Topics
 1. [Sales Return](/erpnext/sales-return)

@@ -41,7 +41,7 @@ Before creating a Program Enrollment, it is advisable that you create the follow
 1. The Enrollment Date for the form would by default be set on the current date, the same, however, can be changed if needed.
 1. Save and submit.
 
- ![Program Enrollment](/files/education-program-enrollment-1.gif)
+ [Screenshot on the live page: Program Enrollment]
 
 ### 2.1. Additional Options while creating a Program Enrollment
 
@@ -51,7 +51,7 @@ Before creating a Program Enrollment, it is advisable that you create the follow
 1. **Student House**: Select the House if the student belongs to a particular student house.
 1. **Boarding Student**: Check this if the Student is residing at the Institute hostel. In this case, the fee structure would accordingly be updated.
 
- ![Program Enrollment](/files/education-program-enrollment-2.gif)
+ [Screenshot on the live page: Program Enrollment]
 
 ## 3. Features
 
@@ -63,13 +63,13 @@ Select the mode of transportation for the student to and from the Institute and 
 
 Select and add the courses which the student has opted to study during the course of the program.
 
-![Program Enrollment](/files/education-program-enrollment-3.png)
+[Screenshot on the live page: Program Enrollment]
 
 ### 3.3. Fees
 
 Select and add the Academic Term, Fee Structure, Student Category, Fees Due Date and Fees Amount to be paid by the student for the enrollment to the course.
 
-![Program Enrollment](/files/education-program-enrollment-4.gif)
+[Screenshot on the live page: Program Enrollment]
 
 ## 4. Video
 
@@ -92,10 +92,10 @@ updated: "2026-02-09"
 
 For example, Economics Major would be a Program taught at an institution that will have various courses within.
 
-![Program](/files/education-program-workflow.png)
+[Screenshot on the live page: Program]
 
 An Economics major would look something like this:
-![Program](/files/education-program-2.png)
+[Screenshot on the live page: Program]
 
 To access the Program list go to:
 
@@ -116,13 +116,13 @@ To create a New Program, it is advised to create the following first:
 4. Select and add the courses within the Program.
 5. Save.
 
- ![Program](/files/education-program-1.gif)
+ [Screenshot on the live page: Program]
 
 ### 2.1 Alternate ways of creating a new Program
 
 A new program can also be created from a course, in the following way:
 
-![Program](/files/education-program-3.gif)
+[Screenshot on the live page: Program]
 
 ### 2.2 Additional Options while creating a new Program
 
@@ -134,7 +134,7 @@ A new program can also be created from a course, in the following way:
  * **Intro Video**: Enter the link for the video that you wish to add an Introductory Video for the Program.
  * **Description**: Add the description of the Program which you want to be visible on the portal.
 
- ![Program](/files/education-program-4.png)
+ [Screenshot on the live page: Program]
 
 ## 3. Video Tutorial on Program and Courses
 
@@ -167,13 +167,13 @@ To access Room, go to:
 2. Add the Room Number for the selected room.
 3. Enter the Seating capacity for the room.
 
- ![Room](/files/education-room-1.gif)
+ [Screenshot on the live page: Room]
 
 ## 2. Other Actions
 
 A Room can be further linked to a [Course Schedule](/education/course-schedule).
 
-![Room](/files/education-room-2.png)
+[Screenshot on the live page: Room]
 
 <!-- page: education/education__student-applicant.md -->
 ---
@@ -208,7 +208,7 @@ Before creating a Student Applicant, it is advisable to first create the followi
 4. Enter the **Student Email Address**.
 5. Save.
 
- ![Student Applicant](/files/education-student-applcant-1.gif)
+ [Screenshot on the live page: Student Applicant]
 
 ## 3. Features
 
@@ -218,11 +218,11 @@ A Student Applicant gets automatically created when a student applies online. Th
 
 Once the student applies, the status of the application by default is "Applied". You can either "Approve" or "Reject" the form.
 
-![Student Applicant](/files/education-student-applicant-5.png)
+[Screenshot on the live page: Student Applicant]
 
 Once the application is approved, you can "Enroll" the student to a program. When you click the **Enroll** button, the system shall create a student against that applicant and redirect you to the [Program Enrollment form](/education/program-enrollment).
 
-![Student Applicant](/files/education-student-applcant-6.gif)
+[Screenshot on the live page: Student Applicant]
 
 > Note: Once a student is created against the student applicant, the system will set the application status to 'Admitted' and will not allow you to change the application status unless the student record is deleted.
 
@@ -255,7 +255,7 @@ To mark the Attendance based on Student Group select the group based on:
 
 Student details will be auto-fetched and you can mark the attendance of the given date.
 
-![student-attendance-tool](/files/student-attendance-tool.gif)  
+[Screenshot on the live page: student-attendance-tool]  
 
 
 Video for Student Attendance Tool
@@ -288,7 +288,7 @@ To access Student Attendance, go to:
 
 Select the **Student, Course Schedule, and Student Group** for which attendance is to be marked for the given date. Set the Status to Present/Absent and save.
 
-![education-student-attendance-1](/files/education-student-attendance-1.gif)  
+[Screenshot on the live page: education-student-attendance-1]  
 
 
 [**Student Attendance tool**](/education/student-attendance-tool) can be used for bulk updation of the attendance based on **Batch, Course, or Activity**.
@@ -328,7 +328,7 @@ updated: "2026-02-09"
 
 For example, A group of students studying the same Program together will be called a Student Batch.
 
-![education-student-workflow](/files/education-student-workflow.png)  
+[Screenshot on the live page: education-student-workflow]  
 
 
 To access the Student Batch, go to:
@@ -363,7 +363,7 @@ To access Student category, go to:
 > 
 > 
 
-![education-student-category-1](/files/education-student-category-1.png)  
+[Screenshot on the live page: education-student-category-1]  
 
 
 1. How to create a Student Category
@@ -371,7 +371,7 @@ To access Student category, go to:
 
 To create a new student category, click on New Student Category and add the name of the Student Category.
 
-![education-student-category-2](/files/education-student-category-2.gif)  
+[Screenshot on the live page: education-student-category-2]  
 
 
 You can select the Student Category while making the Fee Structure and accordingly the student from the selected groups can be filtered out while making the Fee Schedule.
@@ -399,7 +399,7 @@ To access the Student Group Creation Tool, go to:
 1. Click on get **Get Courses**: All the courses within the selected Program will be enlisted here. You can choose and delete courses from the list already added in the list. You can also select and add courses from other programs on this list.
 1. Click on **Create Students Groups**. Multiple Student groups for each course and batch will be created.
 
-![Student Group Creation Tool](/files/education-student-group-creation-tool.gif)
+[Screenshot on the live page: Student Group Creation Tool]
 
 ## 2. Tutorial Video on Student Group Creation Tool
 
@@ -423,7 +423,7 @@ updated: "2026-02-09"
 
 For example, if a group of students studying the same program together will be called a student batch, then from within this group, the cluster of students who have taken up the same elective course will be called a Student Group.
 
-![Student Group](/files/education-student-workflow.png)
+[Screenshot on the live page: Student Group]
 
 To access Student Group, go to:
 
@@ -449,7 +449,7 @@ Before creating a Student group, it is advisable that you first create the follo
 1. **Student Group Name**: Enter the name of the student group.
 1. Save.
 
-![Student Group](/docs/v13/assets/img/education/education-student-group-1)
+[Screenshot on the live page: Student Group]
 
 ### 2.1. Additional Options while creating a Student Group
 
@@ -460,7 +460,7 @@ Apart from the above mandatory options, the following fields should also be fill
 1. **Batch**: Select the Batch based on which you would want to fetch the list of students for the student group.
 1. **Max Strength**: Enter the Maximum number of students that can be a part of this Student Group. If the number of selected students in the group is more than the Max Strength, the system will not allow you to save this group and an error will be shown.
 
- ![Student Group](/files/education-student-group-max-student-limit-error.png)
+ [Screenshot on the live page: Student Group]
 
 1. **Student Category**: If you want the students of a specific category to be a part of this group, you can select that.
 1. **Course**: This option only appears when then Group is Based on a Course. You can select a particular course here, and a list of only those students who have been enrolled in this course would be fetched to create this student group.
@@ -475,7 +475,7 @@ Apart from the above mandatory options, the following fields should also be fill
 
 * **Instructors**: Select the Instructors who will be teaching or mentoring this particular group of students.
 
-![Student Group](/files/education-student-group-4.png)
+[Screenshot on the live page: Student Group]
 
 ## 3. After creating a Student Group
 
@@ -486,11 +486,11 @@ Once the student group has been created and saved, the following can be created 
 1. **Assessment Plan**: You will be redirected to [Assessment Plan](/education/assessment_plan) list, where all the assessment plan for your student group will be listed and you will also be allowed to create a New Assessment Plan for the group.
 1. **Update Email Group**: Once you select this option if the Email Ids of the Students in this group will be added to the Email Group and you will be able to send newsletters to all the subscribers in this Student Group.
 
- ![Student Group](/files/education-student-group-update-email.png)
+ [Screenshot on the live page: Student Group]
 
 1. **Newsletters**: You will be able to send [Newsletters](/CRM/newsletter) to all the subscribers from within the student group with this option.
 
-![Student Group](/files/education-student-group-4.png)
+[Screenshot on the live page: Student Group]
 
 
 
@@ -529,13 +529,13 @@ To access Student Leave Application list, go to:
 6. In case the student is not attending the institute to participate or represent the institute in any event, he/she can be marked as "Present" from the Leave Application itself by checking *Mark as Present*.
 7. Save. The 'Total Leave Days' will be calculated and set in the document after excluding the holidays which are part of your default [Holiday List](/human-resources/holiday-list).
 
-![Screenshot 2024-05-23 at 6.23.14 PM](/files/Screenshot 2024-05-23 at 6.23.14 PM.png)
+[Screenshot on the live page: Screenshot 2024-05-23 at 6.23.14 PM]
 
 ### 1.2 On Submission of Student Leave Application
 
 Once the Student Leave Application is submitted, a Student Attendance record is automatically created with status as 'Leave'. If *Mark as Present* is checked, then the status of the Attendance Record is set as 'Present'. The Leave Application is linked to this Student Attendance document for reference.
 
-![Screenshot 2024-05-23 at 6.23.27 PM](/files/Screenshot 2024-05-23 at 6.23.27 PM.png)
+[Screenshot on the live page: Screenshot 2024-05-23 at 6.23.27 PM]
 
 
 
@@ -588,7 +588,7 @@ To access Student Log, go to
 1. Enter the Student ID. The moment you do this, the name of the student will automatically be fetched.
 1. Save.
 
- ![Student Log](/files/education-student-log-1.png)
+ [Screenshot on the live page: Student Log]
 
 ### 3.1. Additional Options while creating a Student Log
 
@@ -599,7 +599,7 @@ To access Student Log, go to
  - Medical: If the student was found not having their lunch, or if they complained of some other medical issue.
  - Achievement: If the student scored a goal for the team in a football match.
 
- ![Student Log](/files/education-student-log-2.png)
+ [Screenshot on the live page: Student Log]
 
 * **Date**: You can select the date on which the log was entered.
 * **Academic Year**: You can select the academic session for which this log is being made.
@@ -608,7 +608,7 @@ To access Student Log, go to
 * **Student Batch**: Select the batch of which this student is a part of.
 * **Log**: This field will have your note of log for the student.
 
- ![Student Log](/files/education-student-log-3.png)
+ [Screenshot on the live page: Student Log]
 
 <!-- page: education/education__student-portal.md -->
 ---
@@ -647,7 +647,7 @@ Features with the portal:
 Timetable
 ---------
 
-![Screenshot 2024-02-21 at 6.03.02 PM](/files/Screenshot 2024-02-21 at 6.03.02 PM.png)  
+[Screenshot on the live page: Screenshot 2024-02-21 at 6.03.02 PM]  
 
 
 All the courses which are scheduled for the particular program for that particular student will be displayed on the "/education/schedule" page. The data of the same is taken from the "Course Schedule" DocType
@@ -659,7 +659,7 @@ On clicking each class, student will be able to see data related to the class.
 Grades
 ------
 
-![Screenshot 2024-02-21 at 6.03.09 PM](/files/Screenshot 2024-02-21 at 6.03.09 PM.png)  
+[Screenshot on the live page: Screenshot 2024-02-21 at 6.03.09 PM]  
 
 
 On this page the Student can check the results of the examination conducted in the current Program, or from the Drop down list student can select previous programs and see the grades for the each exam conducted in that program.
@@ -672,14 +672,14 @@ The data in this page is taken from "Assessment Result" DocType. Then the data i
 Fees
 ----
 
-![Screenshot 2024-02-21 at 6.03.20 PM](/files/Screenshot 2024-02-21 at 6.03.20 PM.png)  
+[Screenshot on the live page: Screenshot 2024-02-21 at 6.03.20 PM]  
 
 
 On this page student can either check the previous payments or they can pay any fees if there is any.
 
 For already "Paid" Fees, the student can download the Invoice and whatever is the "Standard Print Format" is in "Sales Invoice" doctype, will be shown to the student. The data on this Page is taken from the Sales Invoice DocType  
   
-If the student wants to pay the Fees, then on Clicking "Pay Now", a razorpay payment gateway is opened.![Screenshot 2024-02-21 at 6.03.54 PM](/files/Screenshot 2024-02-21 at 6.03.54 PM.png)  
+If the student wants to pay the Fees, then on Clicking "Pay Now", a razorpay payment gateway is opened.[Screenshot on the live page: Screenshot 2024-02-21 at 6.03.54 PM]  
 
 
 To setup Razorpay, go to Education Settings -> Portal Settings, and enter your "Razorpay Key" & "Razorpay Secret".
@@ -689,7 +689,7 @@ On successful payment, a Payment Entry is created against that Fees (which basic
 Attendance
 ----------
 
-![stud_portal_attendance](/files/stud_portal_attendance.png)  
+[Screenshot on the live page: stud_portal_attendance]  
 
 
 Attendance data for current Program and any Student Groups is displayed over here, as a student can be enrolled in various Student Groups so all the Student Groups are visible in the dropdown.
@@ -698,7 +698,7 @@ On clicking of any Student Group the Present and Absent Data is shown in the cal
 
 A student can also apply for leave here from the attendance page by clicking on "Apply for Leave" button. A dialog is popped up.
 
-![stud_portal_attendance_1](/files/stud_portal_attendance_1.png)  
+[Screenshot on the live page: stud_portal_attendance_1]  
 
 
 When the save button is clicked, attendance is marked for the student with the status of "Leave".
@@ -714,7 +714,7 @@ Some schools like to take attendance at the starting of the day and some schools
 Student Profile Data
 --------------------
 
-![stud_portal_profile](/files/stud_portal_profile.png)  
+[Screenshot on the live page: stud_portal_profile]  
 
 
 After clicking on the School Logo, the student can see their profile data. The profile data is taken from the Student Master.  
@@ -733,7 +733,7 @@ updated: "2026-02-09"
 
 This form will also contain any additional details like the Student's Guardian and Sibling details.
 
-![Student](/files/education-student-1.png)
+[Screenshot on the live page: Student]
 
 The student is enrolled in a [Program](/education/program) when the application is approved. Once the enrollment is done the [Student Applicant](/education/student-applicant) status is update to Admitted.
 
@@ -754,7 +754,7 @@ Before creating a student, it is advised to create the following first:
 3. Enter other details like Student Email Address, User ID(If Applicable) and Joining Date.
 4. Save.
 
- ![Student](/files/education-student-4.png)
+ [Screenshot on the live page: Student]
 
 ## 3. Features
 
@@ -764,35 +764,35 @@ Apart from the aforementioned details, some additional details of the student th
 
 Personal details of the Student like their Date of Birth, Gender, Blood Group, and Nationality can be added here.
 
-![Student](/files/education-student-personal.png)
+[Screenshot on the live page: Student]
 
 ### 3.2. Home Address
 
 The address of the student, along with the City, State, and Pincode can be captured here. Two address lines can be captured for each student.
 
-![Student](/files/education-student-address.png)
+[Screenshot on the live page: Student]
 
 ### 3.3. Guardian Details
 
 The details of the student's guardian and their relationship with the student can be captured here. You can create a [Guardian](/education/guardian) from here itself, or create a guardian first and then create the Student.
 
-![Student](/files/education-student-guardian.png)
+[Screenshot on the live page: Student]
 
 ### 3.4. Sibling Details
 
 This section will have all the details of the Student's Siblings. You can select if the sibling is studying in the Same Institute or no. If the Sibling is also a student of your institute, you will be required to enter their Student ID, if not, you can enter the name of the Institution they are associated with. Their academic details like Program and personal details like Gender and Date of Birth can also be captured.
 
-![Student](/files/education-student-sibling.png)
+[Screenshot on the live page: Student]
 
 ### 3.5. Exit Details
 
 The Student's exit details can be captured here, like their Date of Leaving, and Leaving Certificate Number as captured in your institute's records can be captured. Further, you can also enter the Reason For Leaving in here.
 
-![Student](/files/education-student-7.png)
+[Screenshot on the live page: Student]
 
 > Note: On top of the student form, there is an **'Enabled'** checkbox using which the student by default would always be enabled. Once you have recorded the Student's Exit Details, you must uncheck this box to disable the student.
 
-![Student](/files/education-student-3.png)
+[Screenshot on the live page: Student]
 
 ### 3.6. After Saving
 
@@ -802,7 +802,7 @@ Once you save the Student Form, the student gets created in the system and you w
 
 Once a student is created in the system, you can also view the Accounting Ledger, which will show a report of all the payments made by the student.
 
-![Student](/files/education-student-2.png)
+[Screenshot on the live page: Student]
 
 ## 5. Related Topics
 
@@ -853,10 +853,10 @@ Before creating a Student Admission, it is advisable that you first create the f
 
 Once the Student Admission has been saved, you will be bale to see a link on the left sidebar, saying **See on Website**. This link will allow you to see the Student Admission Portal on ERPNext generated website.
 
-![Student Admission](/files/education-student-admission-4.png)
+[Screenshot on the live page: Student Admission]
 
 This is what the Student Admission will look like in the website view:
-![Student Admission](/files/education-student-admission-5.png)
+[Screenshot on the live page: Student Admission]
 
 ### 2.1. Additional Details while creating a Student Admission
 
@@ -866,7 +866,7 @@ This is what the Student Admission will look like in the website view:
 1. **Admission End Date**: Select the last date for applying to online Admission Process.
 1. **Publish on Website**: Check this box when the content of the portal is ready and the Admission Process can be kickstarted on the website.
 
- ![Student Admission](/files/education-student-admission-2.png)
+ [Screenshot on the live page: Student Admission]
 
 ### 2.2. Eligibility And Details
 
@@ -877,7 +877,7 @@ This is what the Student Admission will look like in the website view:
 * **Naming Series**: Here you can define the Naming series based which the forms of the Admission Seekers will be named ond ordered.
 * **Introduction**: You can add a brief introductory information about the admission process so that it is better understood to the admission seekers.
 
- ![Student Admission](/files/education-student-admission-3.png)
+ [Screenshot on the live page: Student Admission]
 
 <!-- page: education/education__topic.md -->
 ---
@@ -891,12 +891,12 @@ updated: "2026-02-09"
 
 For example, under the program Economics Major, the course Mathematical Methods in Economics would be course whereas, within the course 'Linear Algebra' would be a topic.
 
-![Topic](/files/education-program-workflow.png)  
+[Screenshot on the live page: Topic]  
 
 
 The content of the topic could be in the form of an article, a video or a quiz.
 
-![Topic](/files/education-topic-1.png)  
+[Screenshot on the live page: Topic]  
 
 
 To access the Topic list, go to:
@@ -924,4 +924,4 @@ Before creating a New Topic, it is advisable that you create the following first
 4. Select the Content for the Topic. You can create a New Article, Video or a Quiz from here itself.
 5. Optionally add a description and Save.
 
-![education-topic-3](/files/education-topic-3.gif)
+[Screenshot on the live page: education-topic-3]

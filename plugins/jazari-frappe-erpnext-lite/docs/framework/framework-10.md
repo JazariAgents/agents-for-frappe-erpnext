@@ -29,20 +29,20 @@ User and Role
 
 A User record represents an authenticated user who can perform authorized actions in the system. A User can have multiple roles assigned to it. A Role describes what actions a User can perform on a DocType.
 
-![User Roles](/files/user-roles.png) *User Roles*
+[Screenshot on the live page: User Roles] *User Roles*
 
 For example, the role **Blogger** has read, write and create permission on the doctype **Blog Post**, but only read permission on **Blog Category**.
 
-![Role Blogger](/files/role-blogger.png) *Role Blogger*
+[Screenshot on the live page: Role Blogger] *Role Blogger*
 
 DocType Permissions
 -------------------
 
 DocTypes can have a default set of Roles applied when you install your app. To configure roles for a DocType you must add them in the Permissions table in DocType.
 
-![DocType Permissions](/files/doctype-permissions.png) *DocType Permissions*
+[Screenshot on the live page: DocType Permissions] *DocType Permissions*
 
-If you expand the row, you will see many more options that can be configured. ![DocType Permissions Row](/files/doctype-permissions-detail.png) *DocType Permissions*
+If you expand the row, you will see many more options that can be configured. [Screenshot on the live page: DocType Permissions Row] *DocType Permissions*
 
 Here is a list of them with their explanation:
 
@@ -72,14 +72,14 @@ Permission Level
 
 Permission Levels can be used to group fields in a document and apply separate roles to each level. By default all fields have permlevel set as 0.
 
-![Permission Level](/files/permission-level.png) *Permission Level*
+[Screenshot on the live page: Permission Level] *Permission Level*
 
 Role Permissions Manager
 ------------------------
 
 Role Permissions Manager is a user tool to manage role permissions. The default set of permissions show up here and can be overridden.
 
-![Role Permissions Manager](/files/role-permissions-manager.gif)  
+[Screenshot on the live page: Role Permissions Manager]  
 
 
 User Permissions
@@ -89,11 +89,11 @@ User Permissions are another set of rules that can be applied per user basis. It
 
 For example, to restrict the User John such that he can only view **Blog Post**s that were created by him, i.e, Blogger **John**. A user permission record with the following values should be created.
 
-![User Permissions Example](/files/user-permissions-example-1.png) *User Permission Record*
+[Screenshot on the live page: User Permissions Example] *User Permission Record*
 
 After creating the user permission configuration, when the User logs in to see the Blog Post list, he will have a restricted view of blog posts that were created by him.
 
-![Restricted Blog Post List](/files/user-permissions-example-2.png) *Restricted Blog Post List*
+[Screenshot on the live page: Restricted Blog Post List] *Restricted Blog Post List*
 
 Automatic Roles
 ---------------
@@ -116,14 +116,14 @@ Restricting Views and Forms
 
 Frappe Framework allows you to configure what modules, doctypes and views are visible to the user. To configure which modules are shown to a user go to the **Allow Modules** section of the User form.
 
-![Allow Modules in User](/files/allow-modules-in-user.png)  
+[Screenshot on the live page: Allow Modules in User]  
 
 
 To hide a doctype from a User, remove the read permission from a Role using the [Role Permissions Manager](#role-permissions-manager).
 
 To control permissions for Pages and Reports, use the **Role Permission for Page and Report** tool.
 
-![Role Permission for Page and Report](/files/role-permission-for-page-and-report.png)  
+[Screenshot on the live page: Role Permission for Page and Report]  
 
 
 Password Hashing
@@ -148,14 +148,14 @@ Password Policy
 
 Frappe also supports password strength checking. It can be enabled from **System Settings** in the Security section. The Minimum Password Score field validates how strong the password should be.
 
-![Password Policy](/files/password-policy.png) *Password Policy*
+[Screenshot on the live page: Password Policy] *Password Policy*
 
 Login Attempts
 --------------
 
 Frappe allows you to configure how many consecutive login attempts should be allowed before locking the account for a set time period.
 
-![Login Attempts](/files/login-attempts.png)  
+[Screenshot on the live page: Login Attempts]  
 
 
 Third Party Authentication
@@ -173,17 +173,17 @@ updated: "2026-02-17"
 
 A Virtual DocField is a dynamic attribute of a given Document (or Record). It's a calculated attribute that isn't stored in the site database. This could be used for representing values that may be functions of other static Document attributes.
 
-![Person Record](/files/Screenshot 2022-02-14 at 1.55.38 PM.png)
+[Screenshot on the live page: Person Record]
 *Person Form*
 
 The age of a person is a function of their date of birth ie if you know a person's birth day, you can figure out their age. Age is also a continuous value; it may change every year, or month, or day, even hour depending on what type of granularity you wish to have. Another attribute is a Person's name. Most common implementations will have a First, Middle and a Last Name, and for the view it would be all of them together like "Jon Raphael Doe". Although saving the full name as a separate attribute may not make so much sense when the strings can be easily concatenated. These are a couple of instances where Virtual DocFields make more sense.
 
-![Person DocType](/files/Screenshot 2022-02-14 at 1.55.08 PM.png)
+[Screenshot on the live page: Person DocType]
 *Person DocType*
 
 Here we've added three fields to Person; two for First and Last names which are stored in the site database, and one that utilizes this data to populate the third field "Full Name". In this instance, the options field takes input for the return value of the respective virtual field.
 
-![Full Name - Virtual DocField](/files/Screenshot 2022-02-14 at 12.18.20 PM.png)
+[Screenshot on the live page: Full Name - Virtual DocField]
 *Person DocType - DocField*
 
 We discussed the possibility of fields that depend on attributes in the system so far. But this could easily extend to something that doesn't depend on your DocType data alone. You may also want to fetch the statuses of multiple external services in their place, or anything else that you can map here instead.
@@ -234,19 +234,19 @@ If you're wellversed with the physics of the Frappe world, this feature will app
 
 The `DatabaseQuery` methods or `Database` APIs will not return virtual values since they don't live in the Site Database.
 
-![](/files/Screenshot 2022-02-14 at 2.01.58 PM.png)
+[Screenshot on the live page]
 
 ### REST API
 
 The `/api/method/frappe.desk.form.load.getdoc` and `/api/resource` APIs utilize `Document.get_valid_dict` which will compute Virtual values too. These APIs are used to render the Desk Form views too.
 
-![](/files/Screenshot 2022-02-14 at 1.58.33 PM.png)
+[Screenshot on the live page]
 
 ### Database
 
 There's no footprint of virtual fields in the respective DocType's table. However, you may find corresponding records to give some evidence of their existence in the Custom Field, DocField tables that store DocType's Meta.
 
-![](/files/Screenshot 2022-02-14 at 2.03.18 PM.png)
+[Screenshot on the live page]
 
 ## Virtual Tables on Non-virtual DocTypes
 

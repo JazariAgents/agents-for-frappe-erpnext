@@ -1,149 +1,5 @@
 <!-- Frappe documentation: erpnext, part 38 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__moving-asset-from-stock-item-to-fixed-asset-item.md -->
----
-title: "Moving Asset from Stock Item to Fixed Asset Item | ERPNext Documentation"
-description: "Correct an ERPNext Item that was treated as stock but should be a fixed asset without losing accounting control."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/moving-asset-from-stock-item-to-fixed-asset-item"
-updated: "2026-08-15"
----
-
-Imagine Nova Industries bought a laptop intending to sell it, so it was received as inventory. Later, the company decides to give that laptop to an employee. It is no longer stock for sale, but simply selecting **Is Fixed Asset** can leave the same value appearing in both inventory and fixed assets.
-
-
-
-The correction must remove the approved inventory position first, then create the fixed-asset Item and Asset record with the right original cost and opening depreciation. This keeps the Stock Ledger, General Ledger, and Asset Register from counting the laptop twice.
-
-## Before you begin
-
-Back up the site, identify every stock transaction for the Item, reconcile its current quantity and valuation, and agree the correction date and accounts with the accounting owner. Do not use this procedure to rewrite genuine historical sales inventory.
-
-## Correct the stock position
-
-1. Stop new transactions for the Item during the correction.
-2. Use the appropriate [Stock Reconciliation](https://docs.frappe.io/erpnext/stock-reconciliation) or supported stock transaction to bring the stock position to the approved result.
-3. Verify Stock Ledger and General Ledger impact.
-4. If submitted transactions prevent changing Item type, create a new fixed-asset Item rather than forcing the existing record.
-
-## Configure the fixed-asset Item
-
-Enable **Is Fixed Asset**, select the Asset Category, and decide whether future purchases should auto-create Assets.
-
-![ERPNext Item configured as a fixed asset](https://novacompanies.m.frappe.cloud/files/06-fixed-asset-item.png)
-
-## Create the Asset
-
-Create an Existing Asset using the approved original cost, available-for-use date, opening accumulated depreciation, and number of already booked depreciation entries.
-
-![Existing Asset created after reclassification](https://novacompanies.m.frappe.cloud/files/07-asset-core-details.png)
-
-## Verify the correction
-
-Confirm stock quantity is no longer carried incorrectly, the Asset appears in the register, opening value and depreciation reconcile, and no cost was counted twice.
-
-![Asset list used to verify the reclassified item](https://novacompanies.m.frappe.cloud/files/01-assets-overview-list.png)
-
-## Troubleshooting
-
-### Is Fixed Asset cannot be enabled
-
-The Item has submitted stock transactions or quantity. Create a new fixed-asset Item and use controlled accounting entries instead of forcing the flag.
-
-### The asset cost appears in both stock and fixed assets
-
-Reverse or correct the stock side, then reconcile Stock Ledger, General Ledger, and Fixed Asset Register on the same date.
-
-### Opening depreciation is missing
-
-Enter approved opening accumulated depreciation and the number of booked depreciations on the Existing Asset before final submission.
-
-## Frequently asked questions
-
-### Can I convert an Item after years of stock transactions?
-
-Usually a new fixed-asset Item is safer because historical inventory transactions must remain valid.
-
-### Should the reclassification use a Journal Entry only?
-
-A Journal Entry may correct accounts but does not create the operational Asset history or remove stock quantity. Use the full controlled process.
-
-### What date should the Asset use?
-
-Use the approved original purchase and available-for-use dates, with opening depreciation as of the migration or correction cut-off.
-
-## Related topics
-
-- [Asset Category](https://docs.frappe.io/erpnext/asset-category)
-- [Asset Location](https://docs.frappe.io/erpnext/asset-location)
-- [Asset](https://docs.frappe.io/erpnext/asset)
-- [Purchasing an Asset](https://docs.frappe.io/erpnext/purchasing-an-asset)
-- [Depreciation](https://docs.frappe.io/erpnext/asset-depreciation)
-- [Asset Movement](https://docs.frappe.io/erpnext/asset-movement)
-- [Asset Repair](https://docs.frappe.io/erpnext/asset-repair)
-- [Asset Reports](https://docs.frappe.io/erpnext/asset-reports)
-
-<!-- page: erpnext/erpnext__mpesa-integration.md -->
----
-title: "M-Pesa Integration\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/mpesa-integration"
-updated: "2026-02-26"
----
-
-
-**M-Pesa integration allows processing transactions with the payment gateway provider M-Pesa.**
-
-M-Pesa Integration facilitates the processing of payments between the M-Pesa application and ERPNext. M-Pesa Integration only works with the POS to facilitate the payments for the same. This feature doesn't work with the shopping cart.
-
-To set up M-Pesa, go to:
-> Integrations > Payments > M-Pesa Settings
-
-## 1.How to get your M-Pesa credentials?
-1. In order to activate your API credentials, you need to log in to your M-Pesa account.
-2. Then, open the Go Live section of the application and follow the steps to get the approval for the app.
-3. When all the test cases are satisfied and expected results match the final results, you need to submit the document and follow the steps to get the final credentials for your application.
-4. Details mentioned in the Production URL and Credentials section are the credentials that you are supposed to use in M-Pesa Settings.
-
-![Mpesa Credentials](/files/mpesa_credentials.png)
-
-
-## 2.Setting up M-Pesa
-
-To enable M-Pesa Express, you need to configure all the mandatory parameters which you have received from M-Pesa. If you want to use the staging environment of the integration, you can select the staging option and use the staging credentials provided by M-Pesa by creating a separate application for the same.
-![Mpesa Settings](/files/mpesa_settings.png)
-
-On enabling the M-Pesa integration in ERPNext, the system will create a Payment Gateway record and an Account head in the Chart of Accounts with the Account type as Bank as seen in the following screenshot.
-
-![Mpesa COA](/files/mpesa_coa.png)
-![Mpesa POS Settings](/files/mpesa_pos_settings.png)
-
-It will also create a Mode of Payment with the same name and account as the payment gateway's, along with certain custom fields in POS Settings to handle the POS payments.
-
-![Payment Gateway Account](/files/payment_gateway_account_mpesa.png)
-
-After configuring the Payment Gateway Account, you will be able to accept online payments via M-Pesa.
-
-
-## 3. M-Pesa POS Payments
-
-On setting up the POS profile with M-Pesa mode of payment, the POS checkout would show an additional information section. This section contains two fields that were automatically set-up on adding M-Pesa settings.
-
-![POS Additional Information](/files/additional-information.png)
-
-As soon as a POS user fills the mobile number of the customer, they can initiate a request for payment from the customer. A request is sent to the customer's M-Pesa mobile application linked with the specified mobile number. Once the payment is processed by the user, the user is prompted by a confirmation dialog to submit the payment.
-
-## 4. M-Pesa Account Balance
-
-Account balance linked with an individual M-Pesa can be fetched via the Get Account Balance button. This will load the M-Pesa account balance details in the dashboard.
-
-![POS Account Balance](/files/mpesa_account_balance.png)
-
-
-## 5. Supporting transaction currencies
-
-M-Pesa will only work for the Company which has KSH (Kenyan Shilling) as the Company Currency.
-
 <!-- page: erpnext/erpnext__multi-currency-accounting.md -->
 ---
 title: "Multi Currency Accounting | ERPNext Documentation"
@@ -187,7 +43,7 @@ Create separate ledgers for each currency that must retain an account-currency b
 
 
 
-![EUR bank account with its fixed account currency](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-foreign-currency-account.png)
+[Screenshot on the live page: EUR bank account with its fixed account currency]
 
 Each bank or cash account has one currency. If the real bank provides separate USD and EUR balances, represent them with separate ERPNext accounts. This keeps [Bank Reconciliation](/erpnext/bank-reconciliation) and audit trails intelligible.
 
@@ -197,17 +53,17 @@ Set a foreign Customer's **Billing Currency**, then add the matching receivable 
 
 
 
-![Customer billing currency](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-customer-billing-currency.png)
+[Screenshot on the live page: Customer billing currency]
 
 
 
-![Open the Customer default-account row](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-customer-default-account-pencil.png)
+[Screenshot on the live page: Open the Customer default-account row]
 
 Select the highlighted pencil to open the full child-row editor.
 
 
 
-![Customer linked to a EUR receivable account](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-customer-default-eur-receivable.png)
+[Screenshot on the live page: Customer linked to a EUR receivable account]
 
 If a party account is in a foreign currency, the transaction must normally use that currency. If the account is in Company currency, **Allow multi-currency invoices against single party account** can permit invoices in other currencies, but the General Ledger entry remains in the party account's currency. Use that option only after testing invoicing, payment, ageing, and reconciliation behavior for your process.
 
@@ -226,13 +82,13 @@ For the demo, the approved rate is `1 EUR = 1.15 USD`.
 5. Add items, taxes, terms, and the payment schedule.
 6. Compare the transaction and Company-currency totals before submission.
 
-![EUR Sales Invoice and conversion rates](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-sales-invoice-eur-currency-rate.png)
+[Screenshot on the live page: EUR Sales Invoice and conversion rates]
 
 The Exchange Rate converts EUR 1,200 to USD 1,380. The Price List Exchange Rate is 1 because both the Price List and invoice use EUR.
 
 
 
-![EUR and USD totals on the Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-sales-invoice-eur-totals.png)
+[Screenshot on the live page: EUR and USD totals on the Sales Invoice]
 
 On submission, the receivable is maintained in the account currency and base debit and credit values are recorded in USD. The [Accounts Receivable and Payable](/erpnext/accounts-receivable-and-payable) report shows party or account-currency amounts according to its filters.
 
@@ -244,11 +100,11 @@ In a Payment Entry, currencies come from the selected accounts. Receiving EUR fr
 
 
 
-![Currencies of the paid-from and paid-to accounts](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-payment-entry-two-account-currencies.png)
+[Screenshot on the live page: Currencies of the paid-from and paid-to accounts]
 
 
 
-![Exchange rate and converted amounts in Payment Entry](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-payment-entry-exchange-rates-and-amounts.png)
+[Screenshot on the live page: Exchange rate and converted amounts in Payment Entry]
 
 When the payment rate differs from the invoice rate, ERPNext can calculate a realized exchange difference. Use **Set Exchange Gain/Loss** where available, then inspect the Payment Deductions or Loss row and make the Difference Amount zero before submitting. Do not put a bank charge into the exchange account merely because it appears on the same bank statement. Bank fees and exchange differences are different expenses.
 
@@ -275,7 +131,7 @@ Filter the [General Ledger](/erpnext/general-ledger) by the foreign account to v
 
 
 
-![EUR values in the General Ledger](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-foreign-currency-general-ledger.png)
+[Screenshot on the live page: EUR values in the General Ledger]
 
 ## Troubleshooting
 
@@ -366,7 +222,7 @@ Open [Currency](/erpnext/currency), enable EUR, and review its symbol, fraction,
 
 
 
-![EUR formatting and fractional-unit settings](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-eur-settings.png)
+[Screenshot on the live page: EUR formatting and fractional-unit settings]
 
 ## 3. Create foreign-currency accounts
 
@@ -378,7 +234,7 @@ In the [Chart of Accounts](/erpnext/chart-of-accounts), create the ledgers that 
 
 
 
-![Foreign-currency bank account](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-foreign-currency-account.png)
+[Screenshot on the live page: Foreign-currency bank account]
 
 Do this before posting entries. ERPNext does not allow an account's currency to be changed once ledger entries exist. Keep separate accounts for separate bank currencies even when the same institution supplies both balances.
 
@@ -388,11 +244,11 @@ On the [Customer](/erpnext/customer), set Billing Currency to EUR. In Default Ac
 
 
 
-![Billing Currency on the Customer](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-customer-billing-currency.png)
+[Screenshot on the live page: Billing Currency on the Customer]
 
 
 
-![Customer default EUR account](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-customer-default-eur-receivable.png)
+[Screenshot on the live page: Customer default EUR account]
 
 Apply the corresponding setup on the Supplier with Euro Payables. A party's billing currency and account currency should agree with the normal invoice currency.
 
@@ -411,7 +267,7 @@ Create [Currency Exchange](/erpnext/currency-exchange) records for approved or h
 
 
 
-![Approved EUR to USD rate](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-exchange-rate.png)
+[Screenshot on the live page: Approved EUR to USD rate]
 
 Document who may update manual rates, how often rates are reviewed, and whether buying and selling use the same rate. Store both directions when processes request both EUR to USD and USD to EUR.
 
@@ -426,7 +282,7 @@ In Company accounting defaults, set:
 | Unrealized Exchange Gain/Loss Account | Reporting-date revaluation of balances that remain open.                              |
 
 
-![Company exchange gain and loss accounts](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-company-exchange-gain-loss-accounts.png)
+[Screenshot on the live page: Company exchange gain and loss accounts]
 
 Use accounts approved by your accountant and local reporting policy. Some organizations separate gain and loss accounts or realized and unrealized presentation further through their chart and reporting design.
 
@@ -519,7 +375,7 @@ This validation will come into effect in ERPNext from the new fiscal year i.e FY
   
 
 
-![](/files/Nr1n53j.png)
+[Screenshot on the live page]
 
   
 
@@ -529,7 +385,7 @@ Step 1: Go to "Naming Series" doctype and select transaction as "Sales Invoice"
   
 
 
-![](/files/1KrOqdx.png)
+[Screenshot on the live page]
 
   
 
@@ -539,7 +395,7 @@ Step 2: Add a new naming series having maximum upto 16 characters. For eg INV-.Y
   
 
 
-![](/files/hrHZ0Rv.png)
+[Screenshot on the live page]
 
   
 
@@ -569,19 +425,19 @@ For example, you have 322 Sales Orders created in your old system with SO00322 a
 
 #### Update Series Section
 
-![Update Series Section](/files/current-no-1.png)
+[Screenshot on the live page: Update Series Section]
 
 #### Select Prefix
 
 Considering our scenario, prefix for Sales Order will be "SO".
 
-![Series Prefix](/files/current-no-2.png)
+[Screenshot on the live page: Series Prefix]
 
 #### Current Value
 
 If you have currently 12 Sales Orders created in your account, then current value updated will be 12. You can edit Current Value to 322, and then click on Update Series Number.
 
-![Series Current Value](/files/current-no-3.png)
+[Screenshot on the live page: Series Current Value]
 
 With this setting, you will have numbering for the New Sales Orders starting with #323.
 
@@ -643,7 +499,7 @@ You can define or select the Naming Series pattern from:
 1. Select the transaction for which you want to make the series. The system will update the current series in the text box.
 2. Edit the series as required with unique prefixes for each series.
  The first prefix will be the default prefix. Each new prefix Naming Series must be added on a new line. The newly added naming series will be available in the document.
- ![Multiple naming series](/files/multiple-naming-series.gif)
+ [Screenshot on the live page: Multiple naming series]
 
 3. If you want the user to explicitly select a series instead of the default one, check the “User must always select” checkbox.
  There will be no default naming series if this is ticked.
@@ -661,7 +517,7 @@ Alternatively it is also possible to manually embed the fiscal year in the namin
 
 As you can see, in the following screenshot of a Sales Invoice, the year 2019 is listed:
 
-![Fiscal year in Naming Series](/files/year-naming-series.png)
+[Screenshot on the live page: Fiscal year in Naming Series]
 
 
 ## 3. Updating the current value for existing Naming Series
@@ -728,11 +584,11 @@ To access the Newsletter list, go to:
 - Tick 'Send Unsubscribe Link' if you would like to include unsubscribe link in the email.
 - 'Send Web View Link' will include a link in the email to open the newsletter on the web. This option is only visible when the newsletter is published.
 
-![Newsletter](/files/newsletter-doc.png)
+[Screenshot on the live page: Newsletter]
 
 Below is the screenshot of the email received with link to unsubscribe and a link to open the email on the web.
 
-![Newsletter With Unsubscribe Link](/files/newsletter-doc-web-link.png)
+[Screenshot on the live page: Newsletter With Unsubscribe Link]
 
 ## Features
 
@@ -746,7 +602,7 @@ You can select multiple email groups in the 'RECIPIENT' tables in the newsletter
 
 You can choose to send your newsletter at any future datetime by specifying time in hourly steps.
 
-![Scheduled Newsletter](/files/scheduled-newsletter.png)
+[Screenshot on the live page: Scheduled Newsletter]
 
 ### Test Newsletter Before Sending to Subscribers
 
@@ -754,7 +610,7 @@ Once the newsletter is ready you can provide a 'Test Email Address' and select '
 
 You can review the newsletter received in the test email, verify it and then send it to all subscribers by clicking on 'Send'.
 
-![Newsletter Test](/files/newsletter-test.png)
+[Screenshot on the live page: Newsletter Test]
 
 <!-- page: erpnext/erpnext__non-conformance.md -->
 ---
@@ -781,7 +637,7 @@ In ERPNext, you can create a Non Conformance by selecting the Quality Procedure 
 3. Record corrective / preventive actions if any
 4. Update status
 
-![](/files/Screenshot 2026-01-23 at 1.47.10 AM.png)
+[Screenshot on the live page]
 
 ## 3. Related Topics
 
@@ -848,7 +704,7 @@ updated: "2026-03-02"
 ---
 
 It is quite possible at times that you do not want to start tracking the inventory as batched and/or serialized but want to start doing so at a later stage.   
-The system, by design, doesn't allow you to activate these options once stock transactions have been made.![](/files/a0VHlSB.png)You can read more about why the same is disabled [here](https://erpnext.com/docs/user/manual/en/stock/articles/maintain-stock-field-frozen-in-item-master.html).  
+The system, by design, doesn't allow you to activate these options once stock transactions have been made.[Screenshot on the live page]You can read more about why the same is disabled [here](https://erpnext.com/docs/user/manual/en/stock/articles/maintain-stock-field-frozen-in-item-master.html).  
 To enable the options again, you can either delete all stock transactions for this item, or if that is not an option, you can duplicate the same item and inward the stock with these options checked.  
 **STEPS:****﻿**1. You will have to first stock out the current item using Stock Reconciliation Tool (make current stock zero). You can also stock out the item by making a stock entry of type **Material issue**.
 2. Then using material receipt, inward the serialized inventory. Refer the following link for help on the same: [Opening Stock Balance Entry for Serialized and Batch Item](/erpnext/opening-stock-balance-entry-for-serialized-and-batch-item)
@@ -856,3 +712,231 @@ To enable the options again, you can either delete all stock transactions for th
 
   
 **Note:** If you want to maintain the same item code, you will need to rename the existing items, and then create the new item as per the actual item code. Otherwise, you will be maintaining the item under a new code.
+
+<!-- page: erpnext/erpnext__notifications.md -->
+---
+title: "Notification"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/notifications"
+updated: "2026-03-02"
+---
+
+**You can configure various notifications in your system to remind you of important activities.**
+
+1. The completion date of a Task.
+2. Expected Delivery Date of a Sales Order.
+3. Expected Payment Date.
+4. A reminder of follow up.
+5. If an Order greater than a particular value is received or sent.
+6. Expiry notification for a Contract.
+7. Completion/Status change of a Task.
+
+To access notification setup, go to:
+
+> Home > Settings > Notification
+
+1. Setting Up An Alert
+----------------------
+
+To set up a Notification:
+
+1. Define what events you want to watch under Send Alert On. Events are:
+
+
+	1. New: When a new document of the selected type is made.
+	2. Save/Submit/Cancel: When a document of the selected type is saved, submitted, or canceled.
+	3. Days Before/Days After: Trigger this alert a few days before or after the **Reference Date.** To set the days, set **Days Before or After**. This can be useful in reminding you of upcoming due dates or reminding you to follow up on certain leads of quotations.
+	4. Value Change: When a particular value in the selected type changes.
+	5. Method: Sends notification when a specific method is triggered. Eg: before_insert.
+	6. Custom: Send a notification to an [Email Account](/erpnext/email-account) selected.
+2. Select the Document Type you want to watch changes on. From Version 16, You can also select child Document Types if Send Alert On is set to *Days Before*or *Days After*.
+3. Set additional Conditions if required.
+4. Set the recipients of this alert. The recipient could either be a field of the document or a list of fixed Email Addresses.
+5. Compose the message.
+6. Save.
+
+### 1.1 Setting a Subject
+
+You can retrieve the data for a particular field by using `doc.[field_name]`. To use it in your subject/message, you have to surround it with `{% raw %}{{ }}{% endraw %}`. These are called [Jinja](http://jinja.pocoo.org/) tags. For example, to get the name of a document, you use `{% raw %}{{ doc.name }}{% endraw %}`. The following example sends an email on saving a Task with the Subject, "TASK#### has been created"
+
+[Screenshot on the live page: Setting Subject]  
+
+
+### 1.2 Setting Conditions
+
+Notifications allow you to set conditions according to the field data in your documents. For example, if you want to receive an Email if a Lead has been saved as "Interested" as it's status, you put `doc.status == "Interested"` in the conditions textbox. You can also set more complex conditions by combining them with the operator **and** or **or**.
+
+[Screenshot on the live page: Setting Condition]  
+
+
+The above example will send a Notification when a Task is saved with the status "Open" and the "Expected End Date" for the Task is the date on or before the date on which it was saved on.
+
+### 1.3 Setting a Message
+
+You can use both Jinja Tags (`{% raw %}{{ doc.[field_name] }}{% endraw %}`) and HTML tags in the message textbox.
+
+
+```
+{% raw %}<h3>Order Overdue</h3>
+  
+
+```
+Transaction {{ doc.name }} has exceeded Due Date. Please take necessary action.
+
+{% if comments %} Last comment: {{ comments[-1].comment }} by {{ comments[-1].by }} {% endif %}
+
+
+```
+<h4>Details</h4>
+  
+
+```
+  
+
+
+* Customer: {{ doc.customer }}
+* Amount: {{ doc.total_amount }}
+
+{% endraw %}
+
+  
+
+
+### 1.4 Setting a Value after the Alert is Set
+
+Sometimes to make sure that the Notification is not sent multiple times, you can define a custom property (via Customize Form) like "Notification Sent" and then set this property after the alert is sent by setting the **Set Property After Alert** field.
+
+Then you can use that as a condition in the **Condition** rules to ensure emails are not sent multiple times
+
+[Screenshot on the live page: Setting Property in Notification]  
+
+
+### 1.5 Example
+
+1. Defining the Criteria [Screenshot on the live page: Defining Criteria]
+2. Setting the Recipients and Message [Screenshot on the live page: Set Message]
+
+
+
+---
+
+2. Slack Notifications
+----------------------
+
+If you prefer to have your notifications sent to a dedicated Slack channel, you can also choose the option "Slack" in the channel options and select the appropriate Slack Webhook URL.
+
+### 2.1 Slack Webhook URL
+
+A Slack webhook URL is a URL pointing directly to a Slack channel.
+
+To generate webhook URLs, you need to create a new Slack App:
+
+1. Go to https://api.slack.com/slack-apps.
+2. Click on "Create a Slack App". [Screenshot on the live page: Set Message]
+3. Give your App a name and choose the right workspace. Once your app is created, go to the "Incoming Webhooks" section and add a new Webhook to Workspace. [Screenshot on the live page: Set Message]
+4. Copy the created link, go back to ERPNext and use it to create a new Slack Webhook URL in Integrations > Slack Webhook URL. [Screenshot on the live page: Set Message]
+5. Select Slack and your Slack channel in the channel and Slack channel fields within your notification
+
+### 2.2 Message Format
+
+Unlike Email messages, Slack doesn't allow HTML formatting.
+
+Instead, you can use markdown formatting: [Slack Documentation](https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages)
+
+Example: {% raw %} *Order Overdue*
+
+
+```
+Transaction {{ doc.name }} has exceeded Due Date. Please take the necessary action.
+
+
+{% if comments %}
+Last comment: {{ comments[-1].comment }} by {{ comments[-1].by }}
+{% endif %}
+
+*Details*
+
+• Customer: {{ doc.customer }}
+• Amount: {{ doc.grand_total }}
+{% endraw %}
+  
+
+```
+[Screenshot on the live page: Set Message]  
+
+
+
+
+---
+
+3. System Notifications
+-----------------------
+
+In **Version 12** we introduced System notifications for **Assignments**, **mentions**, **documents shared**, and **Energy Points**. These notifications show up in the notifications dropdown on the the navigation bar's top right corner.
+
+In **Version 13** we have introduced an additional channel to send alerts - **System Notifications**:
+
+[Screenshot on the live page: Notifications Dropdown]  
+
+
+Choosing this channel will send a system notification when a notification is triggered, instead of an Email or a Slack notification.
+
+[Screenshot on the live page: Notifications Dropdown]  
+
+
+Clicking on the notification routes to the **Notification Log** document which contains the configured subject, message as well as the attached file, if Attach Print is set:
+
+[Screenshot on the live page: Notifications Dropdown]  
+
+
+If Email/Slack alerts and System Notifications both are required, the main channel can be set as Email or Slack and this option can be checked:
+
+[Screenshot on the live page: Notifications Dropdown]  
+
+
+4. WhatsApp
+-----------
+
+In **Version 13** we have introduced an additional channel to send alerts - **WhatsApp**: [Screenshot on the live page: Notifications WhatsApp Channel]  
+
+
+If you prefer to have your notifications sent to a WhatsApp number, you can also choose the option "WhatsApp" in the channel options and select the appropriate Twilio Number. Twilio Numbers can be added to Twilio settings in Frappe. WhatsApp messages can only be sent to numbers which have country codes in them.
+
+[Screenshot on the live page: Twilio Settings]  
+
+
+### 4.1 Twilio Settings
+
+In order to configure Twilio settings, you need to first obtain Twilio credentials from your Twilio Account's account settings. You can only add those phone numbers that have been activated in your Twilio Account with WhatsApp access. [Screenshot on the live page: Twilio Credentials]  
+
+
+### 4.2 Message Format
+
+WhatsApp allows their users to only send those message templates that are pre-approved by them to your customers. Failure to do so might result in restrictions on you Twilio account. [Screenshot on the live page: Pre Approved Message Template]  
+
+
+5. SMS
+------
+
+In **Version 13** we have introduced an additional channel to send alerts - **SMS**: [Screenshot on the live page: SMS Channel]  
+
+
+In order to use this channel, you would need to complete the configuration of [SMS Settings](/erpnext/sms-setting).
+
+### 6. Related Topics
+
+1. [SMS Settings](/erpnext/sms-setting)
+2. [Document Follow](/erpnext/document-follow)
+
+### 7. One-off Reminders
+
+> Note: This feature is only available in nightly version as of now.
+
+Since setting up notifications is quite involved process, Frappe Framework also provides a way to setup one-off reminders on documents. Example of such notification would be "Remind me to follow up about this lead in 4 hour"
+
+To set up one-off reminder on document:
+
+1. Open the document on which you want to set a reminder
+2. Click on menu (three dots) > "Remind Me"
+3. Select time and add a description for yourself and click "Create"
+4. System will send you a system notification around the time you've configured with reminder description as subject.

@@ -432,7 +432,7 @@ Sample Jinja template file:
 <div>
  {% for person in birthday_persons %}
  {% if person.image %}
- <img src="{{ person.image }}" title="{{ person.name }}">
+ [Screenshot on the live page]
  {% endif %}
  {% endfor %}
  </div>
@@ -515,7 +515,7 @@ updated: "2026-02-17"
 
 The Apps Page provides a quick navigation interface for accessing all the apps installed on your site. By default, all Frappe apps installed on your site will appear on this page.
 
-![](/files/Apps%20Page.png)
+[Screenshot on the live page]
 
 ## How can we show our custom apps on apps page?
 
@@ -542,10 +542,10 @@ You can configure a default app, which means users will be taken directly to tha
 
 ### Default app configuration can be done at two levels:
 1. User Level: Allows individual users to set their preferred default app.
-	![](/files/SetAsDefault.png)
-    ![](/files/UserLevel.jpeg)
+	[Screenshot on the live page]
+    [Screenshot on the live page]
 2.	System Level: Sets a global default app for all users.
-    ![](/files/SystemLevel.png)
+    [Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__audit-trail.md -->
 ---
@@ -574,21 +574,21 @@ A tool for viewing the changes made to a submittable doctype across multiple ame
 
 Values for the fields changed across the different versions.
 
-![Screenshot 2023-12-03 at 5.32.42 PM](/files/Screenshot 2023-12-03 at 5.32.42 PM.png "Screenshot 2023-12-03 at 5.32.42 PM.png")  
+[Screenshot on the live page: Screenshot 2023-12-03 at 5.32.42 PM]  
 
 
 **Rows Updated**
 
 Values for the child table fields changed across the different versions.
 
-![Screenshot 2023-12-03 at 5.32.57 PM](/files/Screenshot 2023-12-03 at 5.32.57 PM.png "Screenshot 2023-12-03 at 5.32.57 PM.png")  
+[Screenshot on the live page: Screenshot 2023-12-03 at 5.32.57 PM]  
 
 
 **Rows Added / Rows Removed**
 
 Rows added or removed for every child table across the different versions.
 
-![Screenshot 2023-12-03 at 5.33.08 PM](/files/Screenshot 2023-12-03 at 5.33.08 PM.png "Screenshot 2023-12-03 at 5.33.08 PM.png")  
+[Screenshot on the live page: Screenshot 2023-12-03 at 5.33.08 PM]  
 
 <!-- page: framework/framework__user__en__basics.md -->
 ---
@@ -680,22 +680,22 @@ Frappe does not only manage the backend, it also comes with a feature rich admin
 
 The List View supports paging, filtering, sorting and bulk editing records.
 
-![List View](/files/list-view.png) *List View*
+[Screenshot on the live page: List View] *List View*
 
 The Form View used for editing records also supports file attachments, PDF format, comments, email, etc.
 
-![Form View](/files/form-view.png) *Form View*
+[Screenshot on the live page: Form View] *Form View*
 
 The Report Builder supports adding columns, grouping, filtering, sorting and saving it as a configuration.
 
-![Report Builder](/files/report-builder.png) *Report Builder*
+[Screenshot on the live page: Report Builder] *Report Builder*
 
 Users, Roles and Permissions
 ----------------------------
 
 Frappe comes with User and Role management out of the box. A **User** is someone who can login to the system and perform authorized actions like creating, updating or deleting records. A **Role** is a mapping of DocTypes and actions allowed to perform on it.
 
-![Role Permission Manager](/files/permission-manager.png)  
+[Screenshot on the live page: Role Permission Manager]  
 
 
 Python, JS and MariaDB
@@ -749,7 +749,7 @@ Email
 
 Frappe supports sending and receiving emails, which can also be linked to individual documents.
 
-![Email](/files/email.png)  
+[Screenshot on the live page: Email]  
 
 
 Printing
@@ -757,9 +757,9 @@ Printing
 
 Frappe supports generating PDF print formats based on Jinja Templates. It also comes with a drag-and-drop Print Format Builder.
 
-![Print Preview](/files/print-view.png) *Print Preview*
+[Screenshot on the live page: Print Preview] *Print Preview*
 
-![Print Format Builder](/files/print-format-builder.png) *Print Format Builder*
+[Screenshot on the live page: Print Format Builder] *Print Format Builder*
 
 Batteries Included
 ------------------
@@ -952,7 +952,7 @@ deploy sites with different Frappe versions.
 The following diagram closely resembles the `frappe-bench` directory structure
 and its interface with different parts of the stack.
 
-![Architecture](/files/architecture.png)
+[Screenshot on the live page: Architecture]
 *Architecture*
 
 To setup a Frappe based site, you need to first install Bench. If you haven't
@@ -1384,7 +1384,7 @@ To enable rapid application development, Frappe Framework follows some standard 
 
 The standard way to create a DocType is by typing *new doctype* in the search bar in the **Desk**.
 
-![ToDo DocType](/files/todo-doctype.png) *ToDo DocType*
+[Screenshot on the live page: ToDo DocType] *ToDo DocType*
 
 A DocType not only stores fields, but also other information about how your data behaves in the system. We call this **Meta**. Since this meta-data is also stored in a database table, it makes it easy to change meta-data on the fly without writing much code. Learn more about [Meta](#meta).
 
@@ -1395,11 +1395,11 @@ A DocType not only stores fields, but also other information about how your data
 
 After creating a DocType, Frappe can provide many features out-of-the-box. If you go to `/app/todo` you will be routed to the List View in the desk.
 
-![ToDo List](/files/list-view.png) *ToDo List*
+[Screenshot on the live page: ToDo List] *ToDo List*
 
 Similarly, you get a Form View at the route `/app/todo/000001`. The Form is used to create new docs and view them.
 
-![ToDo Form](/files/form-view.png) *ToDo Form*
+[Screenshot on the live page: ToDo Form] *ToDo Form*
 
 <!-- page: framework/framework__user__en__basics__doctypes__actions-and-links.md -->
 ---
@@ -1415,7 +1415,7 @@ updated: "2026-03-12"
 
 Action and Links (also called Connections) are two ways to provide the end user more interaction with the document. The image below shows what they are :
 
-![Action and Link View](/files/action-link.png)
+[Screenshot on the live page: Action and Link View]
 
 
 
@@ -1428,7 +1428,7 @@ A DocType may have some `DocType Action` that will result in a button creation o
 
 ### Configuration of Action
 
-![Action Configuraton](/files/action-config.png)
+[Screenshot on the live page: Action Configuraton]
 
 
 
@@ -1455,7 +1455,7 @@ This code should go somewhere inside you app, typically in a file like `apps/my_
 
 And then, configure the correspondant Action path :
 
-![Custom Action Configuraton](/files/custom-app-action-config.png)
+[Screenshot on the live page: Custom Action Configuraton]
 
 
 
@@ -1467,11 +1467,11 @@ These links also support adding internal links (links to DocType in child tables
 
 ### Configuration Connections
 
-![Link Configuration](/files/link-config.png)
+[Screenshot on the live page: Link Configuration]
 
 
 
-![Internal Link](/files/internal-link.png)
+[Screenshot on the live page: Internal Link]
 
 
 
@@ -1529,7 +1529,7 @@ def get_data():
 
 This would result in the following connections:
 
-![](/files/EgU4Cnp.png)
+[Screenshot on the live page]
 
 
 

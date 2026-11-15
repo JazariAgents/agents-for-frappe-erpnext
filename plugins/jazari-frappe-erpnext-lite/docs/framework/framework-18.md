@@ -19,7 +19,7 @@ To add a Webhook, go to:
 
 > Integrations > Webhook > Webhook
 
-![](/files/webhook.png)
+[Screenshot on the live page]
 
 1. Select the DocType for which the Webhook needs to be triggered (e.g. `Quotation`).
 1. Select the Doc Event that will trigger the Webhook (e.g. `on_update`).
@@ -145,7 +145,7 @@ For a Webhook on a sales transaction, we could construct the JSON data as follow
 
 A webhook request log is created for every successful request with all the relevant details
 
-![](/files/webhook-request-log.png)
+[Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__guides__portal-development.md -->
 ---
@@ -280,7 +280,7 @@ We added `published`, `route` in the DocType
 
 **Note:** The field `route` is mandatory
 
-![Generator fields](/files/generators.png)  
+[Screenshot on the live page: Generator fields]  
 
 
 #### 2. Added Website Generator to Hooks
@@ -399,7 +399,7 @@ Roles can be assigned to Website Users and they will see menu based on their rol
 1. Each Portal Menu Item can have a role associated with it. If that role is set, then only those users having that role can see that menu item
 1. Rules can be set for default roles that will be set on default users on hooks
 
-![Portal Settings](/files/portal-settings.png)
+[Screenshot on the live page: Portal Settings]
 
 #### Rules for Default Role
 
@@ -481,7 +481,7 @@ updated: "2026-02-17"
 
 Web Forms are a powerful way to add forms to your website. Web forms are powerful and scriptable and from Version 7.1+ they also include tables, paging and other utilities
 
-![Web Form](/files/sample-web-form.png)  
+[Screenshot on the live page: Web Form]  
 
 
 ### Standard Web Forms
@@ -663,7 +663,7 @@ To create a new Query Report:
 
 ### 1. Create a new Report
 
-![Query Report](/files/query-report.png)
+[Screenshot on the live page: Query Report]
 
 1. Set type as "Query Report"
 1. Set the reference DocType - Users that have access to the reference DocType will have access to the report
@@ -692,7 +692,7 @@ You can define complex queries such as:
 
 ### 3. Check the Report
 
-![Query Report](/files/query-report-out.png)
+[Screenshot on the live page: Query Report]
 
 ### 4. Advanced (adding filters)
 
@@ -726,7 +726,7 @@ Since these reports give you unrestricted access via Python scripts, they can on
 
 ### 1. Create a new Report
 
-![Script Report](/files/script-report.png)
+[Screenshot on the live page: Script Report]
 
 1. Set Report Type as "Script Report"
 2. Set "Is Standard" as "Yes"
@@ -785,7 +785,7 @@ In the `.py` file you can add the script for generating the report.
 
 ### 4. Add link for your report on the module page
 
-![Module Page](/files/script-report-1.png)
+[Screenshot on the live page: Module Page]
 
 1. In the module folder (for example if it is Accounts in ERPNext the folder will be `erpnext/config/accounts.py`) you will see labels and items for various sections. The new report can be added in the item list as show in the example:
 
@@ -856,7 +856,7 @@ For templating, we use an adapted version of [John Resig's microtemplating scrip
 Example: Properities:
 
 ```
-![](<%=profile_image_url%>)
+[Screenshot on the live page]
 
 **[<%=from_user%>](<%=from_user%>):** <%=text%>
 ```
@@ -888,7 +888,7 @@ Here is how the General Ledger Report is built:
 
 Here is what the report looks like:
 
-![General Ledger](/files/general-ledger.png)
+[Screenshot on the live page: General Ledger]
 
 ##### Comments:
 
@@ -947,13 +947,13 @@ updated: "2026-02-17"
 - Click on the checkbox and drag through the rows to select multiple rows.
 - To unselect, again click and drag on the selected rows.
 
-![Frappe List View](https://user-images.githubusercontent.com/95607086/227536316-1e41e8f9-a35b-47a7-afe5-755d3df16c1c.gif)
+[Screenshot on the live page: Frappe List View]
 
 ## Quick View Database Field Name
 
 - When viewing a form, hold down `alt` and hover over fields to field name as it is stored in the database.
 
-![](/private/files/alt_hover_field_name.png)
+[Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__how_to_contribute.md -->
 ---
@@ -979,13 +979,13 @@ At the bottom of the page, click the ellipsis menu (...) and choose `edit`.
  
 #### Markdown Editor
 
-On clicking the Edit button, you should see a UI like this![](https://docs.erpnext.com/files/G5Smp05.png)
+On clicking the Edit button, you should see a UI like this[Screenshot on the live page]
 
-Now you can edit the markdown code and check the preview on the \`Preview Tab\`![](https://docs.erpnext.com/files/YUbNV4D.png)
+Now you can edit the markdown code and check the preview on the \`Preview Tab\`[Screenshot on the live page]
 
 ### WYSIWYG Editor
 
-If you do not want to edit markdown and want to edit via the WYSIWYG Editor, click on the switcher and choose Rich-Text![](https://docs.erpnext.com/files/YUbNV4D.png)
+If you do not want to edit markdown and want to edit via the WYSIWYG Editor, click on the switcher and choose Rich-Text[Screenshot on the live page]
 
 #### Uploading Media In Markdown
 
@@ -1005,7 +1005,7 @@ Step for uploading images in WYSIWYG mode
 
 ### Submit a Doc
 
-After editing the file, click on the Submit button and wait for your change to get submitted. Once submitted, you will see this screen![](https://docs.erpnext.com/files/eClkT1a.jpg)
+After editing the file, click on the Submit button and wait for your change to get submitted. Once submitted, you will see this screen[Screenshot on the live page]
 
 On this screen, you can track all your contributions and wait for a reviewer to review your changes and either approve, reject or request changes.
 
@@ -1017,7 +1017,7 @@ If you want to create a new page instead of editing a page, you will find the Ne
 
 ### Editing Sidebar
 
-You can also drag and drop sidebars on the edit/ new page to rearrange them(Use this only when necessary)![](https://docs.erpnext.com/files/f2Zhuuo.gif)
+You can also drag and drop sidebars on the edit/ new page to rearrange them(Use this only when necessary)[Screenshot on the live page]
 
 Hoping to see lots of contributions!
 
@@ -1232,7 +1232,7 @@ If you haven't done so already, create your application's API key by clicking **
 2. under **Website restrictions** add your frappe instance's hostname and
 3. under **API restrictions** choose "Restrict key" and select the "Google Picker API".
 
-![API Key configuration](/files/google_drive_picker_api_key.png)  
+[Screenshot on the live page: API Key configuration]  
 
 
 If you haven't done so already, create your OAuth 2.0 credentials by clicking **Create credentials > OAuth client ID**.
@@ -1240,7 +1240,7 @@ If you haven't done so already, create your OAuth 2.0 credentials by clicking **
 1. Under **Application type** choose "Web application" and
 2. under **Authorized JavaScript origins** add your frappe instance's hostname.
 
-![OAuth Client configuration](/files/google_drive_picker_oauth_client.png)  
+[Screenshot on the live page: OAuth Client configuration]  
 
 
 After you've created the credentials, you can see your client ID on the [Credentials page](https://console.cloud.google.com/apis/credentials).
@@ -1264,27 +1264,27 @@ Now that the Google Picker API is enabled and we have the necessary credentials 
 4. Enter your *App ID,* *Client ID* and *API Key*.
 5. Save the **Google Settings** and reload your browser window.
 
-![Google Settings](/files/google_drive_picker_settings.png)  
+[Screenshot on the live page: Google Settings]  
 
 
 Now when you click on "Attach file" in the sidebar, you should see the Google Drive icon.
 
-![Attach File Dialog](/files/google_drive_picker_attach_file.png)  
+[Screenshot on the live page: Attach File Dialog]  
 
 
 If you click on it for the first time, you have to authorize the Frappe app to access your Google Drive files.
 
-![Google Sign In](/files/google_drive_picker_signin.png)  
+[Screenshot on the live page: Google Sign In]  
 
 
 Then the Google Drive Picker opens and you can choose a file.
 
-![Google Drive Picker](/files/google_drive_picker_select.png)  
+[Screenshot on the live page: Google Drive Picker]  
 
 
 Click the blue button on the bottom left to attach a link to this file to the current DocType.
 
-![File Attached to DocType](/files/google_drive_picker_attached.png)  
+[Screenshot on the live page: File Attached to DocType]  
 
 
 

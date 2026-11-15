@@ -20,5 +20,5 @@ that follow from the answer.
   2. Confirm the transaction Currency and Exchange Rate
   3. Select a Price List and verify its currency and conversion rate
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/erpnext/erpnext-38.md` lines 147–322  (https://docs.frappe.io/erpnext/multi-currency-accounting)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-38.md` lines 3–178  (https://docs.frappe.io/erpnext/multi-currency-accounting)
 

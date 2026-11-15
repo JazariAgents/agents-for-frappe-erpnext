@@ -1030,7 +1030,7 @@ Let's create our second doctype: **Library Member**. It will have the following 
 4. Email Address (Data)
 5. Phone (Data)
 
-![](/files/TqEJOjO.gif)
+[Screenshot on the live page]
 
 After you have created the doctype, go to Library Member list, clear the cache from **Settings > Reload** and create a new Library Member.
 

@@ -1,398 +1,5 @@
 <!-- Frappe documentation: erpnext, part 33 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__item-tax-template.md -->
----
-title: "Item Tax Template\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/item-tax-template"
-updated: "2026-08-14"
----
-
-An Item Tax Template changes the tax rate for a particular item without replacing the tax structure of the transaction. Use it when most items follow the standard rate but selected goods or services are reduced-rated, zero-rated, exempt, or outside a particular tax component.
-
-
-
-The Sales or Purchase Taxes and Charges Template still supplies the tax account and calculation row. ERPNext then uses the Item Tax Template rate for the net amount of the matching item.
-
-
-
-At Nova Industries, an electronics manufacturer and distributor, one Sales Invoice can contain:
-
-
-| Item                 | Net amount  | Applicable rate | Tax        |
-| -------------------- | -----------: | ---------------: | ----------: |
-| NovaPhone X1         | $699.00     | 8%              | $55.92     |
-| Device Setup Service | $149.00     | 4%              | $5.96      |
-| Extended Warranty    | $99.00      | 0%              | $0.00      |
-| **Total**            | **$947.00** |                 | **$61.88** |
-
-
-The standard transaction template remains at 8%, while item templates override that rate for the second and third lines.
-
-## Before you begin
-
-Create the required tax account in the [Chart of Accounts](/erpnext/chart-of-accounts). Then create the relevant [Sales Taxes and Charges Template](/erpnext/sales-taxes-and-charges-template) or [Purchase Taxes and Charges Template](/erpnext/purchase-taxes-and-charges-template).
-
-The tax account in the transaction template must match the account in the Item Tax Template. An item rate cannot calculate against an account row that is absent from the transaction.
-
-In [Accounts Settings](/erpnext/accounts-settings), enable **Automatically Add Taxes and Charges from Item Tax Template** when ERPNext should add a missing tax row from an item's template. Even with this enabled, test the complete transaction because company, category, and template configuration still determine the final result.
-
-
-
-![Automatically add Taxes and Charges from Item Tax Template](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-enable-item-tax-template.png)
-
-Decide whether the item is reduced-rated, zero-rated, exempt, or not applicable under your local rules. These classifications can have different reporting consequences, so confirm the intended treatment with your tax adviser.
-
-## Create an Item Tax Template
-
-Go to **Accounting &gt; Taxes &gt; Item Tax Template** and select **Add Item Tax Template**.
-
-1. Enter a descriptive **Title**, such as `Nova Reduced Item Tax 4%`.
-2. Select the **Company**.
-3. In **Tax Rates**, add a row.
-4. Select the tax account and enter the overriding rate.
-5. Save the template.
-
-Use the pencil icon to open the child-table row and review all its fields.
-
-
-
-![Open an Item Tax Template rate row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-reduced-template-row.png)
-
-
-
-![Tax account and rate in the Item Tax Template row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-reduced-template-fields.png)
-
-You can add multiple rows when more than one tax component applies to the item. Each row must use the account that the corresponding transaction tax row uses.
-
-## Important fields and what they mean
-
-
-| Field          | What it controls                                                                                       |
-| -------------- | ------------------------------------------------------------------------------------------------------ |
-| Title          | A reusable name that helps users identify the intended rate or treatment                               |
-| Company        | Restricts the template to transactions for that company                                                |
-| Tax            | The ledger account and tax component whose rate is overridden                                          |
-| Tax Rate       | The rate used for the matching item's net amount                                                       |
-| Not Applicable | Indicates that this tax component does not apply to the item, which is distinct from applying it at 0% |
-| Disabled       | Prevents the template from being selected without deleting its history                                 |
-
-
-Use a 0% rate when the supply is reported as taxable at zero percent. Use **Not Applicable** when the tax component does not apply to the item. Do not treat these as interchangeable unless that is correct for your jurisdiction and reporting setup.
-
-## Assign the template to an Item
-
-Open the [Item](/erpnext/item) and go to the **Tax** tab. In the **Taxes** table, add a row and use the pencil icon to open it.
-
-
-
-![Open the Item Tax assignment row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-item-tax-assignment-row.png)
-
-Set the Item Tax Template and, when relevant, its Tax Category and validity conditions.
-
-
-
-![Item Tax Template assignment, Tax Category, and Valid From](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-item-tax-assignment-fields.png)
-
-
-| Assignment field             | What it controls                                                                                              |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Item Tax Template            | The rate or treatment available for the item                                                                  |
-| Tax Category                 | Restricts the assignment to transactions using that category; a blank category acts as the default assignment |
-| Valid From                   | The first date on which ERPNext can use this assignment                                                       |
-| Minimum and Maximum Net Rate | Restricts the assignment by the item's transaction net rate when configured                                   |
-
-
-You can add multiple assignments for different Tax Categories or validity periods. Keep their conditions mutually clear so the intended row is easy to predict.
-
-## How ERPNext chooses an item template
-
-ERPNext first considers the Tax Category and transaction date. It uses the first valid matching assignment for the item. When no category-specific row matches, a valid row with a blank Tax Category can act as the default.
-
-For most transactions, the posting or transaction date determines validity. On a [Purchase Invoice](/erpnext/purchase-invoice), ERPNext considers the Supplier Invoice Date before falling back to Posting Date. This matters when a supplier invoice arrives after a rate change but carries an earlier invoice date.
-
-If more than one assignment is valid for the same category and date, ERPNext can use the first matching row. Avoid overlapping validity periods. Give the earlier assignment a clear end in your migration or change-control process, and verify a draft transaction on both sides of the rate-change date.
-
-## Assign a template to an Item Group
-
-Use an [Item Group](/erpnext/item-group) assignment when every item in a group shares the treatment. This reduces repeated setup for large catalogs.
-
-An assignment on the Item is more specific and takes precedence over a group-level default. Use the group for the common rate and item-level rows for genuine exceptions. Test an item with its own assignment and another that inherits the group assignment before relying on the setup in production.
-
-## Use the template in a transaction
-
-Create a draft Sales Invoice, Purchase Invoice, Quotation, Sales Order, Purchase Order, Delivery Note, or Purchase Receipt that supports item tax calculation.
-
-1. Select the company and party.
-2. Confirm the [Tax Category](/erpnext/tax-category), when used.
-3. Select the transaction Taxes and Charges Template.
-4. Add the items.
-5. Review the Item Tax Template on each applicable row.
-6. Check the item-wise tax calculation, total tax, and Grand Total before submission.
-
-The mixed-rate invoice below contains standard, reduced, and zero-rated lines. Open a row with the pencil icon when you need to inspect or change the Item Tax Template selected for that transaction line.
-
-
-
-![Mixed-rate items on one Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-mixed-rate-invoice-items.png)
-
-
-
-![Item Tax Template selected on a transaction row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-transaction-item-tax-template.png)
-
-ERPNext calculates $55.92 on the $699 phone, $5.96 on the $149 service, and $0 on the $99 warranty. Total tax is therefore $61.88 and the Grand Total is $1,008.88.
-
-
-
-![Mixed-rate tax and Grand Total result](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-item-tax-template-mixed-rate-tax-result.png)
-
-## Select a different template on a transaction line
-
-The Item master supplies the normal default. A user can select another eligible Item Tax Template directly in a draft transaction row when the specific transaction needs a different supported treatment.
-
-Use manual selection as a controlled exception, not as a substitute for maintaining the Item master. The chosen template must belong to the correct company, match the transaction Tax Category when one is set, be valid for the transaction date, and use tax accounts present in the transaction tax table.
-
-After changing a category, date, item, or item template, review the full Taxes and Charges table again. Re-add the affected item row when stale tax context does not refresh as expected.
-
-## Use different rates on one invoice
-
-Current ERPNext can calculate different item rates against the same tax account by maintaining an item-wise breakdown behind the transaction tax row. Separate tax accounts are still appropriate when the tax components must post or report separately, but different rates alone do not always require different ledger accounts.
-
-If only templated items should be taxed, the standard transaction row can use a 0% rate while the Item Tax Templates supply the applicable rates. Test non-templated items carefully because they will inherit the transaction row's rate.
-
-## Troubleshooting
-
-### The Item Tax Template is marked invalid
-
-Compare its company, Tax Category, validity date, and account with the transaction. Confirm that the matching account exists in the selected Sales or Purchase Taxes and Charges Template. Recheck the item row after changing the transaction category or date.
-
-### The standard rate is applied to every item
-
-Open the affected item row and confirm its Item Tax Template. Check the Item or Item Group assignment, Valid From date, Tax Category, and the transaction date. Verify that item-wise tax values are present before submission.
-
-### Tax from one template appears on unrelated items
-
-Review every tax account row and item assignment. Ensure templates use the intended account and category, and remove overlapping default assignments. Recreate a small draft with one item per treatment to isolate the configuration.
-
-### A zero-rated item still appears in the tax breakdown
-
-A 0% item can still belong to the tax component and appear in reporting with zero tax. If the component should not apply at all, evaluate the **Not Applicable** option and confirm the legal and reporting treatment before changing the setup.
-
-## Frequently asked questions
-
-### Does an Item Tax Template replace the transaction tax template?
-
-1. It overrides the rate for matching item amounts. The transaction template still provides the tax row, account, charge type, and ledger destination.
-
-### Can one invoice contain items taxed at several rates?
-
-Y
-
-es. Assign the appropriate item templates and keep the matching tax account in the transaction tax table. Review the item-wise breakdown and calculated total before submission.
-
-### Should a tax-exempt item use 0% or Not Applicable?
-
-That depends on how the supply must be classified and reported. A 0% rate generally means the tax applies at zero percent, while Not Applicable means the tax component does not apply. Confirm the correct treatment for your jurisdiction.
-
-### Why does a template work on one transaction date but not another?
-
-Check the assignment's Valid From value and any overlapping rows. For Purchase Invoices, also inspect Supplier Invoice Date because it can determine which assignment is valid.
-
-### Can I set the template on an Item Group instead of every Item?
-
-Y
-
-es. Use an Item Group assignment for a shared default and Item-level assignments for exceptions. The more specific Item assignment takes precedence.
-
-## Related topics
-
-- [Taxes](/erpnext/taxes)
-- [Tax Category](/erpnext/tax-category)
-- [Tax Rule](/erpnext/tax-rule)
-- [Sales Taxes and Charges Template](/erpnext/sales-taxes-and-charges-template)
-- [Purchase Taxes and Charges Template](/erpnext/purchase-taxes-and-charges-template)
-- [Sales Invoice](/erpnext/sales-invoice)
-- [Purchase Invoice](/erpnext/purchase-invoice)
-
-<!-- page: erpnext/erpnext__item-valuation-transactions.md -->
----
-title: "Item Valuation Setup and Transactions"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/item-valuation-transactions"
-updated: "2026-03-02"
----
-
-
-In ERPNext, Item's stock valuation is updated on the creation of one of the following transaction.
-
-1. Purchase Receipt
-2. Stock Entry of type Material Receipt
-3. Stock Reconciliation made for updating stock opening balance
-
-You can select valuation method based on which item's value will be calculated. Valuation Method can be set globally for all the items from the Stock Settings.
-
-![Download Backup](/files/item-valuation-1.png)
-
-You can also set Valuation Method in the item master, especially when a valuation method for an item is different from the default Method as seen in the following screenshot.
-
-![Download Backup](/files/item-valuation-2.png)
-
-Note that once ledger entries are made for an item, this option will no longer be visible in the Item form.
-
-[Click here to learn about the valuation methods available in the ERPNext, and how it works.](https://frappe.io/blog/erpnext-features/inventory-valuation-method-fifo-vs-moving-average)
-
-
-### New in v16
-
-In ERPNext v16, users can now select Valuation Method per company basis and a new field in the `Company` DocType has been added for the same. The old field in `Stock Settings` single DocType still remains and will only be used in certain cases where the reference document does not have a reference to any company (such as `Batch`). The valuation method will be fetched in the following order:
-
-1. `Item` level
-2. `Company` level
-3. `Manufacturing Settings` (global) level
-
-Please set the valuation method in all the above levels accordingly to prevent incorrect stock valuations.
-
-<!-- page: erpnext/erpnext__item-variants.md -->
----
-title: "Item Variants\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/item-variants"
-updated: "2026-03-12"
----
-
-**An Item Variant is a version of an Item with different attributes like sizes or colors.**
-
-Eg: Suppose t-shirt is an Item and it comes in different sizes and colors like small, medium, large and red, blue, green. In ERPNext the t-shirt will be considered as an Item template and each of the variations will be an Item Variant.
-
-A blue t-shirt in size small rather than just a t-shirt. Item variants let you treat the small, medium, and large versions of a t-shirt as variations of one Item 't-shirt'.
-
-Without Item variants, you would have to treat the small, medium and large versions of a t-shirt as three separate Items.
-
-## 1. Using Item Variants
-
-Variants can be based on two things:
-
-1. Item Attributes
-2. Manufacturers
-
-&gt; Tip: Once an item template is created, when you update this template, all the variants are also updated accordingly.
-
-### 1.1 Creating the Item Variant Template
-
-1. To use Item Variants in ERPNext, create an Item and tick 'Has Variants' under Variants.
-2. The Item then shall be referred to as a so-called 'Template'. Such a Template is not identical to a regular 'Item' any longer. For example, it (the Template) cannot be used directly in any transaction (Sales Order, Delivery Note, Purchase Invoice) itself.
-3. Only the Variants of the Item (blue t-shirt in size small) can be practically used. Therefore it would be ideal to decide whether an item 'Has Variants' or not directly when creating it.
-  [Has Variants](/files/item-has-variants.png)
-4. On selecting 'Has Variants' a table will appear. Specify the variant attributes for the Item in the table. In case the attribute has Numeric Values, you can specify the range and create intervals based on the increment values.
-  [Valid Attributes](/files/item-attributes.png)
-
-&gt; Note: You cannot make Transactions against a 'Template'.
-
-### 1.2 Creating the Item Variants Based on Item Attributes
-
-To create 'Item Variants' against a 'Template' click on 'Create'. From there, choose whether to create a single variant or multiple. Single is simple where you create just one or more attributes and one Item will be created. When choosing multiple variants, tick the attributes and multiple items will be created. For example, if you choose Color: Red, Green and Size: Small, Medium, Large, 6 variants will be created.
-
-Creating multiple variants in ERPNext:
-
-![](/files/item-variants.png)
-
-To learn more about setting attributes, check out [Item Attributes](/erpnext/item-attribute)
-
-### 1.3 Item Variants Based on Manufacturers
-
-To set up variants based on Manufacturers, in your Item template, set "Variants Based On" as "Manufacturers"  
-In this case, to create variants, click on Create &gt; Make Variant. The system will prompt you to select a Manufacturer. You can also optionally put in a Manufacturer Part Number.
-
-![](/files/variant-manufacturer.png)
-
-The naming of the variant will be based on the name (ID) of the template Item with a number suffix. e.g. "Screwdriver" will have variant "Screwdriver-1".
-
-## 2. Update Item Variants Based on Template
-
-Go to: **Home > Stock > Items and Pricing > Item Variant Settings**. The fields displayed here will be copied over to the variants as well. By default, all fields are shown, delete any rows you don't want to be updated from the item template to the variants.
-
-### 3. Related Topics
-
-1. [Item Attribute](/erpnext/item-attribute)
-
-<!-- page: erpnext/erpnext__item-where-used-report.md -->
----
-title: "Item Where Used Report"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/item-where-used-report"
-updated: "2026-06-08"
----
-
-# Item Where Used Report
-
-The **Item Where Used** report shows master-data and product-structure references for an Item. It is intended for answering questions like “which BOMs or Product Bundles use this item?” without mixing in transactional documents such as Sales Orders, Purchase Invoices, Stock Ledger Entries, or Stock Entries.
-
-## Filters
-
-
-| Filter  | Required | Description                                                    |
-| ------- | -------- | -------------------------------------------------------------- |
-| Item    | Yes      | The Item to search for.                                        |
-| Company | No       | Filters BOM-backed rows by Company.                            |
-| Section | No       | Choose `Where Used` or `References`; leave blank to show both. |
-
-
-## Sections
-
-### Where Used
-
-This section shows places where the selected Item is used inside another product or manufacturing structure.
-
-
-| Reference Type               | Source                             |
-| ---------------------------- | ---------------------------------- |
-| BOM Component                | `BOM Item.item_code`               |
-| Product Bundle Component     | `Product Bundle Item.item_code`    |
-| BOM Secondary Item           | `BOM Secondary Item.item_code`     |
-| Subcontracting Service Item  | `Subcontracting BOM.service_item`  |
-| Subcontracting Finished Good | `Subcontracting BOM.finished_good` |
-
-
-### References
-
-This section shows related master references where the Item is the output, parent, template, or alternate item.
-
-
-| Reference Type        | Source                                   |
-| --------------------- | ---------------------------------------- |
-| BOM Output            | `BOM.item`                               |
-| Product Bundle Parent | `Product Bundle.new_item_code`           |
-| Item Variant          | `Item.variant_of`                        |
-| Item Alternative      | `Item Alternative.item_code`             |
-| Alternative For Item  | `Item Alternative.alternative_item_code` |
-
-
-## Report Columns
-
-
-| Column                      | Description                                                          |
-| --------------------------- | -------------------------------------------------------------------- |
-| Section                     | `Where Used` or `References`.                                        |
-| Reference Type              | The type of usage or relationship found.                             |
-| Document Type               | The linked DocType, such as BOM or Product Bundle.                   |
-| Document                    | The linked document where the Item is referenced.                    |
-| Related Item                | The parent, output, alternate, or related Item.                      |
-| Matched Field               | The exact field that matched the selected Item.                      |
-| Row                         | Child table row index, where applicable.                             |
-| Qty / UOM                   | Quantity and UOM from the source row, where available.               |
-| Stock Qty / Stock UOM       | Stock quantity and stock UOM from BOM rows, where available.         |
-| Company                     | Company from the BOM, where applicable.                              |
-| Default / Active / Disabled | Status metadata from the source document, where applicable.          |
-| Details                     | Additional context such as secondary item type or linked BOM number. |
-
-
-## Notes
-
-- The report is master-data focused and intentionally excludes transactional usage.
-- The Company filter applies to BOM-backed rows.
-- Use the `Where Used` section for product-structure traceability.
-- Use the `References` section to find related definitions such as default/output BOMs, parent bundles, variants, and alternatives.
-
 <!-- page: erpnext/erpnext__item.md -->
 ---
 title: "Item"
@@ -429,7 +36,7 @@ Before creating and using an Item, it is advised that you create the following f
 4. Enter the opening stock units and standard selling rate.
 5. Save
 
-![](/files/item_master.png)
+[Screenshot on the live page]
 
 **2.1 Item Properties**
 
@@ -464,7 +71,7 @@ For India:
 - **Brand**: If you have more than one brand, save them under Selling > Brand and pre-select them while filling a New Item.
 - **Description**: Description of the item. The text from the Item Code will be fetched by default.
 
-![](/files/item_desc.png)
+[Screenshot on the live page]
 
 ### 3.2 Barcodes
 
@@ -481,7 +88,7 @@ Barcodes can be recorded in Items to quickly scan and add them in transactions. 
 
 A warranty period is a time period in which a purchased product may be returned or exchanged.
 
-![](/files/item_inv.png)
+[Screenshot on the live page]
 
 - **Weight UOM:** The Unit of Measure for the item. This can be Nos, Kilo, etc. The Weight UoM which you use internally can be different from the purchase UoM.
 - **Weight Per Unit**: The actual weight per unit of the item. Eg: 1 kilo of biscuits or 10 biscuits per pack.
@@ -502,7 +109,7 @@ For example, If reorder level is 100 items, your reorder quantity may not necess
 
 - **Material Request Type**: The [Material Request](/erpnext/material-request) type with which the stock will be reordered. This depends on whether you buy the Item, manufacture it yourself or transfer it between Warehouses.
 
-![](/files/item_reorder.png)
+[Screenshot on the live page]
 
 > **Note**: The Material Request is created at 12 midnight depending on the set reorder level.
 
@@ -535,7 +142,7 @@ A set of Items can be manufactured in batches. This is useful for moving the bat
 
 > Tip: While entering an Item Code in an Items table, if the table requires inventory details, then depending on whether the entered item is batched or serialized, you can enter serial or batch numbers right away in a pop-up dialog.
 
-![](/files/item_bat_ser.png)
+[Screenshot on the live page]
 
 > **Note**: Once you mark an item as serialized or batched or neither, you cannot change it after you have made a Stock Entry.
 
@@ -558,7 +165,7 @@ In this section, you can define Company-wide transaction-related defaults for th
 
 > Tip: You can add more rows for multiple companies.
 
-![](/files/item_def.png)
+[Screenshot on the live page]
 
 ### 3.10 Purchase, Replenishment Details
 
@@ -578,9 +185,9 @@ Reorder Level = Safety Stock + (Average Daily Consumption * Lead Time)
 - **Delivered by Supplier (Drop Ship)**: If the item is delivered directly by the supplier to the customer, tick this checkbox. Read more [here](/erpnext/drop-shipping-in-erpnext).
 - **Supplier Codes:** Track Item Code defined by the Suppliers for this Item. In the Purchase transactions, on selecting an Item, a Supplier Part No. will be fetched as well for the Supplier's reference. You can read more about it [here](/erpnext/maintaining-suppliers-part-no-in-item).
 
-![](/files/itmepur.png)
+[Screenshot on the live page]
 
-![](/files/item_supp.png)
+[Screenshot on the live page]
 
 ### 3.12 Foreign Trade Details
 
@@ -596,7 +203,7 @@ If you're sourcing the item from another country, you can set the details here.
 - **Max Discount (%)**: You can define the maximum discount in % to be applied to an item. Eg: if you set 20%, you cannot sell this item with a discount greater than 20%.
 - **Is Sales Item**: If unticked, you won't be able to use this item in sales transactions.
 
-![](/files/item_sales.png)
+[Screenshot on the live page]
 
 ### 3.14 Deferred Revenue and Deferred Expense
 
@@ -604,7 +211,7 @@ You can enable deferred revenue or expense from the item. Once you tick the chec
 
 For example, consider a yearly gym membership, you pay the money upfront at once but the service is given throughout the year. For the gym owner, this is deferred revenue and for the customer, it is a deferred expense.
 
-![](/files/item_defe.png)
+[Screenshot on the live page]
 
 Check out the pages on [Deferred Revenue](/erpnext/deferred-revenue) for more details.
 
@@ -622,7 +229,7 @@ These settings are required only if a particular Item has a different tax rate t
 
 You need to create a new 'Item Tax Template' or choose an existing one. For example, if you have a tax Account, “VAT 14%” and this particular Item is exempted from tax, then you select “VAT 14%” in the first column, and set “0” as the tax rate in the second column. Visit the [Item Tax Template](/erpnext/item-tax-template) page for more details.
 
-![](/files/item_tax.png)
+[Screenshot on the live page]
 
 You can also set a [Tax Category](/erpnext/tax-category) for this Item.
 
@@ -643,7 +250,7 @@ Read [Quality Inspection](/erpnext/quality-inspection) to know more.
 - **Manufacturer:** Select the Manufacturer who manufactured this item.
 - **Manufacturer Part Number:** Enter the manufacturer's assigned part number for this item.
 
-![](/files/item_man.png)
+[Screenshot on the live page]
 
 ### 3.19 Publishing Item on Website
 
@@ -651,11 +258,11 @@ Read [Quality Inspection](/erpnext/quality-inspection) to know more.
 
 **Show on Website**: Choose whether to show this Item on your website; click Action and choose "Publish in Website".
 
-![](/files/Screenshot 2026-03-04 at 4.23.37 PM.png)
+[Screenshot on the live page]
 
 A new record called Website Item is created, containing additional details about the items, and is also published on the web view of the item.
 
-![](/files/Screenshot 2026-03-04 at 4.23.45 PM.png)
+[Screenshot on the live page]
 
 The following fields will be found in the Website Item master.
 
@@ -698,3 +305,395 @@ The hub is a free online marketplace where Suppliers and Customers can transact.
 4. [Item Group](/erpnext/item-group)
 5. [Item Attribute](/erpnext/item-attribute)
 6. [Item Valuation FIFO And Moving Average](/erpnext/calculation-of-valuation-rate-in-fifo-and-moving-average)
+
+<!-- page: erpnext/erpnext__item_group_wise_product_listing.md -->
+---
+title: "Item Group-wise Product Listing"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/item_group_wise_product_listing"
+updated: "2026-03-02"
+---
+
+Similar to the [Product Listing](/erpnext/product-listing) at `/all-products`, ERPNext offers Product Listings that are Item Group-wise as well. You can link these pages on your landing page to direct users easily.
+
+### Setting Up an Item Group Page
+To provide a Product Listing page for an Item Group (e.g. Products), go to:
+
+> Item Group List > Products
+
+- Enable **Show in Website**.
+- Scroll down to the **Website Filters** section and add field and attribute filters similar to E Commerce Settings.
+- You can also add a description in the RichText Editor that will show above the product list as a banner.
+
+Now if you click on the **See on Website** link, on the top left, above the image in the current document, you will be redirected to the **Products** Item Group's listing page.
+
+#### Product Visibility
+Consider the Item Group **Products** has child Item Groups **Mobile Services** and **Mobiles**. 
+
+Website Items that will be visible on the **Products** page are:
+
+- Those having **Products** as their Item Group
+- Those having **Products** in their **Website Item Groups** table.
+
+Website Items having their Item Groups as **Mobile Services** or **Mobiles** will be visible on their respective pages. These pages will be linked in the **Products** page.
+
+> Child Item Groups such as **Mobile Services** and **Mobiles** will be visible as pills above the search bar on the **Producst** page.
+
+[Screenshot on the live page: Item Group-wise Product Listing]
+
+<!-- page: erpnext/erpnext__job-card-summary.md -->
+---
+title: "Job Card Summary\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/job-card-summary"
+updated: "2026-02-26"
+---
+
+
+To access the Job Card Summary, go to:
+
+> Home > Manufacturing > Reports > Job Card Summary
+
+[Screenshot on the live page: Task]
+
+This report will give information about the Job Card as well as their status. Using this report users can check the month's Open and Completed Job Cards for the selected periods.
+
+<!-- page: erpnext/erpnext__job-card.md -->
+---
+title: "Job Card\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/job-card"
+updated: "2026-05-20"
+---
+
+**A Job Card stores actual production information about a particular Operation performed on a particular Workstation.**
+
+A Job Card is created from the Work Order and given to each of the Workstations in the manufacturing floor to start the production of an item with a certain quantity in each of the operations defined in the Work Order.
+
+Job Card allows each Operation's workstation to issue a “Material Request” and “Stock Transfer to Manufacture” for raw material required against a “Job Card”.
+
+Job Card completion will change the production status in Work Order, we can track the completion of production progress for each of the Operations defined in the Work Order.
+
+[Screenshot on the live page: Work Order]
+
+To access the Job Card list, go to:
+
+> Home > Manufacturing > Production > Job Card
+
+## 1. Prerequisites
+
+Before creating and using a Job Card, it is advised that you create the following first:
+
+- [Bill Of Materials](/erpnext/bill-of-materials)
+- [Operation](/erpnext/operation)
+- [Workstation](/erpnext/workstation)
+- [Work Order](/erpnext/work-order)
+
+## 2. How to Create a Job Card
+
+Job Card for Operations is automatically created when a Work Order is submitted.
+
+This is what a Job Card looks like:
+
+[Screenshot on the live page: Job Card]
+
+To use a Job Card follow these steps:
+
+1. Click on the Start Job button, then on Complete Job when you're done.
+2. Alternatively, you can also fill the From Time and To Time in the Time Logs table.
+3. Select the Employee to whom the Job Card was assigned.
+4. Enter the Completed Quantity. This is the number of Items on which the Operation was performed for the selected time interval.
+5. Add more rows in the Time Logs table and record time using the Start/Completed buttons.
+6. Click on Submit.
+
+In a Work Order, the Operations and Workstations are fetched from the BOM of an Item. For ease of use, you should ensure that the [Routing](/erpnext/routing) is configured in the BOM.
+
+Each Job Card created will have Workstation & Operations assigned. The raw material required from each Source Warehouse will be calculated based on quantity required for production.
+
+On submitting a Work Order, Job Cards will be auto-created based on the values in the Operations table.
+
+[Screenshot on the live page: Create Shareholder]
+
+### 2.1 Select Work Order with Item to Manufacture
+
+You can select 'Transfer Material Against' as 'Job Card' on the Bill of Materials to transfer raw materials for Production against Job Cards.
+
+In the Work Order, you can select the option:
+
+[Screenshot on the live page: Create Shareholder]
+
+### 2.3 Using a Job Card
+
+Employee assignment and timing detail will also be defined in Job Card. The time taken to do a job can be recorded. If multiple employees are working on the same Operation, add new job cards by clicking on the 'Create Job' Card button.
+
+[Screenshot on the live page: Create Shareholder]
+
+### 2.4 Material Request against Job Card
+
+A Material Request will be raised from the Job Card as a basis/order to prepare raw material required for the manufacturing process. The Material Request raised will have its reference to the original Job Card number.
+
+[Screenshot on the live page: Create Shareholder]
+
+Track the Manufacturing Progress in The Work Order by The Completion of Each Operations defined in Work Order.
+
+Job Card completion allows you to track the manufacturing progress inside the Work Order by looking at the completion of each Operation related to the Work Order.
+
+[Screenshot on the live page: Work Order Job Card Completion]
+
+### 2.5 Scrap Items
+
+While completing the operations, there might be chances that some scrap materials will be produced. This scrap materials are required to be added in the inventory. For that user needs to put the details of the scrap items in the job card. User can also set the defective materials / broken materials in the scrap items table.
+
+[Screenshot on the live page: Work Order Job Card Completion]
+
+## 3. Features
+
+### 3.1 Tracking Quality Inspection
+
+> Introduced in Version 13
+
+For production orders, the quality of in-process (semi-finished) goods also needs to be tracked. It is defined by the process (operation) performed on it which is in turn defined in the Job Card. In-process tests are different than incoming and outgoing material tests. Monitoring quality during manufacturing helps to make sure that the finished product produced is of the desired quality. You can create a Quality Inspection for the Production Item against the Job Card.
+
+[Screenshot on the live page: Quality Inspection Against Job Card]
+
+[Screenshot on the live page: Quality Inspection link in Job Card]
+
+## **Pending Qty in Job Card**
+
+A new **Pending Qty** field has been introduced in the **Job Card (in Version 16)** to handle partial production and prevent incorrect Process Loss calculation.
+
+
+
+#### Problem
+
+Previously, while completing a Job Card, the system automatically considered the **remaining quantity** as **Process Loss Qty**. This caused issues in cases where the operation was only partially completed, preventing users from submitting the Job Card.
+
+#### Solution
+
+To support partial completion, a **Pending Qty** field has been added to the Job Card.
+
+- Users can now specify the quantity that is still pending for the operation. 
+- The system will **not treat the remaining quantity as Process Loss** if a **Pending Qty** is specified. 
+- **Process Loss Qty** will be calculated **only when the Pending Qty is zero**, indicating that the operation is fully completed.
+
+
+
+#### Example
+
+- Qty to Manufacture: **10** 
+- Completed Qty: **6** 
+- Pending Qty: **4**
+
+
+
+
+
+In this case, the system will **not calculate Process Loss Qty**, as the remaining quantity is marked as pending.
+
+
+
+If:
+
+- Qty to Manufacture: **10** 
+- Completed Qty: **6** 
+- Pending Qty: **0**
+
+
+
+Then the remaining quantity (**4**) will be treated as **Process Loss Qty**.
+
+
+
+This enhancement allows users to perform **partial production tracking** without affecting Job Card submission.
+
+
+
+[Screenshot on the live page]
+
+
+
+
+
+
+
+For more details, refer the [Quality Inspection](/erpnext/quality-inspection) page.
+
+<!-- page: erpnext/erpnext__journal-entry-template.md -->
+---
+title: "Journal Entry Template | ERPNext Documentation"
+description: "Learn how to create and use Journal Entry Templates in ERPNext to preload recurring accounts, dimensions, entry settings, and other accounting details."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/journal-entry-template"
+updated: "2026-08-03"
+---
+
+A Journal Entry Template stores the structure of a recurring [Journal Entry](https://docs.frappe.io/erpnext/journal-entry). It can prefill the company, entry type, naming series, opening-entry setting, multi-currency setting, and account rows. Use a template when the same accounts and dimensions recur, but the amount, date, reference, or remark changes each time.
+
+
+
+For example, Nova Electronics Trading pays office maintenance from its operating bank account every month. A template can preload **Office Maintenance Expenses** and **Nova Operating Bank**, while the accountant enters the actual amount and reference for that month.
+
+Templates reduce repetitive selection and help users choose the intended accounts consistently. They do not post to the [General Ledger](https://docs.frappe.io/erpnext/general-ledger) by themselves. The resulting Journal Entry must still be reviewed, balanced, saved, and submitted.
+
+## Before you begin
+
+Confirm that:
+
+1. The accounts exist in the company’s [Chart of Accounts](https://docs.frappe.io/erpnext/chart-of-accounts).
+2. Each account is a ledger account, not a group account.
+3. You know which account should be debited and which should be credited for the recurring transaction.
+4. Any required [Cost Center](https://docs.frappe.io/erpnext/cost-center), [Project](https://docs.frappe.io/erpnext/project), or other [Accounting Dimension](https://docs.frappe.io/erpnext/accounting-dimensions) is available.
+5. If the template uses accounts in different currencies, [multi-currency accounting](https://docs.frappe.io/erpnext/multi-currency-accounting) is configured.
+
+## Create a Journal Entry Template
+
+To open the list, search for **Journal Entry Template** from the Awesome Bar. Select **Add Journal Entry Template** or open an existing template.
+
+
+
+[Screenshot on the live page: A Journal Entry Template list showing Monthly Office Maintenance highlighted]
+
+Enter a clear **Template Title** that identifies the recurring purpose, such as `Monthly Office Maintenance`.
+
+Select the **Journal Entry Type**, **Series**, and **Company**. Set **Is Opening** to **Yes** only when the resulting Journal Entry records an opening balance. Enable **Multi Currency** when the template uses an account whose currency differs from the company currency.
+
+
+
+[Screenshot on the live page: Journal Entry Template fields for entry type, company, and naming series]
+
+In **Accounting Entries**, add the accounts that should be copied to each Journal Entry. Do not enter transaction amounts in the template. Amounts belong to the actual Journal Entry because they can change for every occurrence.
+
+Select the pencil icon to edit a row and add its Party, Cost Center, Project, or other dimensions when required.
+
+
+
+[Screenshot on the live page: Accounting Entries with the row edit pencil highlighted]
+
+
+
+[Screenshot on the live page: A Journal Entry Template account row editor with the Account field highlighted]
+
+Save the template.
+
+## Important fields and what they mean
+
+
+| Field                | What it controls                                                                   | Guidance                                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| Template Title       | The name users select from a Journal Entry                                         | Use a purpose-based name, not a month or voucher number.                                                                |
+| Journal Entry Type   | The intended kind of Journal Entry                                                 | Choose the type that matches the transaction. It can also influence defaults such as bank or cash behavior.             |
+| Series               | The naming series copied to the new Journal Entry                                  | Use the company’s approved Journal Entry series.                                                                        |
+| Company              | The company copied to the new Journal Entry                                        | Accounts in the template must belong to this company.                                                                   |
+| Is Opening           | Marks the resulting entry as an opening entry                                      | Use this only for migration or opening balances. See [Opening Balance](https://docs.frappe.io/erpnext/opening-balance). |
+| Multi Currency       | Allows accounts in currencies other than the company currency                      | Review exchange rates and account currencies in the resulting entry.                                                    |
+| Account              | A ledger account copied into the Journal Entry                                     | Add at least two accounts so the resulting entry can be balanced.                                                       |
+| Party Type and Party | Associates the row with a Customer, Supplier, Employee, or another supported party | Set these only when the selected account requires party-wise accounting.                                                |
+| Cost Center          | Tracks income or expense by business unit                                          | Set a default here only if it applies to every entry created from the template.                                         |
+| Project              | Tracks the row against a project                                                   | Leave it blank when the project changes each time.                                                                      |
+
+
+## Choose the right entry type
+
+The template supports the Journal Entry types available in the current ERPNext version, including Journal Entry, Inter Company Journal Entry, Bank Entry, Cash Entry, Credit Card Entry, Debit Note, Credit Note, Contra Entry, Write Off Entry, Opening Entry, Depreciation Entry, and Exchange Rate Revaluation.
+
+The most commonly used choices are:
+
+
+| Entry type                  | When it is useful                                                                                                                                     |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Journal Entry               | General adjustments and recurring accruals where a more specific transaction is not available.                                                        |
+| Bank Entry                  | A journal-based bank transaction. For routine customer and supplier payments, prefer a [Payment Entry](https://docs.frappe.io/erpnext/payment-entry). |
+| Cash Entry                  | A journal-based cash transaction.                                                                                                                     |
+| Opening Entry               | Opening balances during setup or migration. ERPNext marks **Is Opening** accordingly.                                                                 |
+| Inter Company Journal Entry | Adjustments between companies. See [Inter Company Journal Entry](https://docs.frappe.io/erpnext/inter-company-journal-entry).                         |
+| Exchange Rate Revaluation   | Adjustments arising from currency revaluation.                                                                                                        |
+
+
+Selecting Bank Entry or Cash Entry on a normal Journal Entry can load the company’s default bank or cash account when the account table is still empty. A template can also store the intended account rows directly. Opening Entry identifies the voucher as an opening transaction, but it does not automatically add the entire Chart of Accounts. Add only the accounts needed for the opening entry.
+
+## Create a Journal Entry from the template
+
+1. Create a new Journal Entry.
+2. Open the **More Info** tab.
+3. Expand **Additional Info**.
+4. Select the template in **From Template**.
+
+[Screenshot on the live page: The From Template field highlighted in a new Journal Entry]
+
+
+
+[Screenshot on the live page: Monthly Office Maintenance entered in the From Template field]
+
+ERPNext copies the template’s company, entry type, naming series, opening setting, multi-currency setting, and account rows into the new Journal Entry.
+
+
+
+[Screenshot on the live page: A new Journal Entry with the template fields and account rows loaded]
+
+Enter the debit and credit amounts, posting date, reference details, and remarks. Add or remove account rows if this occurrence needs them. Confirm that total debit equals total credit, then save and submit the Journal Entry.
+
+## Important warning when selecting a template
+
+Selecting **From Template** clears the existing **Accounting Entries** rows before loading the template’s rows. Choose the template before entering account rows, or copy any work you need to retain.
+
+The template is a starting structure, not a lock. After it loads, you can add more accounts or change copied values before saving. Review every resulting Journal Entry because the template does not validate whether the accounts and dimensions remain appropriate for that month’s transaction.
+
+## Maintain templates safely
+
+Update a template when the recurring accounting treatment changes for future entries. Previously submitted Journal Entries are not changed when a template is edited.
+
+Avoid creating several templates with nearly identical names. Use titles that describe the business event, such as `Monthly Office Maintenance`, `Payroll Accrual`, or `Bank Charges`. Keep one approved template for each recurring pattern and review it when the Chart of Accounts or dimension structure changes.
+
+## Troubleshooting
+
+### The From Template field is not visible
+
+In a new Journal Entry, open **More Info** and expand **Additional Info**. The top-right **Templates** button is the general Frappe form-template feature. It is different from the ERPNext **Journal Entry Template** selected in the **From Template** field.
+
+### The template does not appear in search
+
+Confirm that the Journal Entry Template is saved and that you have permission to read it. Also confirm that the template’s company and accounts are available to your user.
+
+### Existing account rows disappeared
+
+This is expected when **From Template** is selected. ERPNext clears the current Accounting Entries before copying the template’s rows. Select the template first, then add occurrence-specific rows.
+
+### An account cannot be selected
+
+Confirm that it is a non-group ledger account belonging to the template’s company. Also check account currency restrictions when **Multi Currency** is not enabled.
+
+### The Journal Entry is not balanced
+
+The template copies account structure, not debit and credit amounts. Enter the amount on each row and ensure total debit equals total credit before saving.
+
+## FAQs
+
+### Does a Journal Entry Template create or submit entries automatically?
+
+No, It only prefills a new Journal Entry. A user must add the current amounts and references, review the entry, and submit it.
+
+### Can I change the accounts after loading a template?
+
+Yes, You can edit, add, or remove rows before saving the Journal Entry. Treat the template as a reusable starting point.
+
+### Can one template be used for several companies?
+
+No, A template stores one company, and its accounts belong to that company. Create a separate template for each company when the same accounting pattern is needed.
+
+### Should I store amounts in the template?
+
+No, Journal Entry Template account rows define accounts, parties, and dimensions. Enter debit and credit amounts in each actual Journal Entry.
+
+### Can a template include Cost Center or Project?
+
+Yes, Add the dimension on the account row when it should apply every time. Leave it blank when the dimension changes for each transaction.
+
+### Does editing a template update past Journal Entries?
+
+No, Changes affect only entries created from the template after the change. Existing drafts and submitted entries retain their own values.
+
+## Related topics
+
+- [Finance Book](https://docs.frappe.io/erpnext/finance-book)
+- [Immutable Ledger](https://docs.frappe.io/erpnext/immutable-ledger-in-erpnext)
+- [Repost Accounting Ledger](https://docs.frappe.io/erpnext/repost-accounting-ledger)

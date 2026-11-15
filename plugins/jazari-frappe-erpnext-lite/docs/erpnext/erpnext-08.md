@@ -1,32 +1,5 @@
 <!-- Frappe documentation: erpnext, part 8 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__automate_lead_capturing.md -->
----
-title: "Automate Lead Creation | ERPNext Documentation"
-description: "Learn how ERPNext can create Leads from email, Web Forms, ecommerce activity, and data imports."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/automate_lead_capturing"
-updated: "2026-07-23"
----
-
-Leads come from many different sources. It is important that all leads are recorded, assigned to sales executives and followed up.
-
-## Create Leads From Emails
-
-You may have an email address like '[sales@yourcompany.com](mailto:sales@yourcompany.com)' which is probably displayed on your website. People may send emails asking information about your products and services. You can enable [Email Account](/erpnext/email-account) to pull these emails and create a lead for each email.
-
-## Create Leads From Webforms
-
-You can also map the Lead form to a [Web Form](/erpnext/web-form) and publish it on your website. When visitors of your website fill the form, it will be automatically added as a Lead.
-
-## Create Leads From Incomplete Orders in E-Commerce Module
-
-You can publish an e-commerce website and allow users to place an order for your products. If a user selects items but doesn't complete the process you can pursue that user as a lead.
-
-## Create Leads By Importing Spreadsheet
-
-If you have a spreadsheet with details of the leads, you can use the [Data Import](/erpnext/data-import) feature to import the leads.
-
 <!-- page: erpnext/erpnext__automating-issue-assignments-to-support-team-in-erpnext.md -->
 ---
 title: "Automating Issue Assignments in ERPNext"
@@ -37,16 +10,16 @@ updated: "2026-02-27"
 
 Modern support automation tools demonstrably improve customer service. Automating the assignment of support issues ensure that every issue ticket has been assigned a product expert and the customer seeks resolution to their queries faster. Assignment Rule has been introduced in v12 and here's how you can automate your support team's troubles away.  
 First, we need to setup an email account that appends the incoming emails received there into the "Issue" DocType of ERPNext.**1) Create an Email Account:**You need to update email domain and setup your support email address in ERPNext's Email Account. To learn about email setup, please check out [this link](https://www.youtube.com/watch?v=ChsFbIuG06g&t=122s)  
-![](/files/NPp14kS.png)  
+[Screenshot on the live page]  
 **2) Append to Issue:**The checkbox, "Enable Incoming" has to be selected to allow emails sent on this email address to be received here. We need to capture them in a DocType, which is mentioned under "Appends To". In this case, we want to append all incoming emails to Issue  
-![](/files/STAm8ko.png)  
+[Screenshot on the live page]  
 This is a one-time configuration and you won't have to worry about it unless you require to change the password of that email address via third party apps. The Issue List will get populated with the emails that are sent here. With the use of Assignment Rules, we can organise the customer support team's schedule and ensure timely resolution for all open support tickets.  
 **3) Setting an Assignment Rule:**  
-![](/files/5q4HvOT.gif)  
+[Screenshot on the live page]  
 **4) Based on the rule defined in step (3), the assignments will be done automatically**These are done as in when an Issue is created or updated. Check out below GIF to see automation in action when an issue ticket's status is *updated*:  
-![](/files/Qb0kAzo.gif)  
+[Screenshot on the live page]  
 Note: If needed, the rule can also be disabled/updated:  
-![](/files/PZbCDuu.png)  
+[Screenshot on the live page]  
 Similarly, you can automate the Sales process in ERPNext for assigning leads to your Sales team and ensure more conversion rates!! Thanks for reading this article! If you need further assistance with this, please reach our community [here](https://discuss.erpnext.com/)
 
 <!-- page: erpnext/erpnext__automation.md -->
@@ -83,7 +56,7 @@ For example, a billing user can type **Sales Invoice** and choose the list, repo
 2. Type a DocType, report, page, or action.
 3. Use the arrow keys to move through results and press Enter to open the selected result.
 
-![ERPNext Awesomebar showing list, report, and new-document results for Sales Invoice](https://novacompanies.m.frappe.cloud/files/setup-20260814-awesomebar-search.png)
+[Screenshot on the live page: ERPNext Awesomebar showing list, report, and new-document results for Sales Invoice]
 
 
 
@@ -156,7 +129,7 @@ In the bucket settings, enable "Block all public access" to keep your data priva
 2. Open Identity and Access Management (IAM).  
 3. Create a new policy for the Service "S3", allowing the Actions "ListBucket" and "PutObject".
 
-![Screenshot of "Create Policy" in AWS](/files/s3-backup-policy.png)
+[Screenshot on the live page: Screenshot of "Create Policy" in AWS]
 
 
 
@@ -191,7 +164,7 @@ Or, using the JSON editor:
 
 4. Create a new user for programmatic access.
 
-![Screenshot of "Add User" in AWS](/files/s3_backup_add_user.png)
+[Screenshot on the live page: Screenshot of "Add User" in AWS]
 
 5. Attach the policy you created to the new user.
 6. Copy the user's access key and secret.
@@ -225,7 +198,7 @@ To automatically delete old backups or move them to a cheaper storage class, hav
 - Specify the name of the bucket that you created in step 1.
 - Choose how often you want to take and upload backups. This can range from monthly to daily. If you only want to take manual backups, set the frequency to "None".
 
-![S3 Backup Settings in ERPNext](/files/s3_backup_settings.png)
+[Screenshot on the live page: S3 Backup Settings in ERPNext]
 
 ## Restore deleted files from versioned bucket
 
@@ -287,7 +260,7 @@ Submit all relevant [Sales Invoices](/erpnext/sales-invoice), [Purchase Invoices
 4. Apply Finance Book, Cost Center, Project, Department, or another [Accounting Dimension](/erpnext/accounting-dimensions) only when required.
 5. Refresh and wait for totals, chart, and account rows to load.
 
-![Loaded Nova Industries Balance Sheet with assets liabilities and provisional profit](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-balance-sheet-loaded.png)
+[Screenshot on the live page: Loaded Nova Industries Balance Sheet with assets liabilities and provisional profit]
 
 ## Interpret the Nova Industries result
 
@@ -314,7 +287,7 @@ Nova shows $316,212 in Accounts Receivable and a negative $118,104 Bank Accounts
 
 Select an account amount to open its [General Ledger](/erpnext/general-ledger) entries. Keep Company, date, Finance Book, currency, and dimensions aligned with the Balance Sheet before comparing values.
 
-![General Ledger drill-down opened from a Balance Sheet account](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-balance-sheet-loaded-drilldown.png)
+[Screenshot on the live page: General Ledger drill-down opened from a Balance Sheet account]
 
 ## Important filters
 
@@ -392,18 +365,18 @@ Do not confuse these records:
 1. Go to **Accounting &gt; Banking &gt; Bank Account**.
 2. Select **Add Bank Account**.
 
-![Bank Account list with Add Bank Account highlighted](https://novacompanies.m.frappe.cloud/files/banking-04-bank-account-list.png)
+[Screenshot on the live page: Bank Account list with Add Bank Account highlighted]
 
 3. Enter an **Account Name** that users can identify, such as `Operating Account` or `Payroll Account`.
 4. Select the **Bank**.
 5. Select **Is Company Account** when the account belongs to one of your Companies.
 
-![Bank Account ownership and Bank fields](https://novacompanies.m.frappe.cloud/files/banking-05-bank-account-ownership.png)
+[Screenshot on the live page: Bank Account ownership and Bank fields]
 
 6. For a Company account, select the **Company** and **Company Account** ledger.
 7. Select **Is Default Account** only when this should be the default Bank Account for the Company.
 
-![Company ledger and default Bank Account setting](https://novacompanies.m.frappe.cloud/files/banking-06-bank-account-ledger.png)
+[Screenshot on the live page: Company ledger and default Bank Account setting]
 
 8. Enter the account number, routing or branch code, IBAN when applicable, and other non-secret identifiers.
 9. Save the Bank Account.
@@ -532,7 +505,7 @@ This page explains the relationship between Bank, Bank Account, ledger account, 
 
 Go to **Home &gt; Accounting &gt; Bank Statement &gt; Bank** and add the institution.
 
-![Bank master](/files/bank-master.webp)
+[Screenshot on the live page: Bank master]
 
 Add integration details only when you use a supported bank integration.
 
@@ -551,7 +524,7 @@ Store only the information required for operations and reconciliation. Restrict 
 
 Open **Mode of Payment**, select the type, and add a default account for each company.
 
-![Mode of Payment default account](/files/mode-of-payment-defaults.webp)
+[Screenshot on the live page: Mode of Payment default account]
 
 For example, Cash should normally use a Cash-type ledger. A wire transfer or card settlement should use the relevant Bank or clearing account.
 
@@ -619,22 +592,22 @@ Create the [Bank](/erpnext/bank) and [Bank Account](/erpnext/bank-account) first
 1. Go to **Accounting &gt; Banking &gt; Bank Guarantee**.
 2. Select **Add Bank Guarantee**.
 
-![Bank Guarantee list with Add Bank Guarantee highlighted](https://novacompanies.m.frappe.cloud/files/banking-07-bank-guarantee-list.png)
+[Screenshot on the live page: Bank Guarantee list with Add Bank Guarantee highlighted]
 
 3. Choose the **Bank Guarantee Type**:
   - **Receiving** when another party provides the guarantee for your benefit;
   - **Providing** when your Bank issues it for a Customer, Supplier, or other beneficiary.
 4. Enter the amount, start date, validity, and end date. Verify the expiry against the issued document.
 
-![Bank Guarantee type, amount, and validity fields](https://novacompanies.m.frappe.cloud/files/banking-08-bank-guarantee-purpose.png)
+[Screenshot on the live page: Bank Guarantee type, amount, and validity fields]
 
 5. Select the Bank, Bank Account, and related General Ledger account when applicable.
 
-![Bank and Bank Account on the guarantee](https://novacompanies.m.frappe.cloud/files/banking-09-bank-guarantee-bank-details.png)
+[Screenshot on the live page: Bank and Bank Account on the guarantee]
 
 6. Enter the Bank's guarantee number and the beneficiary name exactly as shown on the issued instrument.
 
-![Guarantee number and beneficiary](https://novacompanies.m.frappe.cloud/files/banking-09b-bank-guarantee-reference.png)
+[Screenshot on the live page: Guarantee number and beneficiary]
 
 7. Add the reference document, Customer or Supplier, and Project when they identify the underlying obligation.
 8. Record margin money, charges, fixed deposit number, clauses, and conditions.
@@ -756,9 +729,9 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 5. Record bank fees, interest, and timing differences explicitly.
 6. Confirm that the closing balance agrees with the bank statement.
 
-![Bank Reconciliation in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-12-bank-reconciliation.png)
+[Screenshot on the live page: Bank Reconciliation in ERPNext]
 
-![Bank Reconciliation details](https://novacompanies.m.frappe.cloud/files/payments-13-bank-transactions-for-reconciliation.png)
+[Screenshot on the live page: Bank Reconciliation details]
 
 ## Important fields and what they mean
 

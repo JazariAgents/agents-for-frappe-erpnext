@@ -13,13 +13,13 @@ updated: "2026-03-04"
 A **301 Redirect** is used to make sure that search engines and users are sent to the correct page. A 301 status code is used when any page has been permanently moved to another location. Users will now see the new URL as it has replaced the old page.  
 **2 Step 301 Redirects with ERPNext:**  
 **Step 1:** Open Website Settings via the awesome bar (Global Search Bar) and expand the heading, "Redirects"  
-![](/files/QAoV08L.png)  
+[Screenshot on the live page]  
 **Step 2:** Enter the old URL in Source and the new URL in Target and save the document.  
-![](/files/MNpVjLa.png)  
+[Screenshot on the live page]  
 **Watch the Redirect in action:**  
-![](/files/7ZEMlxa.gif)  
+[Screenshot on the live page]  
   
-![](/files/HuwFvOx.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__access-log.md -->
 ---
@@ -46,19 +46,19 @@ In ERPNext, Access Log is available to System Managers, it can be accessed using
 
 > Home > Users and Permissions > Logs > Access Log
 
-![Access Log](/files/using-access-log-3.png)
+[Screenshot on the live page: Access Log]
 
 In case an access log is created on the event of exporting a Report, a **Show Report** button will be generated in the respective log. On clicking this button, the exported report can be viewed along with the set filters.
 
-![Access Log](/files/using-access-log-1.png)
+[Screenshot on the live page: Access Log]
 
 Similarly, a **Show Document** button is generated in case of events related to documents directly such as document Printing and Private File download.
 
-![Access Log](/files/using-access-log-2.png)
+[Screenshot on the live page: Access Log]
 
 Events such as [Raw Printing](/erpnext/raw-printing) save information along with the chosen template for the document.
 
-![Access Log](/files/using-acces-log-4.png)
+[Screenshot on the live page: Access Log]
 
 <!-- page: erpnext/erpnext__accounting-dimension-filter.md -->
 ---
@@ -104,7 +104,7 @@ Open the Accounting Dimension Filter list and select **Add Accounting Dimension 
 
 
 
-![Accounting Dimension Filter list in ERPNext](/files/accounting-dimension-filter-list.webp)
+[Screenshot on the live page: Accounting Dimension Filter list in ERPNext]
 
 
 
@@ -117,7 +117,7 @@ Use **Allow** when the permitted list is short and stable. Use **Restrict** when
 
 
 
-![Department Accounting Dimension Filter for Nova Electronics Trading](/files/filter-basis-and-rule.webp)
+[Screenshot on the live page: Department Accounting Dimension Filter for Nova Electronics Trading]
 
 ### Select the accounts
 
@@ -129,7 +129,7 @@ In this example, Sales - NET is mandatory. Any transaction that posts to this in
 
 
 
-![Mandatory account selected in an Accounting Dimension Filter](/files/filter-accounts.webp)
+[Screenshot on the live page: Mandatory account selected in an Accounting Dimension Filter]
 
 ### Select the dimension values
 
@@ -141,7 +141,7 @@ Save the filter. Accounting Dimension Filters are configuration records, so they
 
 
 
-![Allowed Department value selected in an Accounting Dimension Filter](/files/filter-allowed-values.webp)
+[Screenshot on the live page: Allowed Department value selected in an Accounting Dimension Filter]
 
 ## How the filter works in transactions
 
@@ -260,11 +260,11 @@ You need the Accounts Manager or System Manager role. Decide whether the dimensi
 2. Select the **Reference Document Type**. ERPNext uses records from this DocType as the available dimension values.
 3. Confirm the **Dimension Name**, then save. ERPNext creates the corresponding fields on accounting transactions and supported reports.
 
-![Accounting Dimension list showing the Department dimension in ERPNext](https://docs.frappe.io/files/accounting-dimension-list.webp)
+[Screenshot on the live page: Accounting Dimension list showing the Department dimension in ERPNext]
 
 
 
-![Department selected as the Reference Document Type for an Accounting Dimension](https://docs.frappe.io/files/accounting-dimension-reference-and-name.webp)
+[Screenshot on the live page: Department selected as the Reference Document Type for an Accounting Dimension]
 
 ## Set a company default and mandatory rules
 
@@ -272,7 +272,7 @@ Use the **Dimension Defaults** child table when different companies need differe
 
 
 
-![Dimension Defaults row with the pencil icon highlighted](https://docs.frappe.io/files/accounting-dimension-default-pencil.webp)
+[Screenshot on the live page: Dimension Defaults row with the pencil icon highlighted]
 
 
 
@@ -280,7 +280,7 @@ For Nova Electronics Trading, **Sales - NET** is the default Department. The dim
 
 
 
-![Department default and mandatory Profit and Loss setting in the child-row editor](https://docs.frappe.io/files/accounting-dimension-default-settings.webp)
+[Screenshot on the live page: Department default and mandatory Profit and Loss setting in the child-row editor]
 
 ## Important fields and what they mean
 
@@ -311,7 +311,7 @@ The generated dimension becomes a filter on supported reports. Select Department
 
 
 
-![Profit and Loss Statement showing the generated Department dimension filter](https://docs.frappe.io/files/profit-and-loss-department-filter.webp)
+[Screenshot on the live page: Profit and Loss Statement showing the generated Department dimension filter]
 
 
 
@@ -422,13 +422,13 @@ Record this with a [Journal Entry](https://docs.frappe.io/erpnext/journal-entry)
 
 
 
-![Owner investment recorded as a balanced Journal Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-owner-investment.png)
+[Screenshot on the live page: Owner investment recorded as a balanced Journal Entry in ERPNext]
 
 After submission, **View &gt; Ledger** shows the two balanced General Ledger lines.
 
 
 
-![General Ledger entries created by the owner investment](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-owner-investment-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the owner investment]
 
 ## 2. Buy equipment and inventory
 
@@ -453,7 +453,7 @@ The example Purchase Invoice records real NovaPhone inventory from a supplier.
 
 
 
-![Inventory items on a submitted ERPNext Purchase Invoice](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-purchase-invoice.png)
+[Screenshot on the live page: Inventory items on a submitted ERPNext Purchase Invoice]
 
 Use a [Payment Entry](https://docs.frappe.io/erpnext/payment-entry) for the $2,000 paid now and allocate it to the supplier invoice. ERPNext debits Accounts Payable and credits Bank for the payment. The remaining $3,000 stays outstanding until it is paid or otherwise adjusted.
 
@@ -487,7 +487,7 @@ A [Sales Order](https://docs.frappe.io/erpnext/sales-order) records the commerci
 
 
 
-![Inventory items on a submitted ERPNext Sales Invoice](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-sales-invoice.png)
+[Screenshot on the live page: Inventory items on a submitted ERPNext Sales Invoice]
 
 The dot before an Item Code shows stock availability at a glance: green means in stock and red means out of stock.
 
@@ -511,7 +511,7 @@ The following Journal Entry records $845 of office maintenance paid from Nova's 
 
 
 
-![Operating expense recorded with a balanced Journal Entry](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-operating-expense.png)
+[Screenshot on the live page: Operating expense recorded with a balanced Journal Entry]
 
 ## 5. Understand profit during the period
 
@@ -540,7 +540,7 @@ Select the company, fiscal year, period start and end dates, and the closing acc
 
 
 
-![Period dates and Retained Earnings on an ERPNext Period Closing Voucher](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-period-closing.png)
+[Screenshot on the live page: Period dates and Retained Earnings on an ERPNext Period Closing Voucher]
 
 After submission, income and expense balances are closed into the selected balance-sheet account for that period. Do not use a closing voucher merely to hide an unexplained difference. Correct source transactions and complete approved adjustments first.
 
@@ -673,7 +673,7 @@ The receivable row must also contain the **Customer**, **Reference Type**, and *
 1. Go to **Accounting &gt; General Ledger, Journals and Adjustments &gt; Journal Entry**.
 2. Select **Add Journal Entry**, highlighted below.
 
-![Journal Entry list with Add Journal Entry highlighted](https://novacompanies.m.frappe.cloud/files/bad-debt-journal-entry-list.png)
+[Screenshot on the live page: Journal Entry list with Add Journal Entry highlighted]
 
 3. Select the **Company** and **Posting Date**. Keep **Entry Type** as **Journal Entry** unless your accounting policy requires a different type.
 4. In **Accounting Entries**, add the expense row. Select **Bad Debt Expense** or your approved write-off account and enter the approved amount in **Debit**.
@@ -682,7 +682,7 @@ The receivable row must also contain the **Customer**, **Reference Type**, and *
 
 The example uses **Write Off - NET** for the debit and **Debtors - NET** for the credit. On the receivable row, select the highlighted pencil icon to open the full child-row editor. Fields for the Customer and invoice reference are available inside this editor.
 
-![Balanced Journal Entry with the receivable-row pencil highlighted](https://novacompanies.m.frappe.cloud/files/bad-debt-journal-entry-accounts.png)
+[Screenshot on the live page: Balanced Journal Entry with the receivable-row pencil highlighted]
 
 ## Identify the Customer on the receivable row
 
@@ -694,7 +694,7 @@ In the child-row editor:
 
 The highlighted fields identify Northstar Retail inside the shared receivable control account. Without the Party values, ERPNext cannot apply the write-off to the customer's outstanding balance correctly.
 
-![Receivable account, Party Type, and Customer highlighted in the child-row editor](https://novacompanies.m.frappe.cloud/files/bad-debt-journal-entry-party.png)
+[Screenshot on the live page: Receivable account, Party Type, and Customer highlighted in the child-row editor]
 
 ## Link the write-off to the Sales Invoice
 
@@ -706,7 +706,7 @@ Continue in the same child-row editor:
 
 The highlighted reference fields link the USD 500 credit to Sales Invoice `ACC-SINV-2026-00009`.
 
-![Credit amount and Sales Invoice reference highlighted in the child-row editor](https://novacompanies.m.frappe.cloud/files/bad-debt-journal-entry-reference.png)
+[Screenshot on the live page: Credit amount and Sales Invoice reference highlighted in the child-row editor]
 
 This reference is essential. A Journal Entry can balance the General Ledger without it, but the Sales Invoice may remain outstanding in the Accounts Receivable report.
 

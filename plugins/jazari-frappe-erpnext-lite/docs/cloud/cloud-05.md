@@ -1,65 +1,5 @@
 <!-- Frappe documentation: cloud, part 5 of 9. Index: docs/INDEX.md -->
 
-<!-- page: cloud/cloud__installing-an-app.md -->
----
-title: "Installing an app"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/installing-an-app"
-updated: "2026-02-18"
----
-
-## Public sites
-
-You will be able to install featured apps from the [marketplace](https://frappecloud.com/marketplace) only for your site. To install an app
-
-1. Click on Apps tab of your Site's dashboard
-
-![](/files/sUR2zsI.png)
-
-2. Click on Install App
-3. Select the app you need to install
-  ![](/files/image2769a6.png)
-
-## Sites on Private bench groups
-
-You can add custom apps or any app from the [marketplace](https://frappecloud.com/marketplace) to your bench group and then install to your site. To install an app on a site on private bench group you have to add app in 2 places.
-
-### Bench Group
-
-1. Click on Apps tab of your Bench Group's dashboard
-
-![](/files/Jl7MSK0.png)
-
-2. Click on Add App
-
-![](/files/xeR5clV.png)
-
-3. Select any marketplace app or follow [this guide](https://frappecloud.com/docs/benches/custom-app) to install a custom app.
-
-![](/files/HzkmdMl.png)
-
-4. Click on the Update Available button to create a new deploy so that your site can install the app
-
-![](/files/svW5FMt.png)
-
-5. Select your site while doing the update and click on deploy and update
-
-![](/files/ARYkCG7.png)
-
-### Site
-
-1. Once the update is done click on Apps tab of your Site's dashboard
-
-![](/files/sUR2zsI.png)
-
-2. Click on Install App
-
-![](/files/z2nse6u.png)
-
-3. Select the app added earlier to install
-
-![](/files/Behu0t3.png)
-
 <!-- page: cloud/cloud__instructions-to-upgrade-the-email-delivery-service-plan.md -->
 ---
 title: "Upgrade the Email Delivery Service plan for more emails"
@@ -70,11 +10,11 @@ updated: "2026-02-18"
 
 From your Frappe Cloud site dashboard navigate to the Apps tab and click on three dots from the Email Delivery Service app.
 
-![](/files/V1lcDrp.png)
+[Screenshot on the live page]
 
 Choose the plan you would like as per your requirements and click on select plan to confirm the change.
 
-![](/files/9h10e34.png)
+[Screenshot on the live page]
 
 
 
@@ -82,7 +22,7 @@ Choose the plan you would like as per your requirements and click on select plan
 
 > Once logged into your site, you can monitor the emails sent by searching for "**Email Delivery Analytics**" in the Awesome Bar.
 
-![](/files/BpKfYU8.png)
+[Screenshot on the live page]
 
 ## FAQ
 
@@ -399,29 +339,29 @@ Now, when you run a *Build and Deploy*, the image that is created for the deploy
 
 You should create at least one site plan for the tenants to be able to start using the dashboard and creating sites. Without this, the *Create Site* wizard will not work as intended. This can be done using the `Site Plan` doctype. Go ahead and create a Free site plan.
 
-![Site Plan 1](/files/site-plan-16c3ee4.png)
+[Screenshot on the live page: Site Plan 1]
 
 Now under Roles, add `Press Admin` and `Press Member`.
 
-![Site Plan 2](/files/site-plan-2.png)
+[Screenshot on the live page: Site Plan 2]
 
 ## Creating an App
 
 The next step is to create an App that will ultimately be installed on our site. The first app in any release group must be `frappe` (Frappe Framework), the name is case sensitive. Navigate to `App List` page and click on `'+ Add new App'` button on the top-right corner. Fill in the details as below:
 
-![New App Frappe](/files/new-app-frappe.png)
+[Screenshot on the live page: New App Frappe]
 
 ## Creating an App Source
 
 Now, we need to create an App source for this app. Navigate to `App Source` list page, create a new document and fill in the details as below:
 
-![App Source](/files/aBnJbGp.png)
+[Screenshot on the live page: App Source]
 
 ## Approving the App Release
 
 Now, go to the `App Release` list page by clicking on the App Release chip. You should see an app release created for the `frappe` app that we created in the previous step. Open that document and change its status from Draft to Approved.
 
-![App Release](/files/Screenshot%202025-09-30%20at%2011.12.24%E2%80%AFAM.png)
+[Screenshot on the live page: App Release]
 
 ## Creating a Release Group
 
@@ -429,19 +369,19 @@ Now, go to the `App Release` list page by clicking on the App Release chip. You 
 
 Navigate to the `Release Group` list and create a new release group. The details to be filled are shown below.
 
-![New Release Group](/files/new_release_groupa3cb60.png)
+[Screenshot on the live page: New Release Group]
 
 Make sure at least one `f` server is added to your chosen *Release Group*. New sites cannot be created if no server is added. Ensure the Release Group is marked **Public**; otherwise, it will remain private and act as an isolated bench.
 
 Go to the `Apps` tab of the release group and select the app source that you created in the previous step, like in the screenshot below.
 
-![New Release Group: Apps tab](/files/new_release_group_2.png)
+[Screenshot on the live page: New Release Group: Apps tab]
 
 Now click save.
 
 Once you save the release group document, a `Deploy Candidate` is automatically created for this release group. In fact, a deploy candidate is created any time you make changes to the `Release Group`.
 
-![Created Release Group](/files/created_release_group.png)
+[Screenshot on the live page: Created Release Group]
 
 Click on the `Deploy Candidate` chip and this will take you to the `Deploy Candidate` page which is filtered for the current `Release Group`. Select the `Deploy Candidate` (are named like `bench-xxx`) that was created latest. You should only have one if you never created a release group before. Now, click on `Actions` and then `Schedule Build and Deploy`.
 
@@ -451,7 +391,7 @@ You can click on `Visit Dashboard` link on the top-left corner to view the progr
 
 > If you see an error like `permission denied while trying to connect to the Docker daemon socket`, it usually means that the updated group permissions have not yet taken effect for the frappe user in the target server. Restarting the virtual machine should start a fresh user session and apply the new group membership, resolving the permission issue.
 
-![Deploy Release Group](/files/deploy_release_group.png)
+[Screenshot on the live page: Deploy Release Group]
 
 Once the image is deployed, you can go the bench list and you will find a new bench there. This was created using the `Deploy Candidate`.
 
@@ -462,21 +402,21 @@ It's time to create your first tenant site!
 1. Open the dashboard by changing the browser address path to `/dashboard`.
 2. From the sidebar, click on **Sites**, then select the **+ Add Site** button to start setup. Configure as shown below in the screenshot.
 
-![New tenant site](/files/new-site.png)
+[Screenshot on the live page: New tenant site]
 
 Choose a subdomain: this will be the site's primary address. You can link a custom domain later if needed.
 
 1. Click `Create site`. You'll be redirected to the **Insights** tab, where you can track the deployment progress in real time.
 
-![Tenant site deployment in progress](/files/tenant-site-page.png)
+[Screenshot on the live page: Tenant site deployment in progress]
 
 Wait until the status updates from `Running` to `Success`.
 
 1. Go back to the **Sites** page. Your new site will now appear in the list, as shown below.
 
-![Tenant sites list with entries](/files/tenant-sites-list.png)
+[Screenshot on the live page: Tenant sites list with entries]
 
-![Tenant site deployment completed](/files/tenant-site-deployment-done.png)
+[Screenshot on the live page: Tenant site deployment completed]
 
 ## Resolving issues
 
@@ -553,7 +493,7 @@ Frappe Cloud allows you to see the logs of your processes right from your dashbo
 
 From your bench group dashboard, you can view logs for a particular **bench**
 
-![](/files/6AYIwgn.png)![](/files/MC50whq.png)  
+[Screenshot on the live page][Screenshot on the live page]  
 
 
 Reading the logs
@@ -593,7 +533,7 @@ Enter the email of the member you want to add and Send Invitation.
 
 An email will be sent with an invitation to join the team.
 
-![](/files/manage_members.png)
+[Screenshot on the live page]
 
 Similarly removing members is very straight forward with just a click of a Remove button!
 
@@ -755,11 +695,11 @@ For Marketplace apps that are non-free, we do a payout to the publisher at the *
 
 If you want to publish a paid app, please visit the **Publisher Profile** page and edit your payout preferences:
 
-![Payout Preferences](/files/CleanShot 2022-11-02 at 12.56.57@2x.png)
+[Screenshot on the live page: Payout Preferences]
 
 You can select from one of the following payout methods:
 
-![Payout Methods](/files/CleanShot 2022-11-02 at 12.58.32@2x.png)
+[Screenshot on the live page: Payout Methods]
 
 > If you are based from outside India, the only option available as of now is Paypal. You need to raise an PayPal invoice at the end of the month.
 
@@ -767,7 +707,7 @@ You can select from one of the following payout methods:
 
 You can visit the **Payouts** page from your Developer dashboard to see the history of payouts with an option to view more details. A payout is in draft mode until the payment is processed from our side:
 
-![Developer Payouts Page](/files/CleanShot 2022-11-02 at 13.03.56@2x.png)
+[Screenshot on the live page: Developer Payouts Page]
 
 ## Payout Terms
 
@@ -787,19 +727,19 @@ updated: "2026-02-16"
 
 To be able to publish and manage apps on Frappe Cloud Marketplace, you will need to get a marketplace developer account. You can do this by going to the **settings page of your Frappe Cloud dashboard**. Open the `Profile` tab and click on the `Become a Publisher` button:
 
-![Become Publisher Button location](/files/become-publisher.png)
+[Screenshot on the live page: Become Publisher Button location]
 
 Once the Developer account is enabled (not to be confused with Developer Mode on Frappe Sites), you will be able to see a new **Marketplace** 
 tab on dashboard, as shown below:
 
-![Marketplace Tab](/files/marketplace_tab_no_apps.png)
+[Screenshot on the live page: Marketplace Tab]
 
 ## Adding your Frappe App
 
 Just click on the `+ Add App` button and you will see a dialog open with a list of apps that you 
 own (you might have added it to your bench group before):
 
-![Add App Dialog](/files/add_app_dialog.png)
+[Screenshot on the live page: Add App Dialog]
 
 Select the app you want to add to the marketplace or if you want to add an app from GitHub, click on the **Add from GitHub** link.
 
@@ -807,25 +747,25 @@ Clicking on the **Add from GitHub** link will open a new page, where you can aut
 GitHub account. Once your app is validated, you can select the version of Frappe with which your app is compatible and click on 
 the `Add to Marketplace` button:
 
-![Add to Marketplace from GitHub](/files/add_from_github.png)
+[Screenshot on the live page: Add to Marketplace from GitHub]
 
 A marketplace app will be created with the selected app and a new page will open where you will be able to manage your 
 marketplace app:
 
-![Manage Marketplace App](/files/marketplace_app.png)
+[Screenshot on the live page: Manage Marketplace App]
 
 > Notice that your app is in `Draft` state. It will be published to marketplace once we approve it from our side.
 
 You should also be able to see your app on the list of apps in **Marketplace** tab:
 
-![List of Marketplace Apps](/files/marketplace_tab_with_app.png)
+[Screenshot on the live page: List of Marketplace Apps]
 
 ## Managing the profile of your App
 
 The first tab on the Marketplace App page is the **Overview** tab. Here, you can edit all the details related to your app like App image, descriptions, links etc. which will
 be displayed on the marketplace website:
 
-![Edit Description](/files/darkify_md.gif)
+[Screenshot on the live page: Edit Description]
 
 ### Details Required for Publishing
 
@@ -884,14 +824,14 @@ You can configure multiple notifications at the Team level to ensure that alerts
 - Go to Settings → Profile.
 - Under Notification Settings, click `Manage` to open the configuration screen.
 
-![](/files/Screenshot%202025-10-06%20at%2015-30-21%20Settings%20-%20Profile.png)
+[Screenshot on the live page]
 
 ### Configuring Notifications
 
 The Notification Configuration screen allows you to set up how and where notifications are sent.
 
 
-![](/files/Screenshot%202025-10-06%20at%2015-32-03%20Settings%20-%20Profile.png)
+[Screenshot on the live page]
 
 ### Notification Flow Logic
 
@@ -902,7 +842,7 @@ The notification delivery follows a top-down hierarchy:
 - If General is also not configured, fallback to the Team-level configuration.
 
 
-![](/files/shapes%20at%2025-10-06%2015.57.22.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__performance-tuning.md -->
 ---
@@ -922,29 +862,29 @@ For more context refer:
 
 ### Add Database Index
 
-1. Click on the row containing the query you would like to analyze and the Normalized Slow Query dialog should open.![Screenshot 2024-07-31 at 2.27.35 PM](/files/Screenshot 2024-07-31 at 2.27.35 PM.png "Screenshot 2024-07-31 at 2.27.35 PM.png")
-2. Click on the Analyze Query button and a toast should appear stating that the Analyze query has started in the background.![](/files/9NWWN9T.png)
+1. Click on the row containing the query you would like to analyze and the Normalized Slow Query dialog should open.[Screenshot on the live page: Screenshot 2024-07-31 at 2.27.35 PM]
+2. Click on the Analyze Query button and a toast should appear stating that the Analyze query has started in the background.[Screenshot on the live page]
 3. The above process might take time, anywhere between (10s to 5m) depending on how big the query is and how big the actual tables in the database are.
 
 
 &gt; You wont be able to analyze multiple queries at once, because this process is rather CPU intensive.  
 &gt; If you do so, you will be presented with the below warning.
 &gt; 
-&gt; ![](/files/QoNsjSd.png)  
+&gt; [Screenshot on the live page]  
 &gt; 
 &gt; 
 &gt;
 4. Once the analyze query operation is completed, you will be able to see the suggested index.  
-![](/files/jZ2WOcl.png)  
+[Screenshot on the live page]  
 
 
 
-&gt; If there is no suggested index, you will be shown the below message. There is nothing much you can do at this point apart from adding database indexes manually.![](/files/GyVpG9L.png)  
+&gt; If there is no suggested index, you will be shown the below message. There is nothing much you can do at this point apart from adding database indexes manually.[Screenshot on the live page]  
 &gt; 
 &gt; 
 &gt;
 5. Click on Apply Suggestion to add the suggested index. This will create an "Add Database Index" job, whose status you can track from the jobs tab.  
-![](/files/6QNYkJy.png)  
+[Screenshot on the live page]  
 
 
 
@@ -998,3 +938,80 @@ Commit the change, push it, then deploy again.
 ## If the app is not yours
 
 Contact the app's developer and ask them to remove `frappe` from their `[project] dependencies`. Until they do, that app cannot be deployed.
+
+<!-- page: cloud/cloud__private-benches__common-issues__pkg-resources-error-when-updating-site.md -->
+---
+title: "pkg_resources error when updating site"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/private-benches/common-issues/pkg-resources-error-when-updating-site"
+updated: "2026-08-04"
+---
+
+# Update fails with "No module named 'pkg\_resources'"
+
+Your site update failed and the traceback ends with:
+
+```
+ModuleNotFoundError: No module named 'pkg_resources'
+```
+
+The update is rolled back, so your site is still running on the old bench. Nothing is lost — but the update will keep failing until you do one of the things below.
+
+## Why it happens
+
+`pkg_resources` used to ship with **setuptools**. setuptools removed it in version 82.
+
+Every deploy builds a fresh bench with a fresh Python environment, and that environment now gets a setuptools that no longer has `pkg_resources`. Any app that still imports it — older **Frappe** versions, and **Payments** and **LMS** (both pull it in through `razorpay`) — breaks the moment the site is migrated.
+
+## Fix: update the app
+
+All three apps have newer releases that don't import `pkg_resources` any more. This is the fix — the rest of this page is for when you can't take it.
+
+Open your bench group and go to the **Apps** tab. If an update is available you will see the **Update Available** button.
+
+[Screenshot on the live page]
+
+Click it, tick **Frappe Framework**, **Payments** and **LMS** — whichever are listed as having an update — and go through **Next** until you can deploy.
+
+[Screenshot on the live page]
+
+Once the deploy finishes, retry the site update.
+
+## If you don't want to update those apps
+
+Some teams pin app versions deliberately. In that case you have two options.
+
+### Option 1: install the older setuptools yourself
+
+The deploy creates a **new bench**. You can SSH into it and put the older setuptools back before the site is migrated.
+
+1. Open the bench group, go to the **Sites** tab, click the `...` next to the new bench and choose **SSH Access**.  
+[Screenshot on the live page]
+2. Run the two commands the dialog gives you — the first stores a certificate that is valid for 6 hours, the second opens the SSH session.  
+[Screenshot on the live page]
+
+  If the dialog says your SSH public key is missing, add it under **Settings → Developer** first.
+3. Once you are in, run:
+  ```bash
+   cd /home/frappe/frappe-bench
+   env/bin/pip install setuptools==80.9.0
+  ```
+4. Retry the site update from the dashboard.
+
+> **This is not a one-time fix.** Every deploy creates a brand new bench with a brand new environment, so you have to do this again after *every* update. If that isn't practical, use Option 2.
+
+### Option 2: change the Bench version
+
+The bench CLI used to pull in the newest setuptools when it built the environment, without telling anyone. Newer bench releases pin it back below 82, but the versions in between will keep picking up the broken one.
+
+You can move your bench group to a Bench version that isn't affected. Go to the **Dependencies** tab of your bench group.
+
+[Screenshot on the live page]
+
+Click the `...` next to **Bench Version**, choose **Edit**, pick **5.26.0** from the list and click **Update**. Deploy afterwards for it to take effect.
+
+[Screenshot on the live page]
+
+If 5.26.0 is not in the list for your Frappe version, pick the highest version below it that is.
+
+This survives future deploys, so you won't have to repeat Option 1 every time. Updating the app is still the better long-term answer.

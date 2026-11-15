@@ -17,8 +17,9 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 
 ## What is not bundled
 
-- **Screenshots.** The pages reference images on Frappe's servers; those URLs need internet. Where a step is
-  only a picture, say so rather than inventing what it shows.
+- **Screenshots and videos.** In this edition each one is marked `[Screenshot on the live page: …]` (or
+  "picture on the live page"); the page's live `url` in its front matter shows it. Where a step is only a
+  picture, say so rather than inventing what it shows.
 - **Links between pages** inside these files are live URLs (`/erpnext/credit-note`). Offline, search this
   index for the page name (`erpnext__credit-note`).
 - **Legacy version manuals** (ERPNext v12–v14, Framework v13–v15) were deliberately excluded: this plugin
@@ -30,7 +31,7 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 |---|---|---|
 | Multi-level BOM Creator (New) | `docs/erpnext/erpnext-10.md` lines 292–681 (`erpnext__bom-creator-new`) | yes |
 | 2 Step 301 Redirect in your ERPNext Website | `docs/erpnext/erpnext-01.md` lines 3–22 (`erpnext__2-step-301-redirect-in-your-erpnext-website`) | — |
-| 3 Step SEO for your ERPNext Website | `docs/erpnext/erpnext-30.md` lines 27–49 (`erpnext__how-to-setup-seo-for-your-website-on-erpnext`) | yes |
+| 3 Step SEO for your ERPNext Website | `docs/erpnext/erpnext-29.md` lines 292–314 (`erpnext__how-to-setup-seo-for-your-website-on-erpnext`) | yes |
 | Access Log | `docs/erpnext/erpnext-01.md` lines 24–61 (`erpnext__access-log`) | — |
 | Accounting Dimensions Filters | `docs/erpnext/erpnext-01.md` lines 63–224 (`erpnext__accounting-dimension-filter`) | — |
 | Accounting Dimensions | ERPNext Documentation | `docs/erpnext/erpnext-01.md` lines 226–369 (`erpnext__accounting-dimensions`) | yes |
@@ -49,13 +50,13 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Activity Cost | `docs/erpnext/erpnext-03.md` lines 757–784 (`erpnext__activity-cost`) | yes |
 | Activity Type | `docs/erpnext/erpnext-03.md` lines 786–820 (`erpnext__activity-type`) | — |
 | Add Margin to Quotations and Sales Orders | ERPNext Documentation | `docs/erpnext/erpnext-04.md` lines 53–176 (`erpnext__adding-margin`) | — |
-| Add Sales Persons to Sales Transactions | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 154–276 (`erpnext__sales-persons-in-the-sales-transactions`) | — |
+| Add Sales Persons to Sales Transactions | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 3–125 (`erpnext__sales-persons-in-the-sales-transactions`) | — |
 | Add a Reference to a Journal Entry | ERPNext Documentation | `docs/erpnext/erpnext-04.md` lines 178–333 (`erpnext__adding-reference-to-journal-entry`) | — |
-| Add columns in Standard Report and Export | `docs/erpnext/erpnext-29.md` lines 345–357 (`erpnext__how-to-add-columns-in-the-standard-report-and-export`) | — |
+| Add columns in Standard Report and Export | `docs/erpnext/erpnext-28.md` lines 507–519 (`erpnext__how-to-add-columns-in-the-standard-report-and-export`) | — |
 | Add/Remove Fields from Print Format | `docs/erpnext/erpnext-04.md` lines 3–36 (`erpnext__add-remove-fields-from-print-format`) | — |
 | Adding Attachments to Outgoing Messages | `docs/erpnext/erpnext-04.md` lines 38–51 (`erpnext__adding-attachments-to-outgoing-messages`) | — |
 | Adding Users | `docs/erpnext/erpnext-04.md` lines 335–502 (`erpnext__adding-users`) | — |
-| Additional Charges in Payment | ERPNext Documentation | `docs/erpnext/erpnext-28.md` lines 819–898 (`erpnext__handing-deductions-in-payment-entry`) | — |
+| Additional Charges in Payment | ERPNext Documentation | `docs/erpnext/erpnext-28.md` lines 3–82 (`erpnext__handing-deductions-in-payment-entry`) | — |
 | Address Template | ERPNext Documentation | `docs/erpnext/erpnext-04.md` lines 504–654 (`erpnext__address-template`) | — |
 | Address | ERPNext Documentation | `docs/erpnext/erpnext-04.md` lines 656–813 (`erpnext__address`) | — |
 | Adjusting Withhold Amount | `docs/erpnext/erpnext-05.md` lines 3–204 (`erpnext__adjusting-withhold-amount`) | — |
@@ -70,7 +71,7 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Amending Purchase Order after Submit | `docs/erpnext/erpnext-05.md` lines 743–763 (`erpnext__amending-purchase-order-after-submit`) | — |
 | Amending Sales Order after Submit | ERPNext Documentation | `docs/erpnext/erpnext-05.md` lines 765–880 (`erpnext__amending-sales-order-after-submit`) | — |
 | Apply Discounts to Sales Transactions | ERPNext Documentation | `docs/erpnext/erpnext-06.md` lines 3–114 (`erpnext__applying-discount`) | — |
-| Apply Tax on Another Tax or Charge | `docs/erpnext/erpnext-29.md` lines 382–579 (`erpnext__how-to-apply-tax-on-tax`) | — |
+| Apply Tax on Another Tax or Charge | `docs/erpnext/erpnext-28.md` lines 544–741 (`erpnext__how-to-apply-tax-on-tax`) | — |
 | Appointment Booking Settings | ERPNext Documentation | `docs/erpnext/erpnext-06.md` lines 116–172 (`erpnext__appointment-booking-settings`) | — |
 | Appointment | ERPNext Documentation | `docs/erpnext/erpnext-06.md` lines 174–230 (`erpnext__appointment`) | — |
 | Asset Capitalization | ERPNext Documentation | `docs/erpnext/erpnext-06.md` lines 232–309 (`erpnext__asset-capitalization`) | — |
@@ -91,10 +92,10 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Auto Email Reports | `docs/erpnext/erpnext-07.md` lines 735–794 (`erpnext__auto-email-reports`) | yes |
 | Auto Repeat | `docs/erpnext/erpnext-07.md` lines 867–964 (`erpnext__auto-repeat`) | yes |
 | Auto Repeat Recurring Orders and Invoices | ERPNext Documentation | `docs/erpnext/erpnext-07.md` lines 796–865 (`erpnext__auto-repeat-recurring-orders-and-invoices`) | — |
-| Automate Lead Creation | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 3–28 (`erpnext__automate_lead_capturing`) | — |
-| Automating Issue Assignments in ERPNext | `docs/erpnext/erpnext-08.md` lines 30–50 (`erpnext__automating-issue-assignments-to-support-team-in-erpnext`) | — |
-| Automation | `docs/erpnext/erpnext-08.md` lines 52–64 (`erpnext__automation`) | — |
-| Awesomebar Global Search | `docs/erpnext/erpnext-08.md` lines 66–133 (`erpnext__awesomebar-global-search`) | — |
+| Automate Lead Creation | ERPNext Documentation | `docs/erpnext/erpnext-07.md` lines 966–991 (`erpnext__automate_lead_capturing`) | — |
+| Automating Issue Assignments in ERPNext | `docs/erpnext/erpnext-08.md` lines 3–23 (`erpnext__automating-issue-assignments-to-support-team-in-erpnext`) | — |
+| Automation | `docs/erpnext/erpnext-08.md` lines 25–37 (`erpnext__automation`) | — |
+| Awesomebar Global Search | `docs/erpnext/erpnext-08.md` lines 39–106 (`erpnext__awesomebar-global-search`) | — |
 | BOM Comparison Tool | `docs/erpnext/erpnext-10.md` lines 243–271 (`erpnext__bom-comparison-tool`) | — |
 | BOM Costing in different Currency | `docs/erpnext/erpnext-10.md` lines 273–290 (`erpnext__bom-costing-in-different-currency`) | — |
 | BOM Explorer | `docs/erpnext/erpnext-10.md` lines 889–904 (`erpnext__bom_explorer`) | — |
@@ -103,12 +104,12 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | BOM Stock Analysis | `docs/erpnext/erpnext-10.md` lines 764–803 (`erpnext__bom-stock-analysis`) | — |
 | BOM Stock Report | `docs/erpnext/erpnext-10.md` lines 805–825 (`erpnext__bom-stock-report`) | — |
 | BOM Update Tool | `docs/erpnext/erpnext-10.md` lines 827–887 (`erpnext__bom-update-tool`) | yes |
-| Balance Sheet | `docs/erpnext/erpnext-08.md` lines 264–367 (`erpnext__balance-sheet`) | yes |
-| Balance in Temporary Account | `docs/erpnext/erpnext-08.md` lines 235–262 (`erpnext__balance-in-temporary-account`) | — |
-| Bank Account | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 369–499 (`erpnext__bank-account`) | — |
-| Bank Accounts and Modes of Payment | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 501–581 (`erpnext__bank-accounts-and-modes-of-payment`) | — |
-| Bank Guarantee | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 583–733 (`erpnext__bank-guarantee`) | — |
-| Bank Reconciliation | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 735–822 (`erpnext__bank-reconciliation`) | yes |
+| Balance Sheet | `docs/erpnext/erpnext-08.md` lines 237–340 (`erpnext__balance-sheet`) | yes |
+| Balance in Temporary Account | `docs/erpnext/erpnext-08.md` lines 208–235 (`erpnext__balance-in-temporary-account`) | — |
+| Bank Account | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 342–472 (`erpnext__bank-account`) | — |
+| Bank Accounts and Modes of Payment | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 474–554 (`erpnext__bank-accounts-and-modes-of-payment`) | — |
+| Bank Guarantee | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 556–706 (`erpnext__bank-guarantee`) | — |
+| Bank Reconciliation | ERPNext Documentation | `docs/erpnext/erpnext-08.md` lines 708–795 (`erpnext__bank-reconciliation`) | yes |
 | Bank Transaction | ERPNext Documentation | `docs/erpnext/erpnext-09.md` lines 3–150 (`erpnext__bank-transaction`) | — |
 | Bank | ERPNext Documentation | `docs/erpnext/erpnext-09.md` lines 152–259 (`erpnext__bank`) | — |
 | Banking in ERPNext | ERPNext Documentation | `docs/erpnext/erpnext-09.md` lines 261–412 (`erpnext__banking-in-erpnext`) | — |
@@ -130,15 +131,15 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Bulk Update | `docs/erpnext/erpnext-11.md` lines 858–888 (`erpnext__bulk-update`) | yes |
 | Buying Reports | `docs/erpnext/erpnext-12.md` lines 167–250 (`erpnext__buying_reports`) | — |
 | Buying Settings | `docs/erpnext/erpnext-12.md` lines 3–143 (`erpnext__buying-settings`) | — |
-| CRM Analytics | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 708–743 (`erpnext__sales_funnel`) | — |
+| CRM Analytics | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 557–592 (`erpnext__sales_funnel`) | — |
 | CRM Reports | ERPNext Documentation | `docs/erpnext/erpnext-16.md` lines 159–216 (`erpnext__crm_reports`) | — |
 | CRM Settings | ERPNext Documentation | `docs/erpnext/erpnext-16.md` lines 218–273 (`erpnext__crm_settings`) | — |
 | Calculate Incentive For Sales Team | `docs/erpnext/erpnext-12.md` lines 252–431 (`erpnext__calculate-incentive-for-sales-team`) | — |
-| Calculate Incentive for Sales Team | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 483–510 (`erpnext__setting-company-sales-goal`) | — |
+| Calculate Incentive for Sales Team | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 106–133 (`erpnext__setting-company-sales-goal`) | — |
 | Calculating Freight in taxes in ERPNext | `docs/erpnext/erpnext-12.md` lines 433–457 (`erpnext__calculatin-freight-in-taxes-in-erpnext`) | — |
 | Campaign | ERPNext Documentation | `docs/erpnext/erpnext-12.md` lines 504–580 (`erpnext__campaign`) | yes |
-| Cannot enable Serial and Batch Number | `docs/erpnext/erpnext-38.md` lines 842–858 (`erpnext__not-able-to-select-has-serial-no-batch-option-in-item-list`) | — |
-| Capacity Planning | `docs/erpnext/erpnext-44.md` lines 846–909 (`erpnext__production-and-material-planning-capacity-planning`) | — |
+| Cannot enable Serial and Batch Number | `docs/erpnext/erpnext-38.md` lines 698–714 (`erpnext__not-able-to-select-has-serial-no-batch-option-in-item-list`) | — |
+| Capacity Planning | `docs/erpnext/erpnext-44.md` lines 798–861 (`erpnext__production-and-material-planning-capacity-planning`) | — |
 | Capacity Planning based on Production Order | `docs/erpnext/erpnext-12.md` lines 595–635 (`erpnext__capacity-planning-based-on-production-order`) | — |
 | Capacity Planning based on Work Order | `docs/erpnext/erpnext-12.md` lines 637–693 (`erpnext__capacity-planning`) | yes |
 | Cash Flow Report | `docs/erpnext/erpnext-12.md` lines 695–787 (`erpnext__cash-flow-report`) | yes |
@@ -160,7 +161,7 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Company Accounting Defaults | ERPNext Documentation | `docs/erpnext/erpnext-14.md` lines 277–368 (`erpnext__company-accounting-defaults`) | — |
 | Company-wise Naming Series | `docs/erpnext/erpnext-14.md` lines 454–500 (`erpnext__company-wise-naming-series`) | — |
 | Concepts and Terms | `docs/erpnext/erpnext-14.md` lines 502–800 (`erpnext__concepts-and-terms`) | — |
-| Configure Customer Loyalty Programs | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 493–621 (`erpnext__loyalty-program`) | yes |
+| Configure Customer Loyalty Programs | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 3–131 (`erpnext__loyalty-program`) | yes |
 | Configuring A Reply-To Email Address | `docs/erpnext/erpnext-14.md` lines 802–824 (`erpnext__configuring-a-reply-to-email-address-in-erpnext`) | — |
 | Contract | ERPNext Documentation | `docs/erpnext/erpnext-14.md` lines 843–936 (`erpnext__contract`) | — |
 | Control Item Rate Changes Through the Sales Cycle | ERPNext Documentat | `docs/erpnext/erpnext-12.md` lines 877–997 (`erpnext__change-the-rate-of-items-in-the-sales-cycle`) | — |
@@ -169,8 +170,8 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Cost Center and Budgeting | `docs/erpnext/erpnext-14.md` lines 971–986 (`erpnext__cost-center-and-budgeting`) | — |
 | Cost Center | ERPNext Documentation | `docs/erpnext/erpnext-15.md` lines 3–98 (`erpnext__cost-center`) | yes |
 | Country | `docs/erpnext/erpnext-15.md` lines 237–304 (`erpnext__country`) | — |
-| Create Promotional Schemes and Discount Slabs | ERPNext Documentation | `docs/erpnext/erpnext-46.md` lines 462–575 (`erpnext__promotional-scheme`) | yes |
-| Create Supplier Quotation through Supplier Portal | `docs/erpnext/erpnext-29.md` lines 581–663 (`erpnext__how-to-create-a-supplier-quotation-through-the-supplier-portal`) | — |
+| Create Promotional Schemes and Discount Slabs | ERPNext Documentation | `docs/erpnext/erpnext-46.md` lines 430–543 (`erpnext__promotional-scheme`) | yes |
+| Create Supplier Quotation through Supplier Portal | `docs/erpnext/erpnext-28.md` lines 743–825 (`erpnext__how-to-create-a-supplier-quotation-through-the-supplier-portal`) | — |
 | Create a Sales Invoice without an Item Code | ERPNext Documentation | `docs/erpnext/erpnext-07.md` lines 519–632 (`erpnext__assistance-sales-purchase-between-companies`) | — |
 | Create a Sales Invoice without an Item Code | ERPNext Documentation | `docs/erpnext/erpnext-52.md` lines 174–304 (`erpnext__sales-invoice-without-an-item`) | — |
 | Create and Apply Coupon Codes | ERPNext Documentation | `docs/erpnext/erpnext-15.md` lines 306–429 (`erpnext__coupon-code`) | yes |
@@ -187,249 +188,249 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Customer Provided Items | `docs/erpnext/erpnext-17.md` lines 505–547 (`erpnext__customer-provided-items`) | — |
 | Customer | ERPNext Documentation | `docs/erpnext/erpnext-17.md` lines 549–721 (`erpnext__customer`) | yes |
 | Customer, Contact and Address Relationship | ERPNext Documentation | `docs/erpnext/erpnext-17.md` lines 145–271 (`erpnext__customer-contact-and-address-relationship`) | — |
-| Customise Cash Flow Report | `docs/erpnext/erpnext-18.md` lines 3–99 (`erpnext__customise-cash-flow-report`) | — |
-| Customize Form | `docs/erpnext/erpnext-18.md` lines 184–286 (`erpnext__customize-form`) | yes |
+| Customise Cash Flow Report | `docs/erpnext/erpnext-17.md` lines 723–819 (`erpnext__customise-cash-flow-report`) | — |
+| Customize Form | `docs/erpnext/erpnext-18.md` lines 86–188 (`erpnext__customize-form`) | yes |
 | Customize Print Format | `docs/erpnext/erpnext-50.md` lines 3–123 (`erpnext__records-print-format`) | — |
-| Customize tables within your Print Format Builder | `docs/erpnext/erpnext-18.md` lines 101–182 (`erpnext__customise-your-items-tables-within-your-print-format-builder`) | — |
-| Customizing Field Visibility in Print Format | `docs/erpnext/erpnext-35.md` lines 932–963 (`erpnext__making-fields-visible-in-print-format`) | — |
-| Customizing Module Visibility | `docs/erpnext/erpnext-18.md` lines 327–361 (`erpnext__customizing-module-visibility`) | — |
+| Customize tables within your Print Format Builder | `docs/erpnext/erpnext-18.md` lines 3–84 (`erpnext__customise-your-items-tables-within-your-print-format-builder`) | — |
+| Customizing Field Visibility in Print Format | `docs/erpnext/erpnext-35.md` lines 442–473 (`erpnext__making-fields-visible-in-print-format`) | — |
+| Customizing Module Visibility | `docs/erpnext/erpnext-18.md` lines 229–263 (`erpnext__customizing-module-visibility`) | — |
 | Customizing Workspace | `docs/erpnext/erpnext-69.md` lines 686–727 (`erpnext__workspace`) | — |
-| DATEV Integration | `docs/erpnext/erpnext-18.md` lines 746–778 (`erpnext__datev-integration`) | — |
-| Daily Depreciation Calculation | ERPNext Documentation | `docs/erpnext/erpnext-18.md` lines 396–460 (`erpnext__daily-depreciation`) | — |
-| Data Export | `docs/erpnext/erpnext-18.md` lines 462–488 (`erpnext__data-export`) | yes |
-| Data Import | `docs/erpnext/erpnext-18.md` lines 490–730 (`erpnext__data-import`) | yes |
-| Data Visibility in Child Tables | `docs/erpnext/erpnext-18.md` lines 288–325 (`erpnext__customizing-data-visibility-in-child-table`) | — |
-| Debit Note for Price Adjustment | ERPNext Documentation | `docs/erpnext/erpnext-18.md` lines 780–911 (`erpnext__debit-note-for-price-adjustment`) | — |
-| Debit Note | ERPNext Documentation | `docs/erpnext/erpnext-19.md` lines 3–148 (`erpnext__debit-note`) | yes |
-| Default Receivable / Payable Account | `docs/erpnext/erpnext-19.md` lines 150–250 (`erpnext__default-receivable-payable-account`) | — |
-| Deferred Accounting | ERPNext Documentation | `docs/erpnext/erpnext-19.md` lines 252–410 (`erpnext__deferred-accounting`) | yes |
-| Deferred Expense | ERPNext Documentation | `docs/erpnext/erpnext-19.md` lines 412–588 (`erpnext__deferred-expense`) | — |
-| Deferred Revenue | ERPNext Documentation | `docs/erpnext/erpnext-20.md` lines 3–177 (`erpnext__deferred-revenue`) | — |
-| Deferred Revenue/Expense Report | `docs/erpnext/erpnext-26.md` lines 63–163 (`erpnext__expense_report`) | — |
-| Delete Company Transactions | `docs/erpnext/erpnext-20.md` lines 276–324 (`erpnext__delete_company_transactions`) | — |
-| Delete Submitted Document | `docs/erpnext/erpnext-20.md` lines 226–274 (`erpnext__delete-submitted-document`) | — |
-| Delete entries linked with GL entries | `docs/erpnext/erpnext-20.md` lines 179–224 (`erpnext__delete-entries-linked-with-gl-entries`) | — |
-| Deleting Custom Reports | `docs/erpnext/erpnext-20.md` lines 432–459 (`erpnext__deleting-custom-reports`) | — |
-| Deleting all transactions for the Company while retaining masters | `docs/erpnext/erpnext-20.md` lines 326–430 (`erpnext__deleting-all-transactions-for-the-company`) | — |
+| DATEV Integration | `docs/erpnext/erpnext-18.md` lines 648–680 (`erpnext__datev-integration`) | — |
+| Daily Depreciation Calculation | ERPNext Documentation | `docs/erpnext/erpnext-18.md` lines 298–362 (`erpnext__daily-depreciation`) | — |
+| Data Export | `docs/erpnext/erpnext-18.md` lines 364–390 (`erpnext__data-export`) | yes |
+| Data Import | `docs/erpnext/erpnext-18.md` lines 392–632 (`erpnext__data-import`) | yes |
+| Data Visibility in Child Tables | `docs/erpnext/erpnext-18.md` lines 190–227 (`erpnext__customizing-data-visibility-in-child-table`) | — |
+| Debit Note for Price Adjustment | ERPNext Documentation | `docs/erpnext/erpnext-18.md` lines 682–813 (`erpnext__debit-note-for-price-adjustment`) | — |
+| Debit Note | ERPNext Documentation | `docs/erpnext/erpnext-18.md` lines 815–960 (`erpnext__debit-note`) | yes |
+| Default Receivable / Payable Account | `docs/erpnext/erpnext-19.md` lines 3–103 (`erpnext__default-receivable-payable-account`) | — |
+| Deferred Accounting | ERPNext Documentation | `docs/erpnext/erpnext-19.md` lines 105–263 (`erpnext__deferred-accounting`) | yes |
+| Deferred Expense | ERPNext Documentation | `docs/erpnext/erpnext-19.md` lines 265–441 (`erpnext__deferred-expense`) | — |
+| Deferred Revenue | ERPNext Documentation | `docs/erpnext/erpnext-19.md` lines 443–617 (`erpnext__deferred-revenue`) | — |
+| Deferred Revenue/Expense Report | `docs/erpnext/erpnext-25.md` lines 258–358 (`erpnext__expense_report`) | — |
+| Delete Company Transactions | `docs/erpnext/erpnext-19.md` lines 716–764 (`erpnext__delete_company_transactions`) | — |
+| Delete Submitted Document | `docs/erpnext/erpnext-19.md` lines 666–714 (`erpnext__delete-submitted-document`) | — |
+| Delete entries linked with GL entries | `docs/erpnext/erpnext-19.md` lines 619–664 (`erpnext__delete-entries-linked-with-gl-entries`) | — |
+| Deleting Custom Reports | `docs/erpnext/erpnext-20.md` lines 109–136 (`erpnext__deleting-custom-reports`) | — |
+| Deleting all transactions for the Company while retaining masters | `docs/erpnext/erpnext-20.md` lines 3–107 (`erpnext__deleting-all-transactions-for-the-company`) | — |
 | Deleting and Restoring Documents | `docs/erpnext/erpnext-51.md` lines 288–327 (`erpnext__restore-deleted-erpnext`) | — |
-| Delivery Note | `docs/erpnext/erpnext-20.md` lines 476–739 (`erpnext__delivery-note`) | yes |
-| Delivery Note Negative Stock Error | `docs/erpnext/erpnext-20.md` lines 461–474 (`erpnext__delivery-note-stock-error`) | — |
-| Delivery Trip | `docs/erpnext/erpnext-20.md` lines 741–778 (`erpnext__delivery-trip`) | yes |
+| Delivery Note | `docs/erpnext/erpnext-20.md` lines 153–416 (`erpnext__delivery-note`) | yes |
+| Delivery Note Negative Stock Error | `docs/erpnext/erpnext-20.md` lines 138–151 (`erpnext__delivery-note-stock-error`) | — |
+| Delivery Trip | `docs/erpnext/erpnext-20.md` lines 418–455 (`erpnext__delivery-trip`) | yes |
 | Delivery from Sales Invoice | `docs/erpnext/erpnext-66.md` lines 956–971 (`erpnext__update-stock-option-in-sales-invoice`) | — |
-| Depreciation Methods | ERPNext Documentation | `docs/erpnext/erpnext-21.md` lines 3–185 (`erpnext__depreciation-methods`) | — |
+| Depreciation Methods | ERPNext Documentation | `docs/erpnext/erpnext-20.md` lines 498–680 (`erpnext__depreciation-methods`) | — |
 | Depreciation | ERPNext Documentation | `docs/erpnext/erpnext-06.md` lines 407–498 (`erpnext__asset-depreciation`) | yes |
-| Difference Between System User and Website User | `docs/erpnext/erpnext-21.md` lines 187–216 (`erpnext__difference-between-system-user-and-website-user`) | — |
-| Difference Entry | ERPNext Documentation | `docs/erpnext/erpnext-21.md` lines 218–376 (`erpnext__difference-entry-button`) | — |
-| Difference between Lead, Contact, and Customer | ERPNext Documentation | `docs/erpnext/erpnext-21.md` lines 581–634 (`erpnext__difference_between_lead_contact_and_customer`) | — |
-| Disable Any User | `docs/erpnext/erpnext-29.md` lines 702–722 (`erpnext__how-to-disable-users-in-the-erpnext-system`) | — |
-| Disable Rounded Total | `docs/erpnext/erpnext-21.md` lines 636–665 (`erpnext__disable-rounded-total`) | — |
-| Disable Signup on ERPNext Website | `docs/erpnext/erpnext-21.md` lines 667–694 (`erpnext__disable-signup`) | — |
-| Disassembly Order | `docs/erpnext/erpnext-21.md` lines 696–720 (`erpnext__disassembly-order`) | — |
-| Discount Accounting | ERPNext Documentation | `docs/erpnext/erpnext-22.md` lines 3–198 (`erpnext__discount_accounting`) | — |
-| Distributed Cost Center | `docs/erpnext/erpnext-22.md` lines 200–308 (`erpnext__distributed-cost-center`) | — |
-| Do I Need ERPNext? | `docs/erpnext/erpnext-22.md` lines 310–344 (`erpnext__do-i-need-an-erp`) | — |
-| DocType | `docs/erpnext/erpnext-22.md` lines 346–429 (`erpnext__doctype`) | — |
-| Document Follow | `docs/erpnext/erpnext-22.md` lines 431–475 (`erpnext__document-follow`) | — |
-| Document Naming Rule | `docs/erpnext/erpnext-22.md` lines 656–730 (`erpnext__document-naming`) | — |
-| Document Naming Settings | `docs/erpnext/erpnext-22.md` lines 555–654 (`erpnext__document-naming-settings`) | — |
-| Document Naming for Avoiding tabSeries Issues | `docs/erpnext/erpnext-22.md` lines 477–553 (`erpnext__document-naming-for-avoiding-tab-series-issues`) | — |
-| Document Title | `docs/erpnext/erpnext-22.md` lines 789–830 (`erpnext__document-title`) | — |
-| Document Title with multiple fields | `docs/erpnext/erpnext-22.md` lines 732–787 (`erpnext__document-title-with-multiple-fields`) | — |
-| Document Versioning | `docs/erpnext/erpnext-22.md` lines 832–864 (`erpnext__document-versioning`) | — |
-| Domain Settings | ERPNext Documentation | `docs/erpnext/erpnext-23.md` lines 3–83 (`erpnext__domain-settings`) | — |
-| Downloading Backups | `docs/erpnext/erpnext-23.md` lines 85–126 (`erpnext__download-backup`) | — |
-| Downtime Analysis | `docs/erpnext/erpnext-23.md` lines 128–143 (`erpnext__downtime-analysis`) | — |
-| Downtime Entry | `docs/erpnext/erpnext-23.md` lines 145–160 (`erpnext__downtime-entry`) | — |
-| Drop Ship | ERPNext Documentation | `docs/erpnext/erpnext-23.md` lines 162–267 (`erpnext__drop-shipping-in-erpnext`) | — |
-| Duplicate Records | `docs/erpnext/erpnext-23.md` lines 492–511 (`erpnext__duplicate-record`) | — |
-| Dynamic Link Fields | `docs/erpnext/erpnext-23.md` lines 513–570 (`erpnext__dynamic-link-fields`) | — |
-| E Commerce Settings | `docs/erpnext/erpnext-23.md` lines 664–743 (`erpnext__e_commerce_settings`) | — |
-| E-commerce Integrations for ERPNext | `docs/erpnext/erpnext-23.md` lines 572–625 (`erpnext__e-commerce-integrations-for-erpnext`) | — |
-| E-commerce Search | `docs/erpnext/erpnext-23.md` lines 627–662 (`erpnext__e_commerce_search`) | — |
-| ERPNext Chat with Raven | `docs/erpnext/erpnext-24.md` lines 689–758 (`erpnext__erpnext-chat-with-raven`) | — |
-| ERPNext Dashboards | `docs/erpnext/erpnext-25.md` lines 3–162 (`erpnext__erpnext-dashboards`) | yes |
-| ERPNext Shipping | `docs/erpnext/erpnext-25.md` lines 372–470 (`erpnext__erpnext_shipping`) | — |
-| ERPNext for Service Organization | `docs/erpnext/erpnext-25.md` lines 164–307 (`erpnext__erpnext-for-services-organization`) | — |
-| Easy steps to setup Workflow | `docs/erpnext/erpnext-23.md` lines 745–770 (`erpnext__easy-steps-to-setup-workflow`) | — |
-| Edit Export/Print permissions for reports | `docs/erpnext/erpnext-29.md` lines 919–939 (`erpnext__how-to-grant-permissions-for-reports`) | — |
-| Edit Submitted Document | `docs/erpnext/erpnext-23.md` lines 772–802 (`erpnext__edit-submitted-document`) | — |
-| Edit a Field after Submission | `docs/erpnext/erpnext-23.md` lines 804–820 (`erpnext__editing-a-field-after-submission`) | — |
-| Education Module in ERPNext | `docs/erpnext/erpnext-23.md` lines 822–863 (`erpnext__education-module-in-erpnext`) | — |
-| Email Account | `docs/erpnext/erpnext-24.md` lines 3–129 (`erpnext__email-account`) | yes |
-| Email Campaign | ERPNext Documentation | `docs/erpnext/erpnext-24.md` lines 131–224 (`erpnext__email-campaign`) | yes |
-| Email Digest | `docs/erpnext/erpnext-24.md` lines 226–255 (`erpnext__email-digest`) | — |
-| Email Domain | `docs/erpnext/erpnext-24.md` lines 257–318 (`erpnext__email-domain`) | — |
-| Email Dropbox | `docs/erpnext/erpnext-24.md` lines 320–354 (`erpnext__email-dropbox`) | — |
-| Email Error in Sending or Receiving | `docs/erpnext/erpnext-24.md` lines 356–371 (`erpnext__email-error`) | — |
-| Email Group | ERPNext Documentation | `docs/erpnext/erpnext-24.md` lines 530–573 (`erpnext__email_group`) | — |
-| Email Inbox | `docs/erpnext/erpnext-24.md` lines 373–462 (`erpnext__email-inbox`) | — |
-| Email Settings | `docs/erpnext/erpnext-24.md` lines 508–528 (`erpnext__email`) | — |
-| Email Template | `docs/erpnext/erpnext-24.md` lines 464–506 (`erpnext__email-template`) | yes |
-| Energy Point System | `docs/erpnext/erpnext-24.md` lines 575–687 (`erpnext__energy-point-system`) | — |
-| Exchange Rate Revaluation | ERPNext Documentation | `docs/erpnext/erpnext-25.md` lines 620–813 (`erpnext__exchange-rate-revaluation`) | — |
-| Exotel Integration | `docs/erpnext/erpnext-26.md` lines 3–61 (`erpnext__exotel_integration`) | — |
-| Export Data for Specific Year or Filter | `docs/erpnext/erpnext-26.md` lines 165–187 (`erpnext__export-data-for-specific-year-or-filter`) | — |
-| FIFO and Moving Average | `docs/erpnext/erpnext-26.md` lines 891–1076 (`erpnext__fifo-and-moving-average`) | yes |
+| Difference Between System User and Website User | `docs/erpnext/erpnext-20.md` lines 682–711 (`erpnext__difference-between-system-user-and-website-user`) | — |
+| Difference Entry | ERPNext Documentation | `docs/erpnext/erpnext-20.md` lines 713–871 (`erpnext__difference-entry-button`) | — |
+| Difference between Lead, Contact, and Customer | ERPNext Documentation | `docs/erpnext/erpnext-21.md` lines 206–259 (`erpnext__difference_between_lead_contact_and_customer`) | — |
+| Disable Any User | `docs/erpnext/erpnext-28.md` lines 864–884 (`erpnext__how-to-disable-users-in-the-erpnext-system`) | — |
+| Disable Rounded Total | `docs/erpnext/erpnext-21.md` lines 261–290 (`erpnext__disable-rounded-total`) | — |
+| Disable Signup on ERPNext Website | `docs/erpnext/erpnext-21.md` lines 292–319 (`erpnext__disable-signup`) | — |
+| Disassembly Order | `docs/erpnext/erpnext-21.md` lines 321–345 (`erpnext__disassembly-order`) | — |
+| Discount Accounting | ERPNext Documentation | `docs/erpnext/erpnext-21.md` lines 347–542 (`erpnext__discount_accounting`) | — |
+| Distributed Cost Center | `docs/erpnext/erpnext-21.md` lines 544–652 (`erpnext__distributed-cost-center`) | — |
+| Do I Need ERPNext? | `docs/erpnext/erpnext-21.md` lines 654–688 (`erpnext__do-i-need-an-erp`) | — |
+| DocType | `docs/erpnext/erpnext-21.md` lines 690–773 (`erpnext__doctype`) | — |
+| Document Follow | `docs/erpnext/erpnext-21.md` lines 775–819 (`erpnext__document-follow`) | — |
+| Document Naming Rule | `docs/erpnext/erpnext-22.md` lines 182–256 (`erpnext__document-naming`) | — |
+| Document Naming Settings | `docs/erpnext/erpnext-22.md` lines 81–180 (`erpnext__document-naming-settings`) | — |
+| Document Naming for Avoiding tabSeries Issues | `docs/erpnext/erpnext-22.md` lines 3–79 (`erpnext__document-naming-for-avoiding-tab-series-issues`) | — |
+| Document Title | `docs/erpnext/erpnext-22.md` lines 315–356 (`erpnext__document-title`) | — |
+| Document Title with multiple fields | `docs/erpnext/erpnext-22.md` lines 258–313 (`erpnext__document-title-with-multiple-fields`) | — |
+| Document Versioning | `docs/erpnext/erpnext-22.md` lines 358–390 (`erpnext__document-versioning`) | — |
+| Domain Settings | ERPNext Documentation | `docs/erpnext/erpnext-22.md` lines 392–472 (`erpnext__domain-settings`) | — |
+| Downloading Backups | `docs/erpnext/erpnext-22.md` lines 474–515 (`erpnext__download-backup`) | — |
+| Downtime Analysis | `docs/erpnext/erpnext-22.md` lines 517–532 (`erpnext__downtime-analysis`) | — |
+| Downtime Entry | `docs/erpnext/erpnext-22.md` lines 534–549 (`erpnext__downtime-entry`) | — |
+| Drop Ship | ERPNext Documentation | `docs/erpnext/erpnext-22.md` lines 551–656 (`erpnext__drop-shipping-in-erpnext`) | — |
+| Duplicate Records | `docs/erpnext/erpnext-22.md` lines 881–900 (`erpnext__duplicate-record`) | — |
+| Dynamic Link Fields | `docs/erpnext/erpnext-22.md` lines 902–959 (`erpnext__dynamic-link-fields`) | — |
+| E Commerce Settings | `docs/erpnext/erpnext-23.md` lines 3–82 (`erpnext__e_commerce_settings`) | — |
+| E-commerce Integrations for ERPNext | `docs/erpnext/erpnext-22.md` lines 961–1014 (`erpnext__e-commerce-integrations-for-erpnext`) | — |
+| E-commerce Search | `docs/erpnext/erpnext-22.md` lines 1016–1051 (`erpnext__e_commerce_search`) | — |
+| ERPNext Chat with Raven | `docs/erpnext/erpnext-24.md` lines 3–72 (`erpnext__erpnext-chat-with-raven`) | — |
+| ERPNext Dashboards | `docs/erpnext/erpnext-24.md` lines 74–233 (`erpnext__erpnext-dashboards`) | yes |
+| ERPNext Shipping | `docs/erpnext/erpnext-24.md` lines 443–541 (`erpnext__erpnext_shipping`) | — |
+| ERPNext for Service Organization | `docs/erpnext/erpnext-24.md` lines 235–378 (`erpnext__erpnext-for-services-organization`) | — |
+| Easy steps to setup Workflow | `docs/erpnext/erpnext-23.md` lines 84–109 (`erpnext__easy-steps-to-setup-workflow`) | — |
+| Edit Export/Print permissions for reports | `docs/erpnext/erpnext-29.md` lines 149–169 (`erpnext__how-to-grant-permissions-for-reports`) | — |
+| Edit Submitted Document | `docs/erpnext/erpnext-23.md` lines 111–141 (`erpnext__edit-submitted-document`) | — |
+| Edit a Field after Submission | `docs/erpnext/erpnext-23.md` lines 143–159 (`erpnext__editing-a-field-after-submission`) | — |
+| Education Module in ERPNext | `docs/erpnext/erpnext-23.md` lines 161–202 (`erpnext__education-module-in-erpnext`) | — |
+| Email Account | `docs/erpnext/erpnext-23.md` lines 236–362 (`erpnext__email-account`) | yes |
+| Email Campaign | ERPNext Documentation | `docs/erpnext/erpnext-23.md` lines 364–457 (`erpnext__email-campaign`) | yes |
+| Email Digest | `docs/erpnext/erpnext-23.md` lines 459–488 (`erpnext__email-digest`) | — |
+| Email Domain | `docs/erpnext/erpnext-23.md` lines 490–551 (`erpnext__email-domain`) | — |
+| Email Dropbox | `docs/erpnext/erpnext-23.md` lines 553–587 (`erpnext__email-dropbox`) | — |
+| Email Error in Sending or Receiving | `docs/erpnext/erpnext-23.md` lines 589–604 (`erpnext__email-error`) | — |
+| Email Group | ERPNext Documentation | `docs/erpnext/erpnext-23.md` lines 763–806 (`erpnext__email_group`) | — |
+| Email Inbox | `docs/erpnext/erpnext-23.md` lines 606–695 (`erpnext__email-inbox`) | — |
+| Email Settings | `docs/erpnext/erpnext-23.md` lines 741–761 (`erpnext__email`) | — |
+| Email Template | `docs/erpnext/erpnext-23.md` lines 697–739 (`erpnext__email-template`) | yes |
+| Energy Point System | `docs/erpnext/erpnext-23.md` lines 808–920 (`erpnext__energy-point-system`) | — |
+| Exchange Rate Revaluation | ERPNext Documentation | `docs/erpnext/erpnext-25.md` lines 3–196 (`erpnext__exchange-rate-revaluation`) | — |
+| Exotel Integration | `docs/erpnext/erpnext-25.md` lines 198–256 (`erpnext__exotel_integration`) | — |
+| Export Data for Specific Year or Filter | `docs/erpnext/erpnext-25.md` lines 360–382 (`erpnext__export-data-for-specific-year-or-filter`) | — |
+| FIFO and Moving Average | `docs/erpnext/erpnext-26.md` lines 3–188 (`erpnext__fifo-and-moving-average`) | yes |
 | FIFO and Moving Average calculation difference | `docs/erpnext/erpnext-12.md` lines 459–502 (`erpnext__calculation-of-valuation-rate-in-fifo-and-moving-average`) | — |
-| Feedback Request Using a Web Form | `docs/erpnext/erpnext-26.md` lines 241–286 (`erpnext__feedback-request-using-web-form`) | — |
-| Fetch child table values using Jinja tags | `docs/erpnext/erpnext-26.md` lines 288–392 (`erpnext__fetch-child-table-values-using-jinja-tags`) | — |
+| Feedback Request Using a Web Form | `docs/erpnext/erpnext-25.md` lines 436–481 (`erpnext__feedback-request-using-web-form`) | — |
+| Fetch child table values using Jinja tags | `docs/erpnext/erpnext-25.md` lines 483–587 (`erpnext__fetch-child-table-values-using-jinja-tags`) | — |
 | Fetch shipping charges based item's value or weight | `docs/erpnext/erpnext-12.md` lines 582–593 (`erpnext__can-we-fetch-shipping-charges-based-items-value-or-weight-in-po`) | — |
-| Fetch the entire address text on a custom field | `docs/erpnext/erpnext-26.md` lines 394–536 (`erpnext__fetch-the-entire-address-text-on-a-custom-field`) | — |
-| Fetching Data from a Document | `docs/erpnext/erpnext-26.md` lines 565–591 (`erpnext__fetching-data-from-a-document`) | — |
-| Fetching Values From Master | `docs/erpnext/erpnext-26.md` lines 538–563 (`erpnext__fetch-values-from-master`) | — |
-| Fetching data from a linked master | `docs/erpnext/erpnext-29.md` lines 359–380 (`erpnext__how-to-add-master-link-and-fetch-data-from-the-same`) | — |
+| Fetch the entire address text on a custom field | `docs/erpnext/erpnext-25.md` lines 589–731 (`erpnext__fetch-the-entire-address-text-on-a-custom-field`) | — |
+| Fetching Data from a Document | `docs/erpnext/erpnext-25.md` lines 760–786 (`erpnext__fetching-data-from-a-document`) | — |
+| Fetching Values From Master | `docs/erpnext/erpnext-25.md` lines 733–758 (`erpnext__fetch-values-from-master`) | — |
+| Fetching data from a linked master | `docs/erpnext/erpnext-28.md` lines 521–542 (`erpnext__how-to-add-master-link-and-fetch-data-from-the-same`) | — |
 | Field Level Permission Management | `docs/erpnext/erpnext-13.md` lines 183–223 (`erpnext__changing-the-properties-of-a-field-based-on-role`) | — |
-| Field Types | `docs/erpnext/erpnext-26.md` lines 625–889 (`erpnext__field-types`) | — |
-| Filter Options in Select Field | `docs/erpnext/erpnext-26.md` lines 1078–1143 (`erpnext__filter-options-in-select-field`) | — |
-| Finance Book | ERPNext Documentation | `docs/erpnext/erpnext-27.md` lines 3–168 (`erpnext__finance-book`) | — |
-| Financial Report Template | `docs/erpnext/erpnext-27.md` lines 170–294 (`erpnext__financial-report-template`) | — |
-| Fiscal Year | ERPNext Documentation | `docs/erpnext/erpnext-27.md` lines 341–410 (`erpnext__fiscal-year`) | yes |
-| Fixing Fiscal Year Error | `docs/erpnext/erpnext-27.md` lines 296–339 (`erpnext__fiscal-year-error`) | — |
-| Forecasting Using Exponential Smoothing | `docs/erpnext/erpnext-20.md` lines 780–819 (`erpnext__demand-driven-forecasting`) | — |
-| Freeze Accounting Entries | `docs/erpnext/erpnext-27.md` lines 633–688 (`erpnext__freeze-accounting-entries`) | yes |
-| Freeze Exchange Rate | ERPNext Documentation | `docs/erpnext/erpnext-25.md` lines 472–618 (`erpnext__exchange-rate-field-frozen`) | — |
-| Freeze an Account | ERPNext Documentation | `docs/erpnext/erpnext-27.md` lines 508–631 (`erpnext__freeze-account`) | — |
-| GST for multiple branches | `docs/erpnext/erpnext-28.md` lines 576–817 (`erpnext__gst-for-multiple-branches`) | — |
-| General Ledger | `docs/erpnext/erpnext-28.md` lines 3–138 (`erpnext__general-ledger`) | yes |
+| Field Types | `docs/erpnext/erpnext-25.md` lines 820–1084 (`erpnext__field-types`) | — |
+| Filter Options in Select Field | `docs/erpnext/erpnext-26.md` lines 190–255 (`erpnext__filter-options-in-select-field`) | — |
+| Finance Book | ERPNext Documentation | `docs/erpnext/erpnext-26.md` lines 257–422 (`erpnext__finance-book`) | — |
+| Financial Report Template | `docs/erpnext/erpnext-26.md` lines 424–548 (`erpnext__financial-report-template`) | — |
+| Fiscal Year | ERPNext Documentation | `docs/erpnext/erpnext-26.md` lines 595–664 (`erpnext__fiscal-year`) | yes |
+| Fixing Fiscal Year Error | `docs/erpnext/erpnext-26.md` lines 550–593 (`erpnext__fiscal-year-error`) | — |
+| Forecasting Using Exponential Smoothing | `docs/erpnext/erpnext-20.md` lines 457–496 (`erpnext__demand-driven-forecasting`) | — |
+| Freeze Accounting Entries | `docs/erpnext/erpnext-27.md` lines 128–183 (`erpnext__freeze-accounting-entries`) | yes |
+| Freeze Exchange Rate | ERPNext Documentation | `docs/erpnext/erpnext-24.md` lines 543–689 (`erpnext__exchange-rate-field-frozen`) | — |
+| Freeze an Account | ERPNext Documentation | `docs/erpnext/erpnext-27.md` lines 3–126 (`erpnext__freeze-account`) | — |
+| GST for multiple branches | `docs/erpnext/erpnext-27.md` lines 758–999 (`erpnext__gst-for-multiple-branches`) | — |
+| General Ledger | `docs/erpnext/erpnext-27.md` lines 185–320 (`erpnext__general-ledger`) | yes |
 | Generate GSTR-1 JSON File | `docs/erpnext/erpnext-66.md` lines 937–954 (`erpnext__update-gstr-1-data-in-gst-offline-tool`) | — |
-| Generate Item Code Based On Custom Logic | `docs/erpnext/erpnext-28.md` lines 140–182 (`erpnext__generate-item-code-based-on-custom-logic`) | — |
-| Geolocation Field | `docs/erpnext/erpnext-28.md` lines 184–204 (`erpnext__geolocation-field`) | — |
-| Getting Started | `docs/erpnext/erpnext-43.md` lines 116–131 (`erpnext__point-of-sale__setup`) | — |
-| Getting Started | `docs/erpnext/erpnext-46.md` lines 357–422 (`erpnext__projects__introduction__getting-started`) | — |
-| Getting Started with ERPNext | `docs/erpnext/erpnext-28.md` lines 206–250 (`erpnext__getting-started-with-erpnext`) | yes |
-| Global Defaults/ERPNext Settings | ERPNext Documentation | `docs/erpnext/erpnext-28.md` lines 252–344 (`erpnext__global-defaults`) | yes |
-| Google Calendar Integration | `docs/erpnext/erpnext-28.md` lines 401–437 (`erpnext__google_calendar`) | — |
-| Google Contacts Integration | `docs/erpnext/erpnext-28.md` lines 439–470 (`erpnext__google_contacts`) | — |
-| Google Drive Integration | `docs/erpnext/erpnext-28.md` lines 472–504 (`erpnext__google_drive`) | — |
-| Google Maps Integration | `docs/erpnext/erpnext-28.md` lines 506–528 (`erpnext__google_maps`) | — |
-| Google Settings | `docs/erpnext/erpnext-28.md` lines 530–574 (`erpnext__google_settings`) | — |
-| Handling Excess Customer Payments | ERPNext Documentation | `docs/erpnext/erpnext-28.md` lines 900–979 (`erpnext__handling-excess-customer-payments`) | — |
-| Healthcare Module in ERPNext | `docs/erpnext/erpnext-27.md` lines 428–506 (`erpnext__frappe-healthcare`) | — |
-| Help Articles Index | `docs/erpnext/erpnext-29.md` lines 3–185 (`erpnext__help-articles`) | — |
-| Homepage | `docs/erpnext/erpnext-29.md` lines 187–317 (`erpnext__homepage`) | — |
-| How Transactions Affect the Ledger | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 173–380 (`erpnext__how-transactions-affect-the-ledger`) | — |
-| How to Manage Material Transfers and Goods in Transit | `docs/erpnext/erpnext-29.md` lines 964–1036 (`erpnext__how-to-manage-material-transfers-and-goods-in-transit`) | — |
-| How to create and print proforma invoice in ERPNext | `docs/erpnext/erpnext-29.md` lines 665–700 (`erpnext__how-to-create-and-print-proforma-invoice-in-erpnext`) | — |
-| Immutable Ledger | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 382–539 (`erpnext__immutable-ledger-in-erpnext`) | — |
-| Import Accounting Masters | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 541–643 (`erpnext__import-accounting-masters`) | yes |
-| Import Outstanding Invoices | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 495–610 (`erpnext__opening-invoice-creation-tool`) | yes |
-| Import Special Opening Balances | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 645–753 (`erpnext__import-advances-unallocated-payments-bank-stock-and-asset-balances`) | yes |
-| Importing e-Invoice from Supplier | `docs/erpnext/erpnext-30.md` lines 755–795 (`erpnext__import-e-invoice`) | — |
-| Include Document Link in Notification Email | `docs/erpnext/erpnext-30.md` lines 797–817 (`erpnext__include-document-link-in-notification-email`) | — |
-| Include Tax or Charge in Valuation or Total? | `docs/erpnext/erpnext-21.md` lines 378–579 (`erpnext__difference-in-total-and-valuation-in-tax-and-charges`) | — |
-| India Compliance | `docs/erpnext/erpnext-31.md` lines 118–204 (`erpnext__india-compliance-app`) | — |
-| Installation Note | `docs/erpnext/erpnext-31.md` lines 206–236 (`erpnext__installation-note`) | — |
-| Installing RediSearch to enable fast E-commerce Search | `docs/erpnext/erpnext-31.md` lines 238–322 (`erpnext__installing_redisearch_to_enable_super_fast_e_commerce_search`) | — |
-| Integrating ERPNext with other Applications | `docs/erpnext/erpnext-31.md` lines 324–388 (`erpnext__integrating-erpnext-with-other-applications`) | — |
-| Integration Categories | `docs/erpnext/erpnext-25.md` lines 309–370 (`erpnext__erpnext_integration`) | — |
-| Inter Company Invoices | ERPNext Documentation | `docs/erpnext/erpnext-31.md` lines 390–509 (`erpnext__inter-company-invoices`) | — |
-| Inter Company Journal Entry | ERPNext Documentation | `docs/erpnext/erpnext-31.md` lines 511–728 (`erpnext__inter-company-journal-entry`) | — |
-| Introduction | `docs/erpnext/erpnext-18.md` lines 732–744 (`erpnext__data-management__introduction`) | — |
-| Introduction | `docs/erpnext/erpnext-31.md` lines 730–793 (`erpnext__introduction`) | — |
-| Introduction | `docs/erpnext/erpnext-43.md` lines 93–114 (`erpnext__point-of-sale`) | yes |
+| Generate Item Code Based On Custom Logic | `docs/erpnext/erpnext-27.md` lines 322–364 (`erpnext__generate-item-code-based-on-custom-logic`) | — |
+| Geolocation Field | `docs/erpnext/erpnext-27.md` lines 366–386 (`erpnext__geolocation-field`) | — |
+| Getting Started | `docs/erpnext/erpnext-43.md` lines 62–77 (`erpnext__point-of-sale__setup`) | — |
+| Getting Started | `docs/erpnext/erpnext-46.md` lines 325–390 (`erpnext__projects__introduction__getting-started`) | — |
+| Getting Started with ERPNext | `docs/erpnext/erpnext-27.md` lines 388–432 (`erpnext__getting-started-with-erpnext`) | yes |
+| Global Defaults/ERPNext Settings | ERPNext Documentation | `docs/erpnext/erpnext-27.md` lines 434–526 (`erpnext__global-defaults`) | yes |
+| Google Calendar Integration | `docs/erpnext/erpnext-27.md` lines 583–619 (`erpnext__google_calendar`) | — |
+| Google Contacts Integration | `docs/erpnext/erpnext-27.md` lines 621–652 (`erpnext__google_contacts`) | — |
+| Google Drive Integration | `docs/erpnext/erpnext-27.md` lines 654–686 (`erpnext__google_drive`) | — |
+| Google Maps Integration | `docs/erpnext/erpnext-27.md` lines 688–710 (`erpnext__google_maps`) | — |
+| Google Settings | `docs/erpnext/erpnext-27.md` lines 712–756 (`erpnext__google_settings`) | — |
+| Handling Excess Customer Payments | ERPNext Documentation | `docs/erpnext/erpnext-28.md` lines 84–163 (`erpnext__handling-excess-customer-payments`) | — |
+| Healthcare Module in ERPNext | `docs/erpnext/erpnext-26.md` lines 682–760 (`erpnext__frappe-healthcare`) | — |
+| Help Articles Index | `docs/erpnext/erpnext-28.md` lines 165–347 (`erpnext__help-articles`) | — |
+| Homepage | `docs/erpnext/erpnext-28.md` lines 349–479 (`erpnext__homepage`) | — |
+| How Transactions Affect the Ledger | ERPNext Documentation | `docs/erpnext/erpnext-29.md` lines 438–645 (`erpnext__how-transactions-affect-the-ledger`) | — |
+| How to Manage Material Transfers and Goods in Transit | `docs/erpnext/erpnext-29.md` lines 194–266 (`erpnext__how-to-manage-material-transfers-and-goods-in-transit`) | — |
+| How to create and print proforma invoice in ERPNext | `docs/erpnext/erpnext-28.md` lines 827–862 (`erpnext__how-to-create-and-print-proforma-invoice-in-erpnext`) | — |
+| Immutable Ledger | ERPNext Documentation | `docs/erpnext/erpnext-29.md` lines 647–804 (`erpnext__immutable-ledger-in-erpnext`) | — |
+| Import Accounting Masters | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 3–105 (`erpnext__import-accounting-masters`) | yes |
+| Import Outstanding Invoices | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 267–382 (`erpnext__opening-invoice-creation-tool`) | yes |
+| Import Special Opening Balances | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 107–215 (`erpnext__import-advances-unallocated-payments-bank-stock-and-asset-balances`) | yes |
+| Importing e-Invoice from Supplier | `docs/erpnext/erpnext-30.md` lines 217–257 (`erpnext__import-e-invoice`) | — |
+| Include Document Link in Notification Email | `docs/erpnext/erpnext-30.md` lines 259–279 (`erpnext__include-document-link-in-notification-email`) | — |
+| Include Tax or Charge in Valuation or Total? | `docs/erpnext/erpnext-21.md` lines 3–204 (`erpnext__difference-in-total-and-valuation-in-tax-and-charges`) | — |
+| India Compliance | `docs/erpnext/erpnext-30.md` lines 396–482 (`erpnext__india-compliance-app`) | — |
+| Installation Note | `docs/erpnext/erpnext-30.md` lines 484–514 (`erpnext__installation-note`) | — |
+| Installing RediSearch to enable fast E-commerce Search | `docs/erpnext/erpnext-30.md` lines 516–600 (`erpnext__installing_redisearch_to_enable_super_fast_e_commerce_search`) | — |
+| Integrating ERPNext with other Applications | `docs/erpnext/erpnext-30.md` lines 602–666 (`erpnext__integrating-erpnext-with-other-applications`) | — |
+| Integration Categories | `docs/erpnext/erpnext-24.md` lines 380–441 (`erpnext__erpnext_integration`) | — |
+| Inter Company Invoices | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 668–787 (`erpnext__inter-company-invoices`) | — |
+| Inter Company Journal Entry | ERPNext Documentation | `docs/erpnext/erpnext-31.md` lines 3–220 (`erpnext__inter-company-journal-entry`) | — |
+| Introduction | `docs/erpnext/erpnext-18.md` lines 634–646 (`erpnext__data-management__introduction`) | — |
+| Introduction | `docs/erpnext/erpnext-31.md` lines 222–285 (`erpnext__introduction`) | — |
+| Introduction | `docs/erpnext/erpnext-43.md` lines 39–60 (`erpnext__point-of-sale`) | yes |
 | Introduction | `docs/erpnext/erpnext-48.md` lines 703–720 (`erpnext__quality-management`) | — |
-| Introduction | `docs/erpnext/erpnext-61.md` lines 164–188 (`erpnext__subcontracting-in-erpnext`) | — |
+| Introduction | `docs/erpnext/erpnext-60.md` lines 1150–1174 (`erpnext__subcontracting-in-erpnext`) | — |
 | Introduction to Buying Module | `docs/erpnext/erpnext-12.md` lines 145–165 (`erpnext__buying`) | — |
 | Introduction to CRM | ERPNext Documentation | `docs/erpnext/erpnext-16.md` lines 3–157 (`erpnext__CRM`) | — |
-| Introduction to Selling Module | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 203–375 (`erpnext__selling`) | — |
-| Introduction to Stock Module | `docs/erpnext/erpnext-60.md` lines 906–926 (`erpnext__stock`) | — |
-| Inventory Account | `docs/erpnext/erpnext-31.md` lines 795–820 (`erpnext__inventory-account`) | — |
-| Inventory Dimension | `docs/erpnext/erpnext-32.md` lines 3–113 (`erpnext__inventory_dimension`) | — |
-| Invoice Discount in Payment Entry | ERPNext Documentation | `docs/erpnext/erpnext-36.md` lines 251–330 (`erpnext__managing-invoice-discount-in-the-payment-entry`) | — |
-| Invoice Discounting | ERPNext Documentation | `docs/erpnext/erpnext-32.md` lines 155–313 (`erpnext__invoice_discounting`) | — |
-| Invoice rounding issue | `docs/erpnext/erpnext-32.md` lines 115–153 (`erpnext__invoice-rounding-issue`) | — |
-| Issue | `docs/erpnext/erpnext-32.md` lines 359–494 (`erpnext__issue`) | yes |
-| Issue Type | `docs/erpnext/erpnext-32.md` lines 315–357 (`erpnext__issue-type-and-priority`) | — |
+| Introduction to Selling Module | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 3–175 (`erpnext__selling`) | — |
+| Introduction to Stock Module | `docs/erpnext/erpnext-60.md` lines 870–890 (`erpnext__stock`) | — |
+| Inventory Account | `docs/erpnext/erpnext-31.md` lines 287–312 (`erpnext__inventory-account`) | — |
+| Inventory Dimension | `docs/erpnext/erpnext-31.md` lines 314–424 (`erpnext__inventory_dimension`) | — |
+| Invoice Discount in Payment Entry | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 723–802 (`erpnext__managing-invoice-discount-in-the-payment-entry`) | — |
+| Invoice Discounting | ERPNext Documentation | `docs/erpnext/erpnext-31.md` lines 466–624 (`erpnext__invoice_discounting`) | — |
+| Invoice rounding issue | `docs/erpnext/erpnext-31.md` lines 426–464 (`erpnext__invoice-rounding-issue`) | — |
+| Issue | `docs/erpnext/erpnext-31.md` lines 670–805 (`erpnext__issue`) | yes |
+| Issue Type | `docs/erpnext/erpnext-31.md` lines 626–668 (`erpnext__issue-type-and-priority`) | — |
 | Issued Items Against Work Order | `docs/erpnext/erpnext-14.md` lines 826–841 (`erpnext__consumed-materials-in-production`) | — |
-| Item | `docs/erpnext/erpnext-33.md` lines 396–700 (`erpnext__item`) | yes |
-| Item Alternative | `docs/erpnext/erpnext-32.md` lines 511–571 (`erpnext__item-alternative`) | — |
-| Item Attribute | `docs/erpnext/erpnext-32.md` lines 573–612 (`erpnext__item-attribute`) | yes |
-| Item Codification | `docs/erpnext/erpnext-32.md` lines 614–704 (`erpnext__item-codification`) | — |
-| Item Group | `docs/erpnext/erpnext-32.md` lines 786–856 (`erpnext__item-group`) | yes |
-| Item Group-wise Product Listing | `docs/erpnext/erpnext-34.md` lines 3–36 (`erpnext__item_group_wise_product_listing`) | — |
-| Item Price | `docs/erpnext/erpnext-32.md` lines 858–932 (`erpnext__item-price`) | yes |
-| Item Tax Template | `docs/erpnext/erpnext-33.md` lines 3–215 (`erpnext__item-tax-template`) | yes |
-| Item Valuation Setup and Transactions | `docs/erpnext/erpnext-33.md` lines 217–253 (`erpnext__item-valuation-transactions`) | — |
-| Item Variants | `docs/erpnext/erpnext-33.md` lines 255–316 (`erpnext__item-variants`) | yes |
-| Item Where Used Report | `docs/erpnext/erpnext-33.md` lines 318–394 (`erpnext__item-where-used-report`) | — |
-| Job Card | `docs/erpnext/erpnext-34.md` lines 55–213 (`erpnext__job-card`) | yes |
-| Job Card Summary | `docs/erpnext/erpnext-34.md` lines 38–53 (`erpnext__job-card-summary`) | — |
-| Journal Entry Template | ERPNext Documentation | `docs/erpnext/erpnext-34.md` lines 215–393 (`erpnext__journal-entry-template`) | — |
-| Journal Entry | ERPNext Documentation | `docs/erpnext/erpnext-34.md` lines 395–566 (`erpnext__journal-entry`) | yes |
-| KSA VAT Management and Reporting | `docs/erpnext/erpnext-58.md` lines 718–751 (`erpnext__simplified_ksa_vat_management_and_reporting`) | yes |
-| Landed Cost Voucher | `docs/erpnext/erpnext-60.md` lines 645–737 (`erpnext__stock-transactions-landed-cost-voucher`) | — |
-| Landed cost Voucher | `docs/erpnext/erpnext-34.md` lines 568–589 (`erpnext__landed-cost-voucher`) | yes |
-| Le Fichier des \u00c9critures Comptables [FEC] | `docs/erpnext/erpnext-26.md` lines 593–623 (`erpnext__fichier_des_ecritures_comptables`) | — |
-| Lead Source | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 98–126 (`erpnext__lead_source`) | — |
-| Lead | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 3–96 (`erpnext__lead`) | — |
-| Legacy Controller for Period Closing Voucher | `docs/erpnext/erpnext-35.md` lines 128–189 (`erpnext__legacy-controller-for-period-closing-voucher`) | — |
-| Letter Head | `docs/erpnext/erpnext-35.md` lines 216–270 (`erpnext__letter-head`) | yes |
-| Letter Head in the Report | `docs/erpnext/erpnext-35.md` lines 191–214 (`erpnext__letter-head-in-the-report`) | — |
-| LinkedIn Settings | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 272–338 (`erpnext__linkedin-settings`) | — |
-| Linking Emails to Documents | `docs/erpnext/erpnext-35.md` lines 340–394 (`erpnext__linking-emails-to-document`) | — |
+| Item | `docs/erpnext/erpnext-33.md` lines 3–307 (`erpnext__item`) | yes |
+| Item Alternative | `docs/erpnext/erpnext-31.md` lines 822–882 (`erpnext__item-alternative`) | — |
+| Item Attribute | `docs/erpnext/erpnext-31.md` lines 884–923 (`erpnext__item-attribute`) | yes |
+| Item Codification | `docs/erpnext/erpnext-32.md` lines 3–93 (`erpnext__item-codification`) | — |
+| Item Group | `docs/erpnext/erpnext-32.md` lines 175–245 (`erpnext__item-group`) | yes |
+| Item Group-wise Product Listing | `docs/erpnext/erpnext-33.md` lines 309–342 (`erpnext__item_group_wise_product_listing`) | — |
+| Item Price | `docs/erpnext/erpnext-32.md` lines 247–321 (`erpnext__item-price`) | yes |
+| Item Tax Template | `docs/erpnext/erpnext-32.md` lines 323–535 (`erpnext__item-tax-template`) | yes |
+| Item Valuation Setup and Transactions | `docs/erpnext/erpnext-32.md` lines 537–573 (`erpnext__item-valuation-transactions`) | — |
+| Item Variants | `docs/erpnext/erpnext-32.md` lines 575–636 (`erpnext__item-variants`) | yes |
+| Item Where Used Report | `docs/erpnext/erpnext-32.md` lines 638–714 (`erpnext__item-where-used-report`) | — |
+| Job Card | `docs/erpnext/erpnext-33.md` lines 361–519 (`erpnext__job-card`) | yes |
+| Job Card Summary | `docs/erpnext/erpnext-33.md` lines 344–359 (`erpnext__job-card-summary`) | — |
+| Journal Entry Template | ERPNext Documentation | `docs/erpnext/erpnext-33.md` lines 521–699 (`erpnext__journal-entry-template`) | — |
+| Journal Entry | ERPNext Documentation | `docs/erpnext/erpnext-34.md` lines 3–174 (`erpnext__journal-entry`) | yes |
+| KSA VAT Management and Reporting | `docs/erpnext/erpnext-58.md` lines 364–397 (`erpnext__simplified_ksa_vat_management_and_reporting`) | yes |
+| Landed Cost Voucher | `docs/erpnext/erpnext-60.md` lines 609–701 (`erpnext__stock-transactions-landed-cost-voucher`) | — |
+| Landed cost Voucher | `docs/erpnext/erpnext-34.md` lines 176–197 (`erpnext__landed-cost-voucher`) | yes |
+| Le Fichier des \u00c9critures Comptables [FEC] | `docs/erpnext/erpnext-25.md` lines 788–818 (`erpnext__fichier_des_ecritures_comptables`) | — |
+| Lead Source | ERPNext Documentation | `docs/erpnext/erpnext-34.md` lines 408–436 (`erpnext__lead_source`) | — |
+| Lead | ERPNext Documentation | `docs/erpnext/erpnext-34.md` lines 313–406 (`erpnext__lead`) | — |
+| Legacy Controller for Period Closing Voucher | `docs/erpnext/erpnext-34.md` lines 438–499 (`erpnext__legacy-controller-for-period-closing-voucher`) | — |
+| Letter Head | `docs/erpnext/erpnext-34.md` lines 526–580 (`erpnext__letter-head`) | yes |
+| Letter Head in the Report | `docs/erpnext/erpnext-34.md` lines 501–524 (`erpnext__letter-head-in-the-report`) | — |
+| LinkedIn Settings | ERPNext Documentation | `docs/erpnext/erpnext-34.md` lines 582–648 (`erpnext__linkedin-settings`) | — |
+| Linking Emails to Documents | `docs/erpnext/erpnext-34.md` lines 650–704 (`erpnext__linking-emails-to-document`) | — |
 | Linking stock warehouse and accounts | `docs/erpnext/erpnext-67.md` lines 640–665 (`erpnext__warehouse-ledger-link`) | — |
-| Lower Deduction Certificate | `docs/erpnext/erpnext-35.md` lines 421–469 (`erpnext__lower-deduction-certificate`) | — |
-| Loyalty points redemption in POS | `docs/erpnext/erpnext-35.md` lines 471–491 (`erpnext__loyalty-points-redemption-in-pos`) | — |
-| M-Pesa Integration | `docs/erpnext/erpnext-38.md` lines 86–145 (`erpnext__mpesa-integration`) | — |
-| Maintain Stock field Frozen in the Item master | `docs/erpnext/erpnext-35.md` lines 623–644 (`erpnext__maintain-stock-field-frozen-in-item-master`) | — |
-| Maintaining Supplier's Item Code In the Item master | `docs/erpnext/erpnext-35.md` lines 646–673 (`erpnext__maintaining-suppliers-part-no-in-item`) | — |
-| Maintenance | `docs/erpnext/erpnext-35.md` lines 851–862 (`erpnext__maintenance`) | — |
-| Maintenance Sales Orders | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 675–740 (`erpnext__maintenance-sales-orders`) | — |
-| Maintenance Schedule | `docs/erpnext/erpnext-35.md` lines 742–791 (`erpnext__maintenance-schedule`) | yes |
-| Maintenance Visit | `docs/erpnext/erpnext-35.md` lines 793–849 (`erpnext__maintenance-visit`) | — |
-| Make A Colorful Gantt Chart | `docs/erpnext/erpnext-35.md` lines 864–895 (`erpnext__make-a-colorful-gantt-chart`) | — |
-| Making Custom Reports | `docs/erpnext/erpnext-35.md` lines 897–930 (`erpnext__making-custom-reports`) | yes |
-| Manage Foreign Exchange Difference | ERPNext Documentation | `docs/erpnext/erpnext-36.md` lines 3–163 (`erpnext__manage-foreign-exchange-difference`) | — |
-| Manage Tree Structure Masters | `docs/erpnext/erpnext-36.md` lines 578–634 (`erpnext__managing-tree-structure-masters`) | — |
-| Managing Batch wise Inventory | `docs/erpnext/erpnext-36.md` lines 165–209 (`erpnext__managing-batch-wise-inventory`) | — |
-| Managing Fractions in UOM | `docs/erpnext/erpnext-36.md` lines 211–249 (`erpnext__managing-fractions-in-uom`) | — |
-| Managing Multi-level BOM | `docs/erpnext/erpnext-36.md` lines 332–384 (`erpnext__managing-multi-level-bom`) | — |
-| Managing Transactions in Multiple Currencies | ERPNext Documentation | `docs/erpnext/erpnext-36.md` lines 386–576 (`erpnext__managing-transactions-in-multiple-currencies`) | — |
-| Manufacturer | `docs/erpnext/erpnext-36.md` lines 636–683 (`erpnext__manufacturer`) | — |
-| Manufacturing Dashboard | `docs/erpnext/erpnext-36.md` lines 685–754 (`erpnext__manufacturing-dashboard`) | — |
-| Manufacturing Operation | `docs/erpnext/erpnext-39.md` lines 725–760 (`erpnext__operation`) | — |
-| Manufacturing Reports | `docs/erpnext/erpnext-36.md` lines 756–805 (`erpnext__manufacturing-reports`) | — |
-| Manufacturing Settings | `docs/erpnext/erpnext-36.md` lines 807–962 (`erpnext__manufacturing-settings`) | yes |
-| Manufacturing in ERPNext | `docs/erpnext/erpnext-36.md` lines 977–996 (`erpnext__manufacturing`) | — |
-| Manufacturing without creating BOM | `docs/erpnext/erpnext-36.md` lines 964–975 (`erpnext__manufacturing-without-creating-bom`) | — |
-| Material Request | `docs/erpnext/erpnext-37.md` lines 3–128 (`erpnext__material-request`) | yes |
-| Material Requirements Planning (MRP) | `docs/erpnext/erpnext-37.md` lines 130–187 (`erpnext__material-requirements-planning-mrp`) | yes |
-| Material Transfer from Delivery Note and Purchase Receipt | `docs/erpnext/erpnext-37.md` lines 189–261 (`erpnext__material-transfer-from-delivery-note`) | — |
-| Material consumption | `docs/erpnext/erpnext-37.md` lines 263–303 (`erpnext__material_consumption`) | — |
-| Maximum Number of Fields in a Form | `docs/erpnext/erpnext-37.md` lines 305–448 (`erpnext__maximum-number-of-fields-in-a-form`) | — |
-| Maximum User Limit Issue | `docs/erpnext/erpnext-29.md` lines 724–771 (`erpnext__how-to-fix-the-reached-maximum-user-limit-for-your-subscription-issue`) | — |
-| Merge Accounts | ERPNext Documentation | `docs/erpnext/erpnext-37.md` lines 450–607 (`erpnext__merging-accounts`) | — |
-| Migrate To Perpetual Inventory | `docs/erpnext/erpnext-37.md` lines 609–666 (`erpnext__migrate-to-perpetual-inventory`) | — |
-| Milestone Tracking | `docs/erpnext/erpnext-37.md` lines 668–712 (`erpnext__milestone-tracker`) | — |
-| Mode of Payment | ERPNext Documentation | `docs/erpnext/erpnext-37.md` lines 714–801 (`erpnext__mode-of-payment`) | — |
-| Module Settings | ERPNext Documentation | `docs/erpnext/erpnext-37.md` lines 803–878 (`erpnext__module-settings`) | — |
-| Moving Asset from Stock Item to Fixed Asset Item | ERPNext Documentati | `docs/erpnext/erpnext-38.md` lines 3–84 (`erpnext__moving-asset-from-stock-item-to-fixed-asset-item`) | — |
-| Multi Currency Accounting | ERPNext Documentation | `docs/erpnext/erpnext-38.md` lines 147–322 (`erpnext__multi-currency-accounting`) | yes |
-| Multi Currency Setup | ERPNext Documentation | `docs/erpnext/erpnext-38.md` lines 324–502 (`erpnext__multi-currency-setup`) | — |
+| Lower Deduction Certificate | `docs/erpnext/erpnext-34.md` lines 731–779 (`erpnext__lower-deduction-certificate`) | — |
+| Loyalty points redemption in POS | `docs/erpnext/erpnext-34.md` lines 781–801 (`erpnext__loyalty-points-redemption-in-pos`) | — |
+| M-Pesa Integration | `docs/erpnext/erpnext-37.md` lines 661–720 (`erpnext__mpesa-integration`) | — |
+| Maintain Stock field Frozen in the Item master | `docs/erpnext/erpnext-35.md` lines 133–154 (`erpnext__maintain-stock-field-frozen-in-item-master`) | — |
+| Maintaining Supplier's Item Code In the Item master | `docs/erpnext/erpnext-35.md` lines 156–183 (`erpnext__maintaining-suppliers-part-no-in-item`) | — |
+| Maintenance | `docs/erpnext/erpnext-35.md` lines 361–372 (`erpnext__maintenance`) | — |
+| Maintenance Sales Orders | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 185–250 (`erpnext__maintenance-sales-orders`) | — |
+| Maintenance Schedule | `docs/erpnext/erpnext-35.md` lines 252–301 (`erpnext__maintenance-schedule`) | yes |
+| Maintenance Visit | `docs/erpnext/erpnext-35.md` lines 303–359 (`erpnext__maintenance-visit`) | — |
+| Make A Colorful Gantt Chart | `docs/erpnext/erpnext-35.md` lines 374–405 (`erpnext__make-a-colorful-gantt-chart`) | — |
+| Making Custom Reports | `docs/erpnext/erpnext-35.md` lines 407–440 (`erpnext__making-custom-reports`) | yes |
+| Manage Foreign Exchange Difference | ERPNext Documentation | `docs/erpnext/erpnext-35.md` lines 475–635 (`erpnext__manage-foreign-exchange-difference`) | — |
+| Manage Tree Structure Masters | `docs/erpnext/erpnext-36.md` lines 195–251 (`erpnext__managing-tree-structure-masters`) | — |
+| Managing Batch wise Inventory | `docs/erpnext/erpnext-35.md` lines 637–681 (`erpnext__managing-batch-wise-inventory`) | — |
+| Managing Fractions in UOM | `docs/erpnext/erpnext-35.md` lines 683–721 (`erpnext__managing-fractions-in-uom`) | — |
+| Managing Multi-level BOM | `docs/erpnext/erpnext-35.md` lines 804–856 (`erpnext__managing-multi-level-bom`) | — |
+| Managing Transactions in Multiple Currencies | ERPNext Documentation | `docs/erpnext/erpnext-36.md` lines 3–193 (`erpnext__managing-transactions-in-multiple-currencies`) | — |
+| Manufacturer | `docs/erpnext/erpnext-36.md` lines 253–300 (`erpnext__manufacturer`) | — |
+| Manufacturing Dashboard | `docs/erpnext/erpnext-36.md` lines 302–371 (`erpnext__manufacturing-dashboard`) | — |
+| Manufacturing Operation | `docs/erpnext/erpnext-39.md` lines 497–532 (`erpnext__operation`) | — |
+| Manufacturing Reports | `docs/erpnext/erpnext-36.md` lines 373–422 (`erpnext__manufacturing-reports`) | — |
+| Manufacturing Settings | `docs/erpnext/erpnext-36.md` lines 424–579 (`erpnext__manufacturing-settings`) | yes |
+| Manufacturing in ERPNext | `docs/erpnext/erpnext-36.md` lines 594–613 (`erpnext__manufacturing`) | — |
+| Manufacturing without creating BOM | `docs/erpnext/erpnext-36.md` lines 581–592 (`erpnext__manufacturing-without-creating-bom`) | — |
+| Material Request | `docs/erpnext/erpnext-36.md` lines 615–740 (`erpnext__material-request`) | yes |
+| Material Requirements Planning (MRP) | `docs/erpnext/erpnext-36.md` lines 742–799 (`erpnext__material-requirements-planning-mrp`) | yes |
+| Material Transfer from Delivery Note and Purchase Receipt | `docs/erpnext/erpnext-36.md` lines 801–873 (`erpnext__material-transfer-from-delivery-note`) | — |
+| Material consumption | `docs/erpnext/erpnext-36.md` lines 875–915 (`erpnext__material_consumption`) | — |
+| Maximum Number of Fields in a Form | `docs/erpnext/erpnext-37.md` lines 3–146 (`erpnext__maximum-number-of-fields-in-a-form`) | — |
+| Maximum User Limit Issue | `docs/erpnext/erpnext-28.md` lines 886–933 (`erpnext__how-to-fix-the-reached-maximum-user-limit-for-your-subscription-issue`) | — |
+| Merge Accounts | ERPNext Documentation | `docs/erpnext/erpnext-37.md` lines 148–305 (`erpnext__merging-accounts`) | — |
+| Migrate To Perpetual Inventory | `docs/erpnext/erpnext-37.md` lines 307–364 (`erpnext__migrate-to-perpetual-inventory`) | — |
+| Milestone Tracking | `docs/erpnext/erpnext-37.md` lines 366–410 (`erpnext__milestone-tracker`) | — |
+| Mode of Payment | ERPNext Documentation | `docs/erpnext/erpnext-37.md` lines 412–499 (`erpnext__mode-of-payment`) | — |
+| Module Settings | ERPNext Documentation | `docs/erpnext/erpnext-37.md` lines 501–576 (`erpnext__module-settings`) | — |
+| Moving Asset from Stock Item to Fixed Asset Item | ERPNext Documentati | `docs/erpnext/erpnext-37.md` lines 578–659 (`erpnext__moving-asset-from-stock-item-to-fixed-asset-item`) | — |
+| Multi Currency Accounting | ERPNext Documentation | `docs/erpnext/erpnext-38.md` lines 3–178 (`erpnext__multi-currency-accounting`) | yes |
+| Multi Currency Setup | ERPNext Documentation | `docs/erpnext/erpnext-38.md` lines 180–358 (`erpnext__multi-currency-setup`) | — |
 | Multi-level BOM Creator | `docs/erpnext/erpnext-10.md` lines 683–728 (`erpnext__bom-creator`) | yes |
-| Multiple finished goods with single raw material | `docs/erpnext/erpnext-29.md` lines 941–962 (`erpnext__how-to-handle-a-scenario-of-1-raw-material-multiple-finish-goods`) | — |
-| Naming Series | `docs/erpnext/erpnext-38.md` lines 616–698 (`erpnext__naming-series`) | yes |
-| Naming Series as Per GST Rules | `docs/erpnext/erpnext-38.md` lines 504–547 (`erpnext__naming-series-as-per-gst-rules`) | — |
-| Negative Batch Report | `docs/erpnext/erpnext-60.md` lines 928–948 (`erpnext__stock__reports__negative-batch-report`) | — |
-| Newsletter | ERPNext Documentation | `docs/erpnext/erpnext-38.md` lines 700–757 (`erpnext__newsletter`) | yes |
-| Non Conformance | `docs/erpnext/erpnext-38.md` lines 759–788 (`erpnext__non-conformance`) | — |
-| Non-profit Module in ERPNext | `docs/erpnext/erpnext-38.md` lines 790–840 (`erpnext__non-profit`) | — |
-| Notification | `docs/erpnext/erpnext-39.md` lines 3–229 (`erpnext__notifications`) | yes |
-| Open Source | `docs/erpnext/erpnext-39.md` lines 231–284 (`erpnext__open-source`) | — |
-| Open Work Order Report | `docs/erpnext/erpnext-39.md` lines 286–305 (`erpnext__open-work-orders`) | — |
-| Opening Balance in Accounts | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 390–493 (`erpnext__opening-balance`) | yes |
-| Opening Stock | `docs/erpnext/erpnext-39.md` lines 683–723 (`erpnext__opening-stock`) | yes |
-| Opening Stock Balance Entry for Serialized and Batch Item | `docs/erpnext/erpnext-39.md` lines 612–681 (`erpnext__opening-stock-balance-entry-for-serialized-and-batch-item`) | — |
-| Opening and Closing During Migration | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 307–388 (`erpnext__opening-and-closing`) | — |
-| Opportunity Type | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 853–880 (`erpnext__opportunity_type`) | — |
-| Opportunity | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 762–851 (`erpnext__opportunity`) | yes |
+| Multiple finished goods with single raw material | `docs/erpnext/erpnext-29.md` lines 171–192 (`erpnext__how-to-handle-a-scenario-of-1-raw-material-multiple-finish-goods`) | — |
+| Naming Series | `docs/erpnext/erpnext-38.md` lines 472–554 (`erpnext__naming-series`) | yes |
+| Naming Series as Per GST Rules | `docs/erpnext/erpnext-38.md` lines 360–403 (`erpnext__naming-series-as-per-gst-rules`) | — |
+| Negative Batch Report | `docs/erpnext/erpnext-60.md` lines 892–912 (`erpnext__stock__reports__negative-batch-report`) | — |
+| Newsletter | ERPNext Documentation | `docs/erpnext/erpnext-38.md` lines 556–613 (`erpnext__newsletter`) | yes |
+| Non Conformance | `docs/erpnext/erpnext-38.md` lines 615–644 (`erpnext__non-conformance`) | — |
+| Non-profit Module in ERPNext | `docs/erpnext/erpnext-38.md` lines 646–696 (`erpnext__non-profit`) | — |
+| Notification | `docs/erpnext/erpnext-38.md` lines 716–942 (`erpnext__notifications`) | yes |
+| Open Source | `docs/erpnext/erpnext-39.md` lines 3–56 (`erpnext__open-source`) | — |
+| Open Work Order Report | `docs/erpnext/erpnext-39.md` lines 58–77 (`erpnext__open-work-orders`) | — |
+| Opening Balance in Accounts | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 162–265 (`erpnext__opening-balance`) | yes |
+| Opening Stock | `docs/erpnext/erpnext-39.md` lines 455–495 (`erpnext__opening-stock`) | yes |
+| Opening Stock Balance Entry for Serialized and Batch Item | `docs/erpnext/erpnext-39.md` lines 384–453 (`erpnext__opening-stock-balance-entry-for-serialized-and-batch-item`) | — |
+| Opening and Closing During Migration | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 79–160 (`erpnext__opening-and-closing`) | — |
+| Opportunity Type | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 625–652 (`erpnext__opportunity_type`) | — |
+| Opportunity | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 534–623 (`erpnext__opportunity`) | yes |
 | Overview | ERPNext Documentation | `docs/erpnext/erpnext-07.md` lines 359–432 (`erpnext__assets__introduction`) | — |
 | Overwrite Data | `docs/erpnext/erpnext-11.md` lines 728–792 (`erpnext__bulk-overwrite`) | — |
-| POS Invoice Consolidation | `docs/erpnext/erpnext-43.md` lines 145–174 (`erpnext__pos-invoice-consolidation`) | yes |
-| POS Profile | `docs/erpnext/erpnext-43.md` lines 176–311 (`erpnext__pos-profile`) | yes |
-| POS Workflows | `docs/erpnext/erpnext-43.md` lines 313–363 (`erpnext__pos-workflows`) | — |
-| Packing List | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 882–974 (`erpnext__packing-list`) | — |
-| Packing Slip | `docs/erpnext/erpnext-39.md` lines 976–1041 (`erpnext__packing-slip`) | yes |
+| POS Invoice Consolidation | `docs/erpnext/erpnext-43.md` lines 91–120 (`erpnext__pos-invoice-consolidation`) | yes |
+| POS Profile | `docs/erpnext/erpnext-43.md` lines 122–257 (`erpnext__pos-profile`) | yes |
+| POS Workflows | `docs/erpnext/erpnext-43.md` lines 259–309 (`erpnext__pos-workflows`) | — |
+| Packing List | ERPNext Documentation | `docs/erpnext/erpnext-39.md` lines 654–746 (`erpnext__packing-list`) | — |
+| Packing Slip | `docs/erpnext/erpnext-39.md` lines 748–813 (`erpnext__packing-slip`) | yes |
 | Partial Fulfilment of Sales Order | ERPNext Documentation | `docs/erpnext/erpnext-40.md` lines 3–194 (`erpnext__partial-fulfilment-of-sales-order`) | — |
 | Party Specific Item | `docs/erpnext/erpnext-40.md` lines 196–270 (`erpnext__party-specific-item`) | — |
 | Payment Entry for Capital Account | ERPNext Documentation | `docs/erpnext/erpnext-40.md` lines 272–351 (`erpnext__payment-entry-for-capital-account`) | — |
@@ -452,63 +453,63 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Personal Data Deletion | `docs/erpnext/erpnext-42.md` lines 628–685 (`erpnext__personal-data-deletion`) | — |
 | Personal Data Download | `docs/erpnext/erpnext-42.md` lines 687–709 (`erpnext__personal-data-download`) | — |
 | Pick List | `docs/erpnext/erpnext-42.md` lines 792–906 (`erpnext__pick-list`) | yes |
-| Plaid Integration | `docs/erpnext/erpnext-43.md` lines 3–55 (`erpnext__plaid_integration`) | — |
-| Plant Floor | `docs/erpnext/erpnext-43.md` lines 57–91 (`erpnext__plant-floor`) | yes |
-| Portal Login | `docs/erpnext/erpnext-43.md` lines 133–143 (`erpnext__portal-login`) | — |
-| Post Dated Cheque Entry | ERPNext Documentation | `docs/erpnext/erpnext-43.md` lines 365–444 (`erpnext__post-dated-cheque-entry`) | — |
-| Prepare and Map Legacy Accounting Data | ERPNext Documentation | `docs/erpnext/erpnext-43.md` lines 446–583 (`erpnext__prepare-and-map-legacy-data`) | yes |
-| Price Lists | `docs/erpnext/erpnext-43.md` lines 621–660 (`erpnext__price-lists`) | yes |
-| Pricing Rule | ERPNext Documentation | `docs/erpnext/erpnext-43.md` lines 662–809 (`erpnext__pricing-rule`) | yes |
-| Print Format | `docs/erpnext/erpnext-43.md` lines 873–938 (`erpnext__print-format`) | — |
-| Print Format Builder | `docs/erpnext/erpnext-43.md` lines 811–871 (`erpnext__print-format-builder`) | yes |
-| Print Headings | `docs/erpnext/erpnext-44.md` lines 3–49 (`erpnext__print-headings`) | — |
-| Print Settings | `docs/erpnext/erpnext-44.md` lines 51–155 (`erpnext__print-settings`) | — |
-| Print Style | `docs/erpnext/erpnext-44.md` lines 157–202 (`erpnext__print-style`) | — |
+| Plaid Integration | `docs/erpnext/erpnext-42.md` lines 908–960 (`erpnext__plaid_integration`) | — |
+| Plant Floor | `docs/erpnext/erpnext-43.md` lines 3–37 (`erpnext__plant-floor`) | yes |
+| Portal Login | `docs/erpnext/erpnext-43.md` lines 79–89 (`erpnext__portal-login`) | — |
+| Post Dated Cheque Entry | ERPNext Documentation | `docs/erpnext/erpnext-43.md` lines 311–390 (`erpnext__post-dated-cheque-entry`) | — |
+| Prepare and Map Legacy Accounting Data | ERPNext Documentation | `docs/erpnext/erpnext-43.md` lines 392–529 (`erpnext__prepare-and-map-legacy-data`) | yes |
+| Price Lists | `docs/erpnext/erpnext-43.md` lines 567–606 (`erpnext__price-lists`) | yes |
+| Pricing Rule | ERPNext Documentation | `docs/erpnext/erpnext-43.md` lines 608–755 (`erpnext__pricing-rule`) | yes |
+| Print Format | `docs/erpnext/erpnext-43.md` lines 819–884 (`erpnext__print-format`) | — |
+| Print Format Builder | `docs/erpnext/erpnext-43.md` lines 757–817 (`erpnext__print-format-builder`) | yes |
+| Print Headings | `docs/erpnext/erpnext-43.md` lines 886–932 (`erpnext__print-headings`) | — |
+| Print Settings | `docs/erpnext/erpnext-44.md` lines 3–107 (`erpnext__print-settings`) | — |
+| Print Style | `docs/erpnext/erpnext-44.md` lines 109–154 (`erpnext__print-style`) | — |
 | Print \"Centavo\" in Words for USD | `docs/erpnext/erpnext-12.md` lines 789–809 (`erpnext__centavo-being-printed-in-words-for-usd`) | — |
-| Printing | `docs/erpnext/erpnext-44.md` lines 230–253 (`erpnext__printing`) | — |
-| Printing and Branding | `docs/erpnext/erpnext-44.md` lines 204–228 (`erpnext__print`) | — |
-| Process Deferred Accounting | ERPNext Documentation | `docs/erpnext/erpnext-44.md` lines 255–437 (`erpnext__process-deferred-accounting`) | — |
-| Process Payment Reconciliation Tool | ERPNext Documentation | `docs/erpnext/erpnext-44.md` lines 439–566 (`erpnext__process-payment-reconciliation-tool`) | — |
-| Process Statement Of Accounts | ERPNext Documentation | `docs/erpnext/erpnext-44.md` lines 568–672 (`erpnext__process-statement-of-accounts`) | yes |
-| Procurement Cycle Overview | `docs/erpnext/erpnext-44.md` lines 674–696 (`erpnext__procurement-cycle-overview`) | — |
-| Procurement Tracker Report | `docs/erpnext/erpnext-44.md` lines 698–715 (`erpnext__procurement-tracker-report`) | — |
-| Product Bundle | `docs/erpnext/erpnext-44.md` lines 717–794 (`erpnext__product-bundle`) | yes |
-| Product Listing | `docs/erpnext/erpnext-44.md` lines 796–827 (`erpnext__product-listing`) | — |
-| Production Analytics | `docs/erpnext/erpnext-44.md` lines 829–844 (`erpnext__production-analytics`) | — |
+| Printing | `docs/erpnext/erpnext-44.md` lines 182–205 (`erpnext__printing`) | — |
+| Printing and Branding | `docs/erpnext/erpnext-44.md` lines 156–180 (`erpnext__print`) | — |
+| Process Deferred Accounting | ERPNext Documentation | `docs/erpnext/erpnext-44.md` lines 207–389 (`erpnext__process-deferred-accounting`) | — |
+| Process Payment Reconciliation Tool | ERPNext Documentation | `docs/erpnext/erpnext-44.md` lines 391–518 (`erpnext__process-payment-reconciliation-tool`) | — |
+| Process Statement Of Accounts | ERPNext Documentation | `docs/erpnext/erpnext-44.md` lines 520–624 (`erpnext__process-statement-of-accounts`) | yes |
+| Procurement Cycle Overview | `docs/erpnext/erpnext-44.md` lines 626–648 (`erpnext__procurement-cycle-overview`) | — |
+| Procurement Tracker Report | `docs/erpnext/erpnext-44.md` lines 650–667 (`erpnext__procurement-tracker-report`) | — |
+| Product Bundle | `docs/erpnext/erpnext-44.md` lines 669–746 (`erpnext__product-bundle`) | yes |
+| Product Listing | `docs/erpnext/erpnext-44.md` lines 748–779 (`erpnext__product-listing`) | — |
+| Production Analytics | `docs/erpnext/erpnext-44.md` lines 781–796 (`erpnext__production-analytics`) | — |
 | Production Plan | `docs/erpnext/erpnext-45.md` lines 201–398 (`erpnext__production-plan`) | yes |
 | Production Plan Schedule | `docs/erpnext/erpnext-45.md` lines 3–150 (`erpnext__production-plan-schedule`) | — |
 | Production Plan Visualizer | `docs/erpnext/erpnext-45.md` lines 152–199 (`erpnext__production-plan-visualizer`) | — |
 | Production Planning Report | `docs/erpnext/erpnext-45.md` lines 400–423 (`erpnext__production-planning-report`) | — |
-| Production Scrap Management | `docs/erpnext/erpnext-55.md` lines 180–209 (`erpnext__scrap-management`) | yes |
-| Production and Material Planning | `docs/erpnext/erpnext-44.md` lines 911–938 (`erpnext__production-and-material-planning`) | — |
+| Production Scrap Management | `docs/erpnext/erpnext-55.md` lines 3–32 (`erpnext__scrap-management`) | yes |
+| Production and Material Planning | `docs/erpnext/erpnext-44.md` lines 863–890 (`erpnext__production-and-material-planning`) | — |
 | Profit and Loss Report | `docs/erpnext/erpnext-45.md` lines 425–537 (`erpnext__profit-and-loss-report`) | yes |
 | Proforma Invoice | ERPNext Documentation | `docs/erpnext/erpnext-45.md` lines 539–656 (`erpnext__proforma-invoice`) | — |
-| Project | `docs/erpnext/erpnext-46.md` lines 144–285 (`erpnext__project`) | yes |
+| Project | `docs/erpnext/erpnext-46.md` lines 112–253 (`erpnext__project`) | yes |
 | Project Costing | `docs/erpnext/erpnext-45.md` lines 658–700 (`erpnext__project-costing`) | yes |
-| Project Overview | `docs/erpnext/erpnext-46.md` lines 328–355 (`erpnext__projects-introduction`) | — |
+| Project Overview | `docs/erpnext/erpnext-46.md` lines 296–323 (`erpnext__projects-introduction`) | — |
 | Project Profitability | `docs/erpnext/erpnext-45.md` lines 750–792 (`erpnext__project-profitability`) | yes |
 | Project Reports | `docs/erpnext/erpnext-45.md` lines 794–869 (`erpnext__project-reports`) | — |
-| Project Settings | `docs/erpnext/erpnext-46.md` lines 424–460 (`erpnext__projects__project-settings`) | — |
-| Project Template | `docs/erpnext/erpnext-46.md` lines 3–33 (`erpnext__project-template`) | yes |
-| Project Type | `docs/erpnext/erpnext-46.md` lines 35–62 (`erpnext__project-type`) | — |
-| Project Update | `docs/erpnext/erpnext-46.md` lines 64–99 (`erpnext__project-update`) | — |
-| Project Views | `docs/erpnext/erpnext-46.md` lines 101–142 (`erpnext__project-views`) | — |
+| Project Settings | `docs/erpnext/erpnext-46.md` lines 392–428 (`erpnext__projects__project-settings`) | — |
+| Project Template | `docs/erpnext/erpnext-45.md` lines 871–901 (`erpnext__project-template`) | yes |
+| Project Type | `docs/erpnext/erpnext-46.md` lines 3–30 (`erpnext__project-type`) | — |
+| Project Update | `docs/erpnext/erpnext-46.md` lines 32–67 (`erpnext__project-update`) | — |
+| Project Views | `docs/erpnext/erpnext-46.md` lines 69–110 (`erpnext__project-views`) | — |
 | Project and Managing Expenses | `docs/erpnext/erpnext-45.md` lines 732–748 (`erpnext__project-expense-claims`) | — |
 | Project from Customer Portal | `docs/erpnext/erpnext-45.md` lines 702–730 (`erpnext__project-customer-portal`) | — |
-| Projected Quantity | `docs/erpnext/erpnext-46.md` lines 287–326 (`erpnext__projected-quantity`) | — |
-| Purchase Cycle Ledger Impact | `docs/erpnext/erpnext-46.md` lines 577–748 (`erpnext__purchase-cycle-ledger-impact`) | — |
-| Purchase Invoice - Account Type Error | `docs/erpnext/erpnext-46.md` lines 750–798 (`erpnext__purchase-invoice-account-type-error`) | — |
+| Projected Quantity | `docs/erpnext/erpnext-46.md` lines 255–294 (`erpnext__projected-quantity`) | — |
+| Purchase Cycle Ledger Impact | `docs/erpnext/erpnext-46.md` lines 545–716 (`erpnext__purchase-cycle-ledger-impact`) | — |
+| Purchase Invoice - Account Type Error | `docs/erpnext/erpnext-46.md` lines 718–766 (`erpnext__purchase-invoice-account-type-error`) | — |
 | Purchase Invoice | ERPNext Documentation | `docs/erpnext/erpnext-47.md` lines 3–202 (`erpnext__purchase-invoice`) | yes |
 | Purchase Order | `docs/erpnext/erpnext-47.md` lines 204–398 (`erpnext__purchase-order`) | yes |
 | Purchase Receipt | `docs/erpnext/erpnext-47.md` lines 400–661 (`erpnext__purchase-receipt`) | yes |
 | Purchase Return | `docs/erpnext/erpnext-47.md` lines 663–718 (`erpnext__purchase-return`) | yes |
 | Purchase Taxes and Charges Template | `docs/erpnext/erpnext-48.md` lines 3–215 (`erpnext__purchase-taxes-and-charges-template`) | yes |
 | Purchase Transactions | `docs/erpnext/erpnext-48.md` lines 217–236 (`erpnext__purchase-transactions`) | — |
-| Purchase invoice for Services | `docs/erpnext/erpnext-32.md` lines 706–784 (`erpnext__item-creation-not-required-in-purchase-invoice`) | — |
+| Purchase invoice for Services | `docs/erpnext/erpnext-32.md` lines 95–173 (`erpnext__item-creation-not-required-in-purchase-invoice`) | — |
 | Purchasing an Asset | ERPNext Documentation | `docs/erpnext/erpnext-48.md` lines 238–325 (`erpnext__purchasing-an-asset`) | — |
 | Purchasing in Different UoM | `docs/erpnext/erpnext-48.md` lines 327–377 (`erpnext__purchasing-in-different-unit`) | — |
 | Purpose of Stock Delivered But Not Billed | `docs/erpnext/erpnext-48.md` lines 379–416 (`erpnext__purpose-of-stock-delivered-but-not-billed`) | — |
-| Purpose of Stock Received but not Billed | `docs/erpnext/erpnext-60.md` lines 22–37 (`erpnext__stock-received-but-not-billed`) | — |
+| Purpose of Stock Received but not Billed | `docs/erpnext/erpnext-59.md` lines 784–799 (`erpnext__stock-received-but-not-billed`) | — |
 | Putaway Rule | `docs/erpnext/erpnext-48.md` lines 418–520 (`erpnext__putaway-rule`) | yes |
 | Quality Action | `docs/erpnext/erpnext-48.md` lines 722–765 (`erpnext__quality_action`) | — |
 | Quality Feedback | `docs/erpnext/erpnext-48.md` lines 767–800 (`erpnext__quality_feedback`) | — |
@@ -517,18 +518,18 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Quality Inspection | `docs/erpnext/erpnext-48.md` lines 566–701 (`erpnext__quality-inspection`) | yes |
 | Quality Inspection Summary | `docs/erpnext/erpnext-48.md` lines 549–564 (`erpnext__quality-inspction-summary`) | — |
 | Quality Meeting | `docs/erpnext/erpnext-48.md` lines 847–872 (`erpnext__quality_meeting`) | — |
-| Quality Procedure | `docs/erpnext/erpnext-49.md` lines 3–51 (`erpnext__quality_procedure`) | — |
-| Quality Review | `docs/erpnext/erpnext-49.md` lines 53–102 (`erpnext__quality_review`) | — |
-| Quick Stock Balance | `docs/erpnext/erpnext-49.md` lines 104–133 (`erpnext__quick-stock-balance`) | — |
-| QuickBooks Migrator (Deprecated) | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 135–333 (`erpnext__quickbooks-migrator`) | yes |
-| Quotation | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 335–466 (`erpnext__quotation`) | yes |
-| Raw Printing | `docs/erpnext/erpnext-49.md` lines 468–585 (`erpnext__raw-printing`) | — |
+| Quality Procedure | `docs/erpnext/erpnext-48.md` lines 874–922 (`erpnext__quality_procedure`) | — |
+| Quality Review | `docs/erpnext/erpnext-49.md` lines 3–52 (`erpnext__quality_review`) | — |
+| Quick Stock Balance | `docs/erpnext/erpnext-49.md` lines 54–83 (`erpnext__quick-stock-balance`) | — |
+| QuickBooks Migrator (Deprecated) | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 85–283 (`erpnext__quickbooks-migrator`) | yes |
+| Quotation | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 285–416 (`erpnext__quotation`) | yes |
+| Raw Printing | `docs/erpnext/erpnext-49.md` lines 418–535 (`erpnext__raw-printing`) | — |
 | Raw material valuation | `docs/erpnext/erpnext-67.md` lines 585–606 (`erpnext__valuation-based-on-field-in-bom`) | — |
-| RazorPay Integration | `docs/erpnext/erpnext-49.md` lines 587–624 (`erpnext__razorpay-integration`) | — |
-| Rebuild the Chart of Accounts Tree | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 626–751 (`erpnext__rebuild-tree`) | — |
-| Receiving Bulk Payments in ERPNext | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 753–844 (`erpnext__receiving-bulk-payments-in-erpnext`) | — |
-| Reconcile Advance Payment Made to the Supplier | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 846–925 (`erpnext__reconcile-advance-payment-made-to-the-supplier`) | — |
-| Record Incoterms and Named Places | ERPNext Documentation | `docs/erpnext/erpnext-31.md` lines 3–116 (`erpnext__incoterm-and-named-place`) | — |
+| RazorPay Integration | `docs/erpnext/erpnext-49.md` lines 537–574 (`erpnext__razorpay-integration`) | — |
+| Rebuild the Chart of Accounts Tree | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 576–701 (`erpnext__rebuild-tree`) | — |
+| Receiving Bulk Payments in ERPNext | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 703–794 (`erpnext__receiving-bulk-payments-in-erpnext`) | — |
+| Reconcile Advance Payment Made to the Supplier | ERPNext Documentation | `docs/erpnext/erpnext-49.md` lines 796–875 (`erpnext__reconcile-advance-payment-made-to-the-supplier`) | — |
+| Record Incoterms and Named Places | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 281–394 (`erpnext__incoterm-and-named-place`) | — |
 | Regional | `docs/erpnext/erpnext-50.md` lines 125–169 (`erpnext__regional`) | — |
 | Regional Chart of Accounts | `docs/erpnext/erpnext-50.md` lines 171–235 (`erpnext__regional__regional-chart-of-accounts`) | — |
 | Remove Description in Print Format | `docs/erpnext/erpnext-50.md` lines 279–315 (`erpnext__removing-description-removed-item-code-and-name`) | — |
@@ -536,17 +537,17 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Renaming Documents | `docs/erpnext/erpnext-50.md` lines 317–389 (`erpnext__renaming-documents`) | — |
 | Repack Entry | `docs/erpnext/erpnext-50.md` lines 391–431 (`erpnext__repack-entry`) | — |
 | Report Showing Multiple Rows for One Document | `docs/erpnext/erpnext-50.md` lines 458–593 (`erpnext__report-showing-multiple-rows-for-one-document`) | — |
-| Reports | `docs/erpnext/erpnext-61.md` lines 515–545 (`erpnext__subcontracting__reports`) | — |
+| Reports | `docs/erpnext/erpnext-61.md` lines 328–358 (`erpnext__subcontracting__reports`) | — |
 | Repost Accounting Ledger | ERPNext Documentation | `docs/erpnext/erpnext-50.md` lines 595–798 (`erpnext__repost-accounting-ledger`) | — |
 | Repost Item Valuation | `docs/erpnext/erpnext-50.md` lines 800–939 (`erpnext__repost-item-valuation`) | — |
 | Request Raw Materials from a Sales Order | ERPNext Documentation | `docs/erpnext/erpnext-51.md` lines 170–286 (`erpnext__request-for-raw-materials-from-sales-order`) | — |
 | Request for Quotation | `docs/erpnext/erpnext-51.md` lines 3–168 (`erpnext__request-for-quotation`) | yes |
-| Requirements for France | `docs/erpnext/erpnext-27.md` lines 412–426 (`erpnext__france`) | — |
-| Requirements for Italy | `docs/erpnext/erpnext-32.md` lines 496–509 (`erpnext__italy`) | — |
-| Requirements for South Africa | `docs/erpnext/erpnext-58.md` lines 940–952 (`erpnext__south_africa`) | — |
+| Requirements for France | `docs/erpnext/erpnext-26.md` lines 666–680 (`erpnext__france`) | — |
+| Requirements for Italy | `docs/erpnext/erpnext-31.md` lines 807–820 (`erpnext__italy`) | — |
+| Requirements for South Africa | `docs/erpnext/erpnext-58.md` lines 586–598 (`erpnext__south_africa`) | — |
 | Requirements for United Arab Emirates | `docs/erpnext/erpnext-66.md` lines 814–829 (`erpnext__united_arab_emirates`) | — |
-| Restore Deleted Documents | `docs/erpnext/erpnext-30.md` lines 3–25 (`erpnext__how-to-restore-deleted-documents-in-erpnext`) | — |
-| Restrict Sales Users to Their Customers and Transactions | ERPNext Doc | `docs/erpnext/erpnext-55.md` lines 3–178 (`erpnext__salesperson-permissions`) | — |
+| Restore Deleted Documents | `docs/erpnext/erpnext-29.md` lines 268–290 (`erpnext__how-to-restore-deleted-documents-in-erpnext`) | — |
+| Restrict Sales Users to Their Customers and Transactions | ERPNext Doc | `docs/erpnext/erpnext-54.md` lines 623–798 (`erpnext__salesperson-permissions`) | — |
 | Retaining Sample Stock | `docs/erpnext/erpnext-51.md` lines 329–375 (`erpnext__retain-sample-stock`) | — |
 | Return Rejected Items | `docs/erpnext/erpnext-51.md` lines 377–396 (`erpnext__return-rejected-item`) | — |
 | Returned Materials Against Work Order | `docs/erpnext/erpnext-51.md` lines 398–413 (`erpnext__returned_materials_against_work_order`) | — |
@@ -559,115 +560,115 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Round off Account Validation Message | `docs/erpnext/erpnext-51.md` lines 673–715 (`erpnext__round-off-account-validation`) | — |
 | Routing | `docs/erpnext/erpnext-51.md` lines 717–768 (`erpnext__routing`) | yes |
 | Rules | `docs/erpnext/erpnext-51.md` lines 770–785 (`erpnext__rules`) | — |
-| SMS Settings | `docs/erpnext/erpnext-58.md` lines 835–912 (`erpnext__sms-setting`) | — |
+| SMS Settings | `docs/erpnext/erpnext-58.md` lines 481–558 (`erpnext__sms-setting`) | — |
 | Salary Slip from Timesheet | `docs/erpnext/erpnext-51.md` lines 787–817 (`erpnext__salary-slip-from-timesheet`) | — |
-| Sales Interest and Dunning | ERPNext Documentation | `docs/erpnext/erpnext-23.md` lines 386–490 (`erpnext__dunning`) | yes |
+| Sales Interest and Dunning | ERPNext Documentation | `docs/erpnext/erpnext-22.md` lines 775–879 (`erpnext__dunning`) | yes |
 | Sales Invoice from Timesheet | `docs/erpnext/erpnext-52.md` lines 133–172 (`erpnext__sales-invoice-from-timesheet`) | yes |
 | Sales Invoice | ERPNext Documentation | `docs/erpnext/erpnext-52.md` lines 306–524 (`erpnext__sales-invoice`) | yes |
 | Sales Order Type: Sales, Maintenance, Shopping Cart | `docs/erpnext/erpnext-52.md` lines 526–672 (`erpnext__sales-order-type`) | — |
 | Sales Order | ERPNext Documentation | `docs/erpnext/erpnext-53.md` lines 3–244 (`erpnext__sales-order`) | yes |
 | Sales Partner Commission | ERPNext Documentation | `docs/erpnext/erpnext-53.md` lines 246–477 (`erpnext__sales-partner`) | — |
 | Sales Person Target Allocation | ERPNext Documentation | `docs/erpnext/erpnext-53.md` lines 479–658 (`erpnext__sales-person-target-allocation`) | — |
-| Sales Person | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 3–152 (`erpnext__sales-person`) | yes |
-| Sales Pipeline | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 278–313 (`erpnext__sales-pipeline`) | — |
+| Sales Person | ERPNext Documentation | `docs/erpnext/erpnext-53.md` lines 660–809 (`erpnext__sales-person`) | yes |
+| Sales Pipeline | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 127–162 (`erpnext__sales-pipeline`) | — |
 | Sales Reports and Analytics | ERPNext Documentation | `docs/erpnext/erpnext-52.md` lines 3–131 (`erpnext__sales-analytics`) | yes |
-| Sales Return | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 315–508 (`erpnext__sales-return`) | yes |
-| Sales Stage | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 745–772 (`erpnext__sales_stage`) | — |
-| Sales Taxes and Charges Template | `docs/erpnext/erpnext-54.md` lines 510–706 (`erpnext__sales-taxes-and-charges-template`) | yes |
-| Sales and Payment Transactions | `docs/erpnext/erpnext-35.md` lines 396–419 (`erpnext__local_overrides`) | — |
-| Scrapping an Asset | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 211–283 (`erpnext__scrapping-an-asset`) | — |
-| Search Record by Specific Field | `docs/erpnext/erpnext-55.md` lines 285–318 (`erpnext__search-record-by-specific-field`) | — |
-| Secondary Items | `docs/erpnext/erpnext-55.md` lines 320–359 (`erpnext__secondary-items`) | — |
-| Sell Items in Different Units of Measure | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 612–733 (`erpnext__Selling-in-different-UOM`) | — |
-| Selling Cycle Ledger Impact | `docs/erpnext/erpnext-55.md` lines 434–610 (`erpnext__selling-cycle-ledger-impact`) | — |
-| Selling Settings | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 3–201 (`erpnext__selling-settings`) | — |
-| Selling an Asset | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 361–432 (`erpnext__selling-an-asset`) | — |
-| Semi-Auto Payment Reconciliation | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 377–456 (`erpnext__semi-auto-payment-reconciliation`) | — |
-| Sending Email from any Document | `docs/erpnext/erpnext-56.md` lines 458–502 (`erpnext__sending-email`) | — |
-| Serial No and Batch Traceability Report | `docs/erpnext/erpnext-56.md` lines 637–670 (`erpnext__serial-and-batch-traceability-report`) | — |
-| Serial Number | `docs/erpnext/erpnext-57.md` lines 48–144 (`erpnext__serial-no`) | yes |
-| Serial Number Naming | `docs/erpnext/erpnext-57.md` lines 3–46 (`erpnext__serial-no-naming`) | — |
-| Serial and Batch | `docs/erpnext/erpnext-56.md` lines 672–698 (`erpnext__serial-and-batch`) | — |
-| Serial and Batch Bundle | `docs/erpnext/erpnext-56.md` lines 504–635 (`erpnext__serial-and-batch-bundle`) | yes |
-| Serialised Item Valuation Rate calculation | `docs/erpnext/erpnext-29.md` lines 319–343 (`erpnext__how-is-valuation-rate-of-serialised-item-calculated-in-erpnext`) | — |
-| Service Level Agreement | `docs/erpnext/erpnext-57.md` lines 146–223 (`erpnext__service-level-agreement`) | — |
-| Session Defaults | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 225–300 (`erpnext__session-defaults`) | — |
-| Set Current Value for Naming Series | `docs/erpnext/erpnext-38.md` lines 549–614 (`erpnext__naming-series-current-value`) | — |
-| Set Language | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 302–378 (`erpnext__set-language`) | — |
-| Set Precision | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 380–457 (`erpnext__set-precision`) | — |
-| Set Up Buy One Get One Free Offers | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 564–671 (`erpnext__setting-up-buy-1-get-1-free-pricing-rule`) | — |
-| Set Up E-commerce | `docs/erpnext/erpnext-57.md` lines 459–481 (`erpnext__set_up_e_commerce`) | — |
-| Set default values for any field | `docs/erpnext/erpnext-57.md` lines 512–562 (`erpnext__setting-default-values-for-any-field-in-erpnext`) | — |
-| Setting Company Sales Goal | ERPNext Documentation | `docs/erpnext/erpnext-29.md` lines 773–917 (`erpnext__how-to-give-commission-to-sales-partner`) | — |
-| Setting Up | `docs/erpnext/erpnext-57.md` lines 835–909 (`erpnext__setting-up`) | — |
-| Setting Up Dropbox Backups | `docs/erpnext/erpnext-23.md` lines 269–384 (`erpnext__dropbox-backup`) | — |
-| Setting Up Email Signature in ERPNext | `docs/erpnext/erpnext-57.md` lines 673–687 (`erpnext__setting-up-email-signature-in-erpnext`) | — |
-| Setting Up Taxes | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 755–833 (`erpnext__setting-up-taxes`) | yes |
-| Setting Workflows on Masters | `docs/erpnext/erpnext-57.md` lines 911–985 (`erpnext__setting-workflows-on-masters`) | — |
+| Sales Return | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 164–357 (`erpnext__sales-return`) | yes |
+| Sales Stage | ERPNext Documentation | `docs/erpnext/erpnext-54.md` lines 594–621 (`erpnext__sales_stage`) | — |
+| Sales Taxes and Charges Template | `docs/erpnext/erpnext-54.md` lines 359–555 (`erpnext__sales-taxes-and-charges-template`) | yes |
+| Sales and Payment Transactions | `docs/erpnext/erpnext-34.md` lines 706–729 (`erpnext__local_overrides`) | — |
+| Scrapping an Asset | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 34–106 (`erpnext__scrapping-an-asset`) | — |
+| Search Record by Specific Field | `docs/erpnext/erpnext-55.md` lines 108–141 (`erpnext__search-record-by-specific-field`) | — |
+| Secondary Items | `docs/erpnext/erpnext-55.md` lines 143–182 (`erpnext__secondary-items`) | — |
+| Sell Items in Different Units of Measure | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 435–556 (`erpnext__Selling-in-different-UOM`) | — |
+| Selling Cycle Ledger Impact | `docs/erpnext/erpnext-55.md` lines 257–433 (`erpnext__selling-cycle-ledger-impact`) | — |
+| Selling Settings | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 558–756 (`erpnext__selling-settings`) | — |
+| Selling an Asset | ERPNext Documentation | `docs/erpnext/erpnext-55.md` lines 184–255 (`erpnext__selling-an-asset`) | — |
+| Semi-Auto Payment Reconciliation | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 177–256 (`erpnext__semi-auto-payment-reconciliation`) | — |
+| Sending Email from any Document | `docs/erpnext/erpnext-56.md` lines 258–302 (`erpnext__sending-email`) | — |
+| Serial No and Batch Traceability Report | `docs/erpnext/erpnext-56.md` lines 437–470 (`erpnext__serial-and-batch-traceability-report`) | — |
+| Serial Number | `docs/erpnext/erpnext-56.md` lines 545–641 (`erpnext__serial-no`) | yes |
+| Serial Number Naming | `docs/erpnext/erpnext-56.md` lines 500–543 (`erpnext__serial-no-naming`) | — |
+| Serial and Batch | `docs/erpnext/erpnext-56.md` lines 472–498 (`erpnext__serial-and-batch`) | — |
+| Serial and Batch Bundle | `docs/erpnext/erpnext-56.md` lines 304–435 (`erpnext__serial-and-batch-bundle`) | yes |
+| Serialised Item Valuation Rate calculation | `docs/erpnext/erpnext-28.md` lines 481–505 (`erpnext__how-is-valuation-rate-of-serialised-item-calculated-in-erpnext`) | — |
+| Service Level Agreement | `docs/erpnext/erpnext-56.md` lines 643–720 (`erpnext__service-level-agreement`) | — |
+| Session Defaults | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 722–797 (`erpnext__session-defaults`) | — |
+| Set Current Value for Naming Series | `docs/erpnext/erpnext-38.md` lines 405–470 (`erpnext__naming-series-current-value`) | — |
+| Set Language | ERPNext Documentation | `docs/erpnext/erpnext-56.md` lines 799–875 (`erpnext__set-language`) | — |
+| Set Precision | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 3–80 (`erpnext__set-precision`) | — |
+| Set Up Buy One Get One Free Offers | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 187–294 (`erpnext__setting-up-buy-1-get-1-free-pricing-rule`) | — |
+| Set Up E-commerce | `docs/erpnext/erpnext-57.md` lines 82–104 (`erpnext__set_up_e_commerce`) | — |
+| Set default values for any field | `docs/erpnext/erpnext-57.md` lines 135–185 (`erpnext__setting-default-values-for-any-field-in-erpnext`) | — |
+| Setting Company Sales Goal | ERPNext Documentation | `docs/erpnext/erpnext-29.md` lines 3–147 (`erpnext__how-to-give-commission-to-sales-partner`) | — |
+| Setting Up | `docs/erpnext/erpnext-57.md` lines 458–532 (`erpnext__setting-up`) | — |
+| Setting Up Dropbox Backups | `docs/erpnext/erpnext-22.md` lines 658–773 (`erpnext__dropbox-backup`) | — |
+| Setting Up Email Signature in ERPNext | `docs/erpnext/erpnext-57.md` lines 296–310 (`erpnext__setting-up-email-signature-in-erpnext`) | — |
+| Setting Up Taxes | ERPNext Documentation | `docs/erpnext/erpnext-57.md` lines 378–456 (`erpnext__setting-up-taxes`) | yes |
+| Setting Workflows on Masters | `docs/erpnext/erpnext-57.md` lines 534–608 (`erpnext__setting-workflows-on-masters`) | — |
 | Setting up Braintree | `docs/erpnext/erpnext-11.md` lines 265–310 (`erpnext__braintree-integration`) | — |
-| Setting up GoCardless | `docs/erpnext/erpnext-28.md` lines 346–399 (`erpnext__gocardless-integration`) | — |
-| Setting up LDAP | `docs/erpnext/erpnext-34.md` lines 591–703 (`erpnext__ldap-integration`) | — |
+| Setting up GoCardless | `docs/erpnext/erpnext-27.md` lines 528–581 (`erpnext__gocardless-integration`) | — |
+| Setting up LDAP | `docs/erpnext/erpnext-34.md` lines 199–311 (`erpnext__ldap-integration`) | — |
 | Setting up PayPal | `docs/erpnext/erpnext-41.md` lines 690–748 (`erpnext__paypal-integration`) | — |
-| Setting up Sendgrid SMTP Email in ERPNext | `docs/erpnext/erpnext-57.md` lines 689–753 (`erpnext__setting-up-sendgrid-smtp-email-in-erpnext`) | — |
-| Setting up Stripe | `docs/erpnext/erpnext-61.md` lines 3–162 (`erpnext__stripe-integration`) | — |
-| Setting up fairlogin | `docs/erpnext/erpnext-26.md` lines 189–227 (`erpnext__fairlogin-integration`) | — |
-| Setup Two Factor Authentication | `docs/erpnext/erpnext-57.md` lines 987–1042 (`erpnext__setup-two-factor-authentication`) | yes |
-| Share Reports | `docs/erpnext/erpnext-58.md` lines 3–65 (`erpnext__share-reports`) | — |
-| Share Transfer | `docs/erpnext/erpnext-58.md` lines 67–140 (`erpnext__share-transfer`) | yes |
-| Shareholder | `docs/erpnext/erpnext-58.md` lines 192–235 (`erpnext__shareholder`) | — |
-| Shareholder Management | `docs/erpnext/erpnext-58.md` lines 142–190 (`erpnext__shareholder-management`) | — |
-| Sharing | `docs/erpnext/erpnext-58.md` lines 237–272 (`erpnext__sharing`) | — |
-| Shipment | `docs/erpnext/erpnext-58.md` lines 274–355 (`erpnext__shipment`) | yes |
-| Shipping Rule | `docs/erpnext/erpnext-58.md` lines 357–403 (`erpnext__shipping-rule`) | — |
-| Shop by Category | `docs/erpnext/erpnext-58.md` lines 405–438 (`erpnext__shop_by_category`) | — |
-| Shopify Integration | `docs/erpnext/erpnext-58.md` lines 440–588 (`erpnext__shopify_integration`) | — |
-| Shopping Cart | `docs/erpnext/erpnext-58.md` lines 590–638 (`erpnext__shopping-cart`) | yes |
-| Short Close Multiple Orders | ERPNext Documentation | `docs/erpnext/erpnext-30.md` lines 51–150 (`erpnext__how-to-short-close-multiple-orders-in-erpnext`) | — |
-| Show or Hide Modules | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 640–716 (`erpnext__show-hide-modules`) | — |
-| Signature Field | `docs/erpnext/erpnext-23.md` lines 865–895 (`erpnext__electronic-signature`) | — |
-| Single Payment Against Multiple Invoices | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 753–833 (`erpnext__single-payment-multiple-invoices`) | — |
-| Social Media Settings | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 914–938 (`erpnext__social-media-settings`) | — |
-| Sorting Order in List View | `docs/erpnext/erpnext-18.md` lines 363–394 (`erpnext__customizing-sorting-order-in-the-list-view`) | — |
-| Stale Cheque Accounting | ERPNext Documentation | `docs/erpnext/erpnext-59.md` lines 3–82 (`erpnext__stale-cheque-accounting`) | — |
-| Standard Valuation Rate | `docs/erpnext/erpnext-59.md` lines 84–392 (`erpnext__standard-valuation-rate`) | — |
-| Stock Adjustment / COGS with Negative Stock | `docs/erpnext/erpnext-59.md` lines 394–438 (`erpnext__stock-adjustment-cogs-with-negative-stock`) | — |
-| Stock Closing Entry | `docs/erpnext/erpnext-59.md` lines 490–512 (`erpnext__stock-closing-entry`) | yes |
-| Stock Entry | `docs/erpnext/erpnext-59.md` lines 568–752 (`erpnext__stock-entry`) | yes |
-| Stock Entry Purpose | `docs/erpnext/erpnext-59.md` lines 514–566 (`erpnext__stock-entry-purpose`) | — |
-| Stock FAQs | `docs/erpnext/erpnext-26.md` lines 229–239 (`erpnext__faqs`) | — |
-| Stock Inspection | `docs/erpnext/erpnext-59.md` lines 754–771 (`erpnext__stock-inspection`) | — |
-| Stock Ledger Report | `docs/erpnext/erpnext-59.md` lines 773–815 (`erpnext__stock-ledger`) | yes |
-| Stock Ledger Variance Report | `docs/erpnext/erpnext-60.md` lines 243–304 (`erpnext__stock-reposting`) | — |
-| Stock Level Report | `docs/erpnext/erpnext-59.md` lines 817–844 (`erpnext__stock-level-report`) | yes |
-| Stock Masters | `docs/erpnext/erpnext-60.md` lines 3–20 (`erpnext__stock-masters`) | — |
-| Stock Reconciliation | `docs/erpnext/erpnext-60.md` lines 39–164 (`erpnext__stock-reconciliation`) | yes |
-| Stock Reposting Settings | `docs/erpnext/erpnext-60.md` lines 166–241 (`erpnext__stock-reposting-settings`) | — |
-| Stock Reservation | `docs/erpnext/erpnext-60.md` lines 380–437 (`erpnext__stock-reservation`) | yes |
-| Stock Reservation for Production Plan | `docs/erpnext/erpnext-60.md` lines 306–335 (`erpnext__stock-reservation-for-production-plan`) | — |
-| Stock Reservation for Work Order\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t | `docs/erpnext/erpnext-60.md` lines 337–378 (`erpnext__stock-reservation-for-work-order`) | — |
-| Stock Settings | `docs/erpnext/erpnext-60.md` lines 439–643 (`erpnext__stock-settings`) | yes |
-| Stock Transactions | `docs/erpnext/erpnext-60.md` lines 739–766 (`erpnext__stock-transactions`) | — |
-| Stock Transfer with GST | `docs/erpnext/erpnext-60.md` lines 768–888 (`erpnext__stock-transfer-with-gst`) | — |
-| Stock Value and Account Value Comparison Report | `docs/erpnext/erpnext-60.md` lines 890–904 (`erpnext__stock-value-account-value-comparison`) | — |
-| Store Landing Page | `docs/erpnext/erpnext-60.md` lines 950–1023 (`erpnext__store-landing-page`) | — |
-| Subcontracting | `docs/erpnext/erpnext-61.md` lines 296–513 (`erpnext__subcontracting`) | yes |
-| Subcontracting Inward | `docs/erpnext/erpnext-61.md` lines 190–294 (`erpnext__subcontracting-inward`) | — |
-| Subscription Plan | ERPNext Documentation | `docs/erpnext/erpnext-61.md` lines 547–690 (`erpnext__subscription-plan`) | — |
-| Subscription Settings | ERPNext Documentation | `docs/erpnext/erpnext-61.md` lines 692–733 (`erpnext__subscription-settings`) | — |
-| Subscription | ERPNext Documentation | `docs/erpnext/erpnext-61.md` lines 735–838 (`erpnext__subscription`) | yes |
-| Supplier | `docs/erpnext/erpnext-62.md` lines 268–428 (`erpnext__supplier`) | yes |
-| Supplier Essentials | `docs/erpnext/erpnext-62.md` lines 3–14 (`erpnext__supplier-essentials`) | — |
-| Supplier Group | `docs/erpnext/erpnext-62.md` lines 16–77 (`erpnext__supplier-group`) | — |
-| Supplier Quotation | `docs/erpnext/erpnext-62.md` lines 79–163 (`erpnext__supplier-quotation`) | yes |
-| Supplier Scorecard | `docs/erpnext/erpnext-62.md` lines 165–266 (`erpnext__supplier-scorecard`) | yes |
-| Support Issues | `docs/erpnext/erpnext-62.md` lines 430–443 (`erpnext__support-issues`) | — |
-| Support Reports | `docs/erpnext/erpnext-62.md` lines 483–538 (`erpnext__support_reports`) | — |
-| Support Settings | `docs/erpnext/erpnext-62.md` lines 445–481 (`erpnext__support-settings`) | — |
-| Sync DocTypes with Events Calendar | `docs/erpnext/erpnext-30.md` lines 152–171 (`erpnext__how-to-sync-doc-types-with-calendar`) | — |
-| System Settings | ERPNext Documentation | `docs/erpnext/erpnext-62.md` lines 540–698 (`erpnext__system-settings`) | yes |
+| Setting up Sendgrid SMTP Email in ERPNext | `docs/erpnext/erpnext-57.md` lines 312–376 (`erpnext__setting-up-sendgrid-smtp-email-in-erpnext`) | — |
+| Setting up Stripe | `docs/erpnext/erpnext-60.md` lines 989–1148 (`erpnext__stripe-integration`) | — |
+| Setting up fairlogin | `docs/erpnext/erpnext-25.md` lines 384–422 (`erpnext__fairlogin-integration`) | — |
+| Setup Two Factor Authentication | `docs/erpnext/erpnext-57.md` lines 610–665 (`erpnext__setup-two-factor-authentication`) | yes |
+| Share Reports | `docs/erpnext/erpnext-57.md` lines 667–729 (`erpnext__share-reports`) | — |
+| Share Transfer | `docs/erpnext/erpnext-57.md` lines 731–804 (`erpnext__share-transfer`) | yes |
+| Shareholder | `docs/erpnext/erpnext-57.md` lines 856–899 (`erpnext__shareholder`) | — |
+| Shareholder Management | `docs/erpnext/erpnext-57.md` lines 806–854 (`erpnext__shareholder-management`) | — |
+| Sharing | `docs/erpnext/erpnext-57.md` lines 901–936 (`erpnext__sharing`) | — |
+| Shipment | `docs/erpnext/erpnext-57.md` lines 938–1019 (`erpnext__shipment`) | yes |
+| Shipping Rule | `docs/erpnext/erpnext-58.md` lines 3–49 (`erpnext__shipping-rule`) | — |
+| Shop by Category | `docs/erpnext/erpnext-58.md` lines 51–84 (`erpnext__shop_by_category`) | — |
+| Shopify Integration | `docs/erpnext/erpnext-58.md` lines 86–234 (`erpnext__shopify_integration`) | — |
+| Shopping Cart | `docs/erpnext/erpnext-58.md` lines 236–284 (`erpnext__shopping-cart`) | yes |
+| Short Close Multiple Orders | ERPNext Documentation | `docs/erpnext/erpnext-29.md` lines 316–415 (`erpnext__how-to-short-close-multiple-orders-in-erpnext`) | — |
+| Show or Hide Modules | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 286–362 (`erpnext__show-hide-modules`) | — |
+| Signature Field | `docs/erpnext/erpnext-23.md` lines 204–234 (`erpnext__electronic-signature`) | — |
+| Single Payment Against Multiple Invoices | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 399–479 (`erpnext__single-payment-multiple-invoices`) | — |
+| Social Media Settings | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 560–584 (`erpnext__social-media-settings`) | — |
+| Sorting Order in List View | `docs/erpnext/erpnext-18.md` lines 265–296 (`erpnext__customizing-sorting-order-in-the-list-view`) | — |
+| Stale Cheque Accounting | ERPNext Documentation | `docs/erpnext/erpnext-58.md` lines 600–679 (`erpnext__stale-cheque-accounting`) | — |
+| Standard Valuation Rate | `docs/erpnext/erpnext-59.md` lines 3–311 (`erpnext__standard-valuation-rate`) | — |
+| Stock Adjustment / COGS with Negative Stock | `docs/erpnext/erpnext-59.md` lines 313–357 (`erpnext__stock-adjustment-cogs-with-negative-stock`) | — |
+| Stock Closing Entry | `docs/erpnext/erpnext-59.md` lines 409–431 (`erpnext__stock-closing-entry`) | yes |
+| Stock Entry | `docs/erpnext/erpnext-59.md` lines 487–671 (`erpnext__stock-entry`) | yes |
+| Stock Entry Purpose | `docs/erpnext/erpnext-59.md` lines 433–485 (`erpnext__stock-entry-purpose`) | — |
+| Stock FAQs | `docs/erpnext/erpnext-25.md` lines 424–434 (`erpnext__faqs`) | — |
+| Stock Inspection | `docs/erpnext/erpnext-59.md` lines 673–690 (`erpnext__stock-inspection`) | — |
+| Stock Ledger Report | `docs/erpnext/erpnext-59.md` lines 692–734 (`erpnext__stock-ledger`) | yes |
+| Stock Ledger Variance Report | `docs/erpnext/erpnext-60.md` lines 207–268 (`erpnext__stock-reposting`) | — |
+| Stock Level Report | `docs/erpnext/erpnext-59.md` lines 736–763 (`erpnext__stock-level-report`) | yes |
+| Stock Masters | `docs/erpnext/erpnext-59.md` lines 765–782 (`erpnext__stock-masters`) | — |
+| Stock Reconciliation | `docs/erpnext/erpnext-60.md` lines 3–128 (`erpnext__stock-reconciliation`) | yes |
+| Stock Reposting Settings | `docs/erpnext/erpnext-60.md` lines 130–205 (`erpnext__stock-reposting-settings`) | — |
+| Stock Reservation | `docs/erpnext/erpnext-60.md` lines 344–401 (`erpnext__stock-reservation`) | yes |
+| Stock Reservation for Production Plan | `docs/erpnext/erpnext-60.md` lines 270–299 (`erpnext__stock-reservation-for-production-plan`) | — |
+| Stock Reservation for Work Order\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t | `docs/erpnext/erpnext-60.md` lines 301–342 (`erpnext__stock-reservation-for-work-order`) | — |
+| Stock Settings | `docs/erpnext/erpnext-60.md` lines 403–607 (`erpnext__stock-settings`) | yes |
+| Stock Transactions | `docs/erpnext/erpnext-60.md` lines 703–730 (`erpnext__stock-transactions`) | — |
+| Stock Transfer with GST | `docs/erpnext/erpnext-60.md` lines 732–852 (`erpnext__stock-transfer-with-gst`) | — |
+| Stock Value and Account Value Comparison Report | `docs/erpnext/erpnext-60.md` lines 854–868 (`erpnext__stock-value-account-value-comparison`) | — |
+| Store Landing Page | `docs/erpnext/erpnext-60.md` lines 914–987 (`erpnext__store-landing-page`) | — |
+| Subcontracting | `docs/erpnext/erpnext-61.md` lines 109–326 (`erpnext__subcontracting`) | yes |
+| Subcontracting Inward | `docs/erpnext/erpnext-61.md` lines 3–107 (`erpnext__subcontracting-inward`) | — |
+| Subscription Plan | ERPNext Documentation | `docs/erpnext/erpnext-61.md` lines 360–503 (`erpnext__subscription-plan`) | — |
+| Subscription Settings | ERPNext Documentation | `docs/erpnext/erpnext-61.md` lines 505–546 (`erpnext__subscription-settings`) | — |
+| Subscription | ERPNext Documentation | `docs/erpnext/erpnext-61.md` lines 548–651 (`erpnext__subscription`) | yes |
+| Supplier | `docs/erpnext/erpnext-62.md` lines 192–352 (`erpnext__supplier`) | yes |
+| Supplier Essentials | `docs/erpnext/erpnext-61.md` lines 653–664 (`erpnext__supplier-essentials`) | — |
+| Supplier Group | `docs/erpnext/erpnext-61.md` lines 666–727 (`erpnext__supplier-group`) | — |
+| Supplier Quotation | `docs/erpnext/erpnext-62.md` lines 3–87 (`erpnext__supplier-quotation`) | yes |
+| Supplier Scorecard | `docs/erpnext/erpnext-62.md` lines 89–190 (`erpnext__supplier-scorecard`) | yes |
+| Support Issues | `docs/erpnext/erpnext-62.md` lines 354–367 (`erpnext__support-issues`) | — |
+| Support Reports | `docs/erpnext/erpnext-62.md` lines 407–462 (`erpnext__support_reports`) | — |
+| Support Settings | `docs/erpnext/erpnext-62.md` lines 369–405 (`erpnext__support-settings`) | — |
+| Sync DocTypes with Events Calendar | `docs/erpnext/erpnext-29.md` lines 417–436 (`erpnext__how-to-sync-doc-types-with-calendar`) | — |
+| System Settings | ERPNext Documentation | `docs/erpnext/erpnext-62.md` lines 464–622 (`erpnext__system-settings`) | yes |
 | TDS Setup for India | `docs/erpnext/erpnext-64.md` lines 543–585 (`erpnext__tds-setup-india`) | — |
-| Table MultiSelect Field | `docs/erpnext/erpnext-62.md` lines 700–739 (`erpnext__table-multiselect-field`) | — |
-| Tasks | `docs/erpnext/erpnext-62.md` lines 741–834 (`erpnext__tasks`) | yes |
+| Table MultiSelect Field | `docs/erpnext/erpnext-62.md` lines 624–663 (`erpnext__table-multiselect-field`) | — |
+| Tasks | `docs/erpnext/erpnext-62.md` lines 665–758 (`erpnext__tasks`) | yes |
 | Tax Category | `docs/erpnext/erpnext-63.md` lines 3–195 (`erpnext__tax-category`) | yes |
 | Tax Inclusive Accounting | `docs/erpnext/erpnext-63.md` lines 197–390 (`erpnext__tax-inclusive-accounting`) | — |
 | Tax Rule | `docs/erpnext/erpnext-63.md` lines 566–765 (`erpnext__tax-rule`) | yes |
@@ -696,17 +697,17 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Unicommerce Integration | `docs/erpnext/erpnext-66.md` lines 606–812 (`erpnext__unicommerce_integration`) | — |
 | Unit of Measure (UoM) | `docs/erpnext/erpnext-66.md` lines 918–935 (`erpnext__uom`) | yes |
 | Unreconcile Payments | ERPNext Documentation | `docs/erpnext/erpnext-66.md` lines 831–916 (`erpnext__unreconciliation`) | — |
-| Upload Backups to Amazon S3 | `docs/erpnext/erpnext-08.md` lines 135–233 (`erpnext__aws_s3`) | — |
+| Upload Backups to Amazon S3 | `docs/erpnext/erpnext-08.md` lines 108–206 (`erpnext__aws_s3`) | — |
 | Use Inline Serial / Batch Editor | `docs/erpnext/erpnext-67.md` lines 3–99 (`erpnext__use-inline-serial-batch-editor`) | — |
 | User Permission based on Hierarchy | `docs/erpnext/erpnext-67.md` lines 101–139 (`erpnext__user-permission-based-on-hierarchy`) | — |
 | User Permissions | `docs/erpnext/erpnext-67.md` lines 141–246 (`erpnext__user-permissions`) | yes |
 | Using Custom API Rows in Financial Report Template | `docs/erpnext/erpnext-67.md` lines 248–364 (`erpnext__using-custom-api-rows-in-financial-report-template`) | — |
 | Using Finance Book for Asset Depreciation | ERPNext Documentation | `docs/erpnext/erpnext-67.md` lines 366–432 (`erpnext__using-finance-book-for-asset-depreciation`) | — |
-| Using Prepared Report | `docs/erpnext/erpnext-43.md` lines 585–619 (`erpnext__prepared-report`) | — |
+| Using Prepared Report | `docs/erpnext/erpnext-43.md` lines 531–565 (`erpnext__prepared-report`) | — |
 | VAT Audit Report | `docs/erpnext/erpnext-67.md` lines 608–638 (`erpnext__vat_audit_report`) | — |
 | VAT/EXCISE Tax Implementation for UAE/KSA | `docs/erpnext/erpnext-66.md` lines 287–343 (`erpnext__uae-vat-setup`) | yes |
 | Validate and Correct an Accounting Migration | ERPNext Documentation | `docs/erpnext/erpnext-67.md` lines 434–583 (`erpnext__validate-the-migration`) | yes |
-| Value Out of Sync Error: Stock Balance and Stock Account Balance Synci | `docs/erpnext/erpnext-59.md` lines 440–488 (`erpnext__stock-balance-and-stock-account-balance-syncing`) | — |
+| Value Out of Sync Error: Stock Balance and Stock Account Balance Synci | `docs/erpnext/erpnext-59.md` lines 359–407 (`erpnext__stock-balance-and-stock-account-balance-syncing`) | — |
 | Warehouse | `docs/erpnext/erpnext-67.md` lines 667–745 (`erpnext__warehouse`) | yes |
 | Warranty | `docs/erpnext/erpnext-67.md` lines 850–863 (`erpnext__warranty`) | — |
 | Warranty Claim | `docs/erpnext/erpnext-67.md` lines 747–848 (`erpnext__warranty-claim`) | yes |
@@ -984,15 +985,15 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 
 | Page | Where | Cited by a capability |
 |---|---|---|
-| 500 Internal Server Error | `docs/cloud/cloud-07.md` lines 749–778 (`cloud__site__common-issues__500-internal-server-error`) | — |
-| 502 Bad Gateway | `docs/cloud/cloud-07.md` lines 780–845 (`cloud__site__common-issues__502-bad-gateway`) | — |
+| 500 Internal Server Error | `docs/cloud/cloud-07.md` lines 663–692 (`cloud__site__common-issues__500-internal-server-error`) | — |
+| 502 Bad Gateway | `docs/cloud/cloud-07.md` lines 694–759 (`cloud__site__common-issues__502-bad-gateway`) | — |
 | Access Request | `docs/cloud/cloud-04.md` lines 701–750 (`cloud__guides__access-request`) | — |
-| Activity | `docs/cloud/cloud-08.md` lines 119–134 (`cloud__sites__activity`) | — |
+| Activity | `docs/cloud/cloud-07.md` lines 1037–1052 (`cloud__sites__activity`) | — |
 | Apache Superset | `docs/cloud/cloud-02.md` lines 470–500 (`cloud__connect-apache-superset`) | — |
 | App Installation Issue | `docs/cloud/cloud-03.md` lines 382–457 (`cloud__faq__app-installation-issue`) | — |
 | App Patches | `docs/cloud/cloud-01.md` lines 119–212 (`cloud__benches__app-patches`) | — |
 | App Pricing Plans | `docs/cloud/cloud-01.md` lines 3–39 (`cloud__app-plan`) | — |
-| App authoring guidelines | `docs/cloud/cloud-05.md` lines 631–674 (`cloud__marketplace__app-authoring-guidelines`) | — |
+| App authoring guidelines | `docs/cloud/cloud-05.md` lines 571–614 (`cloud__marketplace__app-authoring-guidelines`) | — |
 | Architecture | `docs/cloud/cloud-03.md` lines 631–667 (`cloud__faq__architecture`) | — |
 | Attention required in Custom Apps | `docs/cloud/cloud-03.md` lines 699–757 (`cloud__faq__custom_apps`) | — |
 | Bench Analytics | `docs/cloud/cloud-01.md` lines 41–64 (`cloud__bench-analytics`) | — |
@@ -1004,33 +1005,33 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Build might fail | `docs/cloud/cloud-01.md` lines 1217–1244 (`cloud__common-issues__build-might-fail`) | — |
 | Can't connect to MySQL server | `docs/cloud/cloud-01.md` lines 1154–1166 (`cloud__cant-connect-to-mysql-server`) | — |
 | Change Team of Bench | `docs/cloud/cloud-01.md` lines 1195–1215 (`cloud__change-team-of-bench-group`) | — |
-| Change Team of Site | `docs/cloud/cloud-08.md` lines 257–284 (`cloud__sites__change-team-of-site`) | — |
+| Change Team of Site | `docs/cloud/cloud-08.md` lines 124–151 (`cloud__sites__change-team-of-site`) | — |
 | Change a site plan | `docs/cloud/cloud-04.md` lines 774–785 (`cloud__how-to-change-a-site-plan`) | yes |
 | Change notification email of Team | `docs/cloud/cloud-01.md` lines 1168–1183 (`cloud__change-notification-email-of-team`) | — |
 | Change ownership of Server | `docs/cloud/cloud-01.md` lines 1185–1193 (`cloud__change-ownership-of-server`) | — |
-| Change plan | `docs/cloud/cloud-07.md` lines 348–399 (`cloud__servers__plan`) | — |
+| Change plan | `docs/cloud/cloud-07.md` lines 262–313 (`cloud__servers__plan`) | — |
 | Change product warranty for dedicated sites | `docs/cloud/cloud-04.md` lines 436–525 (`cloud__getting-started__plans-pricing__change-product-warranty-for-dedicated-sites`) | — |
-| Cloud Provider Comparison | `docs/cloud/cloud-07.md` lines 401–461 (`cloud__servers__provider-comparision`) | — |
+| Cloud Provider Comparison | `docs/cloud/cloud-07.md` lines 315–375 (`cloud__servers__provider-comparision`) | — |
 | Connect & Learn | `docs/cloud/cloud-04.md` lines 409–422 (`cloud__getting-started__connect-learn`) | — |
 | Control resources allocated for site | `docs/cloud/cloud-02.md` lines 731–824 (`cloud__control-resources-allocated-for-site`) | — |
 | Creating a new bench | `docs/cloud/cloud-01.md` lines 234–270 (`cloud__benches__create-new`) | yes |
-| Creating a new site | `docs/cloud/cloud-08.md` lines 286–312 (`cloud__sites__creating-a-new-site`) | yes |
-| Creating a new site on a dedicated server | `docs/cloud/cloud-06.md` lines 783–802 (`cloud__servers__create-a-new-site-on-a-dedicated-server`) | — |
-| Creating new Bench | `docs/cloud/cloud-07.md` lines 230–242 (`cloud__servers__new_bench`) | — |
-| Creating new server | `docs/cloud/cloud-07.md` lines 140–228 (`cloud__servers__new`) | yes |
-| Custom Domains | `docs/cloud/cloud-08.md` lines 314–527 (`cloud__sites__custom-domains`) | yes |
+| Creating a new site | `docs/cloud/cloud-08.md` lines 153–179 (`cloud__sites__creating-a-new-site`) | yes |
+| Creating a new site on a dedicated server | `docs/cloud/cloud-06.md` lines 706–725 (`cloud__servers__create-a-new-site-on-a-dedicated-server`) | — |
+| Creating new Bench | `docs/cloud/cloud-07.md` lines 144–156 (`cloud__servers__new_bench`) | — |
+| Creating new server | `docs/cloud/cloud-07.md` lines 54–142 (`cloud__servers__new`) | yes |
+| Custom Domains | `docs/cloud/cloud-08.md` lines 181–394 (`cloud__sites__custom-domains`) | yes |
 | Custom Frappe Framework Fork | `docs/cloud/cloud-02.md` lines 1090–1110 (`cloud__custom-frappe-framework-fork`) | — |
-| DB Performance Tuning | `docs/cloud/cloud-05.md` lines 907–953 (`cloud__performance-tuning`) | — |
+| DB Performance Tuning | `docs/cloud/cloud-05.md` lines 847–893 (`cloud__performance-tuning`) | — |
 | Daily Usage limit reached | `docs/cloud/cloud-02.md` lines 1112–1134 (`cloud__daily-usage-limit-reached`) | — |
 | Database Analyzer | `docs/cloud/cloud-02.md` lines 1136–1202 (`cloud__database-analyzer`) | — |
 | Database Server Actions | `docs/cloud/cloud-03.md` lines 3–143 (`cloud__database-server-actions`) | — |
 | Database Users And Permission Manager | `docs/cloud/cloud-03.md` lines 145–308 (`cloud__database-users-and-permission-manager`) | — |
 | Debugging | `docs/cloud/cloud-01.md` lines 303–385 (`cloud__benches__debugging`) | — |
 | Debugging app installs locally | `docs/cloud/cloud-02.md` lines 3–126 (`cloud__common-issues__debugging-app-installs-locally`) | — |
-| Delete Servers | `docs/cloud/cloud-06.md` lines 804–824 (`cloud__servers__delete`) | — |
+| Delete Servers | `docs/cloud/cloud-06.md` lines 727–747 (`cloud__servers__delete`) | — |
 | Disable Account / Cancel Subscription | `docs/cloud/cloud-01.md` lines 1008–1032 (`cloud__billing__disable-account`) | — |
 | Disable auto-update for your site | `docs/cloud/cloud-04.md` lines 787–809 (`cloud__how-to-disable-auto-update-for-your-site`) | — |
-| Drop/Delete your site | `docs/cloud/cloud-08.md` lines 529–549 (`cloud__sites__drop-delete-your-site`) | — |
+| Drop/Delete your site | `docs/cloud/cloud-08.md` lines 396–416 (`cloud__sites__drop-delete-your-site`) | — |
 | Dropping a Bench | `docs/cloud/cloud-03.md` lines 342–361 (`cloud__dropping-a-bench-group`) | — |
 | Editing Bench Dependency Version | `docs/cloud/cloud-01.md` lines 387–448 (`cloud__benches__editing-bench-dependency-version`) | — |
 | Enable Server Script | `docs/cloud/cloud-03.md` lines 363–380 (`cloud__enable-server-script`) | yes |
@@ -1038,104 +1039,104 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | FAQ - Security | `docs/cloud/cloud-03.md` lines 459–629 (`cloud__faq__architecture-and-security`) | — |
 | FAQ - Site | `docs/cloud/cloud-04.md` lines 3–289 (`cloud__faq__site`) | — |
 | FAQs - General | `docs/cloud/cloud-04.md` lines 424–434 (`cloud__getting-started__faqs`) | — |
-| FAQs - Server | `docs/cloud/cloud-07.md` lines 244–261 (`cloud__servers__other-information__faqs-server`) | — |
+| FAQs - Server | `docs/cloud/cloud-07.md` lines 158–175 (`cloud__servers__other-information__faqs-server`) | — |
 | Features | `docs/cloud/cloud-04.md` lines 291–318 (`cloud__features`) | — |
 | Forgot Password | `docs/cloud/cloud-02.md` lines 128–138 (`cloud__common-issues__forgot-password-of-frappe-cloud`) | — |
-| Frappe Cloud Marketplace Overview | `docs/cloud/cloud-05.md` lines 600–629 (`cloud__marketplace`) | — |
+| Frappe Cloud Marketplace Overview | `docs/cloud/cloud-05.md` lines 540–569 (`cloud__marketplace`) | — |
 | Frappe Insights | `docs/cloud/cloud-04.md` lines 340–407 (`cloud__frappe-insights`) | — |
-| Frappe listed as a Python dependency | `docs/cloud/cloud-05.md` lines 955–1000 (`cloud__private-benches__common-issues__frappe-listed-as-a-python-dependency`) | — |
+| Frappe listed as a Python dependency | `docs/cloud/cloud-05.md` lines 895–940 (`cloud__private-benches__common-issues__frappe-listed-as-a-python-dependency`) | — |
 | GitHub IP Allow List | `docs/cloud/cloud-02.md` lines 947–1088 (`cloud__custom-apps__common-issues__github-ip-allow-list`) | — |
 | Guidelines for Contributing Regional Compliance App | `docs/cloud/cloud-04.md` lines 547–642 (`cloud__guidelines-for-contributing-regional-compliance-app`) | — |
-| Guidelines for choosing a server plan | `docs/cloud/cloud-07.md` lines 3–87 (`cloud__servers__guidelines-for-choosing-a-server-plan`) | — |
-| Guidelines for publishing an app | `docs/cloud/cloud-05.md` lines 676–742 (`cloud__marketplace__marketplace-guidelines`) | — |
+| Guidelines for choosing a server plan | `docs/cloud/cloud-06.md` lines 749–833 (`cloud__servers__guidelines-for-choosing-a-server-plan`) | — |
+| Guidelines for publishing an app | `docs/cloud/cloud-05.md` lines 616–682 (`cloud__marketplace__marketplace-guidelines`) | — |
 | How to install a custom app | `docs/cloud/cloud-01.md` lines 272–301 (`cloud__benches__custom-app`) | yes |
 | In Place Updates | `docs/cloud/cloud-04.md` lines 843–943 (`cloud__in-place-updates`) | — |
-| In-Place Site Migration | `docs/cloud/cloud-07.md` lines 956–977 (`cloud__site__site-migrations__in-place-site-migration`) | — |
+| In-Place Site Migration | `docs/cloud/cloud-07.md` lines 870–891 (`cloud__site__site-migrations__in-place-site-migration`) | — |
 | Incompatible Node version | `docs/cloud/cloud-02.md` lines 228–274 (`cloud__common-issues__incompatible-node-version`) | — |
 | Incompatible app version | `docs/cloud/cloud-02.md` lines 140–179 (`cloud__common-issues__incompatible-app-version`) | — |
 | Incompatible dependency version | `docs/cloud/cloud-02.md` lines 181–226 (`cloud__common-issues__incompatible-dependency-version`) | — |
 | Installing App APT Dependencies | `docs/cloud/cloud-03.md` lines 759–784 (`cloud__faq__installing-app-apt-dependencies`) | — |
-| Installing an app | `docs/cloud/cloud-05.md` lines 3–61 (`cloud__installing-an-app`) | yes |
+| Installing an app | `docs/cloud/cloud-04.md` lines 945–1003 (`cloud__installing-an-app`) | yes |
 | Internal Server Error On Frappe Site | `docs/cloud/cloud-02.md` lines 276–286 (`cloud__common-issues__internal-server-error-on-frappe-site`) | — |
-| Introduction | `docs/cloud/cloud-05.md` lines 93–109 (`cloud__introduction`) | — |
-| Introduction | `docs/cloud/cloud-07.md` lines 463–477 (`cloud__servers__servers-introduction`) | — |
-| Introduction | `docs/cloud/cloud-09.md` lines 579–599 (`cloud__webhook-introduction`) | — |
-| Introduction to Site Migration | `docs/cloud/cloud-07.md` lines 979–1005 (`cloud__site__site-migrations__introduction-to-site-migration`) | — |
+| Introduction | `docs/cloud/cloud-05.md` lines 33–49 (`cloud__introduction`) | — |
+| Introduction | `docs/cloud/cloud-07.md` lines 377–391 (`cloud__servers__servers-introduction`) | — |
+| Introduction | `docs/cloud/cloud-09.md` lines 416–436 (`cloud__webhook-introduction`) | — |
+| Introduction to Site Migration | `docs/cloud/cloud-07.md` lines 893–919 (`cloud__site__site-migrations__introduction-to-site-migration`) | — |
 | Invalid pyproject.toml file | `docs/cloud/cloud-02.md` lines 288–323 (`cloud__common-issues__invalid-pyprojecttoml-file`) | — |
-| Local Development Environment Setup | `docs/cloud/cloud-05.md` lines 132–524 (`cloud__local-fc-setup`) | — |
-| Lock wait timeout exceeded error | `docs/cloud/cloud-05.md` lines 526–542 (`cloud__lock-wait-timeout-exceeded-error`) | — |
+| Local Development Environment Setup | `docs/cloud/cloud-05.md` lines 72–464 (`cloud__local-fc-setup`) | — |
+| Lock wait timeout exceeded error | `docs/cloud/cloud-05.md` lines 466–482 (`cloud__lock-wait-timeout-exceeded-error`) | — |
 | Log Browser | `docs/cloud/cloud-03.md` lines 310–340 (`cloud__devtools__log-browser`) | — |
-| Login from Frappe apps | `docs/cloud/cloud-07.md` lines 644–692 (`cloud__simplified-login-to-frappe-cloud-dashboard`) | — |
-| Logs | `docs/cloud/cloud-05.md` lines 544–574 (`cloud__logs`) | yes |
+| Login from Frappe apps | `docs/cloud/cloud-07.md` lines 558–606 (`cloud__simplified-login-to-frappe-cloud-dashboard`) | — |
+| Logs | `docs/cloud/cloud-05.md` lines 484–514 (`cloud__logs`) | yes |
 | Looker Studio | `docs/cloud/cloud-02.md` lines 502–546 (`cloud__connect-looker-studio`) | — |
-| Lost connection to mysql server | `docs/cloud/cloud-07.md` lines 847–859 (`cloud__site__common-issues__lost-connection-to-mysql-server`) | — |
-| Managing Team Members | `docs/cloud/cloud-05.md` lines 576–598 (`cloud__managing_team_members`) | — |
+| Lost connection to mysql server | `docs/cloud/cloud-07.md` lines 761–773 (`cloud__site__common-issues__lost-connection-to-mysql-server`) | — |
+| Managing Team Members | `docs/cloud/cloud-05.md` lines 516–538 (`cloud__managing_team_members`) | — |
 | MariaDB slow queries in your site | `docs/cloud/cloud-03.md` lines 786–852 (`cloud__faq__mariadb-slow-queries-in-your-site`) | — |
 | Metabase | `docs/cloud/cloud-02.md` lines 548–592 (`cloud__connect-metabase`) | — |
-| Monitoring | `docs/cloud/cloud-08.md` lines 823–941 (`cloud__sites__monitoring`) | — |
+| Monitoring | `docs/cloud/cloud-08.md` lines 690–808 (`cloud__sites__monitoring`) | — |
 | Most frequently used DocTypes | `docs/cloud/cloud-04.md` lines 752–772 (`cloud__handbook__fc-onboarding`) | — |
-| Move Site From Shared To Private Bench | `docs/cloud/cloud-08.md` lines 3–30 (`cloud__site__site-migrations__move-site-from-shared-to-private-bench`) | — |
-| Move Site To Different Region | `docs/cloud/cloud-08.md` lines 32–70 (`cloud__site__site-migrations__move-site-to-different-region`) | — |
-| Move Site To Different Server or Bench | `docs/cloud/cloud-08.md` lines 72–117 (`cloud__site__site-migrations__move-site-to-different-server-or-bench`) | yes |
-| Move site across region | `docs/cloud/cloud-08.md` lines 943–983 (`cloud__sites__move-site-across-region`) | — |
-| Move site across server | `docs/cloud/cloud-09.md` lines 3–50 (`cloud__sites__move-site-across-server`) | — |
-| Move site to private bench | `docs/cloud/cloud-09.md` lines 52–82 (`cloud__sites__move-site-to-private-bench`) | — |
-| Notices | `docs/cloud/cloud-05.md` lines 842–870 (`cloud__notice`) | — |
-| Notification Configuration | `docs/cloud/cloud-05.md` lines 872–905 (`cloud__notification-configuration`) | — |
-| Notification Configuration | `docs/cloud/cloud-06.md` lines 578–612 (`cloud__server-notification-configuration`) | — |
-| Notification Configuration | `docs/cloud/cloud-07.md` lines 694–729 (`cloud__site-notification-configuration`) | — |
-| Notifications | `docs/cloud/cloud-07.md` lines 628–642 (`cloud__signup-login__notifications`) | — |
+| Move Site From Shared To Private Bench | `docs/cloud/cloud-07.md` lines 921–948 (`cloud__site__site-migrations__move-site-from-shared-to-private-bench`) | — |
+| Move Site To Different Region | `docs/cloud/cloud-07.md` lines 950–988 (`cloud__site__site-migrations__move-site-to-different-region`) | — |
+| Move Site To Different Server or Bench | `docs/cloud/cloud-07.md` lines 990–1035 (`cloud__site__site-migrations__move-site-to-different-server-or-bench`) | yes |
+| Move site across region | `docs/cloud/cloud-08.md` lines 810–850 (`cloud__sites__move-site-across-region`) | — |
+| Move site across server | `docs/cloud/cloud-08.md` lines 852–899 (`cloud__sites__move-site-across-server`) | — |
+| Move site to private bench | `docs/cloud/cloud-08.md` lines 901–931 (`cloud__sites__move-site-to-private-bench`) | — |
+| Notices | `docs/cloud/cloud-05.md` lines 782–810 (`cloud__notice`) | — |
+| Notification Configuration | `docs/cloud/cloud-05.md` lines 812–845 (`cloud__notification-configuration`) | — |
+| Notification Configuration | `docs/cloud/cloud-06.md` lines 501–535 (`cloud__server-notification-configuration`) | — |
+| Notification Configuration | `docs/cloud/cloud-07.md` lines 608–643 (`cloud__site-notification-configuration`) | — |
+| Notifications | `docs/cloud/cloud-07.md` lines 542–556 (`cloud__signup-login__notifications`) | — |
 | Obtain a Static IP | `docs/cloud/cloud-04.md` lines 811–823 (`cloud__how-to-get-static-ip`) | — |
-| On-Prem Failover Setup | `docs/cloud/cloud-07.md` lines 263–346 (`cloud__servers__other-information__on-prem-failover-setup`) | — |
+| On-Prem Failover Setup | `docs/cloud/cloud-07.md` lines 177–260 (`cloud__servers__other-information__on-prem-failover-setup`) | — |
 | Out-of-Memory Issues | `docs/cloud/cloud-02.md` lines 325–344 (`cloud__common-issues__oom-issues`) | — |
 | Payment Options | `docs/cloud/cloud-01.md` lines 1034–1084 (`cloud__billing__payment_options`) | — |
-| Payouts | `docs/cloud/cloud-05.md` lines 744–776 (`cloud__marketplace__payouts`) | — |
+| Payouts | `docs/cloud/cloud-05.md` lines 684–716 (`cloud__marketplace__payouts`) | — |
 | Power BI Desktop | `docs/cloud/cloud-02.md` lines 594–692 (`cloud__connect-power-bi-desktop`) | — |
 | Private Benches | `docs/cloud/cloud-01.md` lines 66–117 (`cloud__benches`) | — |
 | Process Status | `docs/cloud/cloud-01.md` lines 450–465 (`cloud__benches__process-status`) | — |
-| Public Bench Update Schedule | `docs/cloud/cloud-06.md` lines 110–118 (`cloud__public-bench-update-schedule`) | — |
-| Publishing an App to Marketplace | `docs/cloud/cloud-05.md` lines 778–840 (`cloud__marketplace__publishing-an-app-to-marketplace`) | yes |
-| Recent Issues | `docs/cloud/cloud-06.md` lines 120–448 (`cloud__recent-issues`) | — |
-| Reliability | `docs/cloud/cloud-06.md` lines 450–515 (`cloud__reliability`) | — |
-| Request Timed Out | `docs/cloud/cloud-06.md` lines 80–108 (`cloud__private-benches__common-issues__request-timed-out`) | — |
-| Request Timeout: Server was too busy to process this request | `docs/cloud/cloud-07.md` lines 861–887 (`cloud__site__common-issues__request-timeout-server-was-too-busy-to-process-this-request`) | — |
+| Public Bench Update Schedule | `docs/cloud/cloud-06.md` lines 33–41 (`cloud__public-bench-update-schedule`) | — |
+| Publishing an App to Marketplace | `docs/cloud/cloud-05.md` lines 718–780 (`cloud__marketplace__publishing-an-app-to-marketplace`) | yes |
+| Recent Issues | `docs/cloud/cloud-06.md` lines 43–371 (`cloud__recent-issues`) | — |
+| Reliability | `docs/cloud/cloud-06.md` lines 373–438 (`cloud__reliability`) | — |
+| Request Timed Out | `docs/cloud/cloud-06.md` lines 3–31 (`cloud__private-benches__common-issues__request-timed-out`) | — |
+| Request Timeout: Server was too busy to process this request | `docs/cloud/cloud-07.md` lines 775–801 (`cloud__site__common-issues__request-timeout-server-was-too-busy-to-process-this-request`) | — |
 | Required app not found | `docs/cloud/cloud-02.md` lines 346–415 (`cloud__common-issues__required-app-not-found`) | — |
-| Restore & Migrate Site | `docs/cloud/cloud-08.md` lines 581–821 (`cloud__sites__migrate-an-existing-site`) | — |
-| Role and Permissions | `docs/cloud/cloud-06.md` lines 517–576 (`cloud__role-permissions`) | — |
-| SOC 2 (Systems and Organization Controls) Report | `docs/cloud/cloud-09.md` lines 150–164 (`cloud__soc-2-report`) | — |
+| Restore & Migrate Site | `docs/cloud/cloud-08.md` lines 448–688 (`cloud__sites__migrate-an-existing-site`) | — |
+| Role and Permissions | `docs/cloud/cloud-06.md` lines 440–499 (`cloud__role-permissions`) | — |
+| SOC 2 (Systems and Organization Controls) Report | `docs/cloud/cloud-08.md` lines 999–1013 (`cloud__soc-2-report`) | — |
 | SSH Access | `docs/cloud/cloud-01.md` lines 467–707 (`cloud__benches__ssh`) | yes |
 | SSL Certificate Verification Error | `docs/cloud/cloud-02.md` lines 417–430 (`cloud__common-issues__ssl-certificate-verification-error`) | — |
-| Scalability | `docs/cloud/cloud-05.md` lines 111–130 (`cloud__is-it-scalable`) | — |
-| Server Instance Types | `docs/cloud/cloud-07.md` lines 89–138 (`cloud__servers__instance-types`) | — |
-| Server Snapshot | `docs/cloud/cloud-06.md` lines 614–720 (`cloud__server-snapshot`) | — |
-| Server Storage Breakdown | `docs/cloud/cloud-06.md` lines 722–781 (`cloud__server-storage-breakdown`) | — |
-| Site Backups | `docs/cloud/cloud-08.md` lines 136–255 (`cloud__sites__backups`) | yes |
-| Site Config | `docs/cloud/cloud-09.md` lines 84–122 (`cloud__sites__site-config`) | — |
-| Site Process List | `docs/cloud/cloud-07.md` lines 731–747 (`cloud__site-process-list`) | — |
-| Site Slow: 504 Gateway timeout | `docs/cloud/cloud-07.md` lines 889–944 (`cloud__site__common-issues__site-slow-504-gateway-timeout`) | — |
-| Storage Addons | `docs/cloud/cloud-09.md` lines 166–238 (`cloud__storage-addons`) | — |
-| Switching between Teams | `docs/cloud/cloud-09.md` lines 240–256 (`cloud__switching_between_teams`) | — |
-| Tiny Plan ($5 / month) | `docs/cloud/cloud-09.md` lines 258–340 (`cloud__tiny-plan`) | — |
-| Two-factor authentication (2FA) | `docs/cloud/cloud-09.md` lines 342–389 (`cloud__two-factor-authentication-2fa`) | — |
+| Scalability | `docs/cloud/cloud-05.md` lines 51–70 (`cloud__is-it-scalable`) | — |
+| Server Instance Types | `docs/cloud/cloud-07.md` lines 3–52 (`cloud__servers__instance-types`) | — |
+| Server Snapshot | `docs/cloud/cloud-06.md` lines 537–643 (`cloud__server-snapshot`) | — |
+| Server Storage Breakdown | `docs/cloud/cloud-06.md` lines 645–704 (`cloud__server-storage-breakdown`) | — |
+| Site Backups | `docs/cloud/cloud-08.md` lines 3–122 (`cloud__sites__backups`) | yes |
+| Site Config | `docs/cloud/cloud-08.md` lines 933–971 (`cloud__sites__site-config`) | — |
+| Site Process List | `docs/cloud/cloud-07.md` lines 645–661 (`cloud__site-process-list`) | — |
+| Site Slow: 504 Gateway timeout | `docs/cloud/cloud-07.md` lines 803–858 (`cloud__site__common-issues__site-slow-504-gateway-timeout`) | — |
+| Storage Addons | `docs/cloud/cloud-09.md` lines 3–75 (`cloud__storage-addons`) | — |
+| Switching between Teams | `docs/cloud/cloud-09.md` lines 77–93 (`cloud__switching_between_teams`) | — |
+| Tiny Plan ($5 / month) | `docs/cloud/cloud-09.md` lines 95–177 (`cloud__tiny-plan`) | — |
+| Two-factor authentication (2FA) | `docs/cloud/cloud-09.md` lines 179–226 (`cloud__two-factor-authentication-2fa`) | — |
 | Uninstall an app from the site | `docs/cloud/cloud-04.md` lines 825–841 (`cloud__how-to-uninstall-an-app-from-the-site`) | — |
-| Unknown command - | `docs/cloud/cloud-09.md` lines 391–408 (`cloud__unknown-command-`) | — |
-| Update an app/site on a private bench | `docs/cloud/cloud-08.md` lines 551–579 (`cloud__sites__how-to-update-an-app-site-on-a-private-bench`) | — |
+| Unknown command - | `docs/cloud/cloud-09.md` lines 228–245 (`cloud__unknown-command-`) | — |
+| Update an app/site on a private bench | `docs/cloud/cloud-08.md` lines 418–446 (`cloud__sites__how-to-update-an-app-site-on-a-private-bench`) | — |
 | Updating a Bench | `docs/cloud/cloud-01.md` lines 709–834 (`cloud__benches__updating_a_bench`) | yes |
-| Upgrade the Email Delivery Service plan for more emails | `docs/cloud/cloud-05.md` lines 63–91 (`cloud__instructions-to-upgrade-the-email-delivery-service-plan`) | — |
+| Upgrade the Email Delivery Service plan for more emails | `docs/cloud/cloud-05.md` lines 3–31 (`cloud__instructions-to-upgrade-the-email-delivery-service-plan`) | — |
 | Uptime | `docs/cloud/cloud-04.md` lines 527–545 (`cloud__getting-started__uptime`) | — |
-| Version Upgrade | `docs/cloud/cloud-09.md` lines 124–148 (`cloud__sites__version-upgrade`) | — |
+| Version Upgrade | `docs/cloud/cloud-08.md` lines 973–997 (`cloud__sites__version-upgrade`) | — |
 | Versioning | `docs/cloud/cloud-02.md` lines 826–945 (`cloud__custom-apps__app-versioning__versioning`) | — |
 | Vite not found | `docs/cloud/cloud-02.md` lines 432–468 (`cloud__common-issues__vite-not-found`) | — |
-| Webhook Attempt Logs | `docs/cloud/cloud-09.md` lines 410–435 (`cloud__webhook-attempt-logs`) | — |
-| Webhook Events | `docs/cloud/cloud-09.md` lines 437–577 (`cloud__webhook-events`) | — |
-| Webhook Implementation | `docs/cloud/cloud-07.md` lines 479–626 (`cloud__setup-webhook`) | — |
-| What are Benches? | `docs/cloud/cloud-09.md` lines 601–652 (`cloud__what-are-benches-and-bench-groups`) | yes |
+| Webhook Attempt Logs | `docs/cloud/cloud-09.md` lines 247–272 (`cloud__webhook-attempt-logs`) | — |
+| Webhook Events | `docs/cloud/cloud-09.md` lines 274–414 (`cloud__webhook-events`) | — |
+| Webhook Implementation | `docs/cloud/cloud-07.md` lines 393–540 (`cloud__setup-webhook`) | — |
+| What are Benches? | `docs/cloud/cloud-09.md` lines 438–489 (`cloud__what-are-benches-and-bench-groups`) | yes |
 | What is Product Warranty | `docs/cloud/cloud-04.md` lines 644–699 (`cloud__guides-and-manuals__what-is-product-warranty`) | — |
 | What is this new 'Frappe' provider? | `docs/cloud/cloud-04.md` lines 320–338 (`cloud__frappe-compute__what-is-this-new-frappe-provider`) | — |
-| What's New | `docs/cloud/cloud-09.md` lines 654–680 (`cloud__whats-new`) | — |
-| Work-horse terminated unexpectedly; Waitpid returned 9/15 (signal 9/15 | `docs/cloud/cloud-07.md` lines 946–954 (`cloud__site__common-issues__work-horse-terminated-unexpectedly`) | — |
+| What's New | `docs/cloud/cloud-09.md` lines 491–517 (`cloud__whats-new`) | — |
+| Work-horse terminated unexpectedly; Waitpid returned 9/15 (signal 9/15 | `docs/cloud/cloud-07.md` lines 860–868 (`cloud__site__common-issues__work-horse-terminated-unexpectedly`) | — |
 | Zoho Analytics | `docs/cloud/cloud-02.md` lines 694–729 (`cloud__connect-zoho-analytics`) | — |
-| pkg_resources error when updating site | `docs/cloud/cloud-06.md` lines 3–78 (`cloud__private-benches__common-issues__pkg-resources-error-when-updating-site`) | — |
+| pkg_resources error when updating site | `docs/cloud/cloud-05.md` lines 942–1017 (`cloud__private-benches__common-issues__pkg-resources-error-when-updating-site`) | — |
 
 ## Frappe HR — people and payroll — 147 pages
 
@@ -1165,7 +1166,7 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Employee Attendance Tool | `docs/frappe-hr/frappe-hr-02.md` lines 120–180 (`hr__employee-attendance-tool`) | — |
 | Employee Benefit Application | `docs/frappe-hr/frappe-hr-02.md` lines 182–211 (`hr__employee-benefit-application`) | — |
 | Employee Benefit Claim | `docs/frappe-hr/frappe-hr-02.md` lines 213–232 (`hr__employee-benefit-claim`) | — |
-| Employee CTC Break-Up | `docs/frappe-hr/frappe-hr-08.md` lines 846–916 (`hr__reports__employee-ctc-break-up`) | — |
+| Employee CTC Break-Up | `docs/frappe-hr/frappe-hr-08.md` lines 439–509 (`hr__reports__employee-ctc-break-up`) | — |
 | Employee Checkin | `docs/frappe-hr/frappe-hr-02.md` lines 234–309 (`hr__employee-checkin`) | yes |
 | Employee Grade | `docs/frappe-hr/frappe-hr-02.md` lines 423–476 (`hr__employee-grade`) | — |
 | Employee Group | `docs/frappe-hr/frappe-hr-02.md` lines 478–530 (`hr__employee-group`) | — |
@@ -1176,11 +1177,11 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Employee Other Income | `docs/frappe-hr/frappe-hr-02.md` lines 739–772 (`hr__employee-other-income`) | — |
 | Employee Performance Feedback | `docs/frappe-hr/frappe-hr-02.md` lines 774–841 (`hr__employee-performance-feedback`) | — |
 | Employee Promotion | `docs/frappe-hr/frappe-hr-02.md` lines 843–886 (`hr__employee-promotion`) | — |
-| Employee Provident Fund (EPF) | `docs/frappe-hr/frappe-hr-04.md` lines 577–709 (`hr__india-payroll__employee-provident-fund`) | — |
+| Employee Provident Fund (EPF) | `docs/frappe-hr/frappe-hr-04.md` lines 515–647 (`hr__india-payroll__employee-provident-fund`) | — |
 | Employee Referral | `docs/frappe-hr/frappe-hr-02.md` lines 888–958 (`hr__employee-referral`) | — |
 | Employee Separation | `docs/frappe-hr/frappe-hr-02.md` lines 960–1049 (`hr__employee-separation`) | yes |
 | Employee Skill Map | `docs/frappe-hr/frappe-hr-02.md` lines 1051–1086 (`hr__employee-skill-map`) | — |
-| Employee State Insurance | `docs/frappe-hr/frappe-hr-04.md` lines 711–786 (`hr__india-payroll__employee-state-insurance`) | — |
+| Employee State Insurance | `docs/frappe-hr/frappe-hr-04.md` lines 649–724 (`hr__india-payroll__employee-state-insurance`) | — |
 | Employee Tax Exemption Declaration | `docs/frappe-hr/frappe-hr-03.md` lines 3–91 (`hr__employee-tax-exemption-declaration`) | yes |
 | Employee Tax Exemption Proof Submission | `docs/frappe-hr/frappe-hr-03.md` lines 93–141 (`hr__employee-tax-exemption-proof-submission`) | — |
 | Employee Transfer | `docs/frappe-hr/frappe-hr-03.md` lines 143–188 (`hr__employee-transfer`) | — |
@@ -1189,105 +1190,105 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Expense Claim | `docs/frappe-hr/frappe-hr-03.md` lines 464–562 (`hr__expense-claim`) | yes |
 | Fleet Management | `docs/frappe-hr/frappe-hr-03.md` lines 564–587 (`hr__fleet-management`) | — |
 | Flexible Benefits | `docs/frappe-hr/frappe-hr-02.md` lines 311–421 (`hr__employee-flexible-benefits`) | — |
-| Frappe HR | `docs/frappe-hr/frappe-hr-06.md` lines 340–385 (`hr__introduction`) | — |
+| Frappe HR | `docs/frappe-hr/frappe-hr-06.md` lines 3–48 (`hr__introduction`) | — |
 | Full and Final Statement | `docs/frappe-hr/frappe-hr-03.md` lines 589–661 (`hr__full-and-final-statement`) | — |
 | Goal | `docs/frappe-hr/frappe-hr-03.md` lines 663–771 (`hr__goal`) | — |
 | Gratuity | `docs/frappe-hr/frappe-hr-03.md` lines 840–907 (`hr__gratuity`) | — |
 | Gratuity Rule | `docs/frappe-hr/frappe-hr-03.md` lines 773–838 (`hr__gratuity-rule`) | — |
-| HR Settings | `docs/frappe-hr/frappe-hr-04.md` lines 65–230 (`hr__hr-settings`) | — |
+| HR Settings | `docs/frappe-hr/frappe-hr-04.md` lines 3–168 (`hr__hr-settings`) | — |
 | Holiday List | `docs/frappe-hr/frappe-hr-03.md` lines 909–991 (`hr__holiday-list`) | yes |
-| Holiday List Assignment | `docs/frappe-hr/frappe-hr-04.md` lines 232–266 (`hr__hr__leave-management__holiday-list-assignment`) | — |
-| How to Sanction Leave Encashment Amount in Salary Slip | `docs/frappe-hr/frappe-hr-07.md` lines 119–248 (`hr__leave-management__help-articles__how-to-sanction-leave-encashment-amount-in-salary-slip`) | — |
+| Holiday List Assignment | `docs/frappe-hr/frappe-hr-04.md` lines 170–204 (`hr__hr__leave-management__holiday-list-assignment`) | — |
+| How to Sanction Leave Encashment Amount in Salary Slip | `docs/frappe-hr/frappe-hr-06.md` lines 840–969 (`hr__leave-management__help-articles__how-to-sanction-leave-encashment-amount-in-salary-slip`) | — |
 | How to encash unused leaves using Salary Slips | `docs/frappe-hr/frappe-hr-03.md` lines 993–1040 (`hr__how-to-encash-unused-leaves-using-salary-slips`) | — |
-| How to process Payroll in Frappe HR | `docs/frappe-hr/frappe-hr-04.md` lines 3–63 (`hr__how-to-process-payroll-in-frappehr`) | — |
-| Human Resource Setup | `docs/frappe-hr/frappe-hr-04.md` lines 286–332 (`hr__human-resource-setup`) | — |
-| Human Resources Reports | `docs/frappe-hr/frappe-hr-04.md` lines 334–462 (`hr__human-resources-reports`) | — |
-| Income Tax Calculation in Frappe HR | `docs/frappe-hr/frappe-hr-04.md` lines 464–498 (`hr__income-tax-calculation-in-frappehr`) | — |
-| Income Tax Slab | `docs/frappe-hr/frappe-hr-04.md` lines 500–575 (`hr__income-tax-slab`) | — |
-| Integrating Frappe HR With Biometric Attendance Devices | `docs/frappe-hr/frappe-hr-06.md` lines 3–95 (`hr__integrating-frappe-hr-with-biometric-attendance-devices`) | — |
-| Interview | `docs/frappe-hr/frappe-hr-06.md` lines 262–338 (`hr__interview`) | — |
-| Interview Feedback | `docs/frappe-hr/frappe-hr-06.md` lines 97–156 (`hr__interview-feedback`) | — |
-| Interview Management | `docs/frappe-hr/frappe-hr-06.md` lines 158–175 (`hr__interview-management`) | — |
-| Interview Round | `docs/frappe-hr/frappe-hr-06.md` lines 177–222 (`hr__interview-round`) | — |
-| Interview Type | `docs/frappe-hr/frappe-hr-06.md` lines 224–260 (`hr__interview-type`) | — |
-| Introduction | `docs/frappe-hr/frappe-hr-04.md` lines 788–809 (`hr__india-payroll__introduction`) | — |
-| Job Applicant | `docs/frappe-hr/frappe-hr-06.md` lines 387–456 (`hr__job-applicant`) | yes |
-| Job Offer | `docs/frappe-hr/frappe-hr-06.md` lines 458–511 (`hr__job-offer`) | — |
-| Job Opening | `docs/frappe-hr/frappe-hr-06.md` lines 513–575 (`hr__job-opening`) | yes |
-| Job Portal | `docs/frappe-hr/frappe-hr-06.md` lines 577–634 (`hr__job-portal`) | — |
-| Job Requisition | `docs/frappe-hr/frappe-hr-06.md` lines 636–729 (`hr__job-requisition`) | — |
-| Labour Welfare Fund (LWF) | `docs/frappe-hr/frappe-hr-04.md` lines 811–914 (`hr__india-payroll__labour-welfare-fund`) | — |
-| Leave Adjustment | `docs/frappe-hr/frappe-hr-04.md` lines 268–284 (`hr__hr__leave-management__leave-adjustment`) | — |
-| Leave Allocation | `docs/frappe-hr/frappe-hr-06.md` lines 764–825 (`hr__leave-allocation`) | yes |
-| Leave Application | `docs/frappe-hr/frappe-hr-06.md` lines 827–938 (`hr__leave-application`) | yes |
-| Leave Block List | `docs/frappe-hr/frappe-hr-06.md` lines 940–988 (`hr__leave-block-list`) | — |
-| Leave Calculation In Salary Slip | `docs/frappe-hr/frappe-hr-06.md` lines 990–1007 (`hr__leave-calculation-in-salary-slip`) | — |
-| Leave Calculation in Salary Slip | `docs/frappe-hr/frappe-hr-07.md` lines 250–403 (`hr__leave-management__help-articles__leave-calculation-in-salary-slip`) | — |
-| Leave Control Panel | `docs/frappe-hr/frappe-hr-06.md` lines 1009–1059 (`hr__leave-control-panel`) | — |
-| Leave Encashment | `docs/frappe-hr/frappe-hr-07.md` lines 3–68 (`hr__leave-encashment`) | — |
-| Leave Ledger Entry | `docs/frappe-hr/frappe-hr-07.md` lines 70–83 (`hr__leave-ledger-entry`) | — |
-| Leave Ledger Report | `docs/frappe-hr/frappe-hr-07.md` lines 85–117 (`hr__leave-ledger-report`) | — |
-| Leave Period | `docs/frappe-hr/frappe-hr-07.md` lines 496–548 (`hr__leave-period`) | — |
-| Leave Policy | `docs/frappe-hr/frappe-hr-07.md` lines 619–656 (`hr__leave-policy`) | yes |
-| Leave Policy Assignment | `docs/frappe-hr/frappe-hr-07.md` lines 550–617 (`hr__leave-policy-assignment`) | — |
-| Leave Type | `docs/frappe-hr/frappe-hr-07.md` lines 658–774 (`hr__leave-type`) | yes |
-| Leave allocation after Compensatory Leave Request | `docs/frappe-hr/frappe-hr-06.md` lines 731–762 (`hr__leave-allocation-after-compensatory-leave-request`) | — |
-| Leaves | `docs/frappe-hr/frappe-hr-07.md` lines 776–806 (`hr__leaves`) | — |
-| Loan | `docs/frappe-hr/frappe-hr-07.md` lines 909–980 (`hr__loan`) | — |
-| Loan Application | `docs/frappe-hr/frappe-hr-07.md` lines 808–872 (`hr__loan-application`) | — |
-| Loan Type | `docs/frappe-hr/frappe-hr-07.md` lines 874–907 (`hr__loan-type`) | — |
-| Make Bank Entry from Payroll Entry | `docs/frappe-hr/frappe-hr-08.md` lines 84–191 (`hr__payroll-articles__make-bank-entry-from-payroll-entry`) | — |
-| Mobile App Installation | `docs/frappe-hr/frappe-hr-07.md` lines 982–1018 (`hr__mobile-app-installation`) | — |
-| Multi Currency Advance & Claim | `docs/frappe-hr/frappe-hr-07.md` lines 1020–1129 (`hr__multicurrency-employee-advance-expense-claim`) | — |
-| Multi-Company Settings | `docs/frappe-hr/frappe-hr-05.md` lines 3–177 (`hr__india-payroll__multi-company-settings`) | — |
-| Organizational Chart | `docs/frappe-hr/frappe-hr-08.md` lines 3–32 (`hr__organizational-chart`) | — |
-| Overtime | `docs/frappe-hr/frappe-hr-08.md` lines 34–82 (`hr__overtime`) | — |
-| Payroll Correction | `docs/frappe-hr/frappe-hr-08.md` lines 193–235 (`hr__payroll-correction`) | — |
-| Payroll Entry | `docs/frappe-hr/frappe-hr-08.md` lines 237–345 (`hr__payroll-entry`) | yes |
-| Payroll Management | `docs/frappe-hr/frappe-hr-08.md` lines 347–369 (`hr__payroll-management`) | — |
-| Payroll Period | `docs/frappe-hr/frappe-hr-08.md` lines 371–408 (`hr__payroll-period`) | — |
-| Payroll Settings | `docs/frappe-hr/frappe-hr-08.md` lines 410–510 (`hr__payroll-settings`) | — |
-| Payroll Setup | `docs/frappe-hr/frappe-hr-08.md` lines 512–748 (`hr__payroll-setup`) | — |
-| Professional Tax | `docs/frappe-hr/frappe-hr-05.md` lines 179–365 (`hr__india-payroll__professional-tax`) | — |
-| Project Profitability Report | `docs/frappe-hr/frappe-hr-08.md` lines 750–796 (`hr__project-profitability-report`) | — |
-| Push Notification | `docs/frappe-hr/frappe-hr-08.md` lines 798–832 (`hr__push-notification`) | — |
-| Recruitment | `docs/frappe-hr/frappe-hr-08.md` lines 834–844 (`hr__recruitment`) | — |
-| Reports | `docs/frappe-hr/frappe-hr-05.md` lines 367–401 (`hr__india-payroll__reports`) | — |
-| Retention Bonus | `docs/frappe-hr/frappe-hr-08.md` lines 918–961 (`hr__retention-bonus`) | — |
-| Roster | `docs/frappe-hr/frappe-hr-08.md` lines 963–1054 (`hr__roster`) | — |
-| Salary Component | `docs/frappe-hr/frappe-hr-09.md` lines 3–137 (`hr__salary-component`) | yes |
-| Salary Slip | `docs/frappe-hr/frappe-hr-09.md` lines 139–211 (`hr__salary-slip`) | yes |
-| Salary Structure | `docs/frappe-hr/frappe-hr-09.md` lines 383–478 (`hr__salary-structure`) | yes |
-| Salary Structure Assignment | `docs/frappe-hr/frappe-hr-09.md` lines 304–381 (`hr__salary-structure-assignment`) | — |
-| Salary Structure Assignment Tool | `docs/frappe-hr/frappe-hr-09.md` lines 243–302 (`hr__salary-structure-assignment-tool`) | — |
-| Salary Structure and Payroll | `docs/frappe-hr/frappe-hr-09.md` lines 213–241 (`hr__salary-structure-and-payroll`) | — |
-| Setting Employee Wise Leave Approver | `docs/frappe-hr/frappe-hr-07.md` lines 405–494 (`hr__leave-management__help-articles__setting-employee-wise-leave-approver`) | — |
-| Setting Employee-wise Leave Approver | `docs/frappe-hr/frappe-hr-09.md` lines 480–515 (`hr__setting-employee-wise-leave-approver`) | — |
-| Setting Flexible Benefits against a Benefit Claim | `docs/frappe-hr/frappe-hr-09.md` lines 517–551 (`hr__setting-flexible-benefits-against-a-benefit-claim`) | — |
-| Setting Up Income Tax Deduction | `docs/frappe-hr/frappe-hr-09.md` lines 553–624 (`hr__setting-up-income-tax-deduction`) | — |
-| Shift Assignment | `docs/frappe-hr/frappe-hr-09.md` lines 701–754 (`hr__shift-assignment`) | — |
-| Shift Assignment Tool | `docs/frappe-hr/frappe-hr-09.md` lines 626–699 (`hr__shift-assignment-tool`) | — |
-| Shift Location | `docs/frappe-hr/frappe-hr-09.md` lines 756–783 (`hr__shift-location`) | — |
-| Shift Management | `docs/frappe-hr/frappe-hr-09.md` lines 785–804 (`hr__shift-management`) | — |
-| Shift Request | `docs/frappe-hr/frappe-hr-09.md` lines 806–852 (`hr__shift-request`) | — |
-| Shift Schedule | `docs/frappe-hr/frappe-hr-10.md` lines 3–49 (`hr__shift-schedule`) | — |
-| Shift Schedule Assignment | `docs/frappe-hr/frappe-hr-09.md` lines 854–899 (`hr__shift-schedule-assignment`) | — |
-| Shift Type | `docs/frappe-hr/frappe-hr-10.md` lines 51–116 (`hr__shift-type`) | yes |
-| Staffing Plan | `docs/frappe-hr/frappe-hr-10.md` lines 118–173 (`hr__staffing-plan`) | — |
-| TDS Filing | `docs/frappe-hr/frappe-hr-05.md` lines 526–747 (`hr__india-payroll__tds-filing`) | — |
-| Tax Regime Selector | `docs/frappe-hr/frappe-hr-05.md` lines 403–524 (`hr__india-payroll__tax-regime-selector`) | — |
-| Training Event | `docs/frappe-hr/frappe-hr-10.md` lines 175–236 (`hr__training-event`) | — |
-| Training Feedback | `docs/frappe-hr/frappe-hr-10.md` lines 238–279 (`hr__training-feedback`) | — |
-| Training Program | `docs/frappe-hr/frappe-hr-10.md` lines 281–319 (`hr__training-program`) | — |
-| Training Result | `docs/frappe-hr/frappe-hr-10.md` lines 321–365 (`hr__training-result`) | — |
-| Travel Request | `docs/frappe-hr/frappe-hr-10.md` lines 367–390 (`hr__travel-request`) | — |
-| Upload Attendance | `docs/frappe-hr/frappe-hr-10.md` lines 392–440 (`hr__upload-attendance`) | — |
-| User Permission based on Hierarchy | `docs/frappe-hr/frappe-hr-10.md` lines 442–473 (`hr__user-permission-based-on-hierarchy`) | — |
-| Using Auto Attendance | `docs/frappe-hr/frappe-hr-10.md` lines 475–505 (`hr__using-auto-attendance`) | — |
-| Vehicle | `docs/frappe-hr/frappe-hr-10.md` lines 566–615 (`hr__vehicle`) | — |
-| Vehicle Log | `docs/frappe-hr/frappe-hr-10.md` lines 507–564 (`hr__vehicle-log`) | — |
-| Videos | `docs/frappe-hr/frappe-hr-10.md` lines 617–670 (`hr__videos`) | — |
-| Working Days Calculation in the Salary Slip | `docs/frappe-hr/frappe-hr-10.md` lines 672–691 (`hr__working-days-calculation-in-the-salary-slip`) | — |
+| How to process Payroll in Frappe HR | `docs/frappe-hr/frappe-hr-03.md` lines 1042–1102 (`hr__how-to-process-payroll-in-frappehr`) | — |
+| Human Resource Setup | `docs/frappe-hr/frappe-hr-04.md` lines 224–270 (`hr__human-resource-setup`) | — |
+| Human Resources Reports | `docs/frappe-hr/frappe-hr-04.md` lines 272–400 (`hr__human-resources-reports`) | — |
+| Income Tax Calculation in Frappe HR | `docs/frappe-hr/frappe-hr-04.md` lines 402–436 (`hr__income-tax-calculation-in-frappehr`) | — |
+| Income Tax Slab | `docs/frappe-hr/frappe-hr-04.md` lines 438–513 (`hr__income-tax-slab`) | — |
+| Integrating Frappe HR With Biometric Attendance Devices | `docs/frappe-hr/frappe-hr-05.md` lines 573–665 (`hr__integrating-frappe-hr-with-biometric-attendance-devices`) | — |
+| Interview | `docs/frappe-hr/frappe-hr-05.md` lines 832–908 (`hr__interview`) | — |
+| Interview Feedback | `docs/frappe-hr/frappe-hr-05.md` lines 667–726 (`hr__interview-feedback`) | — |
+| Interview Management | `docs/frappe-hr/frappe-hr-05.md` lines 728–745 (`hr__interview-management`) | — |
+| Interview Round | `docs/frappe-hr/frappe-hr-05.md` lines 747–792 (`hr__interview-round`) | — |
+| Interview Type | `docs/frappe-hr/frappe-hr-05.md` lines 794–830 (`hr__interview-type`) | — |
+| Introduction | `docs/frappe-hr/frappe-hr-04.md` lines 726–747 (`hr__india-payroll__introduction`) | — |
+| Job Applicant | `docs/frappe-hr/frappe-hr-06.md` lines 50–119 (`hr__job-applicant`) | yes |
+| Job Offer | `docs/frappe-hr/frappe-hr-06.md` lines 121–174 (`hr__job-offer`) | — |
+| Job Opening | `docs/frappe-hr/frappe-hr-06.md` lines 176–238 (`hr__job-opening`) | yes |
+| Job Portal | `docs/frappe-hr/frappe-hr-06.md` lines 240–297 (`hr__job-portal`) | — |
+| Job Requisition | `docs/frappe-hr/frappe-hr-06.md` lines 299–392 (`hr__job-requisition`) | — |
+| Labour Welfare Fund (LWF) | `docs/frappe-hr/frappe-hr-04.md` lines 749–852 (`hr__india-payroll__labour-welfare-fund`) | — |
+| Leave Adjustment | `docs/frappe-hr/frappe-hr-04.md` lines 206–222 (`hr__hr__leave-management__leave-adjustment`) | — |
+| Leave Allocation | `docs/frappe-hr/frappe-hr-06.md` lines 427–488 (`hr__leave-allocation`) | yes |
+| Leave Application | `docs/frappe-hr/frappe-hr-06.md` lines 490–601 (`hr__leave-application`) | yes |
+| Leave Block List | `docs/frappe-hr/frappe-hr-06.md` lines 603–651 (`hr__leave-block-list`) | — |
+| Leave Calculation In Salary Slip | `docs/frappe-hr/frappe-hr-06.md` lines 653–670 (`hr__leave-calculation-in-salary-slip`) | — |
+| Leave Calculation in Salary Slip | `docs/frappe-hr/frappe-hr-06.md` lines 971–1124 (`hr__leave-management__help-articles__leave-calculation-in-salary-slip`) | — |
+| Leave Control Panel | `docs/frappe-hr/frappe-hr-06.md` lines 672–722 (`hr__leave-control-panel`) | — |
+| Leave Encashment | `docs/frappe-hr/frappe-hr-06.md` lines 724–789 (`hr__leave-encashment`) | — |
+| Leave Ledger Entry | `docs/frappe-hr/frappe-hr-06.md` lines 791–804 (`hr__leave-ledger-entry`) | — |
+| Leave Ledger Report | `docs/frappe-hr/frappe-hr-06.md` lines 806–838 (`hr__leave-ledger-report`) | — |
+| Leave Period | `docs/frappe-hr/frappe-hr-07.md` lines 94–146 (`hr__leave-period`) | — |
+| Leave Policy | `docs/frappe-hr/frappe-hr-07.md` lines 217–254 (`hr__leave-policy`) | yes |
+| Leave Policy Assignment | `docs/frappe-hr/frappe-hr-07.md` lines 148–215 (`hr__leave-policy-assignment`) | — |
+| Leave Type | `docs/frappe-hr/frappe-hr-07.md` lines 256–372 (`hr__leave-type`) | yes |
+| Leave allocation after Compensatory Leave Request | `docs/frappe-hr/frappe-hr-06.md` lines 394–425 (`hr__leave-allocation-after-compensatory-leave-request`) | — |
+| Leaves | `docs/frappe-hr/frappe-hr-07.md` lines 374–404 (`hr__leaves`) | — |
+| Loan | `docs/frappe-hr/frappe-hr-07.md` lines 507–578 (`hr__loan`) | — |
+| Loan Application | `docs/frappe-hr/frappe-hr-07.md` lines 406–470 (`hr__loan-application`) | — |
+| Loan Type | `docs/frappe-hr/frappe-hr-07.md` lines 472–505 (`hr__loan-type`) | — |
+| Make Bank Entry from Payroll Entry | `docs/frappe-hr/frappe-hr-07.md` lines 810–917 (`hr__payroll-articles__make-bank-entry-from-payroll-entry`) | — |
+| Mobile App Installation | `docs/frappe-hr/frappe-hr-07.md` lines 580–616 (`hr__mobile-app-installation`) | — |
+| Multi Currency Advance & Claim | `docs/frappe-hr/frappe-hr-07.md` lines 618–727 (`hr__multicurrency-employee-advance-expense-claim`) | — |
+| Multi-Company Settings | `docs/frappe-hr/frappe-hr-04.md` lines 854–1028 (`hr__india-payroll__multi-company-settings`) | — |
+| Organizational Chart | `docs/frappe-hr/frappe-hr-07.md` lines 729–758 (`hr__organizational-chart`) | — |
+| Overtime | `docs/frappe-hr/frappe-hr-07.md` lines 760–808 (`hr__overtime`) | — |
+| Payroll Correction | `docs/frappe-hr/frappe-hr-07.md` lines 919–961 (`hr__payroll-correction`) | — |
+| Payroll Entry | `docs/frappe-hr/frappe-hr-07.md` lines 963–1071 (`hr__payroll-entry`) | yes |
+| Payroll Management | `docs/frappe-hr/frappe-hr-07.md` lines 1073–1095 (`hr__payroll-management`) | — |
+| Payroll Period | `docs/frappe-hr/frappe-hr-07.md` lines 1097–1134 (`hr__payroll-period`) | — |
+| Payroll Settings | `docs/frappe-hr/frappe-hr-08.md` lines 3–103 (`hr__payroll-settings`) | — |
+| Payroll Setup | `docs/frappe-hr/frappe-hr-08.md` lines 105–341 (`hr__payroll-setup`) | — |
+| Professional Tax | `docs/frappe-hr/frappe-hr-05.md` lines 3–189 (`hr__india-payroll__professional-tax`) | — |
+| Project Profitability Report | `docs/frappe-hr/frappe-hr-08.md` lines 343–389 (`hr__project-profitability-report`) | — |
+| Push Notification | `docs/frappe-hr/frappe-hr-08.md` lines 391–425 (`hr__push-notification`) | — |
+| Recruitment | `docs/frappe-hr/frappe-hr-08.md` lines 427–437 (`hr__recruitment`) | — |
+| Reports | `docs/frappe-hr/frappe-hr-05.md` lines 191–225 (`hr__india-payroll__reports`) | — |
+| Retention Bonus | `docs/frappe-hr/frappe-hr-08.md` lines 511–554 (`hr__retention-bonus`) | — |
+| Roster | `docs/frappe-hr/frappe-hr-08.md` lines 556–647 (`hr__roster`) | — |
+| Salary Component | `docs/frappe-hr/frappe-hr-08.md` lines 649–783 (`hr__salary-component`) | yes |
+| Salary Slip | `docs/frappe-hr/frappe-hr-08.md` lines 785–857 (`hr__salary-slip`) | yes |
+| Salary Structure | `docs/frappe-hr/frappe-hr-09.md` lines 82–177 (`hr__salary-structure`) | yes |
+| Salary Structure Assignment | `docs/frappe-hr/frappe-hr-09.md` lines 3–80 (`hr__salary-structure-assignment`) | — |
+| Salary Structure Assignment Tool | `docs/frappe-hr/frappe-hr-08.md` lines 889–948 (`hr__salary-structure-assignment-tool`) | — |
+| Salary Structure and Payroll | `docs/frappe-hr/frappe-hr-08.md` lines 859–887 (`hr__salary-structure-and-payroll`) | — |
+| Setting Employee Wise Leave Approver | `docs/frappe-hr/frappe-hr-07.md` lines 3–92 (`hr__leave-management__help-articles__setting-employee-wise-leave-approver`) | — |
+| Setting Employee-wise Leave Approver | `docs/frappe-hr/frappe-hr-09.md` lines 179–214 (`hr__setting-employee-wise-leave-approver`) | — |
+| Setting Flexible Benefits against a Benefit Claim | `docs/frappe-hr/frappe-hr-09.md` lines 216–250 (`hr__setting-flexible-benefits-against-a-benefit-claim`) | — |
+| Setting Up Income Tax Deduction | `docs/frappe-hr/frappe-hr-09.md` lines 252–323 (`hr__setting-up-income-tax-deduction`) | — |
+| Shift Assignment | `docs/frappe-hr/frappe-hr-09.md` lines 400–453 (`hr__shift-assignment`) | — |
+| Shift Assignment Tool | `docs/frappe-hr/frappe-hr-09.md` lines 325–398 (`hr__shift-assignment-tool`) | — |
+| Shift Location | `docs/frappe-hr/frappe-hr-09.md` lines 455–482 (`hr__shift-location`) | — |
+| Shift Management | `docs/frappe-hr/frappe-hr-09.md` lines 484–503 (`hr__shift-management`) | — |
+| Shift Request | `docs/frappe-hr/frappe-hr-09.md` lines 505–551 (`hr__shift-request`) | — |
+| Shift Schedule | `docs/frappe-hr/frappe-hr-09.md` lines 600–646 (`hr__shift-schedule`) | — |
+| Shift Schedule Assignment | `docs/frappe-hr/frappe-hr-09.md` lines 553–598 (`hr__shift-schedule-assignment`) | — |
+| Shift Type | `docs/frappe-hr/frappe-hr-09.md` lines 648–713 (`hr__shift-type`) | yes |
+| Staffing Plan | `docs/frappe-hr/frappe-hr-09.md` lines 715–770 (`hr__staffing-plan`) | — |
+| TDS Filing | `docs/frappe-hr/frappe-hr-05.md` lines 350–571 (`hr__india-payroll__tds-filing`) | — |
+| Tax Regime Selector | `docs/frappe-hr/frappe-hr-05.md` lines 227–348 (`hr__india-payroll__tax-regime-selector`) | — |
+| Training Event | `docs/frappe-hr/frappe-hr-09.md` lines 772–833 (`hr__training-event`) | — |
+| Training Feedback | `docs/frappe-hr/frappe-hr-09.md` lines 835–876 (`hr__training-feedback`) | — |
+| Training Program | `docs/frappe-hr/frappe-hr-09.md` lines 878–916 (`hr__training-program`) | — |
+| Training Result | `docs/frappe-hr/frappe-hr-09.md` lines 918–962 (`hr__training-result`) | — |
+| Travel Request | `docs/frappe-hr/frappe-hr-10.md` lines 3–26 (`hr__travel-request`) | — |
+| Upload Attendance | `docs/frappe-hr/frappe-hr-10.md` lines 28–76 (`hr__upload-attendance`) | — |
+| User Permission based on Hierarchy | `docs/frappe-hr/frappe-hr-10.md` lines 78–109 (`hr__user-permission-based-on-hierarchy`) | — |
+| Using Auto Attendance | `docs/frappe-hr/frappe-hr-10.md` lines 111–141 (`hr__using-auto-attendance`) | — |
+| Vehicle | `docs/frappe-hr/frappe-hr-10.md` lines 202–251 (`hr__vehicle`) | — |
+| Vehicle Log | `docs/frappe-hr/frappe-hr-10.md` lines 143–200 (`hr__vehicle-log`) | — |
+| Videos | `docs/frappe-hr/frappe-hr-10.md` lines 253–306 (`hr__videos`) | — |
+| Working Days Calculation in the Salary Slip | `docs/frappe-hr/frappe-hr-10.md` lines 308–327 (`hr__working-days-calculation-in-the-salary-slip`) | — |
 
 ## Frappe Lending — 60 pages
 
@@ -1412,11 +1413,11 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Page | Where | Cited by a capability |
 |---|---|---|
 | Agent | `docs/helpdesk/helpdesk-01.md` lines 3–51 (`helpdesk__agent`) | yes |
-| Agent Availability Status | `docs/helpdesk/helpdesk-03.md` lines 155–266 (`helpdesk__other-features__agent-availability`) | — |
-| Agent Home Page | `docs/helpdesk/helpdesk-03.md` lines 268–363 (`helpdesk__other-features__agent-home-page`) | — |
+| Agent Availability Status | `docs/helpdesk/helpdesk-03.md` lines 40–151 (`helpdesk__other-features__agent-availability`) | — |
+| Agent Home Page | `docs/helpdesk/helpdesk-03.md` lines 153–248 (`helpdesk__other-features__agent-home-page`) | — |
 | Agents & Teams | `docs/helpdesk/helpdesk-02.md` lines 1022–1104 (`helpdesk__lesson-3-agents-teams`) | — |
 | Assignment Rule | `docs/helpdesk/helpdesk-01.md` lines 53–105 (`helpdesk__assignment-rule`) | — |
-| Bulk Reply | `docs/helpdesk/helpdesk-03.md` lines 365–446 (`helpdesk__other-features__bulk-reply`) | — |
+| Bulk Reply | `docs/helpdesk/helpdesk-03.md` lines 250–331 (`helpdesk__other-features__bulk-reply`) | — |
 | Comment | `docs/helpdesk/helpdesk-01.md` lines 107–133 (`helpdesk__comment`) | — |
 | Comment Reactions | `docs/helpdesk/helpdesk-02.md` lines 509–557 (`helpdesk__helpdesk__other-features__comment-reactions`) | — |
 | Creating a ticket | `docs/helpdesk/helpdesk-02.md` lines 793–864 (`helpdesk__lesson-1-your-first-ticket`) | — |
@@ -1434,14 +1435,14 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Installation | `docs/helpdesk/helpdesk-02.md` lines 559–622 (`helpdesk__installation`) | — |
 | Inviting agents | `docs/helpdesk/helpdesk-02.md` lines 701–752 (`helpdesk__inviting-agents`) | — |
 | Knowledge Base | `docs/helpdesk/helpdesk-02.md` lines 754–791 (`helpdesk__knowledge-base`) | yes |
-| Knowledge Base | `docs/helpdesk/helpdesk-03.md` lines 3–116 (`helpdesk__lesson-4-knowledge-base`) | — |
+| Knowledge Base | `docs/helpdesk/helpdesk-02.md` lines 1106–1219 (`helpdesk__lesson-4-knowledge-base`) | — |
 | Managing Tickets with ease (Views) | `docs/helpdesk/helpdesk-01.md` lines 399–484 (`helpdesk__custom-views`) | — |
-| Notification | `docs/helpdesk/helpdesk-03.md` lines 118–153 (`helpdesk__notification`) | — |
+| Notification | `docs/helpdesk/helpdesk-03.md` lines 3–38 (`helpdesk__notification`) | — |
 | Outside Working Hours Banner | `docs/helpdesk/helpdesk-02.md` lines 460–507 (`helpdesk__helpdesk__customization__outside-working-hours-banner`) | — |
-| PWA Installation | `docs/helpdesk/helpdesk-03.md` lines 448–485 (`helpdesk__pwa-installation`) | — |
-| Saved Replies | `docs/helpdesk/helpdesk-03.md` lines 487–682 (`helpdesk__saved-replies`) | yes |
-| Service Level Agreement | `docs/helpdesk/helpdesk-03.md` lines 684–944 (`helpdesk__service-level-agreement`) | yes |
-| Setting Up | `docs/helpdesk/helpdesk-03.md` lines 946–964 (`helpdesk__setting-up`) | — |
+| PWA Installation | `docs/helpdesk/helpdesk-03.md` lines 333–370 (`helpdesk__pwa-installation`) | — |
+| Saved Replies | `docs/helpdesk/helpdesk-03.md` lines 372–567 (`helpdesk__saved-replies`) | yes |
+| Service Level Agreement | `docs/helpdesk/helpdesk-03.md` lines 569–829 (`helpdesk__service-level-agreement`) | yes |
+| Setting Up | `docs/helpdesk/helpdesk-03.md` lines 831–849 (`helpdesk__setting-up`) | — |
 | Setting up Outlook for Frappe Helpdesk | `docs/helpdesk/helpdesk-02.md` lines 162–314 (`helpdesk__faq__setting-up-outlook-for-frappe`) | — |
 | Settings | `docs/helpdesk/helpdesk-04.md` lines 3–220 (`helpdesk__settings`) | — |
 | Team | `docs/helpdesk/helpdesk-04.md` lines 222–251 (`helpdesk__team`) | yes |
@@ -1472,35 +1473,35 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Getting Started with Frappe Books | `docs/books/books-01.md` lines 829–873 (`books__getting-started-with-frappe-books`) | — |
 | Import Wizard | `docs/books/books-01.md` lines 875–1023 (`books__import-wizard`) | — |
 | Introduction to Inventory | `docs/books/books-01.md` lines 1025–1114 (`books__introduction-to-inventory`) | — |
-| Inventory Settings | `docs/books/books-02.md` lines 64–128 (`books__inventory-settings`) | — |
-| Items | `docs/books/books-02.md` lines 130–189 (`books__items`) | — |
-| Journal Entries | `docs/books/books-02.md` lines 191–259 (`books__journal-entries`) | — |
-| Lead | `docs/books/books-02.md` lines 3–62 (`books__introduction`) | — |
-| Loyalty Program | `docs/books/books-02.md` lines 261–351 (`books__loyalty-program`) | — |
-| Master Data | `docs/books/books-02.md` lines 353–411 (`books__master-data`) | — |
-| Multi Currency Invoicing | `docs/books/books-02.md` lines 413–490 (`books__multi-currency-invoicing`) | — |
-| Number Series | `docs/books/books-02.md` lines 492–556 (`books__number-series`) | — |
-| Party | `docs/books/books-02.md` lines 558–613 (`books__party`) | — |
-| Payments | `docs/books/books-02.md` lines 615–680 (`books__payments`) | — |
-| Point of Sale (POS) | `docs/books/books-04.md` lines 3–161 (`books__transactional-entries`) | — |
-| Price List | `docs/books/books-02.md` lines 682–736 (`books__price-list`) | — |
-| Pricing Rule | `docs/books/books-02.md` lines 738–823 (`books__pricing-rule`) | — |
-| Print Templates | `docs/books/books-02.md` lines 825–985 (`books__print-templates`) | — |
-| Profit and Loss Statement | `docs/books/books-02.md` lines 987–1073 (`books__profit-and-loss-statement`) | — |
-| Purchase Invoices | `docs/books/books-03.md` lines 3–106 (`books__purchase-invoices`) | — |
-| Purchase Receipt | `docs/books/books-03.md` lines 108–208 (`books__purchase-receipt`) | — |
-| Quick Search | `docs/books/books-03.md` lines 210–291 (`books__quick-search`) | — |
-| Reports | `docs/books/books-03.md` lines 293–339 (`books__reports`) | — |
-| Sales Invoices | `docs/books/books-03.md` lines 341–472 (`books__sales-invoices`) | — |
-| Serial Number | `docs/books/books-03.md` lines 474–539 (`books__serial-number`) | — |
-| Settings | `docs/books/books-03.md` lines 541–645 (`books__settings`) | — |
-| Setup Opening Balances | `docs/books/books-03.md` lines 647–701 (`books__setup-opening-balances`) | — |
-| Shipment | `docs/books/books-03.md` lines 703–803 (`books__shipment`) | — |
-| Stock Balance | `docs/books/books-03.md` lines 805–847 (`books__stock-balance`) | — |
-| Stock Ledger | `docs/books/books-03.md` lines 849–909 (`books__stock-ledger`) | — |
-| Stock Movement | `docs/books/books-03.md` lines 911–976 (`books__stock-movement`) | — |
-| Taxes | `docs/books/books-03.md` lines 978–1005 (`books__taxes`) | — |
-| Trial Balance | `docs/books/books-04.md` lines 163–211 (`books__trial-balance`) | — |
+| Inventory Settings | `docs/books/books-01.md` lines 1177–1241 (`books__inventory-settings`) | — |
+| Items | `docs/books/books-02.md` lines 3–62 (`books__items`) | — |
+| Journal Entries | `docs/books/books-02.md` lines 64–132 (`books__journal-entries`) | — |
+| Lead | `docs/books/books-01.md` lines 1116–1175 (`books__introduction`) | — |
+| Loyalty Program | `docs/books/books-02.md` lines 134–224 (`books__loyalty-program`) | — |
+| Master Data | `docs/books/books-02.md` lines 226–284 (`books__master-data`) | — |
+| Multi Currency Invoicing | `docs/books/books-02.md` lines 286–363 (`books__multi-currency-invoicing`) | — |
+| Number Series | `docs/books/books-02.md` lines 365–429 (`books__number-series`) | — |
+| Party | `docs/books/books-02.md` lines 431–486 (`books__party`) | — |
+| Payments | `docs/books/books-02.md` lines 488–553 (`books__payments`) | — |
+| Point of Sale (POS) | `docs/books/books-03.md` lines 902–1060 (`books__transactional-entries`) | — |
+| Price List | `docs/books/books-02.md` lines 555–609 (`books__price-list`) | — |
+| Pricing Rule | `docs/books/books-02.md` lines 611–696 (`books__pricing-rule`) | — |
+| Print Templates | `docs/books/books-02.md` lines 698–858 (`books__print-templates`) | — |
+| Profit and Loss Statement | `docs/books/books-02.md` lines 860–946 (`books__profit-and-loss-statement`) | — |
+| Purchase Invoices | `docs/books/books-02.md` lines 948–1051 (`books__purchase-invoices`) | — |
+| Purchase Receipt | `docs/books/books-03.md` lines 3–103 (`books__purchase-receipt`) | — |
+| Quick Search | `docs/books/books-03.md` lines 105–186 (`books__quick-search`) | — |
+| Reports | `docs/books/books-03.md` lines 188–234 (`books__reports`) | — |
+| Sales Invoices | `docs/books/books-03.md` lines 236–367 (`books__sales-invoices`) | — |
+| Serial Number | `docs/books/books-03.md` lines 369–434 (`books__serial-number`) | — |
+| Settings | `docs/books/books-03.md` lines 436–540 (`books__settings`) | — |
+| Setup Opening Balances | `docs/books/books-03.md` lines 542–596 (`books__setup-opening-balances`) | — |
+| Shipment | `docs/books/books-03.md` lines 598–698 (`books__shipment`) | — |
+| Stock Balance | `docs/books/books-03.md` lines 700–742 (`books__stock-balance`) | — |
+| Stock Ledger | `docs/books/books-03.md` lines 744–804 (`books__stock-ledger`) | — |
+| Stock Movement | `docs/books/books-03.md` lines 806–871 (`books__stock-movement`) | — |
+| Taxes | `docs/books/books-03.md` lines 873–900 (`books__taxes`) | — |
+| Trial Balance | `docs/books/books-03.md` lines 1062–1110 (`books__trial-balance`) | — |
 
 ## Frappe CRM — 38 pages
 
@@ -1517,33 +1518,33 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 | Custom Statuses | `docs/crm/crm-01.md` lines 878–1049 (`crm__custom-statuses`) | yes |
 | Data\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t | `docs/crm/crm-01.md` lines 1051–1067 (`crm__data`) | — |
 | Deal | `docs/crm/crm-01.md` lines 1069–1144 (`crm__deal`) | yes |
-| ERPNext | `docs/crm/crm-02.md` lines 38–192 (`crm__erpnext`) | — |
+| ERPNext | `docs/crm/crm-02.md` lines 3–157 (`crm__erpnext`) | — |
 | Email Communication | `docs/crm/crm-01.md` lines 1146–1214 (`crm__email-communication`) | — |
-| Email Template | `docs/crm/crm-02.md` lines 3–36 (`crm__email-template`) | yes |
-| Exotel\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t | `docs/crm/crm-02.md` lines 194–312 (`crm__exotel`) | — |
-| Facebook / Instagram | `docs/crm/crm-02.md` lines 605–670 (`crm__lead-syncing__meta`) | — |
+| Email Template | `docs/crm/crm-01.md` lines 1216–1249 (`crm__email-template`) | yes |
+| Exotel\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t | `docs/crm/crm-02.md` lines 159–277 (`crm__exotel`) | — |
+| Facebook / Instagram | `docs/crm/crm-02.md` lines 570–635 (`crm__lead-syncing__meta`) | — |
 | Forms | `docs/crm/crm-01.md` lines 92–176 (`crm__capturing-leads__web-form`) | yes |
-| General and Defaults | `docs/crm/crm-02.md` lines 314–345 (`crm__general-and-defaults`) | — |
-| Home Actions | `docs/crm/crm-02.md` lines 347–374 (`crm__home-actions`) | — |
-| Installation | `docs/crm/crm-02.md` lines 427–571 (`crm__introduction__installation`) | — |
-| Introduction | `docs/crm/crm-02.md` lines 376–425 (`crm__introduction`) | — |
-| Inviting Your Team | `docs/crm/crm-02.md` lines 573–603 (`crm__inviting-your-team`) | yes |
-| Lead | `docs/crm/crm-02.md` lines 672–750 (`crm__lead`) | yes |
-| Mobile App Installation | `docs/crm/crm-02.md` lines 752–820 (`crm__mobile-app-installation`) | — |
-| Note | `docs/crm/crm-02.md` lines 822–859 (`crm__note`) | yes |
-| Notification | `docs/crm/crm-02.md` lines 861–895 (`crm__notification`) | — |
-| Organization | `docs/crm/crm-02.md` lines 897–926 (`crm__organization`) | yes |
-| Pinned View | `docs/crm/crm-02.md` lines 928–955 (`crm__pinned-view`) | — |
-| Profile and Preferences | `docs/crm/crm-02.md` lines 957–990 (`crm__profile-and-preferences`) | — |
-| Public View | `docs/crm/crm-02.md` lines 992–1028 (`crm__public-view`) | — |
-| Quick Entry Layout | `docs/crm/crm-02.md` lines 1030–1058 (`crm__quick-entry-layout`) | — |
-| Sales Hierarchy | `docs/crm/crm-03.md` lines 104–194 (`crm__settings__sales-hierarchy`) | — |
-| Saved View | `docs/crm/crm-03.md` lines 316–371 (`crm__view`) | — |
-| Service Level Agreement | `docs/crm/crm-03.md` lines 3–48 (`crm__service-level-agreement`) | yes |
-| Setting Up Your Workspace | `docs/crm/crm-03.md` lines 50–102 (`crm__setting-up`) | — |
-| Task | `docs/crm/crm-03.md` lines 196–236 (`crm__task`) | yes |
-| Twilio | `docs/crm/crm-03.md` lines 238–314 (`crm__twilio`) | — |
-| WhatsApp | `docs/crm/crm-03.md` lines 373–439 (`crm__whatsapp`) | yes |
+| General and Defaults | `docs/crm/crm-02.md` lines 279–310 (`crm__general-and-defaults`) | — |
+| Home Actions | `docs/crm/crm-02.md` lines 312–339 (`crm__home-actions`) | — |
+| Installation | `docs/crm/crm-02.md` lines 392–536 (`crm__introduction__installation`) | — |
+| Introduction | `docs/crm/crm-02.md` lines 341–390 (`crm__introduction`) | — |
+| Inviting Your Team | `docs/crm/crm-02.md` lines 538–568 (`crm__inviting-your-team`) | yes |
+| Lead | `docs/crm/crm-02.md` lines 637–715 (`crm__lead`) | yes |
+| Mobile App Installation | `docs/crm/crm-02.md` lines 717–779 (`crm__mobile-app-installation`) | — |
+| Note | `docs/crm/crm-02.md` lines 781–818 (`crm__note`) | yes |
+| Notification | `docs/crm/crm-02.md` lines 820–854 (`crm__notification`) | — |
+| Organization | `docs/crm/crm-02.md` lines 856–885 (`crm__organization`) | yes |
+| Pinned View | `docs/crm/crm-02.md` lines 887–914 (`crm__pinned-view`) | — |
+| Profile and Preferences | `docs/crm/crm-02.md` lines 916–949 (`crm__profile-and-preferences`) | — |
+| Public View | `docs/crm/crm-02.md` lines 951–987 (`crm__public-view`) | — |
+| Quick Entry Layout | `docs/crm/crm-02.md` lines 989–1017 (`crm__quick-entry-layout`) | — |
+| Sales Hierarchy | `docs/crm/crm-03.md` lines 57–147 (`crm__settings__sales-hierarchy`) | — |
+| Saved View | `docs/crm/crm-03.md` lines 269–324 (`crm__view`) | — |
+| Service Level Agreement | `docs/crm/crm-02.md` lines 1019–1064 (`crm__service-level-agreement`) | yes |
+| Setting Up Your Workspace | `docs/crm/crm-03.md` lines 3–55 (`crm__setting-up`) | — |
+| Task | `docs/crm/crm-03.md` lines 149–189 (`crm__task`) | yes |
+| Twilio | `docs/crm/crm-03.md` lines 191–267 (`crm__twilio`) | — |
+| WhatsApp | `docs/crm/crm-03.md` lines 326–392 (`crm__whatsapp`) | yes |
 
 ## ERPNext Education — 38 pages
 
@@ -1709,8 +1710,8 @@ file paths are replaced with a description), and starts with a line `<!-- page: 
 |---|---|---|
 | Data Script | `docs/builder/builder-01.md` lines 3–150 (`builder__data-script`) | yes |
 | External Editor | `docs/builder/builder-01.md` lines 152–186 (`builder__external-editor`) | — |
-| Introduction | `docs/builder/builder-01.md` lines 188–240 (`builder__introduction`) | — |
-| Learning Resources | `docs/builder/builder-01.md` lines 242–270 (`builder__setting-up`) | yes |
+| Introduction | `docs/builder/builder-01.md` lines 188–232 (`builder__introduction`) | — |
+| Learning Resources | `docs/builder/builder-01.md` lines 234–262 (`builder__setting-up`) | yes |
 
 ## Frappe Gantt — 2 pages
 

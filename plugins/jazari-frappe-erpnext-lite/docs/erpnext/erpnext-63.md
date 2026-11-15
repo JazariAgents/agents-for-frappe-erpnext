@@ -51,13 +51,13 @@ The example list contains reusable categories for standard, export, and exempt t
 
 
 
-![Tax Category list with reusable tax treatments](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-tax-category-list.png)
+[Screenshot on the live page: Tax Category list with reusable tax treatments]
 
 Enter a clear title and save. The title is the value users will see on Customers, Suppliers, Addresses, and transactions.
 
 
 
-![The Standard Tax category record](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-tax-category-record.png)
+[Screenshot on the live page: The Standard Tax category record]
 
 The Tax Category record has only two important fields:
 
@@ -78,7 +78,7 @@ Open [Accounts Settings](/erpnext/accounts-settings). Under **Invoice and Billin
 
 
 
-![Accounts Settings choosing the billing address for Tax Category](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-tax-category-address-preference.png)
+[Screenshot on the live page: Accounts Settings choosing the billing address for Tax Category]
 
 The selected address is checked before the party master. If that Address has no Tax Category, ERPNext falls back to the category on the Customer or Supplier.
 
@@ -90,7 +90,7 @@ Open the [Customer](/erpnext/customer) or [Supplier](/erpnext/supplier). In the 
 
 
 
-![Standard Tax assigned to Northstar Retail](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-customer-tax-category.png)
+[Screenshot on the live page: Standard Tax assigned to Northstar Retail]
 
 This provides a useful default when an Address does not supply a category. It also keeps parties with the same tax treatment grouped under consistent configuration.
 
@@ -102,7 +102,7 @@ Use an [Address](/erpnext/address) when the same customer or supplier needs diff
 
 
 
-![Standard Tax assigned to a preferred billing Address](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-address-tax-category.png)
+[Screenshot on the live page: Standard Tax assigned to a preferred billing Address]
 
 The Address must be linked to the correct Customer or Supplier. ERPNext then evaluates the preferred billing or shipping address according to Accounts Settings.
 
@@ -124,7 +124,7 @@ In this example, Northstar Retail and its preferred billing address use **Standa
 
 
 
-![Tax Category and selected sales tax template on a Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-invoice-tax-category-result.png)
+[Screenshot on the live page: Tax Category and selected sales tax template on a Sales Invoice]
 
 Always verify the selected template, account, rate, tax amount, and Grand Total. A category identifies the treatment, but the template and item tax configuration perform the calculation.
 
@@ -255,13 +255,13 @@ Create or open the reusable tax template.
 4. Enter the Tax Rate.
 5. Open the row using its pencil icon.
 
-![Open the inclusive tax row from the taxes and charges table](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-inclusive-tax-row.png)
+[Screenshot on the live page: Open the inclusive tax row from the taxes and charges table]
 
 In the row editor, select **Is this Tax included in Basic Rate?**. The field description explains that the tax amount is already included in the Print Rate or Print Amount.
 
 
 
-![Enable the setting that marks tax as included in the basic rate](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-inclusive-tax-setting.png)
+[Screenshot on the live page: Enable the setting that marks tax as included in the basic rate]
 
 The calculation Type and the inclusive checkbox have different purposes. Type determines the calculation base. The checkbox tells ERPNext that the calculated tax is already inside the entered item rate.
 
@@ -277,7 +277,7 @@ Enter the tax-inclusive item rate. In this example, the item row uses $108. ERPN
 
 
 
-![ERPNext separates an inclusive $108 rate into $100 net and $8 tax](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-inclusive-tax-result.png)
+[Screenshot on the live page: ERPNext separates an inclusive $108 rate into $100 net and $8 tax]
 
 The customer still pays $108. ERPNext posts the net value and tax to their respective accounts rather than treating the complete $108 as income.
 
@@ -460,7 +460,7 @@ Add the dependent tax after the base tax.
 5. Confirm whether the row is added or deducted.
 6. Save the template.
 
-![Previous-row amount fields with the reference row and rate](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-previous-row-calculation.png)
+[Screenshot on the live page: Previous-row amount fields with the reference row and rate]
 
 Reference Row # is positional. If you insert, delete, or move rows, recheck the number. A row that still refers to 1 may silently use the wrong base after the template order changes.
 
@@ -478,7 +478,7 @@ In the current example, the tax table shows:
 
 
 
-![A 2 percent levy calculated only on the earlier $80 tax amount](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-previous-row-amount-result.png)
+[Screenshot on the live page: A 2 percent levy calculated only on the earlier $80 tax amount]
 
 Check the **Net Amount**, **Amount**, and **Total** columns rather than looking only at Grand Total. The row 2 Net Amount should equal the earlier row's Amount.
 
@@ -607,7 +607,7 @@ Go to **Accounting &gt; Taxes &gt; Tax Rule** and select **Add Tax Rule**.
 6. Set the priority and company.
 7. Save.
 
-![A sales Tax Rule with template, Customer, and Tax Category](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-sales-tax-rule.png)
+[Screenshot on the live page: A sales Tax Rule with template, Customer, and Tax Category]
 
 The example rule selects **Nova Standard Sales Tax 8%** for Northstar Retail under the Standard Tax category.
 
@@ -662,7 +662,7 @@ This example requires the Billing City to be **Metro City** in addition to match
 
 
 
-![Billing City condition on the Tax Rule](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-tax-rule-location-condition.png)
+[Screenshot on the live page: Billing City condition on the Tax Rule]
 
 The location value comes from the Address selected on the transaction. If a rule does not match, check the actual transaction Address rather than only the party master.
 
@@ -686,7 +686,7 @@ If multiple rules have similar conditions, **Priority** determines their order. 
 
 
 
-![Tax Rule validity dates and priority](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-tax-rule-validity-priority.png)
+[Screenshot on the live page: Tax Rule validity dates and priority]
 
 Priority does not repair contradictory configuration. Make conditions as distinct as possible and use priority only where a real hierarchy exists, such as a specific-customer exception above a general category rule.
 
@@ -704,7 +704,7 @@ For the example rule, selecting Northstar Retail with its Metro City billing add
 
 
 
-![The matching Tax Category and sales template on a Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-category-invoice-tax-category-result.png)
+[Screenshot on the live page: The matching Tax Category and sales template on a Sales Invoice]
 
 Always test each rule with both a transaction that should match and one that should not. This detects filters that are too broad, missing location data, and unintended priority conflicts.
 

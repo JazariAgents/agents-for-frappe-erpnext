@@ -1,775 +1,5 @@
 <!-- Frappe documentation: erpnext, part 29 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__help-articles.md -->
----
-title: "Help Articles Index"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/help-articles"
-updated: "2026-07-05"
----
-
-Below is a few help articles which can help you configure the system as per your requirements.
-
-### System
-
-- [Document Versioning](/erpnext/document-versioning)
-- [Adding Attachment to Ongoing Messages](/erpnext/adding-attachments-to-outgoing-messages)
-- [Copy Pasting Multiple Records](/erpnext/copy-pasting-multiple-records-from-excel)
-- [Renaming Documents](/erpnext/renaming-documents)
-- [Bulk Rename](/erpnext/bulk-rename)
-- [Deleting and restoring Documents](/erpnext/how-to-restore-deleted-documents-in-erpnext)
-- [Deleting Custom Reports](/erpnext/deleting-custom-reports)
-- [Restore Deleted Documents](/erpnext/how-to-restore-deleted-documents-in-erpnext)
-- [Duplicate Records](/erpnext/duplicate-record)
-- [Checking Link Between Documents](/erpnext/check-link-between-documents)
-- [Filter Option in Select Field](/erpnext/filter-options-in-select-field)
-- [Automating Assignment](/erpnext/automating-issue-assignments-to-support-team-in-erpnext)
-- [Email Error in Sending and Receiving](/erpnext/email-error)
-- [Maximum User Limit Issue](/erpnext/how-to-fix-the-reached-maximum-user-limit-for-your-subscription-issue)
-- [Perm Level Error](/erpnext/perm-level-error-in-permission-manager)
-- [Permission Error Problems](/erpnext/report-permission-error)
-- [Using Prepared Report](/erpnext/prepared-report)
-- [Emails Are Not Received](/erpnext/what-if-emails-are-not-being-received-by-the-recipients)
-- [Maximum Number of Fields in a Form](/erpnext/maximum-number-of-fields-in-a-form)
-- [Making Custom Reports](/erpnext/making-custom-reports)
-- [Deleting Custom Reports](/erpnext/deleting-custom-reports)
-- [Reports Showing Multiple Lines for One Document](/erpnext/reports-showing-multiple-lines-for-one-document)
-- [Add Columns in Standard Reports](/erpnext/how-to-add-columns-in-the-standard-report-and-export)
-- [Fetch Child Table Values Using Jinja](/erpnext/fetch-child-table-values-using-jinja-tags)
-- [Change Custom Field Datatype After Field Creation](/erpnext/change-custom-field-datatype-after-field-creation)
-- [Company Wise Naming Series](/erpnext/company-wise-naming-series)
-- [Feedback Request Using Web Form](/erpnext/feedback-request-using-web-form)
-- [Manage Tree Structure of Masters](/erpnext/managing-tree-structure-masters)
-- [Set Default Value for Any Field](/erpnext/setting-default-values-for-any-field-in-erpnext)
-- [Set Precision](/erpnext/set-precision)
-- [Set Language](/erpnext/set-language)
-- [Edit Submitted Documents](/erpnext/edit-submitted-document)
-- [Delete Submitted Documents](/erpnext/delete-submitted-document)
-- [Set Current Value for Naming series](/erpnext/naming-series-current-value)
-- [Easy Steps To Setup Workflow](/erpnext/easy-steps-to-setup-workflow)
-- [Tree Master Renaming](/erpnext/tree-master-renaming)
-- [Letter Head in Report](/erpnext/letter-head-in-the-report)
-- [Sync Doctypes with Events Calendar](/erpnext/how-to-sync-doc-types-with-calendar)
-- [User Permissions Based on Hierarchy](/erpnext/user-permission-based-on-hierarchy)
-- [Add/Remove Fields from Print Format](/erpnext/add-remove-fields-from-print-format)
-- [Customise Tables in Print Format](/erpnext/customise-your-items-tables-within-your-print-format-builder)
-- [Customise Field Visibility in Print Format](/erpnext/making-fields-visible-in-print-format)
-- [Remove Description in Print Format](/erpnext/removing-description-removed-item-code-and-name)
-- [Print 'Centavo' in Words for USD](/erpnext/centavo-being-printed-in-words-for-usd)
-
-### Accounting
-
-- [Merging Accounts](/erpnext/merging-accounts)
-- [Changing Parent Account](/erpnext/changing-parent-account)
-- [Freeze an Account](/erpnext/freeze-account)
-- [Freeze Accounting Entries](/erpnext/freeze-accounting-entries)
-- [Common Receivable Account](/erpnext/common-receivable-account)
-- [Sales Return Management](/erpnext/sales-return-use-cases)
-- [Delivery From Sales Invoice](/erpnext/update-stock-option-in-sales-invoice)
-- [Default Receivable / Payable Account](/erpnext/accounts/articles/default-receivable-payable-account)
-- [Payment Entry for Capital Account](/erpnext/payment-entry-for-capital-account)
-- [Book Petty Cash Entry](/erpnext/petty-cash-entry-in-erpnext)
-- [Accounting for Bad Debts](/erpnext/accounting-for-bad-debts)
-- [Purchase Invoice Account Type Error](/erpnext/purchase-invoice-account-type-error)
-- [Book Discount Allowed and Received Separately](/erpnext/book-discount-allowed-and-received-separately)
-- [Adding Reference To Journal Entry](/erpnext/adding-reference-to-journal-entry)
-- [Invoice Discount in Payment Entry](/erpnext/adding-reference-to-journal-entry)
-- [Withdrawing Salary from Owner's Equity Account](/erpnext/withdrawing-salary-from-owners-equity-account)
-- [Buy 1 Get 1 Free Pricing Rule](/erpnext/setting-up-buy-1-get-1-free-pricing-rule)
-- [Adjusting Without Amount](/erpnext/adjusting-withhold-amount)
-- [Post Dated Cheque Entry](/erpnext/post-dated-cheque-entry)
-- [Difference Entry](/erpnext/difference-entry-button)
-- [Setting Up Taxes](/erpnext/setting-up-taxes)
-- [Unreconciled](/erpnext/unreconciliation)
-- [Period Closing Voucher](/erpnext/period-closing-voucher)
-- [ERPNext QuickBooks Migrator](/erpnext/quickbooks-migrator)
-- [Process Statement of Accounts](/erpnext/process-statement-of-accounts)
-- [Payment Terms Status Report](/erpnext/payment_terms_status_report)
-- [Inter Company Journal Entry](/erpnext/inter-company-journal-entry)
-- [Advance in Separate Party Account](/erpnext/advance-in-separate-party-account)
-- [Fiscal Year Error](/erpnext/fiscal-year-error)
-- [Round Off Account Validation Message](/erpnext/round-off-account-validation)
-- [Delete Entries Linked With GL Entries](/erpnext/delete-entries-linked-with-gl-entries)
-- [Invoice Rounding Issue](/erpnext/invoice-rounding-issue)
-- [Customise Cash Flow Report](/erpnext/customise-cash-flow-report)
-- [Export Data for Specific Year or Filter](/erpnext/export-data-for-specific-year-or-filter)
-- [Allocating Credit Note and Payment](/erpnext/allocating-credit-note-and-payment)
-- [Reconcile Advance Payment to Supplier](/erpnext/reconcile-advance-payment-made-to-the-supplier)
-- [Balance in Temporary Account](/erpnext/balance-in-temporary-account)
-- [Calculate Freight Taxes](/erpnext/calculatin-freight-in-taxes-in-erpnext)
-- [Purpose of Stock Received But Not Billed](/erpnext/stock-received-but-not-billed)
-- [Closing Accounting Books](/erpnext/closing-accounting-books-in-erpnext)
-
-### Buying
-
-- [Purchase Invoice for Services](/erpnext/item-creation-not-required-in-purchase-invoice)
-- [Debit Note for Price Adjustment](/erpnext/debit-note-for-price-adjustment)
-- [Procurement Tracker Report](/erpnext/procurement-tracker-report)
-- [Amending Purchase Order After Submit](/erpnext/amending-purchase-order-after-submit)
-
-### Selling
-
-- [Sales Person Target Allocation](/erpnext/sales-person-target-allocation)
-- [Change The Rate Of Item in Sales Cycle](/erpnext/need-to-change-rate-of-items-during-sales-cycle)
-- [Sales Persons in Sales Transactions](/erpnext/sales-persons-in-the-sales-transactions)
-- [Record Commission to Sales Partner](/erpnext/how-to-give-commission-to-sales-partner)
-- [Short Close Multiple Orders](/erpnext/how-to-short-close-multiple-orders-in-erpnext)
-- [Close Sales Order](/erpnext/close-sales-order)
-- [Amending Sales Order After Submit](/erpnext/amending-sales-order-after-submit)
-- [Applying A Discount](/erpnext/applying-discount)
-- [Request for Raw Materials from Sales Order](/erpnext/request-for-raw-materials-from-sales-order)
-- [Setting Company Sales Goal](/erpnext/setting-company-sales-goal)
-- [Sales Invoice Without an Item](/erpnext/sales-invoice-without-an-item)
-- [Drop Ship Between Subsidiary](/erpnext/assistance-sales-purchase-between-companies)
-- [Loyalty Points Redemption in POS](/erpnext/loyalty-points-redemption-in-pos)
-- [Selling in Different UOM](/erpnext/Selling-in-different-UOM)
-
-### Assets
-
-- [Moving Asset from Stock Item to Fixed Asset Item](/erpnext/moving-asset-from-stock-item-to-fixed-asset-item)
-
-### CRM
-
-- [Automate Lead Creation](/erpnext/automate_lead_capturing)
-- [Difference Between Lead, Contact and Customer](/erpnext/difference_between_lead_contact_and_customer)
-
-### Stock
-
-- [Track Items Using Barcode](/erpnext/track-items-using-barcode)
-- [Item Valuation Setup and Transactions](/erpnext/item-valuation-transactions)
-- [Raw Material Valuation](/erpnext/valuation-based-on-field-in-bom)
-- [Return Rejected Items](/erpnext/sales-return-use-cases)
-- [Repack Entry](/erpnext/repack-entry)
-- [Incoterm and Named Place](/erpnext/incoterm-and-named-place)
-- [Quick Stock Balance](/erpnext/quick-stock-balance)
-- [Quality Inspection Summary](/erpnext/quality-inspction-summary)
-- [Migrate to Perpetual Inventory](/erpnext/migrate-to-perpetual-inventory)
-- [FIFO and Moving Average](/erpnext/calculation-of-valuation-rate-in-fifo-and-moving-average)
-- [Perpetual Inventory for Non Stock Items](/erpnext/perpetual-inventory-for-non-stock-item)
-- [Projected Quantity](/erpnext/projected-quantity)
-- [Opening Stock Balance entry for Serialised and Batch Items](/erpnext/opening-stock-balance-entry-for-serialized-and-batch-item)
-- [Linking Stock Warehouse and Accounts](/erpnext/warehouse-ledger-link)
-- [Maintaining Supplier Item Code in Item Master](/erpnext/maintaining-suppliers-part-no-in-item)
-- [Purchasing in Different UOM](/erpnext/purchasing-in-different-unit)
-- [Production Scrap Management](/erpnext/scrap-management)
-- [Customer Provided Items](/erpnext/customer-provided-items)
-- [Multiple Finished Goods With Single Raw Material](/erpnext/how-to-handle-a-scenario-of-1-raw-material-multiple-finish-goods)
-- [Manufacturing Without Creating BOM](/erpnext/manufacturing-without-creating-bom)
-- [Material Consumption](/erpnext/material_consumption)
-- [Production Analytics](/erpnext/production-analytics)
-- [Open Work Order Report](/erpnext/open-work-orders)
-- [Demand Driven Forecasting](/erpnext/demand-driven-forecasting)
-- [Product Planning Report](/erpnext/production-planning-report)
-- [Downtime Analysis](/erpnext/downtime-analysis)
-- [Work Order Consumed Materials](/erpnext/work-order-consumed-materials)
-- [Returned Material Against Work Order](/erpnext/returned_materials_against_work_order)
-- [Issued Items Against Work Order](/erpnext/consumed-materials-in-production)
-- [Material Transfer from Delivery Note and Purchase Receipt](/erpnext/material-transfer-from-delivery-note)
-- [Allow Over Delivery / Billing](/erpnext/allow-over-delivery-billing-against-sales-order-upto-certain-limit)
-- [Item Codification](/erpnext/item-codification)
-
-### Project
-
-- [Make a Colourful Gantt Chart](/erpnext/make-a-colorful-gantt-chart)
-- [Bulk Assign Tasks in Projects](/erpnext/bulk-assign-tasks-in-a-project)
-- [Project Profitability Report](/erpnext/project-profitability-report)
-- [Project and Managing Expenses](/erpnext/project-expense-claims)
-- [Project from Customer Portal](/erpnext/project-customer-portal)
-
-### Website
-
-- [Disable Signup in ERPNext Website](/erpnext/disable-signup)
-- [Website Homepage](/erpnext/website-home-page)
-- [Website Banner Resizing](/erpnext/website-banner)
-- [SEO for ERPNext](/erpnext/how-to-setup-seo-for-your-website-on-erpnext)
-- [301 Redirect in ERPNext](/erpnext/2-step-301-redirect-in-your-erpnext-website)
-
-<!-- page: erpnext/erpnext__homepage.md -->
----
-title: "Homepage\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/homepage"
-updated: "2026-02-28"
----
-
-
-**A homepage is the default landing page of your website.**
-
-ERPNext's Website Module generates a default landing page for your website. You
-can customize it in Homepage.
-
-To access the Homepage page in ERPNext, go to:
-
-> Home > Website > Portal > Homepage
-
-## 1. How to setup Home Page
-1. Select the Company.
-1. Set the Title. This will be shown in the Browser Tab.
-1. Configure the Hero Section as explained in the next section.
-
-![Homepage](/files/homepage.png)
-*Homepage*
-
-> Make sure your default 'Home Page' is set as `home` in Website Settings for
-> this to work.
-
-## 2. Hero Section
-
-There are three ways in which you can customize the way the Hero Section looks:
-
-1. Tag Line and Description (Default).
-1. Homepage Slideshow.
-1. Custom Hero Section.
-
-### 2.1 Tag Line and Description
-
-After you set your Tag Line, Description and Hero Image you'll have a decent
-looking front page. You can also change the URL for the Explore button under **URL for "All Products"**.
-
-![Website Homepage](/files/website-homepage.png)
-*Website Homepage*
-
-### 2.2 Homepage Slideshow
-
-Set the **Hero Section Based On** to **Slideshow** and the **Homepage Slideshow**
-field will appear.
-
-![Homepage Slideshow Setting](/files/homepage-slideshow-setting.png)
-*Homepage Slideshow Setting*
-
-Now, select an existing Slideshow or create a new one shown as follows:
-
-![Website Slideshow](/files/website-slideshow.png)
-*Website Slideshow*
-
-> For best results, make sure all of your slideshow images have same height and
-> their width is greater than the height.
-
-![Website Homepage with Slideshow](/files/website-homepage-slideshow.gif)
-
-### 2.3 Custom Hero Section
-
-The third type of Hero Section allows you to write your own HTML.
-
-Set **Hero Section Based On** to **Hero Section**.
-
-Now create a new Hero Section. Set **Section Based On** as **Custom HTML**.
-Write your custom HTML in the Section HTML field.
-
-![Homepage Settings](/files/homepage-hero-custom.png)
-*Homepage Settings*
-
-You can write any valid [Bootstrap 4](https://getbootstrap.com/) markup here.
-
-![New Hero Section](/files/hero-custom.png)
-*New Hero Section*
-
-It will look something like this:
-![Homepage Hero Custom](/files/website-homepage-custom.png)
-*Homepage Hero Custom*
-
-## 3. Featured Products
-
-You can also show featured products on your Homepage by adding them to the
-Products table.
-
-![Homepage Products Table](/files/homepage-featured-products.png)
-*Homepage Products Table*
-
-It will look something like this:
-![Featured Products on Homepage](/files/website-featured-products.png)
-*Featured Products on Homepage*
-
-## 4. Homepage Section
-
-You can add custom sections on your Homepage by creating new Homepage Sections.
-
-> Go to Website > Portal > Homepage Section
-
-A homepage section can consist of cards or Custom HTML. Set **Section Based On**
-to **Cards**.
-
-![New Homepage Section](/files/new-homepage-section.png)
-*New Homepage Section*
-
-Add details for each card like Title, Subtitle, Image, Content and Route in the
-Section Cards table.
-
-It will look something like this:
-![Homepage Section](/files/homepage-section.png)
-*Homepage Section*
-
-You can also control the order in which these sections appear by setting the
-**Section Order**. 0 will be shown first, followed by 1, and so on.
-
-> To add Sections with Custom HTML refer [Custom Hero Section](#23-custom-hero-section).
-
-## 5. Custom Homepage
-
-ERPNext allows you to have a completely different homepage if you don't want to
-use the default one described above.
-
-To setup a custom homepage:
-
-1. Create a [Web Page](/erpnext/web-page).
-1. Go to Website > Setup > Website Settings.
-1. Set Home Page as the `route` of your Web Page.
- ![](/files/custom-homepage.png)
-
-<!-- page: erpnext/erpnext__how-is-valuation-rate-of-serialised-item-calculated-in-erpnext.md -->
----
-title: "Serialised Item Valuation Rate calculation"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-is-valuation-rate-of-serialised-item-calculated-in-erpnext"
-updated: "2026-03-02"
----
-
-In ERPNext, Item's stock **valuation rate** is updated on creation of the following transaction:  
-1. Purchase Receipt
-2. Stock Entry of type Material Receipt
-3. Stock Reconciliation made for updating stock opening balance
-
-  
-ERPNext supports 2 valuation types: FIFO & Moving Average.   
-You can select valuation method based on which item's value will be calculated. It can be set as per individual item as well as globally for all the items from Stock Settings.  
-![](/files/Ecw7uZV.png)  
-  
-Item valuation rates are calculated as per the valuation method set for them. However, in the case of **serialised Item**, these settings are *ignored*. The below Item, "Macbook Pro" is a serialised Item and it's valuation rate is not fetched from Item master. Instead, the valuation rate is updated from the *first incoming stock entry rate*, RS 199.80. Consequently, it is updated as per the other transactions carried out on this Item.  
-Item Master:  
-![](/files/SD7TwWD.png)  
-![](/files/yhdnL5S.png)  
-Stock Ledger:  
-![](/files/cXFcuOu.png)  
-To learn more about ERPNext Stocks module, click [here](https://erpnext.com/docs/user/manual/en/stock)
-
-<!-- page: erpnext/erpnext__how-to-add-columns-in-the-standard-report-and-export.md -->
----
-title: "Add columns in Standard Report and Export"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-add-columns-in-the-standard-report-and-export"
-updated: "2026-03-04"
----
-
-In **Standard Reports** of **ERPNext** such as *SOA, Accounts Receivable/Payable etc*, we provide an option to **Add/Remove Columns** from the documents and display it in the Report, these columns are only meant for reference at that particular moment of time.  
-![](/files/wwG7ihj.png)  
-If the User needs to *Export* along with the changes made by him in the Report, the User needs to Save the Report and then *Export* it.   
-![](/files/lFCoBXj.gif)  
-  
-
-<!-- page: erpnext/erpnext__how-to-add-master-link-and-fetch-data-from-the-same.md -->
----
-title: "Fetching data from a linked master"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-add-master-link-and-fetch-data-from-the-same"
-updated: "2026-03-04"
----
-
-**Question:** How to add terms and conditions in driver form?  
-**Steps:**  
-1. Go to the doctype where you want the to add the terms and conditions.
-2. Go to Menu > Customize
-
-![](/files/c6WTMJQ.png)  
-1. You will see a table with a list of fields. These are the fields in your driver page.
-2. Scroll down to the section/field after which you want to add terms and conditions.
-3. Click on the small icon on the right side. This will expand the selected field.
-4. You can add a new field above on below by clicking on *Insert Above/Below*.![](/files/AsJWH8L.png)
-5. Add a new field as show below:![](/files/YGEuBrn.png)For more details on adding a custom link field, refer [this link](/erpnext/creating-custom-link-field).
-6. Add a second field below this:![](/files/LoWglZL.png)How does this work? In Fetch from, we are adding the following details: doctype.field. In the Terms and Conditions doctype, the field where we add the terms is named *terms* and it is of type: Text Editor. For *fetch from*to work, the data must be in the following format: link_field_name.field_to_fetch
-7. Once this is done, click on **Update**, and go back to your list. Click on Ctrl + Shift + R to reload.
-8. When you select the terms template in the driver, the system will fetch the conditions from the selected template:![](/files/b7hVL7Y.png)
-
-<!-- page: erpnext/erpnext__how-to-apply-tax-on-tax.md -->
----
-title: "Apply Tax on Another Tax or Charge"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-apply-tax-on-tax"
-updated: "2026-08-14"
----
-
-Use **On Previous Row Total** when a tax or charge must be calculated on the running total after an earlier row. The base includes the item Net Total and every amount included up to the referenced row.
-
-
-
-Consider Nova Industries, an electronics manufacturer and distributor. a transaction has a Net Total of $1,000. Row 1 adds an 8% tax of $80, bringing the running total to $1,080. Row 2 applies 2% to that $1,080:
-
-
-
-`$1,080 × 2% = $21.60`
-
-
-
-The Grand Total becomes $1,101.60.
-
-
-
-This calculation is often described as tax on tax or a compound tax. Use it only when the applicable rule requires the later tax to include the earlier tax or charge in its base.
-
-## Before you begin
-
-Confirm the required calculation order with your accountant or tax adviser. A different row order can change the result even when the same rates are used.
-
-You need:
-
-- An Account Head for each tax or charge that must be posted separately.
-- A [Sales Taxes and Charges Template](/erpnext/sales-taxes-and-charges-template) or [Purchase Taxes and Charges Template](/erpnext/purchase-taxes-and-charges-template), or a transaction where tax rows can be entered directly.
-- The earlier tax or charge above the compound row.
-- A small manual example with an expected result.
-
-Review [Types in Tax Template](/erpnext/types-in-tax-template) if the calculation bases are unfamiliar.
-
-## Understand the calculation
-
-The example produces:
-
-
-| Row | Type                  | Calculation base | Rate | Amount | Running Total |
-| --- | --------------------- | ----------------: | ----: | ------: | -------------: |
-| 1   | On Net Total          | $1,000.00        | 8%   | $80.00 | $1,080.00     |
-| 2   | On Previous Row Total | $1,080.00        | 2%   | $21.60 | $1,101.60     |
-
-
-The formula for row 2 is:
-
-`Referenced row Total × Tax Rate ÷ 100`
-
-The referenced row's **Total** is the cumulative transaction total after that row. It is not the $80 Amount produced by row 1.
-
-## Configure the earlier tax or charge
-
-Create or open the reusable tax template.
-
-1. Add the tax or charge that must be included first.
-2. Choose its calculation Type, such as **On Net Total**.
-3. Select the correct Account Head.
-4. Enter the Tax Rate and a clear Description.
-5. Save the row.
-
-In the worked example, row 1 applies 8% to the $1,000 Net Total and produces $80. The resulting row Total is $1,080.
-
-## Add the compound-tax row
-
-Add the later tax below the row it depends on.
-
-1. Set **Type** to **On Previous Row Total**.
-2. Set **Reference Row #** to the earlier row. Enter 1 for this example.
-3. Select the Account Head for the compound tax.
-4. Enter the Tax Rate, such as 2.
-5. Confirm whether ERPNext should add or deduct the row.
-6. Save the template.
-
-Reference Row # refers to the numbered row in the tax table. It must point to an earlier row. Recheck it whenever rows are inserted, deleted, moved, or duplicated.
-
-## Apply the template to a transaction
-
-Select the template on a draft [Sales Invoice](/erpnext/sales-invoice), [Quotation](/erpnext/quotation), Sales Order, Purchase Invoice, or another supported transaction.
-
-Use one item with a Net Total of $1,000 for the first test. ERPNext should show:
-
-- Row 1 Amount: $80.00.
-- Row 1 Total: $1,080.00.
-- Row 2 Net Amount: $1,080.00.
-- Row 2 Amount: $21.60.
-- Total Taxes and Charges: $101.60.
-- Grand Total: $1,101.60.
-
-
-
-![A 2 percent compound tax calculated on the $1,080 running total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-previous-row-total-result.png)
-
-The row 2 Net Amount is a useful verification point because it exposes the base used by the formula.
-
-## Compare it with tax on another tax amount
-
-**On Previous Row Total** and **On Previous Row Amount** are not interchangeable.
-
-
-| Type for row 2         | Base from row 1  | 2% result | Grand Total |
-| ---------------------- | ----------------: | ---------: | -----------: |
-| On Previous Row Amount | Amount: $80.00   | $1.60     | $1,081.60   |
-| On Previous Row Total  | Total: $1,080.00 | $21.60    | $1,101.60   |
-
-
-Use [Tax on Another Tax Amount](/erpnext/tax-on-another-tax-amount) when the later levy applies only to the earlier $80 tax. Use Previous Row Total when it applies to the full $1,080 subtotal after that tax.
-
-## Build a longer calculation sequence
-
-A later row can reference the Total after any earlier row. For example:
-
-
-| Row | Purpose                             |
-| --- | ----------------------------------- |
-| 1   | Base tax on Net Total               |
-| 2   | Fixed charge added after the tax    |
-| 3   | Percentage on the Total after row 2 |
-
-
-If row 3 references row 2, its base includes the item value, row 1, and row 2. If it references row 1, it excludes row 2. This lets ERPNext model ordered calculations, but it also makes templates sensitive to row sequence.
-
-Keep descriptions explicit. A description such as “2% on total after base tax” is easier to audit than a generic “Tax 2%”.
-
-## Account for item-specific tax rates
-
-When items have different rates, use an [Item Tax Template](/erpnext/item-tax-template) for the base row. ERPNext first determines the referenced row's actual Amount and Total, then calculates the later row from the configured reference.
-
-Test taxable, exempt, and reduced-rate items together before reusing the template. Confirm that the compound row's legal base should include the mix of earlier item-wise amounts.
-
-## Verify the submitted result
-
-Before applying the template widely:
-
-1. Calculate a small draft manually.
-2. Compare each row's Net Amount, Amount, and Total.
-3. Confirm Reference Row # and row order.
-4. Review Grand Total.
-5. Submit a controlled transaction.
-6. Open the [General Ledger](/erpnext/general-ledger) and confirm each tax account and the party balance.
-
-If a [Tax Rule](/erpnext/tax-rule) selects the template automatically, test every relevant party, item, and transaction combination. A correct template can still be unexpected when the wrong rule applies it.
-
-## Troubleshooting
-
-### The compound tax is too small
-
-The row may be set to On Previous Row Amount, which uses only the earlier row's charge. Change it to On Previous Row Total only when the required base is the cumulative total.
-
-### The compound tax includes an unwanted charge
-
-Check Reference Row #. It may point to a later running total than intended. Reference the row whose Total contains exactly the components required by the rule.
-
-### The result changed after editing the template
-
-Row numbers can change after inserting, deleting, or moving rows. Reopen every previous-row calculation and verify its Type and Reference Row #.
-
-### ERPNext rejects the reference row
-
-The referenced row must come earlier. Reference Row # is supported only for On Previous Row Amount and On Previous Row Total.
-
-## Frequently asked questions
-
-### Does On Previous Row Total always mean tax on tax?
-
-It means tax or charge on a running total. That running total can include item value, taxes, and other charges through the referenced row.
-
-### Can I reference row 2 from row 4?
-
-Yes, provided row 2 comes earlier. Row 4 then uses row 2's Amount or Total according to the selected Type.
-
-### Should the compound tax use a separate ledger account?
-
-Use the accounts required by your chart of accounts and reporting rules. Separate accounts generally make distinct liabilities easier to inspect.
-
-### Does a discount change the compound-tax base?
-
-It can, depending on where and how the discount is applied. Test the actual discount workflow and inspect the tax rows rather than assuming the pre-discount base remains unchanged.
-
-### Can I use this calculation on purchase documents?
-
-Y
-
-es. On purchase rows, also decide whether each calculated amount affects the supplier Total, stock Valuation, or both. See [Include Tax or Charge in Valuation or Total?](/erpnext/include-tax-or-charge-in-valuation-or-total).
-
-## Related topics
-
-- [Tax on Another Tax Amount](/erpnext/tax-on-another-tax-amount)
-- [Types in Tax Template](/erpnext/types-in-tax-template)
-- [Sales Taxes and Charges Template](/erpnext/sales-taxes-and-charges-template)
-- [Purchase Taxes and Charges Template](/erpnext/purchase-taxes-and-charges-template)
-- [Item Tax Template](/erpnext/item-tax-template)
-- [Tax Rule](/erpnext/tax-rule)
-
-<!-- page: erpnext/erpnext__how-to-create-a-supplier-quotation-through-the-supplier-portal.md -->
----
-title: "Create Supplier Quotation through Supplier Portal"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-create-a-supplier-quotation-through-the-supplier-portal"
-updated: "2026-02-26"
----
-
-In ERPNext, Supplier Quotations can either be created manually or via the Supplier Portal. Suppliers can create Quotations via the Supplier Portal once they have logged into the system. 
-
-Pre-requisites:
-
-* The Supplier must be a registered Website User with "Supplier" role.
-* Supplier user account's Contact must be linked to the Supplier document.
-
-![](/files/UoPrijB.png)
-
-![](/files/zch4dCR.png)  
-
-
-For a Supplier to create a Quotation, there should be an existing Request for Quotation (RFQ) against them. To do this entire process, follow the following steps:
-
-  
-
-
-1) Create a Request for Quotation for the Supplier in the system. For example, we are creating an RFQ for "MNO Suppliers".
-
-  
-
-
-![](/files/SuRcElw.png)
-
-  
-
-
-2) Now, the Supplier (MNO Suppliers in our case) has to log into the Supplier Portal using their login credentials. There, the Supplier will be able to view the RFQ
-
-  
-
-
-![](/files/MMMlkUS.png)
-
-The Supplier has to enter the Item Rate and submit the RFQ.
-
-  
-
-
-![](/files/OOnqdmE.png)
-
-  
-
-
-  
-
-
-![](/files/Ga0q2gS.png)
-
-  
-
-
-Once the RFQ is submitted, a Supplier Quotation gets automatically created in the system against this RFQ. Click on the "View" option.
-
-  
-
-
-![](/files/2a7jWc6.png)
-
-  
-
-
-Observe that the Supplier Quotation is in the Draft state. After reviewing the Supplier Quotation, the user can submit it. This will also be reflected in the Supplier Portal.
-
-  
-
-
-![](/files/P010Tfe.png)
-
-  
-
-
-![](/files/WrWFtea.png)
-
-  
-
-<!-- page: erpnext/erpnext__how-to-create-and-print-proforma-invoice-in-erpnext.md -->
----
-title: "How to create and print proforma invoice in ERPNext"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-create-and-print-proforma-invoice-in-erpnext"
-updated: "2026-07-02"
----
-
-ERPNext does not have a dedicated "Proforma Invoice" document. To print one, you can simulate it by opening a **Quotation** or **Sales Order**, changing the document's Print Heading to "Proforma Invoice", and printing the document.
-
-Follow these exact steps to print a proforma invoice for a customer:
-
-**1. Create and Open the Document**
-
-- Navigate to the Quotation or Sales Order you wish to send.
-- Open the specific document record you want to print.
-
-**2. Update the Print Heading**
-
-- Scroll down to the Printing Settings section in the Quotation or Sales Order.
-- In the Print Heading field, click the dropdown and select Create a new Print Heading.
-- Type Proforma Invoice as the new heading name and save.
-- Select this newly created Proforma Invoice heading from the dropdown and save your document.
-
-**3. Print or Save as PDF**
-
-- Click the Menu button (three dots) or the Print icon at the top left of the screen.
-- Ensure you have the proper Letterhead selected if you need your company logo and contact details.
-- Click PDF to download it to your computer, or click Print to send it directly to your hardware.
-
----
-
-**Additional Customization Resources**
-
-- **[ERPNext Print Designer Tutorial (Video Guide)](https://www.youtube.com/watch?v=-wH9jAUP4CE)**
-- **[Frappe Customize Print Format Guide (Official Documentation)](https://docs.frappe.io/erpnext/records-print-format)**
-
-<!-- page: erpnext/erpnext__how-to-disable-users-in-the-erpnext-system.md -->
----
-title: "Disable Any User"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-disable-users-in-the-erpnext-system"
-updated: "2026-02-26"
----
-
-If you want to prohibit an ERPNext user from using the system then you can follow the below steps. This will be useful when your employees resign or in case you want to ban certain users from accessing the system.
-
-**How to disable a user?**
---------------------------
-
-1. Type ‘User List’ in the awesome bar
-2. Select the user you want to disable
-3. Uncheck the ‘Enabled’ checkbox for the selected user
-4. Save your changes
-
-Once the changes are saved, the user will be marked as 'Disabled' in the list which can always be re-enabled as per the need. After re-enabling a user, all the configurations associated with it will be retrieved as is.
-
-![Screenshot 2023-12-27 at 3.51.59 PM](/files/Screenshot 2023-12-27 at 3.51.59 PM.png)  
-
-<!-- page: erpnext/erpnext__how-to-fix-the-reached-maximum-user-limit-for-your-subscription-issue.md -->
----
-title: "Maximum User Limit Issue"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-fix-the-reached-maximum-user-limit-for-your-subscription-issue"
-updated: "2026-03-04"
----
-
-Your ERPNext subscription depends on the number of System Users you subscribe for. Once you cross that limit, the system will not let you create any further number of users. For example, you have subscribed for 10 users. If you already have already created 10 System Users in your account, the system wont let you create the 11th System User, and you will get the below message.
-
-  
-
-
-![](/files/oP3RzNx.png)
-
-  
-
-
-To fix this, you will either have to:
-
-1) Buy new users or
-
-2) Disable the current users
-
-  
-
-
-However, sometimes, you may still face this issue even when you have not exhausted the number of System Users as per your subscription plan. For example, you have a limit of 5 System Users and you have only created 3 users. Yet while creating the 4th user, you get the above message. The reason for this can be that for some of the uses, the field of "Simultaneous Sessions" is greater than 1.
-
-  
-
-
-Every simultaneous session is considered as 1 System User. For example, if you have created 3 users and one of them has "Simultaneous Session" set to 3, then you have a total of 5 users, i.e. 3 + 1 + 1 = 5 simultaneous sessions/system users.
-
-  
-
-
-To allow the system to let you create more users, you will have to reduce the simultaneous sessions of these users. To do so, go to the User's profile, under Security Settings, set/reduce the "Simultaneous Session" accordingly.
-
-  
-
-
-![](/files/YQQ8cHw.png)
-
-  
-
-
-**Note:** You will still be able to create Website Users as there is no limit for the same.
-
 <!-- page: erpnext/erpnext__how-to-give-commission-to-sales-partner.md -->
 ---
 title: "Setting Company Sales Goal | ERPNext Documentation"
@@ -802,7 +32,7 @@ Choose a target approved by the business. The field does not create a forecast, 
 4. Save.
 5. Review **Total Monthly Sales**, also highlighted, to compare actual current-month sales with the target.
 
-![Monthly Sales Target and Total Monthly Sales on the Company](https://novacompanies.m.frappe.cloud/files/monthly-sales-target.png)
+[Screenshot on the live page: Monthly Sales Target and Total Monthly Sales on the Company]
 
 In this example, Nova Electronics Trading has a monthly target of $100,000 and current monthly sales of $13,949.
 
@@ -930,13 +160,13 @@ To handle Export/Print permissions for a report, use Role Permission Manager of 
 
 Find out from which Document Type the Report is generated from
 
-![](/files/rcDRhRG.gif)
+[Screenshot on the live page]
 
 ### Step 2: 
 
 Go to Role Permission Manager, filter using the same Document Type *(Sales Invoice in our example)* and edit the permissions based on Roles
 
-![](/files/mqBtoqD.gif)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__how-to-handle-a-scenario-of-1-raw-material-multiple-finish-goods.md -->
 ---
@@ -954,8 +184,8 @@ In many Manufacturing industries deal with a scenario where they use one RM (Raw
 
   
   
-![](/files/1VHaiPf.png)  
-![](/files/mg68Dbr.png)  
+[Screenshot on the live page]  
+[Screenshot on the live page]  
 * While creating a BOM you can add operations as well & run your production cycle (Work order) accordingly.
 
   
@@ -1034,3 +264,541 @@ A company sends 10 units from **Stores - Mumbai** to **Stores - Delhi**.
 - The outward and inward Stock Entries should use the same item and quantity unless there is a documented difference.
 - Do not use the receiving entry until the goods have physically arrived at the destination warehouse.
 - If the transfer is immediate and does not need an in-transit stage, use a normal Material Transfer without enabling **Add to Transit**.
+
+<!-- page: erpnext/erpnext__how-to-restore-deleted-documents-in-erpnext.md -->
+---
+title: "Restore Deleted Documents"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/how-to-restore-deleted-documents-in-erpnext"
+updated: "2026-03-04"
+---
+
+**Use Case:** Need to restore/ retrieve the documents that were deleted.  
+**Steps:**  
+1) Go to Settings > Deleted Documents (or search for "Deleted Document list" in the search bar).  
+2) Search for the deleted document. You can also filter out the document based on the Deleted DocType. For example we need to restore the Purchase Order, PUR-ORD-2019-00019. To do so, search for the same in the deleted document list and open it.  
+[Screenshot on the live page]  
+3) Click on the "Restore" button as shown below. Also note the Data box which gives the information on various fields of the document. This helps you confirm whether it is the same document you want to restore.  
+[Screenshot on the live page]  
+4) Once the Restore button is clicked, the document gets restored in Draft State with a New Name according to the Naming Series.  
+[Screenshot on the live page]  
+[Screenshot on the live page]  
+  
+5) You can directly open the newly restored document through the "Open" button or search for the same in that document's list (in this case, Purchase Order list).  
+[Screenshot on the live page]  
+[Screenshot on the live page]  
+[Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__how-to-setup-seo-for-your-website-on-erpnext.md -->
+---
+title: "3 Step SEO for your ERPNext Website"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/how-to-setup-seo-for-your-website-on-erpnext"
+updated: "2026-03-04"
+---
+
+SEO stands for **Search Engine Optimisation** and is the process of increasing the quality and quantity of website traffic by increasing the visibility of a website or a web page to users of a web search engine. SEO refers to the improvement of unpaid results and excludes direct traffic/visitors and the purchase of paid placement.  
+[Screenshot on the live page]  
+  
+Having a presence in the top positions for keywords that your prospects are looking for will increase the probability of your business expansion. Enhance the visibility of your products and offerings by optimizing SEO and using it to maximize the social promotion of your website.   
+You can setup meta tags in ERPNext within 3 steps:  
+**Step 1: Using awesome bar (Global search bar), open "New Website Route Meta"**  
+[Screenshot on the live page]  
+  
+**Step 2: Enter the key and value for the meta tag. In our example, we are making it for privacy, and have entered the key and value as below:**  
+[Screenshot on the live page]  
+**Step 3: Save this document.**  
+[Screenshot on the live page]  
+**Watch SEO in action on your webpage. In this case, the webpage "privacy" holds the corresponding meta tag:**  
+[Screenshot on the live page]  
+To learn more about Websites in ERPNext, click [here](https://erpnext.com/docs/user/manual/en/website)
+
+<!-- page: erpnext/erpnext__how-to-short-close-multiple-orders-in-erpnext.md -->
+---
+title: "Short Close Multiple Orders | ERPNext Documentation"
+description: "Learn how to bulk close or reopen multiple Sales Orders in ERPNext while preserving fulfilled quantities and linked transactions."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/how-to-short-close-multiple-orders-in-erpnext"
+updated: "2026-07-24"
+---
+
+Use the Sales Order list to close several submitted orders whose remaining quantities will no longer be delivered or billed. Bulk closing keeps every [Sales Order](/erpnext/sales-order) and its linked transactions in the audit trail while removing outstanding balances from active fulfilment.
+
+> Closing is not deletion. The orders, completed deliveries, invoices, and payments remain available.
+
+## Before you begin
+
+Review the selected orders and confirm that:
+
+- Each order is submitted and still open.
+- Any quantity accepted by the customer has already been handled through a [Delivery Note](/erpnext/delivery-note) or [Sales Invoice](/erpnext/sales-invoice).
+- The customer does not want the remaining quantity fulfilled.
+- You are not selecting a draft, completed, cancelled, or already closed order by mistake.
+
+Use [Cancel and Amend](/erpnext/amending-sales-order-after-submit) instead when the original order contains incorrect information.
+
+## Close multiple Sales Orders
+
+1. Open the **Sales Order** list.
+2. Use filters such as **Company**, **Customer**, **Delivery Status**, or **Billing Status** to narrow the list.
+3. Select the checkbox beside each order you want to close.
+4. Select **Actions**.
+5. Select **Close**, as highlighted.
+
+[Screenshot on the live page: Select Sales Orders and use Actions to close them]
+
+ERPNext changes eligible orders to **Closed**. Review the list after the operation and confirm that each intended order has the correct status.
+
+A closed order cannot create new Delivery Notes or Sales Invoices against its outstanding quantity. Submitted downstream documents remain linked and unchanged.
+
+## Reopen multiple Sales Orders
+
+Reopen orders when fulfilment should continue:
+
+1. Filter the Sales Order list to show **Closed** orders.
+2. Select the required orders.
+3. Select **Actions**.
+4. Select **Re-open**, as highlighted.
+
+[Screenshot on the live page: Select closed Sales Orders and use Actions to reopen them]
+
+After reopening, verify the outstanding quantities before creating a [Pick List](/erpnext/pick-list), Delivery Note, or Sales Invoice.
+
+## What happens to partially fulfilled orders
+
+If an order is partly delivered or partly billed, closing affects only the outstanding balance. Completed transactions remain valid.
+
+For example, if five selected orders each contain 10 units and 8 units have already been delivered, closing the orders removes the remaining 2 units per order from pending fulfilment. It does not reverse the 8 delivered units.
+
+Use [Partial Fulfilment of Sales Order](/erpnext/partial-fulfilment-of-sales-order) when the balance is still expected later. Use [Sales Return](/erpnext/sales-return) when delivered goods are coming back.
+
+## Troubleshooting
+
+### Close is not available under Actions
+
+Confirm that you selected at least one Sales Order and that your role has permission to update submitted orders. An administrator can review [Role-Based Permissions](/erpnext/role-based-permissions).
+
+### Some selected orders were not closed
+
+A mixed selection can include ineligible documents, such as drafts, completed orders, cancelled orders, or orders already closed. Filter the list by status and retry only with eligible submitted orders.
+
+### The wrong orders were closed
+
+Select the affected orders and use **Actions > Re-open**. Then review the intended selection before closing again.
+
+### Pending quantities still appear in a report
+
+Refresh the report and check its company, date, and status filters. Also confirm that the Sales Order itself shows **Closed**.
+
+## Frequently asked questions
+
+### Does bulk close cancel linked Delivery Notes or Sales Invoices?
+
+No. It closes only the outstanding Sales Order balance.
+
+### Can I close orders from different customers together?
+
+Yes, provided every selected order is eligible. Filtering by customer or company reduces selection mistakes.
+
+### Can I use the same process for Purchase Orders?
+
+The Purchase Order list provides equivalent bulk close and reopen actions for eligible orders. Review each order type separately before applying a bulk action.
+
+### Is there an undo button?
+
+There is no single undo command. Use **Re-open** for the selected closed orders.
+
+## Related topics
+
+- [Close Sales Order](/erpnext/close-sales-order)
+- [Amending Sales Order after Submit](/erpnext/amending-sales-order-after-submit)
+- [Sales Order Statuses](/erpnext/sales-order#statuses)
+
+<!-- page: erpnext/erpnext__how-to-sync-doc-types-with-calendar.md -->
+---
+title: "Sync DocTypes with Events Calendar"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/how-to-sync-doc-types-with-calendar"
+updated: "2026-03-04"
+---
+
+Create calendar view for sales order, sales invoice or any other doc-types by following these simple steps  
+* Type 'Calendar View List' in the awesome bar/ Search bar.
+* Click on new to create a new Calendar List
+* Select the Reference Doc-Type you want to be view in the calendar. Eg: Sales Order
+* Set the Start date and End date fields. Eg: Delivery Date.
+* Save your changes.
+
+  
+  
+[Screenshot on the live page]  
+  
+[Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__how-transactions-affect-the-ledger.md -->
+---
+title: "How Transactions Affect the Ledger | ERPNext Documentation"
+description: "Learn how ERPNext invoices, payments, stock transactions, assets, returns, and adjustments create General Ledger, Payment Ledger, and Stock Ledger entries."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/how-transactions-affect-the-ledger"
+updated: "2026-07-30"
+---
+
+ERPNext creates ledger entries when an accounting or stock transaction is submitted. The source document describes what happened in the business; the generated entries record its financial effect. Understanding this connection helps you verify setup, investigate balances, and choose the correct document for a workflow.
+
+```mermaid
+flowchart LR
+    A["Draft document"] -->|"Submit"| B["Submitted document"]
+    B --> C["GL Entries"]
+    B --> D["Payment Ledger Entries"]
+    B --> E["Stock Ledger Entries, when applicable"]
+    C --> F["Financial reports"]
+    D --> G["Outstanding and ageing reports"]
+    E --> H["Stock balance and valuation reports"]
+```
+
+
+
+## When a transaction affects the books
+
+A draft normally has no ledger effect. On submission, ERPNext validates the posting date, company, currency, accounts, cost centers, dimensions, totals, and debit-credit balance. If validation succeeds, it creates the applicable entries.
+
+The **Posting Date** determines the accounting period. The document's creation date and submission time may be different. If stock is involved, **Posting Time** can also affect the sequence used for stock valuation.
+
+Cancelling a submitted transaction reverses its ledger effect if cancellation is allowed. ERPNext does not simply remove the original history. This supports the [immutable ledger](/erpnext/immutable-ledger-in-erpnext) and makes the sequence of posting and reversal traceable. To correct and replace a document, cancel it and create an amended copy.
+
+## The ledgers serve different purposes
+
+
+| Ledger             | Primary purpose                                                                       | Common sources                                                           |
+| ------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| **General Ledger** | Records debit and credit amounts by account                                           | Invoices, payments, journal entries, stock transactions, assets, payroll |
+| **Payment Ledger** | Tracks receivable and payable references, allocations, and outstanding amounts        | Invoices, payments, credit notes, journal entries                        |
+| **Stock Ledger**   | Tracks quantity, incoming rate, valuation rate, and stock value by Item and Warehouse | Receipts, deliveries, stock entries, stock-updating invoices             |
+
+
+One document can affect more than one ledger. For example, a stock-updating Sales Invoice records income and receivable in the General Ledger, reduces inventory in both the Stock and General Ledgers, and creates the Customer's outstanding amount in the Payment Ledger.
+
+## Common transaction effects
+
+The entries below show the normal pattern. Actual account names come from the Company, Item, Item Group, Warehouse, party, and tax configuration.
+
+### Sales Invoice
+
+Submitting a [Sales Invoice](/erpnext/sales-invoice) normally records:
+
+
+| Account             | Debit         | Credit     |
+| ------------------- | -------------: | ----------: |
+| Customer receivable | Invoice total |            |
+| Income              |               | Net sales  |
+| Output tax payable  |               | Tax amount |
+
+
+The Customer's outstanding amount remains open until it is paid, allocated, written off, or reversed.
+
+If **Update Stock** is enabled, the same invoice also reduces stock:
+
+
+| Account            | Debit          | Credit         |
+| ------------------ | --------------: | --------------: |
+| Cost of goods sold | Valuation cost |                |
+| Stock asset        |                | Valuation cost |
+
+
+Without **Update Stock**, a Delivery Note normally records the stock and cost effect separately.
+
+### Purchase Invoice
+
+Submitting a [Purchase Invoice](/erpnext/purchase-invoice) normally records:
+
+
+| Account               | Debit        | Credit        |
+| --------------------- | ------------: | -------------: |
+| Expense or asset      | Net purchase |               |
+| Recoverable input tax | Tax amount   |               |
+| Supplier payable      |              | Invoice total |
+
+
+When perpetual inventory is used with a Purchase Receipt, the Purchase Invoice can clear the **Stock Received But Not Billed** account rather than debit stock again. This prevents the same receipt from being capitalized twice.
+
+### Payment Entry
+
+An incoming [Payment Entry](/erpnext/payment-entry) normally debits Bank or Cash and credits the Customer receivable account. An outgoing payment debits the Supplier payable account and credits Bank or Cash. An internal transfer moves value between two cash or bank accounts.
+
+Payment allocation is separate from the cash posting. A payment can:
+
+- settle one invoice;
+- be divided across several invoices;
+- partially settle an invoice;
+- remain unallocated for later use;
+- be recorded as an advance against an order.
+
+Use [Payment Reconciliation](/erpnext/payment-reconciliation) to connect existing payments or credits to invoices without recording the money again.
+
+### Credit Note and Debit Note
+
+A return Sales Invoice, commonly called a Credit Note, reverses or reduces sales, tax, receivable, and stock effects according to the selected return options. A return Purchase Invoice, commonly called a Debit Note, reverses or reduces purchase, tax, payable, and stock effects.
+
+Create returns against the original invoice whenever possible. The reference improves traceability and updates the original document's returned and outstanding values.
+
+### Journal Entry
+
+A [Journal Entry](/erpnext/journal-entry) posts the debit and credit rows entered by an authorized user. It is suitable for accruals, provisions, reclassifications, opening entries, write-offs, inter-account transfers, and other adjustments without a more specific transaction.
+
+Do not replace a Sales Invoice, Purchase Invoice, or Payment Entry with a generic Journal Entry merely to save time. Specialized documents carry parties, taxes, items, due dates, stock behavior, and operational references that a manual entry may not provide.
+
+### Delivery Note and Purchase Receipt
+
+With perpetual inventory:
+
+- A [Delivery Note](/erpnext/delivery-note) credits the Warehouse's stock asset account and debits cost of goods sold.
+- A [Purchase Receipt](/erpnext/purchase-receipt) debits the Warehouse's stock asset account and credits stock received but not billed.
+
+These documents do not normally create Customer receivables or Supplier payables. Billing happens when the invoice is submitted.
+
+### Stock Entry and Stock Reconciliation
+
+A Stock Entry changes quantity and value for material receipt, issue, transfer, manufacture, and repack operations. Transfers can move value between Warehouse accounts. Manufacturing entries consume component value and add the resulting value to finished goods.
+
+[Stock Reconciliation](/erpnext/stock-reconciliation) sets counted quantities and valuation rates at a point in time. The difference is posted to the configured stock adjustment account when perpetual inventory is active.
+
+### Assets and depreciation
+
+Buying or capitalizing an Asset records its value in an asset account. Submitted depreciation entries debit depreciation expense and credit accumulated depreciation. Asset sale, disposal, scraping, and value adjustment create additional entries based on the Asset's current book value and proceeds.
+
+### Payroll and expenses
+
+Payroll entries generally debit salary and benefit expenses and credit payroll payables. Paying employees clears the liability against Bank. An [Expense Claim](/erpnext/expense-claim) records the approved expense and an amount payable to the employee; payment later clears that payable.
+
+### Deferred revenue and expense
+
+When deferred accounting is configured on an invoice item, the invoice first posts to a deferred account. ERPNext then recognizes income or expense across the configured service period through scheduled accounting entries. This separates billing date from recognition period.
+
+### Foreign-currency transactions
+
+ERPNext stores the party or account currency amount and its value in the Company's base currency. The invoice uses the exchange rate on its posting date. If settlement uses a different rate, the difference is posted as exchange gain or loss.
+
+An [Exchange Rate Revaluation](/erpnext/exchange-rate-revaluation) adjusts eligible open foreign-currency balances for reporting at a selected date. Revaluation entries should be distinguished from realized differences created during payment.
+
+## Commitment documents versus ledger documents
+
+Not every submitted business document posts accounting entries.
+
+
+| Document         | Business effect                         | Usual ledger effect                                        |
+| ---------------- | --------------------------------------- | ---------------------------------------------------------- |
+| Quotation        | Offer to a prospect or Customer         | None                                                       |
+| Sales Order      | Customer commitment and fulfilment plan | None, except linked advances recorded separately           |
+| Purchase Order   | Commitment to a Supplier                | None, except linked advances recorded separately           |
+| Delivery Note    | Goods delivered                         | Stock and cost entries with perpetual inventory            |
+| Purchase Receipt | Goods received                          | Stock and receipt accrual entries with perpetual inventory |
+| Sales Invoice    | Customer billing                        | Income, tax, receivable, and optional stock                |
+| Purchase Invoice | Supplier billing                        | Expense or asset, tax, payable, and optional stock         |
+| Payment Entry    | Movement of money                       | Bank or cash and party account                             |
+
+
+Orders affect operational reports even when they do not affect the General Ledger. They can reserve or plan stock, track fulfilment, establish payment schedules, and provide references for advances.
+
+## Trace an amount from document to report
+
+1. Open the submitted transaction.
+2. Use **View &gt; Accounting Ledger** to inspect its GL Entries.
+3. Confirm that total debits equal total credits and that the posting date, accounts, party, cost center, project, and dimensions are correct.
+4. If stock is involved, open **Stock Ledger** and compare the quantity and valuation effect.
+5. Review the [General Ledger](/erpnext/general-ledger) for the account and voucher.
+6. Review Accounts Receivable or Accounts Payable when an outstanding amount is involved.
+7. Open the relevant financial statement and drill into the amount when further analysis is needed.
+
+If the source document is correct but the account is wrong, inspect Company defaults, Item and Item Group defaults, Warehouse accounts, party accounts, tax templates, and rules. Correct configuration before posting additional transactions.
+
+## What downstream documents created directly can change
+
+ERPNext allows many downstream documents to be created without an order or receipt. A direct invoice can be valid, but it loses the upstream reference and its operational controls.
+
+- A direct Sales Invoice bills the Customer but does not update a Sales Order's billed percentage.
+- A direct Delivery Note reduces stock but does not update an order's delivered percentage.
+- A direct Purchase Invoice creates a payable but does not update a Purchase Order's billed percentage.
+- A direct stock-updating invoice combines stock and billing, so there is no separate delivery or receipt document.
+
+Choose the shorter path only when the business does not need the omitted commitment, approval, fulfilment, or audit milestone. See [Accounting Workflows by Business Type](/erpnext/accounting-workflows-by-business-type) for workflow choices.
+
+## Troubleshooting
+
+
+| Problem                                       | What to check                                                                                                                |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| A submitted document has no expected GL Entry | Confirm whether the document is a commitment or ledger document, then check perpetual inventory and stock-update settings.   |
+| The wrong income or expense account was used  | Review Item, Item Group, Company, and party defaults in their precedence order.                                              |
+| The invoice is paid but still outstanding     | Check Payment Entry references and allocations; reconcile an unallocated payment if necessary.                               |
+| Stock Ledger and General Ledger values differ | Check backdated stock entries, valuation reposting, cancelled vouchers, and the Stock and Account Balance Comparison report. |
+| A backdated correction is blocked             | Check Accounts Frozen Upto, Accounting Period restrictions, permissions, and the requested posting date.                     |
+
+
+## Related topics
+
+- [Accounting Introduction](/erpnext/accounting-introduction)
+- [Understanding Debit and Credit](/erpnext/understand-debit-and-credit)
+- [General Ledger](/erpnext/general-ledger)
+- [Payment Entry](/erpnext/payment-entry)
+- [Perpetual Inventory](/erpnext/perpetual-inventory)
+- [Accounting Reports](/erpnext/accounting-reports)
+
+<!-- page: erpnext/erpnext__immutable-ledger-in-erpnext.md -->
+---
+title: "Immutable Ledger | ERPNext Documentation"
+description: "Understand ERPNext immutable ledger behavior, cancellation reversals, backdated stock reposting, audit trails, correction workflows, and closed-period controls."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/immutable-ledger-in-erpnext"
+updated: "2026-08-14"
+---
+
+After Nova Industries closes a month, an accountant discovers that a submitted invoice was wrong. Quietly replacing its original ledger rows would make the audit trail impossible to trust because reviewers could no longer see what was posted first.
+
+
+
+ERPNext's immutable ledger keeps the original accounting and stock entries and records matching reversals when a transaction is cancelled. Corrections are made through traceable follow-up documents instead of silently rewriting history.
+
+
+
+This design makes period reviews, audits, and reconciliations more reliable because every posting and reversal remains visible.
+
+
+
+## Why the ledger is protected
+
+Accounting and stock transactions form ordered histories. A backdated change can affect later records:
+
+- Under FIFO valuation, inserting or changing an earlier stock movement can change which inventory layers are consumed later.
+- Under moving-average valuation, it can change later valuation rates and Cost of Goods Sold.
+- A changed invoice or tax entry can alter reports or tax declarations for an earlier period.
+- Recomputing every later stock or accounting entry can be expensive on a large database.
+
+The [General Ledger](https://docs.frappe.io/erpnext/general-ledger) and [Stock Ledger](https://docs.frappe.io/erpnext/stock-ledger-report) therefore retain traceable posting rows and use supported correction and reposting logic rather than inviting users to edit or delete ledger entries directly.
+
+## What happens when you cancel a transaction
+
+Consider a submitted [Journal Entry](https://docs.frappe.io/erpnext/journal-entry) that debits Office Maintenance Expense by $120 and credits Nova Operating Bank by $120. Cancelling the document changes its status to **Cancelled**.
+
+
+
+[Screenshot on the live page: A cancelled Journal Entry in ERPNext]
+
+ERPNext retains the original debit and credit and adds opposite rows for the same voucher. The combined effect is zero, but the audit trail still shows what was posted and how it was cancelled.
+
+
+
+[Screenshot on the live page: Original and reversal rows for a cancelled Journal Entry in the General Ledger]
+
+In the General Ledger report, enable **Show Cancelled Entries** to see these rows. Without that filter, cancelled rows are excluded from normal balances so the report shows only active accounting effects.
+
+The same principle applies to posting documents such as a [Payment Entry](https://docs.frappe.io/erpnext/payment-entry), [Sales Invoice](https://docs.frappe.io/erpnext/sales-invoice), and [Purchase Invoice](https://docs.frappe.io/erpnext/purchase-invoice). The exact linked records and reversal logic depend on the document.
+
+## Why cancelled transactions cannot normally be deleted
+
+A cancelled posting document remains the source of its original and reversal ledger rows. Deleting it would break that audit trail and remove the business context behind the entries. ERPNext therefore prevents normal deletion of cancelled documents linked to ledger entries.
+
+If a document is wrong, use its supported correction workflow:
+
+
+| Situation                                                    | Recommended correction                                                                                   |
+| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+| Draft is wrong                                               | Edit or delete the draft before submission.                                                              |
+| Submitted invoice is wrong                                   | Cancel and amend when the period and links permit it.                                                    |
+| Customer returns goods                                       | Create a return or [Credit Note](https://docs.frappe.io/erpnext/credit-note).                            |
+| Supplier return or rate correction                           | Create the appropriate return or [Debit Note](https://docs.frappe.io/erpnext/debit-note).                |
+| Journal needs an opposite entry without cancellation         | Use **Reverse Journal Entry** and review the generated draft.                                            |
+| Source document is correct but generated accounting is stale | Use [Repost Accounting Ledger](https://docs.frappe.io/erpnext/repost-accounting-ledger) after diagnosis. |
+
+
+Do not delete GL Entry or Stock Ledger Entry rows through the database or API. Those rows are system-generated evidence, not transaction-entry forms.
+
+## Backdated stock transactions and reposting
+
+The original immutable-ledger release placed a strict restriction on stock transactions dated before a later movement for the same item and warehouse. For example, after posting Item A at `19-06-2020 23:00:10`, an earlier posting could be blocked because recalculating all later FIFO or moving-average values was expensive.
+
+Current ERPNext builds include controlled stock-reposting infrastructure. A permitted backdated stock transaction can create a **Repost Item Valuation** job so later Stock Ledger Entries are recalculated in sequence. Whether the transaction is accepted also depends on Stock Settings, negative-stock rules, frozen periods, Accounting Period restrictions, serial and batch constraints, and other validations.
+
+
+
+[Screenshot on the live page: Repost Item Valuation records created for stock recalculation]
+
+This means you should not assume that every backdated stock transaction is always prohibited, or that every backdated transaction is safe. Enter transactions promptly and in chronological order. When a backdated correction is unavoidable:
+
+1. Confirm that the posting period is open under [Freeze Accounting Entries](https://docs.frappe.io/erpnext/freeze-accounting-entries) and [Accounting Period](https://docs.frappe.io/erpnext/accounting-period).
+2. Check the item, warehouse, batch, serial number, posting date, and posting time.
+3. Submit the smallest necessary correction.
+4. Allow any Repost Item Valuation job to complete.
+5. Verify the Stock Ledger, Stock Balance, valuation rate, stock value, and affected accounting reports.
+
+Large or old corrections can require substantial processing. Test them on a restored backup when they can materially change valuation or closed reports.
+
+## Corrections in a closed period
+
+Immutable-ledger behavior does not replace period controls. A submitted [Period Closing Voucher](https://docs.frappe.io/erpnext/period-closing-voucher), frozen date, or Accounting Period can block cancellation, amendment, or reposting.
+
+Do not change a closed period simply to make an error disappear. Decide with your accountant whether to reopen the period under controlled approval, post an adjustment in the current open period, issue a return or credit note, or create a reversal Journal Entry. The correct treatment depends on reporting and regulatory requirements.
+
+## Verify the audit trail
+
+After any correction:
+
+1. Open the source document and confirm its status and amended-from or return reference.
+2. Use **View &gt; Ledger** or filter the General Ledger by voucher number.
+3. Enable **Show Cancelled Entries** when you need to inspect reversal rows.
+4. For stock documents, review the Stock Ledger Report and any Repost Item Valuation record.
+5. Confirm that active balances are correct and that original plus reversal rows net to zero where expected.
+6. Recheck the Profit and Loss Statement, Balance Sheet, stock valuation, tax reports, and outstanding balances affected by the change.
+
+## Troubleshooting
+
+### A cancelled voucher does not appear in the General Ledger
+
+Enable **Show Cancelled Entries** in the report filters. Cancelled rows are hidden from the normal report because their net accounting effect is zero.
+
+### ERPNext will not let me delete a cancelled transaction
+
+This is expected when the document has linked ledger entries. Keep the cancelled source document as part of the audit trail. Create the corrected document through amendment, return, or another supported workflow.
+
+### A backdated stock transaction is blocked
+
+Read the validation message before changing settings. Check later stock movements, negative stock, batches or serial numbers, frozen dates, closed Accounting Periods, and permissions. Do not alter the posting time merely to bypass valuation controls.
+
+### Stock values changed after a backdated posting
+
+The repost recalculated later FIFO or moving-average values. Wait for Repost Item Valuation to finish, then compare the Stock Ledger before and after the inserted transaction and verify related Cost of Goods Sold entries.
+
+### A cancellation is blocked by a closed period
+
+Follow your approved period-correction policy. You may need accounting authorization to reopen the period or to post a current-period reversal or adjustment instead.
+
+## FAQs
+
+### Is immutable ledger a blockchain?
+
+No, It is ERPNext's application-level audit and posting design. It retains and reverses ledger effects through database records; it is not a distributed blockchain network.
+
+### Can System Manager delete GL Entries directly?
+
+Normal business corrections should never be made by deleting GL Entries. Correct the source document through a supported workflow so linked ledgers and reports remain consistent.
+
+### Does cancelling a document erase its original accounting entry?
+
+No, The original rows and opposite cancellation rows remain available as cancelled entries. Their combined effect is zero in active balances.
+
+### Are all backdated stock entries prohibited?
+
+No, Current ERPNext can process permitted backdated entries through controlled valuation reposting, but validations and period controls still apply. Backdating can change later valuations and should be used carefully.
+
+### Is Repost Accounting Ledger the same as cancelling a transaction?
+
+No, Cancellation removes the active business and accounting effect through reversal logic. Reposting regenerates ledger entries from a source document that remains submitted and valid.
+
+## Related topics
+
+- [General Ledger](https://docs.frappe.io/erpnext/general-ledger)
+- [Stock Ledger Report](https://docs.frappe.io/erpnext/stock-ledger-report)
+- [Journal Entry](https://docs.frappe.io/erpnext/journal-entry)
+- [Repost Accounting Ledger](https://docs.frappe.io/erpnext/repost-accounting-ledger)
+- [Period Closing Voucher](https://docs.frappe.io/erpnext/period-closing-voucher)
+- [Accounting Entries](https://docs.frappe.io/erpnext/accounting-entries)

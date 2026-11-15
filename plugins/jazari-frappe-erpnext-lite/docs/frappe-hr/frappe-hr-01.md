@@ -36,7 +36,7 @@ Before creating an Additional Salary, it is advisable to create the following:
 
 Select the 'Overwrite Salary Structure Amount' checkbox to overwrite the Additional Salary component on the Salary Structure amount. Additionally, the 'Deduct Full Tax on Selected Payroll Date' checkbox can be selected if full tax needs to be deducted on the Additional Salary component for that particular payroll date.
 
-![Additional Salary](https://frappehr.com/files/additional-salary.png)  
+[Screenshot on the live page: Additional Salary]  
 
 
 **3.Features**
@@ -90,7 +90,7 @@ Before creating an Appointment Letter, it is advisable to create the following:
 4. Click on Save.
 5. After saving, go to the Print View to view and save the PDF of the Appointment letter.
 
-![Appointment Letter](https://frappehr.com/files/appointment-letter.png)
+[Screenshot on the live page: Appointment Letter]
 
 > **Note:** Appointment Letter can be made only against a [Job Applicant](https://docs.frappe.io/hr/job-applicant)
 
@@ -103,7 +103,7 @@ Before creating an Appointment Letter, it is advisable to create the following:
 2. Fill Introduction, Terms and, Closing Statement.
 3. Click on Save.
 
-![Appointment Letter](https://frappehr.com/files/appointment-letter-template.png)
+[Screenshot on the live page: Appointment Letter]
 
 > **Note** On selecting Appointment Letter Template in Appointment Letter, it autofills the content.
 
@@ -111,7 +111,7 @@ Before creating an Appointment Letter, it is advisable to create the following:
 
 You can create new or use existing standard print formats.
 
-![Appointment Letter](https://frappehr.com/files/standard-appointment-letter.png)  
+[Screenshot on the live page: Appointment Letter]  
 
 
   
@@ -156,7 +156,7 @@ You can link them in the Designation master for fetching them automatically in t
   
 
 
-![](https://frappehr.com/files/0UPkmBl.png)
+[Screenshot on the live page]
 
 **3. Actions**
 --------------
@@ -171,7 +171,7 @@ You can create appraisals in bulk from the Appraisal Cycle.
 4. Click on the **Create Appraisals** button. This will create all the Appraisal documents for the selected employees.
 5. Click on **Start** button to start the cycle.
 
-![create appraisalsaa9d04](https://frappehr.com/files/create-appraisalsaa9d04.gif)  
+[Screenshot on the live page: create appraisalsaa9d04]  
 
 
 If an employee joins after the cycle has already started, you can:
@@ -183,7 +183,7 @@ If an employee joins after the cycle has already started, you can:
 
 With this button, you can view the goals linked to the cycle. This button will navigate you to the Goal Tree filtered by the Appraisal Cycle.
 
-![filtered goal tree](https://frappehr.com/files/filtered-goal-tree.png)  
+[Screenshot on the live page: filtered goal tree]  
 
 
 **4. Features**
@@ -198,7 +198,7 @@ The Stats section in the cycle will give you an overview of:
 * Employees without Feedback
 * Employees without Goals
 
-![appraisal stats](https://frappehr.com/files/appraisal-stats.png)  
+[Screenshot on the live page: appraisal stats]  
 
 
 **5. Related Topics**
@@ -227,7 +227,7 @@ This report gives an overview of the Appraisals:
 * **Self Score**: Self Appraisal Score
 * **Final Score**: Avg of Goal Score, Feedback Score, and Self Score
 
-![appraisal overview](https://frappehr.com/files/appraisal-overview.png)  
+[Screenshot on the live page: appraisal overview]  
 
 
   
@@ -266,16 +266,16 @@ Before creating an Appraisal Template, you should create the following:
 4. Add the KRAs (Key Result Areas) along with their weightages.
 5. Add the Criteria based on which employees should be rated in Performance Feedback and Self Appraisal.
 
-![](https://frappehr.com/files/appraisal-template9d1d22.png)
+[Screenshot on the live page]
 
 Once you create the templates, you can link them to the respective Designations.
 
-![template link](https://frappehr.com/files/template-link.png)  
+[Screenshot on the live page: template link]  
 
 
 You can link a template to multiple designations
 
-![](https://frappehr.com/files/template-link-2.png)  
+[Screenshot on the live page]  
 
 
 3. Related Topics
@@ -342,7 +342,7 @@ A KRA vs Goals table will be visible in your appraisal document.
 
 You will finally get a **Total Goal Score** (out of 5) based on the **Goal Score (%)**.
 
-![kra vs goals](https://frappehr.com/files/kra-vs-goals.png)  
+[Screenshot on the live page: kra vs goals]  
 
 
 #### **3.1.2 Manual Rating**
@@ -356,7 +356,7 @@ You can choose to rate Goals/KRAs manually. This is the original evaluation meth
 
 Based on the Score Earned for each KRA, the system will calculate the Total Score (out of 5) for the Employee.
 
-![manual rating](https://frappehr.com/files/manual-rating.png)  
+[Screenshot on the live page: manual rating]  
 
 
 ### **3.2 Feedback**
@@ -367,7 +367,7 @@ But to get an overview of the employee's performance, you can see the history of
 
 You can see the rating summary with the average feedback score, no of reviews, and the percentage distribution of the stars the employee has received.
 
-![feedback history](https://frappehr.com/files/feedback-history.png)  
+[Screenshot on the live page: feedback history]  
 
 
 
@@ -377,33 +377,33 @@ You can see the rating summary with the average feedback score, no of reviews, a
 
 In every review, you can see the reviewer, their designation, avg rating given to the employee, the feedback and the time when the feedback was given. You can also click on the link icon to see the entire Employee Performance Feedback document.
 
-![feedback link](https://frappehr.com/files/feedback-link.png)  
+[Screenshot on the live page: feedback link]  
 
 
 If you have the required permissions, you can submit the performance feedback right from this view by clicking on the **New Feedback** button.
 
-![add feedback](https://frappehr.com/files/add-feedback.png)  
+[Screenshot on the live page: add feedback]  
 
 
 ### **3.3 Self Appraisal**
 
 Under the Self Appraisal tab, employees can rate themselves and add reflections on their performance. The Total Self Score is calculated based on the rating and the weightage against each Feedback Criteria.
 
-![self appraisal](https://frappehr.com/files/self-appraisal.png)  
+[Screenshot on the live page: self appraisal]  
 
 
 ### **3.4 Final Score Calculation**
 
 The Final Score is calculated as an average of your Goal Score, Avg Feedback Score, and Self Appraisal Score.
 
-![final score](https://frappehr.com/files/final-score.png)  
+[Screenshot on the live page: final score]  
 
 
 ### **3.5 View Goals**
 
 You can view the Employee's goals linked to that Appraisal Cycle by clicking on the View Goals button:
 
-![goals appraisal](https://frappehr.com/files/goals-appraisal.png)  
+[Screenshot on the live page: goals appraisal]  
 
 
 ### **3.6 Approvals for Appraisals**
@@ -444,8 +444,8 @@ Step 3: Save and Submit
 - Upon save system will populate earning, deduction and accrual arrears in respective child tables.
 - Based on Payroll Date, additional salary will be created for earnings and deductions after submission. Accruals are tracked in Employee Benefit Ledger
 
-![](/files/Screenshot%202025-09-23%20at%201.20.20%E2%80%AFPM.png)
-![](/files/Screenshot%202025-09-23%20at%201.21.03%E2%80%AFPM.png)
+[Screenshot on the live page]
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__attendance-request.md -->
 ---
@@ -478,23 +478,23 @@ Before creating an Attendance Request, it is advised that you create the followi
 5. Select Reason and enter Explanation (optional).
 6. Save and Submit.
 
-![Attendance Request](https://frappehr.com/files/attendance-request.png)
+[Screenshot on the live page: Attendance Request]
 
 > **Note 1:** You can check the 'Half Day' checkbox and enter the Date in case the attendance is for Half Day.
 
 > **Note 2:** On submission of the same, Attendance documents will be created for the days you mentioned as shown.
 
-![Attendance Request Submit](https://frappehr.com/files/attendance-request-submission.png)  
+[Screenshot on the live page: Attendance Request Submit]  
 
 
 As seen below, respective Attendance records are linked with the submitted Attendance Request.
 
-![Attendance Request Linked](https://frappehr.com/files/attendance-request-link.png)  
+[Screenshot on the live page: Attendance Request Linked]  
 
 
 If you cancel the Attendance Request, the linked Attendance documents created will be cancelled as well.
 
-![Attendance Request Cancelled](https://frappehr.com/files/attendance-request-cancelled.png)  
+[Screenshot on the live page: Attendance Request Cancelled]  
 
 
 **3. Features**
@@ -504,7 +504,7 @@ If you cancel the Attendance Request, the linked Attendance documents created wi
 
 Consider a scenario where the auto-attendance tool marked an employee as Absent. If the employee wants to rectify their attendance, they can raise a request. On submission, the Attendance record will be updated:
 
-![changed status](https://frappehr.com/files/changed%20status.png)  
+[Screenshot on the live page: changed status]  
 
 
 The submission can be controlled via [workflows](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/workflows) to undergo approvals.
@@ -515,12 +515,12 @@ Employees can also request for attendance for an entire month or week. On submis
 
 You can enable "Include Holidays" if you want to mark attendance for holidays too.
 
-![](https://frappehr.com/files/FYdSpw9.png)  
+[Screenshot on the live page]  
 
 
 Attendance warnings are shown on the request dashboard for the same:
 
-![attendance warnings](https://frappehr.com/files/attendance-warnings.png)  
+[Screenshot on the live page: attendance warnings]  
 
 
 **4. Related Topics**
@@ -568,7 +568,7 @@ Before creating an Attendance record, it is advised that you create the followin
 5. Select the Status (Present, Absent, On Leave, Half Day).
 6. Save and Submit.
 
-![Attendance](https://frappehr.com/files/attendance.png)
+[Screenshot on the live page: Attendance]
 
 > **Note:** Attendance cannot be marked for future dates.
 
@@ -596,7 +596,7 @@ In case the attendance for some employees is not marked, you can mark them as pr
 7. Select the dates on which you want to mark attendance for a selected Employee.
 8. Click on the **Mark Attendance** button and click on **Yes**.
 
-![Attendance](https://frappehr.com/files/mark-attendance.gif)
+[Screenshot on the live page: Attendance]
 
 **4. Related Topics**
 ---------------------
@@ -753,7 +753,7 @@ Before creating a Branch, it is mandatory you create the following documents:
 2. Enter the name of the Branch.
 3. Save.
 
-![Branch](https://frappehr.com/files/branch.png)  
+[Screenshot on the live page: Branch]  
 
 
 You can link the Branch to the [Employee](https://docs.frappe.io/hr/employee) master.
@@ -809,7 +809,7 @@ Before creating a Compensatory Leave Request, it is necessary to create the foll
 5. Enter the Reason.
 6. Save and Submit.
 
-![Compensatory Leave Request](https://frappehr.com/files/compensatory-leave.png)
+[Screenshot on the live page: Compensatory Leave Request]
 
 On submitting the Compensatory Leave Request, Frappe HR updates the Leave Allocation record for the Compensatory leave type, allowing the Employee to apply for leaves of this type later on depending upon the number of leaves left.
 
@@ -836,25 +836,25 @@ Before configuring Earned Leaves, it is required that you create the following f
 
 - Leave Type
 
-![](https://frappehr.com/files/4KilVPP.png)
+[Screenshot on the live page]
 
 - Leave Period
 
-![](https://frappehr.com/files/MI9ZPNM.png)
+[Screenshot on the live page]
 
 - Leave Policy
 
-![](https://frappehr.com/files/CX0uqps.png)
+[Screenshot on the live page]
 
 - Leave Policy Assignment
 
-![](https://frappehr.com/files/ZxOw5L4.png)
+[Screenshot on the live page]
 
 ## **2. How to Configure Earned Leaves**
 
 1. Creating a Leave Policy Assignment will result in the creation of associated Leave Allocations. These allocations will be automatically updated with leaves at intervals set by 'Earned Leave Frequency'.
 
-![](/files/earned_leave_allocation.png)
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__create-payroll-entry-with-timesheets.md -->
 ---
@@ -872,27 +872,27 @@ updated: "2026-02-04"
 
 2) Create a Salary Component called "Overtime" of type Earning.
 
-![](https://docs.erpnext.com/files/IKY5KnC.png)  
+[Screenshot on the live page]  
 
 
 3) Create a Salary Structure and include "Overtime" with amount set to 0.
 
 4) In the Salary Structure itself, select the "Salary Slip Based on Timesheet" checkbox, select Salary Component as "Overtime" and enter the Hour Rate.
 
-![](https://docs.erpnext.com/files/RSBGOUP.png)  
+[Screenshot on the live page]  
 
 
 5) Submit the Salary Structure and assign this Salary Structure to an Employee via Salary Structure Assignment.
 
-![](https://docs.erpnext.com/files/qj9KVAu.png)  
+[Screenshot on the live page]  
 
 
 6) Create Timesheets for this Employee through the Timesheet DocType.
 
-![](https://docs.erpnext.com/files/xtdKq6i.png)  
+[Screenshot on the live page]  
 
 
-![](https://docs.erpnext.com/files/W7vYYWt.png)  
+[Screenshot on the live page]  
 
 
 In the above example shown, the Employee has worked overtime for a total of 8 hours in the month of January.
@@ -907,10 +907,10 @@ In the above example shown, the Employee has worked overtime for a total of 8 ho
 
 The Salary Slip of the employee will fetch all the timesheets (if any) of that employee created for that particular month and calculate the Overtime Component in the Salary Slip accordingly.
 
-![](https://docs.erpnext.com/files/oZ1rr5x.png)  
+[Screenshot on the live page]  
 
 
-![](https://docs.erpnext.com/files/1QoJVGc.png)  
+[Screenshot on the live page]  
 
 
   
@@ -958,7 +958,7 @@ Before creating a Daily Work Summary Group, it is necessary you create the follo
 
 >1. If no Holiday List is selected, then the email will be sent every day. >2. Name of the "Daily Work Summary Group" will be sent as the title for daily summary email. >3. Mail will not be sent to the users of a disabled Daily Work Summary Group.
 
-![Daily Work Summary Group](/files/Screenshot%202024-11-12%20at%2011.54.59%E2%80%AFAM.png) 
+[Screenshot on the live page: Daily Work Summary Group] 
 
 
   
@@ -977,52 +977,52 @@ Any user with role, "Leave Approver" should be only able to access leave applica
 
 1. Under Role Permissions Manager, provide this role with access of Department DocType
 
-[![18](https://discuss.erpnext.com/uploads/default/original/3X/a/8/a8242a2ee2e82cd47b76d264eed601f474bd5142.png)](https://discuss.erpnext.com/uploads/default/original/3X/a/8/a8242a2ee2e82cd47b76d264eed601f474bd5142.png)  
+[[Screenshot on the live page: 18]](https://discuss.erpnext.com/uploads/default/original/3X/a/8/a8242a2ee2e82cd47b76d264eed601f474bd5142.png)  
 
 
 2. Create the user in Frappe HR with Role as “Leave Approver”, and Employee In our example, this is Chris.
 
-[![image](https://discuss.erpnext.com/uploads/default/original/3X/a/8/a8242a2ee2e82cd47b76d264eed601f474bd5142.png)](https://discuss.erpnext.com/uploads/default/original/3X/4/c/4c9dd72505cccbb8d35bb323d1e63fd960f6cfb1.png)  
+[[Screenshot on the live page: image]](https://discuss.erpnext.com/uploads/default/original/3X/4/c/4c9dd72505cccbb8d35bb323d1e63fd960f6cfb1.png)  
 
 
-![](https://docs.erpnext.com/files/L2uZrLq.png)  
+[Screenshot on the live page]  
 
 
 3. Now, create the necessary user permissions as per Company, Department, and Employee.
 
-[![image](https://discuss.erpnext.com/uploads/default/original/3X/4/a/4a100efbc5a42bdee7817fdc89e9d4f5f2f60227.png)](https://discuss.erpnext.com/uploads/default/original/3X/4/a/4a100efbc5a42bdee7817fdc89e9d4f5f2f60227.png)  
+[[Screenshot on the live page: image]](https://discuss.erpnext.com/uploads/default/original/3X/4/a/4a100efbc5a42bdee7817fdc89e9d4f5f2f60227.png)  
 
 
 While adding the "Employee" permission for Chris, just keep Leave Application unchecked, so that Chris has access to only view other employees
 
-![](https://docs.erpnext.com/files/4CoBHlZ.gif)  
+[Screenshot on the live page]  
 
 
 4. Department: Set a “Leave Approver” in the Department master
 
-[![image](https://discuss.erpnext.com/uploads/default/original/3X/5/c/5cabba46854752f07d9ed269ab7a3b0cf53baf26.png)](https://discuss.erpnext.com/uploads/default/original/3X/5/c/5cabba46854752f07d9ed269ab7a3b0cf53baf26.png)  
+[[Screenshot on the live page: image]](https://discuss.erpnext.com/uploads/default/original/3X/5/c/5cabba46854752f07d9ed269ab7a3b0cf53baf26.png)  
 
 
 -------------------------------------------------------------------------------------------------------------------
 
 Now, let’s say, we have an employee called Pepper who works in the “Research and Development” Department.
 
-[![image](https://discuss.erpnext.com/uploads/default/original/3X/8/a/8a3ebb9644069224c31180fbbd816775f54aea2e.png)](https://discuss.erpnext.com/uploads/default/original/3X/8/a/8a3ebb9644069224c31180fbbd816775f54aea2e.png)  
+[[Screenshot on the live page: image]](https://discuss.erpnext.com/uploads/default/original/3X/8/a/8a3ebb9644069224c31180fbbd816775f54aea2e.png)  
 
 
 6. Pepper fills in a leave application.
 
-[![image](https://discuss.erpnext.com/uploads/default/original/3X/c/f/cf8418b1278c5bd6c89ff5a86a1412049e7bd109.png)](https://discuss.erpnext.com/uploads/default/original/3X/c/f/cf8418b1278c5bd6c89ff5a86a1412049e7bd109.png)  
+[[Screenshot on the live page: image]](https://discuss.erpnext.com/uploads/default/original/3X/c/f/cf8418b1278c5bd6c89ff5a86a1412049e7bd109.png)  
 
 
 7. When the Leave Approver, Chris, logins, he can only access the leaves raised by employees of his department.
 
-[![](https://dl.dropboxusercontent.com/s/lfqeaivl50ixt5l/la-dept-1.gif?dl=0)](https://dl.dropboxusercontent.com/s/lfqeaivl50ixt5l/la-dept-1.gif?dl=0)  
+[[Screenshot on the live page]](https://dl.dropboxusercontent.com/s/lfqeaivl50ixt5l/la-dept-1.gif?dl=0)  
 
 
 8. Meanwhile, when we login via System Manager, there are few other Leave Applications in the list, too.
 
-![](https://docs.erpnext.com/files/JTXLFmW.png)  
+[Screenshot on the live page]  
 
 
 PS. We have assumed that the reader knows how to manage different leaves and allocations in Frappe HR. To explore that again, click [here](https://erpnext.com/docs/user/manual/en/human-resources)
@@ -1047,7 +1047,7 @@ To access Department, go to:
 
 Department is a tree-structured master, which means you can create parent departments and sub-departments as shown below:
 
-![Department Tree](https://frappehr.com/files/department-tree.png)  
+[Screenshot on the live page: Department Tree]  
 
 
 > **Note:** The 'Is Group' checkbox needs to be checked if the Department is a parent department.
@@ -1068,7 +1068,7 @@ Before creating a Department, it is advisable you create the following documents
 4. Select Leave Block List (optional) applicable for this department.
 5. Save.
 
-![Department](https://frappehr.com/files/department.png)
+[Screenshot on the live page: Department]
 
 **3. Features**
 ---------------
@@ -1077,7 +1077,7 @@ Before creating a Department, it is advisable you create the following documents
 
 You can set Leave and Expense Approvers for a particular Department in the 'Leave Approver' and 'Expense Approver' table respectively.
 
-![Leave and Expense Approver](https://frappehr.com/files/leave-and-expense.png)  
+[Screenshot on the live page: Leave and Expense Approver]  
 
 
 > **Note:** Multiple Leave and Expense Approvers can be set for a particular Department. However, the first Approver in the list will be set as the default Approver.
@@ -1119,7 +1119,7 @@ To access Designation, go to:
 3. Enter Description and Required Skills (optional).
 4. Save.
 
-![Designation](https://frappehr.com/files/designation.png)
+[Screenshot on the live page: Designation]
 
 
 > **Note: The skills required for an Employee of a particular Designation that are specified in the "Required Skills" section of the Designation doctype can be directly fetched in the** [**Employee Skill Map**](https://docs.frappe.io/hr/employee-skill-map) **to evaluate an employee's performance based on his skills.**
@@ -1150,21 +1150,21 @@ Earned leaves are special type of leaves that are credited or earned regularly a
 
 - Leave Period
 
-![](https://frappehr.com/files/MI9ZPNM.png)
+[Screenshot on the live page]
 
 - Leave Policy
 
-![](https://frappehr.com/files/CX0uqps.png)
+[Screenshot on the live page]
 
 - Leave Policy Assignment
 
-![](https://frappehr.com/files/ZxOw5L4.png)
+[Screenshot on the live page]
 
 ## **2. Earned Leave Schedule**
 
 1. Creating a Leave Policy Assignment will result in the creation of associated Leave Allocations. The allocation for earned leave will display the schedule upfront for the days the leaves will be credited.
 2. Successfully credited leaves will be indicated in green.
-  ![](https://docs.frappe.io/files/Screenshot 2026-01-08 at 12.06.41.png)
+  [Screenshot on the live page]
 3. If for any reason the background job fails to credit the leaves, an email will be sent to the HR managers with a list of allocations that failed. The HR managers will see an option to retry failed allocations right from the leave allocation.
 
-![](/files/Arc 2025-06-01 21:43:37 - Frame 215.png)
+[Screenshot on the live page]

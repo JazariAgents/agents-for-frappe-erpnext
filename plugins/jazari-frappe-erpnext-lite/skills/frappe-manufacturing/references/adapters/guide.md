@@ -16,7 +16,7 @@ that follow from the answer.
 - **What the page says:** The ERPNext currently have the MRP inside the production plan which is difficult for new users to understand and also it only uses sales order or material request data to generate the MRP.
 - **It covers:** Purpose, Demand Planning, Sales Forecast, Delivery Schedules, Master Production Schedule, Material Requirements Planning Report, Item Lead Time
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/erpnext/erpnext-37.md` lines 130–187  (https://docs.frappe.io/erpnext/material-requirements-planning-mrp)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-36.md` lines 742–799  (https://docs.frappe.io/erpnext/material-requirements-planning-mrp)
 
 ### Plan capacity
 - **What the page says:** Capacity Planning functionality helps you in tracking production jobs allocated on each Workstation.

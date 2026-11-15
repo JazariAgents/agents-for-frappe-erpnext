@@ -436,7 +436,7 @@ This is a selective lock. You choose which document types are closed. It is diff
 4. In **Closed Documents**, add the document types to restrict and keep **Closed** selected.
 5. Save, review, and submit the record.
 
-![Current Period Closing settings in ERPNext](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-accounts-settings-closing.png)
+[Screenshot on the live page: Current Period Closing settings in ERPNext]
 
 
 
@@ -527,7 +527,7 @@ The total debit and credit columns should agree because every submitted accounti
 
 For 13 July to 13 August 2026, Nova's General Ledger contains Sales Invoice, stock, tax, and bank entries. One $20,000 sale debits Debtors and credits Sales. The same invoice credits Stock In Hand by $14,500 and debits Cost of Goods Sold by $14,500. This is why one sales invoice can create more than two ledger rows.
 
-![General Ledger showing debit and credit rows created by Nova sales invoices](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-nova-industries-general-ledger.png)
+[Screenshot on the live page: General Ledger showing debit and credit rows created by Nova sales invoices]
 
 The report totals show $395,762 of debits and $395,762 of credits. That confirms balance for the selected scope. To investigate the $229,000 sale, open its Voucher No. The voucher explains the business event, while the General Ledger explains its accounting effect.
 
@@ -539,7 +539,7 @@ Use the General Ledger for evidence and tracing. Use Trial Balance when you need
 
 Nova's Accounts Receivable report shows $249,212 outstanding from four customers as of 13 August 2026. The entire visible amount falls in the 0 to 30 day ageing bucket. This tells the finance manager that the invoices are recent. It does not automatically mean they are overdue because due dates and payment terms must also be considered.
 
-![Accounts Receivable showing four customer balances in the 0 to 30 day ageing bucket](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-nova-industries-accounts-receivable.png)
+[Screenshot on the live page: Accounts Receivable showing four customer balances in the 0 to 30 day ageing bucket]
 
 The next action is to review Due Date and outstanding amount for each invoice. A payment that exists but remains unallocated may require [Payment Reconciliation](/erpnext/payment-reconciliation). An overdue customer may require a statement through [Process Statement of Accounts](/erpnext/process-statement-of-accounts) or a [Dunning](/erpnext/dunning) record.
 
@@ -551,7 +551,7 @@ Accounts Receivable is better than General Ledger for collection work because it
 
 Nova's Accounts Payable report shows $184,293 outstanding to Summit Traders Ltd., Zuckerman Security Ltd., and MA Inc. in the 121 days and above bucket. Unlike the recent receivables, these balances are old and require immediate review.
 
-![Accounts Payable showing three supplier balances aged more than 121 days](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-nova-industries-accounts-payable.png)
+[Screenshot on the live page: Accounts Payable showing three supplier balances aged more than 121 days]
 
 The finance manager should verify whether the invoices are genuinely unpaid, disputed, or already covered by an unallocated payment. After confirming the balances, she can create a [Payment Entry](/erpnext/payment-entry) for routine settlement or use a [Payment Order](/erpnext/payment-order) when several approved supplier payments need coordinated processing.
 
@@ -559,7 +559,7 @@ The finance manager should verify whether the invoices are genuinely unpaid, dis
 
 Nova's Cash Flow report shows Profit for the year of $109,440, but Net Cash from Operations is negative $117,866. The largest visible reason is the $316,212 increase in Accounts Receivable. Revenue contributed to profit, but much of the cash has not yet been collected. The $184,293 increase in Accounts Payable offsets part of that pressure because Nova has not yet paid those suppliers.
 
-![Cash Flow showing profit of 109440 dollars and negative operating cash flow of 117866 dollars](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-nova-industries-cash-flow-report.png)
+[Screenshot on the live page: Cash Flow showing profit of 109440 dollars and negative operating cash flow of 117866 dollars]
 
 This is the decision the reports enable: profit is positive, but collection must improve before Nova commits to additional cash spending. Profit and Loss explains whether the business earned money. Cash Flow explains why the bank position moved differently.
 

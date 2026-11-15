@@ -29,7 +29,7 @@ Open **Payment Reconciliation**. Select the **Company**, **Party Type**, and **P
 
 Use the optional Filters section when you need to narrow a long list by invoice date, payment date, amount, bank or cash account, or result limit.
 
-![Select the company, customer, and receivable account in Payment Reconciliation](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-01-select-company-and-customer-v4.png)
+[Screenshot on the live page: Select the company, customer, and receivable account in Payment Reconciliation]
 
 Click **Get Unreconciled Entries**.
 
@@ -37,7 +37,7 @@ Click **Get Unreconciled Entries**.
 
 ERPNext displays outstanding invoices on the left and unallocated payments or credits on the right. Check the document number, date, and amount before selecting anything.
 
-![Review outstanding invoices and unallocated payments](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-02-review-unreconciled-entries-v4.png)
+[Screenshot on the live page: Review outstanding invoices and unallocated payments]
 
 If no rows are selected, ERPNext can allocate entries in first-in, first-out order. Select rows when you need to control exactly which payment settles which invoice.
 
@@ -47,19 +47,19 @@ Select the invoice that should receive the payment. Then select the matching Pay
 
 In this example, Payment Entry **ACC-PAY-2026-00010** is matched with Sales Invoice **ACC-SINV-2026-00009**.
 
-![Select the invoice and payment to match](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-03-select-invoice-and-payment-v4.png)
+[Screenshot on the live page: Select the invoice and payment to match]
 
 ### 4. Create the allocation
 
 Click **Allocate**. ERPNext proposes an allocation based on the smaller of the invoice outstanding amount and the payment amount.
 
-![Use Allocate after selecting the invoice and payment](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-04-create-allocation-v4.png)
+[Screenshot on the live page: Use Allocate after selecting the invoice and payment]
 
 ### 5. Review and reconcile
 
 Review every row under **Allocated Entries**. Confirm the Payment Entry, invoice, **Allocated Amount**, and **Difference Amount**. Edit a row if only part of the available payment should be applied.
 
-![Review the allocation and reconcile it](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-05-review-allocation-and-reconcile-v4.png)
+[Screenshot on the live page: Review the allocation and reconcile it]
 
 Click **Reconcile** only after the allocation is correct.
 
@@ -69,11 +69,11 @@ Click **Reconcile** only after the allocation is correct.
 
 Before reconciliation, Sales Invoice **ACC-SINV-2026-00009** had an outstanding amount of **$746**. After the **$525** payment was reconciled, the outstanding amount became **$221**.
 
-![Sales Invoice outstanding amount before payment reconciliation](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-impact-01-invoice-before-reconciliation-v2.png)
+[Screenshot on the live page: Sales Invoice outstanding amount before payment reconciliation]
 
 Open Payment Entry **ACC-PAY-2026-00010** and verify that the invoice appears under **Payment References**. The **Total Allocated Amount** is **$525**, while **Unallocated Amount** is **$0**.
 
-![Payment Entry reference and allocated amount after reconciliation](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-impact-03-payment-entry-after-reconciliation-v2.png)
+[Screenshot on the live page: Payment Entry reference and allocated amount after reconciliation]
 
 You can also open the [Accounts Receivable report](/erpnext/accounts-receivable) and confirm that it shows the reduced invoice balance.
 
@@ -198,19 +198,19 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 1. Open the submitted Sales Order or Sales Invoice.
 2. Choose **Create &gt; Payment** to create the Payment Request.
 
-![The Create menu on a submitted Sales Invoice with Payment Request highlighted.](https://novacompanies.m.frappe.cloud/files/payment-workflows-01-create-payment-request-from-sales-invoice.png)
+[Screenshot on the live page: The Create menu on a submitted Sales Invoice with Payment Request highlighted.]
 
 3. Confirm the amount, currency, recipient, and reference document.
 
-![An inward Customer Payment Request with its type and Sales Invoice reference highlighted.](https://novacompanies.m.frappe.cloud/files/payment-workflows-03-customer-payment-request-reference.png)
+[Screenshot on the live page: An inward Customer Payment Request with its type and Sales Invoice reference highlighted.]
 
-![The amount requested from the Customer highlighted on the Payment Request.](https://novacompanies.m.frappe.cloud/files/payment-workflows-04-customer-payment-request-amount.png)
+[Screenshot on the live page: The amount requested from the Customer highlighted on the Payment Request.]
 
 4. Select the payment gateway account when collecting online.
 5. Save and send the request.
 6. Track its status and verify the resulting payment before treating the source document as paid.
 
-![The Payment Request list showing the available Customer and Supplier requests.](https://novacompanies.m.frappe.cloud/files/payment-workflows-02-payment-request-list.png)
+[Screenshot on the live page: The Payment Request list showing the available Customer and Supplier requests.]
 
 ## Request a Supplier payment
 
@@ -218,9 +218,9 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 2. Create an outward Payment Request.
 3. Confirm the Supplier, amount, Company bank details, and supporting reference.
 
-![An outward Supplier Payment Request with its type, Supplier, and Purchase Invoice reference highlighted.](https://novacompanies.m.frappe.cloud/files/payment-workflows-05-supplier-payment-request.png)
+[Screenshot on the live page: An outward Supplier Payment Request with its type, Supplier, and Purchase Invoice reference highlighted.]
 
-![The requested Supplier payment amount highlighted on the Payment Request.](https://novacompanies.m.frappe.cloud/files/payment-workflows-06-supplier-payment-request-amount.png)
+[Screenshot on the live page: The requested Supplier payment amount highlighted on the Payment Request.]
 
 4. Submit the request according to your approval process.
 5. Add the approved request to a Payment Order, or process the payment through the supported accounting workflow.
@@ -329,11 +329,11 @@ Decide which schedules you offer to [Customers](/erpnext/customer) or accept fro
 5. Enable **Allocate Payment Based on Payment Terms** only when payments must be tracked against individual installments.
 6. Save the template and select it in a [Sales Order](/erpnext/sales-order), [Sales Invoice](/erpnext/sales-invoice), [Purchase Order](/erpnext/purchase-order), or [Purchase Invoice](/erpnext/purchase-invoice).
 
-![Reusable Payment Term records in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-03-payment-term-records.png)
+[Screenshot on the live page: Reusable Payment Term records in ERPNext]
 
 The template list below shows how individual terms can be combined into reusable schedules. These are demonstration records, not a fixed catalogue installed on every ERPNext site.
 
-![Payment Terms Template catalogue in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-02-payment-terms-template-catalog.png)
+[Screenshot on the live page: Payment Terms Template catalogue in ERPNext]
 
 ## Important fields and what they mean
 
@@ -429,7 +429,7 @@ Go to **Home &gt; Accounting &gt; Accounting Masters &gt; Payment Term**.
 5. Optionally configure an early-payment discount.
 6. Save.
 
-![Payment Term for a deposit](/files/payment-term-deposit.webp)
+[Screenshot on the live page: Payment Term for a deposit]
 
 ## Create a Payment Terms Template
 
@@ -440,7 +440,7 @@ Go to **Home &gt; Accounting &gt; Accounting Masters &gt; Payment Term**.
 5. Mark it as default only if it should apply broadly.
 6. Save.
 
-![Payment Terms Template](/files/payment-terms-template79c8e2.webp)
+[Screenshot on the live page: Payment Terms Template]
 
 A template can represent Net 30, a deposit plus balance, milestones, or staged payments.
 
@@ -511,7 +511,7 @@ The Payment Ledger is a specialised ledger for Receivable and Payable accounts. 
 4. Use Account, Voucher No, or Against Voucher No to trace a specific receivable, payable, payment, or invoice.
 5. Refresh the report and wait until all entries and outstanding rows have loaded.
 
-![Payment Ledger for Nova Industries showing invoice references and outstanding amounts](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-payment-ledger.png)
+[Screenshot on the live page: Payment Ledger for Nova Industries showing invoice references and outstanding amounts]
 
 ## Understand Voucher and Against Voucher
 
@@ -531,15 +531,15 @@ An invoice row can initially point against itself because it creates the origina
 
 Before reconciliation, the $1,796 Sales Invoice remains fully outstanding even though the $525 Payment Entry exists. This happens because the payment was submitted without allocating that invoice in its References table.
 
-![Sales Invoice showing 1796 outstanding before the payment is reconciled](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-impact-01-invoice-before-reconciliation-v2.png)
+[Screenshot on the live page: Sales Invoice showing 1796 outstanding before the payment is reconciled]
 
 Use [Payment Reconciliation](/erpnext/payment-reconciliation) to match the unallocated payment to the invoice. After reconciliation, the invoice outstanding amount becomes $1,271 and its status becomes Partly Paid.
 
-![Sales Invoice showing 1271 outstanding after allocating a 525 payment](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-impact-02-invoice-after-reconciliation-v2.png)
+[Screenshot on the live page: Sales Invoice showing 1271 outstanding after allocating a 525 payment]
 
 The Payment Entry now carries a $525 reference allocation to the Sales Invoice. ERPNext has not moved another $525 through the bank. It has updated which invoice the existing payment settles.
 
-![Payment Entry showing 525 allocated to the Sales Invoice after reconciliation](https://novacompanies.m.frappe.cloud/files/docs-payment-reconciliation-impact-03-payment-entry-after-reconciliation-v2.png)
+[Screenshot on the live page: Payment Entry showing 525 allocated to the Sales Invoice after reconciliation]
 
 ## Where Payment Ledger data appears
 
@@ -626,7 +626,7 @@ The Payment Terms Status for Sales Order report splits invoiced value across the
 
 ## Run the report
 
-![Reusable Payment Terms Templates available before running the report](https://novacompanies.m.frappe.cloud/files/docs-20260814-payment-terms-template-list.png)
+[Screenshot on the live page: Reusable Payment Terms Templates available before running the report]
 
 
 
@@ -635,7 +635,7 @@ The Payment Terms Status for Sales Order report splits invoiced value across the
 3. Filter by Customer, Sales Order, status, or other available fields when needed.
 4. Refresh the report and compare each payment term with its invoiced allocation.
 
-![Payment Terms Status for Sales Order report with Nova demo records](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-payment-terms-status-report.png)
+[Screenshot on the live page: Payment Terms Status for Sales Order report with Nova demo records]
 
 ## How FIFO allocation works
 
@@ -707,17 +707,17 @@ To setup PayPal ,
 
 To enable PayPal payment service, you need to configure parameters like API Username, API Password and Signature.
 
-![PayPal Settings](/files/paypal_settings.png)
+[Screenshot on the live page: PayPal Settings]
 
 You also can set test payment environment, by settings `Use Sandbox`
 
 On enabling service, the system will create Payment Gateway record and Account head in chart of accounts having account type as Bank.
 
-![PayPal COA](/files/paypal_coa.png)
+[Screenshot on the live page: PayPal COA]
 
 Also it will create Payment Gateway Account entry. Payment Gateway Account is configuration hub from this you can set account head from existing COA, default Payment Request email body template.
 
-![Payment Gateway Account](/files/payment_gateway_account_paypal.png)
+[Screenshot on the live page: Payment Gateway Account]
 
 After enabling service and configuring Payment Gateway Account your system is able to accept online payments.
 
@@ -729,23 +729,23 @@ AUD, BRL, CAD, CZK, DKK, EUR, HKD, HUF, ILS, JPY, MYR, MXN, TWD, NZD, NOK, PHP, 
 #### Paypal Sanbox API Signature
  - Login to paypal developer account, [PayPal Developer Account](https://developer.paypal.com/)
  - From **Accounts** tab. create a new business account.
-![Payment Request](/files/setup-sanbox-1.png)
+[Screenshot on the live page: Payment Request]
 
  - From this account profile you will get your sandbox api credentials
-![Payment Request](/files/sanbox-credentials.png)
+[Screenshot on the live page: Payment Request]
 
 
 ---
 
 #### PayPal Account API Signature
  - Login to PayPal Account and go to profile
-![Payment Request](/files/api-step-1.png)
+[Screenshot on the live page: Payment Request]
 
  - From **My Selling Tools** go to **api Access**
-![Payment Request](/files/api-step-2.png)
+[Screenshot on the live page: Payment Request]
 
  - On API Access Page, choose option 2 to generate API credentials
-![Payment Request](/files/api-step-3.png)
+[Screenshot on the live page: Payment Request]
 
 <!-- page: erpnext/erpnext__paytm-integration.md -->
 ---
@@ -769,21 +769,21 @@ To set up Paytm, go to:
 3. Choose API Keys option, it should display a two types of API details (Test/Production).
 4. Details mentioned in the Production API details are the credentials that you are supposed to use in Paytm Settings.
 
-![Razorpay Settings](/files/paytm_credentials.png)
+[Screenshot on the live page: Razorpay Settings]
 
 
 ## 2.Setting up Paytm
 
 To enable Paytm payment service, you need to configure all the mandatory parameters which you received from the Paytm. If you want to use staging environment of the integration, you can select the staging option and use the test API developer credentials provided by Paytm.
-![Razorpay Settings](/files/paytm_settings.png)
+[Screenshot on the live page: Razorpay Settings]
 
 On enabling the Paytm integration in ERPNext, the system will create a Payment Gateway record and an Account Head in Chart of Account with the Account type as Bank as seen in the following screenshot.
 
-![Stripe COA](/files/paytm_coa.png)
+[Screenshot on the live page: Stripe COA]
 
 Also, it will create a Payment Gateway Account entry. Payment Gateway Account is the configuration hub from where you can set Account Heads and the default Payment Request email template for requesting payments from customers.
 
-![Payment Gateway Account](/files/payment_gateway_account_paytm.png)
+[Screenshot on the live page: Payment Gateway Account]
 
 After configuring Payment Gateway Account, you will be able to accept online payments via Paytm.
 

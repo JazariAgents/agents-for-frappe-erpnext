@@ -1,192 +1,5 @@
 <!-- Frappe documentation: erpnext, part 61 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__stripe-integration.md -->
----
-title: "Setting up Stripe"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/stripe-integration"
-updated: "2026-02-26"
----
-
-
-To setup Stripe,
-`Explore > Integrations > Stripe Settings`
-
-#### Setup Stripe
-
-To enable Stripe payment service, you need to configure parameters like Publishable Key, Secret Key
-![Razorpay Settings](/files/stripe_setting.png)
-
-On enabling service, the system will create Payment Gateway record and Account head in chart of account with account type as Bank.
-
-![Stripe COA](/files/stripe_coa.png)
-
-Also it will create Payment Gateway Account entry. Payment Gateway Account is configuration hub from this you can set account head from existing COA, default Payment Request email body template.
-
-![Payment Gateway Account](/files/payment_gateway_account_stripe.png)
-
-After configuring Payment Gateway Account your system is able to accept online payments.
-
-### Setup subscriptions plans
-
-If you need to bill a recurring amount instead of a one-time charge, you can use Stripe's subscription system.
-
-Once you have created your billing plans in Stripe, add one or several new "Payment Plan" in Frappe.
-
-![Payment Plan](/files/payment_plan.png)
-
-
-Afterwards, when you create your payment request, click the check field "Is a subscription" and add the system will fetch the corresponding susbscription plans from within the corresponding subscription.
-
-![Payment Request](/files/subscription_payment_request.png)
-
-ERPNext will automatically create a new subscription for this customer in Stripe.
-
-
-####Supporting transaction currencies
-```
- "AED",
- "ALL",
- "ANG",
- "ARS",
- "AUD",
- "AWG",
- "BBD",
- "BDT",
- "BIF",
- "BMD",
- "BND",
- "BOB",
- "BRL",
- "BSD",
- "BWP",
- "BZD",
- "CAD",
- "CHF",
- "CLP",
- "CNY",
- "COP",
- "CRC",
- "CVE",
- "CZK",
- "DJF",
- "DKK",
- "DOP",
- "DZD",
- "EGP",
- "ETB",
- "EUR",
- "FJD",
- "FKP",
- "GBP",
- "GIP",
- "GMD",
- "GNF",
- "GTQ",
- "GYD",
- "HKD",
- "HNL",
- "HRK",
- "HTG",
- "HUF",
- "IDR",
- "ILS",
- "INR",
- "ISK",
- "JMD",
- "JPY",
- "KES",
- "KHR",
- "KMF",
- "KRW",
- "KYD",
- "KZT",
- "LAK",
- "LBP",
- "LKR",
- "LRD",
- "MAD",
- "MDL",
- "MNT",
- "MOP",
- "MRO",
- "MUR",
- "MVR",
- "MWK",
- "MXN",
- "MYR",
- "NAD",
- "NGN",
- "NIO",
- "NOK",
- "NPR",
- "NZD",
- "PAB",
- "PEN",
- "PGK",
- "PHP",
- "PKR",
- "PLN",
- "PYG",
- "QAR",
- "RUB",
- "SAR",
- "SBD",
- "SCR",
- "SEK",
- "SGD",
- "SHP",
- "SLL",
- "SOS",
- "STD",
- "SVC",
- "SZL",
- "THB",
- "TOP",
- "TTD",
- "TWD",
- "TZS",
- "UAH",
- "UGX",
- "USD",
- "UYU",
- "UZS",
- "VND",
- "VUV",
- "WST",
- "XAF",
- "XOF",
- "XPF",
- "YER",
- "ZAR"
-```
-
-<!-- page: erpnext/erpnext__subcontracting-in-erpnext.md -->
----
-title: "Introduction"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/subcontracting-in-erpnext"
-updated: "2026-02-26"
----
-
-## Subcontracting 
-
-Subcontracting is a type of job contract that seeks to **outsource** certain types of work to other companies. It allows work on more than one phase of the project to be done at once, often leading to quicker completion. It is practiced by various industries.
-
-For example, manufacturers who make a number of products from complex components subcontract certain components and package them at their facilities.
-
-
-
-![](/files/Uqloysk.png)
-
-
-
-If your business involves outsourcing certain processes to a third party Supplier where you supply the raw materials and the third party does the labor/production, you can track this by using the [subcontracting feature](https://docs.frappe.io/erpnext/user/manual/en/subcontracting) of ERPNext. 
-
-## Subcontracting Inward
-
-ERPNext also supports **[Subcontracting Inward](https://docs.frappe.io/erpnext/user/manual/en/subcontracting-inward)**, where your company acts as the subcontractor. In this case, a customer provides materials to you for processing or manufacturing. ERPNext enables you to track customer-supplied materials, manage production activities, and bill for the services performed.
-
 <!-- page: erpnext/erpnext__subcontracting-inward.md -->
 ---
 title: "Subcontracting Inward"
@@ -218,46 +31,46 @@ While this was already possible in ERPNext even before v16, this heavily streaml
 ## Prerequisites
 
 1. Every Customer needs to have their own warehouse (dummy) in the masters. This is done by creating a new Warehouse and setting the newly added Customer Link field.
-  ![](/files/image311f04.png)
+  [Screenshot on the live page]
 2. While optional, we strongly recommend you to create a group warehouse which will hold all the customer warehouses in it as it will make data analysis much easier. Note that a Group Warehouse does not need the `Customer` Link field set however if your Customer has multiple warehouses, we recommend you to structure the warehouses accordingly.
-  ![](/files/image5313b0.png)
+  [Screenshot on the live page]
 3. The Raw Materials provided by the Customer in the Item master. Each Customer Provided Item needs to have the field set in the master. Conversely, Customer Provided Items cannot be purchased so the `Allow Purchase` field has to be unchecked (checked by default in ERPNext).
 
-![](/files/image68b05b.png)
+[Screenshot on the live page]
 
 4. The non-stock/service item that will be sold or billed to the Customer. The `Maintain Stock`  field has to be unchecked (checked by default in ERPNext) for this.
-  ![](/files/image608243.png)
+  [Screenshot on the live page]
 5. The Finished Good to be produced needs to be marked as a Subcontracted Item
 
-![](/files/image7b1ac7.png)
+[Screenshot on the live page]
 
 6. A standard ERPNext [Bill of Materials or ‘BOM’](https://docs.frappe.io/erpnext/user/manual/en/bill-of-materials) for the finished good to be produced.
 7. A Subcontracting BOM which specifies the relationship between the non-stock/service item and the Finished Good to be produced. Note that it is also possible to create a Subcontracted Sales Order even without a Subcontracting BOM provided that the Finished Good to be produced has a default BOM set in it’s master.
 
-![](/files/imageecae7c.png)
+[Screenshot on the live page]
 
 ## How to use
 
 1. Start by creating a Sales Order and check the “Is Subcontracted” checkbox. The Sales Order will now be subcontracted and the schema/form of the child table will change. Proceed by setting the service item in the `Item Code` field. If you have a Subcontracting BOM for this service item, the Finished Good field will be set automatically. Upon changing the quantity of the Service Item, the quantity of the Finished Good will also change based on the conversion factor in the Subcontracting BOM. If you have multiple Subcontracting BOMs for the same service/non-stock item, a dialog box will popup asking you to select the Finished Good from the Subcontracting BOMs present against that service/non-stock item. Save and submit once done.
-  ![](/files/image002276.png)
+  [Screenshot on the live page]
 
-![](/files/image5cd122.png)
+[Screenshot on the live page]
 
 2. From the Sales Order, click on `Create > Subcontracting Inward Order`. This DocType holds the list of Finished Goods, Raw Materials required, Service Items and secondary items (if produced). Start by selecting the Customer warehouse you created at the start of the process. If only a single Customer warehouse exists against the Customer, the field will be pre-filled with it. Then select a Delivery Warehouse for each of the Finished Goods to be produced. This will be where the Finished Goods produced by you will be delivered. If all the Finished Goods are to be delivered to the same warehouse, use the `Set Delivery Warehouse` field to set the delivery warehouse for all the Finished Goods in one go.
 
-![](/files/image24b2d8.png)
+[Screenshot on the live page]
 
 3. If you need to “explode” the BOM, click on the Finished Good (pencil icon towards the right of the row) and check the `Include Exploded Items` field and click on save. You will see that the Raw Materials in the “Required Items” table will be updated with the exploded items. You may also additionally alter the quantity of the Finished Goods. This will allow you to create another Subcontracting Inward Order against the same Subcontracted Sales Order until the item is fully subcontracted should you need that.
 
-![](/files/image85b6ee.png)
+[Screenshot on the live page]
 
 4. Save and submit the Subcontracting Inward Order. You can now receive Raw Materials from the Customer which will be used for the manufacturing process by clicking on Receive -> Raw Material from Customer. This will create a Stock Entry and the Raw Materials will be filled automatically upon creation. You may also additionally add extra Customer Provided Items here should you need it. The extra items, if added, will also be visible in the Required Items table of the Subcontracting Inward Order upon submission of the Stock Entry. Note that for additional Customer Provided Items, you will mandatorily need to specify the Finished Good against which you will be using the Raw Material using the `Against Finished Good` field in the child table.
-  ![](/files/image9daef2.png)
+  [Screenshot on the live page]
 5. In this Stock Entry, you may enter the basic rate for each item. Note that this is done purely for taxation purposes and will have no accounting impact on the valuation of your stock. You may verify this by clicking on `View> Accounting Ledger` after submission of the Stock Entry. You will see that everything will be 0.
-  ![](/files/image710092.png)
+  [Screenshot on the live page]
 6. It is also possible to create more Stock Entries to receive additional Customer Provided Items at any time, even after receiving the required quantity of the Raw Materials as per the Finished Good’s BOM.
 7. Go back to the Subcontracting Inward Order and reload the page. You will now see two new buttons at the top right, “Return” and “Create”. By clicking on `Return > Raw Materials` to Customer, you can return the Raw Material to the customer if needed. By clicking on `Create > Work Order`, a standard Work Order will be created for each of the Finished Good(s) based on the quantity of Raw Materials available for production. Use this Work Order to produce the Finished Good(s) then go back to the Subcontracting Inward Order and reload the page.
-  ![](/files/image33a853.png)
+  [Screenshot on the live page]
 
 :::note
 Additional Raw Materials used in the Manufacturing Stock Entry against Work Orders will also be added to the Required Items table in the Subcontracting Inward Order.
@@ -272,14 +85,14 @@ Notes
 1. By default, ERPNext will not add the generated secondary Item(s) to this Stock Entry. If you need to deliver the secondary Item(s) generated as well, enable the `Deliver secondary items` in the `Selling Settings` Single DocType.
 2. ERPNext by default will only you to deliver the agreed upon quantity if Finished Good(s) as specified in the Subcontracted Sales Order. If you have produced more than the required quantity and want to deliver the overproduced quantity as well, enable the `Allow Delivery of Overproduced Qty` in the `Selling Settings` Single DocType.
 
-![](/files/imagef78089.png)
+[Screenshot on the live page]
 
 9. Go back to the Subcontracting Inward Order and reload the page. You will now see the option “Subcontracting Return” under the “Return” button. On clicking it, a new Stock Entry will be created which will allow you to receive the Finished Good(s) that you have produced and delivered to the Customer should you need it.
 10. Since the Finished Goods have been produced and delivered, it is time to bill the Customer. Go to the Sales Order created in the first step, from here you can deliver the service/non-stock item by creating a Delivery Note and bill it as well as all the Raw Materials you have used in the process. The Raw Materials procured by you (not provided by the Customer) will already be present in the child table when you create the Sales Invoice against the Subcontracted Sales Order.
 
 Note You can deliver and bill the service/non-stock items even without creating a single Subcontracting Inward Order.
 
-![](/files/imageec69eb.png)
+[Screenshot on the live page]
 
 ## Important Notes
 
@@ -314,11 +127,11 @@ If your business involves outsourcing certain processes to a third-party Supplie
 ---
 
 1. Create a Service Item (Non-stock Item). It represents the service cost of the subcontracted operation.
-  ![](/files/image0cf7e0.png)
+  [Screenshot on the live page]
 2. Create separate Items for the unprocessed and the processed product. For example, if you supply unpainted X to your Supplier and the Supplier returns you X, you can create two Items: “X-unpainted” and “X”.
 3. Create a Warehouse for your Supplier so that you can keep track of Items supplied. (You may supply a month's worth of Items in one go).
 4. For the processed Item, in the Item master, enable “Supply Raw Materials for Purchase”.
-  ![](/files/imageb3b64c.png)
+  [Screenshot on the live page]
 
 ### Creating a BOM
 
@@ -326,7 +139,7 @@ Make a [Bill Of Materials](/erpnext/bill-of-materials) for the processed Item, w
 
 This BOM will be without Operations if all of the production work is done by a third party. Let's see with a simple example of a CPU Assembly:
 
-![](/files/imagefbe036.png)
+[Screenshot on the live page]
 
 ### Creating a Subcontracting BOM
 
@@ -340,7 +153,7 @@ Using a Subcontracting BOM, you can:
 2. Select a default UOM for your Service Item.
 3. Specify the conversion factor between your Service Item and Finished Good Item.
 
-![](/files/imaged3e66b.png)
+[Screenshot on the live page]
 
 In the above image, we have specified that 1 unit of "Painting" will produce 2 units of "Tiles" after the subcontracting process is complete. Upon saving this document, you will see that the conversion factor for this relationship is calculated automatically (0.5 in this case).
 
@@ -354,7 +167,7 @@ Note:
 Make a Subcontract Purchase Order for the Service Item and select the Finished Good Item, the one for which you've created a BOM.
 
 1. Enable the "Is Subcontracted" since this Purchase Order is for Subcontracting.
-  ![](/files/po - subc.png)
+  [Screenshot on the live page]
 2. Here the Rate field value of the Items table in the Purchase Order will be the service cost you have agreed with the third party or the Supplier.
 3. After filling in the details, Save and Submit the [Purchase Order](/erpnext/purchase-order#35-raw-materials-supplied).
 
@@ -364,7 +177,7 @@ Make a Subcontracting Order for the Purchase Order by clicking on Create > Subco
 
 
 
-![](/files/Screen Recording 2026-02-17 at 11.43.42 AM.mov)
+[Screenshot on the live page]
 
 
 
@@ -377,7 +190,7 @@ Make a Subcontracting Order for the Purchase Order by clicking on Create > Subco
 
 
 1. The costs involved with the subcontracting process should be recorded in the Rate field of the Items table in the Subcontracting Order shown as follows:
-  ![](/files/image0c3d0a.png)
+  [Screenshot on the live page]
 2. In the previous image, we are providing the subcontractor with the following items:
   ```
   8 Motherboards
@@ -387,14 +200,14 @@ Make a Subcontracting Order for the Purchase Order by clicking on Create > Subco
   8 Cabinets
   The cost for one CPU including Raw Materials and Service Costs is 1,02,994 and the total cost for all CPUs is 8,23,952
   ```
-  ![sco items row qty rate](/files/sco-items-row-qty-rate.png)
+  [Screenshot on the live page: sco items row qty rate]
 3. From a Subcontracting Order, select the raw materials to transfer to the subcontractor:
-  ![](/files/subcontracting order.mp4)
+  [Screenshot on the live page]
 
 
 4. Once the Subcontracting Order is submitted, you can also view the item's reserved quantity on the item dashboard.
 
-![](/files/imageff75a7.png)
+[Screenshot on the live page]
 
 ### Creating Stock Entry to Transfer Raw Materials
 
@@ -402,7 +215,7 @@ Now that the raw materials are reserved, make a Stock Entry and deliver the raw 
 
 In the Subcontracting Order, click on Transfer > Material to Supplier. Set the Source and Target Warehouses. The Stock Entry will be of type 'Send to Subcontractor' where you transfer from one Warehouse to another. Tick 'From BOM', select the BOM, enter the quantity, and click the Get Items button.
 
-![](/files/image4e5ebf.png)
+[Screenshot on the live page]
 
 ### Creating a Subcontracting Receipt to receive the Finished and Scrap items
 
@@ -414,7 +227,7 @@ Scrap items are fetched from the chosen Bill of Materials (BOM) for Finished Goo
 
 
 
-![](/files/Screen Recording 2026-02-19 at 10.51.47 AM.mov)
+[Screenshot on the live page]
 
 
 
@@ -424,15 +237,15 @@ Scrap items are fetched from the chosen Bill of Materials (BOM) for Finished Goo
 
 User can set the expense account for the service item in the subcontracting receipt.
 
-![](/files/image564411.png)
+[Screenshot on the live page]
 
 If the user sets the expense account in the service item, the same account will be auto-filled in the Service Expense Account field. The user can also manually set the service expense account in the subcontracting receipt. If no service expense account is set, the system will use the Finished Item’s expense account to book the service cost. Once the subcontracting receipt is submitted, the system books the service cost against the service expense account.
 
-![](/files/imagea0223e.png)
+[Screenshot on the live page]
 
 ### Backflush of Raw Material
 
-![](/files/image4ba089.png)
+[Screenshot on the live page]
 
 - **BOM**
   - If you set backflush based on BOM, system will consume raw materials even though you have not transferred materials against the Subcontracting Order and have enough stock at supplier's warehouse.
@@ -455,7 +268,7 @@ If some raw material is sourced by the Supplier directly, then such raw material
 - In the Subcontracting Order, this raw material will not appear in Supplied Items since it is not supplied
 - Also, while creating a "Transfer", such items will be excluded from the Stock Entry
 
-![](/files/imaged2428f.png)
+[Screenshot on the live page]
 
 However, the Supplier may choose to include the supplier-provided items in their Sales Order sent to you.
 
@@ -498,7 +311,7 @@ In ERPNext v16, you can now reserve the Raw Materials to be sent to the Supplier
 
 Just above the Raw Materials table, you will now see the checkbox `Reserve Stock`. If you check this option and submit the Subcontracting Order, the stock will be reserved against the Subcontracting Order which will essentially make sure that the committed stock is not used anywhere else by mistake. The reserved stock will be automatically utilised if and when Raw Material is sent to the Supplier by using the `Send to Subcontractor` Stock Entry made against the Subcontracting Order.
 
-![](/files/image3fc0a5.png)
+[Screenshot on the live page]
 
 Note that if the `Auto Reserve Stock` option is enabled in `Stock Settings`, this option will be checked by default.
 
@@ -528,21 +341,21 @@ ERPNext provides dedicated reports to help monitor materials sent to subcontract
 
 This report shows the raw materials that need to be sent to subcontractors against open subcontracting Purchase Orders. It helps identify pending material transfers so that suppliers receive the required inputs on time and production is not delayed.
 
-![](/files/telegram-cloud-photo-size-5-6104774370766032817-y.jpg)
+[Screenshot on the live page]
 *Subcontracted raw materials to be transferred report*
 
 ## Subcontracted Item to be Received
 
 This report lists subcontracted finished goods that are yet to be received from suppliers. It provides visibility into pending receipts and helps teams follow up on delayed deliveries and plan inventory accordingly.
 
-![](/files/telegram-cloud-photo-size-5-6104774370766032818-y.jpg)
+[Screenshot on the live page]
 *Subcontracted Item to be received*
 
 ## Subcontract Order Summary
 
 This report provides an overall view of subcontracting Purchase Orders, including material transfer status and receipt progress. It is useful for monitoring order completion and tracking the end-to-end subcontracting cycle.
 
-![](/files/image28ddad.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__subscription-plan.md -->
 ---
@@ -559,7 +372,7 @@ A Subscription Plan defines what ERPNext bills on a recurring basis, how much it
 
 Use a separate plan for each distinct combination of item, price, currency, and billing frequency. For example, Nova Industries can use **Nova Device Care Monthly** for a USD 199 monthly warranty service and a separate yearly plan for customers who pay in advance.
 
-![Subscription Plan for a monthly warranty service](https://novacompanies.m.frappe.cloud/files/sales-receivables-subscription-plan-subscription-plan-overview.png)
+[Screenshot on the live page: Subscription Plan for a monthly warranty service]
 
 ## Before you begin
 
@@ -589,7 +402,7 @@ Saving a plan does not create an invoice. Add the saved plan to a Subscription t
 
 The highlighted fields control the rate ERPNext uses when it generates an invoice from the Subscription.
 
-![Subscription pricing method and cost fields](https://novacompanies.m.frappe.cloud/files/sales-receivables-subscription-plan-subscription-plan-pricing.png)
+[Screenshot on the live page: Subscription pricing method and cost fields]
 
 
 | Subscription Price Based On | How ERPNext calculates the rate                                                                                                                                                              | Use it when                                                                                                 |
@@ -605,7 +418,7 @@ Changing a plan does not rewrite invoices that have already been generated. Revi
 
 The **Billing Interval** supplies the unit: Day, Week, Month, or Year. The **Billing Interval Count** tells ERPNext how many of those units make one billing cycle.
 
-![Billing Interval and Billing Interval Count](https://novacompanies.m.frappe.cloud/files/sales-receivables-subscription-plan-subscription-plan-billing-interval.png)
+[Screenshot on the live page: Billing Interval and Billing Interval Count]
 
 Examples:
 
@@ -711,7 +524,7 @@ Search for **Subscription Settings** and review:
 | Cancel Subscription After Grace Period | Automatically cancels a subscription when the unpaid condition continues beyond the grace period |
 
 
-![Subscription Settings with grace-period, cancellation, and prorating controls](https://novacompanies.m.frappe.cloud/files/sales-receivables-subscription-settings-subscription-settings.png)
+[Screenshot on the live page: Subscription Settings with grace-period, cancellation, and prorating controls]
 
 Use a grace period that matches your collection process. A short period stops service quickly but may cancel customers after a temporary payment delay. A longer period is more forgiving but allows unpaid exposure to grow.
 
@@ -773,7 +586,7 @@ Set the billing interval and interval count. For example, **Month** with a count
 
 
 
-![Monthly subscription plan for a service item](https://novacompanies.m.frappe.cloud/files/subscription-plan-subscription-plan.png)
+[Screenshot on the live page: Monthly subscription plan for a service item]
 
 ## Create a Subscription
 
@@ -785,7 +598,7 @@ Set the billing interval and interval count. For example, **Month** with a count
 6. Add taxes, a Cost Center, or an additional discount when needed.
 7. Save.
 
-![Subscription with customer, term, billing history, and invoice timing](https://novacompanies.m.frappe.cloud/files/subscription-subscription-overview.png)
+[Screenshot on the live page: Subscription with customer, term, billing history, and invoice timing]
 
 ## Choose when invoices are generated
 
@@ -807,7 +620,7 @@ Add every recurring component as a row in **Plans**. You can combine a base plan
 
 
 
-![Subscription plans, billing controls, and taxes](https://novacompanies.m.frappe.cloud/files/subscription-subscription-plans-taxes.png)
+[Screenshot on the live page: Subscription plans, billing controls, and taxes]
 
 ## Billing history and status
 
@@ -836,3 +649,79 @@ Enable **Cancel When Period Ends** instead of cancelling immediately.
 - [Item Price](/erpnext/item-price)
 - [Payment Request](/erpnext/payment-request)
 - [Auto Repeat Recurring Orders and Invoices](/erpnext/auto-repeat-recurring-orders-and-invoices)
+
+<!-- page: erpnext/erpnext__supplier-essentials.md -->
+---
+title: "Supplier Essentials"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/supplier-essentials"
+updated: "2026-02-26"
+---
+
+In ERPNext, supplier doctypes refer to the types of documents or records associated with managing suppliers within the system. By utilizing supplier doctypes effectively, businesses can streamline their supplier management processes, maintain accurate records, and ensure timely and efficient procurement operations.
+
+* [Supplier Group](/erpnext/user/manual/en/supplier-group)
+* [Supplier](/erpnext/user/manual/en/supplier)
+
+<!-- page: erpnext/erpnext__supplier-group.md -->
+---
+title: "Supplier Group\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/supplier-group"
+updated: "2026-02-27"
+---
+
+**Supplier Group is an aggregation of suppliers that are similar in some way.**
+
+A supplier may be distinguished from a contractor or subcontractor, who
+commonly adds specialized input to deliverables. A supplier is also known as a
+vendor. There are different types of suppliers based on the goods and
+products they supply.
+
+ERPNext allows you to create your own categories of suppliers. These
+categories are known as Supplier Groups. For example, if your suppliers are
+mainly pharmaceutical companies and FMCG distributors, you can create a new
+Supplier Groups for them and name the groups accordingly.
+
+To access Supplier Group, go to:
+> Home Buying > Supplier > Supplier Group
+
+## 1. Prerequisites
+Before creating and using a Supplier Group, it is advised that you create the following first:
+
+* [Supplier](/erpnext/supplier)
+
+## 2. How to create a Supplier Group
+1. Go to the Supplier Group list, click on New.
+1. Type a name for your new Supplier Category.
+1. You can set a Parent Supplier Group for this Supplier Group.
+1. Ticking the Is Group checkbox will make it a Parent Supplier Group.
+1. You can also assign a default Payment Terms Template to the Supplier Group. Useful in a case where all your hardware suppliers take half payment on sales order and half post shipment.
+1. Save.
+
+[Screenshot on the live page: Supplier Group]?
+
+You can classify your suppliers from a range of choices available in ERPNext.
+Choose from a set of given options like Distributor, Electrical, Hardware, Local, Pharmaceutical, Raw Material, Services etc. Classifying your supplier into different types facilitates accounting and payments.
+
+## 3. Supplier Group Tree
+
+You can also construct Supplier Group in the form of a tree hierarchy, similar
+to Chart of Accounts.
+
+To view the Tree structure, click on **Tree** from the sidebar. To go back to the
+list view, simply select: **Menu > View List**.
+
+[Screenshot on the live page: Supplier Group]
+
+With the new [User Permissions](/erpnext/users-and-permissions)
+in place, you can now apply hierarchy based permissions.
+That is, if a User is permitted to view parent node of Supplier Group,
+he/she automatically qualifies to view the child nodes of that parent node.
+
+For example, in the above image, let's say that user permission is applied for a User to
+view 'Distributor' document. Then the user also gets permitted to view its
+child nodes 'Book Distributor', 'Electronic Distributor', etc.
+
+### 4. Related Topics
+1. [Supplier](/erpnext/supplier)

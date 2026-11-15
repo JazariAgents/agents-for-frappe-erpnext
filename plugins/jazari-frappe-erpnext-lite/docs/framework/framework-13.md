@@ -10,7 +10,7 @@ updated: "2026-02-17"
 
 If you want to show a map in your DocType Form, you can add a field of type "Geolocation". By default, it looks like this:
 
-![orginal_map](/files/orginal_map.jpg)  
+[Screenshot on the live page: orginal_map]  
 
 
 There are many ways to customize this field. We can change global values like the default location and zoom level. And we can customize how individual objects on a particular map are rendered.
@@ -58,7 +58,7 @@ map_settings.attribution = "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USD
 ```
 Restart your bench and reload your browser window. Now you should see the customized map:
 
-![custom_map_defaults](/files/custom_map_defaults.jpeg)  
+[Screenshot on the live page: custom_map_defaults]  
 
 
 Change how a particular map is rendered
@@ -82,7 +82,7 @@ frappe.ui.form.on("My Doctype", {
 ```
 The result looks like this:
 
-![red_polygon](/files/red_polygon.png)  
+[Screenshot on the live page: red_polygon]  
 
 
 Other methods that can be overwritten include `point_to_layer` and `set_style`. Read more about these methods [in the Leaflet documentation](https://leafletjs.com/examples/geojson/).
@@ -536,7 +536,7 @@ frappe.db.get_value('Task', 'TASK00004', 'status')
 
 To play with Client API, you can open your browser's console and use the globally available `frappe` object to explore and run methods and access properties.
 
-![Browser Console](/files/client-side-debugging.png)
+[Screenshot on the live page: Browser Console]
 
  *Browser Console*
 
@@ -544,7 +544,7 @@ To play with Client API, you can open your browser's console and use the globall
 
 ## Debugging in VS Code / Debug Adapter Protocol
 
-![vsc debugging](/files/vsc_debuggin.png)
+[Screenshot on the live page: vsc debugging]
 
 Checklist for proper functioning.
 
@@ -694,14 +694,14 @@ Each sidebar item links to a page called Workspace.
 
 [About Workspace →](/framework/v14/user/en/desk/workspace)
 
-![Desktop](/files/v14-workspace.png)
+[Screenshot on the live page: Desktop]
 
 ## Awesomebar
 
 Awesomebar helps you to navigate anywhere in the system, create new records, search in documents
 and even perform math operations.
 
-![Awesomebar](/files/awesomebar.png)
+[Screenshot on the live page: Awesomebar]
 *Navigating ToDo using Awesomebar*
 
 ## List View
@@ -725,14 +725,14 @@ things going on. But the primary purpose of it is to view and edit records.
 A document can be assigned to or shared with other users and it can have arbitrary
 attachments and tags, all of which can be seen in the form sidebar.
 
-![Form View](/files/form-view.png)
+[Screenshot on the live page: Form View]
 *Form View*
 
 When you scroll down to the bottom of the form, you will see the form timeline.
 The form timeline shows emails, comments, edits and other events in a reverse
 chronological order.
 
-![Form View](/files/form-timeline.png)
+[Screenshot on the live page: Form View]
 *Form Timeline*
 
 > Learn more about the [Form API](/framework/v14/user/en/api/form).
@@ -742,7 +742,7 @@ chronological order.
 Grid view is used as a table in the form view to insert multiple records.
 User can configure the columns of the grid view from the form.
 
-![Grid View](/files/configure_grid_columns.gif)
+[Screenshot on the live page: Grid View]
 
 
 ## Report Builder
@@ -753,7 +753,7 @@ by giving your report a name. You can also show Child Table data and also filter
 documents by their child records. You can also apply *Group By* on a column with
 aggregation methods like Count, Sum and Average.
 
-![Report Builder](/files/report-builder.gif)
+[Screenshot on the live page: Report Builder]
 *Report Builder Features*
 
 ## Tree View
@@ -761,14 +761,14 @@ aggregation methods like Count, Sum and Average.
 Frappe also supports tree structured records using the [Nested set model](https://en.wikipedia.org/wiki/Nested_set_model).
 If a doctype is configured to be a tree structure, it can be viewed in the Tree view.
 
-![Tree View](/files/tree-view.png)
+[Screenshot on the live page: Tree View]
 *Tree View*
 
 ## Calendar View
 
 Calendar view can be configured for DocTypes with a start date and end date.
 
-![Calendar View](/files/calendar-view.png)
+[Screenshot on the live page: Calendar View]
 *Calendar View*
 
 The configuration file should be named `{doctype}_calendar.js` and should exist in the
@@ -825,7 +825,7 @@ frappe.views.calendar['Event'] = {
 }
 ```
 
-![Gantt View](/files/gantt-view.png)
+[Screenshot on the live page: Gantt View]
 *Gantt View*
 
 ## Kanban View
@@ -833,15 +833,15 @@ frappe.views.calendar['Event'] = {
 Kanban view can be created for any DocType that has a Select field with options.
 These options become the column names for the Kanban Board.
 
-![Kanban View](/files/kanban-view.png)
+[Screenshot on the live page: Kanban View]
 
 ## Dark Theme
 
-![Dark Theme](/files/Screenshot 2022-01-18 at 3.35.44 PM.png)
+[Screenshot on the live page: Dark Theme]
 
 Frappe Framework has a first class support of dark theme. To switch the theme, click on your avatar on top right of the screen and click on "Toggle Theme". Once you click "Toggle Theme", you'll see following modal from which you can easily switch between available themes. To switch to dark theme select "Timeless Night".
 
-![Desk Theme Modal](/files/Screenshot 2022-01-18 at 3.47.33 PM.png)
+[Screenshot on the live page: Desk Theme Modal]
 
 **Note:** You can also press CTRL + SHIFT + G to open this modal.
 
@@ -855,7 +855,7 @@ updated: "2026-02-17"
 
 Frappe allows attachment of files to documents. Users with **Read** permissions on a particular document will also be able to access the files attached to it. Users can also access the File Manager from the sidebar.
 
-![attachments-sidebar](/files/attachments-sidebar.png "attachments-sidebar.png")  
+[Screenshot on the live page: attachments-sidebar]  
 
 
 How to Attach a New File
@@ -865,33 +865,33 @@ There are several ways to attach a file to a document.
 
 ### Select File
 
-![attach-from-disk](/files/attach-from-disk.gif "attach-from-disk.gif")  
+[Screenshot on the live page: attach-from-disk]  
 
 
 ### Drag and Drop
 
-![2023-08-28 13.28.01](/files/2023-08-28 13.28.01.gif "2023-08-28 13.28.01.gif")  
+[Screenshot on the live page: 2023-08-28 13.28.01]  
 
 
 ### Uploaded File
 
 Attach a file a that was previously uploaded, to a different document.
 
-![2023-08-28 13.33.07](/files/2023-08-28 13.33.07.gif "2023-08-28 13.33.07.gif")  
+[Screenshot on the live page: 2023-08-28 13.33.07]  
 
 
 ### Web Link
 
 If you use a separate server for files or use online services like Dropbox or Docs, you can attach a file by providing a link to it.
 
-![2023-08-28 13.34.48](/files/2023-08-28 13.34.48.gif "2023-08-28 13.34.48.gif")  
+[Screenshot on the live page: 2023-08-28 13.34.48]  
 
 
 ### Camera
 
 Attach Images by taking a photo using your device's camera.
 
-![Camera](/files/file_uploader_camera.gif)  
+[Screenshot on the live page: Camera]  
 
 
 File Manager
@@ -901,7 +901,7 @@ All the attached files are listed in the File Manager. You can access these by n
 
 **Home > Tools > Files**
 
-![Screenshot 2023-07-31 at 8.01.55 PM](/files/Screenshot 2023-07-31 at 8.01.55 PM.png "Screenshot 2023-07-31 at 8.01.55 PM.png")  
+[Screenshot on the live page: Screenshot 2023-07-31 at 8.01.55 PM]  
 
 
 Import Zip
@@ -913,7 +913,7 @@ You can also bulk import multiple files at once using the Import Zip feature.
 2. Upload a zip file.
 3. After the zip file is uploaded, it's contents will be extracted and each file will be created as a new File record.
 
-![Importing files from zip](/files/import_zip.gif)  
+[Screenshot on the live page: Importing files from zip]  
 
 
 
@@ -931,7 +931,7 @@ You can also bulk export multiple files at once using the Export as Zip feature.
 3. Click on Actions > Export as zip.
 4. After the zip file is downloaded, you can import it in another site using Import Zip feature or send it across via email.
 
-![Export files as zip](/files/export-as-zip.png)  
+[Screenshot on the live page: Export files as zip]  
 
 
 Cropping Images
@@ -939,7 +939,7 @@ Cropping Images
 
 You can crop `.jpeg` and `.png` images by clicking on the crop icon.
 
-![Cropping images on upload](/files/crop_image.gif)  
+[Screenshot on the live page: Cropping images on upload]  
 
 
 Optimizing Images
@@ -953,12 +953,12 @@ Images can be optimized to reduce their file size. Currently optimizing an image
 
 **Toggle optimization during upload**
 
-![Toggle image optimization](/files/toggle_image_optimization.gif)  
+[Screenshot on the live page: Toggle image optimization]  
 
 
 **Optimize an already uploaded image**
 
-![Optimize saved image](/files/optimize_saved_image.gif)  
+[Screenshot on the live page: Optimize saved image]  
 
 
 Limits
@@ -981,14 +981,14 @@ You can limit how many files can be attached to a specific document.
 
 Select the document type for which you'd like to set this limit.
 
-![Select Document Type](/files/select_document_type.png)  
+[Screenshot on the live page: Select Document Type]  
 
 
 #### Step 3: Set Limit
 
 Set the value of **Max Attachments** to the maximum number of attachments allowed for this document type.
 
-![Set Limit](/files/set_max_attachments.png)  
+[Screenshot on the live page: Set Limit]  
 
 
 Once you're satisfied with the changes, click the **Update** button. That's it! The maximum number of attachments per document will now be validated every time a new attachment is added to a document of this type.
@@ -1006,14 +1006,14 @@ Frappe framework has first class support for generating print formats for docume
 Print View
 ----------
 
-The Print View can be accessed from the form view of any document. A Standard print format is generated for all DocTypes based on the form layout and mandatory fields in it. ![Print View](/files/print-view.png) *Print View*
+The Print View can be accessed from the form view of any document. A Standard print format is generated for all DocTypes based on the form layout and mandatory fields in it. [Screenshot on the live page: Print View] *Print View*
 
 Print Format Builder
 --------------------
 
 To Customize a print format you need to create a copy of the Standard Print format and customize it using the Print Format Builder. These print formats are user editable and are not bundled with the app as files.
 
-![Print Format Builder](/files/print-format-custom.gif) *Print Format Builder*
+[Screenshot on the live page: Print Format Builder] *Print Format Builder*
 
 #### Custom HTML
 
@@ -1021,7 +1021,7 @@ You can also add Custom HTML to your Print Format. Just drag and drop the Custom
 
 In the Custom HTML field you can use any valid HTML with [Bootstrap 3 classes](https://getbootstrap.com/docs/3.3/css/) for styling. You can also use [Jinja Templating](http://jinja.pocoo.org/docs/2.10/) to add dynamic content to your HTML. See [list of methods](/framework/v14/user/en/api/jinja) available to use in Jinja templates.
 
-![Custom HTML](/files/print-format-custom-html.png) *Custom HTML*
+[Screenshot on the live page: Custom HTML] *Custom HTML*
 
 #### Custom CSS
 
@@ -1029,9 +1029,9 @@ To change styling in your Print Format you can also add custom CSS.
 
 > Click on Customize > Edit Properties to add Custom CSS
 
-![Custom CSS](/files/print-format-custom-css.png) *Custom CSS*
+[Screenshot on the live page: Custom CSS] *Custom CSS*
 
-![Custom CSS Preview](/files/print-format-custom-css-preview.png) *Custom CSS Preview*
+[Screenshot on the live page: Custom CSS Preview] *Custom CSS Preview*
 
 Advanced Print Formats
 ----------------------
@@ -1048,7 +1048,7 @@ To create a new Print Format, type "new print format" in awesomebar and hit ente
 
 > If you set Standard as "Yes" and Developer Mode is enabled, then a JSON file > will be generated for your Print Format and you will have to check it in to > your version control with your app.
 
-![Custom HTML in Print Format](/files/advanced-print-format.png) *Custom HTML in Print Format*
+[Screenshot on the live page: Custom HTML in Print Format] *Custom HTML in Print Format*
 
 Print Formats for Reports
 -------------------------
@@ -1104,7 +1104,7 @@ updated: "2026-02-17"
 Frappe, pronounced *fra-pay*, is a full stack, batteries-included, web framework written in Python and Javascript with MariaDB as the database. It is the framework which powers [ERPNext](https://erpnext.com), is pretty generic and can be used to build database driven apps.
 
 <div align="center">
-	<img src="/files/hero-image.png" style="margin: 0 0 0 0;">
+	[Screenshot on the live page]
 </div>
 
 ## Why Frappe?

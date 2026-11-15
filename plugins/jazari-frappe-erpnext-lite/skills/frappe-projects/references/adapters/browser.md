@@ -42,7 +42,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Project list and click on New
   2. Add the following details
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-46.md` lines 144–285  (https://docs.frappe.io/erpnext/project)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-46.md` lines 112–253  (https://docs.frappe.io/erpnext/project)
 
 ### Manage tasks
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Task**, or type *Task* in the search bar at the top
@@ -51,7 +51,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Task List and click on New
   2. Add the subject of the task
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 741–834  (https://docs.frappe.io/erpnext/tasks)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 665–758  (https://docs.frappe.io/erpnext/tasks)
 
 ### Record timesheets
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Timesheet**, or type *Timesheet* in the search bar at the top
@@ -70,7 +70,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Project Template List and click on New
   2. Add the following details
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-46.md` lines 3–33  (https://docs.frappe.io/erpnext/project-template)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-45.md` lines 871–901  (https://docs.frappe.io/erpnext/project-template)
 
 ### Track project costing
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Projects > Project**, or type *Project* in the search bar at the top

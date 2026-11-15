@@ -72,7 +72,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path (checked on v16.55):** **Needs the Webshop app** (the shop moved out of ERPNext in v15). With it installed: https://your-site/desk → type *Webshop Settings* in the search bar at the top
 - **Record type:** Webshop Settings (called E Commerce Settings before it moved to the Webshop app)
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-58.md` lines 590–638  (https://docs.frappe.io/erpnext/shopping-cart)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-58.md` lines 236–284  (https://docs.frappe.io/erpnext/shopping-cart)
 
 ### Publish items to the shop
 - **Path (checked on v16.55):** **Needs the Webshop app.** With it installed: https://your-site/desk → type *Website Item* in the search bar at the top
@@ -83,7 +83,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Build pages with Frappe Builder
 - **Path (checked on v16.55 with the app installed):** https://your-site/builder → **All Pages** → **New**
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/builder/builder-01.md` lines 242–270  (https://docs.frappe.io/builder/setting-up)
+- **Full page, bundled offline:** `docs/builder/builder-01.md` lines 234–262  (https://docs.frappe.io/builder/setting-up)
 
 ### Bind data to a Builder page
 - **Path (checked on v16.55 with the app installed):** https://your-site/builder → open the page → page settings → **Data Script**

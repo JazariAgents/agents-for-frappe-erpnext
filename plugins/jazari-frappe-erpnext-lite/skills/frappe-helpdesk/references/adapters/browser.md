@@ -45,7 +45,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Set service level agreements
 - **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Service Level Agreement* — the documentation page below shows the screen
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk-03.md` lines 684–944  (https://docs.frappe.io/helpdesk/service-level-agreement)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-03.md` lines 569–829  (https://docs.frappe.io/helpdesk/service-level-agreement)
 
 ### Route tickets to teams
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Teams**
@@ -94,7 +94,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Use the row menu on the right to delete a row
   5. Save the saved reply
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk-03.md` lines 487–682  (https://docs.frappe.io/helpdesk/saved-replies)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-03.md` lines 372–567  (https://docs.frappe.io/helpdesk/saved-replies)
 
 ### Publish knowledge base articles
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → **Knowledge Base** in the sidebar
@@ -114,7 +114,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Issue list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-32.md` lines 359–494  (https://docs.frappe.io/erpnext/issue)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-31.md` lines 670–805  (https://docs.frappe.io/erpnext/issue)
 
 ### Handle a warranty claim
 - **Path:** https://your-site/app → **Home > Support > Warranty > Warranty Claim**
@@ -130,5 +130,5 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Maintenance Schedule, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-35.md` lines 742–791  (https://docs.frappe.io/erpnext/maintenance-schedule)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-35.md` lines 252–301  (https://docs.frappe.io/erpnext/maintenance-schedule)
 

@@ -15,12 +15,12 @@ known as many-to-one relationships. A Child DocType is doctype which can only be
 to a parent DocType. To make a Child DocType make sure to check **Is Child Table** while
 creating the doctype.
 
-![Child DocType](/files/child-doctype.png)
+[Screenshot on the live page: Child DocType]
 
 To link a Child Doctype to its parent, add another row in Parent Doctype with field
 type **Table** and options as **Child Table**.
 
-![Child Table](/files/child-table-field.png)
+[Screenshot on the live page: Child Table]
 
 Child DocType records are directly attached to the parent doc.
 
@@ -306,7 +306,7 @@ To allow for site-specific customization, Frappe Framework has multiple approach
 
 Customize Form is a view that helps you override properties of a DocType and add Custom Fields via a single view.
 
-![Customize Form](/files/customize-form.png)
+[Screenshot on the live page: Customize Form]
 
 When you change any properties of the DocType via Customize Form, it will not change the underlying DocType but add new custom objects to override those properties. This is done in a seamless manner.
 
@@ -406,7 +406,7 @@ updated: "2026-07-16"
 
 There are variety of fieldtypes available in Frappe Framework. Each one has its own use case and can be used to input and store different types of data in a document. Fieldtypes are used to render components in desk as well as web forms.
 
-![Field Types Dropdown Menu](/files/fieldtypes.png)
+[Screenshot on the live page: Field Types Dropdown Menu]
 
 
 
@@ -423,7 +423,7 @@ You can enable validations for the following types of data:
 
 by setting the options to "Name", "Email", "Phone" or "URL" respectively.
 
-![Data field types](/files/data-field-1.png)
+[Screenshot on the live page: Data field types]
 
 
 
@@ -441,11 +441,11 @@ Dynamic Link field is one which can search and hold value of any document/doctyp
 
 This will enable you to have a checkbox here. You can set the `Default` value to 1 and it will be checked by default.
 
-![Check Field Preview](/files/check-field-2.png)
+[Screenshot on the live page: Check Field Preview]
 
 
 
-![Check Field Edit](/files/check-field-1.png)
+[Screenshot on the live page: Check Field Edit]
 
 
 
@@ -459,13 +459,13 @@ If you enable the *Sort Options* checkbox, values will be displayed in alphabeti
 
 The following screenshot shows how a "Select" field can be defined in the **DocType** or via **Customize Form**:
 
-![define_select_field](/files/define_select_field.png "define_select_field.png")
+[Screenshot on the live page: define_select_field]
 
 
 
 And this is how it will be rendered in a new form:
 
-![use_select_field](/files/use_select_field.png "use_select_field.png")
+[Screenshot on the live page: use_select_field]
 
 
 
@@ -477,19 +477,19 @@ First, you'll have to choose or define a DocType that has the Checkbox *Is Child
 
 For example, ERPNext defines a child DocType called "Purchase Receipt Item" with *Is Child Table* enabled:
 
-![define_child_table_doctype](/files/define_child_table_doctype.png "define_child_table_doctype.png")
+[Screenshot on the live page: define_child_table_doctype]
 
 
 
 Another DocType called "Purchase Receipt" has a field of type "Table", with *Options* set to above child doctype "Purchase Receipt Item":
 
-![define_child_table_field](/files/define_child_table_field.png "define_child_table_field.png")
+[Screenshot on the live page: define_child_table_field]
 
 
 
 Finally, the child table will be rendered in the Purchase Receipt form:
 
-![child_table_in_form](/files/child_table_in_form.png "child_table_in_form.png")
+[Screenshot on the live page: child_table_in_form]
 
 
 
@@ -497,7 +497,7 @@ Finally, the child table will be rendered in the Purchase Receipt form:
 
 Attach field allows you to browse a field from the File Manager and attach the same herein.
 
-![Field Types](/files/attach_fieldtype.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -529,7 +529,7 @@ Attach Image is a field wherein you will be allowed to attach Images of the form
 
 Text Editor is a text field and renders a **WYSIWYG** editor for input. It has various text-formatting options.
 
-![Field Types](/files/text_editor_field.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -537,7 +537,7 @@ Text Editor is a text field and renders a **WYSIWYG** editor for input. It has v
 
 This field will enable you to enter the Date in this field.
 
-![Field Types](/files/date_fieldtype.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -549,7 +549,7 @@ This field will give you a date and time picker. The current date and time (as p
 
 In this field, you can specify the field as Barcode which will allow you to enter a Barcode number. Once you do that, the Barcode would automatically get generated against the number.
 
-![barcode](/files/barcode.png)
+[Screenshot on the live page: barcode]
 
 
 
@@ -571,7 +571,7 @@ Example of differences between `Python` and `PythonExpression`:
 - `variable = 42` is a valid `Python` code but not a valid `PythonExpression` since the assignment doesn't evaluate to any value.
 - `variable == 42` is both valid `Python` code and valid `PythonExpression` as the expresion can evaluate to some value.
 
-![Field Types](/files/code_fieldtype.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -579,7 +579,7 @@ Example of differences between `Python` and `PythonExpression`:
 
 This will let the user input a color via a rendered color picker or directly input a hexadecimal color.
 
-![Field Types](/files/color_fieldtype.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -589,13 +589,13 @@ This is a `'meta'` fieldtype that does not store any input data but can be used 
 
 For example,
 
-![Field Types](/files/column_break_fieldtype_1.png)
+[Screenshot on the live page: Field Types]
 
 
 
 will result into:
 
-![Field Types](/files/column_break_fieldtype_2.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -619,13 +619,13 @@ Note: Frappe uses the "Leaflet" library which stores coordinates as [latitude, l
 
 This will render the content entered in `Options` as HTML in the document form or view page. Here is an example:
 
-![Field Types](/files/html_fieldtype_1.png)
+[Screenshot on the live page: Field Types]
 
 
 
 will result into:
 
-![Field Types](/files/html_fieldtype_2.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -635,13 +635,13 @@ Image field will render an image file selected in another attach field.
 
 For the Image field, under Option (in Doctype), a field name should be provided where the image file is attached. By referring to the value in that field, the image will be a reference in the Image field.
 
-![Field Types](/files/image_fieldtype_1.png)
+[Screenshot on the live page: Field Types]
 
 
 
 will result into:
 
-![Field Types](/files/image_fieldtype_2.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -665,13 +665,13 @@ This field type would allow you to add text in the field. The character limit in
 
 This field will allow you to add the text in markdown. This fieldtype also provides a `Preview` view of rendered HTML:
 
-![Field Types](/files/md_fieldtype_1.png)
+[Screenshot on the live page: Field Types]
 
 
 
 when preview is clicked:
 
-![Field Types](/files/md_fieldtype_2.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -687,13 +687,13 @@ You can define the field as a Percentage field which in the background will be c
 
 This field can be used to display an interactive star rating input. The default star count shown is 5, however, this can easily be changed by entering a number ranging from 3 - 10 in the options field for that particular rating field.
 
-![Check Field Edit](/files/rating-field.png)
+[Screenshot on the live page: Check Field Edit]
 
 
 
 You can also provide half ratings e.g 3.5 out of 5.
 
-![Half Rating](/files/Screenshot 2021-12-20 at 4.52.09 PM.png)
+[Screenshot on the live page: Half Rating]
 
 
 
@@ -705,7 +705,7 @@ Read Only field will carry data fetched from another form which will be non-edit
 
 Section Break is used to divide the form into multiple sections. Any fields that follow (and before any other `Section Break`) a `Section Break` field will be part of this new section.
 
-![Field Types](/files/section_break_fieldtype.png)
+[Screenshot on the live page: Field Types]
 
 
 
@@ -713,7 +713,7 @@ Section Break is used to divide the form into multiple sections. Any fields that
 
 Tab Break is used to divide the form into multiple tabs. Any field that follow till the next `Tab Break` will be the part of this new tab.
 
-![Tabs](/files/form-tabs.png)
+[Screenshot on the live page: Tabs]
 
 
 
@@ -757,7 +757,7 @@ Title Field
 
 A field of the DocType which will be displayed as a title in the Form
 
-![](/files/8mYiuB1.png)
+[Screenshot on the live page]
 
  
 
@@ -765,7 +765,7 @@ A field of the DocType which will be displayed as a title in the Form
 
 Enter the name of a custom field in 'Title Field'
 
-![](/files/HafbLM1.png)
+[Screenshot on the live page]
 
  
 
@@ -773,13 +773,13 @@ Enter the name of a custom field in 'Title Field'
 
 You can enable **Show Title in Link Fields** to display **Title** instead of **Name** in the **Link Fields** in another doctype.
 
-![](/files/xhk48oU.png)
+[Screenshot on the live page]
 
  
 
 So if a custom field of 'link' type is added in another doctype (or through customize form), then the title of the linked document will be displayed in the field instead of name.
 
-![](/files/8vUNrEr.png)
+[Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__basics__doctypes__modules.md -->
 ---
@@ -865,7 +865,7 @@ The system generates a sequential numeric name by incrementing the last created 
 - You cannot switch to a different naming schema once this is set unless the DocType has zero documents.
 - You cannot switch to this naming schema from another unless the DocType has zero documents.
 
-![](/files/autoincrement.gif)
+[Screenshot on the live page]
 *Autoincrement*
 
 ### 3. By fieldname
@@ -874,7 +874,7 @@ The document name is fetched directly from the value of a specific field.
 
 > **Note:** The value in the selected field must always be unique.
 
-![](/files/fieldname.gif)
+[Screenshot on the live page]
 *By Fieldname*
 
 ### 4. By "Naming Series" field
@@ -885,7 +885,7 @@ For example, if you have a field `naming_series` in your document and its value 
 
 > **Requirement:** This works only if you have a field called `naming_series` in your DocType.
 
-![](/files/naming-series.gif)
+[Screenshot on the live page]
 *By "Naming Series"*
 
 ### 5. Expression
@@ -897,7 +897,7 @@ For example, if you set the pattern as `PRE-.#####`:
 - The first document created will be named `PRE-00001`
 - The second will be `PRE-00002`
 - And so on...  
-  ![](/files/expression.gif)
+  [Screenshot on the live page]
   *Expression*
 
 You can use this method to flexibly configure naming schemes using multiple field values and variables. Individual parts are separated by a dot `.` .
@@ -938,7 +938,7 @@ This format allows you to combine:
 
 Generates a random alphanumeric string as the document name.  
 
-![](/files/ramdom.gif)
+[Screenshot on the live page]
 *Random*
 
 ### 8. UUID
@@ -947,7 +947,7 @@ Uses a randomly generated Universally Unique Identifier (UUID v4) as the documen
 
 **Example:** `550e8400-e29b-41d4-a716-446655440000`  
 
-![](/files/uuid.gif)
+[Screenshot on the live page]
 *UUID*
 
 ### 9. By script
@@ -969,7 +969,7 @@ class Project(Document):
 
 You can also create rules for naming DocTypes by creating **Document Naming Rule.**
 
-![](/files/imagec0c7f9.png)
+[Screenshot on the live page]
 
 You can create multiple Document Naming Rules for a particular doctype that can be applied selectively based on filters.
 
@@ -1016,7 +1016,7 @@ A Single DocType is a DocType that has only one instance in the database. It is 
 for persisting things like *System Settings*, which don't make sense to have multiple
 records.
 
-![Single DocType](/files/single-doctype.png)
+[Screenshot on the live page: Single DocType]
 
 ```python
 >>> settings = frappe.get_doc('System Settings')
@@ -1053,7 +1053,7 @@ Creating a Virtual DocType
 
 To create a Virtual DocType, just select the Virtual DocType checkbox while creating the DocType:
 
-![Virtual DocType](/files/virtual_doctype.png)  
+[Screenshot on the live page: Virtual DocType]  
 
 
 #### Creating a Custom Controller
@@ -1137,7 +1137,7 @@ You can read about the interface requriements and explanation in the [interface 
 
 The frontend for Virtual DocTypes remain unchanged
 
-![Virtual DocType Form](/files/virtual_doctype_form.png)  
+[Screenshot on the live page: Virtual DocType Form]  
 
 
 All the /api/resource methods defined by the framework are compatible with Virtual DocTypes.

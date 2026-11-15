@@ -30,7 +30,7 @@ The voucher does not erase history or stop backdated entries. It creates balance
 5. Enable **Book Cost Center Wise Profit/Loss** when retained earnings must preserve the cost center split.
 6. Add a clear remark, save, review, and submit.
 
-![Period Closing Voucher with the fiscal year and closing account highlighted](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-period-closing-voucher9ebf10.png)
+[Screenshot on the live page: Period Closing Voucher with the fiscal year and closing account highlighted]
 
 
 
@@ -45,7 +45,7 @@ The voucher does not erase history or stop backdated entries. It creates balance
 
 The entries reduce the period’s income and expense balances to zero and move the difference to equity. They do not close receivable, payable, bank, stock, asset, liability, or other Balance Sheet accounts.
 
-![General Ledger showing the accounting effect of period closing](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-period-closing.png)
+[Screenshot on the live page: General Ledger showing the accounting effect of period closing]
 
 
 
@@ -100,7 +100,7 @@ To address this in Version 16, we introduced a new Journal Entry type called 'Pe
 
 
 
-![](/files/periodic_accounting_entry5adb27.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__perm-level-error-in-permission-manager.md -->
 ---
@@ -221,7 +221,7 @@ Once roles are assigned to a user, their access can be limited to specific docum
 
 To start using the Role Permission Manager, go to: > Home > Users and Permissions > Role Permissions Manager
 
-![Manage Read, Write, Create, Submit, Amend access using the Role Permissions Manager](/files/setting-up-permissions-leave-application.png)
+[Screenshot on the live page: Manage Read, Write, Create, Submit, Amend access using the Role Permissions Manager]
 
 
 
@@ -256,35 +256,35 @@ Leave Application is a good example that encompasses all areas of a Permission S
 
 - It should be created by an Employee. For this, Employee Role should be given Read, Write, Create permissions.
 
-![Giving Read, Write and Create Permissions to Employee for Leave Application](/files/setting-up-permissions-employee-role.png)
+[Screenshot on the live page: Giving Read, Write and Create Permissions to Employee for Leave Application]
 * An *
 
 *Employee** should only be able to access his/her Leave Application. Hence, User Permissions record should be created for each User-Employee combination.
 
-![Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager](/files/setting-up-permissions-employee-user-permissions.png)
+[Screenshot on the live page: Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager]
 * If you want an *
 
 *Employee** to only select a document in another document and not have read access to that document as a whole, then grant only Select perm to the role, Employee.
 
-![Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager](/files/setting-up-select-permissions-employee.png)
+[Screenshot on the live page: Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager]
 * *
 
 *HR Manager** should be able to see all Leave Applications. Create a Permission Rule for HR Manager at Level 0, with Read permissions. Apply User Permissions should be disabled.
 
-![Giving Submit and Cancel permissions to HR Manager for Leave Applications. 'Apply User Permissions' is unchecked to give full access.](/files/setting-up-permissions-hr-manager-role.png)
+[Screenshot on the live page: Giving Submit and Cancel permissions to HR Manager for Leave Applications. 'Apply User Permissions' is unchecked to give full access.]
 * *
 
 *Leave Approver** should be able to see and update Leave Applications of employees under him/her. Leave Approver is given Read and Write access at Level 0. Relevant Employee Documents should be enlisted in the User Permissions of Leave Approvers. (This effort is reduced for Leave Approvers mentioned in Employee Documents, by programmatically creating User Permission records).
 
-![Giving Read, Write and Submit permissions to Leave Approver for Leave Applications.'Apply User Permissions' is checked to limit access based on Employee.](/files/setting-up-permissions-leave-approver-role.png)
+[Screenshot on the live page: Giving Read, Write and Submit permissions to Leave Approver for Leave Applications.'Apply User Permissions' is checked to limit access based on Employee.]
 * It should be Approved/Rejected only by HR User or Leave Approver. The Status field of a Leave Application is set at Level 1. HR User and Leave Approver are given Read and Write permissions for Level 0, while everyone else (All) are given Read permission for Level 1.
 
-![Limiting read access for a set of fields to certain Roles](/files/setting-up-permissions-level-1.png)
+[Screenshot on the live page: Limiting read access for a set of fields to certain Roles]
 *
 
  **HR User** should be able to delegate Leave Applications to his/her subordinates. HR User is given the right to Set User Permissions. A User with HR User role would be able to define User Permissions on Leave Application for other users.
 
-![Let HR User delegate access to Leave Applications by checking 'Set User Permissions'. This will allow HR User to access User Permissions Manager for 'Leave Application'](/files/setting-up-permissions-hr-user-role.png)
+[Screenshot on the live page: Let HR User delegate access to Leave Applications by checking 'Set User Permissions'. This will allow HR User to access User Permissions Manager for 'Leave Application']
 
 In case you have correctly assigned the roles but still you're getting errors when accessing documents, refer [this page](/erpnext/report-permission-error).
 
@@ -292,7 +292,7 @@ In case you have correctly assigned the roles but still you're getting errors wh
 
 In the Role Permission Manager, multiple permissions can be enabled for each Role. Below are the details of the available permission options and their usage.
 
-![Screenshot 2025 12 19 at 5.15.56 PM](/files/Screenshot%202025-12-19%20at%205.15.56%E2%80%AFPM.png)
+[Screenshot on the live page: Screenshot 2025 12 19 at 5.15.56 PM]
 
 
 | Permission | Description                                                   | Example                                                                                         |
@@ -374,7 +374,7 @@ In a new ERPNext site, Perpetual Accounting is enabled by default.
 
 1. Go to:
   *Home > Accounting > Company > Enable Perpetual Inventory**
-  [Perpetual Inventory](/files/perpetual-1.png)  
+  Perpetual Inventory (picture on the live page)  
   Note that if you disable perpetual inventory, users will have to create manual entry to update actual stock balance in the Stock in hand account (or ledger).
 2. Set up the following default accounts for each Company if not set. These accounts are created automatically in the new ERPNext accounts.
   Default Inventory Account (Asset)  
@@ -462,11 +462,11 @@ Suppose you have purchased 10 nos of item "RM0001" at $200 from supplier "Arcu V
 
 **Stock Ledger**
 
-![Perpetual Inventory](/files/perpetual-receipt-sl-1.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-receipt-gl-2.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 As stock balance increases through Purchase Receipt, "Store" accounts are debited and a temporary account "Stock Receipt But Not Billed" account is credited, to maintain double-entry accounting system. At the same time, the negative expense is booked in account head having category as "Valuation" or "Total and Valuation" in taxes and charges table for the amount added for valuation purpose, to avoid double expense booking.
 
@@ -476,7 +476,7 @@ On receiving Bill from supplier, for the above Purchase Receipt, you will make P
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-pinv-gl-3.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 Here "Stock Received But Not Billed" account is debited and nullified the  
 effect of Purchase Receipt.
@@ -510,11 +510,11 @@ Let's say, you have an order from "Utah Automation Services" to deliver 5 qty of
 
 **Stock Ledger**
 
-![Perpetual Inventory](/files/perpetual-dn-sl-4.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-dn-gl-5.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 As an item is delivered from "Stores" warehouse, "Stores" account is credited and  
 an equal amount is debited to the expense account "Cost of Goods Sold". The  
@@ -551,11 +551,11 @@ of the Sales Invoice are same as the above Delivery Note.
 
 **Stock Ledger**
 
-![Perpetual Inventory](/files/perpetual-inv-sl-6.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-inv-gl-7.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 Here, apart from normal account entries for an invoice, "Stores" and "Cost of  
 Goods Sold" accounts are also affected based on the valuation amount.
@@ -574,11 +574,11 @@ Goods Sold" accounts are also affected based on the valuation amount.
 
 **Stock Ledger**
 
-![Perpetual Inventory](/files/perpetual-st-receipt-sl.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-st-receipt-gl.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 #### 2.7 Stock Entry (Material Issue)
 
@@ -594,11 +594,11 @@ Goods Sold" accounts are also affected based on the valuation amount.
 
 **Stock Ledger**
 
-![Perpetual Inventory](/files/perpetual-st-issue-sl.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-st-issue-gl.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 #### 2.8 Stock Entry (Material Transfer)
 
@@ -614,11 +614,11 @@ Goods Sold" accounts are also affected based on the valuation amount.
 
 **Stock Ledger**
 
-![Perpetual Inventory](/files/perpetual-st-transfer-sl.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 **General Ledger**
 
-![Perpetual Inventory](/files/perpetual-st-transfer-gl.png)
+[Screenshot on the live page: Perpetual Inventory]
 
 #### 3. Related Topics
 
@@ -640,18 +640,18 @@ However, this excludes data that is required by law to be maintained by a busine
 ## How to request account deletion
 
 1. To begin deleting users account and personally identifiable data, you need to visit [host-name]/request-for-account-deletion (e.g. example.erpnext.com/request-for-account-deletion) in the URL field.
-  ![](/files/image727709.png)
+  [Screenshot on the live page]
 2. Enter the email associated with your ERPNext account. After submitting your request, you will receive a success response.
-  ![](/files/imagea32960.png)
+  [Screenshot on the live page]
 3. This will send an email with a verification link to delete data to the email address associated with the user.
-  ![](/files/imagee38974.png)
+  [Screenshot on the live page]
 4. Once the user clicks on the verification link. A confirmation message will be displayed.
 
 ## How deleting a user's personal data works
 
 The request to delete data is recorded in the doctype "Personal Data Deletion Request".
 
-![Personal Data Download Request Doctype](/files/personal-data-deletion-request-doctype.png)
+[Screenshot on the live page: Personal Data Download Request Doctype]
 
 This doctype maintains three states of status to complete the process of removal of user data.
 
@@ -659,19 +659,19 @@ This doctype maintains three states of status to complete the process of removal
 
 This status indicates that the user has requested data deletion via the web-form. However, verification of this request is still pending. Search for Personal Data Deletion Request from the search bar.
 
-![Pending Verification](/files/pending-verification.png)
+[Screenshot on the live page: Pending Verification]
 
 ### Pending Approval
 
 This indicates that the user has verified the request via email. This enables the option of "Delete Data" for System Managers.
 
-![Pending Approval](/files/pending-approval.png)
+[Screenshot on the live page: Pending Approval]
 
 ### Deleted
 
 This indicates that the System Manager has clicked on the "Delete Data" button. This means that the user's personally identifiable data has been anonymized.
 
-![Deleted User](/files/deleted-user.png)
+[Screenshot on the live page: Deleted User]
 
 ### Setting SLA for Personal Data Deletion Request.
 
@@ -682,7 +682,7 @@ You can also set an SLA for Personal Data Deletion Request through Website Setti
 - In the **Account Deletion SLA (Days)** field set the number of days within which users request for Account Deletion will be fulfilled.
 - If you enable **Show Account Deletion link in My Account page**, the form link will be visible to users on the My Account Page of the website
 
-![Account Deletion Settings](/files/Screenshot 2021-12-01 at 8.50.39 PM.png)
+[Screenshot on the live page: Account Deletion Settings]
 
 <!-- page: erpnext/erpnext__personal-data-download.md -->
 ---
@@ -697,16 +697,16 @@ Personal data download tool enables a user to automatically download all the per
 ## How to request a user data download
 
 1. To begin downloading data, the user has to **log in** and visit [host-name]/request-data (e.g. erpnext.com/request-data) in the URL field.
-  ![](/files/imagef57ad4.png)
+  [Screenshot on the live page]
 2. After submitting your request, you will receive a success response.
-  ![](/files/image01d862.png)
+  [Screenshot on the live page]
 3. This will send an email with a download link of the data to the email address associated with the user.The file available for download will be in the JSON format.
 
 ## Personal Data Download Request DocType
 
 The request is also recorded in the DocType "Personal Data Download Request", the file link that is sent to the user via email is also attached to the doc. Search for Personal Data Download Request from the search bar.
 
-![](/files/imaged1d56c.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__petty-cash-entry-in-erpnext.md -->
 ---
@@ -731,7 +731,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. Reconcile the physical cash plus receipts to the ledger balance.
 5. Post an approved adjustment only when the difference is explained.
 
-![Book Petty Cash Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-14-journal-entry-list.png)
+[Screenshot on the live page: Book Petty Cash Entry in ERPNext]
 
 ## Important fields and what they mean
 
@@ -819,7 +819,7 @@ Before creating and using a Pick List, it is advised that you create the followi
 2. How to create Pick List
 --------------------------
 
-1. Go to the Pick List list, click on New. ![Unsaved Pick List](/files/pick-list-unsaved-doc.png)
+1. Go to the Pick List list, click on New. [Screenshot on the live page: Unsaved Pick List]
 2. Set the Company.
 3. Select the Purpose of Pick List. These are the options under Purpose:
 
@@ -830,11 +830,11 @@ Before creating and using a Pick List, it is advised that you create the followi
 4. Add Item and the quantity you want to pick in the Item Locations table. Click on **Get Item Locations** to get the Warehouse and other details for each Item.
 5. **Parent Warehouse:** If a parent Warehouse is selected, Warehouses only under that parent Warehouse will be suggested.
 6. **Get Item Locations:** Once items to be picked is finalized you can click on the **Get Item Locations** button to get Warehouse selection for each item. Since Warehouse will be automatically fetched if you get an Item from any reference document, this button can be useful to manually add additional Items or change the quantity of existing Items in the Item Locations table.
-7. **Item Locations:** This will have the information of the item location (Warehouse), Serial Number for serialized items and batch no for batched items. ![Item Locations](/files/pick-list-item-locations.png)  
+7. **Item Locations:** This will have the information of the item location (Warehouse), Serial Number for serialized items and batch no for batched items. [Screenshot on the live page: Item Locations]  
 
 
-If Serial Numbers are involved, the Item row will look like this: ![Item Location Detail](/files/pick-list-item-location-detail.png)
-8. Save and Submit. ![Submitted Pick List](/files/pick-list-submitted-doc.png)
+If Serial Numbers are involved, the Item row will look like this: [Screenshot on the live page: Item Location Detail]
+8. Save and Submit. [Screenshot on the live page: Submitted Pick List]
 
 ### 2.1 Create Pick List from a Sales Order
 
@@ -843,7 +843,7 @@ If Serial Numbers are involved, the Item row will look like this: ![Item Locatio
 3. Once you click Pick List, all the data required for Pick List will be fetched from the Sales Order.
 4. Alternatively, you can create a new Pick List and click on "Get Items". This would show a popup of all pending Sales Orders.
 
-![](/files/PL-GetItems.png)  
+[Screenshot on the live page]  
 
 
 1. You should be able to see the Item Locations Table with the Warehouse selected for each item.
@@ -856,7 +856,7 @@ If Serial Numbers are involved, the Item row will look like this: ![Item Locatio
 
 1. Go to a [Work Order](/erpnext/work-order).
 2. Click **Create Pick List** button.
-3. You'll see the dialog box asking for the quantity of Finished Goods Item. This is required to calculate the number of raw material items required to manufacture the entered quantity of Finished Goods Item. ![Dialog For qty](/files/pick-list-dialog-for-qty.png)
+3. You'll see the dialog box asking for the quantity of Finished Goods Item. This is required to calculate the number of raw material items required to manufacture the entered quantity of Finished Goods Item. [Screenshot on the live page: Dialog For qty]
 4. You should be able to see the Item locations table with the Warehouse selected for each raw material item.
 5. Save this document and then this document can be forwarded to the person who is picking the stock.
 6. Submit the document once the stock picking is done and the picked item is updated in the document accordingly.
@@ -895,7 +895,7 @@ Pick list supports barcode scanning, introducing two check boxes. **Scan Mode**,
 
 In the pick list, if a user manually selects batches, the system overrides the changes upon saving the pick list. To solve this issue added a checkbox 'Pick Manually' in the pick list. If this checkbox is enabled, the system will not override the user's changes in the pick list.
 
-![pick_manual](/files/pick_manual.gif)  
+[Screenshot on the live page: pick_manual]  
 
 
 5. Related Topics
@@ -904,3 +904,57 @@ In the pick list, if a user manually selects batches, the system overrides the c
 1. [Sales Order](/erpnext/sales-order)
 2. [Work Order](/erpnext/work-order)
 3. [Material Request](/erpnext/material-request)
+
+<!-- page: erpnext/erpnext__plaid_integration.md -->
+---
+title: "Plaid Integration\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/plaid_integration"
+updated: "2026-02-26"
+---
+
+
+ERPNext offers the possibility to synchronize your bank accounts through a service called [Plaid](https://plaid.com/). Please check [the Plaid FAQ](https://support-my.plaid.com/hc/en-us) to see if your country is supported.
+
+If your instance is connected to Plaid, you are able to synchronize your bank account transactions without having to manually import a CSV or XLSX file.
+
+
+## Settings
+
+In order to give ERPNext access to Plaid, you need to add the following three parameters to your `site_config.json` file.
+
+- `plaid_env`
+- `plaid_public_key`
+- `plaid_secret`
+
+## Activation
+
+In order to activate Plaid on an instance, click on the button "Enable" in the Plaid Settings DocType.
+
+[Screenshot on the live page: Enable Plaid]
+
+Once activated, you can create a new account directly from the Bank Reconciliation dashboard.
+
+
+## Bank account creation
+
+In order to link one of your existing bank accounts to ERPNext, click on "Link a new bank account" and follow the steps proposed by Plaid.
+
+[Screenshot on the live page: Link your bank account]
+
+
+## Bank synchronization
+
+In order to synchronize a bank account with ERPNext, select an account and click on the "Action" button to select "Synchronize this account".
+
+[Screenshot on the live page: Synchronize your bank account]
+
+The synchronization is based on the "Last integration date" available in the "Bank Account" doctype.
+
+If, for any reason, you want to redo a synchronization, you can change this date and synchronize the account again.
+Since all bank transactions are tagged with a specific transaction ID, the synchronization will only be incremental.
+
+
+## Automatic Synchronization
+
+You can allow plaid to synchronize your bank account with ERPNex every hour by selecting "Synchronize all accounts every hour" in Plaid Settings.

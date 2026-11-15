@@ -76,12 +76,12 @@ First, create a new **Connected App** and give it a name. Most providers offer a
 
 If you don't know this URL, please go to the "Endpoints" section and manually enter the *Authorization URI* and *Token URI*. The Authorization URI is where you will be redirected to give your consent. The Token URI is the endpoint where the system can exchange an authorization code for an access or refresh token. Please check the documentation of the specific integration or third party service to get the right values.
 
-![new_connected_app](/files/new_connected_app.png)  
+[Screenshot on the live page: new_connected_app]  
 
 
 Now the configuration should look like this:
 
-![fetched_openid_config](/files/fetched_openid_config.png)  
+[Screenshot on the live page: fetched_openid_config]  
 
 
 Click on "Save". Now you should see a new read-only field called *Redirect URI*. Note that the last part of it is specific to your **Connected App**. You'll need to register the Redirect URI with your provider (Google, in this case).
@@ -93,27 +93,27 @@ Copy the Redirect URI, head to the third party service and create new OAuth 2.0 
 > 
 > 
 
-![Create OAuth 2.0 client credentials](/files/3-get-client-credentials.png)  
+[Screenshot on the live page: Create OAuth 2.0 client credentials]  
 
 
 Copy the client ID and secret from the third party service to your **Connected App** and save.
 
-![client_credentials](/files/client_credentials.png)  
+[Screenshot on the live page: client_credentials]  
 
 
 Next, you'll need to define what scopes your system needs to access. In this example, we want to connect to an email inbox, so we need the scope `https://mail.google.com/`. For other use cases, please check the available scopes at your providers' documentation.
 
-![scope](/files/scope.png)  
+[Screenshot on the live page: scope]  
 
 
 Lastly, we can define extra parameters. The Google documentation states that we'll need the parameter `access_type=offline`, so that for our server can access the email inbox in the background and keep refreshing the access token without user intervention. If we don't pass this parameter, the temporary access will quickly expire and we'll need to log in again and again.
 
-![extra_parameters](/files/extra_parameters.png)  
+[Screenshot on the live page: extra_parameters]  
 
 
 Now you and your users can click on "Connect to ..." on the top right. This will open a new browser tab that shows the third party service's consent screen. After this, you will be redirected to your frappe instance.
 
-![connect](/files/connect.png)  
+[Screenshot on the live page: connect]  
 
 
 In the backend, your server will exchange a code that it obtained during the redirect for a temporary access token and, optionally, a refresh token. These can then be used to access the third party service on your behalf.
@@ -184,7 +184,7 @@ frappe.ui.form.ControlLink.link_options = function(link) {
 
 Once a function is assigned to `frappe.ui.form.ControlLink.link_options`, the link field will have a new link option:
 
-![182354398 c1fc9f55 4464 4683 bb74 982ec2546f71](https://user-images.githubusercontent.com/7310479/182354398-c1fc9f55-4464-4683-bb74-982ec2546f71.png)
+[Screenshot on the live page: 182354398 c1fc9f55 4464 4683 bb74 982ec2546f71]
 
 <!-- page: framework/framework__user__en__guides__app-development__dialogs-types.md -->
 ---
@@ -199,7 +199,7 @@ Frappe provides a group of standard dialogs that are very useful while coding.
 
 ## Alert Dialog
 
-![](/files/show-alert.png)
+[Screenshot on the live page]
 
 Alert Dialog is used for showing non-obstructive messages.
 
@@ -216,7 +216,7 @@ It has 2 parameters:
 
 ## Prompt Dialog
 
-![](/files/prompt.png)
+[Screenshot on the live page]
 
 Prompt Dialog is used for collecting data from users.
 
@@ -242,7 +242,7 @@ It has 4 parameters:
 ---
 ## Confirm Dialog
 
-![](/files/confirm-dialog.png)
+[Screenshot on the live page]
 
 Confirm Dialog is used to get a confirmation from the user before executing an action.
 
@@ -268,7 +268,7 @@ It has 3 arguments:
 
 ## Message Print
 
-![](/files/msgprint.png)
+[Screenshot on the live page]
 
 Message Print is used for showing information to users.
 
@@ -299,7 +299,7 @@ It has 2 arguments:
 
 ### Custom Dialog
 
-![](/files/dialog.png)
+[Screenshot on the live page]
 
 You can extend and build your own custom dialogs using `frappe.ui.Dialog`
 
@@ -369,14 +369,14 @@ A common use case is to extend a DocType via Custom Fields and Property Setters 
 
 You will see a button for **Export Customizations**
 
-![](/files/export-custom-1.png)  
+[Screenshot on the live page]  
 
 
 Here you can select the module and whether you want these particular customizations to be synced after every update.
 
 The customizations will be exported to a new folder `custom` in the module folder of your app. The customizations will be saved by the name of the DocType
 
-![](/files/export-custom-2.png)  
+[Screenshot on the live page]  
 
 
 When you do `bench update` or `bench migrate` these customizations will be synced to the app.
@@ -405,17 +405,17 @@ In this scenario, the custom field will be updated automatically based on the va
 #### Steps:
 
 1. Create a Custom Field **GSTIN** for *Supplier* document with *Field Type* as **Data**.
- ![](/files/gstin-field-supplier.png)
+ [Screenshot on the live page]
 
 1. Create another Custom Field **GSTIN** for *Purchase Order* document, but in this case with *Field Type* as **Read Only** or check **Read Only** checkbox. Set **Fetch From** as `supplier.gstin`.
  
-![](/files/gstin-field-po-s1.png)
+[Screenshot on the live page]
 
 1. Go to the user menu and click "Reload".
 
 1. Now, on selection of Supplier in a new Purchase Order, **GSTIN** will be fetched automatically from the selected Supplier.
  
-![](/files/po-gstin-s1.png)
+[Screenshot on the live page]
 
 ### Scenario II: You want to allow user input if value not found
 
@@ -425,17 +425,17 @@ In this scenario, the value is fetched from the Supplier the first time the Purc
 
 1. Create a Custom Field **GSTIN** for *Supplier* document with *Field Type* as **Data**.
  
-![](/files/gstin-field-supplier.png)
+[Screenshot on the live page]
 
 1. Create another Custom Field **GSTIN** for *Purchase Order* document with *Field Type* as **Data**. Set **Fetch From** as `supplier.vat_number` and tick the checkbox titled **Fetch If Empty**.
  
-![](/files/gstin-field-po-s2.png)
+[Screenshot on the live page]
 
 1. Go to the user menu and click "Reload".
 
 1. Now, on selection of Supplier in a new Purchase Order, **GSTIN** will be fetched automatically from the selected Supplier. If GSTIN is not found in supplier, you can enter it manually.
  
-![](/files/po-gstin-s2.png)
+[Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__guides__app-development__generic-oauth-client.md -->
 ---
@@ -1086,7 +1086,7 @@ yarn cypress:open
 
 This will open the Cypress Electron shell where you can run any test manually or run all of the tests.
 
-![](/files/running-cypress-tests.gif)
+[Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__guides__automated-testing__qunit-testing.md -->
 ---
@@ -1109,7 +1109,7 @@ To run your files, you can use the **Test Runner**. The **Test Runner** gives a 
 
 In the CI, all QUnit tests are run by the **Test Runner** using `frappe/tests/test_test_runner.py`
 
-![](/files/test-runner.png)
+[Screenshot on the live page]
 
 ### Running Tests
 

@@ -21,7 +21,7 @@ To access Custom Field, go to:
 
 You can also go to the list view of any DocType and select Customize from the Menu options.
 
-![Customize Option in List View](/files/customize-option-in-list-view.png)  
+[Screenshot on the live page: Customize Option in List View]  
 
 
 1. How to create a Custom Field
@@ -33,30 +33,30 @@ You can also go to the list view of any DocType and select Customize from the Me
 4. **Field Type**: ERPNext already has a set of Field Types defined which can be fetched from this drop-down menu. You can select the Type of your Custom Field from within this menu.
 5. Update.
 
-![New Custom Field](/files/new-custom-field.png)  
+[Screenshot on the live page: New Custom Field]  
 
 
 *Learn more about Field types* [*here*](/erpnext/field-types.html)*.*
 
 You can also go to [Customize Form](/erpnext/customize-form) and add, edit or remove a Field in a particular Form.
 
-![Add Custom Field From Customize Form](/files/customize-erpnext-custom-field-from-customize-form.gif)  
+[Screenshot on the live page: Add Custom Field From Customize Form]  
 
 
 ### 1.1. Additional Details
 
 1. **Options**: This Field comes into picture when you would want your data to be specific or specify the data. E.g., when you have selected the Field to be a 'Select Field', you would be required to enter the selection options here.
 
-![Custom Field with Fieldtype as Select](/files/custom-field-with-select-fieldtype.png)
+[Screenshot on the live page: Custom Field with Fieldtype as Select]
 2. **Fetch From**: When you want your Custom Field to be 'Link Field', you would be required to specify the Form to which this Field is to be linked. E.g., you want to create a Custom Field 'Project' in the DocType 'Item'. You would be required to enter to specify your Field Type as 'Link' and enter 'Project' in the Fetch From Field to ensure that the Field is updated with the list of all the required DocTypes.
 3. **Fetch If Empty**: This check-box will ensure that this Field will be not overwritten based on Fetch From if a value already exists.
 4. **Default Value**: Enter the default value of the Field which you would want to be fetched for this Field.
 5. **Depends On**: You can define a condition here for the Field to be displayed. E.g., in the DocType Item, two fields 'Asset Category' and 'Asset Naming Series' will only appear if the Field 'Is Fixed Asset' is checked. The dependency condition here would be `is_fixed_asset`.
 
-![Depends On Option](/files/custom-field-dpends-on.png)
+[Screenshot on the live page: Depends On Option]
 6. **Field Description**: You can add the description of the Field here which can be displayed below this Field.
 
-![Custom Field Description](/files/custom-field-description.png)
+[Screenshot on the live page: Custom Field Description]
 7. **Permission Level**: This will allow you to specify which roles within your organization will be able to edit this Field. You can go through [Role Based Permissions](/erpnext/role-based-permissions) for more understanding on this.
 8. **In Preview**: If [Show Preview Popup](/erpnext/customize-form#13-more-properties) for the document type is checked, the Field will be included in the popup that appears on hovering over links of the document type (in list view and other link fields).
 9. **Width**: This will define the width allocated to this Field while viewing the Form in a Grid View.
@@ -83,7 +83,7 @@ You can also go to [Customize Form](/erpnext/customize-form) and add, edit or re
 * Custom fields by default add a prefix of `custom_` to fieldname. This is done to avoid a potential clash with current/future standard fields
 * If your customizations require a specific fieldname you can rename any existing custom field by going to Custom Field doctype and clicking the "Rename Fieldname" button.
 
-![](/files/a7pvD6Y.png)
+[Screenshot on the live page]
 
 2. Videos
 ---------
@@ -105,7 +105,7 @@ For example, if you have customers from Germany and France who want quotations i
 
 In the Customer master, select the default Language. Say, the default language for the Customer is **Spanish**.
 
-![Set Customer Language](/files/set-customer-language.png)
+[Screenshot on the live page: Set Customer Language]
 
 Same way, you can also set default language in the Supplier master.
 
@@ -115,7 +115,7 @@ In the Print Preview of a transaction, values will be translated into the party'
 
 Customer Quotation print preview in customer's default language.
 
-![Invoice in Customer Language](/files/invoice-in-customer-language.png)
+[Screenshot on the live page: Invoice in Customer Language]
 
 Supplier Quotation print preview in supplier's default language.
 
@@ -123,7 +123,7 @@ Supplier Quotation print preview in supplier's default language.
 
 User has the option to select an alternate language on print view.
 
-![Select Language in Invoice](/files/select-language-in-invoice.png)
+[Screenshot on the live page: Select Language in Invoice]
 
 ## 2. Custom Translation
 
@@ -131,11 +131,11 @@ Users can set their custom translations using Custom Translations form. For exam
 
 > Home > Customization > Other > Custom Translations > New
 
-![Translation](/files/translation.png)
+[Screenshot on the live page: Translation]
 
 The translation is applied when the user selects the language as Spanish on supplier Quotation's print preview. Note that no translation is applied for the second item's description since it wasn't created in the Translation list.
 
-![Translation in Transaction](/files/translation-in-transaction.png)
+[Screenshot on the live page: Translation in Transaction]
 
 ### 3. Related Topics
 1. [Address Template](/erpnext/address-template)
@@ -295,7 +295,7 @@ Customer Groups provide five practical benefits:
 
 For example, Nova Electronics Trading can separate retail, wholesale, government, and marketplace Customers. Management can analyze each segment while sales users receive appropriate defaults when they select a Customer.
 
-![Customer Group hierarchy with Nova Commercial Customers.](https://novacompanies.m.frappe.cloud/files/customer-group-tree.png)
+[Screenshot on the live page: Customer Group hierarchy with Nova Commercial Customers.]
 
 ## Before you begin
 
@@ -319,7 +319,7 @@ ERPNext includes groups such as Commercial, Government, Individual, and Non Prof
 
 Only leaf nodes can be selected on transactions. If **Is Group** is enabled, create at least one child leaf group before assigning Customers.
 
-![Customer Group form showing its parent, leaf setting, defaults, accounts, and credit limits.](https://novacompanies.m.frappe.cloud/files/customer-group-details.png)
+[Screenshot on the live page: Customer Group form showing its parent, leaf setting, defaults, accounts, and credit limits.]
 
 ### Example hierarchy
 
@@ -447,11 +447,11 @@ Your Customer and Suppliers can signup to your ERPNext account by following Sign
 
 On the Login Page, you will find option to Signup.
 
-![Website User Signup](/files/website-login.png)
+[Screenshot on the live page: Website User Signup]
 
 #### Step 2: Enter Customer Name and ID
 
-![Website User Signup](/files/website-signup-details.png)
+[Screenshot on the live page: Website User Signup]
 
 After the sign up process, an email will be sent to the customers Email Address with the password details.
 
@@ -459,25 +459,25 @@ After the sign up process, an email will be sent to the customers Email Address 
 
 To login into the customer account, the customer has to use his Email Address and the password sent by ERPNext; generated through the sign-up process.
 
-![Website User Signup](/files/website-login.png)  
+[Screenshot on the live page: Website User Signup]  
 
 ## Customer Orders Invoices And Shipping Status
 
 ERPNext Web Portal gives your customers quick access to their Orders, Invoices and Shipments Customers can check the status of their orders, invoices, and shipping status by logging on to the web.
 
-![Customer Portal](/files/portal-menu.png)
+[Screenshot on the live page: Customer Portal]
 
 Once an order is raised, either using the Shopping Cart or from within ERPNext, your customer can view the order and keep an eye on the billing and shipment status. When the invoice and payment against these orders are submitted, the customer can see the updated status on the portal, at a glance.
 
-![Customer Portal](/files/website-login.png)
+[Screenshot on the live page: Customer Portal]
 
 #### Outstanding Sales Invoice
 
-![Customer Portal](/files/invoice-unpaid.png)
+[Screenshot on the live page: Customer Portal]
 
 #### Paid Sales Invoice
 
-![Customer Portal](/files/invoice-paid.png)
+[Screenshot on the live page: Customer Portal]
 
 ## Issues
 
@@ -488,19 +488,19 @@ conversation.
 
 #### Empty Issue List
 
-![Issue List](/files/portal-ticket-list-empty.png)
+[Screenshot on the live page: Issue List]
 
 #### New Issue
 
-![New Issue ](/files/portal-new-ticket.png)
+[Screenshot on the live page: New Issue]
 
 #### Open Issue
 
-![Issue Raised](/files/portal-ticket-1.gif)
+[Screenshot on the live page: Issue Raised]
 
 #### Reply on Issue
 
-![Issue reply](/files/portal-ticket-reply.gif)
+[Screenshot on the live page: Issue reply]
 
 <!-- page: erpnext/erpnext__customer-provided-items.md -->
 ---
@@ -515,7 +515,7 @@ In Contract Manufacturing, in some cases, the Customer provides specific items a
 
 In this feature, Customer Provided Item is received through 'Stock Entry' with type 'Material Receipt' from a 'Material Request' with type 'Customer provided'. This feature is used when someone subcontracts the manufacturing process to you and supplies the raw materials.
 
-![Customer Provided Material Request](/files/material-request-customer-provided.png)
+[Screenshot on the live page: Customer Provided Material Request]
 
 Here are the steps on how to setup a 'Customer Provided' item.
 
@@ -526,17 +526,17 @@ Here are the steps on how to setup a 'Customer Provided' item.
 2. In the 'Purchase, Replenishment Details' section, check 'Is Customer
  Provided' and set a default Customer. Note that 'Is Purchase Item' needs to be unticked to use this feature.
 
- ![Item Purchase Details](/files/item-customer-provided.png)
+ [Screenshot on the live page: Item Purchase Details]
 
 How to receive a 'Customer Provided' Item?
 
 1. If a 'Production Plan' is used, 'Material Request' for this item can be auto created. That is, the item to be manufactured is fetched first via Sales Order or Material Request, Items are fetched for the Work Order using the 'Get Items for Work Order' button, then click on the 'Get Raw Materials for Production' button.
 
- ![Material Request in Production Plan](/files/material-request-production-plan.png)
+ [Screenshot on the live page: Material Request in Production Plan]
 
 2. Once a component in a BOM is set as 'Customer Provided' and 'Material Request' is created from a 'Production Plan', it will create both 'Material Request' with type 'Purchase' and 'Customer Provided'. From there, a 'Stock Entry' with purpose 'Material Receipt' can be created.
 
- ![Stock Entry from Material Request](/files/create-mr-from-production-plan.png)
+ [Screenshot on the live page: Stock Entry from Material Request]
 
 3. A 'Material Request' can have multiple 'Stock Entry' - Material Receipt. It
  will reflect it in the status.
@@ -559,7 +559,7 @@ A **Customer** represents a person, business, or other organization that buys go
 
 Create a separate Customer for each independently billed party. Store people and locations as linked Contacts and Addresses instead of putting every detail in the Customer name.
 
-![Customer details and sales defaults for Summit Digital Stores.](https://novacompanies.m.frappe.cloud/files/customer-details-and-defaults.png)
+[Screenshot on the live page: Customer details and sales defaults for Summit Digital Stores.]
 
 ## Before you begin
 
@@ -625,7 +625,7 @@ Leave optional defaults empty when they vary by transaction. A user can select a
 3. Select **New Contact**, enter the person's name and role, then add the primary email address and phone number.
 4. Select the Customer's primary Address and Contact when ERPNext does not assign them automatically.
 
-![Billing and shipping addresses with the primary purchasing contact.](https://novacompanies.m.frappe.cloud/files/customer-addresses-and-contacts.png)
+[Screenshot on the live page: Billing and shipping addresses with the primary purchasing contact.]
 
 Review primary flags carefully. Sales documents can fetch the primary billing and shipping details, while users can still choose another linked record for a specific transaction.
 
@@ -645,7 +645,7 @@ ERPNext normally posts Customer receivables to the company's default Debtors acc
 
 Add one credit-limit row for each company that needs a limit. ERPNext evaluates submitted exposure against that amount according to the configured credit-control behaviour. Keep the **Bypass credit limit check at sales order** option cleared when orders should be checked before invoicing.
 
-![Company receivable account and Customer credit limit.](https://novacompanies.m.frappe.cloud/files/customer-accounting-and-credit-limit.png)
+[Screenshot on the live page: Company receivable account and Customer credit limit.]
 
 Use the dedicated [Credit Limit](/erpnext/credit-limit) guidance when defining the policy. The payment terms template controls when amounts are due; it does not increase the Customer's credit limit.
 
@@ -719,3 +719,101 @@ Yes. Company-specific accounts and credit limits are stored in separate rows on 
 - [Address](/erpnext/address)
 - [Quotation](/erpnext/quotation)
 - [Credit Limit](/erpnext/credit-limit)
+
+<!-- page: erpnext/erpnext__customise-cash-flow-report.md -->
+---
+title: "Customise Cash Flow Report"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/customise-cash-flow-report"
+updated: "2026-08-14"
+---
+
+Nova Industries's default Cash Flow report explains how cash moved through operating, investing, and financing activities. Finance wants a reusable IFRS-style presentation with clearer lines for profit before tax, depreciation, finance costs, receivables, payables, inventory, equipment purchases, and financing.
+
+
+
+In the current ERPNext develop version, Nova can create or adapt a [Financial Report Template](/erpnext/financial-report-template) with Report Type set to **Cash Flow**. The template controls report headings, account selection, calculations, indentation, signs, hidden rows, and charts. It changes presentation, not the underlying [General Ledger](/erpnext/general-ledger) entries.
+
+## Before you begin
+
+- Run the standard [Cash Flow Report](/erpnext/cash-flow-report) and reconcile it with the General Ledger.
+- Have an accountant approve the required headings, classifications, signs, and calculations.
+- Review the [Chart of Accounts](/erpnext/chart-of-accounts) and assign consistent Account Categories where template rows use them.
+- Test the template with representative transactions before using it for management or external reporting.
+
+## Review the current report
+
+Run Cash Flow for Nova Industries with a period containing operating, investing, and financing transactions. Save the baseline totals before enabling a custom format.
+
+[Screenshot on the live page: Loaded Cash Flow report for Nova Industries before mapping review]
+
+## Create or copy a Cash Flow template
+
+1. Open Financial Report Template.
+2. Create a template, or copy an existing Cash Flow template when it is a suitable starting point.
+3. Set **Report Type** to **Cash Flow**.
+4. Enter a clear Template Name and keep the template enabled.
+
+## Build and arrange the report lines
+
+Add rows to **Report Line Items** in the exact order they should appear. Use blank or visual rows for section headings, Account Data rows for ledger-derived values, and Calculated Amount rows for subtotals. Indent supporting lines beneath their section and use stable Line References for formulas.
+
+[Screenshot on the live page: Standard Cash Flow Statement IFRS template showing its ordered report line items]
+
+
+| Example line                                    | Typical source      | Presentation                                              |
+| ----------------------------------------------- | ------------------- | --------------------------------------------------------- |
+| Cash flows from operating activities            | Visual or blank row | Section heading at indent level 0                         |
+| Profit before tax                               | Account Data        | Period movement with the appropriate sign                 |
+| Depreciation and amortisation                   | Account Data        | Indented non-cash adjustment                              |
+| Operating profit before working-capital changes | Calculated Amount   | Formula based on earlier Line References                  |
+| Change in trade receivables                     | Account Data        | Working-capital movement with reversed sign when required |
+
+
+## Verify the custom report
+
+[Screenshot on the live page: Cash Flow report after mapping with an account group opened for verification]
+
+
+
+1. Refresh Cash Flow for the same company and period used for the baseline.
+2. Confirm every expected line appears under the correct section.
+3. Compare section totals and closing cash with the standard report and General Ledger.
+4. Open unusual balances and verify the mapped accounts.
+5. Repeat the test for a second period before relying on the format.
+
+## Troubleshooting
+
+### A line is missing
+
+Confirm that the row is enabled, its Account Data filter matches the intended accounts, and the selected period contains relevant ledger activity. Check whether **Hide If Zero** is suppressing the row.
+
+### A value appears twice
+
+Review the template's account coverage for overlap. The same account may be included by more than one Account Data row, or a parent account and its children may both be selected.
+
+### Net cash does not reconcile
+
+Run the template and standard Cash Flow report with identical company, dates, Finance Book, dimensions, currency, and opening-balance options. Then check omitted accounts, duplicated coverage, formulas, Line References, and sign reversal.
+
+## Frequently asked questions
+
+### Does customisation change ledger entries?
+
+The configuration changes how existing balances are classified and displayed. It does not repost transactions.
+
+### Can I add a fourth cash-flow section?
+
+The standard structure uses Operating, Investing, and Financing Activities. Use approved labels and mappings inside those sections unless a current product extension explicitly supports another structure.
+
+### Should parent or child accounts be mapped?
+
+Use an approach that avoids overlap and matches how the account tree is maintained. Parent accounts work best when all children share the same cash-flow treatment.
+
+## Related topics
+
+- [Accounting Reports](/erpnext/accounting-reports)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [Accounts Settings](/erpnext/accounts-settings)
+- [General Ledger](/erpnext/general-ledger)
+- [Financial Report Template](/erpnext/financial-report-template)

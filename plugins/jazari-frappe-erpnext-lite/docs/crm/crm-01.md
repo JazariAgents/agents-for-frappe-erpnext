@@ -13,13 +13,13 @@ Assignment Rules automate the process of assigning leads and deals to specific a
 ## **Creating an Assignment Rule**
 
 1. Go to **Settings > Assignment Rules** and click on **+New**.
-  ![](/files/image253100.png)
+  [Screenshot on the live page]
 2. **Define the Rule:** Fill in the following mandatory fields:
   - **Name:** A label to identify the rule
   - **Description:** Describe in short what the rule does
   - **Apply for:** Select for which doctype(Lead or Deal) the rule will apply
   - **Assignment condition:** Define the condition using the conditions builder for the assignment rule
-    ![](/files/image7712f7.png)
+    [Screenshot on the live page]
   - **Users:** Choose the user(s) to whom Lead or Deal meeting the condition will be assigned.
 
 ## **Lead or Deal Routing**
@@ -60,12 +60,12 @@ Make a call
 > 
 > 
 
-![CALL](/files/CALL.gif)  
+[Screenshot on the live page: CALL]  
 
 
 Once your call is done you can check in the Calls tab to track all the call activity made to a Lead/Deal. Also, you can easily refer to the call recording.
 
-![call activity](/files/call activity.gif)  
+[Screenshot on the live page: call activity]  
 
 
 **Call Logs**
@@ -73,7 +73,7 @@ Once your call is done you can check in the Calls tab to track all the call acti
 
 Call log view is a valuable tool for any business that relies on effective customer communication. By leveraging these reports, you can transform your call data into actionable insights, driving improved performance, customer satisfaction, and overall business success.
 
-![Screen Recording 2024-03-31 at 2.33.58 PM (1)](/files/Screen Recording 2024-03-31 at 2.33.58 PM (1).gif)  
+[Screenshot on the live page: Screen Recording 2024-03-31 at 2.33.58 PM (1)].gif)  
 
 
 Frappe CRM's call log reports offer various filters and options to customize your analysis. Here are some common reporting aspects:
@@ -99,7 +99,7 @@ updated: "2026-07-17"
 
 Forms in Frappe CRM let you collect Leads or Deals directly from your website or by circulating web forms without writing a single line of code. 
 
-![](/files/image99a4f3.webp)
+[Screenshot on the live page]
 *A sample form*
 
 ## Creating a form
@@ -111,7 +111,7 @@ Follow these simple steps to create one:
 3. Give it a title, choose whether submissions become a **Lead** or a **Deal**, and set the route. This becomes the last part of the form's public URL (`/crm-form/your-route`). The route fills itself in from the title until you edit it directly.
 4. Click **Create form**.
 
-![](/files/Screen Recording 2026-07-17 at 3.29.49 PM.mov)
+[Screenshot on the live page]
 
 It opens straight into the builder with a starting layout already in place – name, email, and phone for Leads, plus organization name for Deals, so there's something to look at and publish right away.
 
@@ -128,13 +128,13 @@ The editor is a canvas of sections and columns, all drag-and-drop:
 - Drag the grip on the left of a section or field to reorder it.
 - Remove a field with the **×**. Fields the record (Lead or Deal) itself requires (like Status) can't be removed outright — they move to a **Hidden required fields** panel instead, where you set the default value that gets applied automatically on submission. If fields are added to the hidden section, they aren't visible to the audience on the public form.
 
-![](/files/Screen Recording 2026-07-17 at 3.38.06 PM.mov)
+[Screenshot on the live page]
 
 ## Previewing
 
 Click **Preview** to see the form as a visitor would, fill it out, and check that the success screen shows what you'd expect. Nothing here is actually saved. **Discard** or **Preview again** resets it, and **Edit** takes you back to the canvas.
 
-![](/files/Screen Recording 2026-07-17 at 3.41.11 PM.mov)
+[Screenshot on the live page]
 
 ## Settings
 
@@ -146,7 +146,7 @@ The Settings tab holds:
 - **Success message** - shown after submission if there's no redirect.
 - **Redirect URL** - send visitors somewhere else (a thank-you page, say) instead of showing the success message.
 
-![](/files/image8e50bc.webp)
+[Screenshot on the live page]
 *Settings page in Forms*
 
 ## Publishing
@@ -155,7 +155,7 @@ Flip **Publish** on in the header to make the form live. It won't publish until 
 
 Unpublishing doesn't delete anything. It just takes the public page down. As a manager, you can still open the link yourself to preview a draft; everyone else gets a 404 until it's published.
 
-![](/files/Screenshot 2026-07-17 at 3.46.12 PM.webp)
+[Screenshot on the live page]
 *Enable "Publish" to make your form public*
 
 ## Sharing and embedding
@@ -166,12 +166,12 @@ Once published, the **Share** tab gives you:
 - **Embed** - an iframe snippet for dropping into your own site.
 - **Allowed domains** - list the sites (one per line) allowed to embed the iframe. Leave it empty, and the embed only works on your CRM's own domain.
 
-![](/files/Screenshot 2026-07-17 at 3.49.53 PM.webp)
+[Screenshot on the live page]
 *Share tab in Forms*
 
 That's it. Once you have embedded the form in your website, your site visitors can fill it up and a Lead / Deal as configured will get created in your CRM with source = Web Form.
 
-![](/files/Screen Recording 2026-07-17 at 4.15.11 PM.mov)
+[Screenshot on the live page]
 
 P.S. In case you want to add more automations and colour to your form like custom CSS, banner images, etc. you can check your form in the desk view by going to Desk -> Web form. Refer to [this link](https://docs.frappe.io/framework/user/en/web-form/customization) for more details.
 
@@ -185,7 +185,7 @@ updated: "2026-02-05"
 
 The comment feature allows internal communication and information sharing related to leads and deals. It facilitates collaboration among agents by providing a dedicated space to discuss, track progress, and share details.
 
-![](/files/e3s52jJ.png)  
+[Screenshot on the live page]  
 
 
 ### **Key Features**
@@ -237,7 +237,7 @@ class CRMDeal {
 This adds a button labelled "Open in Desk" that opens the current deal in a new tab.  
 
 
-![](/files/Screenshot 2026-05-26 at 5.51.52 PM.png)
+[Screenshot on the live page]
 *"Open In Desk" Button in Top Right of the header *
 
 ### Grouped Actions (three-dot menu)
@@ -271,7 +271,7 @@ class CRMDeal {
 
 ```
 
-![](/files/Screenshot 2026-05-26 at 5.50.39 PM.png)
+[Screenshot on the live page]
 
 ### Grouped Actions with Label (dropdown button)
 
@@ -298,7 +298,7 @@ class CRMDeal {
 
 ```
 
-![](/files/Screenshot 2026-05-26 at 5.53.36 PM.png)
+[Screenshot on the live page]
 
 ### Mixing Single Buttons and Groups
 
@@ -326,7 +326,7 @@ class CRMDeal {
 }
 ```
 
-![](/files/Screenshot 2026-05-26 at 5.54.11 PM.png)
+[Screenshot on the live page]
 
 ## What You Have Access To
 
@@ -563,7 +563,7 @@ If you're setting up Frappe CRM for your company or a client, you can replace th
 
 To get here, go to **Settings > Brand**.
 
-![](/files/Screenshot 2026-04-20 at 5.22.26 PM.png)
+[Screenshot on the live page]
 
 Here's what you can configure:
 
@@ -588,7 +588,7 @@ What are Custom Fields?
 
 The default Lead/Deal pages in Frappe CRM come with essential fields like contact details, organization, owner etc. However, you might need to capture more information specific to your sales process. Custom Fields allow you to do just that.
 
-![](/files/yYUeLjQ.png)  
+[Screenshot on the live page]  
   
 
 
@@ -596,15 +596,15 @@ Adding Custom Fields
 --------------------
 
 Here's how to add Custom Fields to Lead or Deal documents using the side panel layout builder:
-![](/files/Screenshot%202024-09-28%20at%202.35.54%E2%80%AFPM.png)
+[Screenshot on the live page]
   
 
 
 1. **Navigate to Lead/Deal Page:** Go to Lead/Deal Page and click on the edit icon shown on the first section header in the side panel.
-    ![](/files/aQCtN5Z.png)
+    [Screenshot on the live page]
 2. **Use the Fields Layout Builder:** A modal will open where doctype will be selected automatically. The right side displays a layout builder. Drag and drop existing fields or sections to rearrange them. Use the buttons provided to add new fields or sections.
 3. **Preview Your Work (Optional):** The Sidebar Fields Layout Builder offers a **Show Preview** button. Clicking this button will display a preview of how the customized sidebar panel will look for the chosen doctype. This allows you to visualize your layout changes before saving them.
-    ![](/files/Screenshot%202024-09-28%20at%203.11.14%E2%80%AFPM.png)
+    [Screenshot on the live page]
 
 **Important Notes:**
 --------------------
@@ -632,9 +632,9 @@ There are two main categories of custom list actions:
 1. **Actions:** These resemble the custom actions you find on individual lead/deal pages. They appear as buttons in the list view header beside the create button.
   Example:
     
-  ![](/files/uYxvLR7.png)
+  [Screenshot on the live page]
     
-  ![](/files/i75wZ8b.png)
+  [Screenshot on the live page]
     In this example, the "Delete junk deals" button was added on listview which will automatically delete all the junk deals.
 
 You can create all types of actions (Normal Button, Grouped Actions, Grouped Actions with label and combination of all).
@@ -643,8 +643,8 @@ You can create all types of actions (Normal Button, Grouped Actions, Grouped Act
 ```
 Example:
 
-![](/files/95SvEcH.png)
-![](/files/TgJvk5C.png)  
+[Screenshot on the live page]
+[Screenshot on the live page]  
 
 
 ```
@@ -721,9 +721,9 @@ Let’s say you want to create a Lead whenever an incoming email is received.
 Navigate to:  
 **Desk → Search Server Script → Add Server Script**
 
-![](/files/Screenshot%202025-05-14%20at%204.22.39%E2%80%AFPM.png)
+[Screenshot on the live page]
 
-![](/files/Screenshot%202025-05-14%20at%204.24.06%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Step 2: Fill in the following:
 
@@ -753,7 +753,7 @@ if doc.communication_type == 'Communication' and doc.sent_or_received == 'Receiv
 
 This will automatically create a new Lead for each new incoming email, avoiding duplicates.
 
-![](/files/Screenshot%202025-05-14%20at%204.21.07%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ## 2. Create Lead via Custom API (API Script)
 
@@ -764,9 +764,9 @@ Sometimes you want to allow external systems to create leads by calling an API e
 Navigate to:  
 **Desk → Search Server Script → Add Server Script**
 
-![](/files/Screenshot%202025-05-14%20at%204.22.39%E2%80%AFPM.png)
+[Screenshot on the live page]
 
-![](/files/Screenshot%202025-05-14%20at%204.24.06%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Step 2: Fill in the following:
 
@@ -818,7 +818,7 @@ With body:
 }
 ```
 
-![](/files/Screenshot%202025-05-14%20at%204.26.21%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ## 3. Create Lead via Scheduled Job (Scheduler Event)
 
@@ -829,9 +829,9 @@ You may want to create leads periodically based on some logic — for example, l
 Navigate to:  
 **Desk → Search Server Script → Add Server Script**
 
-![](/files/Screenshot%202025-05-14%20at%204.22.39%E2%80%AFPM.png)
+[Screenshot on the live page]
 
-![](/files/Screenshot%202025-05-14%20at%204.24.06%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Step 2: Fill in the following:
 
@@ -858,7 +858,7 @@ frappe.get_doc({
 
 You can replace this logic with any query, filter, or custom rule to generate leads.
 
-![](/files/Screenshot%202025-05-14%20at%204.27.12%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ## Permission Query (Skipped)
 
@@ -912,7 +912,7 @@ class CRMLead {
 The dropdown will only show these five statuses, in this order.  
 
 
-![](/files/Screenshot 2026-05-26 at 6.21.39 PM.png)
+[Screenshot on the live page]
 
 ## Dynamic Example — Per Deal Type
 
@@ -998,10 +998,10 @@ class CRMDeal {
 A status name that doesn't exist in the master is silently ignored — it won't appear in the dropdown, and no error is shown.  
 
 
-![](/files/Screenshot 2026-05-26 at 6.57.01 PM.png)
+[Screenshot on the live page]
 *New status in CRM Deal Status*
 
-![](/files/Screenshot 2026-05-26 at 6.56.55 PM.png)
+[Screenshot on the live page]
 
 ## Default Statuses
 
@@ -1058,13 +1058,13 @@ updated: "2026-02-05"
 
 The side panel allowed quick access to frequently used fields but had limitations like excessive scrolling and no support for child tables. The new Data Tab addresses these issues, offering a cleaner, more organized way to view and manage data efficiently.
 
-<img src="/files/Data.png">
+[Screenshot on the live page]
 
 You can customize the data fields using Tabs, Sections, and Columns. Click the Edit button to modify the layout.
 
 > The Edit button is only visible to Sales Managers.
 
-<img src="/files/CustomizeData.png">
+[Screenshot on the live page]
 
 <!-- page: crm/crm__deal.md -->
 ---
@@ -1082,7 +1082,7 @@ The Deals list works just like the Leads list. Each row shows you the organizati
 
 You can filter, sort, and switch between List and Kanban view. To create a deal manually, hit **+ Create** in the top right.
 
-![](/files/imagef5b098.png)
+[Screenshot on the live page]
 *The Deal List*
 
 ## Inside a Deal
@@ -1095,7 +1095,7 @@ On the right side, you'll see three sections:
 - **Forecasted Sales** – Shows up when forecasting is enabled. You can set an expected closure date, probability, and expected deal value here. If you've also enabled Auto Update Expected Deal Value, this gets calculated automatically from the products table
 - **Organization Details** – The organization linked to the deal, along with website, territory, annual revenue, and deal owner
 
-![](/files/image46af1b.png)
+[Screenshot on the live page]
 *Inside the Deal record*
 
 The tabs across the top work the same as leads:
@@ -1104,7 +1104,7 @@ The tabs across the top work the same as leads:
 - **Emails** – Send and receive emails directly from here
 - **Comments** – Leave notes for your team, tag teammates
 - **Data** – All the deal fields in one place, plus a **Products** table where you can add what you're selling. Each row is a product with quantity, rate, and discount. The table calculates the total and net total automatically. You can also edit the table columns to show hidden fields — click the settings icon on the table header to do that
-  ![](/files/imageb9b279.png)
+  [Screenshot on the live page]
   *Products table in Data tab of Deal*
 - **Calls** – Call history and recordings
 - **Tasks** – Tasks linked to this deal
@@ -1115,10 +1115,10 @@ The tabs across the top work the same as leads:
 
 At the top, you'll also see the Deal status. Some of these statuses are available out of the box. If you want to add custom statuses, you can add them by going to the Desk view (more details ++**[read here](https://docs.frappe.io/crm/setting-up#frontend-and-backend)**++) and searching for CRM Deal Status. Add the status of your choice, choose the type, and click on save. The Deal status helps you visualize your Deals through a pipeline.
 
-![](/files/image7b8e37.png)
+[Screenshot on the live page]
 *Adding new CRM Deal Status*
 
-![](/files/image1cfa53.png)
+[Screenshot on the live page]
 
 ## What carries over from the Lead
 
@@ -1130,7 +1130,7 @@ The organization name becomes the deal name, and the contact linked to the lead 
 
 If you want to forecast revenue across your pipeline, go to **Settings > Dashboard** and enable the **Enable Forecasting** toggle. This makes the Expected Closure Date and the Expected Deal Value mandatory on every deal. You can also turn on **Auto Update Expected Deal Value** to have it calculated automatically from whatever you've added to the Products table.
 
-![](/files/imageb5022f.png)
+[Screenshot on the live page]
 *Enable Forecasting in Settings*
 
 Once enabled, the Forecasted Sales section will appear on every deal's right panel.
@@ -1141,7 +1141,7 @@ When you change a deal's status to Lost, a pop-up appears asking you to fill in 
 
 
 
-![](/files/4f7d-1391-4a94-b8ee-3c112b70f144.mp4)
+[Screenshot on the live page]
 
 <!-- page: crm/crm__email-communication.md -->
 ---
@@ -1158,13 +1158,13 @@ Sending Emails
 
 1. **Locate the Reply Button:** On the Lead or Deal page, find the "Reply" button, typically situated at the bottom of the page.
 2. **Compose Your Email:** A new email composition window will appear. Here, you can:
-    ![](/files/4fKjcOz.png)
+    [Screenshot on the live page]
     * **Subject:** Craft a clear and concise subject line that summarizes the email's purpose.
     * **To:** Enter the recipient's email address in the "To" field.
     * **Cc & Bcc (Optional):** Utilize the "Cc" (Carbon Copy) field to include additional recipients who should be informed but not required to respond. The "Bcc" (Blind Carbon Copy) field allows you to send a copy to recipients without revealing their addresses to other recipients.
     * **Message Body:** Compose the main content of your email. You can leverage formatting options for better readability and include attachments if necessary.
 3. **Leverage Email Templates (Optional):** Streamline communication by incorporating pre-defined email templates. Click on the "Email Template" icon and select the desired template from the available list. This pre-populates the message body, saving you time and ensuring consistency.
-    ![](/files/hiOatPi.png)
+    [Screenshot on the live page]
 4. **Hit Submit:** Once you've crafted your email, click the "Submit" button to send it to the recipient(s).
 
 Viewing Email Communication
@@ -1173,9 +1173,9 @@ Viewing Email Communication
 All email interactions related to a specific Lead or Deal are consolidated within the system. You can access them in two ways:
 
 * **Activities Tab:** This tab provides a comprehensive view of all activities associated with the Lead/Deal, including emails, calls, tasks, and notes.
-    ![](/files/Mo06n61.png)
+    [Screenshot on the live page]
 * **Emails Tab:** For a focused view solely on email communication, switch to the dedicated "Emails" tab. This tab exclusively displays email threads related to the Lead/Deal, offering a clear and organized record of your email exchanges.
-    ![](/files/xSfEsfR.png)
+    [Screenshot on the live page]
 
 Email Account Setup
 -------------------
@@ -1212,3 +1212,38 @@ Before creating an Email Account, you need an Email Domain. However, you can ski
 1. **Use Different Email Login ID**: To use an alternative email login and password to access this account. For example, if you have [notifications@example.com](mailto:notifications@example.com) and you want users to access this email with an alternate email ID, they should tick this checkbox. The recipients will see [notifications@example.com](mailto:notifications@example.com) as the sender.
 2. **Awaiting password**: If you're creating this account on behalf of someone and the password is unknown, tick this checkbox. When the other user logs in, they'll be prompted to enter the password.
 3. **Use ASCII encoding for the password**: Ticking this will use ASCII encoding for the password.
+
+<!-- page: crm/crm__email-template.md -->
+---
+title: "Email Template"
+space: "CRM"
+url: "https://docs.frappe.io/crm/email-template"
+updated: "2026-04-23"
+---
+
+Email Templates is a time-saving tool that lets you create reusable email drafts (such as introductions, follow-ups, or proposals) you frequently send to your leads and deals. With the ability to utilize Jinja templates, you can personalize emails to cater to specific recipients or contexts. 
+
+## Create a new Email Template
+
+To create a new email template, go to **Settings > Templates.** Click on Create, and add the:
+
+- **Name:** A label to identify the template in your list
+- **Subject:** The email subject line (Jinja variables supported)
+- **For:** Whether it is for a lead or a deal
+- **Content Type:** You can select how you want to format the template. There are two options: Rich Text and HTML
+
+[Screenshot on the live page]
+
+Only "Enabled" Email Templates will be visible for further use. There is a toggle option against every template.
+
+## Using the Email Template
+
+You can use the Email Templates you have created in Lead and/or Deal while composing your emails by clicking on the Email Template button. When you click on Reply to compose an email, the email template button appears.
+
+For example, as seen in the screenshot, the email template "First response to deals" is selected.
+
+[Screenshot on the live page]
+
+The email content is then copied, and you are free to edit the content as well to personalize it further.
+
+[Screenshot on the live page]

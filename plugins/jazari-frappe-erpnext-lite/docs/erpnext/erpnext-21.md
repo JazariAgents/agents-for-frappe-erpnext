@@ -1,380 +1,5 @@
 <!-- Frappe documentation: erpnext, part 21 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__depreciation-methods.md -->
----
-title: "Depreciation Methods | ERPNext Documentation"
-description: "Choose and configure Straight Line, Double Declining Balance, Written Down Value, or Manual depreciation in ERPNext."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/depreciation-methods"
-updated: "2026-08-15"
----
-
-Imagine Nova Industries buys two assets for the same price: an office table and a production machine. The table may provide roughly the same value every year. The machine may lose more value in its early years because it works hardest when it is new. Using one depreciation pattern for both may not reflect how they are actually used.
-
-
-
-Depreciation Methods let the accountant choose how an asset's cost is spread over its useful life. ERPNext supports methods such as Straight Line and declining balance so the schedule can follow the company's accounting policy and the asset's pattern of use.
-
-## Depreciation methods at a glance
-
-
-| Method                       | How it works                                                                                    | Best suited for                                                                                                               |
-| ---------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| **Straight Line**            | Records an equal depreciation expense in every complete period.                                 | Assets that provide a similar benefit throughout their life, such as office furniture, air conditioners, and basic equipment. |
-| **Double Declining Balance** | Records a larger expense in the early years and a smaller expense later.                        | Assets that lose usefulness or value quickly when new, such as computers, mobile devices, and rapidly ageing machinery.       |
-| **Written Down Value**       | Applies a fixed percentage to the asset's opening book value, so the expense reduces over time. | Assets for which the company's accounting or tax policy prescribes depreciation on the remaining book value.                  |
-| **Manual**                   | Uses depreciation dates and amounts entered by the accountant instead of a standard formula.    | Assets with a contract-based, valuation-based, or specially approved depreciation schedule.                                   |
-
-
-Treat this table as a practical starting point. The method used in the accounts should ultimately follow the organization's approved accounting policy and applicable reporting rules.
-
-## Use one example to compare the methods
-
-Assume Nova Industries buys a packaging machine for $50,000. It expects to use the machine for five years and sell it for $5,000 at the end. The amount to depreciate is therefore:
-
-
-
-**Depreciable value = $50,000 cost - $5,000 residual value = $45,000**
-
-
-
-Every method eventually allocates the same $45,000. What changes is how much expense appears in each year.
-
-## Straight Line
-
-Straight Line records the same expense in every complete year.
-
-
-
-**Annual depreciation = $45,000 / 5 years = $9,000**
-
-
-| Year | Opening book value | Depreciation | Closing book value |
-| ---- | ------------------: | ------------: | ------------------: |
-| 1    | $50,000            | $9,000       | $41,000            |
-| 2    | $41,000            | $9,000       | $32,000            |
-| 3    | $32,000            | $9,000       | $23,000            |
-| 4    | $23,000            | $9,000       | $14,000            |
-| 5    | $14,000            | $9,000       | $5,000             |
-
-
-Use this method when the asset provides a similar benefit each year. Office furniture, air conditioners, and basic production equipment often fit this pattern.
-
-## Double Declining Balance
-
-Double Declining Balance records more depreciation while the asset is new. For a five-year life, the Straight Line rate is 20 percent. Double Declining uses twice that rate, or 40 percent, on each year's opening book value.
-
-
-
-**Year 1 depreciation = $50,000 x 40% = $20,000**
-
-
-
-The final expense is limited so the asset never falls below its $5,000 residual value.
-
-
-| Year | Opening book value | Calculation               | Depreciation | Closing book value |
-| ---- | ------------------: | ------------------------- | ------------: | ------------------: |
-| 1    | $50,000            | $50,000 x 40%             | $20,000      | $30,000            |
-| 2    | $30,000            | $30,000 x 40%             | $12,000      | $18,000            |
-| 3    | $18,000            | $18,000 x 40%             | $7,200       | $10,800            |
-| 4    | $10,800            | $10,800 x 40%             | $4,320       | $6,480             |
-| 5    | $6,480             | Limited to residual value | $1,480       | $5,000             |
-
-
-Use this method when an asset loses usefulness or market value faster in its early years. Computers, mobile devices, and some high-use machinery are common examples.
-
-## Written Down Value
-
-Written Down Value applies a chosen rate to the opening book value. Assume Nova's policy uses 30 percent per year for this machine.
-
-
-
-**Year 1 depreciation = $50,000 x 30% = $15,000**
-
-
-
-Because the opening value becomes smaller each year, the depreciation expense also becomes smaller. The last year is again limited so the closing value does not fall below $5,000.
-
-
-| Year | Opening book value | Calculation               | Depreciation | Closing book value |
-| ---- | ------------------: | ------------------------- | ------------: | ------------------: |
-| 1    | $50,000            | $50,000 x 30%             | $15,000      | $35,000            |
-| 2    | $35,000            | $35,000 x 30%             | $10,500      | $24,500            |
-| 3    | $24,500            | $24,500 x 30%             | $7,350       | $17,150            |
-| 4    | $17,150            | $17,150 x 30%             | $5,145       | $12,005            |
-| 5    | $12,005            | Limited to residual value | $7,005       | $5,000             |
-
-
-Use this method when the company's accounting or tax policy specifies a percentage on the remaining value. The example rate is illustrative. Use the rate approved for your organization.
-
-## Manual
-
-Manual depreciation lets the accountant define the dates and amounts instead of relying on a standard formula. Nova might use the following schedule when an equipment contract expects heavier use in its first two years.
-
-
-| Year | Opening book value | Depreciation entered | Closing book value |
-| ---- | ------------------: | --------------------: | ------------------: |
-| 1    | $50,000            | $15,000              | $35,000            |
-| 2    | $35,000            | $10,000              | $25,000            |
-| 3    | $25,000            | $8,000               | $17,000            |
-| 4    | $17,000            | $7,000               | $10,000            |
-| 5    | $10,000            | $5,000               | $5,000             |
-
-
-Use Manual only when a documented policy, valuation, or contract requires a custom pattern. The entered amounts should still total the $45,000 depreciable value.
-
-## Compare the result
-
-
-| Method                        | Expense pattern        | Year 1 expense | Year 5 expense                    | Closing value after year 5 |
-| ----------------------------- | ---------------------- | --------------: | ---------------------------------: | --------------------------: |
-| **Straight Line**             | Equal                  | $9,000         | $9,000                            | $5,000                     |
-| **Double Declining Balance**  | Highest in early years | $20,000        | $1,480                            | $5,000                     |
-| **Written Down Value at 30%** | Reduces each year      | $15,000        | $7,005 after residual-value limit | $5,000                     |
-| **Manual example**            | Set by policy          | $15,000        | $5,000                            | $5,000                     |
-
-
-## Set the method in ERPNext
-
-Set the default method, useful life, frequency, and residual value in the Asset Category Finance Book row. The Asset can then use those defaults when ERPNext builds its depreciation schedules.
-
-![Different depreciation methods by Finance Book](https://novacompanies.m.frappe.cloud/files/03-asset-category-finance-books.png)
-
-The submitted schedule below uses Straight Line for Nova's packaging equipment. ERPNext has calculated $760 per month, accumulated the amount, and linked each posted row to its Journal Entry.
-
-![Submitted depreciation schedule with calculated amounts](https://novacompanies.m.frappe.cloud/files/26-asset-depreciation-schedule-v2.png)
-
-## Verify the result
-
-Before submission, compare total scheduled depreciation plus residual value with the capitalized value. Also check the last date and the first full or prorated period.
-
-## Troubleshooting
-
-### The last schedule row is unexpectedly small
-
-ERPNext may be limiting the final row so carrying value does not fall below the configured residual value.
-
-### Two Finance Books show different carrying values
-
-That is expected when they use different methods, useful lives, or start dates. Review reports with the intended Finance Book filter.
-
-## Frequently asked questions
-
-### Which method is best?
-
-There is no universal best method. Use the method approved by the organization's accounting policy and reporting requirements.
-
-### Can the method be changed after entries are posted?
-
-A policy change may require cancellation or adjustment of linked schedules and entries. Review the accounting impact before changing a submitted asset.
-
-### Can statutory and management reporting differ?
-
-Separate Finance Books can keep different depreciation policies for the same asset.
-
-## Related topics
-
-- [Asset Category](https://docs.frappe.io/erpnext/asset-category)
-- [Asset Location](https://docs.frappe.io/erpnext/asset-location)
-- [Asset](https://docs.frappe.io/erpnext/asset)
-- [Purchasing an Asset](https://docs.frappe.io/erpnext/purchasing-an-asset)
-- [Depreciation](https://docs.frappe.io/erpnext/asset-depreciation)
-- [Asset Movement](https://docs.frappe.io/erpnext/asset-movement)
-- [Asset Repair](https://docs.frappe.io/erpnext/asset-repair)
-- [Asset Reports](https://docs.frappe.io/erpnext/asset-reports)
-
-<!-- page: erpnext/erpnext__difference-between-system-user-and-website-user.md -->
----
-title: "Difference Between System User and Website User"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/difference-between-system-user-and-website-user"
-updated: "2026-03-04"
----
-
-**Question:** I have added my Employee as a User and have assigned them Roles as well. Still, they are not able to view Dashboard on the login.
-
-**Answer:**
-
-There are two type of Users in ERPNext.
-
-* **System Users**: They are typically internal users such as employees, managers, and administrators who need extensive access to the ERPNext system to perform various business operations. They have a higher level of access and more detailed permissions, allowing them to interact with multiple modules, generate reports, and customize workflows.
-* **Website Users**: They are typically external users like customers or suppliers who interact with the ERPNext system through a web portal. Their access is limited to functionalities relevant to their needs, such as placing orders, viewing order status, or managing their account information. Their interface is simpler compared to the comprehensive backend interface used by system users.
-
-Here is the tabular comparison between System User and Website User in ERPNext
-
-
-
-| **System User** | **Website User** |
-| --- | --- |
-| This type is useful for managing internal activities and operations | It is useful for managing external operations and transactions |
-| It provides full access to ERPNext modules and features | It provides restricted access to ERPNext modules and features |
-| Typical users in this category are internal employees  | The user persona in this type includes external parties such as customers, clients etc |
-| They are created by an administrator within ERPNext | They can be self-registered or created by an administrator |
-| It provides access to company-wide data and reports | It provides access to only personal data and limited reports |
-| They can view, create, edit, and delete records | They can mostly view and create records relevant to them |
-| They have full data entry capabilities across all modules | They have limited to data entry relevant to their role |
-
-<!-- page: erpnext/erpnext__difference-entry-button.md -->
----
-title: "Difference Entry | ERPNext Documentation"
-description: "Use ERPNext Difference Entry to balance a Journal Entry, select the correct account, avoid masking errors, and verify the submitted General Ledger clearly."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/difference-entry-button"
-updated: "2026-08-03"
----
-
-The **Make Difference Entry** action helps you complete an unbalanced [Journal Entry](/erpnext/journal-entry). ERPNext calculates the difference between Total Debit and Total Credit, adds a new accounting row for that amount, and leaves the Account blank for you to choose.
-
-
-
-It is a balancing aid inside Journal Entry, not a separate transaction and not an automatic correction. You must understand why the difference exists and select the account that represents it. If the source amount, exchange rate, tax, or original account is wrong, correct that value instead of hiding the error in a difference account.
-
-
-
-In this example, Nova Electronics Trading pays $1,000 from its bank. The main office-maintenance expense is $990 and the bank charges a $10 fee. The first two rows are therefore out of balance. **Make Difference Entry** adds the missing $10 debit, after which the user selects **Bank Charges - NET**.
-
-
-| Account                     | Debit         | Credit        | Meaning                              |
-| --------------------------- | -------------: | -------------: | ------------------------------------ |
-| Office Maintenance Expenses | $990.00       | $0.00         | Main expense paid.                   |
-| Bank Charges                | $10.00        | $0.00         | Separate fee deducted by the bank.   |
-| Nova Operating Bank         | $0.00         | $1,000.00     | Total reduction in the bank balance. |
-| **Total**                   | **$1,000.00** | **$1,000.00** | The Journal Entry is balanced.       |
-
-
-## Before you begin
-
-Confirm the following:
-
-1. You know what caused the imbalance and have supporting evidence for the amount.
-2. The correct ledger exists in the Company's [Chart of Accounts](/erpnext/chart-of-accounts). Use a non-group account belonging to the selected Company.
-3. The Posting Date is open and belongs to the intended Fiscal Year and [Accounting Period](/erpnext/accounting-period).
-4. Any required Cost Center, Project, Finance Book, or other [Accounting Dimension](/erpnext/accounting-dimensions) is available.
-5. For bank entries, you have the bank reference number and date. For ordinary Customer or Supplier receipts, consider whether a [Payment Entry](/erpnext/payment-entry) is the safer transaction.
-
-## Identify the difference
-
-1. Create or open a Draft Journal Entry.
-2. Select the Company, Entry Type, and Posting Date.
-3. Add the known debit and credit rows under **Accounting Entries**.
-4. Review **Total Debit**, **Total Credit**, and **Difference (Dr - Cr)**.
-
-The example has a $990 debit and a $1,000 credit. ERPNext shows a difference of -$10 and makes **Make Difference Entry** available.
-
-
-
-![Unbalanced Journal Entry with Make Difference Entry highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-difference-entry-balanced-journal-entry.png)
-
-Before continuing, check whether the difference is legitimate. A missing bank fee is legitimate. A transposed amount, duplicate row, wrong currency, or incorrect exchange rate should be fixed at its source.
-
-## Add and complete the difference row
-
-1. Select **Make Difference Entry**.
-
-ERPNext adds one row for the exact amount required to make Total Debit equal Total Credit. Because credit exceeds debit by $10 in this example, it adds a $10 debit row.
-
-2. Select the highlighted pencil icon on the new row.
-
-![Generated difference row with its pencil icon highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-difference-entry-difference-row-added.png)
-
-3. Select the Account that explains the difference. In the example, select **Bank Charges - NET**.
-
-![Difference row editor with Bank Charges account highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-difference-entry-difference-account-selected.png)
-
-4. Add the same Cost Center, Project, Finance Book, or other dimensions required by your accounting policy.
-5. Close the row editor and review the complete table.
-
-![Balanced Journal Entry after selecting the difference account](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-difference-entry-balanced-journal-entry.png)
-
-Total Debit and Total Credit are now both $1,000. The entry is mathematically balanced, but you must still confirm that every account and amount is economically correct. Balanced totals do not prove correct accounting.
-
-## Submit and verify the result
-
-1. Review the Company, Posting Date, Entry Type, accounts, amounts, references, remarks, currencies, and dimensions.
-2. Save and submit the Journal Entry.
-3. Confirm that the submitted document contains the original rows and the completed difference row.
-
-![Submitted Journal Entry showing all three accounting rows](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-difference-entry-submitted-difference-journal-entry.png)
-
-4. Open **View &gt; Ledger**, or run the [General Ledger](/erpnext/general-ledger) using the Journal Entry as the voucher filter.
-5. Confirm the debit and credit for each account and the zero total balance across the voucher.
-
-![General Ledger showing the Bank Charges difference entry](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-difference-entry-difference-entry-general-ledger.png)
-
-In the example, the ledger shows a $990 debit to Office Maintenance Expenses, a $10 debit to Bank Charges, and a $1,000 credit to the operating bank account.
-
-## Important fields and what they mean
-
-
-| Field or action                    | What it controls                                                                                                                  |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Total Debit                        | Sum of the debit values in the accounting rows.                                                                                   |
-| Total Credit                       | Sum of the credit values in the accounting rows.                                                                                  |
-| Difference (Dr - Cr)               | Total Debit minus Total Credit. A negative value means more debit is required; a positive value means more credit is required.    |
-| Make Difference Entry              | Adds one debit or credit row for the current difference. It does not select the Account or confirm that the difference is valid.  |
-| Account                            | Ledger that receives the difference. Select the account that represents the actual economic event.                                |
-| Debit or Credit                    | Amount added by ERPNext to balance the voucher. Review it before submission.                                                      |
-| Account Currency and Exchange Rate | Control the account-currency and Company-currency values in a [multi-currency Journal Entry](/erpnext/multi-currency-accounting). |
-| Reference Type and Reference Name  | Link an accounting row to a supported document when the adjustment genuinely belongs to that reference.                           |
-| Is Advance                         | Marks a party amount as an advance when it is not allocated to a specific invoice.                                                |
-| Cost Center and other dimensions   | Classify the posting for management reporting without replacing the ledger account.                                               |
-
-
-## When not to use Make Difference Entry
-
-Do not use this action merely to make an error disappear.
-
-- If an invoice, payment, or stock transaction is wrong, cancel and amend the source document where permitted instead of creating an unrelated balancing row.
-- If a genuine receipt or payment is being recorded, use the purpose-built payment workflow so invoice allocation, party balance, bank reference, and reconciliation remain clear.
-- If the difference comes from foreign currency conversion, review the account currency, exchange rate, and Company-currency values first. Use the supported [exchange gain or loss](/erpnext/managing-transactions-in-multiple-currency) process when that is the real cause.
-- If a small decimal difference is caused by configured precision, first review the source values and [System Settings](/erpnext/system-settings). Do not change precision casually after live transactions exist.
-- If the required treatment is recurring, create a controlled process or [Journal Entry Template](/erpnext/journal-entry-template) rather than repeatedly guessing the balancing account.
-
-## Troubleshooting
-
-
-| Issue                                            | What to check                                                                                                                                                       |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Make Difference Entry is not visible             | The Journal Entry may already be balanced. Review Total Debit, Total Credit, and Difference. Also confirm the document is still in Draft.                           |
-| The generated row has no Account                 | This is expected. ERPNext supplies the amount only. Open the row and select the account that explains the difference.                                               |
-| The entry is balanced but submission still fails | Check mandatory party, reference, currency, Cost Center, bank-reference, account-type, and frozen-period requirements. Mathematical balance is only one validation. |
-| A tiny difference keeps appearing                | Check entered amounts, account currency, exchange rates, and precision. Correct the calculation source before using a rounding account.                             |
-| The wrong side was added                         | Review the sign of Difference. Negative means credit is greater than debit, so ERPNext adds a debit. Positive means debit is greater, so it adds a credit.          |
-
-
-## Frequently asked questions
-
-### Does ERPNext choose the difference account automatically?
-
-No, it adds a row with the required debit or credit and leaves the Account blank. The user must select the correct Company ledger.
-
-### Should every small difference go to a round-off account?
-
-No, first determine whether the cause is rounding. A wrong amount, exchange rate, tax calculation, or missing expense must be corrected or posted to the account that represents it.
-
-### Can Make Difference Entry correct a multi-currency mismatch?
-
-It can make the Company-currency totals balance, but it does not prove that the account-currency amounts and exchange rates are correct. Review both currencies before using it.
-
-### Why can a balanced Journal Entry still be rejected?
-
-ERPNext also validates Company, account type, party, reference, currency, dimensions, posting restrictions, and other mandatory values. Equal totals satisfy only the double-entry balance test.
-
-### Can I edit or remove the generated row?
-
-Yes, while the Journal Entry remains in Draft. You can select its Account, change the row when justified, or remove it and correct the original rows instead.
-
-## Related topics
-
-- [Journal Entry](/erpnext/journal-entry)
-- [Understanding Debit and Credit](/erpnext/understanding-debit-and-credit)
-- [Chart of Accounts](/erpnext/chart-of-accounts)
-- [General Ledger](/erpnext/general-ledger)
-- [Payment Entry](/erpnext/payment-entry)
-- [Multi Currency Accounting](/erpnext/multi-currency-accounting)
-- [Journal Entry Template](/erpnext/journal-entry-template)
-
 <!-- page: erpnext/erpnext__difference-in-total-and-valuation-in-tax-and-charges.md -->
 ---
 title: "Include Tax or Charge in Valuation or Total?"
@@ -450,13 +75,13 @@ Select **Valuation** when the cost should increase inventory value but should no
 
 
 
-![Purchase tax rows with freight considered for valuation](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-valuation-only-tax-table.png)
+[Screenshot on the live page: Purchase tax rows with freight considered for valuation]
 
 Open the freight row using its pencil icon. Set the row to **Valuation**, then enter the amount and the correct expense or clearing account.
 
 
 
-![Freight row configured for valuation only](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-valuation-only-freight-fields.png)
+[Screenshot on the live page: Freight row configured for valuation only]
 
 In this example, the supplier payable remains:
 
@@ -466,7 +91,7 @@ The $100 freight is allocated into valuation but is excluded from the supplier t
 
 
 
-![Valuation-only freight excluded from the purchase invoice total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-valuation-only-result.png)
+[Screenshot on the live page: Valuation-only freight excluded from the purchase invoice total]
 
 Use a suitable clearing or expense account for the valuation row. The source of the separately paid freight must still be recorded correctly, such as through another supplier invoice or a [Landed Cost Voucher](/erpnext/landed-cost-voucher), depending on the workflow.
 
@@ -476,13 +101,13 @@ Select **Valuation and Total** when the same amount must increase both the suppl
 
 
 
-![Purchase tax rows with freight included in valuation and total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-valuation-and-total-tax-table.png)
+[Screenshot on the live page: Purchase tax rows with freight included in valuation and total]
 
 Open the freight row and select **Valuation and Total**. Confirm the Account Head, Type, description, and amount before closing the row editor.
 
 
 
-![Freight row configured for valuation and total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-valuation-and-total-freight-fields.png)
+[Screenshot on the live page: Freight row configured for valuation and total]
 
 The supplier payable becomes:
 
@@ -492,7 +117,7 @@ The $100 freight is also allocated into inventory valuation.
 
 
 
-![Freight included in both purchase invoice total and valuation](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-calculation-valuation-and-total-result.png)
+[Screenshot on the live page: Freight included in both purchase invoice total and valuation]
 
 ## Understand the accounting and stock effect
 
@@ -646,7 +271,7 @@ All the sales transactions like Sales Order, Sales Invoice have Rounded Total in
 
 > Note: The Rounded Total is a feature present in **Sales** transactions.
 
-![Print Preview](/files/customize-disable-rounded-total-2.png)
+[Screenshot on the live page: Print Preview]
 
 However, if you wish to disable the same, you may follow the steps given below to hide the rounded total from Standard Print Formats, for all the sales transactions.
 
@@ -658,7 +283,7 @@ From the Awesome Bar search for Global Defaults
 
 Check Disable Rounded Total, and click on save.
 
-![Print Preview](/files/customize-disable-rounded-total.png)
+[Screenshot on the live page: Print Preview]
 
 To verify the changes, you should clear the cache and/or refresh your ERPNext account. Then your print formats shall not render value for the Rounded Total.
 
@@ -675,7 +300,7 @@ updated: "2026-02-28"
 
 ERPNext has portal feature available which allows third parties like Customers and Suppliers sign, place new orders and track updates on the previous orders.
 
-![Website signup](/files/website-signup.png)
+[Screenshot on the live page: Website signup]
 
 To allow new Customer and Supplier to Signup, the login page of your ERPNext account has Signup link avaiable. However, if you wish to disbale this feature, you can achieve it by following the steps given below.
 
@@ -689,7 +314,7 @@ To allow new Customer and Supplier to Signup, the login page of your ERPNext acc
 
 3. Check fied `Disable Signup`.
 
-![Disable signup](/files/disable-signup.png)
+[Screenshot on the live page: Disable signup]
 
 4. Save Website Settings.
 
@@ -705,7 +330,7 @@ The 'Disassembly Order' in ERPNext is used to dismantle finished goods and retur
 
 To create the "Disassembly Order", open the work order which are in **Completed** state or **Closed** state. Click on create button and after that "Disassembly Order"
 
-![work-order-disassembly-order](/files/work-order-disassembly-orderfe73b5.png)  
+[Screenshot on the live page: work-order-disassembly-order]  
 
 
 Once user clicked on the "Disassembly Order" button, the system will open the stock entry with type as "Disassemble"
@@ -713,8 +338,482 @@ Once user clicked on the "Disassembly Order" button, the system will open the st
   
 
 
-![stock-entry-disassembly-order](/files/stock-entry-disassembly-order.png)  
+[Screenshot on the live page: stock-entry-disassembly-order]  
 
 
 * Users can manually removed items which are not in a good condition
 * The system, by default, fetches the basic rate based on past transactions. If users want, they can edit the basic rate for the raw materials.
+
+<!-- page: erpnext/erpnext__discount_accounting.md -->
+---
+title: "Discount Accounting | ERPNext Documentation"
+description: "Configure ERPNext discount accounting to post sales discounts separately, then verify item, invoice total, and General Ledger values with a clear example."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/discount_accounting"
+updated: "2026-08-03"
+---
+
+Discount Accounting lets ERPNext show a sales discount separately in the [General Ledger](/erpnext/general-ledger) instead of posting only the reduced revenue. Use it when finance needs to report gross sales and discounts allowed as distinct amounts.
+
+
+
+This setting changes accounting presentation. It does not decide who receives a discount or calculate promotional eligibility. Configure the commercial discount using the normal [discount fields](/erpnext/applying-discount), a [Pricing Rule](/erpnext/pricing-rule), or another approved pricing method.
+
+
+
+For example, Nova Electronics Trading invoices two phones at a list price of $699 each. It applies a 10% item discount and then a 5% additional discount. With Discount Accounting enabled, ERPNext posts:
+
+
+| Account                 | Debit     | Credit    | Meaning                                                      |
+| ----------------------- | ---------: | ---------: | ------------------------------------------------------------ |
+| Debtors                 | $1,195.29 | $0.00     | Amount owed by the Customer.                                 |
+| Sales                   | $0.00     | $1,398.00 | Revenue before the discounts.                                |
+| Sales Discounts Allowed | $202.71   | $0.00     | Item discount of $139.80 plus additional discount of $62.91. |
+
+
+Without separate discount accounting, the same commercial discount normally reduces the net revenue represented by the invoice lines instead of appearing as a separate discount-account debit.
+
+## Before you begin
+
+Confirm the following:
+
+1. The discount account exists in the [Chart of Accounts](/erpnext/chart-of-accounts) for each Company that will use it. Confirm with your accountant whether it should be an expense account or a contra-revenue account in your reporting structure.
+2. The [Item](/erpnext/item) has an applicable [Item Price](/erpnext/item-price) in the intended [Price List](/erpnext/price-lists). Item discounts use Price List Rate as their reference.
+3. Users can create and submit a [Sales Invoice](/erpnext/sales-invoice) and view its ledger.
+4. You have tested the expected posting with representative taxes, currencies, rounding, and discounts before enabling the workflow for regular transactions.
+
+## Enable Discount Accounting for selling
+
+Two settings control the current workflow.
+
+1. Open [Selling Settings](/erpnext/selling-settings).
+2. Select **Advanced Features**.
+3. Enable **Enable discount accounting for selling** and save.
+
+[Screenshot on the live page: Selling Settings with Enable discount accounting for selling highlighted]
+
+This setting tells ERPNext to create additional ledger entries for sales discounts in the selected Discount Account.
+
+4. Open [Accounts Settings](/erpnext/accounts-settings).
+5. Select **Invoice and Billing**.
+6. Enable **Enable Discounts and Margin** and save.
+
+[Screenshot on the live page: Accounts Settings with Enable Discounts and Margin highlighted]
+
+This setting makes the discount and margin controls available for transaction items. It does not, by itself, create a separate discount-account posting.
+
+## Set a default Discount Account for an Item
+
+A default avoids selecting the account on every invoice row.
+
+1. Open the Item.
+2. Select **Accounting**.
+3. In **Item Defaults**, find the row for the Company.
+4. Select the highlighted pencil icon to open the complete row editor.
+
+[Screenshot on the live page: Item Defaults row with the pencil icon highlighted]
+
+5. Set **Discount Account** to the Company account that should receive item-level and invoice-level sales discounts.
+6. Save the Item.
+
+[Screenshot on the live page: Item Default with Discount Account highlighted]
+
+The Item Default is Company-specific. Configure a valid account and other defaults for each Company rather than copying an account from a parent or sibling Company.
+
+## Record an item-level discount
+
+1. Create a Sales Invoice and select the Company and Customer.
+2. Add the Item to the **Items** table.
+3. Select the highlighted pencil icon on the item row.
+
+[Screenshot on the live page: Sales Invoice item row with the pencil icon highlighted]
+
+4. Expand **Discount and Margin**.
+5. Enter **Discount (%) on Price List Rate with Margin** or **Discount Amount**.
+
+[Screenshot on the live page: Sales Invoice item discount percentage highlighted]
+
+6. Expand **Accounting Details**.
+7. Confirm the **Discount Account**. ERPNext fetches the Item Default when one is configured, but you remain responsible for verifying the account on the transaction.
+
+[Screenshot on the live page: Sales Invoice item Discount Account highlighted]
+
+In the example, the Price List Rate is $699 and the item discount is 10%. For two units, ERPNext records an item discount of $139.80 and an amount of $1,258.20 before the invoice-wide discount.
+
+## Record an additional discount on the invoice
+
+Use an additional discount when the reduction applies to the complete transaction instead of one item row.
+
+1. Expand **Additional Discount** on the Sales Invoice.
+2. Set **Apply Additional Discount On** to **Net Total** or **Grand Total**.
+3. Enter **Additional Discount Percentage** or **Additional Discount Amount**.
+4. Select the **Discount Account**.
+
+[Screenshot on the live page: Sales Invoice Additional Discount fields and Discount Account highlighted]
+
+In the example, 5% of the $1,258.20 Net Total is $62.91. The item and additional discounts therefore total $202.71.
+
+Apply on Net Total and Apply on Grand Total can produce different tax and net-value results. Review the tax breakup, rounding, and final amount with the configuration used by your business.
+
+## Submit and verify the ledger
+
+1. Review the discount amounts, taxes, Grand Total, and Discount Accounts.
+2. Save and submit the Sales Invoice.
+3. Open **View &gt; Ledger**, or run General Ledger for the invoice voucher.
+
+The submitted example has a Grand Total and outstanding amount of $1,195.29.
+
+
+
+[Screenshot on the live page: Submitted Sales Invoice total after discounts]
+
+The ledger shows gross Sales of $1,398.00, a $202.71 debit to Sales Discounts Allowed, and a $1,195.29 debit to Debtors.
+
+
+
+[Screenshot on the live page: General Ledger showing the separate Sales Discounts Allowed entry]
+
+Do not treat the invoice as verified merely because its total looks correct. Confirm that the discount account, gross revenue, receivable, tax, currency, Cost Center, and any other [accounting dimensions](/erpnext/accounting-dimensions) appear as intended.
+
+## Important fields and what they mean
+
+
+| Field                                    | What it controls                                                                                                                |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Enable discount accounting for selling   | Creates separate sales-discount ledger entries when the required Discount Accounts are present.                                 |
+| Enable Discounts and Margin              | Makes discount and margin controls available on supported transaction item rows.                                                |
+| Price List Rate                          | Reference rate before item discount and margin. Overwriting Rate can change the calculated discount relative to this reference. |
+| Discount Percentage                      | Percentage reduction calculated against the Price List Rate after applicable margin behavior.                                   |
+| Discount Amount                          | Monetary reduction represented on the item row.                                                                                 |
+| Item Discount Account                    | Account used for the item-level discount ledger posting.                                                                        |
+| Apply Additional Discount On             | Chooses whether the transaction-level discount uses Net Total or Grand Total as its basis.                                      |
+| Additional Discount Percentage or Amount | Transaction-wide reduction after item-level pricing has been calculated.                                                        |
+| Additional Discount Account              | Account used for the invoice-wide discount ledger posting.                                                                      |
+
+
+## Purchase discounts
+
+The current ERPNext develop version supports separate Discount Account posting for selling. A [Purchase Invoice](/erpnext/purchase-invoice) still supports item and additional discount values, but its current standard fields do not provide the equivalent Purchase Invoice Item Discount Account or Additional Discount Account used by this sales workflow.
+
+Do not force a sales-only field into a Purchase Invoice through customization without reviewing the accounting logic. If your organization must report purchase discounts separately, define the required treatment with your accountant and validate the supported transaction or [Journal Entry](/erpnext/journal-entry) process in a test Company.
+
+## Troubleshooting
+
+
+| Issue                                                     | What to check                                                                                                                                                                                              |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Discount and Margin is unavailable                        | Confirm **Enable Discounts and Margin** is enabled, the invoice is in Draft, and Price List Rate is not zero. Open the item row with the pencil icon.                                                      |
+| Discount Account is unavailable                           | Confirm **Enable discount accounting for selling** is enabled, reload the invoice after saving the setting, and expand **Accounting Details** in the item row.                                             |
+| No separate discount ledger entry is posted               | Verify the selling setting, the item or additional Discount Account, and the submitted invoice ledger. A visible commercial discount does not automatically prove separate accounting is enabled.          |
+| The discount amount is unexpectedly negative or too large | Compare Price List Rate, Margin, Rate, Discount Percentage, and Discount Amount. ERPNext treats the difference between the reference Price List Rate and the entered Rate as part of pricing calculations. |
+| The wrong Company account is selected                     | Correct the Company-specific Item Default and the invoice row before submission. Accounts cannot be shared across unrelated Companies.                                                                     |
+
+
+## Frequently asked questions
+
+### Does Discount Accounting change the amount the Customer owes?
+
+No, it changes how the discount is presented in the ledger. The invoice total still reflects the commercial discount entered on the transaction.
+
+### Can I use both an item discount and an additional discount?
+
+Yes, ERPNext applies both. Review the effective discount and the ledger, because both values can post to the selected discount account.
+
+### Why is the calculated discount different after I overwrite Rate?
+
+Item discount is based on Price List Rate and margin behavior. If you replace Rate directly, ERPNext can represent the difference from Price List Rate as a discount or negative discount. Set an intentional Item Price or editable Price List Rate when that better represents the commercial baseline.
+
+### Should the Discount Account be an expense or contra-revenue account?
+
+That depends on your chart and reporting policy. ERPNext posts the value to the account you select. Your accountant should decide its classification and where it appears in financial reports.
+
+### Does the same separate-account workflow work for Purchase Invoices?
+
+Not in the current standard develop fields. Purchase transactions support commercial discount values, but the equivalent purchase-side Discount Account controls documented on older versions are no longer present.
+
+## Related topics
+
+- [Apply Discounts to Sales Transactions](/erpnext/applying-discount)
+- [Sales Invoice](/erpnext/sales-invoice)
+- [Pricing Rule](/erpnext/pricing-rule)
+- [Selling Settings](/erpnext/selling-settings)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [General Ledger](/erpnext/general-ledger)
+- [Purchase Invoice](/erpnext/purchase-invoice)
+
+<!-- page: erpnext/erpnext__distributed-cost-center.md -->
+---
+title: "Distributed Cost Center"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/distributed-cost-center"
+updated: "2026-08-14"
+---
+
+Nova Electronics Trading pays $10,000 each month for software used by two teams. Retail Operations uses most of it, while Online Sales uses the rest. If Nova charges the complete bill to Retail Operations, that team's expenses look too high and Online Sales appears to use the software for free.
+
+
+
+Nova can record the bill once against a shared main [Cost Center](/erpnext/cost-center). A [Cost Center Allocation](/erpnext/cost-center-allocation) then distributes 60% to Retail Operations and 40% to Online Sales. The source bill remains one transaction, but management reports show $6,000 against Retail Operations and $4,000 against Online Sales.
+
+
+
+A distributed cost center is not a separate ERPNext record. It describes the accounting result of posting to one main Cost Center and letting an allocation rule divide the amount among receiving Cost Centers.
+
+## Before you begin
+
+Create the main Cost Center and every receiving Cost Center in the same [Company](/erpnext/company). Choose a percentage that the business can explain, such as employee count, floor area, revenue, or actual software usage.
+
+
+
+The percentages must add up to 100%. Choose the effective date carefully. ERPNext compares the transaction's **Posting Date** with **Valid From** to decide which allocation to use.
+
+## Set up the distribution
+
+Open the Cost Center Allocation list and select **Add Cost Center Allocation**.
+
+
+
+[Screenshot on the live page: Cost Center Allocation list in ERPNext]
+
+Select the shared **Main Cost Center**, the **Company**, and the **Valid From** date.
+
+
+
+[Screenshot on the live page: Main Cost Center and Valid From fields for a distributed cost center]
+
+In the allocation table, add each receiving cost center and its percentage. Save the record after the total reaches 100%.
+
+
+
+[Screenshot on the live page: Receiving cost centers and their allocation percentages]
+
+## What happens in a transaction
+
+When you enter a supported accounting transaction, select only the main Cost Center. This can apply to a [Purchase Invoice](/erpnext/purchase-invoice), [Sales Invoice](/erpnext/sales-invoice), or [Journal Entry](/erpnext/journal-entry). You do not need to calculate and enter every receiving share manually.
+
+
+
+When the transaction posts, ERPNext applies the allocation valid on that date. The resulting [General Ledger](/erpnext/general-ledger) entries carry the receiving Cost Centers and their calculated shares. The allocation changes the reporting classification, not the supplier, invoice total, taxes, or payment due.
+
+## Example result
+
+
+| Posting            | Cost center             | Amount  |
+| ------------------ | ----------------------- | ------- |
+| Original selection | Shared Services - NET   | $10,000 |
+| Distributed share  | Retail Operations - NET | $6,000  |
+| Distributed share  | Online Sales - NET      | $4,000  |
+
+
+Use the [Profit and Loss Statement](/erpnext/profit-and-loss-statement) with a Cost Center filter to compare each team's expense. Open the General Ledger when you need to inspect the individual debit and credit lines behind the report. The [Accounts Payable](/erpnext/accounts-payable) amount remains $10,000 because the supplier is still owed one complete invoice.
+
+## Change the distribution later
+
+Create a new allocation with a later **Valid From** date when the ratio changes. For example, if Online Sales grows, Nova may change the split from 60:40 to 50:50 from the next month. The earlier allocation remains available to explain transactions posted under the old arrangement.
+
+
+
+Do not change old submitted transactions merely to apply a new allocation. Review the business effective date with the finance team before changing the rule.
+
+## Troubleshooting
+
+### The amount was not distributed
+
+Confirm that the transaction used the exact main cost center, its posting date falls on or after the allocation's Valid From date, and the allocation belongs to the same company.
+
+### The percentages cannot be saved
+
+Check that every row has a receiving cost center and that the total is exactly 100%.
+
+### The report shows an unexpected split
+
+Check which allocation was valid on the transaction's posting date. Then inspect the voucher and its General Ledger entries to confirm the cost center stored on each line.
+
+## Frequently asked questions
+
+### Does distribution create several invoices?
+
+ERPNext keeps one invoice. It distributes the accounting entries across the receiving Cost Centers.
+
+### Can the receiving cost centers belong to different companies?
+
+The main and receiving Cost Centers must belong to the same Company. Use an [inter-company workflow](/erpnext/inter-company-invoices) when separate companies need to charge one another.
+
+### Can I use a different ratio next month?
+
+You can create a new allocation with the revised ratio and the correct Valid From date. ERPNext uses the allocation applicable to each transaction's Posting Date.
+
+## Related topics
+
+- [Cost Center Allocation](/erpnext/cost-center-allocation)
+- [Cost Center](/erpnext/cost-center)
+- [Accounting Dimensions](/erpnext/accounting-dimensions)
+- [General Ledger](/erpnext/general-ledger)
+- [Budget](/erpnext/budget)
+
+<!-- page: erpnext/erpnext__do-i-need-an-erp.md -->
+---
+title: "Do I Need ERPNext?"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/do-i-need-an-erp"
+updated: "2026-08-14"
+---
+
+Are you still using multiple specialised tools/platforms for managing your operations and finding it challenging to maintain data consistency?
+
+Are you hesitant to go paperless by digitising all your operations?
+
+Are you fed up with your legacy system which is difficult to cater to your ever evolving business needs?
+
+
+
+ERPNext will help you get rid of these pain points as it is an open source platform which will act as a single source of truth for all your operational needs. ERPNext can host all your data and replicate business processes to make them operate seamlessly. Since it covers a wide range of business functions/departments like Accounting, Procurement, Sales, HR, Inventory Management etc, ERPNext is a system that can be setup by any organisation.
+
+### Benefits over traditional accounting software:
+
+- **Integrated Modules:** ERPNext provides a complete package integrated modules including accounting, sales, purchasing, inventory, manufacturing, HR, CRM, and project management. This integration ensures that there is seamless data flow across various departments, reducing data silos and improving efficiency.
+- **Easy Customisation:** Highly customisable to fit specific business needs where tailored workflows can be designed
+- **Scalability:** the system can be scaled up with the growth of the business by accommodating increasing transaction volumes and additional functional requirements.
+- **Unified Platform:** ERPNext facilitates better collaboration across departments as all data and processes reside on the same platform.
+- **Real-Time Data:** Provides real-time visibility and accessibility to the business data allowing quick data driven decision making.
+- **Comprehensive Reports:** Offers detailed reports and dashboards covering all aspects of the business providing deeper insights and analytics capabilities.
+
+### Benefits over big ERPs
+
+- **Minimum Investment**: Since it is open source, ERPNext eliminates the need for expensive licensing fees unlike big ERPs.
+- **Affordable Implementation and Maintenance**: The implementation and maintenance cost of ERPNext is generally lower.
+- **Open Source Nature**: ERPNext allows complete access to the source code, enabling deep customisations and integrations.
+- **Faster Deployment Cycle**: ERPNext can be implemented more quickly unlike most of the big ERPs.
+- **Active Community**: There is a widespread community of users and developers around the globe which provides support and contributes to the continuous improvement of the platform.
+- **No Vendor Lock-In:** The open-source nature of ERPNext ensures that businesses are not locked into long-term contracts with a single vendor even through there is less satisfaction
+
+<!-- page: erpnext/erpnext__doctype.md -->
+---
+title: "DocType\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/doctype"
+updated: "2026-03-04"
+---
+
+
+**A DocType is the core building block of any application based on the Frappe Framework.**
+
+It describes the Model and the View of your data. It contains what fields are stored for your data, and how they behave with each other. It contains information about how your data is named. The forms like Sales Order, Sales Invoices, Work Order are added as DocTypes in the backend.
+
+DocType allows you to insert custom forms in ERPNext as per your requirement.
+
+To create a new DocType, go to:
+
+> Setup > Customize > Doctype > New
+
+## 1. How to create a New DocType:
+
+1. **Name**: Enter the name of the new DocType.
+1. **Module**: Enter which module would you like the new DocType to be added to.
+1. Save.
+
+[Screenshot on the live page: Custom DocType]
+
+### 1.1. Additional Details
+
+1. **Fields**
+
+ You can choose to add as many fields as you want. The Label, Field Type, Mandatory Fields and other associated Options can also be added here. Learn more about field types [here](/erpnext/field-types.html).
+
+ [Screenshot on the live page: Fields in Custom DocType]
+
+1. **Naming**
+
+ Here you can choose if you would want each of your forms within this DocType to be named automatically. As given in the description, you can select the pattern for naming of the forms. The same can be a Field within the DocType, Naming Series, Prompt, A defined Naming Series, or a Format based Name. For Naming, you can also add a Description and the Name Case (as a Title Case or UPPER CASE)for your convenience.
+
+ [Screenshot on the live page: Naming Custom DocType]
+
+1. **Form Settings**
+
+ Additional Settings for the Form, Image Fields, Attachments, Timeline etc. can be configured here. To know more about Form, visit [Customize Form](/erpnext/customize-form).
+
+ [Screenshot on the live page: Custom DocType Form Settings]
+
+1. **View Settings**
+
+ Here, you can define the View settings for the DocType, like, Search Fields, Default Sort Field, Default Sort Order etc.
+
+1. **Permission Rules**
+
+ You can define the Permission Rules for the DocType here, and configure which users would be able to use or make changes to this DocType. Learn more about [Users and Permissions](/erpnext/users-and-permissions) here.
+
+ [Screenshot on the live page: Custom DocType Permissions]
+
+1. **Web View**
+
+ You can select whether you would want a Web View of this DocType or no. Having a Web View for a DocType will allow your website users to have access to the Forms. Feel free to learn more about [Website Users](/erpnext/difference-between-system-user-and-website-user).
+
+### 1.2. More Properties
+
+1. **Is Submittable**: You can select if you want this DocType to only be 'Saved' or to also be 'Submitted' by checking and un-checking this box.
+1. **Is Child Table**: You can define if you want the New DocType to be a Child Table within another DocType. Checkout [Child Table](/erpnext/customizing-data-visibility-in-child-table) for more information.
+1. **Is Single**: If checked, this Doctype will become a single form, like Sales Order, which user will
+not be able to re-produce. For e.g., Selling Settings in Sales Module is a Single DocType.
+1. **Is Tree**: A few DocTypes in ERPNext are structured as Trees, wherein there are some Parent DocTypes and some Children DocTypes. E.g., Doctype Company is structured as Tree, there are Parent Companies as well as Child Companies, which we call subsidiaries. If you want your DocTypes to be structured similarly, you can enable this option.
+
+ [Screenshot on the live page: DocType Tree View]
+
+1. **Quick Entry**: You can select if you want a Quick Entry to be made for this DocType. This will allow you to enter only a few mandatory details and save the DocType, so that a Quick Entry is made. For example, check Quick Entry in [Journal Entry](/erpnext/journal-entry#11-quick-entry).
+1. **Track Changes**: You can select this option if you want to maintain a log of the changes made to each Form. Check Out [Document Versioning](/erpnext/document-versioning) for more understanding on this.
+1. **Track Seen**: You can select this option if you want to maintain a log of all the Users who have seen this Form.
+1. **Track Views**: You can select this option if you want to maintain a log of all the times each User has Viewed this Form.
+
+ [Screenshot on the live page: DocType Tree View]
+
+1. **Custom?**: This field will be checked by default when adding Custom Doctype. Similarly, if you are customizing a DocType which already exists in the system, this field by default would be unchecked.
+
+## 2. Videos
+
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/WSzkpPm3iIU?start=585" width="560"></iframe>
+
+<!-- page: erpnext/erpnext__document-follow.md -->
+---
+title: "Document Follow\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/document-follow"
+updated: "2026-03-02"
+---
+
+
+> Introduced in v12
+
+**Document Follow is a feature that allows users to track changes in documents via email notifications.**
+
+## 1. How to Activate Document Follow
+1. Go to: **Settings > My Settings**.
+1. In the Document Follow section, tick the 'Send Notifications for documents followed by me' checkbox.
+1. Set the frequency at which you want to receive emails.
+1. Now, you can receive emails for the documents you follow.
+
+## 1.1 How to Follow documents
+1. Go to any document, you'll see an option to follow the document.
+1. Click on 'Follow'.
+
+[Screenshot on the live page: Defining Criteria]
+
+1. After following, you can also unfollow a document.
+
+1. Note that you can only follow documents for which track changes are on.
+1. To enable track changes, go to **Menu > Customize > *tick the Track Changes checkbox***.
+
+### 1.2 Automatic Follow
+Cases where the document will be __automatically__ followed after activating Document Follow:
+
+* When you create a new document.
+* When you modify a document.
+* When you like a document using the heart icon.
+* When another user shares a document with you or assigns you to a document, you'll be following the document.
+
+This is what an email notification for Document Follow will look like:
+
+[Screenshot on the live page: Defining Criteria]
+
+### 2. Related Topics
+1. [Linking Emails to Document](/erpnext/linking-emails-to-document)
+1. [Notifications](/erpnext/notifications)

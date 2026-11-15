@@ -24,7 +24,7 @@ To create a Query Report, type "new report" in the awesomebar and hit enter.
 > should do this only if you want to bundle Query Reports with your app. The
 > Module will decide where the JSON file will go.
 
-![New Query Report](/files/query-report-example-1.png)
+[Screenshot on the live page: New Query Report]
 
 ### Columns and Filters
 
@@ -34,7 +34,7 @@ You can configure the columns and filters in the Report document. Here you can s
 
 Filters can be used as formatting variables in the query. For example a filters of type `customer` can be used as `%(customer)s` in the query.
 
-![Standard Columns and Filters](/files/report-columns-filters.png)
+[Screenshot on the live page: Standard Columns and Filters]
 
 #### Example
 
@@ -80,7 +80,7 @@ to format the Report View.
 For example: The first column `Work Order:Link/Work Order:200` will be rendered
 as a Link Field with the DocType Work Order and the column width would be 200px.
 
-![Query Report View](/files/query-report-example-2.png)
+[Screenshot on the live page: Query Report View]
 *Query Report View*
 
 <!-- page: framework/framework__user__en__desk__reports__report-builder.md -->
@@ -102,35 +102,35 @@ By default a Report View is generated for all DocTypes. The user can also save
 multiple Reports based on different combination of filters, ordering, columns,
 etc.
 
-![Report Builder](/files/report-builder.gif)
+[Screenshot on the live page: Report Builder]
 *Report Builder*
 
 #### Updating or Deleting Custom Reports
 
 Any custom report created by a user using Report Builder can be then updated or deleted by them from the Report View.
 
-![Update or Delete a Custom Report](/files/N67ee2X.gif)
+[Screenshot on the live page: Update or Delete a Custom Report]
 *Update or Delete a Custom Report*
 
 #### Printing
 
 Reports can be printed from the Menu.
 
-![Report Builder Print](/files/report-builder-print.gif)
+[Screenshot on the live page: Report Builder Print]
 *Report Builder Print*
 
 #### Group By
 
 You can also apply group by clause on columns and use aggregate functions like Count, Sum and Average.
 
-![Report Builder Group By](/files/report-builder-group-by.gif)
+[Screenshot on the live page: Report Builder Group By]
 *Report Builder Group By*
 
 #### Keyboard Navigation and Editing
 
 Since report builder is a view of single DocType, they can also be edited.
 
-![Report Builder Editing](/files/report-builder-editing.gif)
+[Screenshot on the live page: Report Builder Editing]
 *Report Builder Editing*
 
 <!-- page: framework/framework__user__en__desk__reports__script-report.md -->
@@ -160,7 +160,7 @@ To create a Script Report, type "new report" in the awesomebar and hit enter.
 5. Write your python script in the generated `{report-name}.py` file.
 6. You can add filters to your report by adding them to `{report-name}.js`
 
-![](/files/Screenshot 2026-07-01 at 15-32-20 Balance Sheet.webp)
+[Screenshot on the live page]
 *Script Report*
 
 ### Standard and Custom Reports
@@ -177,7 +177,7 @@ You can configure the columns and filters in the Report document. Here you can s
 
 Filters can be used as formatting variables in the query. For example a filters of type `customer` can be used as `%(customer)s` in the query.
 
-![](/files/Screenshot 2026-07-01 at 15-33-52 Test Report.webp)
+[Screenshot on the live page]
 
 ### Writing the script
 
@@ -322,10 +322,10 @@ Version 13 we have introduced `depends_on` for Script Report filters. This can
 be used to determine whether the filter will be visible based on the value of the  
 condition in `depends_on`.
 
-![](/files/Screenshot 2026-07-01 at 15-28-33 Balance Sheet.webp)
+[Screenshot on the live page]
 *Balance Sheet*
 
-![](/files/Screenshot 2026-07-01 at 15-28-38 Balance Sheet.webp)
+[Screenshot on the live page]
 *Balance Sheet*
 
 
@@ -342,9 +342,9 @@ An advanced report generation engine. It requires manually rewriting report to u
 
 
 1. Enable 'Snapshot Report' in System Settings -> Advanced. This sets up a background job that syncs data from MariaDB to DuckDB
-  ![](/files/Screenshot 2026-07-22 at 16-22-22 System Settings.webp)
+  [Screenshot on the live page]
 2. Enable 'Snapshot Report' checkbox in Report master
-  ![](/files/Screenshot 2026-07-22 at 16-23-07 Trial Balance.webp)
+  [Screenshot on the live page]
 3. Rewrite the report using the `execute_snapshot_report` method in your report module.
 
 ```python
@@ -908,7 +908,7 @@ You can use a server script as an internal method by setting `frappe.flags` valu
 
 You can diff two versions of server scripts using "Compare Versions" button.
 
-![Server script diff](/files/server-script-diff.png)
+[Screenshot on the live page: Server script diff]
 
 
 
@@ -1001,7 +1001,7 @@ System Console helps you run Python commands for debugging based on [Script API]
 
 To access the System Console, search for it on the Search Bar.
 
-![System Console](/files/system-console.png)
+[Screenshot on the live page: System Console]
 
 ### API
 
@@ -1033,14 +1033,14 @@ Let's build one and check out some cool features.
 1. Click on **Create Workspace** button.
 2. Enter Title and click on Create.
 
-![Create Workspace](/files/CreateWorkspace.gif)
+[Screenshot on the live page: Create Workspace]
 
 ###Create Child Workspace
 1. Click on **Create Workspace** button.
 2. Enter Title.
 3. Select Home in the Parent field and click on Create.
 
-![Create Child Workspace](/files/ChildPage.gif)
+[Screenshot on the live page: Create Child Workspace]
 
 ###Workspace Blocks
 The workspace block is a building block for the workspace page.
@@ -1048,11 +1048,11 @@ These blocks can be placed in different variations to build an ideal workspace f
 
 [Learn More →](/framework/v14/user/en/desk/workspace/blocks)
 
-![Workspace Blocks](/files/WorkspaceBlocks.gif)
+[Screenshot on the live page: Workspace Blocks]
 ###Sidebar
 
 
-![Workspace Sidebar](/files/WorkspaceSidebar.png)
+[Screenshot on the live page: Workspace Sidebar]
 
 
 There are two sections in the sidebar `MY WORKSPACES` & `PUBLIC`.
@@ -1093,7 +1093,7 @@ Workspaces can be restricted based on Modules and Roles.
 
 Users can have access to different modules and standard workspaces are visible based on access to those modules.
 
-In the below GIF you can see when Website Module access was removed for user John Doe, he was not able to see Website Workspace. ![Module Access](/files/ModuleAccess.gif)  
+In the below GIF you can see when Website Module access was removed for user John Doe, he was not able to see Website Workspace. [Screenshot on the live page: Module Access]  
 
 
 ### Roles
@@ -1102,10 +1102,10 @@ Users can have access to modules but what if you still want those users to not s
 
 Check below Example:
 
-Jack Doe is a manager with Workspace Manager Role. He only wants user with Website Manager Role to see the Website Workspace.ence such a configuration is made as follows: ![Role Access 1](/files/RoleAccess1.gif)  
+Jack Doe is a manager with Workspace Manager Role. He only wants user with Website Manager Role to see the Website Workspace.ence such a configuration is made as follows: [Screenshot on the live page: Role Access 1]  
 
 
-To test this, Jane Doe is given the Website Module access and not given the Website Manager role. Due to the configuration done above, she will not be able to see Website Workspace as shown below. Where as John Doe who has Website Module access and Website Manager role, will be able to see the Website Workspace. ![Role Access 2](/files/RoleAccess2.gif)  
+To test this, Jane Doe is given the Website Module access and not given the Website Manager role. Due to the configuration done above, she will not be able to see Website Workspace as shown below. Where as John Doe who has Website Module access and Website Manager role, will be able to see the Website Workspace. [Screenshot on the live page: Role Access 2]  
 
 
 ### Default Workspace
@@ -1133,7 +1133,7 @@ Let's go through each of them:
 
 
 
-![Blocks](/files/BlockListd3d92d.png)
+[Screenshot on the live page: Blocks]
 
 
 
@@ -1141,57 +1141,57 @@ Let's go through each of them:
 
 A heading block is used as a header for any section or paragraph.
 
-![Section Header](/files/SectionHeader.png)
+[Screenshot on the live page: Section Header]
 
-![Paragraph Header](/files/ParagraphHeader.png)
+[Screenshot on the live page: Paragraph Header]
 
 ### Text
 
 Text block is used as a paragraph or description for any section.
 
-![Paragraph Block](/files/ParagraphBlock.png)
+[Screenshot on the live page: Paragraph Block]
 
 Both **Heading** and **Text** has an inline toolbar.  
 Currently, we have limited tools like header size from H1 to H6, bold, italic and links.
 
-![Inline Toolbar](/files/InlineToolbar.png)
+[Screenshot on the live page: Inline Toolbar]
 
 ### Card
 
 A card contains several links that can be used for quick navigation.  
 The link item can be a DocType, Report or Page.
 
-![Card Block](/files/CardBlock.png)
+[Screenshot on the live page: Card Block]
 
 ### Chart
 
 You can add any **Dashboard Chart** on the workspace using this block. 
 
-![Chart Block](/files/ChartBlock.png)
+[Screenshot on the live page: Chart Block]
 
 ### Shortcut
 
 Shortcut block is used to quickly navigate to any DocType, Report or Page.
 
-![Shortcut Block](/files/ShortcutBlock.png)
+[Screenshot on the live page: Shortcut Block]
 
 Shortcuts can be customized too.  
 You can select the view in which it should open, and can add filters that will be applied when you open the selected view.  
 You can see the number of records based on the filters applied on the shortcut as a pill.
 
-![Shortcut Features](/files/ShortcutFeatures.png)
+[Screenshot on the live page: Shortcut Features]
 
 ### Spacer
 
 It is used to add some space between two blocks.
 
-![Spacer Block](/files/SpacerBlock.png)
+[Screenshot on the live page: Spacer Block]
 
 It can also be used to position other blocks by adding white space before or after the block.
 
-![Spacer Separator](/files/SpacerSeparator.png)
+[Screenshot on the live page: Spacer Separator]
 
-![Spacer Separator Output](/files/SpacerSeparatorOutput.png)
+[Screenshot on the live page: Spacer Separator Output]
 
 ### Onboarding
 
@@ -1199,7 +1199,7 @@ The onboarding block is used to guide first-time users when they land on your pa
 It has steps to follow to learn a specific module.  
 For each step, there is some description on the right section or there can be a link to a video.
 
-![Onboarding Block](/files/OnboardingBlock.png)
+[Screenshot on the live page: Onboarding Block]
 
 ### Quick List
 
@@ -1207,13 +1207,13 @@ In the quick list block, we can see recently updated records of selected doctype
 We can also add some filters.  
 While in the read-only mode we have the option to refresh the list, update the applied filters, create a new record and open doctype's list view.
 
-![Quick List Block](/files/QuickListBlock.png)
+[Screenshot on the live page: Quick List Block]
 
 ### Number Card
 
 You can add any existing **Number Card** on the workspace using this block.
 
-![Number Card Block](/files/NumberCardBlock.png)
+[Screenshot on the live page: Number Card Block]
 
 <!-- page: framework/framework__user__en__desk__workspace__customization.md -->
 ---
@@ -1233,23 +1233,23 @@ Let's see what all customizations we can do:
 
 ###Edit workspace details
 You can update the title, and icon, make it parent or child and can make it public or private.
-![Edit Workspace Details](/files/EditWorkspaceDetails.gif)
+[Screenshot on the live page: Edit Workspace Details]
 ###Create Duplicate
 You can create a duplicate of an existing workspace and can add or remove some blocks from it as per your need.
-![Duplicate Workspace](/files/DuplicateWorkspace.gif)
+[Screenshot on the live page: Duplicate Workspace]
 ###Delete Workspace
 Delete an existing workspace.
-![Delete Workspace](/files/DeleteWorkspace.gif)
+[Screenshot on the live page: Delete Workspace]
 ###Hide Workspace
 Hide your private workspaces.
-![Hide Workspace As User](/files/HideWorkspaceAsUser.gif)
+[Screenshot on the live page: Hide Workspace As User]
 
 Only `Workspace Manager` can hide public workspaces.
-![Hide Workspace As Workspace Manager](/files/HideWorkspaceAsWorkspaceManager.gif)
+[Screenshot on the live page: Hide Workspace As Workspace Manager]
 
 ###Rearrange Position:
 You can drag & drop the workspace from the sidebar to change its position or make it a child/parent workspace.
-![Rearrage Workspace](/files/RearrangeWorkspace.gif)
+[Screenshot on the live page: Rearrage Workspace]
 
 >**Save/Discard** buttons are only used to save workspace page customizations. All workspace changes done from the sidebar get saved as you make them.
 
@@ -1259,15 +1259,15 @@ Customizing blocks in a particular workspace comes under this category.
 Let's see what all customizations we can do:
 
 ###Add a new block
-![Add Block](/files/AddBlock.gif)
+[Screenshot on the live page: Add Block]
 ###Edit an existing block
-![Edit Block](/files/EditBlock.gif)
+[Screenshot on the live page: Edit Block]
 ###Remove or delete an existing block
-![Delete Block](/files/DeleteBlock.gif)
+[Screenshot on the live page: Delete Block]
 ###Resize the width of a block
-![Resize Block](/files/ResizeBlock.gif)
+[Screenshot on the live page: Resize Block]
 ###Rearrange the position of a block
-![Rearrange Block](/files/RearrangeBlock.gif)
+[Screenshot on the live page: Rearrange Block]
 
 <!-- page: framework/framework__user__en__discussions.md -->
 ---
@@ -1279,16 +1279,16 @@ updated: "2026-02-17"
 
 You can now add a discussions component on any web page of the portal. The discussions component allows logged in users to enter and share messages with other users. This component can be used for discussions or to setup a portal where users help each other with their queries.
 
-![Discussions Component](/files/Screenshot 2022-02-07 at 3.34.37 PM.png)
+[Screenshot on the live page: Discussions Component]
 
 ### Steps to Setup the Discussions Component
 
 1. Open the web page document on which you want to add the discussions component or create a new web page and save it.
 2. Scroll to the Page Building Blocks table.
 3. Under Web Template select Discussions.
-![Page Building Blocks](/files/Screenshot 2022-02-07 at 3.56.53 PM.png)
+[Screenshot on the live page: Page Building Blocks]
 4. Click on Edit values.
-![Edit Values](/files/Screenshot 2022-02-07 at 3.53.57 PM.png)
+[Screenshot on the live page: Edit Values]
 5. Enter a Title, CTA Title and select the Web Page as the current web page name.
 6. You can check Single Thread if you want the discussion to be single threaded.
 7. Save the page.
@@ -1315,7 +1315,7 @@ After successful confirmation, subscribers can be directed to a custom *Welcome 
 
 The option to add query parameters to the *Welcome URL* enables personalized interactions and tracking of subscriber engagement.
 
-![email_group_with_welcome_url](/files/email_group_with_welcome_url.png "email_group_with_welcome_url.png")  
+[Screenshot on the live page: email_group_with_welcome_url]  
 
 <!-- page: framework/framework__user__en__form-tours.md -->
 ---
@@ -1327,7 +1327,7 @@ updated: "2026-02-17"
 
 Frappe provides an easy way to generate form tutorials for your complex doctype with very little configuration.
 
-![Form Tour](/files/form-tour-display.png)  
+[Screenshot on the live page: Form Tour]  
 
 
 Creating a Form Tour
@@ -1340,7 +1340,7 @@ To create a Form Tour, type "new form tour" in awesomebar and hit enter.
 3. Add steps defining each fields.
 4. Save the document.
 
-![Custom Field Form Tour](/files/custom-field-form-tour.png) *A Tour to explain creation of Custom Fields*
+[Screenshot on the live page: Custom Field Form Tour] *A Tour to explain creation of Custom Fields*
 
 Configuration Options
 ---------------------
@@ -1436,7 +1436,7 @@ We should edit `frappe/core/doctype/user/user.js`
 
 You should be seeing a button on user form as shown below,
 
-![Custom Button](/files/add_custom_button.png)
+[Screenshot on the live page: Custom Button]
 
 <!-- page: framework/framework__user__en__guides__app-development__adding-module-icons-on-desktop.md -->
 ---

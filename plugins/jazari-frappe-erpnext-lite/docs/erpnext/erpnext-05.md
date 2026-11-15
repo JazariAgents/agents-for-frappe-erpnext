@@ -46,7 +46,7 @@ Open the Sales Invoice and confirm its current Grand Total and Outstanding Amoun
 
 
 
-![Sales Invoice total and outstanding amount before the payment](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-adjusting-withhold-amount-sales-invoice-outstanding.png)
+[Screenshot on the live page: Sales Invoice total and outstanding amount before the payment]
 
 The example invoice has $699 outstanding.
 
@@ -60,7 +60,7 @@ Enter the amount that reached the bank. In this example, it is $664.05.
 
 
 
-![Enter the amount actually received in the bank](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-adjusting-withhold-amount-payment-entry-bank-amount.png)
+[Screenshot on the live page: Enter the amount actually received in the bank]
 
 Do not enter $699 as the bank amount because the bank did not receive the $34.95 withheld by the customer.
 
@@ -70,13 +70,13 @@ In **Payment References**, keep the Sales Invoice and allocate its full outstand
 
 
 
-![Open the invoice allocation row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-adjusting-withhold-amount-payment-entry-reference-row.png)
+[Screenshot on the live page: Open the invoice allocation row]
 
 The example allocates $699, not $664.05. This tells ERPNext that the invoice is settled through two components: bank receipt plus withholding-tax receivable.
 
 
 
-![Allocate the full $699 outstanding against the Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-adjusting-withhold-amount-payment-entry-reference-fields.png)
+[Screenshot on the live page: Allocate the full $699 outstanding against the Sales Invoice]
 
 The difference is:
 
@@ -90,7 +90,7 @@ Open **Deductions or Loss** and add a row in **Payment Deductions or Loss**. Use
 
 
 
-![Open the deduction or loss row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-adjusting-withhold-amount-payment-entry-deduction-row.png)
+[Screenshot on the live page: Open the deduction or loss row]
 
 Enter:
 
@@ -103,7 +103,7 @@ Enter:
 | Description | Customer withholding tax retained against the invoice                |
 
 
-![Withholding account, amount, Cost Center, and description](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-adjusting-withhold-amount-payment-entry-deduction-fields.png)
+[Screenshot on the live page: Withholding account, amount, Cost Center, and description]
 
 Use an asset account for customer-deducted tax when it represents recoverable or creditable tax. Do not use a supplier withholding liability account, an arbitrary expense account, or the customer receivable account itself unless your accountant has designed that treatment.
 
@@ -251,7 +251,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. When the invoice is posted, reconcile the advance and verify the reclassification entries.
 5. Confirm both the party ledger and General Ledger after allocation.
 
-![Advance in Separate Party Account in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-04-payment-entry-party-amount.png)
+[Screenshot on the live page: Advance in Separate Party Account in ERPNext]
 
 ## Important fields and what they mean
 
@@ -332,7 +332,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. Submit the Payment Entry.
 5. When the invoice is available, use Payment Reconciliation or the invoice payment workflow to allocate the advance.
 
-![Advance Payment Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-04-payment-entry-party-amount.png)
+[Screenshot on the live page: Advance Payment Entry in ERPNext]
 
 ## Important fields and what they mean
 
@@ -490,7 +490,7 @@ The Payment Reconciliation tool places open invoices and available payments or C
 
 
 
-![Payment Reconciliation with open Sales Invoices and an unallocated customer payment](https://novacompanies.m.frappe.cloud/files/sales-receivables-allocating-credit-note-and-payment-payment-reconciliation.png)
+[Screenshot on the live page: Payment Reconciliation with open Sales Invoices and an unallocated customer payment]
 
 You may allocate one payment across several invoices or combine several credits against one invoice, provided the allocation does not exceed the available or outstanding amount.
 
@@ -542,7 +542,7 @@ When creating a Delivery Note, system validates if item's qty is same as in the 
 
 Considering the case fo sales, if you want to be able to deliver more items than mentioned in the Sales Order, you should update "Allow over delivery or receipt upto this percent" in the Item master.
 
-![Itemised Limit Percentage](/files/limit-1.png)
+[Screenshot on the live page: Itemised Limit Percentage]
 
 When creating an invoice, item's rate is also validated based on the preceding transaction like Sales Order. This also applies when creating Purchase Receipt or Purchaes Invoice from Purchase Order. Updating "Allow over delivery or receipt upto this percent" will be affective in all sales and purchase transactions.
 
@@ -554,7 +554,7 @@ Update global value for "Allow over delivery or receipt upto this percent" from 
 2. Set `Limit Percentage`.
 3. Save Stock Settings.
 
-![](/files/TGPrUJY.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__alternative-finished-goods.md -->
 ---
@@ -611,7 +611,7 @@ Open **Manufacturing Settings** and enable **Allow Alternative Finished Goods** 
 
 
 
-![](/files/Screenshot 2026-08-28 at 12.15.17 PM.webp)
+[Screenshot on the live page]
 
 ### Step 2 — Allow alternatives on the planned item
 
@@ -629,7 +629,7 @@ Create an **Item Alternative** record for each grade the process may produce:
 | Two-way               | Tick only if Grade B Work Orders can also be regraded to Grade A |
 
 
-![](/files/Screenshot 2026-08-28 at 12.26.21 PM.webp)
+[Screenshot on the live page]
 
 
 
@@ -640,11 +640,11 @@ Setup is done. You never need to repeat this unless a new grade is introduced.
 - **Finish production as usual.** Complete the Work Order's Manufacture entry so the produced quantity is booked.
 - **Open the Work Order.** After QC identifies a grade change, open the Work Order and click the **Change Finished Item** button.
 
-![](/files/Screenshot 2026-08-28 at 12.25.21 PM.webp)
+[Screenshot on the live page]
 
 - **Fill the dialog.**
 
-![](/files/imagefe13aa.webp)
+[Screenshot on the live page]
 
 - **Actual Finished Item** - System will auto default when there's only one alternative or pick the grade QC approved (only pre-approved alternatives are shown).
 - **Qty to Convert** - how much of the produced quantity is actually the other grade. The dialog shows how much is available to convert.
@@ -658,7 +658,7 @@ Setup is done. You never need to repeat this unless a new grade is introduced.
   
 - **Check the report (optional).** Open **Work Order Summary** — the *Actual Finished Goods* column shows the true output
 
-![](/files/Screenshot 2026-08-28 at 12.31.40 PM.webp)
+[Screenshot on the live page]
 
 ## Good to know
 
@@ -700,19 +700,19 @@ You can request the developer credentials from Amazon Seller Central once you ar
 
 #### 1. Setup SP-API Credentials
 
-Enter the IAM ARN, Refresh Token, Client ID, Client Secret, AWS Access Key, AWS Secret Key and Country. ![Credentials](/files/Credentials.png "Credentials.png")  
+Enter the IAM ARN, Refresh Token, Client ID, Client Secret, AWS Access Key, AWS Secret Key and Country. [Screenshot on the live page: Credentials]  
   
 
 
 #### 2. Set up Order Details
 
-Set up Company, Warehouse, Parent Item Group, Price List, Customer Group, Territory, Customer Type and Account Group. The Account Group is used to hold commissions, taxes etc. that Amazon charges. ![setup](/files/Screenshot from 2023-07-31 13-51-36.png "setup.png")  
+Set up Company, Warehouse, Parent Item Group, Price List, Customer Group, Territory, Customer Type and Account Group. The Account Group is used to hold commissions, taxes etc. that Amazon charges. [Screenshot on the live page: setup]  
   
 
 
 #### 3. Setup Sync Configurations
 
-Using the After Date, you can sync orders created after a particular date. In case you are importing a lot of historic data, it is suggested to start in the reverse chronological order of the After Date and import data in small chunks. ![Syncing](/files/Screenshot from 2023-07-31 13-45-15.png "Syncing.png")After setting up all the configurations, click on Is Active and save the settings. You are now ready to use the integration.
+Using the After Date, you can sync orders created after a particular date. In case you are importing a lot of historic data, it is suggested to start in the reverse chronological order of the After Date and import data in small chunks. [Screenshot on the live page: Syncing]After setting up all the configurations, click on Is Active and save the settings. You are now ready to use the integration.
 
 #### 4. Amazon - ERPNext Item Mapping
 
@@ -720,7 +720,7 @@ Both ASIN and SellerSKU can be utilized to map Amazon items with corresponding E
 
 During the process of syncing orders from Amazon, the system will attempt to find the Item Code using the field configured to find the Item Code in the Amazon - ERPNext Item Mapping table. If the item is not found in the mapping table, you have the option to create a new item by checking the **Create Item If Not Exists** box.
 
-![Screenshot from 2023-07-31 13-52-50](/files/Screenshot from 2023-07-31 13-52-50.png "Screenshot from 2023-07-31 13-52-50.png")  
+[Screenshot on the live page: Screenshot from 2023-07-31 13-52-50]  
 
 
 #### 5. Sync Orders
@@ -732,7 +732,7 @@ Click on this button to sync sales orders. Once this is successful you should se
 &gt; 
 &gt; 
 
-![Sales Order](/files/Sales Order.png "Sales Order.png")  
+[Screenshot on the live page: Sales Order]  
   
 
 
@@ -750,11 +750,11 @@ updated: "2026-03-02"
 
 Rate and Qty in Purchase Order can now be amended after Submit using the `Update Items` button.
 
-![Update Items](/files/po-update-items.png)
+[Screenshot on the live page: Update Items]
 
 To Update Rate and Qty in a Submitted Purchase Order, click on the `Update Items` button. A dialog will pop up to let you make the change.
 
-![Update Items](/files/po-update-items-rate-and-qty.gif)
+[Screenshot on the live page: Update Items]
 
 Please Note the following validations and usecases:
 
@@ -786,14 +786,14 @@ Use this method when the submitted order is correct overall and only an allowed 
 1. Open the submitted Sales Order.
 2. Select **Update Items**, as highlighted.
 
-![Update Items on a submitted Sales Order](https://novacompanies.m.frappe.cloud/files/update-items-button.png)
+[Screenshot on the live page: Update Items on a submitted Sales Order]
 
 3. In the **Update Items** dialog, review the item row.
 4. Use the highlighted pencil icon when you need to open the row editor.
 5. Change the permitted **Delivery Date**, **Qty**, or **Rate**.
 6. Select **Update**.
 
-![Edit quantity and rate in the Update Items dialog](https://novacompanies.m.frappe.cloud/files/update-items-dialog.png)
+[Screenshot on the live page: Edit quantity and rate in the Update Items dialog]
 
 ERPNext validates the change against linked transactions before saving it.
 

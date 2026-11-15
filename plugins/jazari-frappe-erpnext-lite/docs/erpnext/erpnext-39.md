@@ -1,233 +1,5 @@
 <!-- Frappe documentation: erpnext, part 39 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__notifications.md -->
----
-title: "Notification"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/notifications"
-updated: "2026-03-02"
----
-
-**You can configure various notifications in your system to remind you of important activities.**
-
-1. The completion date of a Task.
-2. Expected Delivery Date of a Sales Order.
-3. Expected Payment Date.
-4. A reminder of follow up.
-5. If an Order greater than a particular value is received or sent.
-6. Expiry notification for a Contract.
-7. Completion/Status change of a Task.
-
-To access notification setup, go to:
-
-> Home > Settings > Notification
-
-1. Setting Up An Alert
-----------------------
-
-To set up a Notification:
-
-1. Define what events you want to watch under Send Alert On. Events are:
-
-
-	1. New: When a new document of the selected type is made.
-	2. Save/Submit/Cancel: When a document of the selected type is saved, submitted, or canceled.
-	3. Days Before/Days After: Trigger this alert a few days before or after the **Reference Date.** To set the days, set **Days Before or After**. This can be useful in reminding you of upcoming due dates or reminding you to follow up on certain leads of quotations.
-	4. Value Change: When a particular value in the selected type changes.
-	5. Method: Sends notification when a specific method is triggered. Eg: before_insert.
-	6. Custom: Send a notification to an [Email Account](/erpnext/email-account) selected.
-2. Select the Document Type you want to watch changes on. From Version 16, You can also select child Document Types if Send Alert On is set to *Days Before*or *Days After*.
-3. Set additional Conditions if required.
-4. Set the recipients of this alert. The recipient could either be a field of the document or a list of fixed Email Addresses.
-5. Compose the message.
-6. Save.
-
-### 1.1 Setting a Subject
-
-You can retrieve the data for a particular field by using `doc.[field_name]`. To use it in your subject/message, you have to surround it with `{% raw %}{{ }}{% endraw %}`. These are called [Jinja](http://jinja.pocoo.org/) tags. For example, to get the name of a document, you use `{% raw %}{{ doc.name }}{% endraw %}`. The following example sends an email on saving a Task with the Subject, "TASK#### has been created"
-
-![Setting Subject](/files/email-alert-subject.png)  
-
-
-### 1.2 Setting Conditions
-
-Notifications allow you to set conditions according to the field data in your documents. For example, if you want to receive an Email if a Lead has been saved as "Interested" as it's status, you put `doc.status == "Interested"` in the conditions textbox. You can also set more complex conditions by combining them with the operator **and** or **or**.
-
-![Setting Condition](/files/notification screenshotb9a4a2.jpg)  
-
-
-The above example will send a Notification when a Task is saved with the status "Open" and the "Expected End Date" for the Task is the date on or before the date on which it was saved on.
-
-### 1.3 Setting a Message
-
-You can use both Jinja Tags (`{% raw %}{{ doc.[field_name] }}{% endraw %}`) and HTML tags in the message textbox.
-
-
-```
-{% raw %}<h3>Order Overdue</h3>
-  
-
-```
-Transaction {{ doc.name }} has exceeded Due Date. Please take necessary action.
-
-{% if comments %} Last comment: {{ comments[-1].comment }} by {{ comments[-1].by }} {% endif %}
-
-
-```
-<h4>Details</h4>
-  
-
-```
-  
-
-
-* Customer: {{ doc.customer }}
-* Amount: {{ doc.total_amount }}
-
-{% endraw %}
-
-  
-
-
-### 1.4 Setting a Value after the Alert is Set
-
-Sometimes to make sure that the Notification is not sent multiple times, you can define a custom property (via Customize Form) like "Notification Sent" and then set this property after the alert is sent by setting the **Set Property After Alert** field.
-
-Then you can use that as a condition in the **Condition** rules to ensure emails are not sent multiple times
-
-![Setting Property in Notification](/files/email-alert-subject.png)  
-
-
-### 1.5 Example
-
-1. Defining the Criteria ![Defining Criteria](/files/email-alert-1.png)
-2. Setting the Recipients and Message ![Set Message](/files/email-alert-2.png)
-
-
-
----
-
-2. Slack Notifications
-----------------------
-
-If you prefer to have your notifications sent to a dedicated Slack channel, you can also choose the option "Slack" in the channel options and select the appropriate Slack Webhook URL.
-
-### 2.1 Slack Webhook URL
-
-A Slack webhook URL is a URL pointing directly to a Slack channel.
-
-To generate webhook URLs, you need to create a new Slack App:
-
-1. Go to https://api.slack.com/slack-apps.
-2. Click on "Create a Slack App". ![Set Message](/files/slack_notification_1.png)
-3. Give your App a name and choose the right workspace. Once your app is created, go to the "Incoming Webhooks" section and add a new Webhook to Workspace. ![Set Message](/files/slack_notification_2.png)
-4. Copy the created link, go back to ERPNext and use it to create a new Slack Webhook URL in Integrations > Slack Webhook URL. ![Set Message](/files/slack_notification_3.png)
-5. Select Slack and your Slack channel in the channel and Slack channel fields within your notification
-
-### 2.2 Message Format
-
-Unlike Email messages, Slack doesn't allow HTML formatting.
-
-Instead, you can use markdown formatting: [Slack Documentation](https://get.slack.help/hc/en-us/articles/202288908-Format-your-messages)
-
-Example: {% raw %} *Order Overdue*
-
-
-```
-Transaction {{ doc.name }} has exceeded Due Date. Please take the necessary action.
-
-
-{% if comments %}
-Last comment: {{ comments[-1].comment }} by {{ comments[-1].by }}
-{% endif %}
-
-*Details*
-
-• Customer: {{ doc.customer }}
-• Amount: {{ doc.grand_total }}
-{% endraw %}
-  
-
-```
-![Set Message](/files/slack_notification_4.png)  
-
-
-
-
----
-
-3. System Notifications
------------------------
-
-In **Version 12** we introduced System notifications for **Assignments**, **mentions**, **documents shared**, and **Energy Points**. These notifications show up in the notifications dropdown on the the navigation bar's top right corner.
-
-In **Version 13** we have introduced an additional channel to send alerts - **System Notifications**:
-
-![Notifications Dropdown](/files/system-notifications-channel.png)  
-
-
-Choosing this channel will send a system notification when a notification is triggered, instead of an Email or a Slack notification.
-
-![Notifications Dropdown](/files/system-notification.png)  
-
-
-Clicking on the notification routes to the **Notification Log** document which contains the configured subject, message as well as the attached file, if Attach Print is set:
-
-![Notifications Dropdown](/files/notification-log.png)  
-
-
-If Email/Slack alerts and System Notifications both are required, the main channel can be set as Email or Slack and this option can be checked:
-
-![Notifications Dropdown](/files/send-system-notification.png)  
-
-
-4. WhatsApp
------------
-
-In **Version 13** we have introduced an additional channel to send alerts - **WhatsApp**: ![Notifications WhatsApp Channel](/files/twilio-channel.png)  
-
-
-If you prefer to have your notifications sent to a WhatsApp number, you can also choose the option "WhatsApp" in the channel options and select the appropriate Twilio Number. Twilio Numbers can be added to Twilio settings in Frappe. WhatsApp messages can only be sent to numbers which have country codes in them.
-
-![Twilio Settings](/files/twilio-settings.png)  
-
-
-### 4.1 Twilio Settings
-
-In order to configure Twilio settings, you need to first obtain Twilio credentials from your Twilio Account's account settings. You can only add those phone numbers that have been activated in your Twilio Account with WhatsApp access. ![Twilio Credentials](/files/twilio-credentials.png)  
-
-
-### 4.2 Message Format
-
-WhatsApp allows their users to only send those message templates that are pre-approved by them to your customers. Failure to do so might result in restrictions on you Twilio account. ![Pre Approved Message Template](/files/twilio-pre-approved-message.png)  
-
-
-5. SMS
-------
-
-In **Version 13** we have introduced an additional channel to send alerts - **SMS**: ![SMS Channel](/files/sms-notification-channel.png)  
-
-
-In order to use this channel, you would need to complete the configuration of [SMS Settings](/erpnext/sms-setting).
-
-### 6. Related Topics
-
-1. [SMS Settings](/erpnext/sms-setting)
-2. [Document Follow](/erpnext/document-follow)
-
-### 7. One-off Reminders
-
-> Note: This feature is only available in nightly version as of now.
-
-Since setting up notifications is quite involved process, Frappe Framework also provides a way to setup one-off reminders on documents. Example of such notification would be "Remind me to follow up about this lead in 4 hour"
-
-To set up one-off reminder on document:
-
-1. Open the document on which you want to set a reminder
-2. Click on menu (three dots) > "Remind Me"
-3. Select time and add a description for yourself and click "Create"
-4. System will send you a system notification around the time you've configured with reminder description as subject.
-
 <!-- page: erpnext/erpnext__open-source.md -->
 ---
 title: "Open Source"
@@ -294,7 +66,7 @@ updated: "2026-03-02"
 
 We can easily identify the manufacturing progress of certain items in our organizations using **Open Work Orders** in ERPNext.
 
-![Open Work Orders](/files/open-work-order.png)
+[Screenshot on the live page: Open Work Orders]
 
 In this report users are able to see:
 
@@ -440,7 +212,7 @@ Do not include a control-account balance in the Journal Entry if another opening
 9. Confirm total debit equals total credit.
 10. Save, review, and submit after other opening documents are complete.
 
-![Opening Journal Entry for a migration batch](/files/opening-journal-entry.webp)
+[Screenshot on the live page: Opening Journal Entry for a migration batch]
 
 ## Use Temporary Opening
 
@@ -564,7 +336,7 @@ Before import:
 8. Start invoice creation.
 9. Wait for background processing to finish.
 
-![Opening Invoice Creation Tool](/files/opening-invoice-creation-tool7c01cb.webp)
+[Screenshot on the live page: Opening Invoice Creation Tool]
 
 Run Sales and Purchase imports as separate controlled batches.
 
@@ -668,7 +440,7 @@ Update valuation rate, which will be per unit value of item. If different units 
 
 As per perpetual inventory valuation system, accounting entry is created for every stock transaction. Double entry accounting system requires Total Debit matching with Total Credit in an entry. On the submission of Stock Entry, system debits Warehouse account by total value of items. To balance the same, we use Temporary Opening account as a Difference Account.
 
-![Difference Account](/files/difference-account-1.png)
+[Screenshot on the live page: Difference Account]
 
 #### Step 9: Save and Submit Stock Entry
 
@@ -734,7 +506,7 @@ updated: "2026-07-05"
 
 The Operation master stores a single manufacturing operation, its description and the Default Workstation for the Operation. 
 
-![](/files/CleanShot 2026-02-19 at 12.45.22@2x.png)
+[Screenshot on the live page]
 
 ---
 
@@ -757,7 +529,7 @@ Before creating and using an Operation, it is advised that you create a [Worksta
 
 Once saved, the following can be created against an Operation:
 
-![](/files/CleanShot 2026-02-19 at 12.17.04@2x.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__opportunity.md -->
 ---
@@ -779,17 +551,17 @@ To access the Opportunity list, go to:
 ## How to Create an Opportunity
 
 - Go to the Opportunity list and select 'Add Opportunity'.
-- In 'Opportunity From', select Lead if opportunity is from a lead.[Creating New Opportunity](/files/creating-opportunity.gif)
+- In 'Opportunity From', select Lead if opportunity is from a lead.Creating New Opportunity (picture on the live page)
 - You can also go to a Lead with 'Open' status and select “Opportunity” under **Create** dropdown as shown below.
 
-[Create Opportunity From Lead](/files/lead-to-opportunity.png)
+Create Opportunity From Lead (picture on the live page)
 
 - In 'Opportunity From', select Customer if opportunity is from a customer.
 - Select Opportunity Type. This indicates the broad category of opportunity like Sales, Support, Maintenance etc.
 - You can add more details like Opportunity Amount, Probability (of conversion), Currency in 'SALES' section.
 - You can capture the details of the products/services needed by clicking on 'With Items' checkbox and adding the item and quantity details in 'Items' section.
 
-[Item Details in Opportunity](/files/item-details-in-opportunity.png)
+Item Details in Opportunity (picture on the live page)
 
 - Enter the Source of the opportunity in the SOURCE section.
 
@@ -805,7 +577,7 @@ It is important to reach out to opportunities from time to time and build the re
 
 You can define [Assignment Rules](/erpnext/assignment-rule) to automatically assign the opportunities to sales executives.
 
-![Opportunity Assignment](/files/opportunity-assignment-rule.png)
+[Screenshot on the live page: Opportunity Assignment]
 
 ### Auto-close Opportunities
 
@@ -813,13 +585,13 @@ If you do not receive a response from an opportunity for a certain number of day
 
 You can set the number of days in [Selling Settings](/erpnext/selling-settings).
 
-![Auto Close Opportunities](/files/auto-close-opportunities.png)
+[Screenshot on the live page: Auto Close Opportunities]
 
 ### Create a Quotation
 
 You can create a [Quotation](/erpnext/quotation) from the **Make** dropdown. Relevant field values will be copied over.
 
-![Create Quotation From Opportunity](/files/create-quotation-from-opportunity.png)
+[Screenshot on the live page: Create Quotation From Opportunity]
 
 ### Create a Supplier Quotation
 
@@ -834,7 +606,7 @@ You may need to get a quotation from your supplier against the customer requirem
 
 When an opportunity is lost, you can capture the reasons, competitors and detail reason for losing. This will help you to analyse the trends over a long period of time and identify the insights needed for improvements at various areas in the organisation.
 
-![Opportunity Lost Reason](/files/opportunity-lost-reason.png)
+[Screenshot on the live page: Opportunity Lost Reason]
 
 ### Minutes to First Response
 
@@ -873,11 +645,11 @@ To access the Opportunity Type, go to:
 - Enter 'Name'.
 - Enter 'Description' to elaborate more on the type.
 
-![Screenshot 2023-12-28 at 11.14.56 AM](/files/Screenshot 2023-12-28 at 11.14.56 AM.png)
+[Screenshot on the live page: Screenshot 2023-12-28 at 11.14.56 AM]
 
 The system allows you to maintain a list of different Opportunity Types.
 
-![Screenshot 2023-12-28 at 11.15.46 AM](/files/Screenshot 2023-12-28 at 11.15.46 AM.png)
+[Screenshot on the live page: Screenshot 2023-12-28 at 11.15.46 AM]
 
 <!-- page: erpnext/erpnext__packing-list.md -->
 ---
@@ -917,7 +689,7 @@ ERPNext generates the Packing List when the Sales Order is saved. It multiplies 
 
 
 
-![Packing List generated from a Product Bundle in a Sales Order.](/files/image33d548.png)
+[Screenshot on the live page: Packing List generated from a Product Bundle in a Sales Order.]
 
 ## Review Packing List fields
 
@@ -1010,7 +782,7 @@ Usually, you should create a Packing Slip from a Delivery Note when it is in the
 
 Most of these details will be fetched if you create the Packing Slip from the Delivery Note.
 
-![Packing Slip](/files/packing-slip.png)
+[Screenshot on the live page: Packing Slip]
 
 
 ### 1.1 Additional options when creating a Packing Slip

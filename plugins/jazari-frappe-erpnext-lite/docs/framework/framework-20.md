@@ -16,13 +16,13 @@ Frappe Recorder is a profiling tool built into the Frappe framework designed to 
 Example use case: You've noticed that a certain DocType is taking too much time to save and you believe that SQL queries might be a bottleneck. In such a case starting recorder and then submitting your document will give you complete capture of all the queries that were fired for saving the document.
 
 1. Login as Administrator. Open Recorder from Awesomebar and click on "Start".
-2. You'll be asked to configure recording. Pick appropriate options and start recording. ![](/files/AiAZ6TW.png)
+2. You'll be asked to configure recording. Pick appropriate options and start recording. [Screenshot on the live page]
 3. Perform the actions you want to profile (preferably in another tab.)
 4. Once you've captured enough information, go to the recorder again and stop recording.
 
 You will now see a list of all the requests or jobs that were processed and recorded. You can sort them by various columns to identify problematic requests.
 
-![Screenshot 2023-09-25 at 8.53.42 PM](/files/Screenshot 2023-09-25 at 8.53.42 PM.png "Screenshot 2023-09-25 at 8.53.42 PM.png")  
+[Screenshot on the live page: Screenshot 2023-09-25 at 8.53.42 PM]  
 
 
 Click on a row to open the request for extra information. Following information is available in the capture:
@@ -37,12 +37,12 @@ Click on a row to open the request for extra information. Following information 
 8. Form Dict - form data received with the request (empty for background jobs).
 9. SQL queries - table of all SQL queries that ran.
 
-![Screenshot 2023-09-25 at 8.46.24 PM](/files/Screenshot 2023-09-25 at 8.46.24 PM.png "Screenshot 2023-09-25 at 8.46.24 PM.png")  
+[Screenshot on the live page: Screenshot 2023-09-25 at 8.46.24 PM]  
 
 
 To know more about a particular query click on row to expand additional information. This includes the duration of the query, stack trace and SQL's `EXPLAIN` output for that query.
 
-![Screenshot 2023-09-25 at 8.47.28 PM](/files/Screenshot 2023-09-25 at 8.47.28 PM.png "Screenshot 2023-09-25 at 8.47.28 PM.png")  
+[Screenshot on the live page: Screenshot 2023-09-25 at 8.47.28 PM]  
 
 
 
@@ -61,7 +61,7 @@ You can export recorder captures and import them on another site for further ana
 
 In addition to capturing SQL queries, the recorder can also run the inbuilt Python profiler "cProfile" to give you profiling output of running Python functions. You can enable this option while starting the recorder.
 
-![](/files/IFovCUl.png)  
+[Screenshot on the live page]  
 
 
 
@@ -145,12 +145,12 @@ RQ worker doctype shows all background workers consuming the background jobs que
 
 RQ Job is a virtual doctype which provides information about all background jobs. You can filter jobs by queue and status.
 
-![rq job list](/private/files/rq_job_list.png)  
+[Screenshot on the live page: rq job list]  
 
 
 Form view of RQ job shows all information about the job.
 
-![rq job](/private/files/rq_job.png)  
+[Screenshot on the live page: rq job]  
 
 
 Debugging Stuck Process

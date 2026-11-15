@@ -1,138 +1,5 @@
 <!-- Frappe documentation: cloud, part 8 of 9. Index: docs/INDEX.md -->
 
-<!-- page: cloud/cloud__site__site-migrations__move-site-from-shared-to-private-bench.md -->
----
-title: "Move Site From Shared To Private Bench"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/site/site-migrations/move-site-from-shared-to-private-bench"
-updated: "2026-03-06"
----
-
-If your site is currently running on a **shared bench**, you can move it to a **private bench** to gain access to **Server Scripts**, install **custom apps**, and have better control over your bench environment.
-
-
-
-1. **Verify Plan Eligibility :** First, confirm that your **site plan supports private benches**. If your current plan does not support this feature, a **banner will appear on the site page** indicating that an upgrade is required. Click the **Upgrade Plan** button to proceed.
-  ![](https://docs.frappe.io/files/image7fab00.png)
-2. **Upgrade Your Plan :**  To enable private bench support, upgrade your site to **any plan priced at $25/month or higher**.
-  ![](https://docs.frappe.io/files/image38f232.png)
-  After upgrading, a new banner will appear on the site page prompting you to move the site. Click **Move to Private Bench**.
-  ![](https://docs.frappe.io/files/imageeefb3c.png)
-3. **Confirm the Migration Configuration :** A dialog will appear with **pre-filled configuration details** for the migration.  
-In most cases, you can keep the default values and click **Move to Private Bench** to proceed.  
-  ![](https://docs.frappe.io/files/imagef260b3.png)
-  Additional options are also available in the dialog, such as - Moving the site to a dedicated server or to an existing bench. You can explore these options if your setup requires a different configuration.  
-
-4. **Track the Migration Progress :** After triggering the migration, you will be redirected to a **progress page** where you can monitor the status of the operation.
-  ![](https://docs.frappe.io/files/imageda50be.png)
-5. **Migration Completion :** Once the migration process finishes, your site will be running on a **private bench** according to the selected configuration.
-  ![](https://docs.frappe.io/files/imageb09efa.png)
-  You can now start using features such as **server scripts and custom app** for your site.
-
-<!-- page: cloud/cloud__site__site-migrations__move-site-to-different-region.md -->
----
-title: "Move Site To Different Region"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-region"
-updated: "2026-03-06"
----
-
-To move your site to a **different region**, follow the steps below.
-
-> If your site is currently running on a **Shared Bench**, you can skip the region setup steps described below.
-
-### 1. Add the Target Region
-
-Go to your **Private Bench** and open the **Regions** tab.
-
-Click **Add Region** and select the region where you want to deploy your site.
-
-![](/files/image41a717.png)
-
-### 2. Wait for Bench Provisioning
-
-After adding the region, return to the **Sites** tab.
-
-A **new bench** will appear with the status **Installing**. Wait until the bench becomes **Active** before proceeding.
-
-![](/files/image485bb7.png)
-
-### 3. Trigger the Migration
-
-Once the bench becomes active, open your **Site** and go to the **Migrations** tab.
-
-Click **Trigger Migration**. From the migration type options, select **Move Site to Different Region**, then choose the **target region** where you want the site to be moved.
-
-![](/files/image939156.png)
-
-### 4. Migration Completion
-
-Once the migration process completes, your site will be **successfully moved to the selected region**.
-
-<!-- page: cloud/cloud__site__site-migrations__move-site-to-different-server-or-bench.md -->
----
-title: "Move Site To Different Server or Bench"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench"
-updated: "2026-03-08"
----
-
-If you want to move your site to another **server** or **bench**, you can do so from the **Migrations** tab.
-
-Go to the **Migrations** tab and click **Trigger Migration**.
-
-![](/files/imageb2de81.png)
-
-
-
-## **Choose a Migration Option**
-
-You will see two available options :
-
-### 1. Use New Bench
-
-Select this option if you want to **create a new bench** and move your site there.  
-When choosing this option, you can deploy the new bench in one of two ways :
-
-- **Shared Server** – Create the new bench on a shared server (managed by Frappe).
-- **Dedicated Server** – Deploy the new bench on a dedicated server.
-
-After selecting your preferred configuration, click the button to **proceed with the migration setup**.
-
-![](https://docs.frappe.io/files/image0283c6.png)
-
-**Note:** If you are moving your site **from dedicated server to shared server**, the system will set **100 USD** as **default plan** after migration. Thereafter, you can upgrade / downgrade site plan according to your requirement.
-
-### **2. Use an Existing Bench :**
-
-Select this option if you already have a **bench with the required apps installed**.
-
-You will need to :
-
-- Select the **bench**
-- Select the **server where the bench should be deployed**
-
-After selecting the appropriate options, click the button to **proceed with the migration configuration**.
-
-![](/files/imagead7e63.png)
-
-<!-- page: cloud/cloud__sites__activity.md -->
----
-title: "Activity"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/activity"
-updated: "2026-02-16"
----
-
-Frappe Cloud maintains a log of all actions taken on your sites.
-
-
-
-
-![](/files/Screenshot%202025-06-20%20at%2012.34.43%E2%80%AFPM.png)
-
-All actions taken on the sites from the dashboard or triggered directly by the system are logged in Frappe Cloud. This log may be viewed from your site's Activity tab.
-
 <!-- page: cloud/cloud__sites__backups.md -->
 ---
 title: "Site Backups"
@@ -156,7 +23,7 @@ Frappe Cloud takes automated backups of your sites every **24** hours. There is 
 
 The setting inside **System Settings** is for how many onsite backup files to keep within the sites directory, provided multiple backups have been taken. This will **NOT** change the number of automated backups taken by Frappe Cloud.
 
-![](/files/87rYe4n.png)
+[Screenshot on the live page]
 *configuring number of onsite backups*
 
 As of now, there is no limit on how many onsite backups you can take in a day. You can mention any number which make sense and also take on-demand backups.
@@ -175,7 +42,7 @@ In the process of taking an offsite backup, we take the backup, compress it and 
 
 Offsite backups are marked as such in the Backups tab.
 
-![](/files/imaged559c8.png)
+[Screenshot on the live page]
 *Offsite backup reprensetation in the list of backups*
 
 ### Offsite Backup Rotation
@@ -189,11 +56,11 @@ For each site, a certain number of offsite backups are kept at all times. The fr
 
 This is done to store backups efficiently. For example, if the current day is Jan 13, then the backups available will be like so:
 
-![Backups Example - December](https://cloud.frappe.io/assets/press/images/docs/brs-december.png)
+[Screenshot on the live page: Backups Example - December]
 
 
 
-![Backups Example - January](https://cloud.frappe.io/assets/press/images/docs/brs-january.png)
+[Screenshot on the live page: Backups Example - January]
 *Backup rotation policy representation a Calendar*
 
 (Monthly and yearly backups before December 2020 not shown in picture)
@@ -208,7 +75,7 @@ This is done to store backups efficiently. For example, if the current day is Ja
 
 From the Frappe Cloud site dashboard, go to the **Backups** tab. Here you will see the list of backups that were taken of your site. Every backup consists of a database backup, public files backup, private files backup and a backup of your site's config.
 
-![](/files/zuEcx4r.png)
+[Screenshot on the live page]
 
 ## Trigger on-demand backup
 
@@ -216,7 +83,7 @@ You can also trigger a manual backup operation for your site anytime from the **
 
 The job will be queued and it will take a few minutes to complete.
 
-![](/files/OMMoOUJ.png)
+[Screenshot on the live page]
 
 ## FAQ
 
@@ -268,20 +135,20 @@ You can change the team of the site by using the **Transfer Site** feature.
 
 
 
-![](/files/Screenshot%202025-08-20%20at%204.24.39%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 2. Fill in the fields and click on Submit
 
 
 
-![](/files/Screenshot%202025-08-20%20at%204.25.53%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 3. The team that is supposed to receive the ownership will now receive a mail to accept the ownership. Click on **Accept Site Transfer** to accept the ownership of the site.
 
 
 
 
-![](/files/image558c81.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__sites__creating-a-new-site.md -->
 ---
@@ -296,12 +163,12 @@ Simplest guide to creating a new site on Frappe Cloud
 1. From the Sites tab on the dashboard, click on **New Site**.
 2. Select the apps you want to install on your site 
 
-![](/files/adOvj8s.png)
-3. Select the site version you want, and the site region you want.![](/files/YrCJl0a.png)
+[Screenshot on the live page]
+3. Select the site version you want, and the site region you want.[Screenshot on the live page]
 4. Select the appropriate plan you want for your site. For more details visit our [pricing page](/pricing).
 
-![](/files/jGRWR5c.png)
-5. Choose a unique hostname for your site. Subdomain could be 5 to 32 characters long and contain lowercase alphabets, numbers, and hyphens. A subdomain can not start or end with hyphens.![](/files/XByVq6n.png)
+[Screenshot on the live page]
+5. Choose a unique hostname for your site. Subdomain could be 5 to 32 characters long and contain lowercase alphabets, numbers, and hyphens. A subdomain can not start or end with hyphens.[Screenshot on the live page]
 6. It will take a few seconds for site creation depending on the apps you have chosen.
 7. Click on Visit Site at the top of the page to access your site.
 8. After site creation you will see a message, you can proceed to complete the setup wizard by clicking on login. You must log in and complete the setup wizard on your site. Analytics will be collected only after the setup is complete.
@@ -326,7 +193,7 @@ Frappe Cloud allows you to map custom domains that you own in a few simple steps
 1. Create DNS records from the dashboard of your domain provider. Follow **one** of the steps below:  
 **Subdomain**: To point a subdomain to your site, add a **CNAME record** pointing your subdomain to your site. For example, if you want to use `www.example.com` for your site `example.frappe.cloud` then add CNAME record for `www.example.com` pointing to `example.frappe.cloud`. For the instructions to add such a record, please contact your domain provider.  
 **Naked domain**: To point a naked domain like `example.com` to your site, simply add an **A** **record** pointing to the IP address of your site. You can get this IP from **Inbound IP** of your dashboard  
-![](/files/3MWe7ri.png)  
+[Screenshot on the live page]  
 One caveat to adding naked domains is that you will have to update the DNS record if the IP of your site changes.
   > **NOTE:** Only add 1 record. If you're adding multple **A** records for the same domain, you're doing it wrong.  
   > There are some DNS providers such as Cloudflare that allow adding CNAME records for naked domains. If so, you won't need an A record. Simply follow the same steps as in the Subdomain section above, replacing `www.example.com` with `example.com`.
@@ -336,13 +203,13 @@ One caveat to adding naked domains is that you will have to update the DNS recor
 5. Enter the custom domain.
 6. Click on Verify DNS.
 7. If the verification succeeds, you have correctly added the CNAME record, and you will see Add Domain button. Click on Add Domain.  
-![Custom Domains](https://cloud.frappe.io/assets/press/images/docs/site-domain.png)
+[Screenshot on the live page: Custom Domains]
 
 > Note: We obtain an SSL certificate for the custom domain. So you will be able to use HTTPS with your domain.
 
 > You are able to add both naked and subdomains to your site
 
-![](/files/image43789c.png)
+[Screenshot on the live page]
 
 ## Redirecting domains
 
@@ -350,11 +217,11 @@ In some cases, you may not want the user to see certain domains that direct you 
 
 1. You need to set one domain as primary domain. This is the domain where the "redirected domains" will redirect to
 
-![Set Primary Image](/files/domain-redirect.png)
+[Screenshot on the live page: Set Primary Image]
 
 1. Next, you need to enable redirection for domains that you wish to hide
 
-![Enable Redirect Image](/files/domain-redirect-2.png)
+[Screenshot on the live page: Enable Redirect Image]
 
 That's it. Your users will be able to access your site from the redirected domains, but they will be redirected to the **primary domain** which will show up in their address bar
 
@@ -376,7 +243,7 @@ This seems to happen when google crawls your site when it was deactivated/suspen
 
 Currently, the custom domains you add on FC don't work when Cloudflare proxy is enabled. Please use the **DNS only** option for your DNS record.
 
-![Cloudflare DNS only](/files/dns_only.png)
+[Screenshot on the live page: Cloudflare DNS only]
 
 Note that proxying can be re-enabled once the domain is successfully added in Frappe Cloud. However, there is an existing issue with websocket communication due to which real-time updates may not happen in site correctly. 
 
@@ -390,7 +257,7 @@ We don’t support adding arbitrary SSL certificates. You may add a custom domai
 
 You can use the **outbound IP t**o whitelist on any 3rd party services.
 
-![](/files/mVhiq4U.png)
+[Screenshot on the live page]
 
 ### Certificate information for Bank Integration
 
@@ -400,7 +267,7 @@ We cannot provide this for [Frappe.Cloud](http://Frappe.Cloud) or [ERPNext.com](
 
 Only the **primary** domain is sent within outgoing emails and PDFs. In order to change this to your custom domain, you can set the domain as **primary**
 
-![Set Primary Image](https://frappecloud.com/files/domain-redirect.png)
+[Screenshot on the live page: Set Primary Image]
 
 ### Can I move a domain that I use elsewhere to Frappe Cloud?
 
@@ -410,7 +277,7 @@ Yes, if you have bought the domain from a domain provider (E.g: Namecheap) , you
 
 Some browsers (eg: Firefox) allow you to download full chain of certificates easily. Otherwise, you may use this site to download the same easily: [https://whatsmychaincert.com](https://whatsmychaincert.com)
 
-![](/files/0W9iQ07.png)
+[Screenshot on the live page]
 
 ---
 
@@ -422,7 +289,7 @@ Frappe Cloud allows you to map custom domains that you own in a few simple steps
 
 **Naked domain**: To point a naked domain like `example.com` to your site, simply add an **A** **record** pointing to the IP address of your site. You can get this IP from **Inbound IP** of your dashboard
 
-![](/files/3MWe7ri.png)
+[Screenshot on the live page]
 
 One caveat to adding naked domains is that you will have to update the DNS record if the IP of your site changes.
 
@@ -436,7 +303,7 @@ There are some DNS providers such as Cloudflare that allow adding CNAME records 
 6. Click on Verify DNS.  
 7. If the verification succeeds, you have correctly added the CNAME record, and you will see Add Domain button. Click on Add Domain.
 
-![](/files/image124f0c.png)
+[Screenshot on the live page]
 
 
 
@@ -444,7 +311,7 @@ There are some DNS providers such as Cloudflare that allow adding CNAME records 
 
 You are able to add both naked and subdomains to your site
 
-![](/files/image853893.png)
+[Screenshot on the live page]
 
 
 
@@ -456,11 +323,11 @@ In some cases, you may not want the user to see certain domains that direct you 
 
 1. You need to set one domain as primary domain. This is the domain where the "redirected domains" will redirect to
 
-![Set Primary Image](/files/domain-redirect.png)
+[Screenshot on the live page: Set Primary Image]
 
 1. Next, you need to enable redirection for domains that you wish to hide
 
-![Enable Redirect Image](/files/domain-redirect-2.png)
+[Screenshot on the live page: Enable Redirect Image]
 
 That's it. Your users will be able to access your site from the redirected domains, but they will be redirected to the **primary domain** which will show up in their address bar
 
@@ -488,7 +355,7 @@ This seems to happen when google crawls your site when it was deactivated/suspen
 
 Currently, the custom domains you add on FC don't work when Cloudflare proxy is enabled. Please use the **DNS only** option for your DNS record. 
 
-![Cloudflare DNS only](/files/dns_only.png)
+[Screenshot on the live page: Cloudflare DNS only]
 
 Note that if you have multiple A records and one of them is **proxied** [all records will be proxied](https://developers.cloudflare.com/dns/manage-dns-records/reference/proxied-dns-records/#dns-only-records).
 
@@ -500,7 +367,7 @@ We don’t support adding arbitrary SSL certificates. You may add a custom domai
 
 You can use the **outbound IP t**o whitelist on any 3rd party services.
 
-![](/files/mVhiq4U.png)
+[Screenshot on the live page]
 
 ### Certificate information for ICICI Bank Integration
 
@@ -510,7 +377,7 @@ We cannot provide this for [Frappe.Cloud](http://Frappe.Cloud) or [ERPNext.com](
 
 Only the **primary** domain is sent within outgoing emails and PDFs. In order to change this to your custom domain, you can set the domain as **primary**
 
-![Set Primary Image](https://frappecloud.com/files/domain-redirect.png)
+[Screenshot on the live page: Set Primary Image]
 
 ### Can I move a domain that I use elsewhere to Frappe Cloud?
 
@@ -520,7 +387,7 @@ Yes, if you have bought the domain from a domain provider (E.g: Namecheap) , you
 
 Some browsers (eg: Firefox) allow you to download full chain of certificates easily. Otherwise, you may use this site to download the same easily: &lt;[https://whatsmychaincert.com](https://whatsmychaincert.com)&gt;
 
-![](/files/0W9iQ07.png)
+[Screenshot on the live page]
 
 ### How to to verify DNS changes
 
@@ -541,12 +408,12 @@ updated: "2026-02-16"
 
 If you don't want need your site anymore (including all the data in the site) and don't want to be billed for the same, you can drop your site from your Frappe Cloud dashboard.
 
-1. From your Frappe Cloud site dashboard click on the **Actions** button![](/files/GcbJ7j4.png)
+1. From your Frappe Cloud site dashboard click on the **Actions** button[Screenshot on the live page]
 2. Scroll down and click on the Drop button beside the Drop site option 
 
-![](/files/U01WObK.png)  
+[Screenshot on the live page]  
   
-3. Type in the name of your site for confirmation and proceed to **permanently** delete your site ![](/files/eFN3GyI.png)
+3. Type in the name of your site for confirmation and proceed to **permanently** delete your site [Screenshot on the live page]
 
 <!-- page: cloud/cloud__sites__how-to-update-an-app-site-on-a-private-bench.md -->
 ---
@@ -558,19 +425,19 @@ updated: "2026-02-16"
 
   
 1. Go to your bench group and click on the Update Available button, this will show the updates available for the **apps** you have added to your bench group.  
-![](https://lh7-us.googleusercontent.com/AGGGfz0407BS6hoKD6634CobRibEZY3w8Au6RUzOruLQbbokzdpusss5l2b9fAncaioHjTr5FjOh4Ycags0U7eSdLhfKQiOqg6JFkwmsir3VfFlPvF8ZyenjtiXGHyyU0uAPY_IOIahMOnIHPXqxM9c)  
-![](https://lh7-us.googleusercontent.com/12w5aOVpuWwpTxrNzG5wMiqEmgvY6fc9qxNXW7vfvsqCKOUBWB1pjTBPurrPZXPupd459SimuHTLKfvm_Van4mBP0FiMI6zkyLo8fVmd3G_ot36BMoi4D8-VRcobRA7DZLqLR9n6exTLardXCZBh84k)  
+[Screenshot on the live page]  
+[Screenshot on the live page]  
   
   
 2. Select the apps you want to update and click on **Next**. You will be asked to select the site on which you want to update the apps, you can select the sites and click on **Deploy and Update**.  
   
   
-![](https://lh7-us.googleusercontent.com/Nmhd965LRI18PWz7iTUMPHbH46dE6-TWOW447e1x_I_X2uoiwPNj6I-kzUvEXvm98Q8oQi1AfLUdpn7Fx-oaqPODTA3wvBrgJgiIKePBVzQbV--cke1ZoP66Zrf-PUnOS8RaT1KmikBCQ6kLb0C_KUU)  
+[Screenshot on the live page]  
   
   
-**3.** Once done, you will see a new deploy in progress. Let the deploy complete. This usually takes around 20 mins.![](https://lh7-us.googleusercontent.com/4yNOST6CnIhy6om0W8QY41E-z4tV9jSK54SEpxjuokzMdj-6-QB31jGrFd7U5PmHFM-0_tkZIjCl6i4PsLBkUUjqhIEP1GlHLn7az_GG3_GJd3viQUuqOPPliav-NWm6niS2duLwnlwJlJZ-dWsitAE)  
+**3.** Once done, you will see a new deploy in progress. Let the deploy complete. This usually takes around 20 mins.[Screenshot on the live page]  
   
-4. Once the deploy has been completed, you will see your site updating as well to the latest version of the selected apps deployed on your bench group.![](https://lh7-us.googleusercontent.com/7quze_p82gZYYemUHjIxpoN2LUkS2SHZR639tzwkZ_F9fifYrRQz02amf5J9PjmlqsC59KvULobCK7DQFbhIWXNcPg9oLgz6hwchOwSXJBvDIFjUMTQhNWD568TjyqeHVL5rRTsyYDl0FyK6Dwqiz2Y)  
+4. Once the deploy has been completed, you will see your site updating as well to the latest version of the selected apps deployed on your bench group.[Screenshot on the live page]  
 
 
 
@@ -620,7 +487,7 @@ In cases where you have lost your previous encryption key, and system has alread
 
 Eg: **Email Account** is a common doctype who's document has a password field. You will want to re-enter the annotated password field if you face errors while sending email.
 
-![](/files/email-account-password163dd0.png)
+[Screenshot on the live page]
 
 
 
@@ -664,7 +531,7 @@ To fix this `backup_encryption_key` should be added in [site config](https://fr
 
 You need to login to CLI using your Frappe Cloud account.
 
-![](/files/user-auth.gif)
+[Screenshot on the live page]
 
 #### Restore Site
 
@@ -672,7 +539,7 @@ The CLI will guide you through the restoration process. You’ll need to choose 
 
 Watch the video below for a step-by-step overview:
 
-![](/files/restore.gif)
+[Screenshot on the live page]
 
 > If you have restored the database, please make sure to collect the encryption key from backup's site_config.json and set it on the new site. Please check above for the guide,
 
@@ -697,7 +564,7 @@ The bench command provides a form similar to the dashboard UI. It's probably the
 
 It is prompt-based and even allows you to pass external backup files, this way there is no need to restore a site from backup, just to migrate it again somewhere else.  
 
-![Screenshot 2024-07-29 at 2.19.03 PM](/files/Screenshot 2024-07-29 at 2.19.03 PM.png "Screenshot 2024-07-29 at 2.19.03 PM.png")
+[Screenshot on the live page: Screenshot 2024-07-29 at 2.19.03 PM]
 
 
 
@@ -728,19 +595,19 @@ You can restore backup on another site by following the given steps:-
 
 1. Click on the Backups tab from your site dashboard on which you have the offsite backup stored.
 
-![](/files/Screenshot%202025-08-20%20at%204.48.45%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 
 2. Click on the three dots of the offsite backup you wish to restore it on another site.
 
-![](/files/Screenshot%202025-08-20%20at%204.49.47%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 3. Once you click on the option you will be asked to select the site you want to restore it on, you can click the site and click on restore to continue.
 
-![](/files/Screenshot%202025-08-20%20at%204.50.32%E2%80%AFPM.png)
+[Screenshot on the live page]
 
-![](/files/Screenshot%202025-08-20%20at%204.52.18%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 4. Once done, it will automatically redirect to the restore job that will trigger.
 
@@ -748,7 +615,7 @@ You can restore backup on another site by following the given steps:-
 
 While creating a new site using the new site creation wizard, you can go the **Migrate from Site URL** tab while in the **Restore from Existing Site** step and follow the given steps:
 
-![Migrate from Site URL](https://frappecloud.com/files/migrate_from_site_url.png)
+[Screenshot on the live page: Migrate from Site URL]
 
 
 
@@ -778,8 +645,8 @@ If your files are too large to upload from the UI, the site is no longer hosted 
 
 1. Restore the database first. In the restore dialog, upload only the database backup and leave the public and private files empty. The database is small enough to go through the UI, and restoring it creates the site so there's somewhere for the files to land.
 2. Upload the files backup to Google Drive, then **Copy link** and set access to "Anyone with the link".
-  ![](/files/image1879e9.webp)
-  ![](/files/image4dfaf1.webp)
+  [Screenshot on the live page]
+  [Screenshot on the live page]
 3. [Set up SSH access](https://docs.frappe.io/cloud/benches/ssh) to your bench group and generate an SSH certificate. Connect using the command shown in the SSH Access dialog — it's specific to your bench group and region:
   ```bash
   # Example only — replace with the command from your SSH Access dialog
@@ -845,7 +712,7 @@ The tab opens with six charts:
 | **Background Jobs** | Number of background jobs. |
 | **Background Jobs CPU Usage** | CPU time that the background jobs used. |
 
-![](/files/image3c0c87.png)
+[Screenshot on the live page]
 
 Two controls at the top of the tab change what all charts show:
 
@@ -872,11 +739,11 @@ The section holds these charts:
 - **Frequent Slow Queries** and **Top Slow Queries**.
 - Duration charts for the paths that are slow most often. They appear only when that path is slow on your site. One chart names the reports, one names the document methods, and two name the doctypes and the actions of the saved documents.
 
-![](https://cloud.frappe.io/files/gszsZA1.png)
+[Screenshot on the live page]
 
 The list is sorted, so the first entry is the slowest. The long red bars are the paths to examine.
 
-![](https://cloud.frappe.io/files/xKtypi1.png)
+[Screenshot on the live page]
 
 To read these charts and to act on them, see [Site Slow: 504 Gateway timeout](/cloud/site/common-issues/site-slow-504-gateway-timeout).
 
@@ -892,9 +759,9 @@ The refresh also purges the Information Schema cache. After the refresh, the usa
 
 Note: You can refresh once every 15 minutes.
 
-![](/files/imagecdfe78.png)
+[Screenshot on the live page]
 
-![](/files/image4e6986.png)
+[Screenshot on the live page]
 
 ### Why Frappe Cloud and the storage reports disagree
 
@@ -933,10 +800,10 @@ Frappe Cloud turns monitoring off when the ping does not arrive, and sends you a
 
 1. Open the **Site Overview** page of your site.
 2. Click **Enable Monitoring** at the top of the page. The dialog shows why monitoring stopped.
-   ![shapes at 25 10 08 15.06.33](/files/shapes%20at%2025-10-08%2015.06.33.png)
-   ![Screenshot 2025 10 08 at 15 07 33 Frappe Cloud](/files/Screenshot%202025-10-08%20at%2015-07-33%20Frappe%20Cloud.png)
+   [Screenshot on the live page: shapes at 25 10 08 15.06.33]
+   [Screenshot on the live page: Screenshot 2025 10 08 at 15 07 33 Frappe Cloud]
 3. Click **Check & Enable Monitoring**.
-   ![Screenshot 2025 10 08 at 15 12 42 Frappe Cloud](/files/Screenshot%202025-10-08%20at%2015-12-42%20Frappe%20Cloud.png)
+   [Screenshot on the live page: Screenshot 2025 10 08 at 15 12 42 Frappe Cloud]
 
 If the test fails, the dialog shows the cause and the correction.
 
@@ -962,11 +829,11 @@ You can directly schedule Site Migration across region from a site's dashboard.
 
 1. Go to your site Dashboard → Actions → Change Region.
 
-![](/files/KcGOWHr.png)
+[Screenshot on the live page]
 
 2. Select the region you want to migrate your site.
 
-![](/files/J5U1RO6.png)
+[Screenshot on the live page]
 
 
 
@@ -974,10 +841,173 @@ You can directly schedule Site Migration across region from a site's dashboard.
 
 > If the region is not available, you can add a region to your bench group from your Bench group dashboard → Regions → Add Region. 
 >
-> ![](/files/xLETGai.png)
+> [Screenshot on the live page]
 >
 >
 
 3. If the region is available in the current bench group, input an appropriate date and time (leave it untouched if you want the migration to happen immediately) and then click on Change Region and the Site Migration will be done in the scheduled time.
 
-![](/files/Ru01b7n.png)
+[Screenshot on the live page]
+
+<!-- page: cloud/cloud__sites__move-site-across-server.md -->
+---
+title: "Move site across server"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/sites/move-site-across-server"
+updated: "2026-03-09"
+---
+
+> **Note:** This option is now part of the **Site Migration** feature.
+>
+> For instructions on moving a site to a different server / bench, see the documentation : [https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench](https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
+
+---
+
+You can directly schedule Site Migration across server from a site's dashboard.
+
+> For moving your site to a dedicated server from a public bench group
+>
+> 1. Use [Change Bench Group](https://frappecloud.com/docs/sites/move-site-to-private-bench) option to move the site to a private bench group
+> 2. Follow the below steps to move the site to your dedicated server
+
+1. To change the server for the site go to your site Dashboard>Actions>Change Server.
+
+[Screenshot on the live page]
+
+2. Select the server you want to move to (Your team should own the server).
+
+[Screenshot on the live page: image]
+
+3. If the selected server isn't added to the bench group add it by clicking on Add Server to Bench Group.
+
+[Screenshot on the live page: image]
+
+4. Click Migrate Site to Server if the target server is added to the bench group and the Site Migration will be done in the scheduled time (or leave it untouched if you want it to start immediately).
+
+[Screenshot on the live page: image]
+
+
+
+
+
+### Why is so much additional storage required when moving site to dedicated server?
+
+The reason for storage that is much larger than backup size is because during site/backup restore, the backup files are uncompressed, due to which the disk storage spikes much higher than your database size. To avoid any failure during the restore, it is recommended you have enough storage on the server.   
+
+
+
+In such cases, you can [add the required add-on storage](https://docs.frappe.io/cloud/storage-addons) on the server to continue with restoration.
+
+<!-- page: cloud/cloud__sites__move-site-to-private-bench.md -->
+---
+title: "Move site to private bench"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/sites/move-site-to-private-bench"
+updated: "2026-06-17"
+---
+
+**Note:** This option is now part of the **Site Migration** feature.
+
+For instructions on moving a site to a different server / bench, see the documentation : [https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench](https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
+
+---
+
+> If you want to move to a dedicated server refer [Move site across server](https://frappecloud.com/docs/sites/move-site-across-server)
+>
+> **Note:** If you need to move to a bench on another server, you need to move the current bench [to the server](https://frappecloud.com/docs/sites/move-site-across-server) first, and after that is done, do **Change bench** by following this doc.
+
+You can directly schedule Site Migration to a private bench from a site's dashboard.
+
+1. To change your site to a private bench, go to your site Dashboard>Actions>Change Bench
+
+[Screenshot on the live page]
+
+2. If you don't have an available private bench, click on Clone current Bench to create a compatible private bench for your site to move to.
+
+[Screenshot on the live page]
+
+3. If there's a compatible private bench, click on Change Bench to start moving the site to the chosen bench.
+
+[Screenshot on the live page]
+
+<!-- page: cloud/cloud__sites__site-config.md -->
+---
+title: "Site Config"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/sites/site-config"
+updated: "2026-02-19"
+---
+
+[Site Config](https://frappeframework.com/docs/v13/user/en/basics/sites#site-config) is the Frappe Framework way of specifying environment variables.
+
+Site Config let's you configure options that is specific to a single site.
+
+For e.g.
+
+- Configure an Email account to send emails from.
+- Disable Website Cache
+- Disable [Global Search](https://docs.erpnext.com/docs/user/manual/en/using-erpnext/Global-search)
+- Enable [Server Scripts](https://docs.erpnext.com/docs/user/manual/en/customize-erpnext/server-script)
+
+## Update Site Config
+
+1. Go to the **Site Config** tab.
+2. Enter values in the corresponding input field.
+3. Click on **Update Configuration**.
+
+[Screenshot on the live page]
+
+# FAQ
+
+## Why can't I enable developer mode?
+
+Developer Mode lets you create standard documents like DocType, Page, Report, Workspace, etc. These are standard as they are persisted on disk as JSON files. These must be part of an app. You cannot add these files to the standard Frappe and ERPNext apps. Therefore, you will need to [create your own app](https://frappecloud.com/docs/benches/custom-app).
+
+
+
+Furthermore, apps on Frappe Cloud are ephemeral. We pull a fresh copy from Github every time a new bench is deployed.Therefore, even if you do manage to enable developer mode, your changes shall not persist.  
+ 
+
+That is why you cannot enable developer mode on Frappe Cloud. You must create those features as a part of a custom app and then upload it on Frappe Cloud to use it.
+
+<!-- page: cloud/cloud__sites__version-upgrade.md -->
+---
+title: "Version Upgrade"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/sites/version-upgrade"
+updated: "2026-03-12"
+---
+
+You can directly schedule version upgrades from a site's dashboard.
+
+### Sites on Private Benches
+
+1. To upgrade the version for your site, go to your Frappe cloud site Dashboard > **Actions** > **Version** **Upgrade**.
+  [Screenshot on the live page]
+2. If you have any custom frappe apps on your bench, you will be prompted to select the branch.
+  [Screenshot on the live page]
+3. Click on Upgrade.
+4. A new bench will be created and the site will be moved there.
+
+### Sites on Public Bench
+
+1. To upgrade the version for your site, go to your Frappe cloud site Dashboard > **Actions** > **Version** **Upgrade**.
+2. Click on Upgrade if your site is not on the latest version.
+
+[Screenshot on the live page]
+
+<!-- page: cloud/cloud__soc-2-report.md -->
+---
+title: "SOC 2 (Systems and Organization Controls) Report"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/soc-2-report"
+updated: "2026-02-16"
+---
+
+Frappe has successfully attained SOC 2 Type II attestation for the review period of 1st June 2024 to 31st May 2025, in addition to its existing ISO 27001:2022 certification.
+
+The SOC 2 Type II report, issued by an independent audit firm indicating that Frappe’s internal controls related to security, availability, and confidentiality have been effectively designed and operated throughout the review period in a satisfactory manner.
+
+This milestone highlights our commitment and continual improvement related to data security and privacy. With both ISO 27001 and SOC 2 Type II in place, Frappe provides customers and partners with increased assurance that their data is handled securely and responsibly.
+
+Frappe's ISO 9001 and ISO 27001 certifications along with the SOC 2 Type II attestation report are available [here](https://frappe.io/quality-and-information-security).

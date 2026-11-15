@@ -123,7 +123,7 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 | Publish a web page | Web Page | `POST /api/v2/document/Web%20Page` (and the list/read/update calls above) | `docs/erpnext/erpnext-68.md` lines 3–128 |
 | Publish a blog post | Blog Post | `POST /api/v2/document/Blog%20Post` (and the list/read/update calls above) | `docs/erpnext/erpnext-10.md` lines 116–229 |
 | Change the website theme | Website Theme | `POST /api/v2/document/Website%20Theme` (and the list/read/update calls above) | `docs/erpnext/erpnext-68.md` lines 421–494 |
-| Run the shopping cart | Webshop Settings | Needs the Webshop app. `PUT /api/v2/document/Webshop%20Settings/Webshop%20Settings` — Single DocType, update only | `docs/erpnext/erpnext-58.md` lines 590–638 |
+| Run the shopping cart | Webshop Settings | Needs the Webshop app. `PUT /api/v2/document/Webshop%20Settings/Webshop%20Settings` — Single DocType, update only | `docs/erpnext/erpnext-58.md` lines 236–284 |
 | Publish items to the shop | Website Item | `POST /api/v2/document/Website%20Item` (and the list/read/update calls above) | `docs/erpnext/erpnext-68.md` lines 511–615 |
 
 ## Capabilities that need a schema lookup first
@@ -136,7 +136,7 @@ Do not guess the name.
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
 | Set up the website | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-68.md` lines 496–509 |
-| Build pages with Frappe Builder | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder-01.md` lines 242–270 |
+| Build pages with Frappe Builder | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder-01.md` lines 234–262 |
 | Bind data to a Builder page | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder-01.md` lines 3–150 |
 | Publish a wiki space | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/wiki/wiki-01.md` lines 198–240 |
 | Share files with Frappe Drive | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive-01.md` lines 49–71 |

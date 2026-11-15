@@ -27,7 +27,7 @@ This is the standard chapter used to group individual lessons.
 
 1. Inside your Course, click the `+ Add` button on the right side of the screen.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%2011.08.53%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Add Chapter Modal *
 
 2. Enter the `Title` for your chapter.
@@ -49,12 +49,12 @@ Use this option if you have an existing SCORM Chapter you wish to add.
 2. Toggle the `SCORM Package` switch.
 3. Enter your `Title` and upload your **SCORM ZIP file**.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%2011.14.44%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Uploading SCORM Chapter *
 
 4. Click `Create` and visit your chapter to see it.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%2011.14.26%E2%80%AFAM.png)
+[Screenshot on the live page]
 *SCORM Chapter View *
 
 :::note
@@ -82,7 +82,7 @@ Learning Paths allow instructors to group multiple courses into structured Progr
 5. Check the Enable Course Order option only if you want to enforece the order
 6. You can also publish the program from here now or at any later point.
 
-![](/files/programmoderator.mp4)
+[Screenshot on the live page]
 
 
 
@@ -101,7 +101,7 @@ There are two ways students can join Programs:
 4. If Enforce Course Order is enabled, students must complete one course before moving to the next.
 5. Progress is tracked and displayed on the Program page.
 
-![](/files/program details.mp4)
+[Screenshot on the live page]
 
 
 
@@ -128,7 +128,7 @@ To manage your exercises, click on the **Programming Exercises** section in the 
 1. **Start Creation:** Click the `+ Create` button.
 2. **Basic Info:** Enter a `Title` for the exercise and click `Save`.
 
-![](https://docs.frappe.io/files/Screenshot 2026-02-24 at 12.41.50 AM.png)
+[Screenshot on the live page]
 
 3. **Configuration:** After saving, you can define the technical parameters:
 
@@ -142,7 +142,7 @@ To manage your exercises, click on the **Programming Exercises** section in the 
 
 When a student opens a Programming Exercise, they are presented with an in-browser code editor.
 
-![](https://docs.frappe.io/files/Screenshot 2026-02-24 at 12.48.04 AM.png)
+[Screenshot on the live page]
 
 1. **Writing Code:** Students write their solution directly in the portal.
 2. **Running Tests:** Students can click `Run` to see how their code performs against the test cases.
@@ -165,7 +165,7 @@ In Frappe Learning, you can add assignments to both courses and batches.
 
 Click on the Assignments section on the sidebar. You now see the Assignment List. From here, you can either edit an existing assignment or create a new one.
 
-![](/files/Screenshot%202025-02-07%20at%204.54.53%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ## Creating an Assignment
 
@@ -177,14 +177,14 @@ To create a new assignment, click on the **+ Create** button. In the form that o
 
 Once you have entered all the information, click on the Save button to save the assignment.
 
-![](/files/Screenshot%202025-02-07%20at%204.55.06%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Grading an Assignment
 
 On top of the Assignment form, you will see a button called Submission List. It opens up all the submissions for the assignment.  
 When you open a submission, you see the question and the attachment/answer that the student submitted for it. You can grade the submission as either Pass or Fail. You can also leave some comments which the students get to see.
 
-![](/files/Screenshot%202025-02-07%20at%204.55.36%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 <!-- page: learning/learning__badges.md -->
 ---
@@ -202,7 +202,7 @@ There are 3 types of events on which badges get assigned to learners. Let us und
 
 You can assign a badge to learners when they complete a quiz. Each time a learner submits a quiz, a new record gets created under LMS Quiz Submission. So this is your event to assign the badge.
 
-![Screenshot 2024-06-06 at 5.32.27 PM](/files/Screenshot 2024-06-06 at 5.32.27 PM.png)
+[Screenshot on the live page: Screenshot 2024-06-06 at 5.32.27 PM]
 
 
 
@@ -228,7 +228,7 @@ Then we need to apply a condition to check if the course is completed or not whi
 
 You can then add a relevant title and image and enable the badge to start using it.
 
-![](/files/Screenshot%202025-02-06%20at%203.22.47%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Assign a badge when a student completes a training
 
@@ -244,7 +244,7 @@ For condition we need to tell it which batch do these students belong to. For th
 
 
 
-![](/files/Screenshot%202025-02-06%20at%203.22.54%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 <!-- page: learning/learning__basic-settings__branding.md -->
 ---
@@ -263,7 +263,7 @@ Navigate to `Settings` and then go to `Branding` in the Settings Sidebar to upda
 - **Brand Name:** The name displayed in the sidebar heading.
 - **Logo & Favicon:** Upload your organization's logo for the sidebar and the favicon for browser tabs.
 
-![](/files/Screenshot 2026-02-24 at 1.29.55 AM.png)
+[Screenshot on the live page]
 *Branding Section in Settings*
 
 ---
@@ -314,7 +314,7 @@ All basic functionalities are available in the Learning Portal, which is where y
 - **User Menu:** Click your avatar to access Theme Settings (Light/Dark mode), Account Settings, etc.
 - **Help Center:** Click on the help icon on bottom center of your sidebar. This will take you to `Getting Started` wizard if it is incomplete or to `Help Center` if that is done.
 
-![](/files/Screenshot 2026-02-24 at 1.06.14 AM.png)
+[Screenshot on the live page]
 
 <!-- page: learning/learning__core-concepts__courses.md -->
 ---
@@ -326,7 +326,7 @@ updated: "2026-02-25"
 
 This is the structure that a course in Frappe Learning follows. A course contains chapters. Chapters contain lessons.
 
-![Screenshot 2024-05-16 at 4.03.52 PM](/files/Screenshot 2024-05-16 at 4.03.52 PM831306.png)
+[Screenshot on the live page: Screenshot 2024-05-16 at 4.03.52 PM]
 *Structure of Courses, Chapters and Lessons in Frappe Learning*
 
 <!-- page: learning/learning__course-creation__add-a-preview-video.md -->
@@ -341,14 +341,14 @@ A preview video acts as a teaser for guest users.
 
 1. In the Course form, locate the `Preview Video` field.
 2. To use a YouTube video: Go to YouTube, click the `Share` button under the video, and copy the link provided.
-  ![](https://docs.frappe.io/files/Screenshot 2026-02-23 at 10.53.10 AM.png)
+  [Screenshot on the live page]
 3. Paste the link into the field.
 
-![](/files/Screenshot 2026-02-23 at 11.05.29 AM.png)
+[Screenshot on the live page]
 *Course Fields*
 
 4. This video will appear on the Course landing page, allowing users to watch it before they enroll.
-  ![](/files/Screenshot 2026-02-23 at 11.06.06 AM.png)
+  [Screenshot on the live page]
   *Course Preview*
 
 <!-- page: learning/learning__course-creation__adding-a-lesson__add-interactive-content.md -->
@@ -381,7 +381,7 @@ To add a Quiz:
 3. Select the `Quiz` block from the menu.
 4. Search for and select a quiz you have already created in Learning.
 
-![](/files/Screenshot 2026-02-24 at 12.48.14 PM.png)
+[Screenshot on the live page]
 
 ---
 
@@ -396,7 +396,7 @@ To add an Assignment:
 3. Select the `Assignment` block
 4. Search for and choose an assignment you have already created in Learning
 
-![](/files/Screenshot 2026-02-24 at 1.49.15 PM.png)
+[Screenshot on the live page]
 
 ---
 
@@ -411,7 +411,7 @@ To add a Programming Exercise:
 3. Select the `Programming Exercise` block
 4. Search for and select a programming exercise you have already created in Learning
 
-![](/files/Screenshot 2026-02-24 at 1.49.55 PM.png)
+[Screenshot on the live page]
 
 ---
 
@@ -427,7 +427,7 @@ To add a CodeSandBox:
 4. Learners will be able to view and interact with the code without leaving the course.
 5. They can also open a sandbox in CodeSandbox by clicking on `Open Sandbox`**.**
 
-![](/files/Screenshot 2026-02-24 at 12.52.05 PM.png)
+[Screenshot on the live page]
 
 <!-- page: learning/learning__course-creation__adding-a-lesson__add-video-content.md -->
 ---
@@ -537,15 +537,15 @@ You can integrate live Google Docs, Sheets, and Slides into your lessons to prov
 
 1. Open your Google Doc, Sheet, or Slide.
 2. Make sure your permissions are set properly (`File` > `Share` > `Share With Others`).
-  ![](/files/Screenshot 2026-02-23 at 2.38.05 PM.png)
+  [Screenshot on the live page]
   *Permission Manager in Google*
 3. Copy your URL from the top browser address bar.
 
-![](/files/Screenshot 2026-02-23 at 2.34.07 PM.png)
+[Screenshot on the live page]
 *Google Docs*
 
 4. Now paste it in your lesson.
-  ![](/files/Screenshot 2026-02-23 at 2.40.59 PM.png)
+  [Screenshot on the live page]
   *Document rendered in lesson.*
 
 ---
@@ -574,12 +574,12 @@ The main content of a course resides in the **lesson**. A lesson can have variou
 2. Locate the **Chapter** where you want to add content.
 3. Click the `Add Lesson` button within that chapter.
 
-![](/files/Screenshot 2026-02-23 at 12.26.55 PM.png)
+[Screenshot on the live page]
 *Course Settings*
 
 4. You will be taken to the Lesson editor to add your content. Add your content here.
 
-![](/files/Screenshot 2026-02-23 at 12.30.45 PM.png)
+[Screenshot on the live page]
 *Lesson Editor*
 
 5. Enter your lesson [details](#lesson-fields-reference).
@@ -641,7 +641,7 @@ As your course evolves, you may need to update or remove content.
 
 Go to your **Course** and click on `Settings` in the tab panel. In the top right corner, click the **trash icon** and confirm to delete the entire course.
 
-![](https://docs.frappe.io/files/Screenshot 2026-02-23 at 4.09.06 PM.png)
+[Screenshot on the live page]
 *Course Settings View: course delete button is highlighted.*
 
 ---
@@ -651,7 +651,7 @@ Go to your **Course** and click on `Settings` in the tab panel. In the top right
 - To **edit** a chapter, hover over the chapter name in the curriculum view. Click the **edit icon** that appears on the same line to change the Title or update SCORM content.
 - To **delete** a chapter, hover over the chapter and click the **trash icon** on the same line. Confirm the deletion to remove the chapter and its associated lessons.
 
-![](/files/Screenshot 2026-02-23 at 4.09.56 PM.png)
+[Screenshot on the live page]
 *Course Settings View: chapter edit and delete buttons are highlighted*
 
 ---
@@ -661,7 +661,7 @@ Go to your **Course** and click on `Settings` in the tab panel. In the top right
 - To **edit** a lesson, simply click on the lesson title to open the **Lesson Editor**. From here, you can modify any blocks or settings.
 - To **delete** a lesson, hover over the lesson in the curriculum list. Click the **trash icon** that appears on the same line and confirm to delete.
 
-![](/files/Screenshot 2026-02-23 at 4.11.37 PM.png)
+[Screenshot on the live page]
 *Course Settings View: lesson delete button is highlighted*
 
 <!-- page: learning/learning__course-creation__duplicating-a-course.md -->
@@ -682,7 +682,7 @@ If you wish to duplicate a course on the same site or on another Frappe Learning
 
 This exports the entire course along with all its chapters, lessons, assessments (quizzes, assignments, and programming exercises), and assets into a ZIP file.
 
-![](/files/Export.mp4)
+[Screenshot on the live page]
 
 
 
@@ -697,7 +697,7 @@ Now that you have the ZIP, you can proceed to duplicate the course on any Frappe
 
 This will import the course along with all its data into the system and replicate the course in the same structure.
 
-![](/files/import.mp4)
+[Screenshot on the live page]
 
 <!-- page: learning/learning__create-a-batch.md -->
 ---
@@ -709,7 +709,7 @@ updated: "2026-02-06"
 
 A batch is a group of learners enrolled for the same set of courses at the same time. Only Moderators can create batches on the system.
 
-![Screenshot 2024-05-17 at 3.32.21 PM](/files/Screenshot 2024-05-17 at 3.32.21 PM.png)  
+[Screenshot on the live page: Screenshot 2024-05-17 at 3.32.21 PM]  
 
 
 To create a new batch click on the **New Batch** button. Enter the following batch details in the dialog.
@@ -751,27 +751,27 @@ To create a new batch click on the **New Batch** button. Enter the following bat
 
 **Note:** Paid Courses will only work if you have setup a Payment Gateway. [Read this](https://docs.frappe.io/learning/setting-up-payment-gateway) to know more.
 
-![screencapture-frappe-school-lms-batches-CLS-04704-edit-2024-05-17-15_51_17](/files/screencapture-frappe-school-lms-batches-CLS-04704-edit-2024-05-17-15_51_17.png)  
+[Screenshot on the live page: screencapture-frappe-school-lms-batches-CLS-04704-edit-2024-05-17-15_51_17]  
 
 
 On the batch details page, you see all the batch information you had just entered. You can edit batch information from this page.
 
-![Screenshot 2024-05-17 at 4.16.54 PM](/files/Screenshot 2024-05-17 at 4.16.54 PM.png)  
+[Screenshot on the live page: Screenshot 2024-05-17 at 4.16.54 PM]  
 
 
 To manage more details of the batch, you can click on the Manage Batch button.
 
-![Screenshot 2024-05-17 at 4.29.06 PM](/files/Screenshot 2024-05-17 at 4.29.06 PM.png)  
+[Screenshot on the live page: Screenshot 2024-05-17 at 4.29.06 PM]  
 
 
 In the batch details are various tabs like Courses, Students, Assessments, Discussions, Live Class, etc. From the **Students** tab, you can add students manually. All you have to do is enter the Email ID of the student. The student must be a user of the system else you won't be able to add them to the batch.
 
-![Screenshot 2024-05-17 at 4.28.39 PM](/files/Screenshot 2024-05-17 at 4.28.39 PM.png)  
+[Screenshot on the live page: Screenshot 2024-05-17 at 4.28.39 PM]  
 
 
 You can similarly add courses to your batch. Learners will have to complete these courses as a part of this batch. You can also add evaluators for each course.
 
-![Screenshot 2024-05-17 at 4.32.15 PM](/files/Screenshot 2024-05-17 at 4.32.15 PM.png)  
+[Screenshot on the live page: Screenshot 2024-05-17 at 4.32.15 PM]  
 
 
 You can add two forms of assessments in a batch, quizzes and assignments. You can then check the status of the assignment and the quiz score for each student. 
@@ -790,7 +790,7 @@ At the bottom of the dashboard, students see a heatmap. This heatmap highlights 
 The heatmap is to motivate students to complete some activities every day and give them an idea of which days they were most productive.
 
 
-![](/files/Screenshot%202025-02-03%20at%206.01.03%E2%80%AFPM.png)
+[Screenshot on the live page]
   
 
 <!-- page: learning/learning__create-a-course.md -->
@@ -815,12 +815,12 @@ You can make your courses in 2 ways:
 
 1. Go to `Courses` on the sidebar, click the `+ Create` button, and select `New Course` from the menu.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%209.37.40%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Step 1: Courses -> New Course -> New Course*
 
 2. Fill in the basic details (Title, Short Introduction, etc.).
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%2010.11.38%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Course Creation Modal*
 
 3. Click the `Create` button. You will be redirected to the `Course Settings` page, where you can fill out the [remaining details](#course-fields-reference) like metadata, images, and pricing.
@@ -833,7 +833,7 @@ Use this method to upload multiple courses at once. Note that this imports cours
 
 1. Go to `Courses` on the sidebar, click `+ Create`, and select `Import Course`.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%209.37.40%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Step 1: Courses -> New Course -> Import Course*
 
 2. Download Template:
@@ -848,31 +848,31 @@ In custom templates, fields with Red Text are mandatory.
 
 
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%209.47.25%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Download CSV Template options*
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%209.48.09%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Custom Template Download Modal*
 
 3. Fill in your data in the spreadsheet. Leave the **ID** column empty; the system will auto-generate these.
 4. Upload your Excel/CSV file. Or click the Google Sheet option and paste your URL. Make sure to copy the URL from your browser address bar. *The Google Sheet Link must end with a **gid=** parameter*.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%209.46.07%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Importing from Google Sheet*
 
 5. Map your columns if the headers don't match exactly.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%209.53.01%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Map your columns*
 
 6. Review your data and if everything is okay, click the `Import` button.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%2010.05.58%E2%80%AFAM.png)
+[Screenshot on the live page]
 *Review and Import*
 
 7. Now scroll down to see which rows succeeded and review any errors for failed rows.
 
-![](https://docs.frappe.io/files/Screenshot%202026-02-23%20at%2012.03.25%E2%80%AFPM.png)
+[Screenshot on the live page]
 *View Import Logs*
 
 :::caution
@@ -944,20 +944,20 @@ To use this feature, you will have to create a Server-to-server OAuth App from t
 
 
 
-![Screenshot 2024-05-17 at 5.07.25 PM](/files/Screenshot 2024-05-17 at 5.07.25 PM.png)
+[Screenshot on the live page: Screenshot 2024-05-17 at 5.07.25 PM]
 *Zoom Settings Doctype*
 
 
 
 You will then have to enter these values in the **Zoom Settings** DocType. Check out this video for more details.
 
-![](/files/Zoom App.mp4)
+[Screenshot on the live page]
 
 
 
 For Auto Recording to work, ensure that Automatic Recording is enabled on your Zoom Account.
 
-![Auto Recording](https://docs.frappelms.com/assets/auto-recording.9e7f3f7b.jpg)
+[Screenshot on the live page: Auto Recording]
 *Automatic recording setting in Zoom Account*
 
 Once the details are submitted, the live class gets saved in your Zoom Account as well as the system backend. A calendar invite also gets sent to all the students of the class.
@@ -967,7 +967,7 @@ Once the details are submitted, the live class gets saved in your Zoom Account a
 To set up your Google Meet live class, after configuring your Google Calendar, follow the steps below
 
 1. Go to  `Settings` -> `Google Meet` -> `+ New`
-  ![](/files/image24f5ef.png)
+  [Screenshot on the live page]
   *New Google Meet Account Setup*
 2. Enter your details in the modal
 
@@ -975,7 +975,7 @@ To set up your Google Meet live class, after configuring your Google Calendar, f
 
 1. Navigate to the batch where you wish to add the live class and configure your `Conferencing Provider`. Fill `Google Meet Account` field for Google and `Zoom Account` field for Zoom.
 2. Now, you can simply go to your `Classes` tab in your batch and create your live class
-  ![](/files/imaged54fab.png)
+  [Screenshot on the live page]
   *Create Live Class Modal*
 
 <!-- page: learning/learning__falcon-self-hosting-guide.md -->

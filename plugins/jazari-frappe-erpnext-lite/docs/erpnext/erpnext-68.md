@@ -25,11 +25,11 @@ To access Web Page go to:
 3. Click on Save.
 4. The web page will be published only when **Published** is ticked.
 
-![New Web Page](/files/new-web-page.png) *New Web Page*
+[Screenshot on the live page: New Web Page] *New Web Page*
 
 View your Web Page by clicking on **See on Website** in the side bar.
 
-![Web Page](/files/web-page.png) *Web Page*
+[Screenshot on the live page: Web Page] *Web Page*
 
 ### 1.1 Tips on making a good Web Page
 
@@ -47,7 +47,7 @@ You can write your content in Rich Text, Markdown or HTML. If you want to make s
 
 For Rich Text Content, you can directly embed images using the editor. For Markdown and HTML, you must attach the images to the document first. Now get the URL of your image by right-clicking on your attachment and copying the address.
 
-![Image Link](/files/get-image-link.png)  
+[Screenshot on the live page: Image Link]  
 
 
 Now, add them to your Markdown or HTML using the appropriate syntax.
@@ -55,10 +55,10 @@ Now, add them to your Markdown or HTML using the appropriate syntax.
 
 ```
 <!-- markdown -->
-![Alt Text](/path/to/image-url.png)
+[Screenshot on the live page: Alt Text]
 
 <!-- html -->
-<img alt="Alt Text" src="/path/to/image-url.png">
+[Screenshot on the live page]
   
 
 ```
@@ -93,39 +93,39 @@ You can add CSS styling to your Web Page in the **Style** section. Inspect the e
 
 You can add a Website Sidebar with custom links on your Web Page. In the **Sidebar and Comments** section enable **Show Sidebar**. Select an existing Website Sidebar or create a new one.
 
-![Web Page Sidebar](/files/web-page-sidebar.png) *Web Page Sidebar*
+[Screenshot on the live page: Web Page Sidebar] *Web Page Sidebar*
 
-Add links and their route in the Sidebar Items table. ![Website Sidebar](/files/new-website-sidebar.png) *Website Sidebar*
+Add links and their route in the Sidebar Items table. [Screenshot on the live page: Website Sidebar] *Website Sidebar*
 
-![Web Page with Sidebar](/files/web-page-with-sidebar.png) *Web Page with Sidebar*
+[Screenshot on the live page: Web Page with Sidebar] *Web Page with Sidebar*
 
 ### 2.5 Comments
 
 You can enable comments on your Web Page where people can leave a comment with their Name and Email. Enable comments from the **Sidebar and Comments** section.
 
-![Web Page Comments](/files/web-page-comments.gif) *Web Page Comments*
+[Screenshot on the live page: Web Page Comments] *Web Page Comments*
 
 ### 2.6 Header
 
 You can add a custom HTML for the header section of the page. This will override the title of the Web Page.
 
-![Web Page Header](/files/web-page-header.png) *Web Page Header*
+[Screenshot on the live page: Web Page Header] *Web Page Header*
 
-![Web Page with Custom Header](/files/web-page-with-custom-header.png) *Web Page with Custom Header*
+[Screenshot on the live page: Web Page with Custom Header] *Web Page with Custom Header*
 
 ### 2.7 Breadcrumbs
 
 You can add a list of breadcrumbs on your Web Page. These will be shown on top before the header.
 
-![Web Page Breadcrumbs](/files/web-page-breadcrumbs.png) *Web Page Breadcrumbs*
+[Screenshot on the live page: Web Page Breadcrumbs] *Web Page Breadcrumbs*
 
-![Web Page with Breadcrumbs](/files/web-page-with-breadcrumbs.png) *Web Page with Breadcrumbs*
+[Screenshot on the live page: Web Page with Breadcrumbs] *Web Page with Breadcrumbs*
 
 ### 2.8 Meta Tags
 
 You can also add Meta Tags to your Web Page. You must add the property key and its value in the Meta Tag Table and it will auto-generate HTML `meta` tags on your Web Page.
 
-![Web Page Meta Tags](/files/web-page-meta-tags.gif) *Web Page Meta Tags*
+[Screenshot on the live page: Web Page Meta Tags] *Web Page Meta Tags*
 
 <!-- page: erpnext/erpnext__website-banner.md -->
 ---
@@ -142,7 +142,7 @@ Each ERPNext account website automatically generated from it. On a website, logo
 
 For the exact steps on how to upload a Website Banner and resize it, please refer to the help given below.
 
-![Website Banner image](/files/brand-logo.gif)
+[Screenshot on the live page: Website Banner image]
 
 <!-- page: erpnext/erpnext__website-components.md -->
 ---
@@ -190,7 +190,7 @@ To Open website settings page go to: `Website > Setup > Website Settings`
 
 Enter the same value you entered for the `route` field in the previous section to the `Home Page` field. ERPNext will set this route to be the same as /index for your page.
 
-![Website Setting Home](/files/Selection_021.png)
+[Screenshot on the live page: Website Setting Home]
 
 #### **Step 4: Save Website Settings Form.**
 
@@ -227,7 +227,7 @@ To access Website Route Meta go to:
  Value column.
 1. Click on Save.
 
-![New Website Route Meta](/files/new-website-route-meta.png)
+[Screenshot on the live page: New Website Route Meta]
 *New Website Route Meta*
 
 Now if you check the page source of your web page, the meta tags will look
@@ -271,7 +271,7 @@ landing page.
 If you want to use the ERPNext [Homepage](/erpnext/homepage),
 you must set it as `home`.
 
-![Website Settings - Landing Page](/files/website-settings-landing-page.png)
+[Screenshot on the live page: Website Settings - Landing Page]
 *Website Settings - Landing Page*
 
 You can also set the **Title Prefix** here. It will be appended to the browser title
@@ -290,7 +290,7 @@ You can set the brand logo for your website in this section. Upload the Brand
 Image first and then click on "Set Banner from Image" button. It will generate a
 Banner HTML with your uploaded logo.
 
-![Website Settings - Banner Image](/files/website-settings-banner-image.png)
+[Screenshot on the live page: Website Settings - Banner Image]
 *Website Settings - Banner Image*
 
 ### 3.2 Favicon
@@ -298,12 +298,12 @@ Banner HTML with your uploaded logo.
 You can also set the favicon of your website in this section. It appears on the
 left side of the browser tab.
 
-![Website Settings - Favicon](/files/website-settings-favicon.png)
+[Screenshot on the live page: Website Settings - Favicon]
 *Website Settings - Favicon*
 
 View your website by clicking on **View Website** in the action bar on top right.
 
-![Website with Brand and Favicon](/files/website-brand-and-favicon.png)
+[Screenshot on the live page: Website with Brand and Favicon]
 *Website with Brand and Favicon*
 
 ## 4. Top Bar
@@ -311,10 +311,10 @@ View your website by clicking on **View Website** in the action bar on top right
 You can customize the menu items in the navbar of your website from the **Top Bar**
 section.
 
-![Website Setting - Top Bar](/files/website-settings-top-bar.png)
+[Screenshot on the live page: Website Setting - Top Bar]
 *Website Setting - Top Bar*
 
-![Website Navbar Items](/files/website-navbar-items.png)
+[Screenshot on the live page: Website Navbar Items]
 *Website Navbar Items*
 
 ## 5. Banner
@@ -322,10 +322,10 @@ section.
 You can add a persistent banner to your website which will be shown above the
 navbar on all web pages. You can write any valid Bootstrap 4 markup here.
 
-![Website Settings - Banner](/files/website-settings-banner.png)
+[Screenshot on the live page: Website Settings - Banner]
 *Website Settings - Banner*
 
-![Website Banner](/files/website-banner.png)
+[Screenshot on the live page: Website Banner]
 *Website Banner*
 
 ## 6. Footer
@@ -333,13 +333,13 @@ navbar on all web pages. You can write any valid Bootstrap 4 markup here.
 You can add address information and categorized links to your footer in the
 **Footer** section.
 
-![Website Settings - Footer Address](/files/website-settings-footer-address.png)
+[Screenshot on the live page: Website Settings - Footer Address]
 *Website Settings - Footer Address*
 
-![Website Settings - Footer Links](/files/website-settings-footer-links.png)
+[Screenshot on the live page: Website Settings - Footer Links]
 *Website Settings - Footer Links*
 
-![Website Footer](/files/website-footer.png)
+[Screenshot on the live page: Website Footer]
 *Website Footer*
 
 #### Configuring "Powered by" Section
@@ -362,7 +362,7 @@ In order to allow ERPNext to request Google crawlers to index a web page, you ne
 
 - Once Authorized, an indexing request is automatically sent on creation/update/trash of any new blog post or web pages created via the user.
 
-![Google Integrations](/files/website-settings-integrations.png)
+[Screenshot on the live page: Google Integrations]
 *Google Integrations*
 
 ### 7.2 Google Analytics
@@ -381,7 +381,7 @@ the effect of this setting in [Google's documentation](https://support.google.co
 You can use this section to set meta tags across all of your web pages. A common
 use case is to add Google site verification tags.
 
-![Website Settings - Header](/files/website-settings-header.png)
+[Screenshot on the live page: Website Settings - Header]
 *Website Settings - Header*
 
 ## 9. Robots
@@ -389,7 +389,7 @@ use case is to add Google site verification tags.
 You can define `robots.txt` rules in this section. This information is used by
 web crawlers to decide which pages to index and which to skip.
 
-![Website Settings - Robots](/files/website-settings-robots-txt.png)
+[Screenshot on the live page: Website Settings - Robots]
 *Website Settings - Robots*
 
 > Learn more about `robots.txt` at [Moz - Robots.txt](https://moz.com/learn/seo/robotstxt)
@@ -402,7 +402,7 @@ they will be redirected to `https://apple.erpnext.com/products/iphone`.
 
 ERPNext will raise a `301 Permanent Redirect` response for these routes.
 
-![Website Settings - Routes Redirects](/files/website-settings-route-redirects.png)
+[Screenshot on the live page: Website Settings - Routes Redirects]
 *Website Settings - Routes Redirects*
 
 > If you are migrating your existing website to ERPNext based website,
@@ -442,7 +442,7 @@ your website and make it match your brand.
 > **Note:** Make sure you set the Website Theme in Website Settings for the
 > theme to be applied.
 
-![Select Website Theme in Website Settings](/files/website-theme.png)
+[Screenshot on the live page: Select Website Theme in Website Settings]
 
 ## 2. Features
 
@@ -485,7 +485,7 @@ providing styles for the entire website, or just an add-on. For example, it migh
 style only the elements it introduces. By checking the boxes you can choose which
 theme should be included in your website.
 
-![Included Theme Files](/files/website-theme-included-theme-files.gif)
+[Screenshot on the live page: Included Theme Files]
 
 ### 2.4 Custom JS
 
@@ -524,7 +524,7 @@ The Prerequisites here are [Items](/erpnext/item).
 
 The **Publish in Website** button is visible on every **unpublished** item under **Actions**. This button will create a **Website Item** and thus publish the Item on the website.
 
-![Publish Item](/files/publish-item.gif)  
+[Screenshot on the live page: Publish Item]  
 
 
 If you visit `your-site-name/all-products` , you will see the newly created Website Item listed here.
@@ -533,7 +533,7 @@ If you visit `your-site-name/all-products` , you will see the newly created Webs
 
 ### Updating the Website Item
 
-![Website Item Page](/files/web-item-page-overview.png) *Website Item Page*
+[Screenshot on the live page: Website Item Page] *Website Item Page*
 
 Once a Website Item has been created, you can update information in it that will be displayed on the website. Here are the fields:
 
@@ -571,7 +571,7 @@ The **Product Details** section can be viewed in a tabbed section along with oth
 * This tabbed section will set **Product Details** as the first tab which will contain the **Website Specifications** stated above (if present).
 * This will be followed by tabs from the **Tabs** table
 
-![Website Item Product Details](/files/web-item-product-details.png)  
+[Screenshot on the live page: Website Item Product Details]  
 
 
 #### Recommended Items
@@ -580,7 +580,7 @@ You can show **Recommended Items** against Website Items to knudge users to pay 
 
 You can then add Recommended Items against a Website Item in the **Recommended Items** section, and add the items to recommend. These will show up in the Website Item Page.
 
-![Recommended Items](/files/recommended-items.png)  
+[Screenshot on the live page: Recommended Items]  
 
 
 #### Offers
@@ -592,7 +592,7 @@ Coupon Codes can be added at checkout , but customers must know about these code
 * Add a slightly longer subtitle, a sentence in the **Offer Subtitle**.
 * Add lengthy details about the offer in the **Offer Description**. **Save**.
 
-![Website Item Offers](/files/web-item-offers.png)  
+[Screenshot on the live page: Website Item Offers]  
 
 
 #### Search and SEO
@@ -603,7 +603,7 @@ Coupon Codes can be added at checkout , but customers must know about these code
 
 #### Advanced Display Content
 
-You can add an additional styled section using Bootstrap 4 markup for the Website Item page. ![Website Item Advacned Display](/files/web-item-advanced-display.png)  
+You can add an additional styled section using Bootstrap 4 markup for the Website Item page. [Screenshot on the live page: Website Item Advacned Display]  
 
 
 ### Adding Price Details
@@ -612,7 +612,7 @@ Prices can be added against Website Items via **Item Price**. Before adding an I
 
 Now you can go ahead and create an **Item Price** for the Website Item, and select the **Price List** as the one in the **E Commerce Settings**.
 
-You can also add a **Pricing Rule** with a **Discount Percentage** or **Discount Amount** on the existing item price, to show **striked prices**. ![Website Item Page Striked Price](/files/web-item-striked-price.png)  
+You can also add a **Pricing Rule** with a **Discount Percentage** or **Discount Amount** on the existing item price, to show **striked prices**. [Screenshot on the live page: Website Item Page Striked Price]  
 
 <!-- page: erpnext/erpnext__weekly-auto-repost.md -->
 ---
@@ -793,12 +793,12 @@ When an Email is sent, you assume that the Email will be received by the Recipie
   
 
 
-![](/files/lNVCy3g.png)
+[Screenshot on the live page]
 
   
 
 
-![](/files/NJJmwTX.png)
+[Screenshot on the live page]
 
   
 
@@ -883,14 +883,14 @@ ERPNext gives users the provision to enable the **Wishlist** feature on their we
 
 Users can add Website Items to their wishlist via the wishlist icons on:
 #### The Product Listing
-![Wishlist from Card](/files/wishlist-card.png)
+[Screenshot on the live page: Wishlist from Card]
 
 #### The Website Item Page
-![Wishlist from Website Item Page](/files/wishlist-web-page.png)
+[Screenshot on the live page: Wishlist from Website Item Page]
 
 The link to the Wishlist page is available on the navbar as seen above. Users can remove items from the Wishlist or move the items to Cart.
 
-![Wishlist Page](/files/wishlist.png)
+[Screenshot on the live page: Wishlist Page]
 *Wishlist Page*
 
 > This feature requires users to be logged in. Guest users will be redirected based on the **Guest Display Settings** section in **E Commerce Settings**.
@@ -921,7 +921,7 @@ Confirm that the withdrawal is not payroll, reimbursement, a director loan, or r
 
 Open the [Chart of Accounts](/erpnext/chart-of-accounts) for the company. Use an existing approved equity-withdrawal account, or ask an authorised accountant to create one under the Equity root.
 
-![Nova Electronics Trading Chart of Accounts used to locate an equity withdrawal account](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-owner-draws-chart-of-accounts.png)
+[Screenshot on the live page: Nova Electronics Trading Chart of Accounts used to locate an equity withdrawal account]
 
 ## Record the withdrawal
 
@@ -931,7 +931,7 @@ Open the [Chart of Accounts](/erpnext/chart-of-accounts) for the company. Use an
 4. Credit **Nova Operating Bank - NET** by $1,000.
 5. Add a clear remark identifying the transaction as an owner withdrawal, then save and submit.
 
-![Submitted owner withdrawal Journal Entry debiting Dividends Paid and crediting Nova Operating Bank](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-owner-draw-journal-entry.png)
+[Screenshot on the live page: Submitted owner withdrawal Journal Entry debiting Dividends Paid and crediting Nova Operating Bank]
 
 ## Understand the accounting impact
 

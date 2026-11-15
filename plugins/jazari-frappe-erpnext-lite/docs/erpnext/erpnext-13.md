@@ -15,7 +15,7 @@ If a user changes the valuation method from FIFO to Moving Average for any item,
 To prevent this, users can freeze stock transactions before a specific date by setting the "Stock Frozen Up To" date in the stock settings.
 
 
-![](/files/Screenshot%202025-04-29%20at%204.38.39%20PM.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__changing-parent-account.md -->
 ---
@@ -63,7 +63,7 @@ The example Account currently has **Indirect Expenses - NET** as its parent.
 
 
 
-![Current Parent Account on Warranty Fulfilment Costs](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-changing-parent-account-current-parent-account.png)
+[Screenshot on the live page: Current Parent Account on Warranty Fulfilment Costs]
 
 Before editing, confirm the Account name, Company, Root Type, Report Type, Currency, Account Type, and whether **Is Group** is enabled. If the Account is a group, the move also repositions every child beneath it.
 
@@ -73,7 +73,7 @@ In **Parent Account**, select the correct target group. For this example, choose
 
 
 
-![New Parent Account selected before saving](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-changing-parent-account-change-parent-account-before-save.png)
+[Screenshot on the live page: New Parent Account selected before saving]
 
 Review the full target name and company suffix, then select **Save**. ERPNext validates that the target is a group in the same company and updates the tree relationship.
 
@@ -83,7 +83,7 @@ After saving, the Account retains its identity but shows the new parent. The act
 
 
 
-![Saved Account with Direct Expenses as the new parent](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-changing-parent-account-changed-parent-account-saved.png)
+[Screenshot on the live page: Saved Account with Direct Expenses as the new parent]
 
 Return to Chart of Accounts and confirm the Account appears under the intended branch. Re-run the same reports used before the change.
 
@@ -198,29 +198,29 @@ Let's take a scenario where the organization doesn't want its Employee (Accounts
 
 To achieve this, go to **Customize Form**, select DocType as **Sales Invoice** **Item**, scroll to the **Item Rate** field and expand it.
 
-![](/files/6eFVMRc.gif)
+[Screenshot on the live page]
 
 #### Step 2: Perm Level
 
 Search for the **Perm Level**, enter the number (0, 1, 2, 3, etc), and Save it.
 
-![](/files/6VNnxII.png)
+[Screenshot on the live page]
 
 #### Step 3: Permission Rule
 
 Once saved, click on **Add a New Rule** in Role Permission Manager and select the Document Type and the Role, in our case, Accounts User, set the Perm Level as 2 and grant the Employee Read access.
 
-![](/files/jACnHrX.png)
+[Screenshot on the live page]
 
 This is how the Role Permissions Manager will display the newly created Rule with Perm Level as 2:
 
-![](/files/qCYWDfK.png)
+[Screenshot on the live page]
 
 #### Step 4: Validate View
 
 Now, as you can see in the Sales Invoice the User can only read the Item Rate field which will be fetched automatically from the Price List.
 
-![](/files/86CqBf1.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__chart-of-accounts-importer.md -->
 ---
@@ -246,36 +246,36 @@ To access, go to:
 
 1. Select the Company for which you want to import the Chart of Accounts.
 2. Click on "Download Template" button to download the template. Select file type in which you want to download the template. Select the template type and click on "Download". "Sample Template" contains pre-filled sample data so that you get an idea of how to fill the template. You can edit the data in "Sample Template" itself or download "Blank Template" for a fresh template.
-  [COA Import](/files/coa-template-download.png)
+  COA Import (picture on the live page)
 
-![COA Import](/files/coa-blank-template.png)
+[Screenshot on the live page: COA Import]
 
 1. Once you download the template, fill in the details in the template as shown in the sample template below. Please make sure to make accounts for account types "Cost of Goods Sold", "Depreciation", "Fixed Asset", "Payable", "Receivable", "Stock Adjustment". Root types for these accounts must be one of Asset, Liability, Income, Expense, and Equity.
   o know more about "Account Types" and "Root Types" click here [click here](/erpnext/chart-of-accounts)
 
-![COA Import](/files/coa-sample-template.png)
+[Screenshot on the live page: COA Import]
 
 Click on "Attach" to upload the template.
 
-[COA Import](/files/coa-attach.png)
+COA Import (picture on the live page)
 
 
 
 Once you upload the template you'll be able to see the preview of the Chart of Accounts in the Chart Preview section.
 
-[COA Import](/files/coa-preview.png)
+COA Import (picture on the live page)
 
 
 
 If everything seems correct in the preview, click on "Import" in the top right corner and the accounts will be created.
 
-[COA Import](/files/coa-start-import.png)
+COA Import (picture on the live page)
 
 
 
 To verify the created accounts you can go to Chart of Accounts and see the newly created accounts for that company.
 
-[COA Import](/files/coa-import.png)
+COA Import (picture on the live page)
 
 <!-- page: erpnext/erpnext__chart-of-accounts.md -->
 ---
@@ -304,7 +304,7 @@ A useful chart is detailed enough to answer management questions but not so frag
 
 Open **Home &gt; Accounting &gt; Accounting Masters &gt; Chart of Accounts** and select the company.
 
-![Chart of Accounts tree](/files/chart-of-accounts-tree773763.webp)
+[Screenshot on the live page: Chart of Accounts tree]
 
 Group accounts organize the tree and cannot receive General Ledger entries. Ledger accounts are the final nodes used in transactions.
 
@@ -378,7 +378,7 @@ Every document can be linked to various other documents in ERPNext.
 
 To do so, you can simply go to the menu and click on 'Links'. A Pop-Up box will open which will list down all the documents that this document has been linked to.
 
-![Checking Document Links](/files/using-document-links-1.gif)  
+[Screenshot on the live page: Checking Document Links]  
 
 
 
@@ -409,7 +409,7 @@ Using the Cheque Print Template you can generate a new Print Format for cheques.
 
 A sample cheque:
 
-![Sample Cheque](/files/sample-cheque.jpg)  
+[Screenshot on the live page: Sample Cheque]  
 
 
 1. How to create a Cheque Print Template
@@ -421,7 +421,7 @@ A sample cheque:
 
 In the Cheque Print Template, for each value (say Payee, Date), exact coordinates are provided based on where that value should be printed on a cheque. Co-ordinates are provided in centimeters. Here is a representation the structure:
 
-![Sample Cheque](/files/cheque-1.png)  
+[Screenshot on the live page: Sample Cheque]  
 
 
 ### 1.1 New Format by Scanning
@@ -438,14 +438,14 @@ You can manually provide the co-ordinate for each value based on where you want 
 
 Based on coordinates provided for all the values, a preview will be shown as to how the values will be printed on the cheque.
 
-![Sample Cheque](/files/cheque-2.png)  
+[Screenshot on the live page: Sample Cheque]  
 
 
 ### 1.3 Printing Cheques
 
 New print format generated for the cheque will be visible in the Payment Entry form. After creating the payment entry, you will be able to print transaction details on the cheque.
 
-![Sample Cheque](/files/cheque-3.gif)  
+[Screenshot on the live page: Sample Cheque]  
 
 
 ### 2. Related Topics
@@ -468,7 +468,7 @@ updated: "2026-03-02"
 > 
 > 
 
-![Client Script](/files/customize-erpnext-client-scripts.png)  
+[Screenshot on the live page: Client Script]  
 
 
 1. How to Create a Custom Script
@@ -516,11 +516,11 @@ Confirm that:
 2. Check the **% Delivered** and **% Amount Billed** values so you know what remains outstanding.
 3. Select **Status**, then select **Close**, as highlighted.
 
-![Close a submitted Sales Order from the Status menu](https://novacompanies.m.frappe.cloud/files/status-close-menu.png)
+[Screenshot on the live page: Close a submitted Sales Order from the Status menu]
 
 ERPNext changes the order status to **Closed**. You cannot create new Delivery Notes or Sales Invoices against its remaining quantity while it is closed.
 
-![A closed Sales Order](https://novacompanies.m.frappe.cloud/files/closed-status.png)
+[Screenshot on the live page: A closed Sales Order]
 
 ## What closing changes
 
@@ -604,7 +604,7 @@ Closing the books is not one button. It is a controlled review that turns a year
 8. Protect the finished dates with an Accounting Period or frozen-accounts date.
 9. Confirm the new Fiscal Year and defaults before routine posting resumes.
 
-![Period-end ledger entries after closing](https://novacompanies.m.frappe.cloud/files/accounting-entries-20260802-accounting-entries-period-closing.png)
+[Screenshot on the live page: Period-end ledger entries after closing]
 
 
 
@@ -619,7 +619,7 @@ Closing the books is not one button. It is a controlled review that turns a year
 | Fiscal Year            | Defines valid accounting dates and report periods.                | Does not by itself prove that the books are complete. |
 
 
-![Fiscal Year dates used for the new accounting year](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-fiscal-year-dates.png)
+[Screenshot on the live page: Fiscal Year dates used for the new accounting year]
 
 
 
@@ -668,7 +668,7 @@ One of the key challenges in preparing the Stock Balance report is the calculati
 
 #### Closing Stock Balance
 
-![](/files/QqWv6uJ.png)
+[Screenshot on the live page]
 
 To address this issue, a solution has been introduced - the "Closing Stock Balance" feature. This feature allows the system to prepare the Opening Stock in advance, reducing the time taken to generate the Stock Balance report.
 

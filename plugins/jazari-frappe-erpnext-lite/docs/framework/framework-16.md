@@ -239,7 +239,7 @@ Most Linux distributions already have GnuPG installed, and the current version w
 1. Open the **System Settings** form.
 2. Inside the *Backups* section check the *Encrypt Backup* checkbox.
 
-![Encrypt Backup option(Enabled)](/files/encrypt-backup.png)
+[Screenshot on the live page: Encrypt Backup option(Enabled)]
 
 The system uses an auto-generated key supplied by the **Site config**. If no such key is found, **a new key is generated**. Any System Manager can later look it from the **Download Backups** page.
 
@@ -251,14 +251,14 @@ It encrypts the public and private files as well as the partial backup files.
 2. Encrypted backups can be downloaded from the **Download Backups** page.
 3. Encrypted backups are differentiated using the `key icon`.
 
-![Encrypt Backup option(Enabled)](/files/backup-page.png)
+[Screenshot on the live page: Encrypt Backup option(Enabled)]
 
 ## Backup Encryption Key
 
 1. To get the backup encryption key go to the **Download Backups** page.
 2. Click on the "Get Encryption Key" button and verify your password.
 
-![Encrypt Backup option(Enabled)](/files/backup-encryption-key.png)
+[Screenshot on the live page: Encrypt Backup option(Enabled)]
 
 Copy the key to restore the encrypted backup files.
 
@@ -275,7 +275,7 @@ Copy the key to restore the encrypted backup files.
 ## Manually decrypt encrypted backup files
 
 ```bash
-gpg --yes --passphrase $BACKUP_ENCRYPTION_KEY --pinentry-mode loopback -o $OUTPUT_FILE -d $INPUT_FILE
+gpg --yes --passphrase YOUR_BACKUP_ENCRYPTION_KEY --pinentry-mode loopback -o $OUTPUT_FILE -d $INPUT_FILE
 ```
 
 <!-- page: framework/framework__user__en__guides__basics__sites.md -->
@@ -847,7 +847,7 @@ A Data Migration Plan encapsulates a set of mappings.
 
 Let's make a new *Data Migration Plan*. Set the plan name as 'Atlas Sync'. We also need to add mappings in the mappings child table.
 
-![New Data Migration Plan](/files/new-data-migration-plan.png)
+[Screenshot on the live page: New Data Migration Plan]
 
 
 ### Data Migration Mapping
@@ -863,7 +863,7 @@ To define a mapping, we need to put in some values that define the structure of 
 1. Mapping Type: A Mapping can be of type 'Push' or 'Pull', depending on whether the data is to be mapped remotely or locally. It can also be 'Sync', which will perform both push and pull operations in a single cycle.
 1. Page Length: This defines the batch size of the sync.
 
-![New Data Migration Mapping](/files/new-data-migration-mapping.png)
+[Screenshot on the live page: New Data Migration Mapping]
 
 #### Specifying field mappings:
 
@@ -871,11 +871,11 @@ The most basic form of a field mapping would be to specify fieldnames of the rem
 
 Let's add the field mappings and save:
 
-![Add fields in Data Migration Mapping](/files/new-data-migration-mapping-fields.png)
+[Screenshot on the live page: Add fields in Data Migration Mapping]
 
 We can now add the 'Item to Atlas Item' mapping to our Data Migration Plan and save it.
 
-![Save Atlas Sync Plan](/files/atlas-sync-plan.png)
+[Screenshot on the live page: Save Atlas Sync Plan]
 
 #### Additional layer of control with pre and post process:
 
@@ -883,24 +883,24 @@ Migrating data frequently involves more steps in addition to one-to-one mapping.
 
 In our case, an `item_to_atlas_item` module is created under the `data_migration_mapping` directory in `Integrations` (module for the 'Atlas Sync' plan).
 
-![Mapping __init__.py](/files/mapping-init-py.png)
+[Screenshot on the live page: Mapping __init__.py]
 
 You can implement the `pre_process` (receives the source doc) and `post_process` (receives both source and target docs, as well as any additional arguments) methods, to extend the mapping process. Here's what some operations could look like:
 
-![Pre and Post Process](/files/mapping-pre-and-post-process.png)
+[Screenshot on the live page: Pre and Post Process]
 
 ### Data Migration Connector
 Now, to connect to the remote source, we need to create a *Data Migration Connector*.
 
-![New Data Migration Connector](/files/new-connector.png)
+[Screenshot on the live page: New Data Migration Connector]
 
 We only have two connector types right now, let's add another Connector Type in the Data Migration Connector DocType.
 
-![Add Connector Type in Data Migration Connector](/files/add-connector-type.png)
+[Screenshot on the live page: Add Connector Type in Data Migration Connector]
 
 Now, let's create a new Data Migration Connector.
 
-![Atlas Connector](/files/atlas-connector.png)
+[Screenshot on the live page: Atlas Connector]
 
 As you can see we chose the Connector Type as Atlas. We also added the hostname, username and password for our Atlas instance so that we can authenticate.
 
@@ -910,18 +910,18 @@ Create a new file called `atlas_connection.py` in `frappe/data_migration/doctype
 
 We just have to implement the `insert`, `update` and `delete` methods for our atlas connector. We also need to write the code to connect to our Atlas instance in the `__init__` method. Just see `frappe_connection.py` for reference.
 
-![Atlas Connection file](/files/atlas-connection-py.png)
+[Screenshot on the live page: Atlas Connection file]
 
 After creating the Atlas Connector, we also need to import it into `data_migration_connector.py`
 
-![Edit Connector file](/files/edit-connector-py.png)
+[Screenshot on the live page: Edit Connector file]
 
 ### Data Migration Run
 Now that we have our connector, the last thing to do is to create a new *Data Migration Run*.
 
 A Data Migration Run takes a Data Migration Plan and Data Migration Connector and execute the plan according to our configuration. It takes care of queueing, batching, delta updates and more.
 
-![Data Migration Run](/files/data-migration-run.png)
+[Screenshot on the live page: Data Migration Run]
 
 Just click Run. It will now push our Items to the remote Atlas instance and you can see the progress which updates in realtime.
 
@@ -1041,7 +1041,7 @@ Use Facebook, Google or GitHub authentication to login to Frappe, and your users
 The system uses the **Email Address** supplied by these services to **match with an existing user** in Frappe. If no such user is found, **a new user is created** of the default type **Website User**, if Signup is not disabled in Website Settings. Any System Manager can later change the user type from **Website User** to **System User**, so that the user can access the Desktop.
 
 #### Login screen with Social Logins enabled
-![Login screen with Social Logins enabled](/files/social-logins.png)
+[Screenshot on the live page: Login screen with Social Logins enabled]
 
 To enable these signups, you need to have **Client ID** and **Client Secret** from these authentication services for your Frappe site. The Client ID and Client Secret are to be set in **Desktop > Integration > Authentication > Social Login Key > Client ID** and **Desktop > Integration > Authentication > Social Login Key > Client Secret**. Here are the steps to obtain these credentials.
 
@@ -1265,7 +1265,7 @@ You can create a new Package by creating a Package object. You can set a README 
 
 Once you have created a package, you can add your custom Module Defs to that package.
 
-![Package](/files/package.png)
+[Screenshot on the live page: Package]
 
 ### Making a Package Release
 
@@ -1273,7 +1273,7 @@ A **Package Release** will export all the package modules in the `[bench]/sites/
 
 You can then download the package release and import it in another site
 
-![Package Release](/files/package-release.png)
+[Screenshot on the live page: Package Release]
 
 ### Importing a Package
 
@@ -1283,7 +1283,7 @@ The system will then *migrate* this package to the database similar to how an ap
 
 A log is created with the output.
 
-![Package Import](/files/package-import.png)
+[Screenshot on the live page: Package Import]
 
 <!-- page: framework/framework__user__en__guides__desk.md -->
 ---

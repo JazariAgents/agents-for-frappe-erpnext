@@ -12,7 +12,7 @@ You can create different pricing plans for your marketplace apps, offering diffe
 
 e.g. Customization, Priority Support, etc:
  
-![](/files/CleanShot%202025-08-27%20at%2014.58.07@2x.png)
+[Screenshot on the live page]
 
 ### How do customers subscribe to your app plan?
 
@@ -49,17 +49,17 @@ updated: "2026-02-16"
 We have now added a feature to expose bench level metrics.
 
 Available under the `Bench Analytics` tab on the server page
-![](/files/Screenshot%202025-09-04%20at%205.42.51%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 Smiliar to how users are exposed to site level analytics, it is now possible to see how benches in a selected release group are performing and early detect problems
 using this as well.
 
 We currently expose the following metrics
 
-1. **Memory** - Shows how much RAM is a bench in a release group eating up over a period of time ![](/files/Screenshot%202025-09-04%20at%205.45.32%E2%80%AFPM.png)
-2. **CPU Time** - Shows the amount of time your CPU is working on a process. ![](/files/Screenshot%202025-09-04%20at%205.46.37%E2%80%AFPM.png)
-3. **Network I/O** - Inbound and outbound network traffic from your bench. ![](/files/Screenshot%202025-09-04%20at%205.48.30%E2%80%AFPM.png)
-4. **Disk I/O** - Disk level read and write operations performed by your bench. ![](/files/Screenshot%202025-09-04%20at%205.50.06%E2%80%AFPM.png)
+1. **Memory** - Shows how much RAM is a bench in a release group eating up over a period of time [Screenshot on the live page]
+2. **CPU Time** - Shows the amount of time your CPU is working on a process. [Screenshot on the live page]
+3. **Network I/O** - Inbound and outbound network traffic from your bench. [Screenshot on the live page]
+4. **Disk I/O** - Disk level read and write operations performed by your bench. [Screenshot on the live page]
 
 These metrics above should ideally help in early identifying problems and also providing deeper analysis of problems
 
@@ -77,7 +77,7 @@ With private benches you can unlock the pull power of Frappe Cloud. To understan
 
 Any site you create using the `+ New` button from Frappe Cloud dashboard home page, is created under a bench that is maintained by us.
 
-![](/files/m2B2oK6.png)
+[Screenshot on the live page]
 
 
 
@@ -91,7 +91,7 @@ In contrast to public / managed benches, private benches **are under your contro
 
 
 
-![](/files/CRyWZQp.png)
+[Screenshot on the live page]
 
   
 
@@ -156,12 +156,12 @@ Applying a patch
 
 There are two ways to apply a patch:
 
-1. Clicking **Apply Patch** from an **App**'s context menu in the **Apps** tab under your **Bench Group**.![](/files/DGCXgBk.png)
-2. Clicking **Apply Patch** from the **Patches** tab under your **Bench Group**.![](/files/Nu4MZq3.png)
+1. Clicking **Apply Patch** from an **App**'s context menu in the **Apps** tab under your **Bench Group**.[Screenshot on the live page]
+2. Clicking **Apply Patch** from the **Patches** tab under your **Bench Group**.[Screenshot on the live page]
 
 On clicking on **Apply Patch**, the following Dialog will be displayed:
 
-![](/files/E6Q0Xq8.png)  
+[Screenshot on the live page]  
   
 
 
@@ -174,7 +174,7 @@ On clicking on **Apply Patch**, the following Dialog will be displayed:
 
 Once the values have been set, click on Apply Patch to create a **Job** to apply a patch. You can open the App Patch job to view the status:
 
-![](/files/BHnPAWe.png)  
+[Screenshot on the live page]  
 
 
 Reverting a patch
@@ -182,7 +182,7 @@ Reverting a patch
 
 To revert a patch, you can click on the **Revert Patch** button under **Patches** tab, under your **Bench**. This will create a new **Job** to revert the patch.
 
-![](/files/OnClrxS.png)  
+[Screenshot on the live page]  
 
 
 Deleting a patch
@@ -197,7 +197,7 @@ To avoid a **Failure**, ensure that the patch can be applied to the **Deployed**
 
 If you do see a failure such as this:
 
-![](/files/Lks2AIs.png)  
+[Screenshot on the live page]  
   
   
 
@@ -209,7 +209,7 @@ Fret not! It either means that:
 
 In case of point 1, you can try running the opposite action, i.e. if an **Apply Patch** failed then try **Revert Patch** first before re-applying it; and vice-versa:
 
-![](/files/QYYUb73.png)  
+[Screenshot on the live page]  
 
 <!-- page: cloud/cloud__benches__bench-config.md -->
 ---
@@ -221,7 +221,7 @@ updated: "2026-02-27"
 
 You may set site config variables on a bench so that it [applies for all the sites](https://frappeframework.com/docs/user/en/basics/sites#common-site-config-json) deployed under it.
 
-![](/files/DGXrOWZ.png)
+[Screenshot on the live page]
 
 
 
@@ -229,7 +229,7 @@ You may set site config variables on a bench so that it [applies for all the sit
 
 You may also set **httptimeout** in seconds (default: 120) as a special case to specify time gunicorn workers wait for request to process before throwing 504 request error. This will affect the custom api endpoints you define.
 
-![](/files/nAlWmZH.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__benches__create-new.md -->
 ---
@@ -241,29 +241,29 @@ updated: "2026-05-22"
 
 Click on the `+ New` button from your Frappe Cloud dashboard under **Benches**:
 
-![](/files/edTLUpG.png)
+[Screenshot on the live page]
 
 
 
 Select the Version of the Frappe Framework you want (also represents the "bench version"), select the Region for the bench and name the bench as per your requirement.
 
-![](/files/amtAijP.png)
+[Screenshot on the live page]
 
 
 
-![](/files/MdqtqqK.png)
+[Screenshot on the live page]
 
 
 
 Then click on the `Create Bench` button. Once the bench group is created, you will be navigated to the bench group dashboard page. A bench is not automatically deployed, you have to click on the `Updates Avaliable` button.
 
-![](/files/uqiLtTf.png)
+[Screenshot on the live page]
 
 
 
 and click on `Next`: and then deploy
 
-![](/files/sAjufuZ.png)
+[Screenshot on the live page]
 
 
 
@@ -287,7 +287,7 @@ We do not provide support for modified versions of the framework.
 
 You can do so by simply following the add app flow inside your Bench.
 
-![Screenshot 2024-11-20 112324](/files/Screenshot 2024-11-20 112324.png "Screenshot 2024-11-20 112324.png")
+[Screenshot on the live page: Screenshot 2024-11-20 112324]
 
 This will replace the Vanilla Frappe Framework with your custom fork / version.
 
@@ -394,7 +394,7 @@ updated: "2026-02-27"
 
 Your Frappe Cloud bench has a few dependencies such as Python, Node, etc. The versions of these can be viewed and edited by navigating to the **Dependencies** tab under that bench:
 
-![](/files/4EbJP2R.png)
+[Screenshot on the live page]
 
 
 
@@ -408,7 +408,7 @@ Your Frappe Cloud bench has a few dependencies such as Python, Node, etc. The ve
 
 To change the version of the dependency, click on the `...` menu button on a dependency row and click on **Edit**. This will show a version edit dialog:
 
-![](/files/XDz2VK0.png)
+[Screenshot on the live page]
 
 
 
@@ -418,7 +418,7 @@ Select a version from the drop-down menu and click on Update.
 
 To set a custom version, check the **Use Custom Version** checkbox:
 
-![](/files/ySt40BM.png)
+[Screenshot on the live page]
 
 
 
@@ -457,12 +457,12 @@ updated: "2026-02-16"
 
 To view the status of managed processes on your deployed bench, navigate to the Sites tab on your Bench and select the View Processes option from the `...` menu:
 
-![](/files/VyuxkZm.png)  
+[Screenshot on the live page]  
 
 
 On doing that, you should see a dialog that lists all the managed processes on your bench, their current status and uptime:
 
-![](/files/8x4ZzyH.png)  
+[Screenshot on the live page]  
 
 <!-- page: cloud/cloud__benches__ssh.md -->
 ---
@@ -482,11 +482,11 @@ If you're unfamiliar with SSH, we highly recommend watching this [video](https:/
 
 Visit the **Settings** page in your FC dashboard and scroll to the "SSH Key" section:
 
-![SSH Key Addition Section](/files/ssh-key-list.png)
+[Screenshot on the live page: SSH Key Addition Section]
 
 Clicking on "Add SSH Key" button should open up a dialog with an input box. Enter your **SSH public key** in this input box
 
-![](/files/NfD2mqs.png)
+[Screenshot on the live page]
 
 
 
@@ -530,13 +530,13 @@ clip < <your SSH folder>/id_rsa.pub
 
 Navigate to your bench group dashboard and click on the three dots beside your bench group as shown in the below screenshot. You will see a drop-down with multiple options you can click on the SSH Access. If you have correctly [added your SSH key](https://frappecloud.com/docs/benches/ssh#add-ssh-key-to-your-frappe-cloud-account), the SSH Access option should be visible.
 
-![](/files/NfpXryi.png)
+[Screenshot on the live page]
 
 
 
 Clicking on the button will open up a dialog:
 
-![SSH Access Cert Generation Dialog](/files/ssh_access_dialog_cert.png)
+[Screenshot on the live page: SSH Access Cert Generation Dialog]
 
 
 
@@ -544,7 +544,7 @@ Now, click the **Generate SSH Certificate** button. This will generate an SSH ce
 
 > Note: These commands only work on Linux and macOS machines.
 
-![SSH Access Certificate](/files/ssh_access_dialog.png)
+[Screenshot on the live page: SSH Access Certificate]
 
 
 
@@ -554,7 +554,7 @@ Now, click the **Generate SSH Certificate** button. This will generate an SSH ce
 
 Follow the instructions shown in the dialog (copy-paste the commands into your terminal). After you have successfully added the certificate locally, you should be able to run the given `ssh` command to gain access to your bench group:
 
-![SSH Terminal](/files/ssh_terminal.png)
+[Screenshot on the live page: SSH Terminal]
 
 
 
@@ -580,7 +580,7 @@ This is probably because the key you've added on Frappe Cloud does not match the
 
 The fingerprint you see in your dashboard
 
-![fingerprint dashboard](/files/fingerprint-dashboard.png)
+[Screenshot on the live page: fingerprint dashboard]
 
 
 
@@ -616,7 +616,7 @@ If you're using command prompt, the above command is not required. Please checko
 
 The certificate should be pasted in the `.ssh` directory under your user folder like so:
 
-![](/files/LVRChP9.png)
+[Screenshot on the live page]
 
 
 
@@ -716,27 +716,27 @@ updated: "2026-03-09"
 
 You will see an update banner on your bench dashboard whenever an update is available for any of the apps installed on that bench:
 
-![](/files/JRLCR26.png)
+[Screenshot on the live page]
 
 Clicking on the **Show Updates** button will open up a dialog box where you can choose which apps to update (yes, we do have selective app updates!). Deselect the apps you don't want to update and click **Deploy**:
 
-![](/files/KkCTePY.png)
+[Screenshot on the live page]
 
 You can monitor the progress of your deploy in the **Deploys** tab:
 
-![](/files/lgISmb0.png)
+[Screenshot on the live page]
 
 When you click on a deploy it takes you to a screen showing each stage of the deploy.
 
-![](/files/Screenshot%202025-09-15%20at%206.21.33%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 For deploys in the running stage a `Fail Build` button will also show up which can be used to stop a build once it has started.
 
-![](/files/Screenshot%202025-09-15%20at%206.22.17%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 Fail build prompt
 
-![](/files/Screenshot%202025-09-15%20at%206.23.48%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 Proceeding with this confirmation will fail the build.
 
@@ -746,14 +746,14 @@ Once your build phase completes successfully, the system moves into the provisio
 
 
 
-![](/files/image99af66.png)
+[Screenshot on the live page]
 *Benches In Queue*
 
 **What does this mean?**
 
 To ensure server stability and optimal performance, we process new bench deployments through an automated queue. Your bench is currently "in line" and will begin installing on the server as soon as a processing slot becomes available. No further action is required on your par, the worker will pick up the task and start the creation process automatically.
 
-![](/files/image55a1fb.png)
+[Screenshot on the live page]
 *Bench Created From Queue*
 
 
@@ -762,11 +762,11 @@ To ensure server stability and optimal performance, we process new bench deploym
 
 Clicking on the three dots on the deploy page will show an option to view app versions.
 
-![Screenshot 2025 11 13 at 8.35.04 PM](/files/Screenshot%202025-11-13%20at%208.35.04%E2%80%AFPM.png)
+[Screenshot on the live page: Screenshot 2025 11 13 at 8.35.04 PM]
 
 Which will lead to a dialog showing all apps deployed and their versions.
 
-![Screenshot 2025 11 13 at 8.36.21 PM](/files/Screenshot%202025-11-13%20at%208.36.21%E2%80%AFPM.png)
+[Screenshot on the live page: Screenshot 2025 11 13 at 8.36.21 PM]
 
 These apps can also be redeployed using the button shown below.
 
@@ -801,7 +801,7 @@ Added new changes to custom app press-deploy
 
 This automatically deploys all benches owned by the team where the app is installed and have a `auto-deploy` tag on them.
 
-![](/files/image6db661.png)
+[Screenshot on the live page]
 
 ### Deploying a specific bench
 
@@ -827,7 +827,7 @@ A marketplace app release may be marked as **yanked**. Yanked releases are withd
 
 Because of this, you may occasionally see a message like the one below when updating a bench. 
 
-![](/files/imageb26663.png)
+[Screenshot on the live page]
 
 This typically indicates that the available release has been yanked and is therefore skipped during the update process.
 
@@ -893,7 +893,7 @@ amount is updated every day based on the number of Active sites you have.
 
 
 
-![](/files/Screenshot 2026-04-29 at 1.40.41 PM.png)
+[Screenshot on the live page]
 
 ## Managing Cards
 
@@ -904,7 +904,7 @@ It will automatically become the default payment method.
 
 
 
-![](/files/Screenshot 2026-04-28 at 11.27.19 AM.png)
+[Screenshot on the live page]
 *Payment Methods tab in Billing showing card details*
 
 
@@ -920,7 +920,7 @@ UPI Autopay lets you set up a one-time mandate with your **UPI ID**. Your monthl
 3. A one-time ₹1 authorization charge is made to confirm mandate creation.
 4. Once authorized, your UPI account will be auto-debited every month end.
 
-![](/files/Screenshot 2026-04-28 at 7.10.41 PM.png)
+[Screenshot on the live page]
 *Setup mandate pop up form for UPI Autopay*
 
 ### How auto-debit works?
@@ -947,7 +947,7 @@ Frappe Cloud billing cycles are monthly. Each site is microbilled on a daily bas
 
 
 
-![Billing Dashboard](https://cloud.frappe.io/assets/press/images/docs/account-billing.png)
+[Screenshot on the live page: Billing Dashboard]
 
   
 
@@ -1018,7 +1018,7 @@ If you no longer want to use Frappe Cloud services and you want to disable your 
 1. Login to your dashboard
 2. Drop all the sites and servers
 3. Click on Settings in the top bar
-4. Under Team Actions section, click on the Disable button against Disable Account![Screenshot from 2023-12-04 19-41-08](/files/Screenshot from 2023-12-04 19-41-08.png "Screenshot from 2023-12-04 19-41-08.png")
+4. Under Team Actions section, click on the Disable button against Disable Account[Screenshot on the live page: Screenshot from 2023-12-04 19-41-08]
 5. After you confirm, your account will get disabled
 
 
@@ -1097,7 +1097,7 @@ The Binary Log (Binlog) in MariaDB records all changes made to the database. Thi
 ### What is the Binlog Browser?
 Binlog Browser is a GUI tool that lets you view your database’s binary logs. You can check which query ran, when it ran, and on which table it was executed.
 
-![shape 6VgHcwX BE D LDcpXMVN at 25 12 09 01.14.54](/files/shape_6VgHcwX_BE-D_LDcpXMVN%20at%2025-12-09%2001.14.54.png)
+[Screenshot on the live page: shape 6VgHcwX BE D LDcpXMVN at 25 12 09 01.14.54]
 
 ### Where to find it?
 You can find it in the sidebar under `Devtools > Binlog Browser`.  
@@ -1121,7 +1121,7 @@ The Indexer converts binary logs into metadata that can be queried quickly.
 
 If the indexer is not enabled, you will see a page like this:
 
-![imagea979cb](/files/imagea979cb.png)
+[Screenshot on the live page: imagea979cb]
 
 ### How to enable the Binlog Indexer / Browser?
 Please refer to the [documentation](https://docs.frappe.io/cloud/database-server-actions#enable--disable-binlog-indexer) to enable it.  
@@ -1131,7 +1131,7 @@ Please refer to the [documentation](https://docs.frappe.io/cloud/database-server
 By default, Frappe Cloud runs a job every hour that indexes 4 binlogs.  
 During this time, you cannot access the Binlog Browser, and you will see a page like this:
 
-![imagefb1862](/files/imagefb1862.png)
+[Screenshot on the live page: imagefb1862]
 
 You will need to wait for the job to finish.
 
@@ -1141,12 +1141,12 @@ If your binlogs are not indexed yet, the Binlog Browser will show no results.
 To check which binlogs are indexed, click the `Binlogs` icon on the top-right.  
 This opens a modal showing each binlog, its size, and its index status.
 
-![image6af702](/files/image6af702.png)
+[Screenshot on the live page: image6af702]
 
 ### On-demand Binlog Indexing
 If you need to index multiple binlogs urgently, you can select the binlogs and submit an indexing request.
 
-![image0376db](/files/image0376db.png)
+[Screenshot on the live page: image0376db]
 
 After submitting, you will be redirected to a page where you can track the job status.  
 Once completed, you can return to the Binlog Browser to access the newly indexed binlogs.
@@ -1176,11 +1176,11 @@ updated: "2026-02-16"
 1. From your Frappe Cloud dashboard go to `settings`> `Profile`
 2. Browse to `Notification Setting` and click on `Manage`
 
-![](/files/imagebde6b6.png)
+[Screenshot on the live page]
 
 1. Click on **new** and select the type to billing and update the email ID and `Update Settings` Similarly you can customise notifications for other types to.
 
-![](/files/imagec787ec.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__change-ownership-of-server.md -->
 ---
@@ -1204,15 +1204,15 @@ You can change the team of the site by using the **Transfer Bench** feature.
 
 1. Select Transfer Bench option from the Actions tab in your Bench's dashboard.
 
-![](/files/Screenshot%202025-08-20%20at%203.57.05%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 2. Fill in the fields and click on **Transfer**
 
-![](/files/Screenshot%202025-08-20%20at%204.18.57%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 3. The team that is supposed to receive the ownership will now receive a mail to accept the ownership. Click on **Accept Bench Group Transfer** to accept the ownership of the Bench Group.
 
-![](/files/271fd2b6-b11a-48e6-ad5f-28099df46c2c0b59ef.jpeg)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__common-issues__build-might-fail.md -->
 ---
@@ -1224,7 +1224,7 @@ updated: "2026-02-16"
 
 If you have come across a similar Dialog such as the one below while updating your bench group, it means that the underlying reason for why your previous build failed has not been addressed.
 
-![](/files/mohwHpR.png)  
+[Screenshot on the live page]  
 
 
 How to fix this?
@@ -1232,10 +1232,10 @@ How to fix this?
 
 1. First navigate to the Deploys under the current Bench Group:
 
-![](/files/JOmCeK8.png)
-2. Then click on the last Deploy (which should have the status *Failure* with a "!" next to it):![](/files/6ly6YW3.png)
-3. Under the Deploy, notice the red banner and click on the View button:![](/files/qH07S6Z.png)
-4. On clicking View, you will see a dialog with details about the failure and how to fix it.![](/files/lLBqzfJ.png)
+[Screenshot on the live page]
+2. Then click on the last Deploy (which should have the status *Failure* with a "!" next to it):[Screenshot on the live page]
+3. Under the Deploy, notice the red banner and click on the View button:[Screenshot on the live page]
+4. On clicking View, you will see a dialog with details about the failure and how to fix it.[Screenshot on the live page]
 5. Follow the steps in the dialog, or under the linked *Help* article and then retry the update.
 
   

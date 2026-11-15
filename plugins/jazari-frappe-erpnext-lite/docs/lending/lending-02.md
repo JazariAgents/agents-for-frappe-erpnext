@@ -12,7 +12,7 @@ The **Applicant-Wise Loan Security Exposure** report shows collateral exposure a
 
 
 
-![](/files/image390004.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__lending-reports__disbursement-analysis-report.md -->
 ---
@@ -28,7 +28,7 @@ This report is used to check how a loan was paid out in parts over time, and to 
 
 
 
-![](/files/imageef3a87.webp)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__lending-reports__loan-repayment-and-closure.md -->
 ---
@@ -42,7 +42,7 @@ The **Loan Repayment and Closure** report lists posted loan repayment transactio
 
 
 
-![](/files/image1ffbf6.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__lending-reports__loan-security-exposure.md -->
 ---
@@ -56,7 +56,7 @@ The **Loan Security Exposure** report shows company-level collateral concentrati
 
 
 
-![](/files/image1b28d5.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__lending-reports__loan-security-ledger.md -->
 ---
@@ -70,7 +70,7 @@ The **Loan Security Ledger** report shows security movement history for a loan o
 
 
 
-![](/files/imagee33123.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__lending-reports__loan-security-status.md -->
 ---
@@ -84,7 +84,7 @@ The **Loan Security Status** report shows the current and historical pledge stat
 
 
 
-![](/files/image2e4b81.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__lending-reports__loan-statement-of-account.md -->
 ---
@@ -98,7 +98,7 @@ The **Loan Statement of Account** report gives a transaction-wise view of a borr
 
 
 
-![](/files/imagea60240.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__setup__company-level-setup.md -->
 ---
@@ -192,7 +192,7 @@ Default allocation order for recovery collections after write-off. Used as fallb
 
 Default allocation order used during settlement-oriented collections (for example full/partial settlement flows). Used as fallback when Loan Product-level sequence is not set.
 
-![](/files/imagea67f87.webp)
+[Screenshot on the live page]
 *Company Level Loan Setup*
 
 #### Loan Accrual Frequency
@@ -205,7 +205,7 @@ Different regulatory bodies (like RBI in India) require banks or NBFCs to classi
 
 These ranges can be configured in the company as shown in the example below. Once these ranges are configured, the loan classification process, along with DPD, also updates the classification code and classification in the loan account as per the current DPD value
 
-![](/files/image510dbf.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-management__tools__loan-repayment-repost.md -->
 ---
@@ -263,7 +263,7 @@ On submit, the repost runs in two steps for the selected loan and date window:
 1. Cancel — each repayment on or after the Repost Date is reversed (demands, security deposits, restructures and GL Entries rolled back). Entries listed in Entries To Cancel are cancelled outright. The loan's paid totals are recomputed from repayments before the Repost Date.
 2. Re-book — the remaining repayments are reprocessed in order: demands and accruals are regenerated, amounts re-allocated, reschedules and write-offs handled, and GL Entries recreated. A closing accrual and demand run brings the loan up to date, and if the loan is now closed, its classification is refreshed.
 
-![](/files/imagef98ce5.webp)
+[Screenshot on the live page]
 
 ### Background processing
 
@@ -304,7 +304,7 @@ To access it, go to:
 5. To automate delivery, enable Auto Email and set the schedule.
 6. Save, then use Download or Send Emails.
 
-![](/files/image1fca1f.webp)
+[Screenshot on the live page]
 
 ### Fields
 
@@ -324,7 +324,7 @@ To access it, go to:
 > Jinja: Subject, Body, and PDF Name support [Jinja tags](https://jinja.palletsprojects.com/). All document fields are on the `doc` object and the current row on the `applicant` object (`applicant`, `applicant_name`, `email`).  
 > Example: `Loan Statement Of Account for {{ applicant.applicant_name }}`
 
-![](/files/image6e6e3a.webp)
+[Screenshot on the live page]
 
 ### Actions
 
@@ -332,9 +332,9 @@ To access it, go to:
 
 - Download — generates all applicants' statements as one combined PDF.
 
-![](/files/imagee8524b.webp)
+[Screenshot on the live page]
 
-![](/files/imagea3f23e.webp)
+[Screenshot on the live page]
 
 - Send Emails — queues each applicant's statement to their email (CC'd as configured); applicants without an email are skipped.
 
@@ -368,7 +368,7 @@ To import historical loans, the Loan Import template must be populated and then 
 - **Key Fields to Fill**:
   - **Migration Date (Mandatory)**: This field is **required for migrated loans**, regardless of its current `Status` (for example, "Disbursed" or "Closed"). This date acts as the cut-off point for historical data.
   - **Loan Import Details Table**: For loans with multiple historical disbursements, one row per disbursement must be added in the CSV, using the columns prefixed with `(Loan Import Details)`. The most critical columns are the **opening outstanding amounts** (Principal, Interest, Penalty, Charges, etc.) as of the `Migration Date`.
-    ![](/files/imagec31cc7.png)
+    [Screenshot on the live page]
 - **Upload and Import**: Once the file is ready, upload it in Data Import. The **"Submit After Import"** option should be enabled so that all created Loan documents are automatically submitted.
 
 ## **3. What the System Does**
@@ -406,7 +406,7 @@ The **Loan Outstanding Report** in Frappe Lending provides a detailed view of ac
 - Compare total payments made against loan amounts.
 
 
-![](/files/loan_outstanding_report.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__loan-partner.md -->
 ---
@@ -437,7 +437,7 @@ To access the Loan Partner, go to:
 
 Once a loan partner is tagged to a loan whenever the loan disbursement is done, along with the borrower schedule a co-lender schedule is also created to track the co-lender share in a loan.
 
-![](/files/LnoWqXJ.png)  
+[Screenshot on the live page]  
 
 
 ## 3. Co-Lender Accounting
@@ -503,7 +503,7 @@ This repayment schedule is useful for line of credit loans where an upper limit 
 
 This option is useful when interest is handled as a flat-rate schedule across the tenure. It is generally used in products where repayment breakup follows a predefined flat-interest pattern.
 
-![](/files/image62124e.png)
+[Screenshot on the live page]
 *Repayment/Amortization Schedule Types*
 
 ### Additional Information
@@ -512,7 +512,7 @@ This option is useful when interest is handled as a flat-rate schedule across th
 
 This field controls how broken period interest (interest between disbursement date and first EMI period) is recovered. You can recover it as upfront deduction, amortize it across tenure, add it to first EMI, or add it to last EMI.
 
-![](/files/image38c5af.png)
+[Screenshot on the live page]
 *BPI Recovery Method*
 
 #### Cyclic Day Of the Month
@@ -541,14 +541,14 @@ This defines the number of days after due date during which penal interest is no
 
 
 
-![](/files/image8e3385.png)
+[Screenshot on the live page]
 *Additional Information*
 
 ### Excess amount acceptance and auto write-off limits
 
 ---
 
-![](/files/MWMNZoX.png)
+[Screenshot on the live page]
 
 If the final repayment made is short of some amount and the amount is within Auto Write Off Amount, the amount will be auto-waived and the loan will be closed.
 
@@ -573,7 +573,7 @@ To access the Loan Refund, go to:
 > 
 > 
 
-![](/files/5qiRaAd.png)  
+[Screenshot on the live page]  
 
 
 **1. How to create a Loan Refund**
@@ -615,7 +615,7 @@ Frappe Lending allows users to define 4 collection offset sequences under the Lo
 3. For Settlement Collection
 4. For Written Off Assets
 
-![](/files/phjd9KM.png)
+[Screenshot on the live page]
 
 **3. Advance and Pre Payment**
 ------------------------------
@@ -710,7 +710,7 @@ To access the Loan Restructure, go to:
 
 During restructuring, users have an option of how the pending accrued/unbooked interest and charges should be treated. They can either add that amount to the first EMI post-restructure or Capitalize (add the pending amount to the principal amount). 
 
-![](/files/sPii7Fb.png)  
+[Screenshot on the live page]  
 
 <!-- page: lending/lending__loan-security-assignment.md -->
 ---
@@ -746,7 +746,7 @@ Before creating a Loan Security, it is advised to create the following:
 3. Add the Loan Security, add security price manually if Loan Security Price is not configured
 4. Save and Submit.
 
-![](/files/RcKN8aG.png)  
+[Screenshot on the live page]  
 
 <!-- page: lending/lending__loan-security-price.md -->
 ---
@@ -779,7 +779,7 @@ Before creating a Loan Product, it is advised to create the following:
 2. Select the Loan Security, and enter the rate and validity period.
 3. Save
 
-![](/files/QGjMbdX.png)  
+[Screenshot on the live page]  
 
 <!-- page: lending/lending__loan-security-release.md -->
 ---
@@ -807,7 +807,7 @@ To access the Loan Security Release, go to:
 2. Enter the Loan account, loan securities along with their quantity to be released
 3. Save
 
-![](/files/Jd7dYBF.png)  
+[Screenshot on the live page]  
 
 <!-- page: lending/lending__loan-security-type.md -->
 ---
@@ -821,7 +821,7 @@ updated: "2026-01-06"
 
 Depending on the type of loan security, you can categorize a security under its respective type like stocks, bullion, property, etc.
 
-![](/files/BrXjKoR.png)  
+[Screenshot on the live page]  
 
 
 To access the Loan Security Type, go to:
@@ -871,7 +871,7 @@ Before creating a Loan Security, it is advised to create the following:
 2. Enter the loan security name/code, loan security type.
 3. Save
 
-![](/files/xzZMDAj.png)  
+[Screenshot on the live page]  
 
 <!-- page: lending/lending__loan-settlemets.md -->
 ---
@@ -989,11 +989,11 @@ To make a waiver, go to:
 
 Once the waiver entry is submitted the overdue demands are knocked off as per the amount waived and the waived amount is updated in the respective demands
 
-![Loan Demand Waiver](/files/Loan Demand Waiver.png)
+[Screenshot on the live page: Loan Demand Waiver]
 
 On submitting an Interest Loan Waiver, below are the typical accounting entries that are posted
 
-![Loan Interest Waiver Accounting](/files/Loan Interest Waiver Accounting.png)
+[Screenshot on the live page: Loan Interest Waiver Accounting]
 
 As you can see in the above screenshot income booking is also reversed in case the waiver is done on a non-NPA loan.
 

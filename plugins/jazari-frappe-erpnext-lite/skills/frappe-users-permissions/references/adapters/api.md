@@ -135,7 +135,7 @@ Do not guess the name.
 | Set role-based permissions | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-51.md` lines 552–625 |
 | Hide fields with permission levels | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-42.md` lines 130–202 |
 | Group roles into a role profile | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-51.md` lines 510–550 |
-| Turn on two-factor authentication | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-57.md` lines 987–1042 |
+| Turn on two-factor authentication | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-57.md` lines 610–665 |
 | Read the audit trail | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-07.md` lines 550–591 |
 
 ## Not an API job

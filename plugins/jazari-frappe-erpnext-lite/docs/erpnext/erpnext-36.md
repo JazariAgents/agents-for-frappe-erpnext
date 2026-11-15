@@ -1,388 +1,5 @@
 <!-- Frappe documentation: erpnext, part 36 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__manage-foreign-exchange-difference.md -->
----
-title: "Manage Foreign Exchange Difference | ERPNext Documentation"
-description: "Record realized foreign-exchange gains or losses in ERPNext when an invoice and its payment use different rates."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/manage-foreign-exchange-difference"
-updated: "2026-08-14"
----
-
-Because Nova Industries often receives international payments after invoicing, exchange rates can change before settlement.
-
-
-
-Nova invoices a customer for EUR 1,200 when `1 EUR = 1.10 USD`, so the receivable is worth USD 1,320. When the customer pays, the rate is 1.15 and the bank receives USD 1,380. The USD 60 difference must be recorded instead of being hidden by changing the payment amount.
-
-
-
-The [Payment Entry](/erpnext/payment-entry) settles this realized difference through the configured Exchange Gain/Loss account. This differs from [Exchange Rate Revaluation](/erpnext/exchange-rate-revaluation), which measures an unrealized change while a balance remains open. Use this page to record the settlement correctly and keep exchange movement separate from bank fees or write-offs.
-
-## Example
-
-Nova Electronics Distribution issues a EUR 1,200 [Sales Invoice](/erpnext/sales-invoice) when `1 EUR = 1.10 USD`.
-
-
-| Event                  | EUR   | Rate | USD value |
-| ---------------------- | -----: | ----: | ---------: |
-| Invoice                | 1,200 | 1.10 | 1,320     |
-| Receipt                | 1,200 | 1.15 | 1,380     |
-| Realized exchange gain |       |      | 60        |
-
-
-The Customer has paid the full EUR amount, so its EUR receivable becomes zero. The USD bank receives USD 1,380, while the original receivable carried USD 1,320. The USD 60 difference is a gain.
-
-For a Supplier payment, the debit and credit direction changes. Whether the result is a gain or loss depends on the invoice and payment rates and whether the Company is receiving or paying the foreign currency.
-
-## Before you begin
-
-Complete [Multi Currency Setup](/erpnext/multi-currency-setup). The foreign Customer or [Supplier](/erpnext/supplier) should use a matching receivable or payable account, and the bank or cash account should have its actual currency.
-
-In the [Company](/erpnext/company-setup), configure **Exchange Gain / Loss Account**. Review **Posting Date inheritance for exchange gain / loss** in [Accounts Settings](/erpnext/accounts-settings), which can use the Invoice, Payment, or Reconciliation Date according to current develop options.
-
-
-
-![Posting-date setting for exchange gain or loss](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-accounts-settings-exchange-gain-loss-date.png)
-
-Confirm the transaction date and approved rate in [Currency Exchange](/erpnext/currency-exchange), or verify the [provider settings](/erpnext/currency-exchange-settings).
-
-## Create the Payment Entry
-
-The safest route is to create the Payment Entry from the submitted invoice so the reference and outstanding amount are carried forward.
-
-1. Open the submitted Sales Invoice or [Purchase Invoice](/erpnext/purchase-invoice).
-2. Select Create &gt; Payment.
-3. Confirm Payment Type, Company, Party Type, and Party.
-4. Confirm the paid-from and paid-to accounts.
-5. Enter the actual amount in each account currency.
-6. Enter or verify the payment-date exchange rate.
-7. Confirm the invoice in Payment References and its allocated amount.
-
-The currencies are not independent choices on Payment Entry. They come from the selected accounts.
-
-
-
-![EUR receivable and USD bank account currencies](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-payment-entry-two-account-currencies.png)
-
-
-
-![EUR paid amount, USD received amount, and source rate](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-payment-entry-exchange-rates-and-amounts.png)
-
-## Calculate the exchange difference
-
-When the Payment Entry has a non-zero Difference Amount caused by the rate change, select **Set Exchange Gain/Loss**. ERPNext adds an adjustment row in Payment Deductions or Loss using the configured account. Review the row instead of assuming the label guarantees correct accounting.
-
-The exact sign depends on the workflow. Validate it with the resulting debit and credit rather than forcing a positive or negative amount from memory.
-
-Do not confuse these amounts:
-
-
-| Difference                                             | Where it belongs                                 |
-| ------------------------------------------------------ | ------------------------------------------------ |
-| Exchange movement between invoice and payment          | Exchange Gain/Loss account                       |
-| Bank fee charged by the bank                           | Bank Charges or another approved expense account |
-| Intentional short payment not expected to be collected | Write Off account, subject to policy             |
-| Withholding deducted by the Customer                   | Tax withholding workflow and account             |
-| Rounding caused by precision                           | Round Off or approved difference handling        |
-
-
-Several can occur in one payment, but each needs its own row and account. The Payment Entry should end with Difference Amount equal to zero before submission.
-
-Save the Draft and review its preview before submission so finance can verify both account-currency amounts and the balancing Company-currency entry.
-
-## Submit and verify
-
-Submit the Payment Entry, then verify all of the following:
-
-- the invoice outstanding amount is reduced or becomes zero;
-- the foreign receivable or payable is cleared by the allocated foreign amount;
-- the bank or cash account reflects the actual statement amount;
-- the Exchange Gain/Loss account contains only the rate difference;
-- the [General Ledger](/erpnext/general-ledger) debit and credit totals balance in Company currency;
-- the [Accounts Receivable and Payable](/erpnext/accounts-receivable-and-payable) report agrees with the party statement.
-
-If the payment was entered independently, use [Payment Reconciliation](/erpnext/payment-reconciliation) to allocate it to the invoice. Reconciliation can also generate an exchange difference depending on the account currencies, rates, and posting-date setting.
-
-## Partial and multiple payments
-
-Each payment can use its actual rate. A EUR 1,200 invoice may be settled by EUR 500 at one rate and EUR 700 at another. Each Payment Entry allocates only its portion and realizes the difference for that settlement. Do not change the original invoice rate to match the final bank statement.
-
-When one payment settles multiple invoices, inspect each reference's allocated amount and exchange-rate treatment. Use Payment Entry or the appropriate bulk payment process, then verify that every invoice outstanding balance is correct.
-
-## Advance payments
-
-An advance can be recorded before an invoice exists. Its rate establishes the Company-currency value of the advance. When the advance is later allocated to an invoice, any difference may be recognized according to the reconciliation and posting-date settings. Keep the advance in the correct party account currency and avoid silently changing its historical rate.
-
-## Troubleshooting
-
-### The invoice still has a small outstanding amount after full foreign payment
-
-Check the allocated amount, party account currency, payment rate, and whether the exchange difference was placed in Payment Deductions or Loss. Do not enter exchange differences in Advance Taxes and Charges.
-
-### The bank amount is wrong after adding an adjustment
-
-Separate bank fees, withholding, write-off, and exchange difference. Recalculate the paid and received amounts from the actual bank statement, then use distinct adjustment rows.
-
-### Set Exchange Gain/Loss does not appear
-
-Confirm there is a real currency difference, the Company account is configured, the document is Draft, and the selected accounts and references are correct. Field availability can depend on the Payment Entry state.
-
-### The rate field is read-only
-
-Review [Freeze Exchange Rate](/erpnext/exchange-rate-field-frozen), stale-rate settings, permissions, and the document status. A submitted transaction cannot be casually repriced.
-
-## FAQs
-
-### Should I edit the invoice rate when the bank pays at another rate?
-
-No, keep the invoice rate that represented the invoice date. Use the payment rate and recognize the settlement difference.
-
-### Is an exchange loss always an expense?
-
-It is normally reported through the configured gain or loss account, but presentation depends on your chart and accounting policy. Use accounts approved by finance.
-
-### Can a bank fee be combined with exchange loss?
-
-No, record the bank fee separately so reporting and reconciliation remain clear.
-
-### What if the payment is not linked to the invoice?
-
-Reconcile the unallocated Payment Entry later. The party must match, and the outstanding and unallocated amounts determine what can be allocated.
-
-### Is revaluation required after every payment?
-
-No, a payment realizes its own difference. Revaluation is for eligible balances still open at a reporting date.
-
-## Related topics
-
-- [Payment Entry](/erpnext/payment-entry)
-- [Payment Reconciliation](/erpnext/payment-reconciliation)
-- [Multi Currency Accounting](/erpnext/multi-currency-accounting)
-- [Currency Exchange](/erpnext/currency-exchange)
-- [Exchange Rate Revaluation](/erpnext/exchange-rate-revaluation)
-
-<!-- page: erpnext/erpnext__managing-batch-wise-inventory.md -->
----
-title: "Managing Batch wise Inventory\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/managing-batch-wise-inventory"
-updated: "2026-02-27"
----
-
-
-Set of items which has same properties and attributes can be group in a single Batch. For example, pharmaceuticals items are batch, so that it's manufacturing and expiry date can be tracked together.
-
-To maintain batches against an Item you need to mention 'Has Batch No' as yes in the Item Master.
-
-![Batch Item](/files/batchwise-stock-1.png)
-
-You can create a new Batch from:
-
-`Stock > Documents > Batch > New`
-
-Read [Stock batch](/erpnext/batch.html) to learn more.
-
-For the Batch item, updating Batch No. in the stock transactions (Purchase Receipt &amp; Delivery Note) is mandatory.
-
-#### Purchase Receipt
-
-When creating Purchase Receipt, you should create new Batch, or select one of the existing Batch master. One Batch can be associated with one Batch Item.
-
-![Batch in Purchase Receipt](/files/batchwise-stock-2.png)
-
-#### Delivery Note
-
-Define Batch in Delivery Note Item table. If Batch item is added under Product Bundle, you can update it's Batch No. in the Packing List table as well.
-
-![Batch in Delivery Note](/files/batchwise-stock-3.png)
-
-#### Batch-wise Stock Balance Report
-
-To check batch-wise stock balance report, go to:
-
-Stock > Standard Reports > Batch-wise Balance History
-
-![Batchwise Stock Balance](/files/batchwise-stock-4.png)
-
-<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/J0QKl7ABPKM?rel=0">
-</iframe>
-
-<!-- page: erpnext/erpnext__managing-fractions-in-uom.md -->
----
-title: "Managing Fractions in UOM\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/managing-fractions-in-uom"
-updated: "2026-02-26"
----
-
-UoM stands for Unit of Measurement. Few examples of UoM are Numbers (Nos), Kgs, Litre, Meter, Box, Carton etc.
-
-There are few UOMs which cannot have value in decimal places. For example, if we have television for an item, with Nos as its UoM, we cannot have 1.5 Nos. of television, or 3.7 Nos. of computer sets. The value of quantity for these items must be whole number.
-
-You can configure if particular UoM can have value in decimal place or no. By default, value in decimal places will be allowed for all the UOMs. To restrict decimal places or value in fraction for any UoM, you should follow these steps.
-
-
-
-### UOM List
-
-For UOM list, go to:
-
-`Stock > Setup > UoM`
-
-From the list of UOM, select UOM for which value in decimal place is to be restricted. Let's assume that UoM is Nos.
-
-
-
-### Configure
-
-In the UoOM master, you will find a field called "Must be whole number". Check this field to restrict user from enter value in decimal places in quantity field, for item having this UOM.
-
-![UoM Must be Whole No](/files/uom-fraction-1.png)
-
-### Validation
-
-While creating transaction, if you enter value in fraction for item whose UOM has "Must be whole number" checked, you will get error message stating:
-
-`Quantity cannot be a fraction at row #`
-
-![UoM Validation Message](/files/uom-fraction-2.png)
-
-<!-- page: erpnext/erpnext__managing-invoice-discount-in-the-payment-entry.md -->
----
-title: "Invoice Discount in Payment Entry | ERPNext Documentation"
-description: "Record a settlement discount while clearing an ERPNext invoice."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/managing-invoice-discount-in-the-payment-entry"
-updated: "2026-08-01"
----
-
-When a Customer pays less because an approved settlement discount applies, allocate the amount received and record the discount in the Deductions or Loss table. This clears the invoice without hiding the difference.
-
-## Before you begin
-
-Confirm the correct Company, currency, receivable or payable account, and bank or cash ledger. Use submitted source documents and keep the bank reference or remittance advice available.
-
-## Use Invoice Discount in Payment Entry
-
-1. Create a Receive Payment Entry and fetch the invoice.
-2. Enter the amount received in the bank.
-3. Allocate the full amount being settled against the invoice.
-4. Add the discount difference with the approved discount account and Cost Center.
-5. Confirm that the Difference Amount is zero, then submit.
-
-![Invoice Discount in Payment Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-05-payment-entry-references.png)
-
-## Important fields and what they mean
-
-
-| Field              | What it controls                              |
-| ------------------ | --------------------------------------------- |
-| Allocated Amount   | Invoice amount cleared by the payment.        |
-| Paid Amount        | Cash actually received.                       |
-| Deductions or Loss | Accounting rows explaining the shortfall.     |
-| Account            | Approved discount allowed account.            |
-| Cost Center        | Business unit receiving the discount expense. |
-
-
-## What happens after you submit or process
-
-ERPNext updates the relevant accounting records and, where applicable, the outstanding or unallocated amounts. Review the General Ledger, party ledger, and source document status before treating the workflow as complete. A saved draft does not affect the ledger.
-
-## Troubleshooting
-
-### The invoice remains outstanding after recording a discount
-
-The cash received plus the approved discount must equal the amount being settled. Allocate the full settlement and post the discount to the configured discount allowed or received account.
-
-### Difference Amount increases when the discount is entered
-
-Check whether the discount should be added or deducted for the Payment Type. Verify the paid amount, received amount, and allocated amount before changing the sign.
-
-### The discount posts to the wrong profit and loss account
-
-Select the correct account for discount allowed or discount received and include the required Cost Center. Do not use a generic write-off account when separate reporting is required.
-
-## Frequently asked questions
-
-### Is a settlement discount the same as changing the invoice price?
-
-It is not the same. The original invoice remains the commercial and tax document; the settlement difference is recorded when payment is received or made.
-
-### Should tax be recalculated when a payment discount is granted?
-
-Tax treatment varies by jurisdiction and discount type. Use the appropriate credit note or regional process when tax must change instead of relying only on a Payment Entry deduction.
-
-### Can only part of an invoice receive a discount?
-
-A partial settlement can include a supported discount, but the remaining invoice balance must be intentional and explainable. Verify the outstanding amount after submission.
-
-### Can discounts allowed and received use different accounts?
-
-Separate accounts are recommended when financial reporting distinguishes customer discounts from supplier discounts.
-
-## Related topics
-
-- [Payment Entry](/erpnext/payment-entry)
-- [Payment Reconciliation](/erpnext/payment-reconciliation)
-- [Bank Reconciliation](/erpnext/bank-reconciliation)
-- [Bank Transaction](/erpnext/bank-transaction)
-- [Journal Entry](/erpnext/journal-entry)
-
-<!-- page: erpnext/erpnext__managing-multi-level-bom.md -->
----
-title: "Managing Multi-level BOM"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/managing-multi-level-bom"
-updated: "2026-02-26"
----
-
-
-Consider a scenario where your manufacturing process involves producing sub-assembly items before the final product. In this case, how should you manage the BOM?
-
-First of all, you need to have BOMs for the sub-assemblies, then these BOMs should be linked to the BOM of the final finished product. In the following screenshot, you can see that the BOM for Brush Bristles (subassembly) is linked to the BOM of the Shaving Brush (final product). This is seen in the Materials table in the Bill of Materials master.
-
-![Multi-level BOM](/files/multi-bom.png)
-
-The 'Materials' table will only show the sub-assemblies while the 'Materials Required (Exploded)' table will show all the raw materials required to manufacture the final product.
-
-BOM materials table where sub-assembly is shown:
-![Multi-level BOM](/files/bom-materials.png)
-
-In the exploded view only the raw materials are shown:
-![Multi-level BOM](/files/bom-materials-exploded.png)
-
-
-To use multi-level BOM in a Work Order, enable the 'Use Multi-Level BOM' checkbox. This is enabled by default. If you want to plan materials for sub-assemblies of the Item you're manufacturing leave this enabled. If you plan and manufacture the sub-assemblies separately disable this checkbox.
-
-Let's consider another example to understand this better where a computer is being assembled. The hard disk and DVD drive are also being manufactured and are the sub-assemblies. The multi-level or nested BOM will look like this:
-
-- Personal Computer (FG Item)
- - Mother Board
- - SMTP
- - Accessories and wires
- - Hard Disk (sub-assembly)
- - Item A
- - Item B
- - Item C
- - DVD Drive (sub-assembly)
- - Item X
- - Item Y
- - Item Z
-
-
-## Caution
-
-Exercise caution when updating the BOM of a sub-assembly. The part which includes the sub assembly with an updated BOM will need to be updated to reference the updated BOM for that part. The practical outcome of this is that changing a screw on a low level assembly will lead to a ripple of updated Bills of Material up through the BOM structure.
-
-Using the example of the personal computer above.
-Personal Computer (PC-001 with BOM-PC-001) uses Hard Disk (HDD-001 with BOM-HDD-001).
-BOM-HDD-001 includes the three items shown (Item A, B and C).
-
-If we need to exchange Item C for a new item (Item D) then we must update create BOM-HDD-002 (with Items A, B and D). The Hard Disk (HDD-001) is then updated to reference the new BOM-HDD-002. But, BOM-PC-001 is still referencing HDD-001 with BOM-HDD-001. The change from Item C to Item D will not be updated in the Exploded BOM for PC-001.
-
-BOM-PC-002 must be created referencing HDD-001 with BOM-HDD-002 to make this update.
-
 <!-- page: erpnext/erpnext__managing-transactions-in-multiple-currencies.md -->
 ---
 title: "Managing Transactions in Multiple Currencies | ERPNext Documentation"
@@ -426,7 +43,7 @@ Test the full invoice and payment cycle in Draft before using imported or live d
 7. Add the item, quantity, and rate.
 8. Review taxes, payment terms, and totals.
 
-![EUR transaction and price-list rates](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-sales-invoice-eur-currency-rate.png)
+[Screenshot on the live page: EUR transaction and price-list rates]
 
 The screenshot shows two rates:
 
@@ -445,7 +62,7 @@ Open the Accounting section and check **Debit To**. It should be Euro Receivable
 
 
 
-![EUR receivable selected on the Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-sales-invoice-eur-receivable-account.png)
+[Screenshot on the live page: EUR receivable selected on the Sales Invoice]
 
 If the selected account is in a foreign currency, the invoice currency must normally match it. Do not switch only the Currency field and ignore Debit To.
 
@@ -455,7 +72,7 @@ Before submission, compare the party-facing total and the Company-currency total
 
 
 
-![EUR and USD Sales Invoice totals](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-sales-invoice-eur-totals.png)
+[Screenshot on the live page: EUR and USD Sales Invoice totals]
 
 For EUR 1,200 at 1.15:
 
@@ -487,11 +104,11 @@ Create the Payment Entry from the submitted invoice when possible:
 6. Review Source Exchange Rate and the Company-currency amount.
 7. Confirm the invoice reference and allocated amount.
 
-![Account currencies in Payment Entry](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-payment-entry-two-account-currencies.png)
+[Screenshot on the live page: Account currencies in Payment Entry]
 
 
 
-![Paid and received amounts with the source rate](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-payment-entry-exchange-rates-and-amounts.png)
+[Screenshot on the live page: Paid and received amounts with the source rate]
 
 The paid-from and paid-to account currencies control the amount fields. In the example, EUR 1,200 is cleared from the receivable and USD 1,380 is received into the operating bank.
 
@@ -503,7 +120,7 @@ On a [Purchase Invoice](/erpnext/purchase-invoice), select the Supplier, EUR, th
 
 
 
-![EUR Purchase Invoice conversion fields](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-purchase-invoice-eur-currency-rate.png)
+[Screenshot on the live page: EUR Purchase Invoice conversion fields]
 
 On submission, the payable outstanding is maintained according to the party account currency. Create a Pay-type Payment Entry and verify the amount removed from the bank and the EUR amount cleared from the payable.
 
@@ -513,7 +130,7 @@ Accounts Settings includes **Allow multi-currency invoices against single party 
 
 
 
-![Allow invoices in multiple currencies against one party account](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-accounts-settings-multi-currency-invoices.png)
+[Screenshot on the live page: Allow invoices in multiple currencies against one party account]
 
 This can support a party invoiced in multiple currencies while using a Company-currency party account. It does not make a bank account multi-currency, and it can make outstanding and payment interpretation harder. Use dedicated currency accounts for currencies that the business regularly holds or reconciles. Test [Payment Reconciliation](/erpnext/payment-reconciliation), ageing, credit notes, advances, and returns before enabling the option broadly.
 
@@ -523,7 +140,7 @@ Use the [General Ledger](/erpnext/general-ledger) filtered by the foreign accoun
 
 
 
-![EUR bank balance in the General Ledger](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-foreign-currency-general-ledger.png)
+[Screenshot on the live page: EUR bank balance in the General Ledger]
 
 Review [Accounts Receivable and Payable](/erpnext/accounts-receivable-and-payable) in the party or account currency. Financial statements use Company currency. At period end, run [Exchange Rate Revaluation](/erpnext/exchange-rate-revaluation) for eligible open foreign balances.
 
@@ -608,7 +225,7 @@ Following are the steps to manage and create record in the tree structured maste
 
 ####Step 2 : Parent Territory
 
-![Default Territories](/files/territory-2.png)
+[Screenshot on the live page: Default Territories]
 
 When click on Parent territory, you will see option to add child territory under it. All default Territory groups will be listed under Parent group called "All Territories". You can add further Parent or child Territory Groups under it.
 
@@ -625,11 +242,11 @@ Territory will be saved with Territory Name provided here.
 If Group Node selected as Yes, then this Territory will be created as Parent, which means you can further create sub-territories under it. If select No, then it will become child Territory which you will be able to select in another masters.
 
 Only child Territory Groups are selectable in another masters and transactions.
-![Default Territories](/files/territory-1.gif)
+[Screenshot on the live page: Default Territories]
 
 Following is how Child Territories will be listed under a Parent Territory.
 
-![Adding new Territories](/files/territory-3.png)
+[Screenshot on the live page: Adding new Territories]
 
 Following this steps, you can manage other tree masters as well in ERPNext.
 
@@ -656,11 +273,11 @@ To access the Manufacturer list, go to:
 1. Go to the Manufacturer list and click on New.
 2. Enter a Manufacturer name and enter a description if needed.
 3. Save.
-  [Manufacturer](/files/manufacturer.png)
+  Manufacturer (picture on the live page)
 
 After creating a Manufacturer, you can create an **Item Manufacturer** record with a Manufacturer Part Number for identification.
 
-![](/files/item_manufacturer.png)
+[Screenshot on the live page]
 
 ### 1.1 Additional details
 
@@ -690,7 +307,7 @@ url: "https://docs.frappe.io/erpnext/manufacturing-dashboard"
 updated: "2026-02-26"
 ---
 
-![](/files/image077385.png)
+[Screenshot on the live page]
 
 ---
 
@@ -698,7 +315,7 @@ updated: "2026-02-26"
 
 In ERPNext, Number Cards are a type of widget or visual component that displays key metrics or numerical data in a dashboard. They are typically used to show quick, high-level insights that help users keep track of important business performance indicators or operational statistics.
 
-![](/files/CleanShot 2026-02-19 at 11.41.16@2x.png)
+[Screenshot on the live page]
 
 1. **Monthly Total Work Order** :- You will get the total count of Work Orders which are in Open, In Progress, and Completed state. The Work Orders created one month before the current date will be displayed in the number card.
 2. **Monthly Completed Work Order** :- The user will get the total count of Work Orders which are in the Completed state. The Work Orders created one month before the current date will be displayed in the number card.
@@ -711,7 +328,7 @@ In ERPNext, Number Cards are a type of widget or visual component that displays 
 
 You can see some predefined graph reports in the dashboard when you open the Manufacturing module. These reports are fully customizable, you can choose what to show or hide and also configure the metrics on which the reports are shown.
 
-![](/files/CleanShot 2026-02-19 at 11.52.51@2x.png)
+[Screenshot on the live page]
 
 ### Produced Quantity
 
@@ -723,7 +340,7 @@ The chart will give information about the total number of operations completed i
 
 ---
 
-![](/files/image31eb3a.png)
+[Screenshot on the live page]
 
 ### Work Order Analysis
 
@@ -743,7 +360,7 @@ The chart will give information about the total number of minutes a machine was 
 
 ---
 
-![](/files/image60f6db.png)
+[Screenshot on the live page]
 
 ### Work Order Quantity Analysis
 
@@ -772,37 +389,37 @@ These reports can be accessed from:
 ## Open Work Orders
 Shows the open Work Orders which have not started production yet.
 
-![Open Work Orders](/files/open-wo.png)
+[Screenshot on the live page: Open Work Orders]
 
 ## Work in Progress Report
 
 This report shows any work orders that have started and are in progress. The status of these Work Orders is 'In Process'.
 
-![WIP report](/files/wip-report.png)
+[Screenshot on the live page: WIP report]
 
 ## Issued Items Against Work Order
 Items that are issued to a Work Order and are transferred to the Work in Progress Warehouse are shown here.
-![Items Against WO](/files/items-against-wo.png)
+[Screenshot on the live page: Items Against WO]
 
 
 ## Completed Work Orders
 Work Orders which are completed with all the quantities in it manufactured are shown in this report.
 
-![Completed Work Orders](/files/completed-wo.png)
+[Screenshot on the live page: Completed Work Orders]
 
 ## Production Analytics
 This report shows the overall analytics of all Work Orders.
 
-![Production Analytics](/files/production-analytics.png)
+[Screenshot on the live page: Production Analytics]
 
 ## BOM Search
 In this report, you can search for specific BOMs based on the raw materials items used in them, then open it. Useful if you have a lot of BOMs.
-![BOM search](/files/bom-search.png)
+[Screenshot on the live page: BOM search]
 
 ## BOM Stock Report
 On selecting a BOM in this report, the raw material quantity in Warehouses will be shown. As you can see, the items which have insufficient quantity are shown in red and ones with enough quantity to manufacture the BOM Item are shown in green.
 
-![BOM Stock Report](/files/bom-stock-report.png)
+[Screenshot on the live page: BOM Stock Report]
 
 <!-- page: erpnext/erpnext__manufacturing-settings.md -->
 ---
@@ -822,7 +439,7 @@ Manufacturing settings in ERPNext configure production workflows, manage bill of
 **Raw Materials Consumption**
 -----------------------------
 
-![Screenshot 2024-08-29 at 3.28.09 PM](/files/Screenshot 2024-08-29 at 3.28.09 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 3.28.09 PM]  
 
 
 ### 1. Allow Continuous Material Consumption
@@ -839,22 +456,22 @@ The method selected here will be chosen for backflushing raw materials : 1. Mate
 
 Note: This feature will be available from the version V15
 
-![](/files/validate_component_and_qty_as_per_bom.png)
+[Screenshot on the live page]
 
 If "Backflush Raw Materials Based On" as BOM, then users can validate component quantity according to BOM. To do that they have to enable "Validate Components Quantities Per BOM" checkbox in the "Manufacturing Settings".
 
 If user has changed the quantity in the "Material Transfer for Manufacture" or "Manufacture" stock entry, then system will throw the below error
 
-![component-qty-validation](/files/component-qty-validation.png)  
+[Screenshot on the live page: component-qty-validation]  
 
 If user has removed the item in the "Material Transfer for Manufacture" or "Manufacture" stock entry, then system will throw the below error
 
-![](/files/Screenshot%202025-01-02%20at%2012.54.40%20PM.png)
+[Screenshot on the live page]
 
 
 ### 4. Get Raw Materials Cost from Consumption Entry
 
-![](/files/Screenshot%202025-01-02%20at%201.28.32%20PM.png)
+[Screenshot on the live page]
 
 If the 'Allow Continuous Material Consumption' is enabled then user can see the option 'Get Raw Materials Cost from Consumption Entry'.
 
@@ -865,7 +482,7 @@ Capacity Planning
 
 Capacity planning is the process in which an organisation decides whether or not to accept the new orders based on the resources and existing work orders.
 
-![Screenshot 2024-08-29 at 3.30.52 PM](/files/Screenshot 2024-08-29 at 3.30.52 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 3.30.52 PM]  
 
 
 ### 1. Disable Capacity Planning
@@ -891,7 +508,7 @@ This specifies the time span that should be kept between two operations in minut
 Default Warehouses for Production
 ---------------------------------
 
-![Screenshot 2024-08-29 at 3.32.55 PM](/files/Screenshot 2024-08-29 at 3.32.55 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 3.32.55 PM]  
 
 
 ### 1. Default Work In Progress Warehouse
@@ -909,7 +526,7 @@ This Warehouse will be auto-updated in the 'Scrap Warehouse' field of Work Order
 Over Production for Sales and Work Order
 ----------------------------------------
 
-![Screenshot 2024-08-29 at 3.36.10 PM](/files/Screenshot 2024-08-29 at 3.36.10 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 3.36.10 PM]  
 
 
 ### 1. Overproduction Percentage For Sales Order
@@ -923,7 +540,7 @@ It defines the allowable percentage by which the actual production quantity can 
 Job Card
 --------
 
-![Screenshot 2024-08-29 at 3.38.32 PM](/files/Screenshot 2024-08-29 at 3.38.32 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 3.38.32 PM]  
 
 
 ### 1. Add Corrective Operation Cost in Finished Good Valuation
@@ -939,7 +556,7 @@ This is particularly useful in cases where the transferred raw materials are dam
 Other Settings
 --------------
 
-![Screenshot 2024-08-29 at 3.39.41 PM](/files/Screenshot 2024-08-29 at 3.39.41 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 3.39.41 PM]  
 
 
 ### 1. Update BOM Cost Automatically
@@ -959,7 +576,7 @@ If checked, system will automatically create the serial numbers / batches for fi
 If enabled, the system will allow users to edit the raw materials and their quantities in the Work Order. The system will not reset the quantities as per the BOM, if the user has changed them in the work order materials table.
 
 
-![Screenshot 2025 11 07 at 3.25.52 PM](/files/Screenshot%202025-11-07%20at%203.25.52%20PM.png)
+[Screenshot on the live page: Screenshot 2025 11 07 at 3.25.52 PM]
 
 <!-- page: erpnext/erpnext__manufacturing-without-creating-bom.md -->
 ---
@@ -970,8 +587,8 @@ updated: "2026-03-02"
 ---
 
 **It is recommended to use BOM for Manufacturing for consistency and to avoid repetitive work.**   
-However, if you wish to perform it manually, the workaround is to create Stock Entries:1) Create a **Stock Entry** with **Purpose** as **Material Transfer to Manufacture.**![](/files/EsxLtl4.png)2) Create a **Stock Entry** with **Purpose** as **Manufacture, the Item which is being Manufactured will have a Target Warehouse and other Items(Raw Materials) will have a Source Warehouse.**   
-![](/files/voUKccc.png)  
+However, if you wish to perform it manually, the workaround is to create Stock Entries:1) Create a **Stock Entry** with **Purpose** as **Material Transfer to Manufacture.**[Screenshot on the live page]2) Create a **Stock Entry** with **Purpose** as **Manufacture, the Item which is being Manufactured will have a Target Warehouse and other Items(Raw Materials) will have a Source Warehouse.**   
+[Screenshot on the live page]  
 *﻿Blue Dot: Item is being received.* *Orange Dot: Item is being issued.* 
 
 <!-- page: erpnext/erpnext__manufacturing.md -->
@@ -994,3 +611,305 @@ The Manufacturing module in ERPNext is designed to streamline and optimise the p
 - **Reporting and Analytics**: Offers insights into production performance, costs, and efficiency to support informed decision-making.
 
 The Manufacturing module in ERPNext helps improve productivity, reduce costs, and enhance overall production efficiency by providing a unified platform for managing all aspects of the manufacturing process.
+
+<!-- page: erpnext/erpnext__material-request.md -->
+---
+title: "Material Request"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/material-request"
+updated: "2026-02-27"
+---
+
+**A Material Request is a simple document identifying a requirement of a set of Items (products or services) for a particular reason.**
+
+A Material Request can have the following purposes:
+
+* **Purchase**: If the material being requested is to be purchased.
+* **Material Transfer**: If the material being requested is to be shifted from one Warehouse to another.
+* **Material Issue**: If the material being requested is to be Issued for some purpose like manufacturing.
+* **Manufacture:** If the material being requested is to be produced.
+* **Subcontracting:** If the material being requested is to be subcontracted to a vendor.
+* **Customer Provided**: If the material being requested is to be provided by Customer. To know more about this, visit the [Customer Provided Item](/erpnext/customer-provided-items) page.
+
+[Screenshot on the live page: Material Request]  
+
+
+To access the Material Request list, go to:
+
+
+> Home > Stock > Stock Transactions > Material Request
+> 
+> 
+
+1. How to create a Material Request
+-----------------------------------
+
+1. Go to the Material Request list, click on Add Material Request.
+2. Enter the Required By date.
+3. Select the appropriate purpose from the list.
+4. You can fetch Items from a BOM, Sales Order, or Product Bundle.
+
+[Screenshot on the live page: Screenshot 2024-07-09 at 2.36.44 PM]
+5. Select the Item and set the quantity.
+6. Select the Warehouse for which Items are required.
+7. You can change the Required By date for individual Items in this table.
+8. Save and Submit.
+
+[Screenshot on the live page: Screenshot 2024-07-09 at 2.40.52 PM]  
+
+
+### 1.1 Alternate ways of creating a Material Request
+
+A Material Request can be generated automatically:
+
+* From a [Sales Order](/erpnext/sales-order). While creating MR, user can choose to ignore or include Projected Quantity. Accordingly, Sales Order Items are fetched to MR.
+* When the Projected Quantity of an Item in Stores (Warehouses) reaches a particular level.
+* From your a [Production Plan](/erpnext/production-plan) to plan your manufacturing activities.
+
+If your Items are inventory items, you must also mention the Warehouse where you expect these Items to be delivered. This helps to keep track of the [Projected Quantity](/erpnext/projected-quantity) for this Item.
+
+> Info: Material Request is not mandatory. It is ideal if you have centralized buying so that you can collect this information from various departments.
+
+### 1.2 Statuses
+
+These are the statuses a Material Request can be in:
+
+* **Draft**: A draft is saved but yet to be submitted to the system.
+* **Submitted**: Document is submitted to the system.
+* **Stopped**: If no more materials are needed the Material Request can be stopped.
+* **Canceled**: The materials are not needed at all and the request is canceled.
+* **Pending**: The Purchase/Manufacture is pending to complete the Material Request.
+* **Partially Ordered**: Purchase Orders for some Items from the Material Request are made and some are pending.
+* **Ordered**: All Items in the Material Request are ordered via Purchase Orders.
+* **Issued**: The materials are issued using a Material Issue Stock Entry.
+* **Transferred**: The required materials are transferred from one Warehouse to another using a Stock Entry.
+* **Received**: The materials were ordered and have been received at your Warehouse using a Purchase Receipt.
+
+2. Features
+-----------
+
+### 2.1 Items table
+
+* **Barcode**: You can track Items using [barcodes](/erpnext/track-items-using-barcode).
+* The Item Code, name, description, Image, and Manufacturer will be fetched from the Item master.
+* **Scan Barcode**: You can add Items in the Items table by scanning their barcodes if you have a barcode scanner. Read documentation for [tracking items using barcode](/erpnext/track-items-using-barcode) to know more.
+* The UoM, Conversion Factor, and Amount will be fetched. You change the Warehouse for which the material is being requested.
+* Accounting details like Expense Account and Accounting Dimensions can be set for the Items.
+* Page Break will create a page break just before this item when printing.
+
+### 2.2 Setting Warehouses
+
+* **Set Warehouse**: Optionally, you can set the Warehouse where the requested Items will arrive. This will be fetched into the 'For Warehouse' fields in the Item table rows.
+
+### 2.3 More Information
+
+In the 'Job Card' and 'Work Order' fields, it sets a reference from where the Material Request was generated.
+
+### 2.4 Printing Details
+
+#### Letterhead
+
+You can print your Material Request on your company's letterhead. Read [Letter head documentation](/erpnext/letter-head) to learn more.
+
+#### Print Headings
+
+Material Request headings can also be changed when printing the document. You can do this by selecting a **Print Heading**. To create new Print Headings go to: Home > Settings > Printing > Print Heading. Know more [here](/erpnext/print-headings).
+
+### 2.5 Terms and Conditions
+
+In Sales/Purchase transactions there might be certain Terms and Conditions based on which the Supplier provides goods or services to the Customer. You can apply the Terms and Conditions to transactions to transactions and they will appear when printing the document. To know about Terms and Conditions, [click here](/erpnext/terms-and-conditions)
+
+### 2.6 After Submitting
+
+You can create the following documents:
+
+* [Request For Quotation](/erpnext/request-for-quotation)
+* [Purchase Order](/erpnext/purchase-order)
+* [Supplier Quotation](/erpnext/supplier-quotation)
+
+[Screenshot on the live page: Screenshot 2024-07-09 at 2.38.58 PM]  
+
+
+### 2.7 Automatically generate Material Requests
+
+Material Requests can be generated automatically by enabling the setting in [Stock Settings](/erpnext/stock-settings#9-automatic-material-request) and setting the level in the [Item form](/erpnext/item#34-automatic-reordering). When the stock level dips below a certain quantity, setting a reorder will automatically create material requests for the Item.
+
+### Note:
+Material Request Purpose "Subcontracting" is newly added and only present in the develop branch of ERPNext. It will be there by default in the next major release i.e v16
+
+A subcontracted Material Request enables the user to create a Subcontracted Purchase Order directly from the Material Request itself after submission.
+
+<!-- page: erpnext/erpnext__material-requirements-planning-mrp.md -->
+---
+title: "Material Requirements Planning (MRP)"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/material-requirements-planning-mrp"
+updated: "2026-04-29"
+---
+
+The ERPNext currently have the MRP inside the production plan which is difficult for new users to understand and also it only uses sales order or material request data to generate the MRP.
+
+## Purpose
+
+The main purpose of MRP is to ensure that the right materials are available at the right time, helping the company to avoid the overproduction and delays in delivery. To know how MRP works first needs to understand how demand planning works.
+
+## Demand Planning
+
+We already had sales orders and material requests to generate demand planning. However, this only works for short-term MRP requirements and does not cover longer periods of time. To address this, we have added sales forecasting and delivery schedules to generate demand.
+
+## Sales Forecast
+
+The users has to manually enter the forecasting data by calculating it outside the system.
+
+[Screenshot on the live page]
+
+## Delivery Schedules
+
+Some customers do not prefer a one time delivery against a sales order and they require multiple deliveries. The delivery schedules are very helpful for MRP because they provide visibility of when materials are actually needed, instead of assuming everything must be delivered at once.  
+To make Delivery Schedules, users has to click on Add Schedule button in the sales order item table
+
+[Screenshot on the live page]
+
+
+
+## Master Production Schedule
+
+To capture the demand for finished items, the Master Production Schedule (MPS) document was introduced. The system collects data from various sources such as sales orders, material requests, sales forecasts, and delivery schedules to generate the demand in the MPS.
+
+[Screenshot on the live page]
+
+## Material Requirements Planning Report
+
+The Material Requirements Planning (MRP) report calculates the required quantities of raw materials and components, along with the dates when they are needed, based on the demand for finished items.
+
+
+
+[Screenshot on the live page]
+
+Users can see the MRP report in the bucket view
+
+[Screenshot on the live page]
+
+## Item Lead Time
+
+To calculate the dates of when to release the purchase order for raw materials and work order for components, the system needs to be aware of the lead time for manufacturing and the lead time for material procurement. For this purpose, a new document Item Lead Time was added.
+
+
+
+[Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__material-transfer-from-delivery-note.md -->
+---
+title: "Material Transfer from Delivery Note and Purchase Receipt\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/material-transfer-from-delivery-note"
+updated: "2026-03-02"
+---
+
+
+
+In ERPNext, you can create Material Transfer entry from [Stock Entry](/erpnext/stock-entry.html) document. However, there are some scenarios in the Material Transfer where it needs to be presented as a Delivery Note and Purchase Receipt.
+
+## Material Transfer from Delivery Note
+
+### Scenarios
+
+1. One of the examples is when you transfer a Material from your stores to project site, however, you need to present it as a Delivery Note to the client.
+
+2. Also, there are statutory requirements where taxes are to be applied on each transfer of Material. It is easier to manage in a transaction like Delivery Note, than in the Stock Entry.
+
+Considering these scenarios, the provision of Material Transfer has been added in the Delivery Note as well. Following are the steps to use Delivery Note for creating Material Transfer entry.
+
+### Steps
+
+#### Enable Target Warehouse
+
+Delivery Note Item doctype has a hidden field of Target Warehouse (previously Customer Warehouse). You can enable it from [Stock Settings](/erpnext/stock-settings) by enabling "Allow Material Transfer From Delivery Note and Sales Invoice".
+
+Also note that the selected customer should represent the same company. For this, enable the 'Is Internal Customer' option in the customer form and select your company in the 'Represents Company' field.
+
+
+
+### Select Warehouses
+
+When creating a Delivery Note for Material Transfer, for an item select source Warehouse as From Warehouse.
+
+In the Customer Warehouse, select a Warehouse where Material is to be transferred or select a target warehouse.
+
+[Screenshot on the live page: Delivery Note Material Transfer]
+
+On the submission of a Delivery Note, item's stock will be deducted from "From Warehouse" and added to the "Customer Warehouse".
+
+## Material Transfer from Purchase Receipt
+
+### Scenarios
+
+There are statutory requirements where taxes are to be applied on each transfer of Material. It is easier to manage a situation like this in a transaction like Purchase Receipt, than in the Stock Entry as taxes cannot be applied on transfers of items via Stock Entry
+
+Following are the steps to use Purchase Receipt for creating Material Transfer Entry.
+
+### Steps
+
+#### Enable Supplier Warehouse
+
+Similar to the Customer Warehouse shown above, the first step is to enable the Supplier Warehouse from [Stock Settings](/erpnext/stock-settings) as shown above.
+
+Also note that the selected supplier should represent the same company. For this, enable the 'Is Internal Supplier' option in the Supplier form and select your company in the 'Represents Company' field.
+
+
+
+### Select Warehouses
+
+When creating a Purchase Receipt for Material Transfer, for an Item, select the target Warehouse as Accepted Warehouse.
+
+This is how you create an internal Purchase Receipt from an internal Delivery Note:
+
+[Screenshot on the live page: Purchase Receipt Material Transfer]
+
+In the Supplier Warehouse, select a Warehouse from where Material is to be transferred.
+
+[Screenshot on the live page: Purchase Receipt Material Transfer]
+
+On submission of the Purchase Receipt, item's stock will be deducted from "Supplier Warehouse" and added to the "Accepted Warehouse".
+
+<!-- page: erpnext/erpnext__material_consumption.md -->
+---
+title: "Material consumption\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/material_consumption"
+updated: "2026-03-02"
+---
+
+
+Material Consumption functionality allows you to have multiple consumption `Stock Entry` against a Work Order. To enable this, go to Manufacturing > Manufacturing Settings.
+
+[Screenshot on the live page: Item Alternative]
+
+Once enabled, a `Material Consumption` button will be available in Work Order once started.
+
+[Screenshot on the live page: Item Alternative]
+
+When button is clicked, it will do the following:
+
+1. It will create Stock Entry with purpose `Material Consumption for Manufacture`.
+
+[Screenshot on the live page: Item Alternative]
+
+2. If the "Backflush Raw Materials Based On" in the Manufacturing Settings is set to `BOM`, if will propose to consume all required qty for manufacture.
+3. If the "Backflush Raw Materials Based On" in the Manufacturing Settings is set to `Material Transferred for Manufacture`, if will propose to consume all transferred qty for manufacture.
+4. Once submitted, it will update `Consumed Qty` column in the Work Order.
+
+[Screenshot on the live page: Item Alternative]
+
+5. In succeeding Material Consumption, it will suggest unconsumed qty.
+6. Once "Finish" button is clicked in Work Order, it will take into account consumed qty.
+
+### Validations
+
+* If "Allow Multiple Material Consumption" is not set in Manufacturing Settings but "Material Consumption for Manufacture" is use in Stock Entry.
+
+[Screenshot on the live page: Item Alternative]
+
+* Cannot cancel "Material Consumption for Manufacture" for completed Work Order.
+
+[Screenshot on the live page: Item Alternative]

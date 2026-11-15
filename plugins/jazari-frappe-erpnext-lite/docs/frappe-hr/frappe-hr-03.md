@@ -35,7 +35,7 @@ To create a new Employee Tax Exemption Declaration:
 3. Enter the Maximum Exemption Amount and Declared Amount.
 4. Save and Submit.
 
-![Employee Tax Exemption Declaration](https://frappehr.com/files/employee-tax-exemption-declaration.png)
+[Screenshot on the live page: Employee Tax Exemption Declaration]
 
 The Total Exemption Amount will be exempted from annual taxable earnings of the employee while calculating the tax deductions in Payroll.
 
@@ -50,7 +50,7 @@ Exemptions from taxable salary are usually restricted to spendings on particular
 
 You can configure Employee Tax Exemption Category by going to, **Employee Tax and Benefits > Employee Tax Exemption Category**
 
-![Employee Tax Exemption Category](https://frappehr.com/files/employee-tax-exemption-sub-category1.png)  
+[Screenshot on the live page: Employee Tax Exemption Category]  
 
 
 ### **3.2 Employee Tax Exemption Sub-Category**
@@ -59,7 +59,7 @@ Under each category, there could be many heads for which the exemptions are allo
 
 You can configure Employee Tax Exemption Category by going to, **Employee Tax and Benefits > Employee Tax Exemption Sub-Category**
 
-![Employee Tax Exemption Category](https://frappehr.com/files/employee-tax-exemption-category1.png)  
+[Screenshot on the live page: Employee Tax Exemption Category]  
 
 
 ### **3.3 HRA Exemption (Regional - India)**
@@ -76,7 +76,7 @@ Enter the Monthly House Rent and check the 'Rented in Metro City' checkbox if ap
 
 Once the declaration is submitted, you can submit the proof of your tax exemption by clicking on the *Submit Proof* button.
 
-![Employee Tax Exemption Declaration](https://frappehr.com/files/hra-exemption.png)  
+[Screenshot on the live page: Employee Tax Exemption Declaration]  
 
 
 > Note: HRA component needs to be configured in Company master under HRA Settings sections for the HRA exemption to work.
@@ -120,7 +120,7 @@ The details are already fetched if you click on 'Submit Proof' from [Employee Ta
 5. Enter House Rent Payment Amount, Rented From Date and Rented To Date.
 6. Save and Submit.
 
-![Employee Tax Exemption Proof Submission](https://frappehr.com/files/employee-tax-exemption-proof-submission.png)
+[Screenshot on the live page: Employee Tax Exemption Proof Submission]
 
 The *Total Exemption Amount* will be exempted from annual taxable earnings of the employee while calculating the tax deductions in the last payroll.
 
@@ -173,7 +173,7 @@ To access Employee Transfer go to:
 
 > Note: If Create New Employee ID is checked, a new Employee will be created with property changes in Transfer Details table and old Employee will be marked as relieved. Leave allocations for the new Employee has to be manually created from Leave Period.
 
-![Employee Transfer](https://frappehr.com/files/employee-transfer.png)  
+[Screenshot on the live page: Employee Transfer]  
 
 
 > Note: Transfer document can be submitted on or after Transfer Date. Once submitted all the changes added to Transfer Details table will applied to Employee.
@@ -203,7 +203,7 @@ To access the Employee master, go to:
 
 > **Home > Human Resources > Employee**
 
-![](https://frappehr.com/files/RtArfPD.gif)
+[Screenshot on the live page]
 
 
 
@@ -221,7 +221,7 @@ Before creating an Employee, it is advised to create the following:
 
 As shown below, all the mandatory fields are marked with red asterisks.
 
-![](https://frappehr.com/files/rqUdH4m.png)
+[Screenshot on the live page]
 
 ### **2.1 Bulk Creation via Data Import**
 
@@ -305,7 +305,7 @@ Personal Details of the Employee such as Family Background details like name and
 
 Here, the Educational Details such as School/University, Qualification, Level and Year of Passing of the Employee can be saved as shown below:
 
-![](https://frappehr.com/files/educational-qualification.png)
+[Screenshot on the live page]
 
 
 
@@ -315,7 +315,7 @@ Additionally, details such as Class/Percentage and Subjects can also be saved by
 
 Just like Educational Qualification, an Employee's Previous Work Experience can also be captured in the External Work History table as shown below:
 
-![Previous Work Experience](https://frappehr.com/files/previous-work-experience.png)
+[Screenshot on the live page: Previous Work Experience]
 
 
 
@@ -367,7 +367,7 @@ To access the Employment Type, go to:
 2. Enter the Name of the Employment Type.
 3. Save.
 
-![Employment Type](https://frappehr.com/files/employment-type.png)
+[Screenshot on the live page: Employment Type]
 
 The Employment Type can be linked to the [Employee](https://docs.frappe.io/hr/employee) master.
 
@@ -419,7 +419,7 @@ Exit Interview is created for an Employee who has resigned or is being terminate
 6. Once the Exit Interview is completed, you can change the status to Completed. Final Decision can be recorded on completion (Employee Retained / Exit Confirmed).
 7. Submit. On submission, the Exit Interview Date will be updated in the Employee master.
 
-![](https://frappehr.com/files/7RqwdBu.png)  
+[Screenshot on the live page]  
 
 
 **3. Features**
@@ -434,23 +434,23 @@ During Employee Exits, companies conduct surveys by sending a questionnaire to t
   
 
 
-![](https://frappehr.com/files/VWYkMrj.png)
+[Screenshot on the live page]
 2. After creating the questionnaire, you can create a [Web Form](https://frappehr.com/docs/v14/user/manual/en/website/web-form) for the same so that these forms can be sent to employees.
 3. Link the Web Form in HR Settings. A default notification email template is already provided by Frappe HR which is linked in HR Settings.
 
   
 
 
-![](https://frappehr.com/files/HX2hImw.png)
+[Screenshot on the live page]
 4. In the Exit Interview document, you can see a button **Send Exit Questionnaire**. This will send an email to the Employee with a link to the web form as per the email template set in HR Settings.
 
-![](https://frappehr.com/files/QZLEPfA.png)
+[Screenshot on the live page]
 5. Once your employee fills up this questionnaire, you can link it to the Exit Interview document.
 
-![](https://frappehr.com/files/DvRVjac.png)
+[Screenshot on the live page]
 6. If you want to send Exit Questionnaires in bulk to multiple employees, you can select the employees from the Exit Interview list view and click on **Actions > Send Exit Questionnaire**. This will send the exit questionnaire emails and provide you with a summary of the emails sent.
 
-![](https://frappehr.com/files/svg7XbQ.png)
+[Screenshot on the live page]
 
 **4. Related Topics**
 ---------------------
@@ -495,12 +495,12 @@ To access an Expense Claim, go to:
 6. In Accounting Details, select the Company's Default Payable Account.
 7. Save and Submit.
 
-![Expense Claim](https://frappehr.com/files/expense_claim.png)  
+[Screenshot on the live page: Expense Claim]  
 
 
 Set the Employee ID, date, the list of expenses, and corresponding taxes that are to be claimed and “Submit” the record.
 
-![Expense Claim](https://frappehr.com/files/expense-claim-expenses.png)  
+[Screenshot on the live page: Expense Claim]  
 
 
 Expense claim workflow
@@ -519,10 +519,10 @@ Expense Claim Approver can update the “Sanctioned Amounts” against Claimed A
 
 ### **Booking the Expense**
 
-On submission of Expense Claim, system books an expense against the expense account and the employee account ![Expense Claim](https://frappehr.com/files/expense_claim_book.png)  
+On submission of Expense Claim, system books an expense against the expense account and the employee account [Screenshot on the live page: Expense Claim]  
 
 
-User can view unpaid expense claim using report "Unclaimed Expense Claims" ![Expense Claim](https://frappehr.com/files/unclaimed_expense_claims.png)  
+User can view unpaid expense claim using report "Unclaimed Expense Claims" [Screenshot on the live page: Expense Claim]  
 
 
 ### **Payment for Expense Claim**
@@ -531,14 +531,14 @@ To make payment against the expense claim, user has to click on Create > Payment
 
 #### **Expense Claim**
 
-![Create Payment](https://frappehr.com/files/expense_claim_create_payment.png)  
+[Screenshot on the live page: Create Payment]  
 
 
 #### **Payment Entry**
 
 > Note: This amount should not be clubbed with Salary because the amount will then be taxable to the Employee.
 
-![Expense Claim](https://frappehr.com/files/expense_claim_payment_entry.png)  
+[Screenshot on the live page: Expense Claim]  
 
 
 Alternatively, a Payment Entry can be made for an employee and all outstanding Expense Claims will be pulled in.
@@ -551,12 +551,12 @@ Set the Payment Type to "Pay", the Party Type to Employee, the Party to the empl
 
 * To Link Expense Claim with Task or Project specify the Task or the Project while making an Expense Claim
 
-![Expense Claim - Project Link](https://frappehr.com/files/project-expense-claim-1.png)  
+[Screenshot on the live page: Expense Claim - Project Link]  
 
 
 This will update the Project cost with the Expense claim amounts
 
-![Expense Claim - Project Link](https://frappehr.com/files/project-expense-claim-2.png)  
+[Screenshot on the live page: Expense Claim - Project Link]  
 
 
   
@@ -637,7 +637,7 @@ Go to
 8. These assets need to be returned to the company or you can also choose to recover the asset cost instead.
 9. The status will be Pending by default. After reviewing all the amounts and accounts, HR can mark all the components in Payables, Receivables, and Assets as Settled.
 
-![](https://frappehr.com/files/kICaqMO.png)  
+[Screenshot on the live page]  
 
 
 **3. Features**
@@ -655,7 +655,7 @@ On submission, a button to create a Journal Entry will be shown. Click on **Crea
 
 This will map all your accounts and amounts to your journal entry. Select the final account from where the amount should get created if not already mapped. Save and Submit. The FnF status should then change to Paid.
 
-![](https://frappehr.com/files/RxYZp3s.png)  
+[Screenshot on the live page]  
 
 
   
@@ -696,12 +696,12 @@ If you want the goal's progress to impact your appraisals, you will also need to
 
 Since goals have a hierarchical structure, its easier to add new goals from the tree view. You can also update the progress for your child goals from the tree view. Parent goal's progress is auto-calculated based on child goals.
 
-![goal tree](https://frappehr.com/files/goal-tree.png)  
+[Screenshot on the live page: goal tree]  
 
 
 You can apply a filter for the Appraisal cycle and your Employee record. These fields will be picked up in the New Goal dialog.
 
-![goal update](https://frappehr.com/files/goal-update.gif)  
+[Screenshot on the live page: goal update]  
 
 
 ### **2.2 From the list view**
@@ -719,10 +719,10 @@ You can apply a filter for the Appraisal cycle and your Employee record. These f
 7. If you want the goal's progress to impact your appraisal, select the Appraisal Cycle and tag the KRA for your goal. Now on updating the goal's progress the goal score linked to your KRA will be updated.
 8. Save. The status of your goal is auto-updated based on the progress.
 
-![goal](https://frappehr.com/files/goal.png)  
+[Screenshot on the live page: goal]  
 
 
-![goal list](https://frappehr.com/files/goal-list.png)  
+[Screenshot on the live page: goal list]  
 
 
 **3. Features**
@@ -748,14 +748,14 @@ parent (12.5%)
 ```
 Whenever a goal is updated, the average goal completion against the KRA linked to that goal is also updated. Ex: In the screenshot below, the Development KRA has 30% weightage and the employee has completed 75% of the goals. So the goal score is 22.5 out of 30, and so on.
 
-![kra vs goals](https://frappehr.com/files/kra-vs-goals.png)  
+[Screenshot on the live page: kra vs goals]  
 
 
 ### **3.2 Archive Goal**
 
 Sometimes you add a goal while planning but later on, you don't want to work on that goal anymore. In that case, you can archive the goal. Archived goal's progress won't contribute to the KRA/Goal score.
 
-![archive](https://frappehr.com/files/archive.png)  
+[Screenshot on the live page: archive]  
 
 
 ### **3.2 Close Goal**
@@ -805,7 +805,7 @@ Before creating a Gratuity Rule, it is advised to create the following:
 4. Define Gratuity Rule
 5. Save
 
-![Gratuity Rule](https://frappehr.com/files/gratuity-rule.png)  
+[Screenshot on the live page: Gratuity Rule]  
 
 
 **3. Additional Properties**
@@ -824,7 +824,7 @@ Frappe HR provide two different method for calculation of Work experience.
 
 Let's consider the following example to understand the calculation.
 
-![gratuity-rule-example](https://frappehr.com/files/gratuity-rule-example.png)  
+[Screenshot on the live page: gratuity-rule-example]  
 
 
 1. **Current slab:** If Gratuity Amount calculation is based on Current Slab, then amount will be the product of Work Experience (in years), Fraction of Applicable Earnings and summation of the Applicable Earnings Components. Based on above Gratuity Rules/slab, if an employee has an experience of 5 years, then it falls in third slab. The calculation of Gratuity Amount will be as follows:
@@ -872,7 +872,7 @@ Before creating an Gratuity, it is advised to create the following:
 3. Check checkbox Pay via Salary Slip. if you want gratuity payment through Salary Slip.
 4. Save and Submit
 
-![Gratuity](https://frappehr.com/files/gratuity.png)  
+[Screenshot on the live page: Gratuity]  
 
 
 **3. Gratuity Payments Methods**
@@ -884,24 +884,24 @@ In Frappe HR, we allow you to pay the amount via Salary Slip or Payment Entry.
 
 To pay the Gratuity amount via Salary Slip you need to check the checkbox **Pay via Salary Slip**. Select Payroll Date and **Salary Component**, which will appear on Check.
 
-![payment conf via salary slip](https://frappehr.com/files/payment-conf-via-salary-slip.png)  
+[Screenshot on the live page: payment conf via salary slip]  
 
 
 On Submit, it will automatically create Additional Salary with respective Payroll Date and Salary Component.
 
-![gratuity payment via salary slip](https://frappehr.com/files/gratuity-payment-via-salary-slip.png)  
+[Screenshot on the live page: gratuity payment via salary slip]  
 
 
 ### **Payment via Payment Entry**
 
 To pay the Gratuity amount via Payment Entry you need to make sure that checkbox **Pay via Salary Slip** is unchecked. After that, it will allow you to select Payable Account, Expense Account, and **Mode of Payment**.
 
-![payment conf via payment entry](https://frappehr.com/files/payment-conf-via-payment-entry.png)  
+[Screenshot on the live page: payment conf via payment entry]  
 
 
 After Submitting the record click on the button "Create Payment Entry" which will redirect you to the Payment Entry Form fill in the details, save, and submit.
 
-![gratuity payment via payment entry](https://frappehr.com/files/gratuity-payment-via-payment-entry.png)  
+[Screenshot on the live page: gratuity payment via payment entry]  
 
 
   
@@ -928,7 +928,7 @@ To access Holiday List, go to:
 2. Enter Holiday List Name. It can be based on the Fiscal Year or Location or Department as per the requirement.
 3. Select From Date and To Date for the Holiday List.
 
-![Holiday List](https://frappehr.com/files/holiday-list-1.png)
+[Screenshot on the live page: Holiday List]
 
 ## **2. Features**
 
@@ -941,7 +941,7 @@ You can quickly add Weekly Offs in the Holiday List as follows:
 1. In the 'Add Weekly Holidays' section, select the day in the Weekly Off field.
 2. Click on the 'Add to Holidays' button.
 
-![Holiday List](https://frappehr.com/files/holiday-list-2.gif)
+[Screenshot on the live page: Holiday List]
 
 ### **2.2 Adding Local Holidays**
 
@@ -963,13 +963,13 @@ If your country is not listed here, you will have to manually add local holidays
 
 You can also add specific days manually by clicking on the 'Add row' option in the Holidays table.
 
-![Holiday List](https://frappehr.com/files/holiday-list-3.png)
+[Screenshot on the live page: Holiday List]
 
 ## **3. Holiday List in Company**
 
 You can set a default Holiday List at the company-level in the Company master in the 'Default Holiday List' field.
 
-![Holiday List](https://frappehr.com/files/default-holiday-list-company.png)
+[Screenshot on the live page: Holiday List]
 
 ## **4. Holiday List in Employee**
 
@@ -979,7 +979,7 @@ See Holiday List Assignment
 
 You can also set a Holiday List at workstation-level as shown in the screenshot below.
 
-![Holiday List](https://frappehr.com/files/holiday-list-workstation.png)
+[Screenshot on the live page: Holiday List]
 
 The dates in the Holiday List tagged in the Workstation master will be considered as the days the Workstation will remain closed.
 
@@ -1002,39 +1002,101 @@ Encashment of unused leaves into an Employee's Salary Slip can be done easily by
 
 1. Enable 'Allow Encashment' for the Leave Type which will be of Encashment type.
 
-![](https://docs.erpnext.com/files/2N9pIsu.png)  
+[Screenshot on the live page]  
 
 
 2. Add it in the Leave Policy and assign it to the Employee you want to create this Leave Policy for by going to the Leave Policy Assignment. Leaves will automatically be allocated once the Leave Policy Assignment is 'Submitted'.
 
-![](https://docs.erpnext.com/files/CRA2R4X.png)
+[Screenshot on the live page]
 
 
 3. Before creating a **Leave Encashment** with the Encashable Leave Type that was previously created, make sure that a Salary Structure is assigned to the Employee and that you have added the 'Leave Encashment Amount Per Day (INR)' for the same Salary Structure.
 
-![](https://docs.erpnext.com/files/d1KlS2Q.png)  
+[Screenshot on the live page]  
 
 
 4. Assign the Salary Structure to the same Employee.
 
-![](https://docs.erpnext.com/files/5j8DhiT.png)  
+[Screenshot on the live page]  
 
 
 5. Create a Leave Encashment and make sure that the date you create the Leave Encashment falls between the 'From Date' and 'To Date' in the Leave Allocation.
 
-![](https://docs.erpnext.com/files/InFO2wh.png)  
+[Screenshot on the live page]  
 
 
 The '**Encashment Amount**' will be automatically pulled in when you save the Leave Encashment DocType.
 
 An Additional Salary will be automatically created once the 'Encashment Leave' is **Submitted**.
 
-![](https://docs.erpnext.com/files/d1KlS2Q.png)  
+[Screenshot on the live page]  
 
 
 6. On creation of the Salary Slip the Leave Encashment amount will be added along with other Earnings into the Salary Slip as shown below.
 
-![](https://docs.erpnext.com/files/VSbXubU.png)  
+[Screenshot on the live page]  
 
 
 You can use the ‘Preview Salary Slip’ button to make sure that the Encashed leaves are also included in the Employee’s Salary Slip before submitting the same.
+
+<!-- page: frappe-hr/hr__how-to-process-payroll-in-frappehr.md -->
+---
+title: "How to process Payroll in Frappe HR"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/how-to-process-payroll-in-frappehr"
+updated: "2026-02-09"
+---
+
+Most of the users find it difficult to process payroll in Frappe HR, but rather than it being difficult, it is a bit tedious in the initial setup. Once, the setup is done it, the process for the following months becomes easy. Kindly go through the below steps for a quick guide:
+
+**1) Create Payroll Period**
+
+In this, you define a period for which you want to process the payroll for. It could be January to December or April to March as per the year followed by your company.
+
+**2) Create Income Tax Slabs**
+
+Over here, you can create multiple Income Tax slabs if you are following the Indian Income Tax system. Define the slabs as per the government rule. You can also add additional tax in the section below and conditions in the table if required and also check 'Allow Tax Exemption' in case there is a standard deduction applicable.
+
+[Screenshot on the live page]  
+
+
+**3) Submit Employee Tax Exemption Declaration**
+
+An employee who has some investments can submit tax declarations to avail tax benefits and thus can reduce their Income Tax amount. They can invest in various sub categories under 80C, 80D, etc. (Applicable for Indian Taxation).
+
+**4) Define Salary Components**
+
+You can create salary components and define whether the component is an Earning or a Deduction component. There are certain checkboxes that you can check depending on the component type. Select the company and a default ledger account. Now, these salary components can be based on a particular formula or it can be a fixed amount. Only for Income Tax component you need to check a particular checkbox called "Variable based on Taxable Salary". This will ensure that the Income Tax is calculated automatically in the backend.
+
+**5)Create a Salary Structure**
+
+Once you have created all the salary components, you can define a salary structure. You can also define whether the salary is based on timesheets. You can add the earnings and deductions as per your choice and the mode of payment.
+
+[Screenshot on the live page]  
+
+
+**6) Assign the Salary Structure**
+
+Once the salary structures have been created, you need to assign it to employees. If you miss this step, then you will not be able to proceed further. During assignment, you have to select the Income Tax Slab (if you have multiple slabs), since the percentage deduction of Income Tax will be calculated based on the same. You can also define a base amount if your salary structures are based on formulas.
+
+[Screenshot on the live page]  
+
+
+**7) Create a Payroll Entry & Salary Slips**
+
+Once all of the above steps are done, you need to create a payroll entry. Once you have selected the payroll date, frequency and added the payment account, you can filter employees on the basis on department, designation and branch. If you do not wish to do so then you can directly click on 'Get employees'. On doing so, a list of all the employees will populate in the Employee Details section. You can then proceed by clicking on "Create Salary Slips" and all the salary slips will be generated in draft.
+
+[Screenshot on the live page]  
+
+
+You can verify the draft salary slips and then submit them via the payroll entry. On submitting the salary slips, an accrual journal entry will be created. This means we are booking the salary expenses in the system and not paying them. 
+
+
+[Screenshot on the live page]  
+
+
+**8) Bank Entry**
+
+Once you have booked the accrued salary slips, as a last step you need to make a Bank Entry. With this last step, your payroll process is completed, but this does not mean the salaries are transferred in the bank. That minor step has to be done manually.
+
+[Screenshot on the live page]  

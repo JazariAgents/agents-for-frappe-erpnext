@@ -12,7 +12,7 @@ ERPNext allows you to configure various settings and configurations that help st
 
 ## Naming Series and Price Defaults
 
-![Screenshot 2024-08-29 at 1.23.09 PM](/files/Screenshot 2024-08-29 at 1.23.09 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 1.23.09 PM]  
 
 ### 1. Supplier Naming By
 
@@ -43,7 +43,7 @@ This setting specifies which user roles have the permission to override the "Sto
 
 ## Transaction Settings
 
-![Screenshot 2024-08-29 at 1.24.53 PM](/files/Screenshot 2024-08-29 at 1.24.53 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 1.24.53 PM]  
 
 ### 1. Is Purchase Order Required for Purchase Invoice & Receipt Creation?
 
@@ -92,7 +92,7 @@ If checked, Rejected Quantity will be included while making Purchase Invoice fro
 
 For rejected materials, the valuation rate is set to zero, and no accounting ledger entry is created for them in the Purchase Receipt. To apply a valuation rate and generate accounting entries for rejected materials, enable the 'Set Valuation Rate for Rejected Materials' option in Buying Settings. This option is only applicable when `Bill for Rejected Quantity in Purchase Invoice` has enabled in the Buying Settings.
 
-![](/files/Screenshot%202025-06-09%20at%204.49.24%20PM%201.png)
+[Screenshot on the live page]
 
 ##### 8. **Set Landed Cost Based on Purchase Invoice Rate**
 
@@ -123,7 +123,7 @@ The percentage by which you are allowed to order more on a Purchase Order than t
 
 ## Subcontracting Settings
 
-![Screenshot 2024-08-29 at 1.32.06 PM](/files/Screenshot 2024-08-29 at 1.32.06 PM.png)  
+[Screenshot on the live page: Screenshot 2024-08-29 at 1.32.06 PM]  
 
 ### 1. Backflush Raw Materials of Subcontract Based On
 
@@ -180,7 +180,7 @@ To access the report, go to:
 
 > Home > Buying > Key Reports > Purchase Analytics
 
-![](/files/image3e4322.png)
+[Screenshot on the live page]
 
 Through the Purchase Analytics report, the purchase-related data against the supplier, supplier groups, items and item group can be analyzed over a given period and frequency.
 
@@ -190,7 +190,7 @@ To access the report, go to:
 
 > Home > Buying > Key Reports > Purchase Order Analysis
 
-![](/files/image65e2f6.png)
+[Screenshot on the live page]
 
 This report is helpful in analyzing the items and their billing status in a purchase order over a given period.
 
@@ -200,7 +200,7 @@ To access the report, go to:
 
 > Home > Buying > Key Reports > Sales-Wise Sales Analytics
 
-![](/files/imagedb5944.png)
+[Screenshot on the live page]
 
 This report provides extensive data on different items purchased from the suppliers.
 
@@ -210,7 +210,7 @@ To access the report, go to:
 
 > Home > Buying > Key Reports > Items to Order and Receive
 
-![](/files/image65f1e2.png)
+[Screenshot on the live page]
 
 This report visualizes and shows data for the purchase requests created.
 
@@ -220,7 +220,7 @@ To access the report, go to:
 
 > Home > Buying > Key Reports > Purchase Order Trends
 
-![](/files/image8141ae.png)
+[Screenshot on the live page]
 
 Through this report, the trends for purchase orders for a given financial year can be visualized. The trend can be grouped based on Suppliers, Supplier Group, Item, Item Group, and Project.
 
@@ -230,7 +230,7 @@ To access the report, go to:
 
 > Home > Buying > Key Reports > Purchase Order Trends
 
-![](/files/imagebb95af.png)
+[Screenshot on the live page]
 
 This report presents extensive purchase-related data including material requests, purchase orders created for the items.
 
@@ -292,7 +292,7 @@ ERPNext fetches this rate into new Sales Team rows. Review the policy before cha
 8. Confirm that the contribution percentages total 100% when the full net total must be allocated.
 9. Save.
 
-![Sales Team contribution, commission rate, and incentives on a Sales Order](https://novacompanies.m.frappe.cloud/files/sales-team-table.png)
+[Screenshot on the live page: Sales Team contribution, commission rate, and incentives on a Sales Order]
 
 In this example, Alex Morgan receives 60% of the net total and Jordan Lee receives 40%.
 
@@ -446,14 +446,14 @@ When freight is supposed to be calculated in forwarding charges as a tax rate, w
 * You can create a ledger in the taxes account specifically in Chart of Accounts, else you can consider GST tax account in the taxations for calculation of the Freight charges.
 
   
-![](/files/4GSyff2.png)  
+[Screenshot on the live page]  
 * Now create an Item with the name : **Freight and Forwarding**
 
-![](/files/xOovUcM.png)  
+[Screenshot on the live page]  
 * You can now create Purchase Invoice for the Supplier and add this item to calculate the Taxes related to the freight. You can set the freight tax based on the Net total or Item Quantity as per the company policy.
 
   
-![](/files/2Nh2r9p.png)   
+[Screenshot on the live page]   
   
 
 <!-- page: erpnext/erpnext__calculation-of-valuation-rate-in-fifo-and-moving-average.md -->
@@ -523,7 +523,7 @@ To access Campaign, go to:
 
 > Home > CRM > Campaign > Campaign
 
-![Campaign](/files/campaign.png)
+[Screenshot on the live page: Campaign]
 
 ## How to Create a Campaign
 
@@ -540,15 +540,15 @@ When a marketing campaign generates a lead or an opportunity, you can tag the ca
 
 This helps in assessing the effectiveness of a marketing campaign by calculating the return on investment.
 
-![Campaign in Lead](/files/campaign-in-lead.png)
+[Screenshot on the live page: Campaign in Lead]
 
 ### View Leads Generated by a Campaign
 
-- select 'View Leads' button in the campaign.[Campaign - View Leads](/files/campaign-view-leads.png)
+- select 'View Leads' button in the campaign.Campaign - View Leads (picture on the live page)
 - You will see a filtered list of leads made against the campaign.
 - You can also create new leads against the campaign by clicking on 'New'
 
-[Campaign - New Lead](/files/campaign-new-lead.png)
+Campaign - New Lead (picture on the live page)
 
 ### Set up email schedules for Email Campaigns
 
@@ -556,11 +556,11 @@ If you want to carry out a campaign using emails for your leads or contacts, [Em
 
 You will have to set up a schedule for the campaign. select 'Add Row' to add an entry to the campaign schedule.
 
-![Campaign Schedule](/files/campaign-email-schedule.png)
+[Screenshot on the live page: Campaign Schedule]
 
 - In **Email Template**, select an 'Email Template' which you would like to send via email to the lead or contact. You can create one as follows:
 
-![Campaign - Email Template](/files/email-template.png)
+[Screenshot on the live page: Campaign - Email Template]
 
 - In **Send After (days)**, specify the number of days after which the respective email should be sent. Using this field, the day on which email is to be sent is calculated relative to the **Start Date** of **Email Campaign**.
 
@@ -568,7 +568,7 @@ You will have to set up a schedule for the campaign. select 'Add Row' to add an 
 
 The Campaign dashboard shows you all the Email Campaigns and Social Media Post linked to the Campaign. You can also create a new Email Campaign and Social Media Post from here.
 
-![Campaign Dashboard](/files/campaign-dashboard.png)
+[Screenshot on the live page: Campaign Dashboard]
 
 ## Related Topics
 
@@ -589,7 +589,7 @@ updated: "2026-03-02"
 
 In a Purchase order, we can fetch the **Shipping Charges** of an item based on its Value or weight.  
 Go to **Shipping Rule list** --> **Calculate based on : Net Total or Net Weight** --> Select Shipping rule conditions --> Fill table  
-![](/files/o4Q2GmE.png)  
+[Screenshot on the live page]  
 This way, while creating a PO, shipping charges will be fetched for the item based on item's weight or Value. 
 
 <!-- page: erpnext/erpnext__capacity-planning-based-on-production-order.md -->
@@ -602,7 +602,7 @@ updated: "2026-02-26"
 
 Capacity Planning functionality helps you in tracking production jobs allocated on each Workstation.
 
-![](/files/Screen Shot 2017-01-30 at 8.06.24 PM.png)
+[Screenshot on the live page]
 
 Follow are the steps to use Capacity Planning Feature in your ERPNext account.
 
@@ -630,7 +630,7 @@ On submission of Production Order, Timesheet for Operations. This helps you allo
 
 **Question** : On Submission of Production Order, we are getting following error message.
 
-![](/files/Screen Shot 2017-01-30 at 8.12.40 PM.png)
+[Screenshot on the live page]
 
 **Answer** : Please check if you have updated Working Hours in the Workstation master? If not, then please update it and then try to submit Production Order. On submission of Production Order, Operations (as added in the BOM) are allocated on the workstation. Each operation should start and end on the same day. If a system is not able to schedule that operation in a day, then system request you to divide that Project, so that system can allocate smaller operations in a day. If you have update working hours in the Workstation, but still getting this issue, that because one of your operation is taking too long, and cannot be completed in a day. Please divide that operation into smaller operations, so that it can be allocated on Workstation and completed on the same day.
 
@@ -644,7 +644,7 @@ updated: "2026-02-26"
 
 Capacity Planning functionality helps you in tracking production jobs allocated on each Workstation.
 
-![Role Desk Permission](/files/capacity-1.png)  
+[Screenshot on the live page: Role Desk Permission]  
 
 
 Follow are the steps to use Capacity Planning Feature in your ERPNext account.
@@ -673,7 +673,7 @@ On submission of Work Order, Timesheet for Operations. This helps you allocate p
 
 **Question:** On Submission of Work Order, we are getting following error message.
 
-![Role Desk Permission](/files/capacity-2.png)  
+[Screenshot on the live page: Role Desk Permission]  
 
 
 **Answer: **Please check if you have updated Working Hours in the Workstation master? If not, then please update it and then try to submit Work Order.
@@ -687,7 +687,7 @@ If you have update working hours in the Workstation, but still getting this issu
 
 If you want to ignore above validation and allow scheduling of production job beyond the working hours of the Workstation, enable Overtime in the Manufacturing Settings.
 
-![Role Desk Permission](/files/capacity-3.png)  
+[Screenshot on the live page: Role Desk Permission]  
 
 
 If you want to complete disable Capacity Planning feature, in the Manufacturing Settings, check field "Disable Capacity Planning and Time Tracking".
@@ -714,7 +714,7 @@ The Cash Flow report explains changes in cash and cash equivalents through opera
 4. Enable opening and closing balances when the cash reconciliation requires them.
 5. Refresh and wait for totals, chart, and report sections to load.
 
-![Loaded Nova Industries Cash Flow report showing negative operating cash flow](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-cash-flow-loaded.png)
+[Screenshot on the live page: Loaded Nova Industries Cash Flow report showing negative operating cash flow]
 
 ## Interpret Nova's cash movement
 
@@ -743,7 +743,7 @@ The largest pressure is receivables. Nova should review [Accounts Receivable](/e
 
 Select an account or supporting value to inspect its [General Ledger](/erpnext/general-ledger) activity. Review source [Payment Entries](/erpnext/payment-entry) and approved [Journal Entries](/erpnext/journal-entry) when they explain a material movement. Working-capital lines are changes between reporting dates, so also compare the relevant Balance Sheet accounts and party reports.
 
-![General Ledger report showing the accounting entries behind Cash Flow movements](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-cash-flow-gl-evidence.png)
+[Screenshot on the live page: General Ledger report showing the accounting entries behind Cash Flow movements]
 
 ## Default and customised formats
 
@@ -798,15 +798,15 @@ For currencies not present in the Currency list doctype:
 
 You can go to Currency list doctype --> Add the currency --> Add Exchange rate --> Enable the currency --> You can then add the currency in any transaction required.
 
-![](/files/kue13XQ.png)
+[Screenshot on the live page]
 
 For instance:
 
-![](/files/NrkXiGJ.png)
+[Screenshot on the live page]
 
 Print format:
 
-![](/files/QKgg11w.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__change-existing-users-email-id.md -->
 ---
@@ -848,7 +848,7 @@ ERPNext automatically updates all references to the user across the system. This
 - User permissions are preserved.
 - Historical records continue to reference the renamed user correctly.
 
-![](/files/7yWI427.gif)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__change-password.md -->
 ---
@@ -872,7 +872,7 @@ Each ERPNext user can change password for his/her ERPNext account. Also user wit
 
 **Note:-** Based on the complexity of the password, the system indicates whether the entered password is Weak or Strong
 
-![Screenshot 2023-12-27 at 4.39.12 PM](/files/Screenshot 2023-12-27 at 4.39.12 PM.png)  
+[Screenshot on the live page: Screenshot 2023-12-27 at 4.39.12 PM]  
 
 <!-- page: erpnext/erpnext__change-the-rate-of-items-in-the-sales-cycle.md -->
 ---
@@ -907,7 +907,7 @@ This setting does not replace pricing governance. Document when a rate may chang
 5. When Stop is selected, choose the role allowed to override the action if your version provides that field.
 6. Save.
 
-![Selling Settings with the same-rate controls highlighted.](https://novacompanies.m.frappe.cloud/files/sales-cycle-rate-settings.png)
+[Screenshot on the live page: Selling Settings with the same-rate controls highlighted.]
 
 ## Test the control
 
@@ -917,7 +917,7 @@ This setting does not replace pricing governance. Document when a rate may chang
 4. Change the Rate.
 5. Save and confirm that ERPNext warns or stops the change according to Selling Settings.
 
-![A mapped Sales Invoice item row with the Rate field highlighted.](https://novacompanies.m.frappe.cloud/files/sales-cycle-rate-change.png)
+[Screenshot on the live page: A mapped Sales Invoice item row with the Rate field highlighted.]
 
 The dot before an Item Code shows stock availability at a glance: green means in stock and red means out of stock.
 

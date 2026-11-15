@@ -379,7 +379,7 @@ updated: "2026-01-06"
 ## Common Operations
  
  
-![operations list](/files/operations-list.png)
+[Screenshot on the live page: operations list]
  
 ### Choose Columns
 
@@ -410,7 +410,7 @@ updated: "2026-01-06"
 ### Filter Rows
 
 
-![filter operation](/files/filter-operation.png)
+[Screenshot on the live page: filter operation]
 
   What it does: Show only the rows that match specific conditions. This helps you focus on relevant data.
 
@@ -712,7 +712,7 @@ Insights offers three ways to build queries:
 ## Creating Your First Query
 
 
-<video controls width="100%" height="auto"><source src="/files/query.mp4" type="video/mp4"></video>
+[Video on the live page]
 ### Start a New Query
 ####  1. Open your workbook
 
@@ -723,7 +723,7 @@ Insights offers three ways to build queries:
     * SQL Editor  -> Write SQL
     * Script Editor  -> Write Python
 
-![Query Builder](/files/Query_Builderfe073a.jpeg)
+[Screenshot on the live page: Query Builder]
 
  We'll focus on the Query Builder since it's the easiest to get started with.
 
@@ -733,7 +733,7 @@ Insights offers three ways to build queries:
   2. Choose your database connection
   3. Pick a table to start with
 
-![select table](/files/select%20table.jpeg)
+[Screenshot on the live page: select table]
 
 You can select a table from:
 

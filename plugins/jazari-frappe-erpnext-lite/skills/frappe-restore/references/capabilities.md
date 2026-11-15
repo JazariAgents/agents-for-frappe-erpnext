@@ -12,7 +12,7 @@ Every row was confirmed against an official Frappe documentation page fetched on
 | `bench.backup` | Back up a site | bench | no | reversible | `docs/framework/framework-11.md` lines 887–984 | https://docs.frappe.io/framework/user/en/bench/reference/backup |
 | `bench.restore` | Restore a site from a backup | bench | yes | irreversible | `docs/framework/framework-12.md` lines 564–659 | https://docs.frappe.io/framework/user/en/bench/reference/restore |
 | `bench.partialrestore` | Restore selected tables only | bench | yes | irreversible | `docs/framework/framework-12.md` lines 465–506 | https://docs.frappe.io/framework/user/en/bench/reference/partial-restore |
-| `cloud.site.backup` | Back up a Frappe Cloud site | browser | no | reversible | `docs/cloud/cloud-08.md` lines 136–255 | https://docs.frappe.io/cloud/sites/backups |
+| `cloud.site.backup` | Back up a Frappe Cloud site | browser | no | reversible | `docs/cloud/cloud-08.md` lines 3–122 | https://docs.frappe.io/cloud/sites/backups |
 
 ## Version notes
 

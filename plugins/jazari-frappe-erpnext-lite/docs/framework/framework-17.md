@@ -166,7 +166,7 @@ Go to
 
 > Setup > Integrations > OAuth Provider Settings
 
-![](/files/oauth_provider_settings.png)
+[Screenshot on the live page]
 
 ### Add Primary Server
 
@@ -180,7 +180,7 @@ As a System Manager go to
 
 > Setup > Integrations > OAuth Client
 
-![](/files/oauth2_client_app.png)
+[Screenshot on the live page]
 
 To add a client fill in the following details
 
@@ -339,36 +339,36 @@ Now you will see Frappe icon on the login page. Click on this icon to login with
 ### Part 1 : on Frappe Identity Provider (IDP)
 
 Login to IDP
-![](/files/00-login-to-idp.png)
+[Screenshot on the live page]
 
 Add OAuth Client on IDP
-![](/files/01-add-oauth-client-on-idp.png)
+[Screenshot on the live page]
 
 Set Server URL on IDP
-![](/files/02-set-server-url-on-idp.png)
+[Screenshot on the live page]
 
 ### Part 2 : on Frappe App Server
 
 Set `Frappe Client ID` and `Frappe Client Secret` on App server (refer the client set on IDP)
-![](/files/03-set-clientid-client-secret-server-on-app-server.png)
+[Screenshot on the live page]
 
 **Note**: Frappe Server URL is the main server where identities from your organization are stored.
 
 Login Screen on App Server (login with frappe)
-![](/files/04-login-screen-on-app-server.png)
+[Screenshot on the live page]
 
 ### Part 3 : Redirected on IDP
 
 login with user on IDP
-![](/files/05-login-with-user-on-idp.png)
+[Screenshot on the live page]
 
 Confirm Access on IDP
-![](/files/06-confirm-grant-access-on-idp.png)
+[Screenshot on the live page]
 
 ### Part 4 : Back on App Server
 
 Logged in on app server with ID from IDP
-![](/files/07-logged-in-as-website-user-with-id-from-idp.png)
+[Screenshot on the live page]
 
 <!-- page: framework/framework__user__en__guides__integration__rest_api.md -->
 ---
@@ -1307,7 +1307,7 @@ To add Social Login Key go to
 
 Social Login Key
 
-![](/files/social-login-key.png)
+[Screenshot on the live page]
 
 1. Select the Social Login Provider or select "Custom"
 2. If required for provider enter "Base URL"

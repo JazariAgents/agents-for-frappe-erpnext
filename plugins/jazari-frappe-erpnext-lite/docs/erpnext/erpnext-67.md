@@ -96,7 +96,7 @@ When there are more than 10 entries, use the arrows at the bottom of the table t
 
 
 
-![](/files/Screen Recording 2026-07-18 at 1.11.21 PM.mov)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__user-permission-based-on-hierarchy.md -->
 ---
@@ -116,7 +116,7 @@ How to configure User Permissions, so that an Employee can view his Expense Clai
 
 In the Employee master, for each Employee, you can define who does he/she reports to. Based on the Reports To defined, the Employee hierarchy is built as well.
 
-![](/files/14Khhti.png)
+[Screenshot on the live page]
 
  
 
@@ -128,11 +128,11 @@ Also, one a User is linked with the Employee, it creates a User Permission as fo
 
  
 
-![](/files/wRl6sKW.png)
+[Screenshot on the live page]
 
 As per this configuration, when an Expense Claim is being created by the User reporting to Kenneth, it will also be accessible to Kenneth as well.
 
-![](/files/4L4Co0O.png)
+[Screenshot on the live page]
 
  
 
@@ -168,7 +168,7 @@ To access User Permissions, go to: > Home > User and Permissions > User Permissi
 4. Under For Value, select the specific item that you want to allow (the name of the "Company).
 5. If you check 'Is Default', the value selected in 'For Value' will be used by default for any future transactions by this user. That is if company 'Unico Plastics Inc.' is selected as 'For Value', this Company will be set as default for all future transactions by this user.
 
-![Creating a new user permission](/files/new-user-permission.png)  
+[Screenshot on the live page: Creating a new user permission]  
 
 
 > Note: Only a single user permission can be set as default for a particular document type for a specific user.
@@ -184,7 +184,7 @@ In Advanced Control, you can have better command over where the User Permission 
 
 You can optionally apply user permissions only for specific document type by setting the Document Type after unchecking the Apply To All Document Types checkbox. Setting **Applicable For** option will make the current user permission applicable only under the selected Document Type master.
 
-![Applicable For](/files/advanced-control.png)  
+[Screenshot on the live page: Applicable For]  
 
 
 In the above User Permission, the user will be able to access only Sales Orders of the selected company.
@@ -199,7 +199,7 @@ Let's assume **For Value**, 'Unico Plastics Inc.', has a child company 'Unico To
 
 **Hide Descendants** is visible only on selecting a Tree View DocType. By enabling this checkbox, permissions for descendants of **For Value** will not be granted.
 
-![Hide Descendant Permissions](/files/hide-descendant-permissions.png)  
+[Screenshot on the live page: Hide Descendant Permissions]  
 
 
 A user that can view records of 'Unico Plastics Inc.' will not be able to view those of 'Unico Toys'.
@@ -210,7 +210,7 @@ Another way of allowing documents to be seen by everyone that have been restrict
 
 For example, you don't want Assets to be restricted for any user, then select **Asset** in form type. Under the fields table, expand the Company field and tick on "Ignore User Permissions".
 
-![Ignore User Permissions on specific properties](/files/ignore-user-permissions.png)  
+[Screenshot on the live page: Ignore User Permissions on specific properties]  
 
 
 ### 2.3 Strict Permissions
@@ -230,12 +230,12 @@ Finally, once you have created your air-tight permission model, and you want to 
 
 Ticking on the Show Permissions checkbox will show the read/write/submit and other access levels.
 
-![Permitted Documents for User report](/files/permitted-documents.png)  
+[Screenshot on the live page: Permitted Documents for User report]  
 
 
 Note: If you cannot access Sales Order or any other document type in this list, make sure you've set the [roles](/erpnext/role-based-permissions) correctly.
 
-For example, the user, Bruce is restricted to Company 'Unico Plastics Inc.' ![User restricted to Company](/files/user-restricted-to-company.png)  
+For example, the user, Bruce is restricted to Company 'Unico Plastics Inc.' [Screenshot on the live page: User restricted to Company]  
 
 
 ### 3. Related Topics
@@ -268,11 +268,11 @@ A Financial Report Template row with Data Source set to **Custom API** calls an 
 - Confirm the function's performance, permissions, data access, and error handling.
 - Create or identify the [Financial Report Template](/erpnext/financial-report-template) that needs the row.
 
-![Financial Report Template list used before adding an advanced Custom API row](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-form.png)
+[Screenshot on the live page: Financial Report Template list used before adding an advanced Custom API row]
 
 ## Add the Custom API row
 
-![Financial Report Template form where a Custom API report row is configured](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-form.png)
+[Screenshot on the live page: Financial Report Template form where a Custom API report row is configured]
 
 
 
@@ -382,19 +382,19 @@ Finance Books allow both views to exist without changing the original asset cost
 
 Create each [Finance Book](https://docs.frappe.io/erpnext/finance-book) and add its depreciation policy to the Asset Category.
 
-![Statutory and management Finance Books on an Asset Category](https://novacompanies.m.frappe.cloud/files/03-asset-category-finance-books.png)
+[Screenshot on the live page: Statutory and management Finance Books on an Asset Category]
 
 ## Apply them to an Asset
 
 Review the rows copied to the Asset. Each row can use its own method, frequency, useful life, residual value, and start date.
 
-![Parallel Finance Book rows on an ERPNext Asset](https://novacompanies.m.frappe.cloud/files/08-asset-finance-books.png)
+[Screenshot on the live page: Parallel Finance Book rows on an ERPNext Asset]
 
 ## Report by Finance Book
 
 Select the intended Finance Book in asset and accounting reports. Leaving the filter blank can include default-book behavior and may not answer a policy-specific question.
 
-![Asset balances report used with Finance Book filters](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Asset balances report used with Finance Book filters]
 
 ## Troubleshooting
 
@@ -512,7 +512,7 @@ Compare gross cost, accumulated depreciation, net book value, category, location
 
 Run Trial Balance at the cutover date and compare every mapped account.
 
-![Trial Balance used to validate the migrated balances](/files/trial-balance-validation.webp)
+[Screenshot on the live page: Trial Balance used to validate the migrated balances]
 
 Classify each difference as:
 
@@ -594,7 +594,7 @@ updated: "2026-03-02"
 
 **Answer:** There are 3 available options in the *Valuation Based On* field:
 
-![Nested BOM](/files/valuation-based-on-1.png)  
+[Screenshot on the live page: Nested BOM]  
 
 
 **Valuation Rate:** Item valuation rate is defined based on it's purchase or manufacture value.
@@ -617,11 +617,11 @@ updated: "2026-03-02"
 
 VAT Audit Report shows the amount details of each item from the Purchase and Sales invoices for specified time period.
 
-![South Africa VAT Account Settings](/files/Screenshot-2.png)
+[Screenshot on the live page: South Africa VAT Account Settings]
 
 You need to add the VAT Accounts in the South Africa VAT Settings for which you want to generate the report.
 
-![South Africa VAT Account Settings](/files/Screenshot-1.png)
+[Screenshot on the live page: South Africa VAT Account Settings]
 
 #### Note:
 
@@ -650,11 +650,11 @@ The value of stock stored in the warehouses needs to be tracked.
 
 Each warehouse is linked to a ledger in chart of accounts through the 'Account' field in the warehouse.
 
-![Stock Asset Ledger in Warehouse](/files/stock-asset-ledger-in-warehouse.png)
+[Screenshot on the live page: Stock Asset Ledger in Warehouse]
 
 If the Account field is empty in a warehouse, then the Account mentioned in the parent of that warehouse is considered. If an Account could not be determined by tracing the hierarchy, then the Default Inventory Account mentioned in the Company record is considered.
 
-![Default Inventory Account in Company](/files/default-inventory-account-in-company.png)
+[Screenshot on the live page: Default Inventory Account in Company]
 
 When a company is created, a ledger named 'Stock In Hand' is created by default in Chart of Accounts.
 
@@ -662,7 +662,7 @@ When a company is created, a ledger named 'Stock In Hand' is created by default 
 
 If required, you can create additional ledgers under 'Stock Assets' group.
 
-![Stock Asset Ledger in Chart of Accounts](/files/stock-asset-ledger-in-coa.png)
+[Screenshot on the live page: Stock Asset Ledger in Chart of Accounts]
 
 <!-- page: erpnext/erpnext__warehouse.md -->
 ---
@@ -709,7 +709,7 @@ identifying which Warehouse belongs to which company at a glance.
 
 You can add Billing, Shipping, and other types of addresses for the Warehouse. You can also add a contact, this could be the Warehouse Manager for example.
 
-![Warehouse](/files/warehouse.png)
+[Screenshot on the live page: Warehouse]
 
 ### 1.2 After Saving
 
@@ -725,7 +725,7 @@ After saving a Warehouse, you'll see the following options:
 
 You can also switch to 'Tree' View which will show all the group and child Warehouses.
 
-![Warehouse](/files/warehouse-tree.png)
+[Screenshot on the live page: Warehouse]
 
 ### 2.2 Warehouse Account
 
@@ -779,7 +779,7 @@ Before creating and using Warranty Claim, it is advised that you create the foll
 2. Select a Customer.
 3. Select the Serial Number of the Item on which Warranty Claim is to be recorded. The system will then automatically fetch the Serial No’s details and indicate whether this is under warranty or AMC.
 4. Enter a description of the Issue. User can upload and image and create a table.
-5. Save. ![Warranty Claim](/files/warranty-claim.png)
+5. Save. [Screenshot on the live page: Warranty Claim]
 
 ### 2.1 Additional Options when Creating a Warranty Claim
 
@@ -808,7 +808,7 @@ The details about Warranty/AMC will be fetched according to the Serial Number.
 * Warranty Expiry Date
 * AMC Expiry date
 
-![Warranty Serial](/files/warranty-serial.png)
+[Screenshot on the live page: Warranty Serial]
 
 ### 3.2 Resolution
 
@@ -816,7 +816,7 @@ The details about Warranty/AMC will be fetched according to the Serial Number.
 * **Resolved By:** Set the Email ID of the User who has resolved the Warranty Claim. The email ID is linked with [User](/erpnext/adding-users) created in the system.
 * **Resolved Details:** This is a text field. User can enter details about the Warranty or AMC claim. A User can also upload the image, enter or create a table.
 
-![Warranty Resolution](/files/warranty-resolution.png)
+[Screenshot on the live page: Warranty Resolution]
 
 ### 3.3 Customer Details
 
@@ -830,7 +830,7 @@ The following details of the [Customer](/erpnext/customer) will be fetched:
 
 **Service Address:** User can enter the Service Address if it is different from Customer Address.
 
-![Warranty Customer](/files/warranty-customer.png)  
+[Screenshot on the live page: Warranty Customer]  
 
 
 ### 3.4 More Information
@@ -883,15 +883,15 @@ To create a new **Web Form** go to:
 > 
 > 
 
-![New Web Form](/files/new-web-form-1.png) *New Web Form*
+[Screenshot on the live page: New Web Form] *New Web Form*
 
 Select the **DocType** based on which you want to build your Web Form. The **Route** will be set based on the **Title** of your Web Form. You can also add an Introduction text to show a friendly message above your form.
 
 Add fields to your Web Form. These are the fields from the DocType you have selected. You can change the Label for these fields. Try to keep number of fields to be minimum as long forms are cumbersome to fill.
 
-![Web Form Fields](/files/new-web-form-2.png) *Web Form Fields*
+[Screenshot on the live page: Web Form Fields] *Web Form Fields*
 
-Click on **See on Website** in the sidebar to view your Web form. ![Web Form](/files/web-form.png) *Web Form*
+Click on **See on Website** in the sidebar to view your Web form. [Screenshot on the live page: Web Form] *Web Form*
 
 Here is an explanation of each of the checkboxes on the right.
 
@@ -913,34 +913,34 @@ Here is an explanation of each of the checkboxes on the right.
 
 You can also show contextual links in a sidebar on your Web Form. Set it up in **Sidebar Settings**.
 
-![Web Form Sidebar](/files/web-form-sidebar.png) *Web Form Sidebar*
+[Screenshot on the live page: Web Form Sidebar] *Web Form Sidebar*
 
-![Web Form with Sidebar](/files/web-form-with-sidebar.png) *Web Form with Sidebar*
+[Screenshot on the live page: Web Form with Sidebar] *Web Form with Sidebar*
 
 ### 2.2 Creating Web Forms with Child Table
 
 You can add child tables to your web forms, just like regular forms.
 
-![Web form Grid](/files/grid-in-webform.png)  
+[Screenshot on the live page: Web form Grid]  
 
 
 ### 2.3 Payment Gateway Integration
 
 You can now add a Payment Gateway to the web form, so that you can ask users to pay against a web form. A good example for this is a conference ticket.
 
-![Web form payment](/files/payment-in-webform.png)  
+[Screenshot on the live page: Web form payment]  
 
 
 ### 2.4 Portal User
 
 We have also introduced roles for Website users. Before version 11, if you assigned any 'Role' to a user he would get access to 'Desk View'. From version 11 you can assign a 'Role' but still disallow access to 'Desk View' by unchecking 'Desk Access' in Role.
 
-![Disallow Desk Access](/files/disallow_desk_access.png)  
+[Screenshot on the live page: Disallow Desk Access]  
 
 
 In Portal Settings, you can set a role against each menu item so that only users with that role will be allowed to see that item.
 
-![portal settings](/files/portal-settings.png)  
+[Screenshot on the live page: portal settings]  
 
 
 ### 2.5 Custom Script
@@ -957,7 +957,7 @@ You can customize the look and feel of your Web Form by writing your own Custom 
 
 You can add the text in 'Success Message' field and this text will be shown to user once he successfully submits the web form . And the user is redirected to the URL given at 'Success URL' when clicked on 'Continue' button. This is only applicable to webforms accessible without the user login(webforms with 'Login Required' checkbox unchecked).
 
-![Success Message](/files/success_message.png)  
+[Screenshot on the live page: Success Message]  
 
 
 ### 2.8 Result
@@ -993,15 +993,15 @@ updated: "2026-02-28"
 1. Click on Save.
 1. The web page will be published only when **Published** is ticked.
 
-![New Web Page with Page Builder](/files/new-web-page-with-page-builder.png)
+[Screenshot on the live page: New Web Page with Page Builder]
 _New Web Page with Page Builder_
 
-![Page Builder Edit Values Dialog](/files/page-builder-edit-values-dialog.png)
+[Screenshot on the live page: Page Builder Edit Values Dialog]
 _Page Builder Edit Values Dialog_
 
 View your Web Page by clicking on **See on Website** in the sidebar.
 
-![Web Page](/files/web-page-with-page-builder-preview.png)
+[Screenshot on the live page: Web Page]
 _Web Page with Page Builder_
 
 ### 1.1 Add Sections
@@ -1010,10 +1010,10 @@ You can add more sections to your page by adding more rows in the Page Building 
 table. The framework comes with a great set of Web Templates for you to create
 all sorts of pages.
 
-![More Sections](/files/web-page-with-more-sections.png)
+[Screenshot on the live page: More Sections]
 _Web Page with another section_
 
-![More Sections - Preview](/files/web-page-with-more-sections-preview.png)
+[Screenshot on the live page: More Sections - Preview]
 _Web Page with another section - Preview_
 
 ### 1.2 Section Options
@@ -1028,5 +1028,5 @@ following additional options:
 - **Hide Block**: If checked, it will hide the section block.
 - **CSS Class**: Add any CSS class and style it in the CSS field in the Style section.
 
-![Section Options](/files/page-builder-section-options.png)
+[Screenshot on the live page: Section Options]
 _Section Options_

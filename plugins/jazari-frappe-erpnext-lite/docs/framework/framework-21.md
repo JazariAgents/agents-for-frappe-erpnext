@@ -715,7 +715,7 @@ portal_menu_items = [
 
 The above configuration will add two sidebar links for users with the role Customer.
 
-![Portal Sidebar](/files/hooks-portal-menu-items.png)
+[Screenshot on the live page: Portal Sidebar]
 
 
 
@@ -736,7 +736,7 @@ standard_portal_menu_items = [
 
 The above configuration will sync sidebar items to the Portal Settings which can later be edited by any System User.
 
-![Portal Settings](/files/hooks-standard-portal-menu-items.png)
+[Screenshot on the live page: Portal Settings]
 
 
 
@@ -747,7 +747,7 @@ This hook allows you to customize the brand logo in the navbar of your website.
 **app/hooks.py**
 
 ```
-brand_html = '<div><img src="tennismart.png"> TennisMart</div>'
+brand_html = '<div>[Screenshot on the live page] TennisMart</div>'
   
 
 ```
@@ -819,7 +819,7 @@ calendars = ["Appointment"]
 
 ```
 
-![Event Menu Shortcuts](/files/hooks-event-menu-shortcuts.png)
+[Screenshot on the live page: Event Menu Shortcuts]
 
 
 

@@ -10,7 +10,7 @@ updated: "2026-02-27"
 
 **A Request for Quotation is a document that an organization sends to one or more suppliers asking a quotation for items.**
 
-![Buying Flow](/files/buying_flow_rfq.png)  
+[Screenshot on the live page: Buying Flow]  
 
 
 To access **Request for Quotation**, open the "Buying" workspace and, under "Reports & Masters" > "Buying", click on "Request for Quotation".
@@ -46,13 +46,13 @@ If you set a *Contact* and *Email Id*, that can later be used for sending the **
 	Apart from these, you can access all values in this RFQ, like `{{ message_for_supplier }}` or `{{ terms }}`.
 7. You can check how the email will look for a specific supplier by using the "Preview Email" button.
 
-![Preview Email](/files/email-preview.png)
+[Screenshot on the live page: Preview Email]
 8. If you want to send further attachments to your suppliers, you can enable the checkbox   
 *Send Attached Files*. This will add each file attached to the **Request for Quotation** as an attachment to each supplier email.
 9. Once you're done, save the **Request for Quotation** as a draft.
 10. When you're ready, you can submit the **Request for Quotation**. This will trigger an email to each supplier that has *Send Email* enabled.
 
-![Create RFQ](/files/rfq-create.png)  
+[Screenshot on the live page: Create RFQ]  
 
 
 A Request for Quotation (RFQ) can also be created from a submitted Material Request. Once an RFQ is created, you can print and send suppliers the PDF which will have all the details you entered relevant to the RFQ. You can also get their reply (Supplier Quotation) in ERPNext itself, see section [4.1 Supplier Quotation by User](#41-supplier-quotation-by-user). However, for a large number of items, your supplier may be more comfortable with an Excel sheet, etc.
@@ -68,7 +68,7 @@ The items in the items table can be fetched from other documents. The options ar
 * **Opportunity**: Items will be fetched from a saved Opportunity. A date range can be selected here also.
 * **Possible Supplier**: Select a possible supplier. Then if you have any submitted Material Requests against this supplier, items can be fetched from that.
 
-![RFQ get items](/files/rfq-get-items.png)  
+[Screenshot on the live page: RFQ get items]  
 
 
 ### 3.2 Get Suppliers
@@ -78,7 +78,7 @@ Instead of entering the suppliers manually in the table, you can also fetch them
 * **By tag**: Go to 'Tag Category' via searching from the search bar. You must have created tags here first and assigned them to a Supplier in the Buying module. Then you can select 'By Tag'. On clicking Add 'All Suppliers', suppliers with matching tags will be fetched.
 * **By Group**: Select 'Supplier Group' and choose the supplier group from which suppliers need to be added. For example, if you select Hardware, all your hardware suppliers will be added so that you can get a quote from all of them.
 
-![RFQ get suppliers](/files/rfq-get-suppliers.png)  
+[Screenshot on the live page: RFQ get suppliers]  
 
 
 In the Supplier table, on expanding a row with the inverted triangle, you'll see an option 'Download PDF' which will open a PDF of the RFQ.
@@ -87,7 +87,7 @@ In the Supplier table, on expanding a row with the inverted triangle, you'll see
 
 When you click on **Tools > Link to Material Requests**, it links the Request for Quotation to available Material Requests. The items should be the same in the Request for Quotation and the Material Request.
 
-![Link to Material Request](/files/link-to-material-request.png)  
+[Screenshot on the live page: Link to Material Request]  
 
 
 Now, when the Request for Quotation is saved, you can see in the Dashboard that it is linked to the Material Request. If there are multiple Material Requests with the same items, then the link will be created with the newest Material Request.
@@ -126,10 +126,10 @@ After creation of Request for Quotation, there are two ways to generate Supplier
 
 1. Open Request for Quotation and click on **Supplier Quotation > Create**.
 
-![Supplier Quotation from RFQ](/files/make-supplier-quotation-from-rfq.png)
+[Screenshot on the live page: Supplier Quotation from RFQ]
 2. Select the Supplier, click on the supplier again. In this page, click on the + next to 'Supplier Quotation'. A new Supplier Quotation page will be opened, user has to enter the quantity, rate and submit it.
 
-![Supplier Quotation from Supplier](/files/supplier-quotation-from-sup.png)
+[Screenshot on the live page: Supplier Quotation from Supplier]
 
 ### 4.2 Supplier Quotation from Supplier
 
@@ -138,21 +138,21 @@ After creation of Request for Quotation, there are two ways to generate Supplier
 
 **If the Supplier's account is not present**: The system will create the Supplier's account and send details to the Supplier. The Supplier will need to click on the link (Password Update) present in the email. After the password update, the Supplier can access their portal with the 'Request for Quotation' form. The Supplier will be created as a Website User.
 
-![Supplier email if account not present](/files/supplier-email-with-update-password.png)  
+[Screenshot on the live page: Supplier email if account not present]  
 
 
 **If Supplier's account is present**: The system will send a Request for Quotation link to the Supplier. The Supplier must log in using his credentials to view the Request for Quotation form on the portal.
 
-![Supplier email if account present](/files/supplier-email-normal.png)
+[Screenshot on the live page: Supplier email if account present]
 3. Either way, when the Supplier logs in, the following screen will be shown to them. From here they can send you a quotation:
 
-![Supplier Quotation Screen](/files/rfq-supplier-quotation.png)  
+[Screenshot on the live page: Supplier Quotation Screen]  
 
 
 The Supplier has to enter the amount and notes (payment terms) on the form and click on Submit. In the Quotations section, previous quotations will be visible.
 4. On submission, ERPNext will create a Supplier Quotation (draft mode) against the Supplier. The user has to review the Supplier Quotation and submit it. When all the items from the Request for Quotation have been quoted by a Supplier, the quote status is updated to 'Received' in the 'Suppliers' table of the Request for Quotation.
 
-![RFQ status after supplier quote](/files/rfq-supplier-quoted.png)
+[Screenshot on the live page: RFQ status after supplier quote]
 
 Read [Supplier Quotation](/erpnext/supplier-quotation) to know more.
 
@@ -196,7 +196,7 @@ This action is intended for manufactured Items. A purchased finished good withou
 2. Select **Create**.
 3. Select **Request for Raw Materials**.
 
-![The Sales Order Create menu with Request for Raw Materials highlighted.](https://novacompanies.m.frappe.cloud/files/raw-materials-create-menu.png)
+[Screenshot on the live page: The Sales Order Create menu with Request for Raw Materials highlighted.]
 
 ERPNext opens a dialog containing eligible finished Items with BOMs.
 
@@ -218,7 +218,7 @@ Check:
 - Links to the Sales Order and BOM.
 - Projected stock and existing supply.
 
-![The generated Material Request with calculated raw-material rows.](https://novacompanies.m.frappe.cloud/files/raw-materials-material-request.png)
+[Screenshot on the live page: The generated Material Request with calculated raw-material rows.]
 
 The dot before an Item Code shows stock availability at a glance: green means in stock and red means out of stock. Select the highlighted pencil icon to open the full child-row editor when you need additional planning fields.
 
@@ -298,11 +298,11 @@ updated: "2026-03-04"
 
 To delete a document, you can go to the dropdown menu of the document and select 'Delete'.
 
-![Restore Deleted Document](/files/using-restore-1.png)
+[Screenshot on the live page: Restore Deleted Document]
 
 For bulk deletion, you can select multiple Cancelled records and delete them at once from the List View.
 
-![Restore Deleted Documents](/files/using-restore-3.gif)
+[Screenshot on the live page: Restore Deleted Documents]
 
 > Note: Any submittable document will not be deleted after submission. To delete a submitted document, you will be required to first 'cancel' the document.
 
@@ -320,7 +320,7 @@ To access Deleted Documents, go to:
 2. Open the deleted Document
 3. Click on the **Restore** button.
 
-![Restore Deleted Document](/files/using-restore-2.gif)
+[Screenshot on the live page: Restore Deleted Document]
 
 > Note: If the document was deleted after getting ** canceled**, it would be restored with a new name.
 
@@ -350,26 +350,26 @@ Before using sample retention, it is advised that you create the following first
 
 It is advised to create a new Warehouse separately for retaining samples and not use it in production.
 
-![Sample Retention Warehouse](/files/sample-warehouse.png)
+[Screenshot on the live page: Sample Retention Warehouse]
 
 ### 1.2 Enable Retain Sample in Item master
 Retain Sample is based on Batch hence Has Batch No should be enabled first. Check Retain Sample and set the Maximum allowed samples for a batch.
 
-![Retain Sample](/files/retain-sample.png)
+[Screenshot on the live page: Retain Sample]
 
 ### 1.3 Make Stock Entry
 
 * Whenever a [Stock Entry](/erpnext/stock-entry) is created with the purpose as Material Receipt, for items which have Retain Sample enabled, the Sample Quantity can be set during that Stock Entry. You need to select the Batch Number for the Item/Items. Sample quantity cannot be more than the Maximum sample quantity set in Item Master.
 
- ![Retain Sample](/files/material-receipt-sample.png)
+ [Screenshot on the live page: Retain Sample]
 
 * On submission of this Stock Entry, button 'Make Retention Stock Entry' will be available to make another Stock Entry for the transfer of sample items from the mentioned batch to the retention warehouse set in Stock Settings.
 
- ![Sample Retention Button](/files/sample-retention-button.png)
+ [Screenshot on the live page: Sample Retention Button]
 
 * Clicking this button will direct you to new Stock Entry of type 'Material Transfer'. This entry is transfering your sample retention from your Target Warehouse (Stores) to the Sample Retention Warehouse. It will contain all the information, verify and click Submit.
 
- ![Retain Sample](/files/material-transfer-sample.png)
+ [Screenshot on the live page: Retain Sample]
 
 ### 2. Related Topics
 1. [Warehouse](/erpnext/warehouse)
@@ -393,7 +393,7 @@ If you are creating Purchase Return for the items received in the Rejected Wareh
 
 For detailed steps on how to create Purchase Return Entry for the Rejected Item, refer to the below example.
 
-![Returning Rejected Items](/files/purchase-return.gif)
+[Screenshot on the live page: Returning Rejected Items]
 
 <!-- page: erpnext/erpnext__returned_materials_against_work_order.md -->
 ---
@@ -408,7 +408,7 @@ To access the Returned Materials Against Work Order, go to:
 
 > Home > Manufacturing > Reports > Returned Materials Against Work Order
 
-![Task](/files/returned-materials-against-work-order.png)
+[Screenshot on the live page: Task]
 
 This report shows the information about the raw materials which has been returned from the work in progress warhouse against the work orders.
 
@@ -443,11 +443,11 @@ ERPNext provides the accounting building blocks, but the tax rate, eligibility, 
 3. Add a matching input-credit row when the tax is recoverable, or use an expense account for the non-creditable portion.
 4. Test the supplier payable, tax liability, input credit, and invoice total before enabling the template for routine use.
 
-![Purchase Taxes and Charges Template used as the base for reverse charge](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-overview.png)
+[Screenshot on the live page: Purchase Taxes and Charges Template used as the base for reverse charge]
 
 
 
-![Purchase tax row with calculation and account fields](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-tax-row.png)
+[Screenshot on the live page: Purchase tax row with calculation and account fields]
 
 
 
@@ -459,7 +459,7 @@ ERPNext provides the accounting building blocks, but the tax rate, eligibility, 
 4. Submit and inspect Accounting Ledger or General Ledger.
 5. Settle or adjust the RCM payable through the approved tax-payment process.
 
-![Transaction result after applying a purchase tax template](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-purchase-template-result.png)
+[Screenshot on the live page: Transaction result after applying a purchase tax template]
 
 
 
@@ -505,7 +505,7 @@ Users that are also **Customers** in the system will be able to see the **Write 
 
 The average reviews are automatically calculated and a summary is displayed.
 
-![Item Reviews](/files/item-reviews.png)
+[Screenshot on the live page: Item Reviews]
 
 <!-- page: erpnext/erpnext__role-and-role-profile.md -->
 ---
@@ -536,7 +536,7 @@ To access Role, go to:
 
 You can add two factor authentication for the role and also restrict it to a specific domain. From here, you can go to the Roles Permission Manager and set permissions for the role across different DocTypes.
 
-![Permissions for new Role](/files/role-permissions.png)
+[Screenshot on the live page: Permissions for new Role]
 
 ## 2. How to add a Role Profile
 
@@ -568,7 +568,7 @@ Once roles are assigned to a user, their access can be limited to specific docum
 
 To start using the Role Permission Manager, go to: > Home > Users and Permissions > Role Permissions Manager
 
-![Manage Read, Write, Create, Submit, Amend access using the Role Permissions Manager](/files/setting-up-permissions-leave-application.png)  
+[Screenshot on the live page: Manage Read, Write, Create, Submit, Amend access using the Role Permissions Manager]  
 
 
 Permissions are applied on a combination of:
@@ -597,25 +597,25 @@ Leave Application is a good example that encompasses all areas of a Permission S
 
 * It should be created by an Employee. For this, Employee Role should be given Read, Write, Create permissions.
 
-![Giving Read, Write and Create Permissions to Employee for Leave Application](/files/setting-up-permissions-employee-role.png)
+[Screenshot on the live page: Giving Read, Write and Create Permissions to Employee for Leave Application]
 * An **Employee** should only be able to access his/her Leave Application. Hence, User Permissions record should be created for each User-Employee combination.
 
-![Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager](/files/setting-up-permissions-employee-user-permissions.png)
+[Screenshot on the live page: Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager]
 * If you want an **Employee** to only select a document in another document and not have read access to that document as a whole, then grant only Select perm to the role, Employee.
 
-![Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager](/files/setting-up-select-permissions-employee.png)
+[Screenshot on the live page: Limiting access to Leave Applications for a user with Employee Role via User Permissions Manager]
 * **HR Manager** should be able to see all Leave Applications. Create a Permission Rule for HR Manager at Level 0, with Read permissions. Apply User Permissions should be disabled.
 
-![Giving Submit and Cancel permissions to HR Manager for Leave Applications. 'Apply User Permissions' is unchecked to give full access.](/files/setting-up-permissions-hr-manager-role.png)
+[Screenshot on the live page: Giving Submit and Cancel permissions to HR Manager for Leave Applications. 'Apply User Permissions' is unchecked to give full access.]
 * **Leave Approver** should be able to see and update Leave Applications of employees under him/her. Leave Approver is given Read and Write access at Level 0. Relevant Employee Documents should be enlisted in the User Permissions of Leave Approvers. (This effort is reduced for Leave Approvers mentioned in Employee Documents, by programmatically creating User Permission records).
 
-![Giving Read, Write and Submit permissions to Leave Approver for Leave Applications.'Apply User Permissions' is checked to limit access based on Employee.](/files/setting-up-permissions-leave-approver-role.png)
+[Screenshot on the live page: Giving Read, Write and Submit permissions to Leave Approver for Leave Applications.'Apply User Permissions' is checked to limit access based on Employee.]
 * It should be Approved/Rejected only by HR User or Leave Approver. The Status field of a Leave Application is set at Level 1. HR User and Leave Approver are given Read and Write permissions for Level 0, while everyone else (All) are given Read permission for Level 1.
 
-![Limiting read access for a set of fields to certain Roles](/files/setting-up-permissions-level-1.png)
+[Screenshot on the live page: Limiting read access for a set of fields to certain Roles]
 * **HR User** should be able to delegate Leave Applications to his/her subordinates. HR User is given the right to Set User Permissions. A User with HR User role would be able to define User Permissions on Leave Application for other users.
 
-![Let HR User delegate access to Leave Applications by checking 'Set User Permissions'. This will allow HR User to access User Permissions Manager for 'Leave Application'](/files/setting-up-permissions-hr-user-role.png)
+[Screenshot on the live page: Let HR User delegate access to Leave Applications by checking 'Set User Permissions'. This will allow HR User to access User Permissions Manager for 'Leave Application']
 
 In case you have correctly assigned the roles but still you're getting errors when accessing documents, refer [this page](/erpnext/report-permission-error).
 
@@ -648,13 +648,13 @@ To access Role Permission for Page and Report, go to:
 
 If developer mode is disabled, the user can assign the roles to the page and report, using "Role Permission for Page and Report" page.
 
-![Tools to assign custom roles to the page](/files/role-permission-for-page-and-report.png)
+[Screenshot on the live page: Tools to assign custom roles to the page]
 
 ### 1.1 Reset to defaults
 
 Using the "Reset to Defaults" button, the user can remove the custom permissions applied on a page or report. Then default permissions will be applicable on that page or report.
 
-![Reset the default roles](/files/reset-roles-permission-for-page-report.png)
+[Screenshot on the live page: Reset the default roles]
 
 ## Setting Role Permissions from the Page/Report as a Developer
 
@@ -662,13 +662,13 @@ Using the "Reset to Defaults" button, the user can remove the custom permissions
 
 1. Go to: Home > Developer > Page.
 2. Add a row and select which other roles can access the Page.
-  [Assign roles to the page](/files/roles-for-page.png)
+  Assign roles to the page (picture on the live page)
 
 ### Role Permissions For Report
 
 1. Go to: Home > Developer > Report.
 2. Add rows with roles who can access the Report.
-  [Assign roles to the report](/files/roles-for-report.png)
+  Assign roles to the report (picture on the live page)
 
 <!-- page: erpnext/erpnext__round-off-account-validation.md -->
 ---
@@ -687,7 +687,7 @@ A Purchase Invoice for Nova Industries contains item calculations, tax, discount
 3. In the accounting defaults, set the Round Off Account and Round Off Cost Center.
 4. Save the Company, reload the invoice, and submit again.
 
-![Company defaults for Round Off Account and Round Off Cost Center](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-company-round-off-defaults.png)
+[Screenshot on the live page: Company defaults for Round Off Account and Round Off Cost Center]
 
 
 
@@ -750,13 +750,13 @@ A Routing stores all Operations along with the description, hourly rate, operati
 
 Once created, a Routing can be selected in a BOM to fetch the Operations stored in the Routing.
 
-![](/files/CleanShot 2026-02-19 at 12.31.10@2x.png)
+[Screenshot on the live page]
 
 ---
 
 ## Sequence ID in Routing
 
-![](/files/image2679eb.png)
+[Screenshot on the live page]
 
 Sequence ID enforces the users to complete the operations sequentially via Job Card. In case a user tries to complete an operation before completing any of its precedent operations as per the Sequence ID, the system throws a validation error.
 
@@ -796,7 +796,7 @@ updated: "2026-02-26"
 
 To enable the same, you may choose to create the Employee's Salary Slip directly from a Timesheet.
 
-![Salary Slip](/files/projects-salary-slip-from-timesheet.png)
+[Screenshot on the live page: Salary Slip]
 
 ## 1. How to Create A Salary Slip from A Timesheet
 
@@ -808,7 +808,7 @@ To enable the same, you may choose to create the Employee's Salary Slip directly
 
  
 
-![Salary Slip](/files/timesheet-salary-slip-4.gif)
+[Screenshot on the live page: Salary Slip]
 
 ### 1.1. Additional Details while Creating a Salary Slip form a Time Sheet:
 

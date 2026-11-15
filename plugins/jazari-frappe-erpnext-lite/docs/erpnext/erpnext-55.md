@@ -1,182 +1,5 @@
 <!-- Frappe documentation: erpnext, part 55 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__salesperson-permissions.md -->
----
-title: "Restrict Sales Users to Their Customers and Transactions | ERPNext Documentation"
-description: "Learn how to use ERPNext roles and User Permissions so sales users see only assigned Leads, Customers, and transactions linked to those Customers."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/salesperson-permissions"
-updated: "2026-07-25"
----
-
-Use [User Permissions](/erpnext/user-permissions) when a sales user should work only with named Leads, Customers, and the sales transactions connected to those Customers. A [Sales Person](/erpnext/sales-person) record is useful for targets, commissions, and the Sales Team table, but assigning a Sales Person does not by itself create record-level access restrictions.
-
-This guide uses Avery Stone as a sales user. Avery can work with Northstar Retail, Summit Digital Stores, and two assigned Leads, but not the rest of the sales portfolio.
-
-## Before you begin
-
-- You need System Manager or equivalent permission to manage Users and User Permissions.
-- The user must be a System User with the roles required for their work.
-- Create the relevant [Customers](/erpnext/customer) and [Leads](/erpnext/lead) first.
-- Decide whether access will be maintained customer by customer or through a grouping master such as [Territory](/erpnext/territory).
-
-> **Roles and User Permissions do different jobs.** A role grants access to a document type. A User Permission limits which records of that type the user can access.
-
-## 1. Give the user the required sales role
-
-1. Open **User** and select the sales user.
-2. Open **Roles &amp; Permissions**.
-3. Enable **Sales User**.
-4. Add another role only when the person needs the corresponding actions. For example, do not assign Sales Manager merely to make the workspace visible.
-5. Save the User.
-
-![Avery Stone User form with the Sales User role highlighted.](/files/01-sales-user-role.webp)
-
-The Sales User role normally provides access to sales masters and transactions according to the configured [Role Permission Manager](/erpnext/permissions). User Permissions added in the following steps narrow that access.
-
-## 2. Open User Permission
-
-Go to **Users and Permissions &gt; User Permission**, then select **Add User Permission**.
-
-![User Permission list with Add User Permission highlighted.](/files/02-open-user-permissions.webp)
-
-You can also open the User and use **Permissions &gt; Set User Permissions**. Both routes create the same User Permission records.
-
-## 3. Allow the Customers assigned to the sales user
-
-Create one User Permission for each Customer in the user's portfolio:
-
-1. In **User**, select the sales user.
-2. Set **Allow** to **Customer**.
-3. In **For Value**, select an allowed Customer.
-4. Save the User Permission.
-5. Repeat for each additional Customer.
-
-![User Permission for Avery Stone allowing access to Northstar Retail, with User, Allow, and For Value highlighted.](/files/03-customer-user-permission.webp)
-
-For example, Avery has separate permissions for Northstar Retail and Summit Digital Stores. ERPNext combines permissions for the same master, so Avery can access either Customer.
-
-### Why this also restricts sales transactions
-
-A Customer is linked from documents such as a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), [Delivery Note](/erpnext/delivery-note), and [Sales Invoice](/erpnext/sales-invoice). When the user's role applies User Permissions, the Customer restriction is carried into those linked documents.
-
-This means you normally do not create separate User Permissions for every Sales Order or Sales Invoice. Maintain the Customer portfolio, and the restriction follows the Customer link.
-
-## 4. Add Lead permissions separately
-
-A Lead is not yet a Customer. A Customer permission therefore cannot decide which unconverted Leads the user may access.
-
-Create a separate User Permission for each assigned Lead:
-
-1. Select the same sales user.
-2. Set **Allow** to **Lead**.
-3. Select the permitted Lead in **For Value**.
-4. Save and repeat for the user's other Leads.
-
-When a Lead is converted, add the resulting Customer to the user's Customer permissions. Review the old Lead permission according to your retention policy.
-
-## 5. Apply the restriction to linked document types
-
-Keep **Apply To All Document Types** enabled when the Customer permission should restrict every supported document containing a Customer link.
-
-![Apply To All Document Types highlighted on a Customer User Permission.](/files/04-apply-to-all-doctypes.webp)
-
-Clear this option only when the permission must apply to one specific document type. After clearing it, select that document type in **Applicable For**. For example, limiting a Customer permission to Sales Order would not provide the same restriction across Quotations, Delivery Notes, and Sales Invoices.
-
-## 6. Review the complete portfolio
-
-Open the User Permission list and filter by the user. Confirm that every permitted Customer and every unconverted Lead appears once.
-
-![User Permission list showing two Customers and two Leads allowed for Avery Stone.](/files/05-customer-and-lead-permissions.webp)
-
-In this example, Avery can access:
-
-- Northstar Retail and Summit Digital Stores;
-- the sales transactions linked to those Customers; and
-- Leads CRM-LEAD-2026-00001 and CRM-LEAD-2026-00002.
-
-Avery should not receive a broad Customer, Customer Group, or Territory permission that includes the rest of the portfolio. A broader permission expands access rather than overriding the individual Customer permissions.
-
-## 7. Verify access before handing over the account
-
-Do not assume that a saved permission produces the intended result.
-
-1. Open the User.
-2. Select **Permissions &gt; View Permitted Documents**.
-3. Check Customer, Lead, Quotation, Sales Order, Delivery Note, and Sales Invoice.
-4. Confirm that permitted records appear and an unrelated Customer does not.
-5. Test list views and the reports the user will actually use.
-
-![Permissions menu with View Permitted Documents highlighted on the Avery Stone User form.](/files/06-view-permitted-documents.webp)
-
-For a final security check, sign in with a non-administrator test user that has the same roles and permissions. System Manager and Administrator accounts can bypass restrictions and are not suitable for validating a salesperson's experience.
-
-## How access is determined
-
-
-| Configuration                 | What it controls                                                        |
-| ----------------------------- | ----------------------------------------------------------------------- |
-| Sales User role               | Which sales document types and actions are available                    |
-| Customer User Permission      | Which Customers and Customer-linked transactions the user can access    |
-| Lead User Permission          | Which specific unconverted Leads the user can access                    |
-| Apply To All Document Types   | Whether the allowed value restricts all supported linked document types |
-| Applicable For                | Limits one User Permission to a selected document type                  |
-| Apply Strict User Permissions | Controls whether records with a blank restricted link remain visible    |
-
-
-## When there are many Customers
-
-Individual Customer permissions are precise and easy to audit, but they require maintenance when portfolios change. If Customers and Leads are cleanly divided by region, create a User Permission for the appropriate Territory instead. A parent Territory can also include descendants unless **Hide Descendants** is enabled.
-
-Use a grouping master only when it matches the real access boundary. Do not use [Customer Group](/erpnext/customer-group) for access if the group exists mainly for pricing or reporting and contains Customers belonging to several salespeople.
-
-## Records with a blank Customer or Territory
-
-Review **Apply Strict User Permissions** in [System Settings](/erpnext/system-settings). When strict permissions are enabled, a record with a blank restricted link is hidden. When they are not enabled, records whose restricted link is blank may remain visible.
-
-Before enabling this setting, review integrations and older data for missing Customer or Territory values. Test the effect on all teams because it is a system-level setting.
-
-## Troubleshooting
-
-
-| Problem                                             | What to check                                                                                                                      |
-| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| The user can still see every Customer               | Check for a broader Customer, Customer Group, or Territory permission. Confirm the user's role has Apply User Permissions enabled. |
-| The user cannot open any sales transactions         | Confirm the Sales User role grants Read access and that the transaction contains an allowed Customer.                              |
-| The user can see unrelated records with blank links | Review missing Customer or Territory values and the Apply Strict User Permissions setting.                                         |
-| Assigned Leads are missing                          | Create Lead User Permissions separately. Customer permissions do not cover unconverted Leads.                                      |
-| A report shows more data than expected              | Test the report with the restricted user. Review custom or script reports to confirm they apply permission-aware queries.          |
-| A manager cannot see a salesperson's portfolio      | Add the required broader permissions to the manager. A Sales Person hierarchy does not automatically replace User Permissions.     |
-
-
-## Frequently asked questions
-
-### Is linking a User to a Sales Person enough?
-
-Sales Person assignment supports sales attribution, targets, and commission reporting. Use User Permissions for record-level restrictions.
-
-### Must I add every Sales Order to User Permissions?
-
-Allow the Customer and keep Apply To All Document Types enabled. Supported Customer-linked transactions inherit that restriction.
-
-### Can one salesperson have several Customers and Leads?
-
-Y
-
-es. Create one User Permission for each allowed value, or use a suitable Territory when the portfolio follows that hierarchy.
-
-### Can sales managers see all records?
-
-Yes, if their roles and User Permissions grant the broader access. Test managers separately instead of assuming the Sales Person tree controls visibility.
-
-## Related topics
-
-- [User Permissions](/erpnext/user-permissions)
-- [Role Based Permissions](/erpnext/permissions)
-- [Adding Users](/erpnext/adding-users)
-- [Sales Person](/erpnext/sales-person)
-- [System Settings](/erpnext/system-settings)
-
 <!-- page: erpnext/erpnext__scrap-management.md -->
 ---
 title: "Production Scrap Management\n"
@@ -196,17 +19,17 @@ In ERPNext, at the end of manufacturing process, scrap items are accounted in th
 
 You can update estimated scrap quantity of an item in the BOM, Scrap table. If required, you can reselect a raw-material item as scrap.
 
-![Scrap in BOM](/files/scrap-1.png)
+[Screenshot on the live page: Scrap in BOM]
 
 ## Scrap in Manufacture Entry
 
 When production is completed, Finish / Manufacture Entry is created against a Production Order. In this entry, scrap item is fetched in the Item table, with only Target Warehouse updated for it. Ensure that Valuation Rate is updated for this item for the accounts posting purposes.
 
-![Scrap in Manufacture Entry](/files/scrap-2.gif)
+[Screenshot on the live page: Scrap in Manufacture Entry]
 
 > Scrap from the BOM will only work if Manufacture Entry is created based on BOM, and not based on Material Transfer. This is configurable from Manufacturing Settings.
 
-![Manufacturing Settings](/files/manufacturing-settings.png)
+[Screenshot on the live page: Manufacturing Settings]
 
 <!-- page: erpnext/erpnext__scrapping-an-asset.md -->
 ---
@@ -235,17 +58,17 @@ Confirm the Asset is physically retired, approvals are complete, depreciation is
 4. Review the generated Journal Entry before final submission where the workflow allows.
 5. Complete the action.
 
-![Asset status and scrap Journal Entry fields](https://novacompanies.m.frappe.cloud/files/21-asset-disposal-state.png)
+[Screenshot on the live page: Asset status and scrap Journal Entry fields]
 
 ## Verify the write-off
 
 The Asset status becomes **Scrapped**. The entry removes the remaining carrying value using the fixed-asset, accumulated depreciation, and loss accounts.
 
-![Asset balances used to check carrying value before scrapping](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Asset balances used to check carrying value before scrapping]
 
 Confirm the Fixed Asset Register no longer treats the asset as active after the disposal date.
 
-![Fixed Asset Register used after scrapping](https://novacompanies.m.frappe.cloud/files/24-fixed-asset-register.png)
+[Screenshot on the live page: Fixed Asset Register used after scrapping]
 
 ## Troubleshooting
 
@@ -310,12 +133,12 @@ Here, we will select the Document Item.
 
 Update Warehouse field name in the Search By field.
 
-![Search By in Customize Form](/files/customize-search-record-1.png)
-![Search By in Customize Form](/files/customize-search-record-2.png)
+[Screenshot on the live page: Search By in Customize Form]
+[Screenshot on the live page: Search By in Customize Form]
 
 Once these settings have been updated, while creating a Sales Order, when you select the Item, you will also be able to the warehouse there.
 
-![Search By in Customize Form](/files/customize-search-record-3.png)
+[Screenshot on the live page: Search By in Customize Form]
 
 <!-- page: erpnext/erpnext__secondary-items.md -->
 ---
@@ -344,13 +167,13 @@ In ERPNext, there is virtually no difference on how these secondary items' value
 
 You can specify the process loss percentage and cost allocation percentage of each secondary item in the table.
 
-![](/files/image01125b.png)
+[Screenshot on the live page]
 
 In this example, we are saying that in manufacturing petrol, 10% of the outgoing (raw material) cost should be allocated to LPG and 5% to Bitumen. The remaining 85% will be allocated to the actual finished good (Petrol).
 
 Let's see it in action:
 
-![](/files/CleanShot 2026-03-11 at 12.31.02@2x.png)
+[Screenshot on the live page]
 
 Here, the outgoing cost is Rs. 100. 10% of 100 is 10 which is allocated to LPG and 5% is 5 which is allocated to Bitumen. Since we specified a 5% process loss for Bitumen, it's quantity has been calculated as 9.5 ( `10 - (5% * 10)`).
 
@@ -384,17 +207,17 @@ Confirm the Asset is submitted, not already sold or scrapped, and that depreciat
 3. Review taxes and disposal accounts.
 4. Submit the Sales Invoice.
 
-![Asset selected before disposal through a Sales Invoice](https://novacompanies.m.frappe.cloud/files/07-asset-core-details.png)
+[Screenshot on the live page: Asset selected before disposal through a Sales Invoice]
 
 ## Verify the disposal
 
 The Asset status becomes **Sold** and its disposal date is recorded. Review the Sales Invoice, Journal Entry or General Ledger to confirm receivable, asset cost, accumulated depreciation, and gain or loss.
 
-![ERPNext Asset disposal status fields](https://novacompanies.m.frappe.cloud/files/21-asset-disposal-state.png)
+[Screenshot on the live page: ERPNext Asset disposal status fields]
 
 Use the Fixed Asset Register to confirm the asset no longer appears as an active existing asset for the relevant date.
 
-![Fixed Asset Register used to verify disposal](https://novacompanies.m.frappe.cloud/files/24-fixed-asset-register.png)
+[Screenshot on the live page: Fixed Asset Register used to verify disposal]
 
 ## Troubleshooting
 
@@ -476,7 +299,7 @@ The submitted Sales Order records the customer's order for two finished phones. 
 
 
 
-![Submitted Sales Order for two finished phones](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661702217-01-goods-sales-order-commitment.png)
+[Screenshot on the live page: Submitted Sales Order for two finished phones]
 
 ### 2. Submit the Delivery Note
 
@@ -489,7 +312,7 @@ The Delivery Note confirms that the finished goods have left the warehouse. ERPN
 | Stock In Hand      |         | $866.76 | The value of inventory held by the company decreases. |
 
 
-![General Ledger entries created by the Delivery Note](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661702449-02-goods-delivery-note-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the Delivery Note]
 
 The debit is based on valuation, not the customer selling price. That is why the Delivery Note posts $866.76 even though the customer will be invoiced $1,398.
 
@@ -504,7 +327,7 @@ The Sales Invoice recognizes revenue and creates the amount due from the custome
 | Sales                         |           | $1,398.00 | Revenue from the sale is recognized. |
 
 
-![General Ledger entries created by the goods Sales Invoice](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661702512-03-goods-sales-invoice-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the goods Sales Invoice]
 
 Ignoring tax and other costs, the gross profit visible from these two events is $531.24: sales of $1,398.00 less cost of goods sold of $866.76.
 
@@ -519,7 +342,7 @@ When the customer pays the full invoice, submit a Receive-type Payment Entry and
 | Accounts Receivable (Debtors) |           | $1,398.00 | The amount owed by the customer is cleared. |
 
 
-![General Ledger entries created by the customer Payment Entry](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661702572-04-goods-payment-entry-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the customer Payment Entry]
 
 The Payment Entry does not recognize sales income again. The Sales Invoice already recorded the income. The payment only moves the balance from Accounts Receivable to Bank.
 
@@ -537,7 +360,7 @@ The Sales Order records the agreed scope, quantity, rate, and delivery date. It 
 
 
 
-![Submitted Sales Order for device setup services](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661702644-05-service-sales-order-commitment.png)
+[Screenshot on the live page: Submitted Sales Order for device setup services]
 
 ### 2. Submit the Sales Invoice
 
@@ -550,7 +373,7 @@ After completing the agreed work, submit the Sales Invoice. Because the Item is 
 | Sales or Service Income       |           | $3,000.00 | Service revenue is recognized.              |
 
 
-![General Ledger entries created by the service Sales Invoice](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661702936-06-service-sales-invoice-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the service Sales Invoice]
 
 Employee costs, contractor charges, travel, and other delivery expenses are recorded through their own payroll, expense, purchase, or journal workflows. They are not automatically posted as Cost of Goods Sold merely because a service Sales Invoice is submitted.
 
@@ -565,7 +388,7 @@ The Payment Entry has the same basic effect as it does for a goods sale.
 | Accounts Receivable (Debtors) |           | $3,000.00 | The customer's outstanding balance is cleared. |
 
 
-![General Ledger entries created by the service Payment Entry](https://novacompanies.m.frappe.cloud/files/selling-cycle-ledger-1785661703030-07-service-payment-entry-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the service Payment Entry]
 
 ## Compare the two workflows
 
@@ -640,7 +463,7 @@ Changing a conversion factor affects how transaction quantity translates into st
 4. Enter the Conversion Factor relative to one Stock UOM.
 5. Save.
 
-![The UOM conversion table on an Item.](https://novacompanies.m.frappe.cloud/files/selling-uom-item-conversion.png)
+[Screenshot on the live page: The UOM conversion table on an Item.]
 
 Example: if one Carton contains 10 Units and Unit is the Stock UOM, set the Carton conversion factor to 10.
 
@@ -654,7 +477,7 @@ Create one Item Price for each deliberately priced UOM:
 4. Enter the Rate.
 5. Save.
 
-![Item Prices for an Item and Price List.](https://novacompanies.m.frappe.cloud/files/selling-uom-item-prices.png)
+[Screenshot on the live page: Item Prices for an Item and Price List.]
 
 Use separate prices when a carton has a negotiated price rather than exactly ten times the unit price.
 
@@ -669,7 +492,7 @@ Alternatively, enable **Price Not UOM Dependent** on the [Price List](/erpnext/p
 5. Confirm the Conversion Factor, Quantity, Stock Qty, and Rate.
 6. Save or submit.
 
-![The Sales Order Items table where the transaction UOM is selected.](https://novacompanies.m.frappe.cloud/files/selling-uom-sales-order.png)
+[Screenshot on the live page: The Sales Order Items table where the transaction UOM is selected.]
 
 The dot before an Item Code shows stock availability at a glance: green means in stock and red means out of stock.
 
@@ -731,3 +554,203 @@ Stock Qty in the Item's Stock UOM.
 - [Item Price](/erpnext/item-price)
 - [Price Lists](/erpnext/price-lists)
 - [Sales Order](/erpnext/sales-order)
+
+<!-- page: erpnext/erpnext__selling-settings.md -->
+---
+title: "Selling Settings | ERPNext Documentation"
+description: "Configure ERPNext Selling Settings for customer defaults, pricing, transaction rules, commissions, subcontracting, and document naming."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/selling-settings"
+updated: "2026-08-25"
+---
+
+Selling Settings controls the defaults and validations used across the ERPNext sales cycle. These settings affect customers, pricing, quotations, sales orders, delivery notes, sales invoices, returns, commissions, and document naming.
+
+Review the settings with your sales, fulfilment, and finance teams before enabling them. A validation that improves control for one business can interrupt a different sales process.
+
+## Before you begin
+
+- You need permission to edit Selling Settings.
+- Create the required [Customer Groups](/erpnext/customer-group), [Territories](/erpnext/territory), and [Price Lists](/erpnext/price-list) first.
+- Test changes with representative transactions before applying them to production users.
+
+To open the page, go to **Selling &gt; Settings &gt; Selling Settings**. Settings are organized into six tabs. Select **Save** after making changes.
+
+## Customer Defaults
+
+Customer defaults reduce data entry when creating a [Customer](/erpnext/customer) or converting a Lead or Quotation into a Customer.
+
+
+
+[Screenshot on the live page: Customer Defaults tab in ERPNext Selling Settings]
+
+
+| Field                  | What it means                                                                                                                                                         |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Customer Naming By     | Choose Customer Name, Naming Series, or Auto Name for the customer ID. Customer Name is the default. Naming Series produces IDs such as CUST-00001.                   |
+| Default Customer Group | Sets the Customer Group on new customers when another value is not provided. It is also used when ERPNext creates a Customer while converting a Lead-based Quotation. |
+| Default Territory      | Sets the Territory on new customers and supports automatic Customer creation from a Lead-based Quotation.                                                             |
+
+
+If Default Customer Group or Default Territory is blank, automatic conversion can stop and ask for the missing value.
+
+## Pricing
+
+The Pricing tab determines how ERPNext fetches and validates item rates throughout the sales cycle.
+
+
+
+[Screenshot on the live page: Pricing tab in ERPNext Selling Settings]
+
+
+| Field                                                     | What it means                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default Price List                                        | Provides the default selling Price List for a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), Delivery Note, and Sales Invoice.                                                                                                                           |
+| Use prices from Default Price List as fallback            | Fetches an Item Price from the default Price List when the transaction’s selected Price List has no matching Item Price. Do not combine it with automatic insertion of missing Item Prices in Stock Settings, because a fallback rate could be written into another Price List. |
+| Allow editing Price List rate in transactions             | Makes Price List Rate editable in sales item tables. Keep it disabled when rates must always come from [Item Price](/erpnext/item-price) records.                                                                                                                               |
+| Maintain same rate throughout sales cycle                 | Checks whether an item rate changes in a Delivery Note or Sales Invoice created from a Sales Order.                                                                                                                                                                             |
+| Action if same rate is not maintained                     | Appears after maintaining the same rate is enabled. Warn allows the transaction after showing a message. Stop prevents the change.                                                                                                                                              |
+| Role allowed to override Stop action                      | Appears when the action is Stop. Users with the selected role can override the validation.                                                                                                                                                                                      |
+| Validate selling price against purchase or valuation rate | Blocks a sale when the selling rate is below the relevant purchase or valuation rate. Test this carefully for promotions and clearance items.                                                                                                                                   |
+| Calculate Product Bundle price based on child Item rates  | Makes packed-item rates editable and calculates the [Product Bundle](/erpnext/product-bundle) price from its child items. A manually changed bundle rate is recalculated when the document is saved.                                                                            |
+| Allow negative rates for Items                            | Permits negative item rates for supported adjustments, refunds, returns, or special pricing. Use this only with appropriate accounting review.                                                                                                                                  |
+
+
+## Transaction
+
+Transaction settings define which documents are required and which exceptions users may use.
+
+
+
+[Screenshot on the live page: Transaction tab in ERPNext Selling Settings]
+
+
+| Field                                                             | What it means                                                                                                                                                                                                       |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Is Sales Order required to create Sales Invoice or Delivery Note? | Set to Yes to require a Sales Order before a [Sales Invoice](/erpnext/sales-invoice) or [Delivery Note](/erpnext/delivery-note). A Customer can allow Sales Invoice creation without a Sales Order as an exception. |
+| Is Delivery Note required to create Sales Invoice?                | Set to Yes to require a Delivery Note before invoicing. A Customer can allow invoicing without a Delivery Note as an exception.                                                                                     |
+| How often should sales data be updated in Company or Project?     | Choose Each Transaction, Daily, or Monthly. Daily or Monthly can reduce repeated updates on sites with a high transaction volume.                                                                                   |
+| Allow same Item to be added multiple times                        | Allows the same item on more than one row of a transaction. Disable it when duplicate lines are usually an error.                                                                                                   |
+| Allow multiple Sales Orders against a customer’s Purchase Order   | Allows several Sales Orders to use the same customer purchase order number and date.                                                                                                                                |
+| Hide Customer’s Tax ID from sales transactions                    | Stops the Customer Tax ID from appearing in selling transactions when your process does not require it.                                                                                                             |
+| Allow Sales Order creation for expired Quotation                  | Allows an expired Quotation to be converted. Users should still confirm that the rate and terms remain valid.                                                                                                       |
+| Don’t reserve Sales Order qty on sales return                     | Prevents a return from automatically reserving quantity against the linked Sales Order.                                                                                                                             |
+| Enable cut-off date on creating bulk Delivery Notes               | Adds a cut-off date to bulk Delivery Note creation so only eligible Sales Orders up to that date are processed.                                                                                                     |
+| Set incoming rate as zero for expired Batch                       | Sets the incoming rate to zero for a stand-alone credit note containing an item from an expired Batch.                                                                                                              |
+| Allow Quotation with zero quantity                                | Allows zero-quantity lines when the rate is agreed before the quantity, such as a rate contract.                                                                                                                    |
+| Allow Sales Order with zero quantity                              | Allows zero-quantity Sales Order lines for a similar rate-contract workflow.                                                                                                                                        |
+| Blanket Order Allowance (%)                                       | Controls how much a Sales Order may exceed the quantity agreed in a [Blanket Order](/erpnext/blanket-order).                                                                                                        |
+
+
+## **Skip Delivery Note Creation for Service Items**
+
+[Screenshot on the live page]
+
+Sales Orders that contain services no longer wait for a delivery that will never happen. When this setting is on, non-stock items are excluded from delivery tracking, and an order made up entirely of them completes as soon as it is fully billed.
+
+### The problem it solves
+
+A Sales Order for services — consulting, installation, an AMC — has nothing to deliver. Without this feature the order still expects a Delivery Note, so after billing it sits at **To Deliver** and eventually shows as **Overdue**, even though the work is done and paid for.
+
+### Enabling it
+
+> **Selling Settings → Skip Delivery Note for Service Items**
+
+The switch applies to all order types — Sales, Maintenance, and Shopping Cart alike. No per-order checkbox is needed; each order works it out from its items.
+
+### How items qualify
+
+Every time a Sales Order is saved, each item row is marked with a hidden `Skip Delivery` flag. A row is exempt from delivery only when **all** of these hold:
+
+- the item is not a stock item
+- the item is not a fixed asset
+- the item is not a Product Bundle that contains stock items
+- the row is not delivered by the supplier (drop shipping)
+
+Anything failing a check keeps normal delivery tracking. The flags refresh on every save — including **Update Items** on a submitted order — so changing the item mix or the setting is always reflected.
+
+### Order status
+
+When every row on the order is exempt, the order needs no delivery at all: **% Delivered** is set to 100 and the delivery status shows **Not Applicable**.
+
+```
+To Bill  →  (Sales Invoice for the full amount)  →  Completed
+```
+
+On a mixed order, only the deliverable rows count toward **% Delivered**, and the Delivery Note picks up only those rows. The order completes once the stock items are delivered and everything is billed.
+
+### Examples
+
+
+| Order contents         | Delivery Note   | Completed when                        |
+| ---------------------- | --------------- | ------------------------------------- |
+| Services only          | Not required    | Fully billed                          |
+| Stock items + services | Stock rows only | Stock rows delivered and fully billed |
+| Setting disabled       | All rows        | Fully delivered and fully billed      |
+
+
+## Advanced Features
+
+Use these settings when your implementation requires commission tracking, separate discount accounting, or campaign attribution.
+
+
+
+[Screenshot on the live page: Advanced Features tab in ERPNext Selling Settings]
+
+
+| Field                                  | What it means                                                                                                                             |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Enable tracking sales commissions      | Enables commission management for Sales Partners and the sales team.                                                                      |
+| Enable discount accounting for selling | Creates additional ledger entries to post discounts to a separate Discount Account.                                                       |
+| Enable UTM                             | Adds UTM attribution fields to supported documents including Lead, Quotation, Sales Order, Delivery Note, Sales Invoice, and POS Invoice. |
+| Use Legacy (Client side) Reactivity    | An experimental compatibility option. Keep the default unless a tested customization requires the legacy behavior.                        |
+
+
+## Subcontracting Inward
+
+These controls apply when your company receives materials from a customer, processes them, and delivers finished goods back to that customer.
+
+
+
+[Screenshot on the live page: Subcontracting Inward tab in ERPNext Selling Settings]
+
+
+| Field                                   | What it means                                                                                                      |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Allow delivery of overproduced quantity | Allows the entire produced quantity to be delivered even when it exceeds the Subcontracting Inward Order quantity. |
+| Deliver secondary Items                 | Adds secondary items generated with a finished good to the Stock Entry used for delivery.                          |
+
+
+## Document Naming
+
+This tab shows the current naming series for Quotation, Sales Order, Sales Invoice, and Delivery Note, including separate return series where applicable.
+
+
+
+[Screenshot on the live page: Document Naming tab in ERPNext Selling Settings]
+
+Configure or extend naming series according to your company’s document-control policy. Avoid changing an active series without checking reporting, integrations, and print formats.
+
+## Frequently asked questions
+
+### Can I require a Sales Order for most customers but allow exceptions?
+
+Y
+
+es. Set the global requirement in Selling Settings, then use the relevant exception on the Customer record for approved cases.
+
+### Why are some pricing fields not visible?
+
+Action and override-role fields appear only after Maintain same rate throughout sales cycle is enabled. The override role is relevant when the selected action is Stop.
+
+### Should I allow users to edit Price List Rate?
+
+Enable it only when users are authorized to depart from maintained Item Prices. Otherwise, keep the field controlled and use Pricing Rules for repeatable exceptions.
+
+### When should zero-quantity transactions be allowed?
+
+Use them for rate contracts or agreements where the unit rate is confirmed before the final quantity. They should not replace quantities in normal orders.
+
+### What should I test after changing Selling Settings?
+
+Create a test Customer, Quotation, Sales Order, Delivery Note, Sales Invoice, and return that reflect your normal and exception workflows. Confirm rates, document links, accounting entries, and permissions before production use.

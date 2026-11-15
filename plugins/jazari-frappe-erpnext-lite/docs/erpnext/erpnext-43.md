@@ -1,59 +1,5 @@
 <!-- Frappe documentation: erpnext, part 43 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__plaid_integration.md -->
----
-title: "Plaid Integration\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/plaid_integration"
-updated: "2026-02-26"
----
-
-
-ERPNext offers the possibility to synchronize your bank accounts through a service called [Plaid](https://plaid.com/). Please check [the Plaid FAQ](https://support-my.plaid.com/hc/en-us) to see if your country is supported.
-
-If your instance is connected to Plaid, you are able to synchronize your bank account transactions without having to manually import a CSV or XLSX file.
-
-
-## Settings
-
-In order to give ERPNext access to Plaid, you need to add the following three parameters to your `site_config.json` file.
-
-- `plaid_env`
-- `plaid_public_key`
-- `plaid_secret`
-
-## Activation
-
-In order to activate Plaid on an instance, click on the button "Enable" in the Plaid Settings DocType.
-
-![Enable Plaid](/files/plaid_enable.gif)
-
-Once activated, you can create a new account directly from the Bank Reconciliation dashboard.
-
-
-## Bank account creation
-
-In order to link one of your existing bank accounts to ERPNext, click on "Link a new bank account" and follow the steps proposed by Plaid.
-
-![Link your bank account](/files/new_account_creation.gif)
-
-
-## Bank synchronization
-
-In order to synchronize a bank account with ERPNext, select an account and click on the "Action" button to select "Synchronize this account".
-
-![Synchronize your bank account](/files/plaid_synchronization.gif)
-
-The synchronization is based on the "Last integration date" available in the "Bank Account" doctype.
-
-If, for any reason, you want to redo a synchronization, you can change this date and synchronize the account again.
-Since all bank transactions are tagged with a specific transaction ID, the synchronization will only be incremental.
-
-
-## Automatic Synchronization
-
-You can allow plaid to synchronize your bank account with ERPNex every hour by selecting "Synchronize all accounts every hour" in Plaid Settings.
-
 <!-- page: erpnext/erpnext__plant-floor.md -->
 ---
 title: "Plant Floor"
@@ -76,19 +22,19 @@ How It Works
 
 After that you can see the status of machines and workstations using plant floor.
 
-![](/files/plant-floor-design.png)
+[Screenshot on the live page]
 
 
 ### Visualize Stock Summary
 
 Using plant floor, users can visualize the stock of the corresponding plant floor. Using this feature user can add or move the stock.
 
-![stock-summary](/files/stock-summary.png)  
+[Screenshot on the live page: stock-summary]  
 
 
 ### Visualize Job Cards
 
-![job_cards](/files/job_cards.gif)  
+[Screenshot on the live page: job_cards]  
 
 <!-- page: erpnext/erpnext__point-of-sale.md -->
 ---
@@ -140,7 +86,7 @@ updated: "2026-02-28"
 
 To login into the customer account, the customer has to use his Email Address and the password sent by ERPNext; generated through the sign-up process.
 
-![Website User Signup](/files/website-login.png)  
+[Screenshot on the live page: Website User Signup]  
 
 <!-- page: erpnext/erpnext__pos-invoice-consolidation.md -->
 ---
@@ -163,15 +109,15 @@ While it is true that the Stock Ledger will disclude transactions from any activ
 
 > Stock > Stock Reports > Stock Projected Quantity
 
-![Stock Projected Quantity Report](/files/36.png)
+[Screenshot on the live page: Stock Projected Quantity Report]
 
 In the above image, the "Actual Qty" column represents the value of the stock ledger. The "Reserved for POS Transactions" represents the "Actual Qty" less what quantities are currently reserved because of active POS sessions that have not yet made entries on the Stock Ledger because the sessions have not been closed. Note also that "Projected Qty" ("Active Qty" less quantities reserved for the POS, production, etc.) adds a quantity of 100 to the first line item because of an order for 100 units that has yet to be received.
 
 Within the Point of Sale, however, quantities on order but not received will not be reflected in the "Available Qty at Warehouse" field in the Item Details view. In the instance below, as there's not enough quantity on-hand, the transaction won't be permitted. This applies to any and all open POS sessions active at any time and is applied globally (as in, the transaction from one session affects the quantities available for all other open sessions).
 
-![Available Quanity at Warehouse](/files/37.png)
+[Screenshot on the live page: Available Quanity at Warehouse]
 
-![Item Unavailable](/files/38.png)
+[Screenshot on the live page: Item Unavailable]
 
 <!-- page: erpnext/erpnext__pos-profile.md -->
 ---
@@ -288,7 +234,7 @@ On setting an Item Group/Customer Group in a POS Profile, the group will be auto
 
 ### **Accounting**
 
-![](/files/image50f735.png)
+[Screenshot on the live page]
 
 - **Price List**: A Price List stores the Item Prices. Setting a Price List here will fetch the Item Prices for the current POS Profile from that Price List.
 - **Currency**: By default, this will be set according to the Company's default currency. However, you can change it. In case you change the currency, remember to change the accounts too.
@@ -385,7 +331,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. After the bank clears the check, transfer or reconcile the amount to the bank account.
 5. If it is returned or becomes stale, reverse it through the approved process.
 
-![Post Dated Cheque Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-04-payment-entry-party-amount.png)
+[Screenshot on the live page: Post Dated Cheque Entry in ERPNext]
 
 ## Important fields and what they mean
 
@@ -603,19 +549,19 @@ For better processing of such reports, ERPNext offers Prepared Reports (since v1
 1. Use the **Disable Prepared Report** checkbox to enable/disable the prepared report. If the option is checked, the prepared report option will be disabled for the selected report.
 1. Click on **Update**.
 
-![Setup Prepared Report](/files/set-prep-report.gif)
+[Screenshot on the live page: Setup Prepared Report]
 
 ## How To Use A Prepared Report
 
 1. Open said report (say General Ledger) and apply all filters needed.
 1. If the prepared report option is enabled for that report, you will see a **Generate Report** button. Click on the same.
- ![Generate Prepared Report](/files/prepared-report-generate.png)
+ [Screenshot on the live page: Generate Prepared Report]
 1. You will see a notification on the bottom-right of the screen saying "Report initiated. You can track its status _here_"
- ![Prepared Report Initiated](/files/prepared-report-bg.png)
+ [Screenshot on the live page: Prepared Report Initiated]
 1. You can either wait on the said screen or click on _here_ in the above message to open the page for the report. This will open a new page for the report:
- ![Prepared Report Queued](/files/prepared-report-queued.png)
+ [Screenshot on the live page: Prepared Report Queued]
  As you see, the report page has status as "Queued". Once the report is ready, you will see a **Show Report** button which you can click to view the report:
- ![Prepared Report Initiated](/files/prepared-report-page.png)
+ [Screenshot on the live page: Prepared Report Initiated]
 1. Since Prepared Report is also a doctype, to view the list of Prepared Reports, you can use the [Role Permission Manager](/erpnext/role-based-permissions) to grant access to the same.
 
 <!-- page: erpnext/erpnext__price-lists.md -->
@@ -638,7 +584,7 @@ To access a Price List go to:
 
 > Home > Selling/Buying/Stock > Items and Pricing > Price List
 
-![](/files/pricelist.png)
+[Screenshot on the live page]
 
 1. How to use a Price List
 
@@ -693,7 +639,7 @@ To open Pricing Rule, use the search bar or go to **Selling > Items and Pricing 
 8. Enter the rate, discount, margin, or free-product result.
 9. Save the Pricing Rule.
 
-![Pricing Rule for an item and customer in ERPNext](https://novacompanies.m.frappe.cloud/files/pricing-rule-setup.png)
+[Screenshot on the live page: Pricing Rule for an item and customer in ERPNext]
 
 ## Important fields and what they mean
 
@@ -720,7 +666,7 @@ To open Pricing Rule, use the search bar or go to **Selling > Items and Pricing 
 
 Quantity and amount fields define the threshold for the rule. In this example, Northstar Retail must order at least two AeroBook 14 laptops. The rule is restricted to Nova Electronics Trading, USD, and the 2026 validity period.
 
-![Pricing Rule quantity and period settings in ERPNext](https://novacompanies.m.frappe.cloud/files/pricing-rule-period.png)
+[Screenshot on the live page: Pricing Rule quantity and period settings in ERPNext]
 
 If the order falls below Min Qty or Min Amt, or exceeds a non-zero maximum, ERPNext does not apply the rule. When **Mixed Conditions** is enabled, ERPNext checks the combined quantity or amount of the selected items. When **Is Cumulative** is enabled, it checks qualifying transactions across the configured period.
 
@@ -733,7 +679,7 @@ For a price-based rule, select one of these outcomes:
 - **Discount Amount:** subtracts a fixed amount in the rule currency.
 - **Margin:** adds a percentage or amount over the fetched rate. See [Adding Margin](/erpnext/adding-margin).
 
-![Pricing Rule discount percentage in ERPNext](https://novacompanies.m.frappe.cloud/files/pricing-rule-discount.png)
+[Screenshot on the live page: Pricing Rule discount percentage in ERPNext]
 
 A Rate defined in a Pricing Rule takes precedence over the normal Item Price rate when the rule is eligible. Restrict the rule with **For Price List** when the result should not apply to every sales or purchase price list.
 
@@ -834,10 +780,10 @@ Or via a document.
 1. Here you can edit an existing print format or create a new Print Format for a document type like Item, Quotation, etc.
 1. Let's see how to edit an existing Print Format in this section. To know about creating a new Print Format, see the next section.
 1. Select the Print Format to edit.
- ![Select doctype for editing Print Format](/files/print-format-builder-edit.png)
+ [Screenshot on the live page: Select doctype for editing Print Format]
 
 1. Click on the Edit button, you will be taken to the Print Format Builder UI.
- ![Print Format builder screen](/files/print-format-builder-screen.png)
+ [Screenshot on the live page: Print Format builder screen]
 
 1. Here you can drag and drop fields from the sidebar to the page and vice versa.
 1. After making the changes, click on Save.
@@ -845,7 +791,7 @@ Or via a document.
 ### 1.2 Via a document
 1. Open the document for which you want to make a Print Format. Click the Printer icon, or go to Menu > Print and click on the Customize... button. Note: You must have System Manager permission to do this.
 
- ![Send Email](/files/print-format-builder-1.gif)
+ [Screenshot on the live page: Send Email]
 
 1. To add a field, just drag it from the left sidebar and add it in your layout. You can edit the layouts in sections or individual fields by clicking on the settings  icon.
 
@@ -897,7 +843,7 @@ To access Print Format, go to:
 1. Enter a name and select a DocType for which the Print Format is to be used.
 1. The module for which it should apply will be selected automatically.
 
- ![Print Format menu](/files/print-format-menu.png)
+ [Screenshot on the live page: Print Format menu]
 
 1. Save.
 
@@ -912,16 +858,16 @@ Fields in the transactions and their child tables can be hidden/shown using Cust
 For example, if you want to hide the 'Item Code' when printing a Quotation, click on the print icon to enter the print screen.
 
 Go to Menu > Customize, select Quotation Item in the 'Enter Form Type' field.
-![Print Format Customize](/files/print-format-customize1.png)
+[Screenshot on the live page: Print Format Customize]
 
 To know more, visit the [Customize Print Format](/erpnext/print-format) page.
 
 In the fields table, expand the 'Item Code' row, scroll down and tick the 'Print Hide' checkbox.
-![Print Format Print Hide](/files/print-format-customize2.png)
+[Screenshot on the live page: Print Format Print Hide]
 
 
 A newly created Print Format can be selected on the print screen of a transaction. From there you can see how it looks and proceed to print.
-![Selecting a Print Format](/files/print-format-selection.png)
+[Screenshot on the live page: Selecting a Print Format]
 
 ## 2. Video
 
@@ -936,3 +882,51 @@ A newly created Print Format can be selected on the print screen of a transactio
 1. [Letter Head](/erpnext/letter-head)
 1. [Cheque Print Template](/erpnext/cheque-print-template)
 1. [Disabling Line Breaks in Print Format Sections](/erpnext/print-format-sections)
+
+<!-- page: erpnext/erpnext__print-headings.md -->
+---
+title: "Print Headings\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/print-headings"
+updated: "2026-03-02"
+---
+
+
+**Print Headings are the names/titles you can give your transactions.**
+
+These transactions include Sales Invoices, Supplier Quotations, etc. You can create a list of names for different business communications.
+
+If you want to rename a transaction on how it appears when printing, you can do so via Print Headings. For example, a Quotation is also called a "Proposal", Estimate", or "Pro Forma Invoice".
+
+To access Print Headings go to:
+
+> Home > Settings > Print Heading
+
+## 1. How to create a Print Heading
+1. Go to the Print Heading list, click on New.
+1. Enter the heading that will appear on the document.
+1. Save.
+
+ [Screenshot on the live page: Print Heading]
+
+To use the print heading, select the created print heading in the 'Print Heading' field transaction, shown as follows:
+
+[Screenshot on the live page: Using a Print Heading]
+
+Example of a change in print heading is shown as follows:
+
+[Screenshot on the live page: Print Heading]
+
+## 2. Video
+
+<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/cKZHcx1znMc?start=58&amp;end=82&amp;rel=0">
+</iframe>
+
+
+
+### 3. Related Topics
+1. [Print Format](/erpnext/print-format)
+1. [Print Style](/erpnext/print-style)
+1. [Letter Head](/erpnext/letter-head)
+1. [Cheque Print Template](/erpnext/cheque-print-template)
+1. [Quotation](/erpnext/quotation)

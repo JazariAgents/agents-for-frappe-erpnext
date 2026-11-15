@@ -120,14 +120,14 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Set the fiscal year | Fiscal Year | `POST /api/v2/document/Fiscal%20Year` (and the list/read/update calls above) | `docs/erpnext/erpnext-27.md` lines 341–410 |
-| Configure naming series | Document Naming Settings | Single DocType. `PUT /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings` with `transaction_type` and `naming_series_options`, then `POST /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings/method/update_series` to apply. Read the current list first. | `docs/erpnext/erpnext-38.md` lines 616–698 |
-| Add a letter head | Letter Head | `POST /api/v2/document/Letter%20Head` (and the list/read/update calls above) | `docs/erpnext/erpnext-35.md` lines 216–270 |
-| Connect an email account | Email Account | `POST /api/v2/document/Email%20Account` (and the list/read/update calls above) | `docs/erpnext/erpnext-24.md` lines 3–129 |
-| Create an email template | Email Template | `POST /api/v2/document/Email%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-24.md` lines 464–506 |
+| Set the fiscal year | Fiscal Year | `POST /api/v2/document/Fiscal%20Year` (and the list/read/update calls above) | `docs/erpnext/erpnext-26.md` lines 595–664 |
+| Configure naming series | Document Naming Settings | Single DocType. `PUT /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings` with `transaction_type` and `naming_series_options`, then `POST /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings/method/update_series` to apply. Read the current list first. | `docs/erpnext/erpnext-38.md` lines 472–554 |
+| Add a letter head | Letter Head | `POST /api/v2/document/Letter%20Head` (and the list/read/update calls above) | `docs/erpnext/erpnext-34.md` lines 526–580 |
+| Connect an email account | Email Account | `POST /api/v2/document/Email%20Account` (and the list/read/update calls above) | `docs/erpnext/erpnext-23.md` lines 236–362 |
+| Create an email template | Email Template | `POST /api/v2/document/Email%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-23.md` lines 697–739 |
 | Assign documents automatically | Assignment Rule | `POST /api/v2/document/Assignment%20Rule` (and the list/read/update calls above) | `docs/erpnext/erpnext-07.md` lines 434–517 |
 | Repeat a document on a schedule | Auto Repeat | `POST /api/v2/document/Auto%20Repeat` (and the list/read/update calls above) | `docs/erpnext/erpnext-07.md` lines 867–964 |
-| Send notifications on events | Notification | `POST /api/v2/document/Notification` (and the list/read/update calls above) | `docs/erpnext/erpnext-39.md` lines 3–229 |
+| Send notifications on events | Notification | `POST /api/v2/document/Notification` (and the list/read/update calls above) | `docs/erpnext/erpnext-38.md` lines 716–942 |
 
 ## Capabilities that need a schema lookup first
 
@@ -141,8 +141,8 @@ Do not guess the name.
 | Set up a company | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-14.md` lines 370–452 |
 | Set up the chart of accounts | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 280–365 |
 | Configure currencies and exchange rates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-16.md` lines 275–424 |
-| Change system settings | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-62.md` lines 540–698 |
-| Set global defaults | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-28.md` lines 252–344 |
+| Change system settings | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-62.md` lines 464–622 |
+| Set global defaults | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-27.md` lines 434–526 |
 
 ## Not an API job
 

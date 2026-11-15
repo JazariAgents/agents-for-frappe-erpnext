@@ -29,7 +29,7 @@ Submitting the Sales Order confirms the commitment and makes it available for th
 
 
 
-![ERPNext order-to-cash flow from Quotation through Payment Entry, with Sales Order highlighted as the current stage.](/files/order-to-cash-sales-order.webp)
+[Screenshot on the live page: ERPNext order-to-cash flow from Quotation through Payment Entry, with Sales Order highlighted as the current stage.]
 
 The standard order-to-cash flow is **[Quotation](/erpnext/quotation) → Sales Order → [Delivery Note](/erpnext/delivery-note) → [Sales Invoice](/erpnext/sales-invoice) → [Payment Entry](/erpnext/payment-entry)**. You can also create a Sales Invoice directly from a submitted Sales Order when a separate delivery transaction is not required. You can also start without a Quotation or add picking, manufacturing, and purchasing steps.
 
@@ -58,7 +58,7 @@ You need create permission and submit permission to confirm an order.
 9. Save the document. ERPNext keeps it in **Draft** status.
 10. Select **Submit** when the order is confirmed.
 
-![A draft Sales Order for Northstar Retail showing two item rows, with the pencil icon highlighted for opening the row editor.](/files/sales-order-draft-items.webp)
+[Screenshot on the live page: A draft Sales Order for Northstar Retail showing two item rows, with the pencil icon highlighted for opening the row editor.]
 
 Select the **pencil icon** at the end of an item row to open its full row editor. Use it when you need to review or update fields that are not visible as table columns.
 
@@ -132,7 +132,7 @@ From **Create**, ERPNext v17 can offer documents such as:
 
 
 
-![The Create menu on a submitted Sales Order showing available fulfillment, billing, procurement, and production documents.](/files/sales-order-create-actions.webp)
+[Screenshot on the live page: The Create menu on a submitted Sales Order showing available fulfillment, billing, procurement, and production documents.]
 
 An order can be partially delivered or billed across multiple documents. ERPNext updates its delivery and billing percentages.
 
@@ -142,7 +142,7 @@ For a **Maintenance** Sales Order, enable **Skip Delivery Note** when the servic
 
 
 
-![A full-screen Maintenance Sales Order showing the Skip Delivery Note checkbox beside Order Type.](/files/sales-order-skip-delivery-note-full.webp)
+[Screenshot on the live page: A full-screen Maintenance Sales Order showing the Skip Delivery Note checkbox beside Order Type.]
 
 ### Update, hold, close, amend, or cancel
 
@@ -158,7 +158,7 @@ The Sales Order list shows the overall status, delivery date, grand total, perce
 
 
 
-![The full Sales Order list showing draft, pending, and completed orders with delivery and billing progress.](/files/sales-order-list-statuses-full.webp)
+[Screenshot on the live page: The full Sales Order list showing draft, pending, and completed orders with delivery and billing progress.]
 
 Important statuses include:
 
@@ -278,7 +278,7 @@ Prepare:
 
 The highlighted fields define the partner category, geographic association, and default commission percentage.
 
-![Sales Partner master with partner type, territory, and commission rate](https://novacompanies.m.frappe.cloud/files/sales-partner-master.png)
+[Screenshot on the live page: Sales Partner master with partner type, territory, and commission rate]
 
 ## Important fields and what they mean
 
@@ -315,7 +315,7 @@ Sales Partner fields are available on supported transactions such as a [Sales Or
 5. Confirm the commission rate and calculated total.
 6. Save and submit the transaction through the normal approval process.
 
-![Sales Partner commission calculated on a Sales Order](https://novacompanies.m.frappe.cloud/files/sales-order-commission.png)
+[Screenshot on the live page: Sales Partner commission calculated on a Sales Order]
 
 The commission value is operational data. It does not automatically create an expense, payable, or payment. See [Sales Commission](/erpnext/how-to-give-commission-to-sales-partner) for the accounting handoff.
 
@@ -329,7 +329,7 @@ Targets help compare planned partner performance with actual submitted sales.
 4. Use the highlighted pencil icon to open the complete child-row editor when needed.
 5. Save.
 
-![Item Group-wise target allocated to a Sales Partner](https://novacompanies.m.frappe.cloud/files/sales-partner-target.png)
+[Screenshot on the live page: Item Group-wise target allocated to a Sales Partner]
 
 
 | Target field        | Meaning                                                   |
@@ -352,7 +352,7 @@ A Referral Code can identify traffic or supported e-commerce orders associated w
 3. Give the partner an approved campaign URL containing the referral parameter used by your website implementation.
 4. Test the complete checkout flow before launching the campaign.
 
-![Website and referral settings on a Sales Partner](https://novacompanies.m.frappe.cloud/files/sales-partner-referral.png)
+[Screenshot on the live page: Website and referral settings on a Sales Partner]
 
 A typical parameter uses the partner code, for example:
 
@@ -385,7 +385,7 @@ Open **Sales Partner Commission Summary** and set:
 
 The highlighted result shows the calculated commission for the submitted transaction.
 
-![Sales Partner Commission Summary with a submitted Sales Order](https://novacompanies.m.frappe.cloud/files/commission-summary.png)
+[Screenshot on the live page: Sales Partner Commission Summary with a submitted Sales Order]
 
 Use this report to review transaction-level commission totals. Reconcile approved totals with Supplier invoices and [Payment Entries](/erpnext/payment-entry) before marking the partner as paid.
 
@@ -507,7 +507,7 @@ Targets are useful only when transaction attribution is consistent. Submitted Sa
 4. Complete the target values. Use the highlighted pencil icon to open the child row when you need the full editor.
 5. Save the Sales Person.
 
-![A 2026 laptop target allocated to a Sales Person](https://novacompanies.m.frappe.cloud/files/sales-person-target.png)
+[Screenshot on the live page: A 2026 laptop target allocated to a Sales Person]
 
 ## Target fields and what they mean
 
@@ -535,7 +535,7 @@ A Monthly Distribution assigns a percentage of the annual target to each month. 
 4. Confirm that the full-year allocation totals 100%.
 5. Save, then select the record in **Target Distribution** on the Sales Person target row.
 
-![An even Monthly Distribution for fiscal year 2026](https://novacompanies.m.frappe.cloud/files/monthly-distribution.png)
+[Screenshot on the live page: An even Monthly Distribution for fiscal year 2026]
 
 For an annual amount target of $144,000, an even distribution produces roughly $12,000 per month. A seasonal plan might allocate a larger percentage to the months in which demand is expected to peak.
 
@@ -582,7 +582,7 @@ Territory targets measure sales performance for customers assigned to a geograph
 5. Use the highlighted pencil icon to open the child row when needed.
 6. Save.
 
-![Territory manager and target allocation](https://novacompanies.m.frappe.cloud/files/territory-target108e8f.png)
+[Screenshot on the live page: Territory manager and target allocation]
 
 The Territory Manager link is for reference. Territory target variance is driven by the transaction's Territory, not by treating the manager as the Sales Person in a Sales Person variance report.
 
@@ -656,3 +656,154 @@ No for the Sales Order target variance workflow described here. Submit the order
 - [Sales Person](/erpnext/sales-person)
 - [Territory](/erpnext/territory)
 - [Sales Persons in Sales Transactions](/erpnext/sales-persons-in-the-sales-transactions)
+
+<!-- page: erpnext/erpnext__sales-person.md -->
+---
+title: "Sales Person | ERPNext Documentation"
+description: "Set up Sales Persons, hierarchies, contribution, commission rates, and sales targets in ERPNext for accurate performance reporting."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/sales-person"
+updated: "2026-07-24"
+---
+
+A Sales Person represents an individual or team responsible for selling to customers. Assigning Sales Persons to transactions lets ERPNext attribute revenue, calculate contribution percentages, track targets, and report performance across a hierarchy.
+
+Sales Persons can be arranged under group nodes such as **Retail Sales**, **Enterprise Sales**, or regional teams. This structure lets managers review both individual and rolled-up team performance.
+
+## Before you begin
+
+Decide:
+
+- Whether the record represents an individual or a group.
+- Where it belongs in the Sales Person hierarchy.
+- Whether it should be linked to an [Employee](/erpnext/employee).
+- Which commission rate, if any, should be stored as the default.
+- Whether you will allocate targets by Item Group and Fiscal Year.
+
+## Create a Sales Person
+
+1. Open **Sales Person** in the Selling or CRM workspace.
+2. Review the hierarchy and select **New**, as highlighted.
+
+[Screenshot on the live page: Sales Person hierarchy with a group and individual sales people]
+
+3. Enter the **Sales Person Name**.
+4. Select the **Parent Sales Person**.
+5. Link an **Employee** when the salesperson is also maintained in Frappe HR.
+6. Enter a **Commission Rate** if your process uses it as a default reference.
+7. Select **Is Group** only when the record will contain child Sales Persons.
+8. Keep **Enabled** selected for an active salesperson.
+9. Save.
+
+The highlighted fields show how an individual Sales Person is placed under a parent group. Use **Is Group** for team or regional nodes, not for an individual.
+
+[Screenshot on the live page: Sales Person hierarchy fields and target table]
+
+## Important fields and what they mean
+
+
+| Field               | What it controls                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Sales Person Name   | The name shown in transactions, reports, and the hierarchy                                                   |
+| Parent Sales Person | The group or manager node under which the record appears                                                     |
+| Employee            | Optional link to the corresponding employee record                                                           |
+| Commission Rate     | Default commission percentage associated with the Sales Person                                               |
+| Is Group            | Allows child Sales Persons below this record; group nodes are not intended for direct individual attribution |
+| Enabled             | Determines whether the Sales Person is available for current use                                             |
+| Targets             | Item Group-wise quantity or amount goals for a Fiscal Year                                                   |
+
+
+## Build a useful hierarchy
+
+Use group nodes to match how performance is reviewed. For example:
+
+- Sales Team
+  - Retail Sales
+    - Alex Morgan
+    - Jordan Lee
+  - Enterprise Sales
+    - Casey Brooks
+
+A clean hierarchy provides several benefits:
+
+- Team totals can roll up from individual Sales Persons.
+- transaction attribution remains consistent when the organization grows.
+- reports can compare individuals, teams, or branches of the sales structure.
+- targets can be assigned at the level that managers actually review.
+
+Avoid creating duplicate individuals under several groups. A sales transaction can already split contribution among multiple Sales Persons when several people share credit.
+
+## Add Sales Persons to transactions
+
+Sales Persons are added in the **Sales Team** child table of supported transactions such as a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), [Delivery Note](/erpnext/delivery-note), and [Sales Invoice](/erpnext/sales-invoice).
+
+For each row:
+
+1. Select the Sales Person.
+2. Enter the **Contribution (%)**.
+3. Use the highlighted pencil icon to open the child row when more fields are needed.
+4. Ensure the total contribution across rows is 100% when the full transaction value must be allocated.
+
+Contribution controls how ERPNext attributes the transaction amount to each Sales Person. It does not by itself create a payroll payment or accounting entry.
+
+Read [Sales Persons in Sales Transactions](/erpnext/sales-persons-in-the-sales-transactions) for transaction-level examples.
+
+## Set and review targets
+
+Use the **Targets** table to assign Item Group-wise goals for a Fiscal Year. A target can be based on quantity, amount, or both, and can use a [Monthly Distribution](/erpnext/monthly-distribution) to spread the goal across the year.
+
+See [Sales Person Target Allocation](/erpnext/sales-person-target-allocation) for the complete setup and reporting workflow.
+
+## Commission and incentives
+
+The **Commission Rate** on the Sales Person is a stored percentage that can support commission calculations and reports. The actual incentive process can depend on contribution, transaction status, collected revenue, custom rules, or payroll policy.
+
+For team incentive workflows, see [Calculate Incentive for Sales Team](/erpnext/calculate-incentive-for-sales-team) and [Sales Commission](/erpnext/sales-commission).
+
+## Disable or reorganize a Sales Person
+
+Disable a Sales Person when they should no longer be selected in new transactions. Historical transaction links remain available.
+
+To reorganize the hierarchy, change the parent or use the tree controls according to your permissions. Review reports after moving a record because the new hierarchy can change how future roll-up analysis is presented.
+
+## Troubleshooting
+
+### A Sales Person is missing from a transaction
+
+Confirm that the record is enabled and is not a group node. Also check user permissions and any company-specific restrictions.
+
+### Contribution totals are incorrect
+
+Review every row in the Sales Team table. The percentages should match how credit is shared and normally total 100%.
+
+### Performance reports show no value
+
+Confirm that the Sales Person is present on submitted transactions, the report dates and company are correct, and the relevant document status is included.
+
+### The hierarchy is hard to maintain
+
+Use a small number of durable group nodes based on teams, channels, or regions. Avoid mirroring every temporary reporting relationship.
+
+## Frequently asked questions
+
+### Must every Sales Person be linked to an Employee?
+
+No. The Employee link is optional, but it is useful when sales responsibility and HR records should connect.
+
+### Can one transaction have several Sales Persons?
+
+Yes. Add multiple rows and divide contribution among them.
+
+### Does disabling a Sales Person remove historical sales?
+
+No. Existing links and reports remain available.
+
+### Can a group node receive transaction credit?
+
+Use individual Sales Persons for direct attribution. Group nodes are intended to organize and roll up the hierarchy.
+
+## Related topics
+
+- [Sales Person Target Allocation](/erpnext/sales-person-target-allocation)
+- [Sales Persons in Sales Transactions](/erpnext/sales-persons-in-the-sales-transactions)
+- [Setting Company Sales Goal](/erpnext/setting-company-sales-goal)

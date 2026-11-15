@@ -32,7 +32,7 @@ To access Employee Advance, go to:
 4. Under the Accounting section, select Mode of Payment. Advance Account will be fetched from the Default Employee Advance Account of your Company.
 5. Save.
 
-![](https://frappehr.com/files/tHvOj5m.png)
+[Screenshot on the live page]
 
 > Note: The Employee can only Save the Employee Advance but cannot Submit it. It can be only submitted by the Expense Approver.
 
@@ -67,19 +67,19 @@ After submission of Employee Advance record, accounts user will be able to creat
 
 The Payment Entry will look like following:
 
-![](https://frappehr.com/files/BJIr6RK.png)  
+[Screenshot on the live page]  
 
 
 #### **Employee Advance Payment via Journal Entry**
 
 Alternatively, a [Journal Entry](https://docs.erpnext.com/docs/user/manual/en/journal-entry) can also be created against the Employee Advance.
 
-![Employee Advance Payment via Journal Entry](https://frappehr.com/files/employee-advance-journal-entry1.png)  
+[Screenshot on the live page: Employee Advance Payment via Journal Entry]  
 
 
 > Note: Make sure the Party Type is selected as Employee and the Reference Type is selected as Employee Advance.
 
-![Employee Advance Payment via Journal Entry](https://frappehr.com/files/employee-advance-journal-entry2.png)  
+[Screenshot on the live page: Employee Advance Payment via Journal Entry]  
 
 
 #### **Employee Advance is Paid**
@@ -100,9 +100,9 @@ When advance is paid to an Employee, there are three situations:
 
 Create the Employee Advance, create a payment entry to indicate that the amount is paid.
 
-* If amount is unused, click on the **Return** button to return the paid Advance amount ![Return Button](https://frappehr.com/files/advance-return-button.png)
+* If amount is unused, click on the **Return** button to return the paid Advance amount [Screenshot on the live page: Return Button]
 * If all of the advance is used, it will reflect in the Claimed Amount field
-* If only some amount is claimed and rest is returned, the returned amount will be shown in the 'Returned Amount' field. ![Return advance Amount](https://frappehr.com/files/advance-returned-amount.png)
+* If only some amount is claimed and rest is returned, the returned amount will be shown in the 'Returned Amount' field. [Screenshot on the live page: Return advance Amount]
 
 > Note: (On Ledger Behaviour in v16 only):  
 * Creating an **Employee Advance** does **not** create any GL (General Ledger) entry. The advance voucher is only a request/reservation.  
@@ -155,7 +155,7 @@ Before creating an Employee Attendance, it is advised that you create the follow
 5. You can also select the shift and mark employees with Late Entry and Early Exit from this view.
 6. The Marked Attendance table below the tool will show you all the employees you have marked attendance for along with their attendance status. You can use column filters to search for a particular employee or employees with a particular status form this table.
 
-![](https://frappehr.com/files/pOo6Zsf.gif)  
+[Screenshot on the live page]  
 
 
 
@@ -165,7 +165,7 @@ Before creating an Employee Attendance, it is advised that you create the follow
 
 Once the attendance is marked using the Employee Attendance Tool, the employee attendance is saved in the [Attendance](https://docs.frappe.io/hr/attendance) record as shown:
 
-![](https://frappehr.com/files/dxhxNaV.png)  
+[Screenshot on the live page]  
 
 
 **3. Related Topics**
@@ -193,7 +193,7 @@ To create a new Employee Benefit Application,
 
 > Human Resources > Payroll > Employee Benefit Application > New Employee Benefit Application
 
-![Employee Benefit Application](https://frappehr.com/files/employee-benefit-application.png)  
+[Screenshot on the live page: Employee Benefit Application]  
 
 
 Here, Employee can view the Max Benefits as per the Salary Structure Assignment and then chose from the Earning Components which are part of the employee's assigned Salary Structure. They can also enter the amount which they wish to receive as part of their Salary Slip.
@@ -222,7 +222,7 @@ Employee Benefit Claim allows Employees to - 1. Claim flexible benefits which ar
 
 You can create a new Employee Benefit Claim by going to, > Human Resources > Payroll > Employee Benefit Claim > New Employee Benefit Claim
 
-![Employee Benefit Claim](https://frappehr.com/files/employee-benefit-claim.png)  
+[Screenshot on the live page: Employee Benefit Claim]  
 
 
 Here, Employee can view the eligible amount as per their Salary Structure Assignment and claim for the amount which they wish to receive as part of their next Salary. Any remaining amount which the employee did not claim for, in a Payroll Period, will be disbursed as part of the last payroll Salary.
@@ -274,7 +274,7 @@ To create a new Employee Checkin go to:
 7. You can enable *Skip Auto Attendance* to skip that record while marking attendance.
 8. You can also capture the location from where the employee has checked in or the Biometric Device ID.
 
-![](/files/qkGD7oD.png)  
+[Screenshot on the live page]  
 
 
 If auto attendance is enabled, the attendance record marked for a set of check-ins will be linked to the document later.
@@ -290,23 +290,23 @@ If you are using a Biometric Device to log employee check-ins and check-outs you
 
 You can also track geolocation in employee checkins. To enable this, go to HR Settings and enable "**Allow Geolocation Tracking**"
 
-![](https://frappehr.com/files/UqR7S9c.png)  
+[Screenshot on the live page]  
 
 
 You can then click on the "**Fetch Geolocation**" button in the check-in form to fetch your current location
 
-![geolocation-desk](https://frappehr.com/files/geolocation-desk.gif "geolocation-desk.gif")  
+[Screenshot on the live page: geolocation-desk]  
 
 
 It geolocation tracking has been enabled, it will be automatically captured while checking in from the mobile app too
 
-![geolocation-mobile](https://frappehr.com/files/geolocation-mobile.gif "geolocation-mobile.gif")  
+[Screenshot on the live page: geolocation-mobile]  
 ### **3.2 Checkin log indicator**
 
 Employee checkins fetch appropriate shift while saving based on the time of checkin or checkout log. If there is no active shift asssociated for the time of log, the employee checkin log is marked as **Off-Shift** indicating the lack of associated shift. Since auto-attendance works based on shift, these checkin logs are excluded while marking auto-attendance.
 
 
-![](/private/files/Screenshot%202025-07-11%20at%2011-06-45%20Jane%20Doe%20-%20EMP-CKIN-07-2025-000001.png)
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__employee-flexible-benefits.md -->
 ---
@@ -355,7 +355,7 @@ Once **Is Flexible Benefit** is enabled for a salary component, user can choose 
 * When a Salary Structure is assigned to an employee, these details are copied into the **Salary Structure Assignment** and can be edited further if required.
 * The final list and amounts in the Salary Structure Assignment are what the system considers.
 
-![](/files/Screenshot%202025-09-18%20at%208.42.25%E2%80%AFPM.png)
+[Screenshot on the live page]
 ---
 
 ## Employee Benefit Application
@@ -364,7 +364,7 @@ Once **Is Flexible Benefit** is enabled for a salary component, user can choose 
 * If no Benefit Application exists, the system falls back to the Salary Structure Assignment.
 * To make a Benefit Application mandatory, enable **Mandatory Benefit Application** in Payroll Settings.
 
-<img width="956" height="358" alt="Screenshot 2025-09-18 at 3 43 12 PM" src="https://github.com/user-attachments/assets/a3938f4f-2ac5-4f75-889b-4672f0d73dbe">
+[Screenshot on the live page]
 
 ---
 
@@ -375,7 +375,7 @@ Once **Is Flexible Benefit** is enabled for a salary component, user can choose 
   * **Accrued Benefits** appear in the *Accrued Benefits* table.
   * **Payouts** appear as *Earnings*.
   * 
-![](/files/Screenshot%202025-09-18%20at%208.44.32%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 * After salary is processed, a **Benefit Ledger Entry** is created for every accrual and payout to keep track of balances.
 
@@ -418,7 +418,7 @@ A report to track total accruals and payouts.
 * For standard accruals, users can create an Additional Salary for pending payouts directly.
 * For flexible benefits, payouts must be done via an **Employee Benefit Claim**.
 
-![](/files/Screenshot%202025-09-18%20at%208.48.27%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__employee-grade.md -->
 ---
@@ -457,11 +457,11 @@ Before creating an Employee Grade, it is advisable you create the following docu
 3. Enter the Default [Leave Policy](https://docs.frappe.io/hr/leave-policy) and Default [Salary Structure](https://docs.frappe.io/hr/salary-structure) for that Grade.
 4. Save.
 
-![Employee Grade](https://frappehr.com/files/employee-grade.png)
+[Screenshot on the live page: Employee Grade]
 
 Shown below are the different Employee Grades created.
 
-![New Employee Grade](https://frappehr.com/files/employee-grade1.png)  
+[Screenshot on the live page: New Employee Grade]  
 
 
 You also can access [Employee](https://docs.frappe.io/hr/employee), [Leave Period](https://docs.frappe.io/hr/leave-type), [Employee Onboarding Template](https://docs.frappe.io/hr/employee-onboarding) and [Employee Separation Template](https://docs.frappe.io/hr/employee-separation).
@@ -507,7 +507,7 @@ Before creating an Employee Group, it is advisable you create the following docu
 3. Select and add Employee ID to the group. The Employee Name will get automatically fetched.
 4. Save.
 
-![Employee Group](https://frappehr.com/files/employee-group.png)
+[Screenshot on the live page: Employee Group]
 
 **3. Features**
 ---------------
@@ -555,11 +555,11 @@ To access Health Insurance Provider document, go to:
 2. Enter the Health Insurance Name.
 3. Save.
 
-![Employee](https://frappehr.com/files/health-insurance.png)
+[Screenshot on the live page: Employee]
 
 Additionally, in the Employee master, you can attach the Health Insurance Provider Name and fill in the Health Insurance No.
 
-![Employee](https://frappehr.com/files/employee-health-insurance.png)  
+[Screenshot on the live page: Employee]  
 
 
 **2. Related Topics**
@@ -604,7 +604,7 @@ Before creating an Employee Incentive, it is advisable to create the following:
 6. Save and Submit.
 7. On submit, the 'Additional Salary' document of the specified 'Salary Component' is created. This will be fetched while running the Payroll Entry.
 
-![Employee Incentive](https://frappehr.com/files/employee-incentive.png)
+[Screenshot on the live page: Employee Incentive]
 
 **2. Related Topics**
 ---------------------
@@ -682,7 +682,7 @@ Before creating an Employee Onboarding, it is advisable that you create the foll
 4. Enter Date of Joining.
 5. Save and Submit.
 
-![Onboarding Template](https://frappehr.com/files/employee-onboarding1.png)
+[Screenshot on the live page: Onboarding Template]
 
 > Note 1: If an Employee Onboarding Template isn't created, you can directly fill the onboarding information in the Employee Onboarding doctype itself.
 
@@ -702,7 +702,7 @@ To create a new Employee Onboarding Template:
 3. Mention the Activities for onboarding. For each Activity, you can also mention the User or Role, or one of it, to whom this Activity will be assigned.
 4. You can also schedule the Onboarding Activities by specifying the **Begin On (Days)** i.e. when the activity has to start and the **Duration (in Days)** for the same.
 
-![Onboarding Template](https://docs.erpnext.com/files/onboarding-template972e99.png)
+[Screenshot on the live page: Onboarding Template]
 
 ### **3.2 Tasks and Assignments**
 
@@ -710,12 +710,12 @@ On submission of the Employee Onboarding, a [Project](https://docs.erpnext.com/d
 
 You can view the created Projects and Tasks as shown below:
 
-![Onboarding Template](https://frappehr.com/files/project-task.png)  
+[Screenshot on the live page: Onboarding Template]  
 
 
 Additionally, each Activity can be assigned weights based on its importance.
 
-![Tasks and Assignments](https://frappehr.com/files/employee-onboarding3.png)  
+[Screenshot on the live page: Tasks and Assignments]  
 
 
 Based on the progress on the Tasks, progress can be updated in the Employee Onboarding process.
@@ -724,7 +724,7 @@ Based on the progress on the Tasks, progress can be updated in the Employee Onbo
 
 You can directly create an Employee through the Employee Onboarding doctype (if not already created) once all the mandatory onboarding tasks are complete.
 
-![Onboarding Template](https://frappehr.com/files/onboarding-employee.png)  
+[Screenshot on the live page: Onboarding Template]  
 
 
 **4. Related Topics**
@@ -759,7 +759,7 @@ To access Employee Other Income, go to: > Home > Human Resources > Employee Tax 
 4. Enter the Amount and its Source.
 5. Save and Submit.
 
-![Employee Other Income](https://frappehr.com/files/employee-other-income.png)  
+[Screenshot on the live page: Employee Other Income]  
 
 
 **2. Related Topics**
@@ -804,7 +804,7 @@ Before creating a Performance Feedback, you should create the following:
 
 You can directly give feedback to an employee from their Appraisal document. If you have the required permissions, you can submit the performance feedback right from this view by clicking on the **New Feedback** button.
 
-![add feedback](https://frappehr.com/files/add-feedback.png)  
+[Screenshot on the live page: add feedback]  
 
 
 For more details about the feedback timeline check [Appraisal](https://docs.frappe.io/hr/appraisal#32-feedback)
@@ -819,7 +819,7 @@ For more details about the feedback timeline check [Appraisal](https://docs.frap
 6. You can rate the employee for each criteria and add your feedback under the feedback.
 7. Save and Submit.
 
-![perf feedback](https://frappehr.com/files/perf-feedback.png)  
+[Screenshot on the live page: perf feedback]  
 
 
 **3. Features**
@@ -872,7 +872,7 @@ Before creating an Employee Promotion, it is advisable that you create the follo
 3. Enter the Promotion Date.
 4. In the Employee Promotion Detail table, select the Property and set the Current and New value.
 
-![Employee Promotion](https://frappehr.com/files/employee-promotion.png)
+[Screenshot on the live page: Employee Promotion]
 
 > Note: Promotion document can be submitted on or after Promotion Date. Once submitted all the changes added to Promotion Details table will be applied to the Employee. Frappe HR also keeps a record of all promotions of the Employee in the Employment History table in Employee document.
 
@@ -924,7 +924,7 @@ To access Employee Referral, go to:
 3. Select Employee under Referrer.
 4. Save and Submit.
 
-![employee referral doc](https://frappehr.com/files/employee-referral-doc.png)  
+[Screenshot on the live page: employee referral doc]  
 
 
 **3. Features**
@@ -936,7 +936,7 @@ When you submit an employee referral document the initial status will be "Pendin
 
 Clicking this button will create a new **Job Applicant** with the status "Open". The status of the **Employee Referral** document will change to "In Process"
 
-![Create Job Applicant](https://frappehr.com/files/create-job-applicant.png)  
+[Screenshot on the live page: Create Job Applicant]  
 
 
 When someone changes the status of the **Job Applicant** to "Hold" or "Replied", the status of the Employee Referral will remain "In Process". If the status of the Job Applicant changes to "Accepted" or "Rejected", the status of the **Employee Referral** document will also change to "Accepted" or "Rejected" respectively.
@@ -947,12 +947,12 @@ Many companies provide bonuses to their employees for such referrals. Frappe HR 
 
 For the Referral bonus, you need to check the "Is applicable for referral bonus" checkbox before submitting the document. After submitting the document, the "Create Additional Salary" button will appear at the top right corner, if the status is "Accepted".
 
-![Referral Bonus](https://frappehr.com/files/referral-bonus.png)  
+[Screenshot on the live page: Referral Bonus]  
 
 
 On Click, It will redirect you to the Additional salary form where you need to select Salary component and Payroll date and after that, you need to save and submit the document.
 
-![Create Referral Bonus](https://frappehr.com/files/create-referral-bonus.png)  
+[Screenshot on the live page: Create Referral Bonus]  
 
 
   
@@ -1000,7 +1000,7 @@ Before creating an Employee Separation, it is advisable that you create the foll
 5. Additionally, you can also enter the Exit Interview Summary.
 6. Save and Submit.
 
-![Separation Template](https://frappehr.com/files/employee-separation.png)
+[Screenshot on the live page: Separation Template]
 
 > Note 1: If an Employee Separation Template isn't created, you can directly fill the separation information in the Employee Separation doctype itself.
 
@@ -1020,7 +1020,7 @@ To create a new Employee Separation Template:
 3. Mention the Activities for separation. For each Activity, you can also mention the User or Role, or one of it, to whom this Activity will be assigned.
 4. You can also schedule the Separation Activities by specifying the **Begin On (Days)** i.e. when the activity has to start and the **Duration (Days)** for the same.
 
-![Separation Template](https://docs.erpnext.com/files/separation-template.png)
+[Screenshot on the live page: Separation Template]
 
 ### **3.2 Tasks and Assignments**
 
@@ -1030,7 +1030,7 @@ You can view the created Projects and Tasks through View > Project/ Tasks.
 
 Additionally, each Activity can be assigned weights based on its importance.
 
-![Tasks and Assignments](https://frappehr.com/files/employee-sep1.png)  
+[Screenshot on the live page: Tasks and Assignments]  
 
 
 Based on the progress on the Tasks, progress can be updated in the Employee Separation process.
@@ -1067,7 +1067,7 @@ To record an Employee Skill Map go to:
 
 Make sure you have set the required Skills for designations from the Skill doctype.
 
-Example of Skills for a Designation: ![Designation Skills](https://frappehr.com/files/designation-skills.png)  
+Example of Skills for a Designation: [Screenshot on the live page: Designation Skills]  
 
 
 **1. How to create an Employee Skill Map**
@@ -1080,7 +1080,7 @@ Example of Skills for a Designation: ![Designation Skills](https://frappehr.com/
 5. Under the Trainings table, select the Training Event and the Training Date.
 6. Save.
 
-![Employee Skill Map](https://frappehr.com/files/employee-skill-map.png)  
+[Screenshot on the live page: Employee Skill Map]  
 
 
   

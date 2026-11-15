@@ -1,412 +1,5 @@
 <!-- Frappe documentation: frappe-hr, part 8 of 10. Index: docs/INDEX.md -->
 
-<!-- page: frappe-hr/hr__organizational-chart.md -->
----
-title: "Organizational Chart"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/organizational-chart"
-updated: "2026-02-04"
----
-
-**An organizational chart shows the organizational structure by depicting connections between different employees with their designation, image, and name. In large organizations where it's difficult to remember names, people can interact with the org chart and know the hierarchy through faces and other info.**
-
-To access Employee Grade, go to:
-
-> Home > Human Resources > Employee > Organizational Chart
-
-* The org chart is created based on the "Reports To" field in Employee master.
-* The employees that don't report to anyone are shown in the first level.
-* The chart expands horizontally on the desktop view and vertically on mobile.
-* Each node has details like the Employee Name, Image, Designation, and the total number of connections.
-* The connections are the total number of descendants a particular node has till the end of the hierarchy.
-* The edit button in every node navigates to the Employee Master.
-* As you navigate through the chart, the active hierarchy is highlighted.
-* You can use the Company filter to check the org chart for individual companies.
-
-![Org Chart](https://frappehr.com/files/org-chart.png)  
-
-
-![Org Chart Mobile](https://frappehr.com/files/org-chart-mobile-2.png)  
-
-
-  
-
-<!-- page: frappe-hr/hr__overtime.md -->
----
-title: "Overtime"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/overtime"
-updated: "2026-02-04"
----
-
-Overtime allows employees to be compensated or granted compensatory leave for working beyond their standard working hours. Overtime is calculated based on employee check-in and check-out times and processed through Attendance and Overtime Slip records
-
-### Create an Overtime Type
-
-Navigate to the **Overtime Type** doctype to configure how overtime is handled:
-
-- **Maximum Overtime Hours Allowed Per Day**: If set, overtime exceeding this limit won’t be considered for payment.
-- **Overtime Salary Component**: The salary component through which overtime earnings are paid.
-- **Overtime Amount Calculation**:
-  - **Fixed Hourly Rate**: A predefined per-hour rate multiplied by total overtime hours.
-  - **Salary Component-Based**: Select applicable salary components. The total amount is divided by the salary cycle's payment days and standard working hours to determine the hourly rate.
-- **Pay Rate Multipliers**:
-  - **Standard Multiplier**: The hourly rate is multiplied by this value.
-  - **Holiday/Weekend Multipliers**: If enabled, separate multipliers can be set for public holidays and weekends; otherwise, the standard multiplier applies.
- 
-![](/files/Screenshot%202025-03-25%20at%204.27.08%E2%80%AFPM.png)
-
-
-### To allow overtime for a specific **Shift Type**:
-
-1. Navigate to the **Shift Type** doctype.
-2. Enable **Allow Overtime**.
-3. Set the applicable **Overtime Type**.
-4. Assign the shift to employee(s).
-
-![](/files/Screenshot%202025-03-25%20at%204.38.16%E2%80%AFPM.png)
-
-### Record Employee Check-ins & Mark Attendance
-
-- Employees' **check-in and check-out times** must be recorded.
-- **Attendance must be processed** for the shift type as overtime details are fetched based on this.
-
-
-### Generate & Approve Overtime Slip
-
-1. Create an **Overtime Slip** and select the **employee** and **date range**.
-2. Click **Fetch Overtime Details** to populate the **Overtime Details** table based on attendance records.
-3. **HR can approve or reject** the overtime slip.
-4. Upon approval, an **Additional Salary** record is created, ensuring payment is included in the salary cycle corresponding to the slip’s **from date**.
-
-![](/files/Screenshot%202025-03-25%20at%204.40.52%E2%80%AFPM.png)
-
-<!-- page: frappe-hr/hr__payroll-articles__make-bank-entry-from-payroll-entry.md -->
----
-title: "Make Bank Entry from Payroll Entry"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/payroll-articles/make-bank-entry-from-payroll-entry"
-updated: "2026-07-02"
----
-
-After payroll is processed, companies usually need to record the actual salary payment made from the bank account. In Frappe HR, this can be done from the Payroll Entry by creating a Bank Entry.
-
-A Bank Entry records the movement of money from the company's bank account to settle the payroll liability created during payroll processing.
-
-## When to use this
-
-Use Make Bank Entry when:
-
-- Payroll Entry has been created for a payroll period.
-- Salary Slips have been created and submitted.
-- Payroll accounting entries have been posted.
-- The company is ready to record payment of salaries through a bank account.
-
-## Before you begin
-
-Make sure the following setup is complete:
-
-- Employees have valid salary structures and salary slips.
-- Payroll Entry has been processed for the correct payroll period.
-- Salary Slips are submitted.
-- Payroll accounting has been posted.
-- The company has a bank account configured in ERPNext.
-- The payable account and bank account used for payroll are correct.
-
-## How it works
-
-When payroll is processed, ERPNext/Frappe HR records the salary expense and the amount payable to employees. The Bank Entry is then used to record the payment of that payable amount from the bank.
-
-Simple flow:
-
-```
-Create Payroll Entry
-        |
-        v
-Create Salary Slips
-        |
-        v
-Submit Salary Slips
-        |
-        v
-Post Payroll Accounting Entry
-        |
-        v
-Make Bank Entry
-        |
-        v
-Submit Bank Entry
-        |
-        v
-Salary Payable is settled
-```
-
-## Steps to make a Bank Entry
-
-1. Open the submitted Payroll Entry.
-2. Check that the Salary Slips are created and submitted.
-3. Check that the payroll accounting entry has been created.
-4. Click Make Bank Entry from the Payroll Entry actions.
-5. Review the generated Bank Entry.
-6. Confirm the bank account, payable account, posting date, and amount.
-7. Save and submit the Bank Entry.
-
-Once submitted, the Bank Entry records the salary payment and reduces the outstanding payroll payable balance.
-
-## What the Bank Entry represents
-
-The Bank Entry usually records two sides of the transaction:
-
-- Debit: Payroll payable or salary payable account
-- Credit: Bank account from which salaries are paid
-
-This means the liability created during payroll processing is reduced, and the bank balance is reduced by the salary payment amount.
-
-## Things to check before submitting
-
-Before submitting the Bank Entry, verify:
-
-- The posting date matches the salary payment date.
-- The bank account is correct.
-- The payable account is correct.
-- The amount matches the salary amount to be paid.
-- The company and cost center details are correct, if applicable.
-
-## Common mistakes
-
-### Salary Slips are not submitted
-
-The Bank Entry should be made only after salary slips are submitted and payroll accounting is posted.
-
-### Wrong bank account selected
-
-If the wrong bank account is selected, the accounting impact will be incorrect. Always review the bank account before submission.
-
-### Payroll accounting not posted
-
-If the salary payable entry has not been created, the Bank Entry may not correctly settle the payroll liability.
-
-## Summary
-
-Make Bank Entry from Payroll Entry is used to record salary payment after payroll has been processed. It connects payroll processing with accounting by settling the salary payable amount against the company's bank account.
-
-<!-- page: frappe-hr/hr__payroll-correction.md -->
----
-title: "Payroll Correction"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/payroll-correction"
-updated: "2026-02-04"
----
-
-The feature ensures accurate payroll calculations by allowing users to reverse a portion of LWP days, automatically recalculating earnings and deductions based on the reversal.
-
-How to Use
-
-Step 1: Navigate to Payroll Correction
-1.	Go to HR > Payroll > Payroll Correction.
-2.	Click New to create a new Payroll Correction entry.
-Step 2: Select Employee and Payroll Period
-
-- Choose the Employee whose LWP needs correction.
-- Select the Payroll Period.
-- The system will fetch available Salary Slips with LWP and absent days applied.
-
-Step 3: Select the Month for LWP Reversal
-
-- In the "Select Month for LWP Reversal" field, choose the month from the dropdown.
-- Once that is done system fetches:
-  - Salary Slip Reference
-  - Absent Days
-  - LWP Days
-  - Total Working Days
-  - Total LWP Applied
-
-Step 4: Enter the number of days to reverse in the Days to Reverse field.
-
-Step 5: Save
-
-- Upon save arrear details will be populated for Earnings, Deductions and Accrued Benefits
-
-Step 5: Submit the Payroll Correction
-
-- •	Once validated, submit the document.
-- •	The system will:
-  - Create Additional Salary Entries against earnings and deductions for the reversed amount.
-  - Record accruals in Employee Benefit Ledger
-
-<!-- page: frappe-hr/hr__payroll-entry.md -->
----
-title: "Payroll Entry"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/payroll-entry"
-updated: "2026-02-04"
----
-
-**Payroll is the sum total of all compensation a business must pay to its employees for a set period of time or on a given date.**
-
-In Frappe HR, Payroll Entry enables bulk processing of payroll for employees. In other words, processing salary slips of all employees in one go. The bulk processing can be Company-wide or based on these categories: Branch, Department, or Designation.
-
-To access Payroll Entry, go to:
-
-
-> **Home > Human Resources > Payroll > Payroll Entry**
-> 
-> 
-
-**1. How to create a Payroll Entry**
-------------------------------------
-
-1. Go to to Payroll Entry list, click on New.
-2. Select the Payroll Frequency.
-3. Select Branch, Designation and Department to filter out employees (optional).
-4. Select Project (optional) if you want to run the payroll against a project.
-5. Select 'Validate Attendance' and 'Salary Slip Based on Timesheet' checkboxes in case you want to deduct the salary based on attendance and if you want to also consider the timesheets of the employees respectively.
-6. Select the Payment Account to make the Bank Entry.
-7. Save.
-
-Once the information is saved, click on the **Get Employees** button to get a list of Employees for which the Salary Slips will be created based on the selected criteria.
-
-Once the list of Employees is fetched, click on the **Create Salary Slips** button to generate Salary Slips.
-
-![Payroll Entry](https://frappehr.com/files/payroll-entry-get-employees.png)  
-
-
-
-> **Note: If the Salary Slips are already created, the system will not create any more Salary Slips. You can also just save the form as Draft and create the Salary Slips later.**
-> 
-> 
-
-**2. Features**
----------------
-
-### **2.1 Salary Accrual**
-
-After verifying the Salary Slips, you can Submit them all together by clicking on the **Submit Salary Slip** button.
-
-![Payroll Entry](https://frappehr.com/files/payroll-entry.png)  
-
-
-This will also book the default Payroll Payable account against respective Expense Heads (as configured in Salary Components) to record the accrual of salary to employees.
-
-**Cost Center:**
-
-You can select Cost Center in the Payroll Entry against which the expenses will be posted.
-
-If you want to book expenses against multiple cost centers based on Employee/Department, you can do so by setting Payroll Cost Center in the Employee/Department master.
-
-![](https://frappehr.com/files/ViFAtRT.png)  
-
-
-Even multiple cost centers can be assigned against a single Employee. You can do so via the Salary Structure Assignment document.
-
-![](https://frappehr.com/files/hUnTWPJ.png)  
-
-
-Cost Center assigned in Salary Structure Assignment gets the highest priority and then Employee and Department master respectively. The least priority is given to the Cost Center selected in Payroll Entry.
-
-![Payroll Entry](https://frappehr.com/files/payroll-make-accrual-entry.png)  
-
-
-
-> **Note: Submitting Salary Slips one by one manually will not create the Journal Entry to record salary accrual.**
-> 
-> 
-
-### **2.2 Salary Payment**
-
-The final step is to book the Salary Payment.
-
-Salaries in businesses are usually dealt with extreme privacy. In most cases, companies issue a single payment to the bank combining all salaries and the bank distributes the salaries to each employee’s salary account.
-
-This way there is only one payment entry in the company’s books of accounts and anyone with access to the company’s accounts will not have access to the individual salaries.
-
-The salary payment entry is a Journal Entry that debits the total of the Earnings type salary component and credits the total of Deductions type salary component of all Employees to the default account set at the Salary Component level for each component.
-
-To generate your salary payment voucher from Payroll Entry, click on the **Make Bank Entry** button.
-
-Payroll Entry will route you to Journal Entry with relevant filters to view the draft Journal Vouchers created. You will have to set the reference number and date for the transactions and Submit the Journal Entry.
-
-![Payroll Entry](https://frappehr.com/files/payroll-make-bank-entry.png)  
-
-
-
-> **Note: For Salary Components which are Flexible Benefits and has *Create Separate Payment Entry Against Benefit Claim* checked, Frappe HR will book separate draft Journal Entries.**
-> 
-> 
-
-**3. Related Topics**
----------------------
-
-1. [Salary Component](https://docs.frappe.io/hr/salary-component)
-2. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-3. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
-4. [Journal Entry](https://docs.erpnext.com/docs/user/manual/en/journal-entry)
-
-  
-
-<!-- page: frappe-hr/hr__payroll-management.md -->
----
-title: "Payroll Management"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/payroll-management"
-updated: "2026-02-04"
----
-
-Payroll processing is an important function of every enterprise HR. Frappe HR greatly simplifies this process by offering an array of features that you can utilize from Salary Structure management to bulk processing Payroll of employees. Read the following documentation to understand how to configure and use Frappe HR Human Resources to super power your Payroll processing.
-
-**Related Topics**
-------------------
-
-1. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
-2. [Salary Component](https://docs.frappe.io/hr/salary-component)
-3. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-4. [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
-5. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
-6. [Additional Salary](https://docs.frappe.io/hr/additional-salary)
-7. [Retention Bonus](https://docs.frappe.io/hr/retention-bonus)
-8. [Employee Incentive](https://docs.frappe.io/hr/employee-incentive)
-
-  
-
-<!-- page: frappe-hr/hr__payroll-period.md -->
----
-title: "Payroll Period"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/payroll-period"
-updated: "2026-02-04"
----
-
-**A Payroll Period is a period for which Employees get paid for their occupation with the Company.**
-
-Payroll Period helps you define Salary Structures and to calculate tax for a specific period based on applicable Income Tax Slab.
-
-To access Payroll Period, go to:
-
-
-> **Home > Human Resources > Payroll > Payroll Period**
-> 
-> 
-
-**1. How to create a Payroll Period**
--------------------------------------
-
-1. Go to Payroll Period list, click on New.
-2. Enter Name.
-3. Select Start Date and End Date of Payroll Period.
-4. Save.
-
-**2. Related Topics**
----------------------
-
-1. [Salary Component](https://docs.frappe.io/hr/salary-component)
-2. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-3. [Income Tax Slab](https://docs.frappe.io/hr/income-tax-slab)
-4. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
-5. [Employee Tax Exemption Proof Submission](https://docs.frappe.io/hr/employee-tax-exemption-proof-submission)
-6. [Employee Tax Exemption Declaration](https://docs.frappe.io/hr/employee-tax-exemption-declaration)
-
-  
-
 <!-- page: frappe-hr/hr__payroll-settings.md -->
 ---
 title: "Payroll Settings"
@@ -422,7 +15,7 @@ To access Payroll Settings, go to: > Home > Payroll > Settings > Payroll Setting
 **1. Working Days & Hours**
 ---------------------------
 
-![](https://frappehr.com/files/0jpZNkE.png)  
+[Screenshot on the live page]  
 
 
 #### **1.1 Calculate Payroll Working Days Based On**
@@ -452,7 +45,7 @@ Based on this fraction, the salary for Half Day will be calculated. For example,
 **2. Salary Slip**
 ------------------
 
-![](https://frappehr.com/files/8i1mB1S.png)  
+[Screenshot on the live page]  
 
 
 #### **2.1 Disable Rounded Total**
@@ -464,7 +57,7 @@ If enabled, hides and disables Rounded Total field in Salary Slips
 **3. Email**
 ------------
 
-![](https://frappehr.com/files/g2R6b5Z.png)  
+[Screenshot on the live page]  
 
 
 #### **3.1 Email Salary Slip to Employee**
@@ -492,19 +85,19 @@ This will generate a password like SAL-Jane-1972
 **4. Other Settings**
 ---------------------
 
-![](https://frappehr.com/files/gMl5WRl.png)  
+[Screenshot on the live page]  
 
 
 #### **4.1 Define Opening Balance for Earning and Deduction**
 
-If enabled, it will allow you to set up opening entries for **Taxable Earnings till Date** and **Tax Deducted till Date** in the Salary Structure Assignment if there are no existing salary slips for the employee.**![](https://frappehr.com/files/bYBjuyW.png)**  
+If enabled, it will allow you to set up opening entries for **Taxable Earnings till Date** and **Tax Deducted till Date** in the Salary Structure Assignment if there are no existing salary slips for the employee.**[Screenshot on the live page]**  
 
 
 #### **4.2 Process Payroll Accounting Entry based on Employee**
 
 By default, a consolidated Journal Entry is created against the Payroll Entry for all the employees. If you want a better breakup of payroll amounts per employee, enable this to process employee-wise accounting entries.
 
-![](https://frappehr.com/files/B9OY6ym.png)  
+[Screenshot on the live page]  
 
 
   
@@ -549,7 +142,7 @@ This document allows you to define each Earning and Deduction component which ca
 
 #### **Earning**
 
-![Salary Component Earnings](https://frappehr.com/files/salary-component.png)  
+[Screenshot on the live page: Salary Component Earnings]  
 
 
 * Is Additional Component: This option specify that the component can only be paid as Additional Salary. Examples of this component could be Performance Bonus or pay received for on-site deputation etc. Such components are not considered to be part of normal Salary Structure. Instead, Additional Salary with these components can be submitted as required which will be added to the Salary Slip automatically.
@@ -564,14 +157,14 @@ This document allows you to define each Earning and Deduction component which ca
 	
 	
 		- Only Tax Impact (Cannot Claim But Part of Taxable Income): Such components are those which the company has already paid to the Employee in cash or by some other means, for example a car purchased for the Employee's use. The Employee cannot claim but is liable to pay tax. The amount allocated for this component will be considered while calculating the taxable income of the Employee.
-		- Create Separate Payment Entry Against Benefit Claim: Some of the flexible benefits may be legally required to be paid via separate vouchers. If you enable this, while posting the bank entry the amount paid for such components will be posted as a separate entry for each Employee.![Flexible Salary Component](https://frappehr.com/files/salary-component-1.png)  
+		- Create Separate Payment Entry Against Benefit Claim: Some of the flexible benefits may be legally required to be paid via separate vouchers. If you enable this, while posting the bank entry the amount paid for such components will be posted as a separate entry for each Employee.[Screenshot on the live page: Flexible Salary Component]  
 	
 	
 	> Note: Normal Tax calculation does not include Flexible Benefits as in most cases these are exempted from Tax. To tax these components anytime before that last payroll, use "Deduct Tax For Unclaimed Employee Benefits" in Payroll Entry / Salary Slip while processing the Salary.
 
 #### **Deduction**
 
-![Salary Component Deduction](https://frappehr.com/files/salary-component-2.png)  
+[Screenshot on the live page: Salary Component Deduction]  
 
 
 * Variable Based On Taxable Salary: If you enable this, the component will be considered as the standard Tax deduction component. Tax will be calculated based on the Income Tax Slab linked to the employee.
@@ -597,7 +190,7 @@ Usual components of a salary structure (in India) include:
 * Bonus: Taxable part of the CTC, usually a once a year lump sum amount, given to the employee based on the individual’s as well as the organizational performance for the year.
 * Employee Stock Options: ESOPS are Free/discounted shares given by the company to the employees. This is done to primarily increase employee retention.
 
-![Submitted Salary Structure](https://frappehr.com/files/salary-structure.png) A submitted Salary Structure
+[Screenshot on the live page: Submitted Salary Structure] A submitted Salary Structure
 
 ### **Creating a New Salary Structure**
 
@@ -619,7 +212,7 @@ Salary Slip based on Timesheet is applicable if you have timesheet based payroll
 1. Check "Salary Slip Based on Timesheet"
 2. Select the salary component and enter Hour Rate (Note: This salary component gets added to earnings in Salary Slip)
 
-![Salary Slip based on Timesheet](https://frappehr.com/files/salary-timesheet.png)  
+[Screenshot on the live page: Salary Slip based on Timesheet]  
 
 
 #### **Earnings and Deductions in Salary Structure**
@@ -630,12 +223,12 @@ If the condition and formula for any of the earnings or deductions are not confi
 
 #### **Condition and Formula**
 
-![Condition and Formula](https://frappehr.com/files/condition-formula.png)  
+[Screenshot on the live page: Condition and Formula]  
 
 
 #### **Condition and Amount**
 
-![Condition and Amount](https://frappehr.com/files/condition-amount.png)  
+[Screenshot on the live page: Condition and Amount]  
 
 
 In conditions and formulas,
@@ -646,7 +239,7 @@ In conditions and formulas,
 
 #### **Account Details**
 
-![Salary Structure Account](https://frappehr.com/files/salary-structure-account.png)  
+[Screenshot on the live page: Salary Structure Account]  
 
 
 * Select Mode of Payment and Payment Account for the Salary Slips which will be generated using this Salary Structure
@@ -668,7 +261,7 @@ To create a new Salary Structure Assignment go to:
 
 > Human Resources > Payroll > Salary Structure Assignment > New Salary Structure Assignment
 
-![Salary Structure Assignment](https://frappehr.com/files/salary-structure-assignment.png)  
+[Screenshot on the live page: Salary Structure Assignment]  
 
 
 
@@ -689,7 +282,7 @@ You can also create salary slip for multiple employees using Payroll Entry:
 
 #### **Payroll Entry**
 
-![Payroll Entry](https://frappehr.com/files/payroll-entry.png)  
+[Screenshot on the live page: Payroll Entry]  
 
 
 In Payroll Entry,
@@ -704,7 +297,7 @@ In Payroll Entry,
 8. Select the Cost Center and Payment Account.
 9. Save the form and Submit it to create Salary Slip records for each active Employee for the time period selected. If the Salary Slips are already created, the system will not create any more Salary Slips. You can also just save the form as Draft and create the Salary Slips later.
 
-![Submitted Payroll Entry](https://frappehr.com/files/created-payroll.png)  
+[Screenshot on the live page: Submitted Payroll Entry]  
 
 
 Once all Salary Slips are created, you can use *View Salary Slips* to verify if they are created correctly or edit it if you want to deduct Leave Without Pay (LWP).
@@ -723,14 +316,14 @@ The salary payment entry is a Journal Entry that debits the total of the earning
 
 To generate your salary payment voucher from Payroll Entry, click on - > Make > Bank Entry
 
-![Payroll Make Entry](https://frappehr.com/files/payroll-make-bank-entry.png)  
+[Screenshot on the live page: Payroll Make Entry]  
 
 
 Payroll Entry will route you to Journal Entry with relevant filters to view the draft Journal Vouchers created. You shall set reference number and date for the transactions and Submit the Journal Entries.
 
 >Note: For Salary Components which are Flexible Benefits and has *Create Separate Payment Entry Against Benefit Claim* checked, Frappe HR will book separate draft Journal Entries.
 
-![Payroll Entry](https://frappehr.com/files/payroll-journal-entry.png)  
+[Screenshot on the live page: Payroll Entry]  
 
 
 **Creating Salary Slips Manually**
@@ -742,7 +335,7 @@ Once the Salary Structure is created and assigned to employees via Salary Struct
 
 #### **Salary Slip**
 
-![Salary Slip](https://frappehr.com/files/salary-slip.png)  
+[Screenshot on the live page: Salary Slip]  
 
 
   
@@ -768,7 +361,7 @@ This report shows the Project Profitability with the following data:
 - Salary Slip generated using the Timesheet
 - Sales Invoice generated using the Timesheet
 
-![](/files/profitability-report.gif)
+[Screenshot on the live page]
 
 ### Calculation of Utilization
 
@@ -814,19 +407,19 @@ Go to
 
 Check the **Enable Push Notification Relay** checkbox
 
-![](https://frappehr.com/files/LoM5jEH.png)  
+[Screenshot on the live page]  
 
 
 In your mobile app:
 
 Go to **Profile > Settings** or **Notification Icon > Settings** and click on "**Enable Push Notifications"**
 
-![push](https://frappehr.com/files/push.png "push.png")  
+[Screenshot on the live page: push]  
 
 
 This will register your site on the Frappe Cloud relay server and you will receive push notifications.
 
-![push-notifications](https://frappehr.com/files/push-notifications.png "push-notifications.png")  
+[Screenshot on the live page: push-notifications]  
 
 
   
@@ -876,7 +469,7 @@ There are two ways to open the report:
 1. From a Salary Structure Assignment, click Actions > See CTC Break-up. The Employee and Salary Structure Assignment are selected automatically.
 2. Go to Employee CTC Break-up and select the Company, Employee, and Salary Structure Assignment.
 
-![Employee CTC Break-up report](/files/Screenshot From 2026-06-24 11-50-31.webp)
+[Screenshot on the live page: Employee CTC Break-up report]
 
 **3. Report columns**
 ---------------------
@@ -947,7 +540,7 @@ Before creating a Retention Bonus, it is advisable to create the following:
 5. Save and Submit.
 6. On submit, 'Additional Salary' document of the specified 'Salary Component' is created. This will be fetched while running Payroll Entry.
 
-![Retention Bonus](https://frappehr.com/files/retention-bonus.png)
+[Screenshot on the live page: Retention Bonus]
 
 **3. Related Topics**
 ---------------------
@@ -996,13 +589,13 @@ You can also access it directly from https://<sitename>/hr/roster. For example, 
 
 The Roster features the visualization of Employee - Shift, Leave, and Holiday mapping in an Employee vs Day of the Month representation. 
 
-![355695579-9695b9dc-7b07-4541-93b0-d55521e01362](/files/355695579-9695b9dc-7b07-4541-93b0-d55521e01362.png)
+[Screenshot on the live page: 355695579-9695b9dc-7b07-4541-93b0-d55521e01362]
 
 ### **3.2 Searching and Filtering**
 
 You can use the search bar to search for employees. You can also filter shifts by company, department, branch, designation, and shift type.
 
-![](/files/355696715-ced58ea2-f2da-4560-be88-c917859d572b.png)
+[Screenshot on the live page]
 
 ### **3.3 Creating Shifts**
 
@@ -1012,19 +605,19 @@ Click on the plus button in a cell to create a shift corresponding to that date 
 
 Creating a regular shift results in the creation of a single Shift Assignment. Shifts spanning a week or less are automatically created as regular. For shifts spanning over a week, the user will have to select all days from the Repeat On Days field, under Schedule Settings, to ensure that a regular shift is created.
 
-![355756505-0ec2ecee-e311-40fc-95e4-99562a3ca2ef](/files/355756505-0ec2ecee-e311-40fc-95e4-99562a3ca2ef.png)  
+[Screenshot on the live page: 355756505-0ec2ecee-e311-40fc-95e4-99562a3ca2ef]  
 
 **Repeating/Scheduled Shifts**
 
 The user has the option to turn shifts spanning over a week into repeating shifts. This can be done by selecting specific days from the Repeat On Days field and setting the Frequency field—which represents the frequency of repetition. Doing so will fetch a Shift Schedule with these specifications, or create a new one if it does not exist. This Shift Schedule will then be assigned to the employee with the rest of the shift details via a Shift Schedule Assignment.
 
-![355697616-f0731f69-3897-40b2-afa2-b0b4b8e77404](/files/355697616-f0731f69-3897-40b2-afa2-b0b4b8e77404.png)
+[Screenshot on the live page: 355697616-f0731f69-3897-40b2-afa2-b0b4b8e77404]
 
 ### **3.4 Viewing and Updating Shifts**
 
 Click on a shift to view it in detail. Edit its values and click on 'Update' to update it. 
 
-![](/files/355740198-14aeb033-375d-4a55-81d4-d1a9354a2d3e%2010.56.45%E2%80%AFAM.png)
+[Screenshot on the live page]
 
 ### **3.5 Deleting Shifts**
 
@@ -1036,14 +629,14 @@ Click on the Delete button to delete a shift. This presents the user with three 
 
 **Shift Schedule Assignment**: Delete the Shift Schedule Assignment and all the Shift Assignments associated with it.
 
-![](/files/Screenshot%202024-12-19%20at%2012.50.09%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 ### **3.5 Moving and Swapping Shifts**
 
 Shifts can be dragged and dropped to move them. Dropping a shift on another will swap it with that one.
 
-![355751174-509bb203-8e39-42aa-8cd9-aebf0e6beeb3](/files/355751174-509bb203-8e39-42aa-8cd9-aebf0e6beeb3.gif)
+[Screenshot on the live page: 355751174-509bb203-8e39-42aa-8cd9-aebf0e6beeb3]
 
 **4. Related Topics**
 ---------------------
@@ -1052,3 +645,304 @@ Shifts can be dragged and dropped to move them. Dropping a shift on another will
 2. [Shift Assignment](https://docs.frappe.io/hr/shift-assignment)
 3. [Shift Schedule](https://docs.frappe.io/hr/shift-schedule)
 4. [Shift Schedule Assignment](https://docs.frappe.io/hr/shift-schedule-assignment)
+
+<!-- page: frappe-hr/hr__salary-component.md -->
+---
+title: "Salary Component"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/salary-component"
+updated: "2026-06-24"
+---
+
+**Salaries are paid by organizations to their employees in exchange for the services rendered by them. The different components that make up the Salary Structure are called as Salary Components.**
+
+Salary paid to the employees comprises of several different components, such as basic salary, allowances, arrears, etc. Frappe HR allows you to define these Salary Components and also specify its various attributes.
+
+To access Salary Component, go to: > Home > Human Resources > Payroll > Salary Component
+
+## **1. How to create a Salary Component**
+
+To create a new Salary Component:
+
+1. Go to Salary Component list, click on New.
+2. Enter its Name and Abbreviation.
+3. Enter Description of the Salary Component (optional).
+4. Enter the Company name and the Default Account of the Salary Component in the Accounts table.
+5. Save.
+
+[Screenshot on the live page]
+
+## **2. Features**
+
+Apart from the above mentioned mandatory fields, some of the additional features of the Salary Component are given below:
+
+### **2.1 Condition and Formula**
+
+In this section, the Condition and Formula required for the calculation of the Salary Component can be specified. To specify the formula, enable the 'Amount based on formula' checkbox.
+
+[Screenshot on the live page]
+
+
+
+You can sync updated Condition and Formula values of a Salary Component with existing Salary Structures, where the Component is being used, with the Update Salary Structures button.
+
+[Screenshot on the live page]
+
+
+
+In case the Salary Component is based on a pre-defined amount, Frappe HR allows you to directly enter the amount in the Amount field (disable the 'Amount based on formula' checkbox).
+
+You can also use some mathematical/date functions while writing formulae.
+
+```
+# Consider a component `basic` with amount as 1220.32 as an example:
+
+# int - cast the amount as int
+int(basic) # evaluates to 1220
+
+# flt - cast the amount as flt
+flt(basic, 1) # evaluates to 1220.3
+
+# round - rounds the amount (Banker's Rounding)
+round(basic) # evaluates to 1220
+
+# rounded - rounds the amount based on System Settings or passed method (Banker's Rounding or Commercial Rounding)
+# If basic is 1220.5
+round(1220.5) # evaluates to 1220
+rounded(1220.5, rounding_method="Banker's Rounding") # evaluates to 1220
+rounded(1220.5, rounding_method="Commercial Rounding") # evaluates to 1221
+
+# ceil - rounds the number up to the nearest integer
+ceil(basic) # evaluates to 1221
+
+# floor - rounds the number down to the nearest integer
+floor(basic) # evaluates to 1220
+
+# getdate/date - casts the value `start_date` to a `datetime.date` object
+# eg: Professional Tax is 300 in February and 200 in every other month. `start_date` takes up the value of salary slip's `start_date`
+# In that case the condition can be written as given below:
+
+300 if getdate(start_date).month == 2 else 200
+
+  
+
+```
+
+> **Note:** This above setup is optional. You can define Amount and Formula/Condition for a Salary Component directly in the Salary Structure also. If they are specified in the Salary Component document itself, the information will be directly fetched in the Salary Structure when the Component is selected.
+
+### **2.2 Additional Properties**
+
+Some of the additional attributes of the Salary Component that can be enabled using checkboxes are as follows:
+
+- **Is Payable:** Select this if the Salary Component is payable.
+- **Depends on Payment Days:** If this checkbox is enabled then the Salary Component will be calculated based on the number of working days.
+- **Is Tax Applicable:** This checkbox is applicable for Earning Components. Selecting this checkbox allows tax to be applied on this Salary Component.
+- **Deduct Full Tax on Selected Payroll Date:** If checked and the component is used in Additional Salary, the tax amount applicable on the additional amount will be deducted on the specific payroll month. If not checked, the tax will be distributed over the remaining months of the payroll period. For example, if a bonus is given in a particular month using Additional Salary, then you can deduct full tax amount in the same month only.
+- **Round to the Nearest Integer:** Selecting this checkbox allows you to round the amount of this Salary Component to the nearest integer.
+- **Statistical Component:** If selected, the value specified or calculated in this component will not contribute to the earnings or deductions. However, it's value can be referenced by other components that can be added or deducted. If you set a Salary Component as a Statistical component, then you do not have to set the Default Account for the same. Also, you would not be able to set this component as a Flexible Benefit.
+- **Do Not Include in Total:** Selecting this checkbox ensures that the Salary Component is not included in the Total Salary. It is used to define the component which is part of the CTC, not payable but should apprear on employee's salary slip (e.g. Usage of Company Cars).
+- **Variable Based On Taxable Salary:** The component is calculated automatically on taxable income based on applicable Income Tax Slab (e.g. TDS or Income Tax).
+- **Exempted from Income Tax:** If checked, the full amount will be deducted from taxable income before calculating income tax without any [declaration](https://docs.frappe.io/hr/employee-tax-exemption-declaration) or [proof submission](https://docs.frappe.io/hr/employee-tax-exemption-proof-submission). For example, Professional Tax in India is deducted from taxable income before calculating income tax.
+- **Disabled:** This checkbox can be selected to disable this Salary Component. A disabled Salary Component cannot be used in the Salary Structure.
+
+### **2.3 Flexible Benefits**
+
+This section is shown if the Salary Component is an Earning Component. Flexible Benefit plans allow employees to avail the benefits they want or need from a package of programs offered by an employer. They may include health insurance, pension plans, telephone expenses, etc. To set a Salary Component as a Flexible Benefit, check the 'Is Flexible Benefit' checkbox.
+
+[Screenshot on the live page]
+
+
+
+Enter the maximum yearly amount for this flexible benefit in the 'Max Benefit Amount (Yearly)' field. Some of the additional attributes of the Flexible Benefits that can be enabled using checkboxes are as follows:
+
+- **Pay Against Benefit Claim:** Enable this checkbox if you want to pay this benefit via the [Employee Benefit Claim](https://docs.frappe.io/hr/employee-benefit-claim).
+- **Only Tax Impact (Cannot Claim But Part of Taxable Income):** If set, the flexible benefit will be part of taxable income.
+- **Create Separate Payment Entry Against Benefit Claim:** If this checkbox is checked, it will let you create a separate payment entry against the Benefit Claim.
+
+### **2.4 Employer Contribution**
+
+Apart from Earning and Deduction, a Salary Component can be of the type Employer Contribution. This represents a cost the employer bears on the employee's behalf, such as the employer's share of provident fund or an employer NPS contribution. It is part of the Cost to Company (CTC), but it is not paid to the employee and does not appear on the Salary Slip.
+
+To set a Salary Component as an employer contribution, set Type to Employer Contribution while creating the component.
+
+[Screenshot on the live page]
+
+Employer contributions are added to the Salary Structure through a dedicated Employer Contributions table, separate from the Earnings and Deductions tables. The amount can be fixed or based on a formula, and the formula can reference earning abbreviations and `gross_pay` (for example, `BS * 0.12` for 12% of basic salary).
+
+When a Salary Structure Assignment is saved, employer contributions are included in the CTC but not in gross or net pay:
+
+> CTC = (per-cycle gross + employer contributions + non-payout earnings) x cycles per year
+
+You can view employer contributions against the employee's CTC in the [Employee CTC Break-up](https://docs.frappe.io/hr/reports/employee-ctc-break-up) report.
+
+## **3. Related Topics**
+
+1. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+2. [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
+3. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
+4. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
+
+<!-- page: frappe-hr/hr__salary-slip.md -->
+---
+title: "Salary Slip"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/salary-slip"
+updated: "2026-07-05"
+---
+
+**A salary slip is a document issued to an employee. It contains a detailed description of the employee’s salary components and amounts.**
+
+To access Salary Slip, go to: > Home > Human Resources > Payroll > Salary Slip
+
+## **1. Prerequisites**
+
+Before creating Salary Slip, it is advised that you create the following first:
+
+- [Employee](https://docs.frappe.io/hr/employee)
+- [Salary Structure](https://docs.frappe.io/hr/salary-structure)
+- [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
+
+## **2. How to create a Salary Slip**
+
+1. Go to Salary Slip, Click on New.
+2. Select Employee. On selecting Employee all details of the Employee will be fetched from Salary Structure which is assigned to that Employee. This includes details such as Payroll Frequency, Earnings, Deductions, etc.
+3. Select Start Date and End Date.
+4. Save.
+
+## **3. Feature**
+
+### **3.1. Salary Slip based on Attendance/Leave**
+
+HR users can create Salary Slip based on Attendance or leave. The Working days will calculated on basis of leave/Attendance, depending on the field **Calculate Payroll Working Days Based On** in [HR Settings](https://docs.frappe.io/hr/hr-settings). If Payroll is based on Attendance then, the **Leave without pay** will be considered as absent and **half-day** will be considered as half-day absent.
+
+### **3.2. Salary Slip based on Timesheet**
+
+For creating Salary Slip based on timesheet you need to create Salary Structure for Timesheets.
+
+Frappe HR also provides an option to create Salary slip based on working hours based on [Timesheet](https://docs.erpnext.com/docs/user/manual/en/timesheets). You can create Salary Slip after submitting the Timesheet by clicking directly on **Create Salary Slip** button on the top right.
+
+[Screenshot on the live page: Create Salary Slip based on Timesheets]
+
+
+
+The Payment Amount is calculated based on Hour Rate defined in Salary Structure and is reflected in the Earnings table.
+
+### **3.3 Year to Date and Month to Date**
+
+For every salary slip, 'Year to Date' and 'Month to Date' are computed.
+
+[Screenshot on the live page: Year to Date and Month to Date]
+
+
+
+- **Year to Date**: Total salary booked for that particular employee from the beginning of the year (payroll period or fiscal year) up to the current salary slip's end date.
+- **Month to Date**: Total salary booked for a particular employee from the beginning of the month (for which the payroll entry is created) up to the current salary slip's end date.
+
+Year to Date is also computed for every component in the earnings and deduction tables. The "Salary Slip with Year to Date" print format is available with Year to Date and Month to Date computations.
+
+[Screenshot on the live page: Year to Date for Salary Slip Components]
+
+
+
+### **3.4 Bulk Email Salary Slips**
+
+By default, the Payroll Entry sends salary slip emails to all the employees on salary slip submission if **Email Salary Slip to Employee** is enabled in Payroll Settings. Optionally, you can also set up the sender email account and email template for this.
+
+[Screenshot on the live page]
+
+
+
+But if there are a few employees who don't have an email ID set or the setup is incorrect during this action, you can use the bulk action in the Salary Slip list view to trigger sending emails to selected employees later.
+
+[Screenshot on the live page: bulk]
+
+<!-- page: frappe-hr/hr__salary-structure-and-payroll.md -->
+---
+title: "Salary Structure and Payroll"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/salary-structure-and-payroll"
+updated: "2026-02-04"
+---
+
+**Use case 1:**What if one Salary structure has to be assigned to all the Employees ?
+
+If a single Salary structure has to be assigned, it is preferable to create a structure for all the Employees, irrespective of their Salaries, but we can set formula based on which actual salary structures can be allocated to each employee in an organisation.
+
+Go to Salary Structure --> select the Earning or deduction component --> Add formula
+
+[Screenshot on the live page]  
+
+
+This way, salary will be calculated individually for each employee depending on their monthly income.
+
+**Use case 2:** What if while generating a payroll, all the employees are not supposed to be fetched, payroll has to be created for selected employees?
+
+Generally, while a payroll is being processed, there is an option --> **Get Employees,** once it is clicked, all the employees are fetched.
+
+In case, there is only a selected list of employees payroll to be generated, it is preferable to select the employees by filtering on the basis of department, branch, or designation, this way only the selected list of employees belonging to the particular filter will be selected for payroll.
+
+[Screenshot on the live page]  
+
+
+  
+
+<!-- page: frappe-hr/hr__salary-structure-assignment-tool.md -->
+---
+title: "Salary Structure Assignment Tool"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/salary-structure-assignment-tool"
+updated: "2026-02-04"
+---
+
+The Salary Structure Assignment Tool allows you to assign Salary Structures to employees in bulk.
+
+> Home > Human Resources > Payroll > Salary Structure Assignment Tool
+
+**1\. Prerequisites**
+---------------------
+
+Before using the Salary Structure Assignment Tool, it is advisable to create the following documents:
+
+*   [Employee](/hr/employee)
+    
+*   [Salary Structure](/hr/salary-structure)
+    
+
+**2\. How to assign Salary Structures using the Salary Structure Assignment Tool**
+----------------------------------------------------------------------------------
+
+1.  Select a Company if it hasn't already been selected. This should also fetch its default Payroll Payable Account.
+    
+2.  Select the Salary Structure that you wish to assign. This will fetch the Currency associated with it.
+    
+3.  Select From Date which is the date from which you wish to assign the Salary Structure. This will cause all employees, that do not already have a Salary Structure Assignment on that date, to be loaded in the Select Employees table below.
+    
+4.  Select an Income Tax Slab if applicable.
+    
+5.  Use Quick Filters for filtering employees based on specific fields, or add additional custom filters through Advanced Filters.
+    
+6.  Select suitable employees from the Select Employees table below.
+    
+7.  You can update the Base and Variable amounts for an employee by double clicking and editing the required cell. If you wish to update these values in bulk, click on the Update button, select the appropriate field, and enter the desired amount. Click on Update.
+    
+8.  If everything looks right, click on the Assign Structure button.
+    
+
+[Screenshot on the live page]  
+
+[Salary Structure Assignments](https://docs.frappe.io/hr/salary-structure-assignment) made using this tool will now be found in their list:
+
+[Screenshot on the live page]  
+
+**3\. Related Topics**
+----------------------
+
+1.  [Payroll Period](/hr/payroll-period)
+    
+2.  [Income Tax Slab](/hr/income-tax-slab)
+    
+3.  [Salary Component](/hr/salary-component)
+    
+4.  [Salary Slip](/hr/salary-slip)
+    
+5.  [Payroll Entry](/hr/payroll-entry)

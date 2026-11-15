@@ -1,382 +1,5 @@
 <!-- Frappe documentation: erpnext, part 57 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__serial-no-naming.md -->
----
-title: "Serial Number Naming"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/serial-no-naming"
-updated: "2026-02-26"
----
-
-
-Serial Nos. is unique value assigned on each unit of an item. Serial no. helps in tracking item's warranty and expiry details. Generally high value items like machines, computers, costly equipments are serialized.
-
-To make item Serialized, in the Item master, check **Has Serial No**.
-
-There are two ways Serial no. can be generated in ERPNext.
-
-###1. Serializing Purchase Items
-
-If purchased items are received with Serial Nos. applied by OEM (original equipment manufacturer), you can follow same Serial No in ERPNext as well. While creating Purchase Receipt, you shall scan or manually enter Serial nos. for an item. On submitting Purchase Receipt, Serial Nos. will be created in the backend as per Serial Nos. provided for an item. If using OEM' Serial No., then in the Item master, Prefix should not be mentioned for serializalization. As per this scenaio, Prefix field should be left blank.
-
-If received items already has its Serial No. barcoded, you can simply scan that barcode for entering Serial No. in the Purchase Receipt. Click [here](https://frappe.io/blog/management/using-barcodes-to-ease-data-entry) to learn more about it.
-
-On submission of Purchase Receipt or Stock entry for the serialized item, Serial Nos. will be auto-generated.
-
-![Serial Nos Entry](/files/serial-naming-1.png)
-
-Generated Serial numbers will be updated for each item.
-
-![Serial Nos Created](/files/serial-naming-2.png)
-
-###2. Serializing Manufacturing Item
-
-To Serialize Manufacturing Item, you can define Series for Serial No. Generation in the Item master itself. Following that series, system will create Serial Nos. for Item when its Production entry is made.
-
-####2.1 Serial No. Series
-
-When Item is set as serialized, it will allow you to mentioned Series for it.
-
-![Serial Nos Created](/files/serial-naming-3.png)
-
-####2.2 Production Entry for Serialized Item
-
-On submission of production entry for manufacturing item, system will automatically generate Serial Nos. following Series as specified in the Item master.
-
-![Serial Nos Created](/files/serial-naming-4.png)
-
-<!-- page: erpnext/erpnext__serial-no.md -->
----
-title: "Serial Number"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/serial-no"
-updated: "2026-03-06"
----
-
-> Allow Negative Stock has removed for Serial / Batch Items from version 15. So from version 15 users won't be able to make negative stock transactions for serial /batch items even though Allow Negative Stock has enabled in the Stock Settings.
-
-
-
-To enable serial / batch feature for the item, first check the 'Enable Serial and Batch No for Item' checkbox in the 'Stock Settings'.
-
-![](/files/Screenshot 2026-03-06 at 11.52.18 AM.png)
-
-
-
-As discussed in the [Item](/erpnext/item) page, if an **Item** is *serialized*, a **Serial Number** (Serial No) record is maintained for each quantity of that **Item**. This information helps track the location of the Serial No, its warranty and end-of-life (expiry) information.
-
-You can also track from which **Supplier** you purchased the **Serial No** and to which **Customer** you have sold it. The **Serial No** status will tell you its current inventory status.
-
-If your Item is *serialized* you will have to enter the Serial Nos in the related column with each Serial No in a new line. You can maintain single units of serialized items using Serial Number.
-
-To access the Serial Number list, go to: > Home > Stock > Serial No and Batch > Serial No
-
-1. Prerequisites
-
----
-
-Before creating and using a Serial Number, it is advised that you create the following first:
-
-- [Item](/erpnext/item)
-- Enable 'Has Serial No' in the Item master ![Serial No Enabled](/files/serial-no-enabled.png)
-
-2. How to create a Serial Number
-
----
-
-Usually, Serial Numbers are auto-created when transactions are made against a serialized Item. This works only when 'Has Serial No' is enabled and a series is set in the Item master.
-
-For example, a series was set for the following Item as 'PB2L.#####'. Then a Stock Entry was submitted to receive the Item. The Serial Numbers were created accordingly.
-
-![Serial No Created](/files/serial-no-created.png)
-
-
-
-However, if you want to create a Serial No *manually* follow these steps:
-
-1. Go to the Serial Number list, click on New.
-2. Enter a Serial Number.
-3. Enter the Item Code and details will be fetched.
-4. If any transaction is done with an item, Serial No cannot be set or unset.
-5. Save.
-
-Inventory of an Item can only be affected if the Serial No is transacted via a Stock transaction (Stock Entry, Purchase Receipt, Delivery Note, Sales Invoice). When a new Serial No is created directly, its Warehouse cannot be set.
-
-![Serial Number](/files/serial-no.png)
-
-
-
-### 2.1 Notes about Serial Number
-
-- The Status is set based on Stock Entry.
-- Only Serial Numbers with status 'Available' can be delivered.
-- Serial Nos can automatically be created from a Stock Entry or Purchase Receipt. If you mention Serial No in the Serial Nos column, it will automatically create those serial Nos.
-- If in the Item Master, the Serial No Series is mentioned, you can leave the Serial No column blank in a Stock Entry / Purchase Receipt. Serial Nos will automatically be set from that series.
-
-3. Features
-
----
-
-### 3.1 Purchase/Manufacture details
-
-The document from which the Serial No was created will be shown. If you purchased it from a Supplier, it'll be linked here.
-
-### 3.2 Delivery Details
-
-If the Serial No was generated from a Sales Order, the Customer will be linked here.
-
-### 3.3 Warranty/AMC Details
-
-If the Item is under warranty or AMC (Annual Maintenance Contract), the expiry dates for these can be set.
-
-### 3.4 More Information
-
-Any additional information about this specific Item unit can be set under 'Serial No Details'.
-
-4. Video
-
----
-
-### 5. Related Topics
-
-1. [Item Codification](/erpnext/item-codification)
-2. [Item Variants](/erpnext/item-variants)
-3. [Serial Number Naming](/erpnext/serial-no-naming)
-
-<!-- page: erpnext/erpnext__service-level-agreement.md -->
----
-title: "Service Level Agreement\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/service-level-agreement"
-updated: "2026-02-28"
----
-
-
-**A service level agreement (SLA) is a contract between a service provider (either internal or external) and the end user on the level of service expected from the service provider.**
-
-SLAs are output-based, their purpose is specifically to define the timeline in which the Customer will receive the service. SLAs do not define how the service itself is provided or delivered.
-
-To access the Service Level Agreement list, go to:
-> Home > Support > Service Level Agreement > Service Level Agreement
-
-## 1.Prerequisites
-
-Before creating and using a Service Level Agreement, it is advised that you create/update the following first:
-
-* [Holiday List](/hr/holiday-list)
-
-* Enable **Track Service Level Agreement** in Support Settings
-
- ![Service Level Agreement](/files/sla-setting.png)
-
-## 2. How to Create a Service Level Agreement
-1. Go to the Service Level Agreement list, click on New.
-1. Enter a name for the Service Level.
-1. Select an Employee group, that will handle a particular Service Level.
-1. Set a Holiday List. Service Level Agreement won't be applied in the days mentioned in the Holiday List.
-1. 'Enable' determines if a Service Level Agreement is enabled or disabled.
-1. Ticking 'Default Service Level Agreement' will apply this SLA to a customer if they don't have a particular SLA assigned to them.
-1. Entity Type: Service Level Agreements can be assigned to a Customer/Customer Group/Territory enabling you to apply Service Level Agreement based on these factors.
-1. Entity: Select the specific Customer/Customer Group/Territory.
-1. Start / End Date: Defines the validity of the agreement.
-1. Priorities: You can set multiple Issue Priorities and their Time to Respond and Resolve (in hours and mins).
-
- ![Service Level](/files/priorities.png)
-1. Default Priority: Default Priority selected in Priorities table that will be applied in the Service Level Agreement.
-1. Support Hours: Contains the Days of the week on which Support is provided. Has a Start Time and End Time of the Working day.
-
- ![SLA Support Hours](/files/sla-support-hours.png)
-1. Save.
-
- ![SLA](/files/sla.png)
-
-## 3. Features
-### 3.1 Applies to New Issues
-
-Once an SLA is saved, it'll be applied to Issues raised by Customers/Territories as per the option you chose in 'Entity Type'.
-
-![SLA in Issue](/files/sla-entity-type.png)
-
-### 3.2 Resetting an SLA
-An SLA can also be reset until the time does not fail. For example, if the SLA is 3 days, you can reset the SLA only within 3 days of the Issue being created. After that, the Service Level will display failed.
-
-![SLA Issue](/files/reset-sla.gif)
-
-### 3.3 Time respond / resolve in Issues
-The time to respond to an Issue and the time to resolve will be shown:
- ![SLA in Issue](/files/sla-in-issue.png)
-
-These times are based on the timelines set in the 'Priority' field in the Service Level's Priorities table.
-
-
-### 3.4 Pause SLA on Statuses
-From version 13 onwards, ERPNext allows you to pause SLA on issues when you are waiting for an event to happen. You can do this by selecting a status that is configured in this "Pause SLA On" table.
-
-* Set the statuses on which you want to pause SLA in the SLA document. You can also add custom statuses here.
- ![Service Level](/files/pause-sla.png)
-* When the status is changed to any of the above, resolution and response fields are unset and the dashboard indicators change to:
- ![Service Level](/files/hold-indicator.png)
-* When the status of the issue changes back to a non-hold status (which is not configured in the "Pause SLA On" table), the **Total Hold time** field will be set in your Issue document.
- ![Service Level](/files/total-hold-time.png)
-The Response and Resolution time will be recalculated by adding the hold time, thereby restarting your SLA timers.
-
-> Note: Service Level DocType was removed in version 13 and all functions are handled only with the Service Level Agreement DocType.
-
-<!-- page: erpnext/erpnext__session-defaults.md -->
----
-title: "Session Defaults | ERPNext Documentation"
-description: "Use ERPNext Session Defaults to temporarily prefill a company or other value for one user session without changing global defaults."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/session-defaults"
-updated: "2026-08-15"
----
-
-Nova Industries is a fictional electronics manufacturer and distributor with a child company, Nova Electronics Trading. Priya normally works in the parent company's books, but this afternoon she must enter and review only the subsidiary's transactions. Changing the global Company would affect everyone. Re-selecting the subsidiary on every form and report makes it easy to miss one record.
-
-
-
-Session Defaults lets Priya choose Nova Electronics Trading for her current login session. New supported transactions and reports can begin with that Company already selected. Other users keep their own context, and the temporary choice is cleared when Priya logs out.
-
-## Allow a value to be used as a Session Default
-
-Open **Session Default Settings** and add the DocTypes that users may choose temporarily. Company is the most common example. Add only fields that provide a useful and unambiguous working context.
-
-![Company configured as an available ERPNext Session Default](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-session-default-settings.png)
-
-
-| Setting                | What it means                                           | Nova example                                                               |
-| ---------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- |
-| Session Defaults table | DocTypes available in the user's session-default menu   | Company allows Priya to choose Nova Electronics Trading for the afternoon. |
-| Reference DocType      | The master whose record will become the temporary value | Selecting Company presents Companies the user is permitted to access.      |
-
-
-## Select the value for the current session
-
-Open the user menu or sidebar Session Defaults control, then choose the permitted value. Create a new transaction or open a report and confirm the Company is prefilled. A submitted record must still be checked before relying on the default.
-
-## Understand the scope
-
-Session Defaults affects the current user and current session. It does not change Global Defaults, does not grant access, and does not rewrite existing records. Logging out clears the temporary choice. A value may also be replaced when a mapped source document or a more specific transaction rule supplies the field.
-
-## Troubleshooting
-
-### The Session Defaults option is missing
-
-A System Manager must first add an allowed Reference DocType in Session Default Settings. The user also needs permission to the referenced records.
-
-### The selected Company is not used
-
-Test with a new supported document. A mapped document, user default, or document-specific rule may supply a more specific Company.
-
-### The old value appears after changing it
-
-Reload the form or create a new draft. Existing open forms can retain values loaded before the session change.
-
-## Frequently asked questions
-
-### Does a Session Default apply to other users?
-
-The value belongs to the current user's session. It does not change the common site default.
-
-### Is a Session Default permanent?
-
-Logging out clears it. Use a user default or Global Defaults when the choice should persist according to policy.
-
-### Can it bypass User Permissions?
-
-A default only suggests a value. The user must still have permission to read and use that record.
-
-### Can several DocTypes be configured?
-
-The settings table can allow more than one reference type, but each should provide a clear working context rather than adding clutter.
-
-## Related topics
-
-- [Global Defaults](/erpnext/global-defaults)
-- [System Settings](/erpnext/system-settings)
-- [Company](/erpnext/company-setup)
-- [User Permissions](/erpnext/user-permissions)
-- [Adding Users](/erpnext/adding-users)
-- [Reports](/erpnext/reports)
-
-<!-- page: erpnext/erpnext__set-language.md -->
----
-title: "Set Language | ERPNext Documentation"
-description: "Set the default ERPNext language or a user-specific language and understand translation scope, fallback, and verification."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/set-language"
-updated: "2026-08-15"
----
-
-Nova Industries is a fictional electronics manufacturer and distributor. Most employees use ERPNext in English, but the company hires Sofia to coordinate Spanish-speaking customers and suppliers. Changing the whole site to Spanish would disrupt the rest of the team, while forcing Sofia to translate every menu in her head makes routine work slower and more error-prone.
-
-
-
-ERPNext separates the site's default language from a user's preferred language. The System Manager can keep English as the shared fallback and set Spanish only for Sofia. When she signs in again, supported labels and messages appear in her language while other users continue in English.
-
-## Set the default site language
-
-Open **System Settings**, choose **Language**, save, and reload the site. Use this when the chosen language should be the default for users who do not have a personal override.
-
-![Default Language in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-localisation.png)
-
-## Set a language for one user
-
-Open the User record, select the preferred **Language**, save, then ask the user to sign out and sign in again. Nova assigns Spanish to Sofia without changing the default for the finance and warehouse teams.
-
-![Language field on an ERPNext User record](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-user-language.png)
-
-
-| Choice                             | Scope                    | Example                                                                                                        |
-| ---------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------- |
-| System Settings Language           | Default for the site     | English remains Nova's shared default.                                                                         |
-| User Language                      | One user                 | Sofia sees Spanish where translations exist.                                                                   |
-| Written master or transaction text | The saved content itself | A Customer name or Item description remains the language in which it was entered unless separately translated. |
-
-
-Translation coverage can vary by app and version. Product labels may be translated while custom fields, user-entered text, print-format content, or a newly released message remains in the source language.
-
-## Troubleshooting
-
-### The interface did not change
-
-Save the User or System Settings record, then sign out and sign in again. Confirm the User record has the expected language and that the translation exists.
-
-### Some labels remain in English
-
-The app, custom field, or new message may not have a translation. Verify the source text and contribute or maintain the translation rather than changing unrelated settings.
-
-### Printed documents use the wrong language
-
-Print Format text, letterheads, Item descriptions, and transaction content may need separate translated templates or records.
-
-## Frequently asked questions
-
-### Can every user choose a different language?
-
-A User record can carry a personal language where the user has permission and translations are available.
-
-### Does changing language translate existing Customer or Item names?
-
-The setting translates supported interface text. It does not rewrite business data entered by users.
-
-### Which language is used when a translation is missing?
-
-ERPNext falls back to the available source text, commonly English.
-
-### Does language change date and number formats?
-
-Language can influence presentation, but System Settings and Currency formatting also matter. Verify both when localisation looks inconsistent.
-
-## Related topics
-
-- [System Settings](/erpnext/system-settings)
-- [Adding Users](/erpnext/adding-users)
-- [Translations](/erpnext/translations)
-- [Country](/erpnext/country)
-- [Global Defaults](/erpnext/global-defaults)
-- [Print Format](/erpnext/print-format)
-
 <!-- page: erpnext/erpnext__set-precision.md -->
 ---
 title: "Set Precision | ERPNext Documentation"
@@ -396,7 +19,7 @@ Precision controls how many decimal places ERPNext calculates or displays for Fl
 
 Open **System Settings** and review **Float Precision** and **Currency Precision**. Float Precision affects values such as quantity or conversion factor. Currency Precision affects monetary values such as rate and amount.
 
-![Float and Currency Precision in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-precision-settings.png)
+[Screenshot on the live page: Float and Currency Precision in ERPNext System Settings]
 
 
 | Setting                | Example                      | Result                                                                                                |
@@ -494,15 +117,15 @@ updated: "2026-07-24"
 
 1. Monthly sales targets can be set for a Company via the Company master under the Sales Settings section. By default, the Company master dashboard displays month-wise past sales stats.
 
- ![Sales Graph](/files/sales_history_graph.png)
+ [Screenshot on the live page: Sales Graph]
 
 1. You can set the **Sales Target** field to track progress against the graph:
 
- ![Setting Sales Goal](/files/setting_sales_goal.gif)
+ [Screenshot on the live page: Setting Sales Goal]
 
 1. The target progress is also shown in notifications:
 
- ![Sales Notification](/files/sales_goal_notification.png)
+ [Screenshot on the live page: Sales Notification]
 
 ### Related Topics
 1. [Company Setup](/erpnext/company-setup)
@@ -529,7 +152,7 @@ Using **Customize Form**, we can set a _default_ value for any field of any Doct
 
  
 
-![](/files/6T6CWP6.png)
+[Screenshot on the live page]
 
  
 
@@ -539,11 +162,11 @@ Using **Customize Form**, we can set a _default_ value for any field of any Doct
 
  
 
-![](/files/TjzsYhu.png)
+[Screenshot on the live page]
 
  
 
-![](/files/th62UXt.png)
+[Screenshot on the live page]
 
  
 
@@ -553,7 +176,7 @@ Check out the below GIF where we have set _default_ value as **Stores - ETL** fo
 
  
 
-![](/files/wXMccxf.gif)
+[Screenshot on the live page]
 
  
 
@@ -597,7 +220,7 @@ Test the rule on a demo transaction before enabling it for users. Product Discou
 7. Configure the Selling or Buying applicability, party conditions, dates, and priority.
 8. Save and enable the rule.
 
-![A Product Discount Pricing Rule configured for Buy 1 Get 1 Free.](https://novacompanies.m.frappe.cloud/files/bogo-pricing-rule.png)
+[Screenshot on the live page: A Product Discount Pricing Rule configured for Buy 1 Get 1 Free.]
 
 ## Test the offer
 
@@ -680,11 +303,11 @@ updated: "2026-03-04"
 
 To add your signature, go to your User Profile under **Settings > My Settings**  
 
-![](/files/PIoVfY1.png)
+[Screenshot on the live page]
 
 Scroll down to the **Email Settings** section where you can add your signature in HTML:  
 
-![](/files/4swM1Yz.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__setting-up-sendgrid-smtp-email-in-erpnext.md -->
 ---
@@ -702,10 +325,10 @@ SendGrid’s SMTP API allows developers to specify custom handling instructions 
 
 **Step 1:** You need to create an API key to authenticate your application. In this case, *ERPNext*. Learn more about integrating SendGrid with SMTP [here](https://sendgrid.com/docs/API_Reference/SMTP_API/integrating_with_the_smtp_api.html)
 
-Click on SMTP Relay![Screenshot 2024-06-01 at 12.44.17 PM](/files/Screenshot 2024-06-01 at 12.44.17 PM.png)  
+Click on SMTP Relay[Screenshot on the live page: Screenshot 2024-06-01 at 12.44.17 PM]  
 
 
-Generate an API Key![Screenshot 2024-06-01 at 12.44.33 PM](/files/Screenshot 2024-06-01 at 12.44.33 PM.png)  
+Generate an API Key[Screenshot on the live page: Screenshot 2024-06-01 at 12.44.33 PM]  
   
 **Step 2:** Once your *API key* has been created, you need to configure it in your ERPNext account &gt; Create a **New** **Email Account.**
 
@@ -726,10 +349,10 @@ Outgoing server: &lt;server name generated in step 1&gt;
 
 Port: &lt;port number generated above&gt;
 
-![Screenshot 2024-06-01 at 12.44.45 PM](/files/Screenshot 2024-06-01 at 12.44.45 PM.png)  
+[Screenshot on the live page: Screenshot 2024-06-01 at 12.44.45 PM]  
 
 
-For SSL connections, uncheck the "use TLS" option![Screenshot 2024-06-01 at 12.45.14 PM](/files/Screenshot 2024-06-01 at 12.45.14 PM.png)  
+For SSL connections, uncheck the "use TLS" option[Screenshot on the live page: Screenshot 2024-06-01 at 12.45.14 PM]  
 
 
 Now **save** this information and you have successfully configured the SendGrid SMTP Email in ERPNext.
@@ -787,7 +410,7 @@ Open **Sales Taxes and Charges Template** or **Purchase Taxes and Charges Templa
 6. Mark a template as default only when it applies to most transactions.
 7. Save.
 
-![Sales tax template](/files/sales-tax-template.webp)
+[Screenshot on the live page: Sales tax template]
 
 Review whether purchase tax should be added to valuation, treated as recoverable input tax, or posted as an expense.
 
@@ -795,7 +418,7 @@ Review whether purchase tax should be added to valuation, treated as recoverable
 
 A Tax Category identifies a tax treatment, such as domestic standard, export, or exempt.
 
-![Tax Category](/files/tax-category.webp)
+[Screenshot on the live page: Tax Category]
 
 Assign the category to parties or transactions. Then use a [Tax Rule](https://docs.frappe.io/erpnext/tax-rule) to choose the correct template based on company, Customer, Supplier, item, territory, billing or shipping location, and validity dates.
 
@@ -846,7 +469,7 @@ Setting up ERPNext means turning the way your business already works into reliab
 
 For Nova Industries, an electronics manufacturer and distributor, this starts with the legal company, fiscal year, chart of accounts, warehouses, items, customers, suppliers, users, and opening balances. Configure these foundations before importing day-to-day transactions.
 
-![ERPNext Desk showing the installed applications available after sign-in](https://novacompanies.m.frappe.cloud/files/setup-20260814-setting-up-desk.png)
+[Screenshot on the live page: ERPNext Desk showing the installed applications available after sign-in]
 
 
 
@@ -936,7 +559,7 @@ In our case, the Item master has a checkbox called "Disabled". We have set the d
   
 
 
-![](/files/ubLZfPq.png)
+[Screenshot on the live page]
 
   
 
@@ -946,7 +569,7 @@ This means that every time a new Item is created, it will be disabled by default
   
 
 
-![](/files/yPOQ2fT.png)
+[Screenshot on the live page]
 
   
 
@@ -967,7 +590,7 @@ In the States table, on approval, make sure to update the "Disabled" (or Enabled
   
 
 
-![](/files/Qf3QXyo.png)
+[Screenshot on the live page]
 
   
 
@@ -982,7 +605,7 @@ Check the below GIF to understand the workflow in detail:
   
 
 
-![](/files/olzpAk2.gif)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__setup-two-factor-authentication.md -->
 ---
@@ -1005,33 +628,33 @@ Specify the following in System Settings
 * The expiry time for the QR Code on the server if OTP App is specified
 * The OTP Issuer Name.
 
-![Enable Two Factor Auth](/files/twofactor-1.png)
+[Screenshot on the live page: Enable Two Factor Auth]
 
 
 On activation of 2FA from setup, it is also activated for the Role "All". In this way, all users including the Administrator have to perform a 2nd level authentication with a token. By unchecking the "Two Factor Authentication" checkbox in the "All" role and enabling it in other roles, the need to login with a token can be limited to specific roles. 2FA does not apply to login by Web Users and API login
 
-![Role Enable Two Factor Auth](/files/twofactor-2.png)
+[Screenshot on the live page: Role Enable Two Factor Auth]
 
 If using SMS authentication, please make sure that your SMS settings are updated
 
-![SMS Settings](/files/twofactor-3.png)
+[Screenshot on the live page: SMS Settings]
 
 If using Email, make sure that your outgoing Email account settings are updated
 
-![Email Settings](/files/twofactor-4.png)
+[Screenshot on the live page: Email Settings]
 
 When the new user tries to log in for the first time in a system that has two-factor authentication enabled and which has the authentication option as OTP App, an email is sent containing a link to the QR Code.
 
-![Email Notify Two Factor](/files/twofactor-5.png)
-![QR Code Page](/files/twofactor-6.png)
+[Screenshot on the live page: Email Notify Two Factor]
+[Screenshot on the live page: QR Code Page]
 
 Scanning the QR Code with an authentication app like Google Authenticator registers the access for the user and automatically starts to generate tokens that can be used to login
 
-![Two Factor Scan App](/files/twofactor_app.jpeg)
+[Screenshot on the live page: Two Factor Scan App]
 
 If either of Email/SMS is used as the authentication method, you get notifications also
 
-![Email and SMS](/files/twofactor-8.png)
+[Screenshot on the live page: Email and SMS]
 
 
 
@@ -1040,3 +663,357 @@ If either of Email/SMS is used as the authentication method, you get notificatio
 Q. I am unable to login even after following entire process. 
 
 Ans: Frappe uses TOTP based OTP algorithm, which depends on your device's system time. Please make sure that device you're using has same time set as your ERPNext server. 
+
+<!-- page: erpnext/erpnext__share-reports.md -->
+---
+title: "Share Reports\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/share-reports"
+updated: "2026-08-14"
+---
+
+Nova Electronics Trading starts with three shareholders: Elena Brooks holds 6,000 shares, Marcus Lee holds 4,000, and Horizon Ventures LLC holds 1,000. Elena then transfers 1,000 shares to Horizon. The new balances should be 5,000 for Elena, 4,000 for Marcus, and 2,000 for Horizon. Management wants to verify two things. It needs the ownership position today and the transaction trail that explains how that position changed.
+
+
+
+ERPNext separates these questions into two reports. Share Balance is the current snapshot. Share Ledger is the history behind the snapshot. Use both when reviewing ownership, investigating a disagreement, or preparing information for professional review.
+
+## Share Balance
+
+Open **Share Balance** and filter by Company or Shareholder. The report shows the shares currently held by each shareholder and their value. Use it to answer “Who owns what now?”
+
+[Screenshot on the live page: Current Nova shareholders used in share reporting]
+
+## Share Ledger
+
+Open **Share Ledger** and filter by Company, date range, or Shareholder. The report lists submitted [Share Transfers](/erpnext/share-transfer) such as issues, purchases, and owner-to-owner transfers. Use it to answer “How did this balance arise?”
+
+[Screenshot on the live page: Submitted share transfer quantity used in the Share Ledger]
+
+## Choose the right report
+
+
+| Question                                     | Report                                                        |
+| -------------------------------------------- | ------------------------------------------------------------- |
+| How many shares does each owner hold now?    | Share Balance                                                 |
+| Which issue or transfer changed the holding? | Share Ledger                                                  |
+| What is one owner's current position?        | Share Balance filtered by [Shareholder](/erpnext/shareholder) |
+| What happened during a particular period?    | Share Ledger filtered by date                                 |
+
+
+## Troubleshooting
+
+### A recently created shareholder does not appear
+
+A shareholder with no submitted share issue has no holding to report. Submit an Issue and refresh the report.
+
+### A transfer is missing
+
+Confirm that the Share Transfer is submitted, the Company and date filters include it, and the correct shareholder is selected.
+
+## Frequently asked questions
+
+### Can Share Balance replace the Share Ledger?
+
+Share Balance shows the result but not the sequence of transactions. Keep the Share Ledger when you need an audit trail.
+
+### Do these reports replace statutory shareholder registers?
+
+ERPNext provides operational ownership records. Confirm the statutory format, approvals, and filing requirements with a qualified professional in your jurisdiction.
+
+## Related topics
+
+- [Shareholder](/erpnext/shareholder)
+- [Shareholder Management](/erpnext/shareholder-management)
+- [Share Transfer](/erpnext/share-transfer)
+- [Accounting Reports](/erpnext/accounting-reports)
+
+<!-- page: erpnext/erpnext__share-transfer.md -->
+---
+title: "Share Transfer\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/share-transfer"
+updated: "2026-08-14"
+---
+
+Nova Electronics Trading starts with three shareholders: Elena Brooks holds 6,000 shares, Marcus Lee holds 4,000, and Horizon Ventures LLC holds 1,000. Elena now wants to transfer 1,000 of her shares to Horizon Ventures LLC. After the transfer, Elena will hold 5,000 shares, Marcus will still hold 4,000, and Horizon will hold 2,000. The company needs more than a note saying the deal happened. It needs an auditable record of the former owner, new owner, share-number range, quantity, rate, and date.
+
+
+
+A Share Transfer records three kinds of ownership movement: the Company issues new shares, buys shares back, or transfers existing shares between Shareholders. Use the correct type because it determines which parties ERPNext requires and how balances change.
+
+## Before you begin
+
+Create the relevant [Shareholders](/erpnext/shareholder). A new owner must first receive an Issue before their folio number and balance become available for later transfers. Confirm the equity or liability [Account](/erpnext/chart-of-accounts), asset account, and Share Type with your accountant.
+
+## Issue shares
+
+Create a Share Transfer and set **Transfer Type** to **Issue**. Select the recipient, Equity or Preference share type, and the Company.
+
+[Screenshot on the live page: Share issue type, recipient, and share type highlighted]
+
+Enter the first and last share numbers, number of shares, and rate. The number range must agree with the quantity and must not overlap an existing issued range.
+
+[Screenshot on the live page: Share number range, quantity, and rate highlighted]
+
+## Transfer shares between owners
+
+Set Transfer Type to **Transfer**. Select the From Shareholder and To Shareholder with their folio numbers.
+
+[Screenshot on the live page: From and to shareholders highlighted]
+
+Enter the share-number range being moved, quantity, and rate, then save and submit. ERPNext reduces the former owner's holding and increases the new owner's holding.
+
+[Screenshot on the live page: Transferred share range and quantity highlighted]
+
+## Transfer types
+
+
+| Type     | Use it when                                              |
+| -------- | -------------------------------------------------------- |
+| Issue    | The Company creates and assigns shares to a shareholder. |
+| Transfer | Existing shares move from one shareholder to another.    |
+| Purchase | The Company buys shares back from a shareholder.         |
+
+
+## Troubleshooting
+
+### The folio number is missing
+
+Submit an Issue for that shareholder first. A saved Shareholder without an issued holding does not yet have an ownership history.
+
+### The share-number range is rejected
+
+Check that the From No, To No, and No of Shares agree and that the range is available to the source owner.
+
+## Frequently asked questions
+
+### Does submission automatically create General Ledger entries?
+
+The ownership register changes on submission. Use **Create Journal Entry** when the transfer also requires an accounting entry, and review the resulting [General Ledger](/erpnext/general-ledger).
+
+### Can I transfer shares to a newly created shareholder immediately?
+
+The recipient needs an initial Issue so ERPNext can assign a folio number before a later transfer.
+
+## Related topics
+
+- [Shareholder](/erpnext/shareholder)
+- [Shareholder Management](/erpnext/shareholder-management)
+- [Share Reports](/erpnext/share-reports)
+- [Journal Entry](/erpnext/journal-entry)
+
+<!-- page: erpnext/erpnext__shareholder-management.md -->
+---
+title: "Shareholder Management"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/shareholder-management"
+updated: "2026-08-14"
+---
+
+Nova Electronics Trading starts with three shareholders: Elena Brooks holds 6,000 shares, Marcus Lee holds 4,000, and Horizon Ventures LLC holds 1,000. As Nova raises capital and ownership changes, the finance team must answer three questions reliably: who the owners are, how many shares each one holds, and which transaction changed that balance. Shareholder management connects those answers instead of treating them as separate spreadsheets.
+
+
+
+In ERPNext, the workflow has three parts. A [Shareholder](/erpnext/shareholder) identifies the owner. A [Share Transfer](/erpnext/share-transfer) records an Issue, Purchase, or Transfer. [Share Reports](/erpnext/share-reports) show the resulting balances and history.
+
+[Screenshot on the live page: Nova shareholder register in ERPNext]
+
+## Use the records in this order
+
+
+| Step | Record                                   | Result                                                |
+| ---- | ---------------------------------------- | ----------------------------------------------------- |
+| 1    | Shareholder                              | Creates the owner master and contact context.         |
+| 2    | Share Transfer with Issue                | Creates the first holding and assigns a folio number. |
+| 3    | Share Transfer with Transfer or Purchase | Changes ownership or records a company buyback.       |
+| 4    | Share Balance and Share Ledger           | Verifies current ownership and transaction history.   |
+
+
+[Screenshot on the live page: Share issue type, shareholder, and share type highlighted]
+
+## Keep the register reliable
+
+Use submitted Share Transfers for every ownership change. Do not overwrite a shareholder's balance manually. Keep [Contacts](/erpnext/contact) and [Addresses](/erpnext/address) linked to the master, and use a consistent [Fiscal Year](/erpnext/fiscal-year) and posting date when related accounting entries are required.
+
+## Frequently asked questions
+
+### Does creating a Shareholder change the company's equity?
+
+The master itself has no ledger impact. A submitted share issue records the ownership movement, and the related [Journal Entry](/erpnext/journal-entry) is used when accounting entries are required.
+
+### Which report shows the current owner balance?
+
+Share Balance shows current holdings. Share Ledger explains how those holdings changed transaction by transaction.
+
+## Related topics
+
+- [Shareholder](/erpnext/shareholder)
+- [Share Transfer](/erpnext/share-transfer)
+- [Share Reports](/erpnext/share-reports)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+
+<!-- page: erpnext/erpnext__shareholder.md -->
+---
+title: "Shareholder\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/shareholder"
+updated: "2026-08-14"
+---
+
+Nova Electronics Trading has three shareholders. Elena Brooks initially holds 6,000 shares, Marcus Lee holds 4,000, and Horizon Ventures LLC holds 1,000. Finance needs to know who owns shares, how to contact each owner, and which ownership transactions belong to each one. Keeping names in a spreadsheet makes it easy to lose the connection between the owner, their folio number, and their share history.
+
+
+
+A Shareholder is the master record for a person or organisation that owns shares in a Company. It becomes the anchor for [share issues and transfers](/erpnext/share-transfer), balances, and the Share Ledger. Creating the master does not give the owner any shares. Ownership begins only after an Issue is submitted.
+
+## Create a Shareholder
+
+Open the Shareholder list and select **Add Shareholder**. Enter the shareholder's name and Company. Enable **Is Company** when the owner is an organisation rather than an individual.
+
+[Screenshot on the live page: Shareholder list with fictional Nova owners]
+
+Save the record. ERPNext assigns a Shareholder ID using the configured [naming series](/erpnext/document-naming-settings). Add the shareholder's [Contact](/erpnext/contact) and [Address](/erpnext/address) from the linked records so correspondence remains separate from ownership transactions.
+
+[Screenshot on the live page: Shareholder name, company, and folio number highlighted]
+
+## Folio number and share balance
+
+The folio number uniquely connects a shareholder to their ownership transactions. It appears after the first share issue. The Share Balance section then shows holdings created by submitted Share Transfers.
+
+## Frequently asked questions
+
+### Why is the share balance empty after I create a Shareholder?
+
+Saving the master records the owner but does not issue shares. Create a Share Transfer with Transfer Type set to Issue and submit it.
+
+### Can a company be a shareholder?
+
+An organisation can be maintained as a shareholder by enabling Is Company on its master record.
+
+## Related topics
+
+- [Shareholder Management](/erpnext/shareholder-management)
+- [Share Transfer](/erpnext/share-transfer)
+- [Share Reports](/erpnext/share-reports)
+- [Company](/erpnext/company)
+
+<!-- page: erpnext/erpnext__sharing.md -->
+---
+title: "Sharing"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/sharing"
+updated: "2026-02-27"
+---
+
+**'Sharing' allows users to share a particular document with other users in ERPNext.**
+
+In addition to user and role permissions, you can also share a document with another user if you have sharing rights for that document. Note that, a shared document will be visible to the other user even if the document is restricted via [User Permissions](/erpnext/user-permissions).
+
+**How to share a document?**
+----------------------------
+
+1. Open the document that you want to share and click on the '+'icon under 'Shared With'.
+2. Select the user with whom you need to share the document.
+3. If the document is to be shared with all users then just select 'Everyone'.
+4. Tick appropriate checkboxes to provide relevant rights to the user with whom the document is getting shared.
+5. Click on the Add button to get the user added.
+6. You can share the same document with multiple users by adding them one by one.
+
+[Screenshot on the live page: Screenshot 2023-12-28 at 2.39.05 PM]  
+
+
+**Note:-** The document indicates the users with whom is has been shared.
+
+[Screenshot on the live page: Screenshot 2023-12-28 at 2.54.24 PM]  
+
+
+### Related Topics
+
+1. [Role and Role Profile](/erpnext/role-and-role-profile)
+2. [Role Based Permissions](/erpnext/role-based-permissions)
+3. [User Permissions](/erpnext/user-permissions)
+4. [Role Permission For Page And Report](/erpnext/role-permission-for-page-and-report)
+
+<!-- page: erpnext/erpnext__shipment.md -->
+---
+title: "Shipment\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/shipment"
+updated: "2026-02-28"
+---
+
+
+**A Shipment is a document that keeps track of real-world Shipments created against a Delivery Note or independently.**
+
+> Introduced in version 13
+
+Shipments are particularly useful for shippers who want to track all their Shipment information such as AWB Number, Shipment Status, Carrier, etc. within ERPNext.
+
+To access the Shipment list, go to:
+> Home > Stock > Stock Transactions > Shipment
+
+## 1. Prerequisites
+Before creating and using a Shipment, it is advised that you create the following first:
+
+* Company and Customer [Address](/erpnext/address) with Postal Code, Email Address and Phone Number set.
+* Customer [Contact](/erpnext/contact).
+
+## 2. How to create a Shipment
+A Shipment can be created manually or from a Delivery Note:
+
+### 2.1. Manual Shipment
+To create a Shipment manually, follow these steps:
+
+1. Go to the Shipment list, click on New.
+
+ [Screenshot on the live page: Unsaved Shipment]
+1. Select an option in the **Pickup from** field. On selecting one of the three options, you will be prompted to select a Company/Supplier/Customer based on your selection.
+1. If you select 'Company' in the **Pickup from** field, along with the Address you must also select a **Pickup Contact Person** who will be a user from your organization, in ERPNext. Make sure the Last Name, Email Address and Phone Number are set for this user.
+1. You can similarly fill the **Delivery To** section.
+1. Add Shipment Parcel Information in the **Shipment Parcel** table.
+1. Fill in the Value of Goods.
+1. Select a Pickup Date.
+1. Add a Description of Contents in this Shipment.
+1. You can optionally fill the Shipment Information section if you are tracking Shipments manually.
+1. Save and Submit.
+
+ [Screenshot on the live page: Submitted Shipment]
+
+### 2.1. Shipment from Delivery Note
+To create a Shipment from a Delivery Note:
+
+1. Click on **Create** > **Shipment** in the Delivery Note.
+
+ [Screenshot on the live page: Submitted Shipment]
+
+1. Fill the form as mentioned in the previous section.
+
+## 3. Features
+
+### 3.1. Shipment Parcel
+
+You can specify the length, width, height and, weight of a parcel in the Shipment. If there are multiple parcels with identical dimensions, the **count** field can be set accordingly.
+
+To automatically fetch frequently used parcel dimensions, a Parcel Template can be created and set in the **Parcel Template** field. After adding the template, click on the **Add template** button.
+
+ [Screenshot on the live page: Submitted Shipment]
+
+### 3.2. Shipment Information / Details
+The Shipment Information section is an **optional** section where a user can manually track Shipment information. Here are some of the fields:
+
+1. **Service Provider** (optional): A Service Provider can be a third-party service that provides shipping services from various carriers.
+1. **Shipment ID**: The unique Shipment ID on your Shipping platform.
+1. **Shipment Amount**: Total cost incurred on Shipment
+1. **Carrier**: The Carrier that handles your Shipment and delivers it.
+1. **Carrier Service** (optional): The type/category of service provided by the carrier. E.g. some carriers have categories such as Economy, Express, etc.
+1. **AWB Number**: An air waybill (AWB) accompanies **international** air cargo. It usually has a unique **AWB Number**, that makes it easy to identify and track an air courier.
+1. **Incoterm**: They are a set of internationally recognized rules which define the responsibilities of sellers and buyers. [Know more about it here.](https://iccwbo.org/resources-for-business/incoterms-rules/incoterms-2020/)
+
+### 3.3 Automation
+
+You can also automate rate comparison, label generation, tracking, etc. using our [Shipping Integration](/erpnext/erpnext_shipping).
+
+### 4. Related Topics
+1. [Delivery Note](/erpnext/delivery-note)
+1. [Packing Slip](/erpnext/packing-slip)

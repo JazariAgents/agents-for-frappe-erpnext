@@ -26,7 +26,7 @@ The same Types are available in [Sales Taxes and Charges Template](/erpnext/sale
 
 
 
-![All five tax-template calculation types](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-calculation-types-table.png)
+[Screenshot on the live page: All five tax-template calculation types]
 
 ## Before you begin
 
@@ -91,7 +91,7 @@ Set **Reference Row #** to 1. This type is useful for a surcharge, cess, or levy
 
 
 
-![Previous Row Amount with its reference and rate](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-previous-row-calculation.png)
+[Screenshot on the live page: Previous Row Amount with its reference and rate]
 
 ## On Previous Row Total
 
@@ -268,11 +268,11 @@ To generate UAE VAT 201 Report in ERPNext go to:
 > Accounting > Value-Added Tax (VAT UAE) > UAE VAT 201
 or simply search for UAE VAT 201 in the awesomebar.
 
-![UAE VAT 201 Report](/files/uae-vat-201-report.png)
+[Screenshot on the live page: UAE VAT 201 Report]
 
 To print the report, go to Menu > Print as shown in the screenshot below.
 
-![UAE VAT 201 Report Download](/files/uae-vat-201-download.png)
+[Screenshot on the live page: UAE VAT 201 Report Download]
 
 Note: To make sure the calculations in the report are correct, check the following:
 
@@ -282,7 +282,7 @@ Note: To make sure the calculations in the report are correct, check the followi
 
 3. All VAT accounts are selected in UAE VAT Settings.
 
-![UAE VAT Account Settings](/files/uae-vat-account-settings.png)
+[Screenshot on the live page: UAE VAT Account Settings]
 
 <!-- page: erpnext/erpnext__uae-vat-setup.md -->
 ---
@@ -298,20 +298,20 @@ updated: "2026-02-27"
 Set Tax Registration Number in the field, Tax ID for the Customer, Supplier, and Company.
 
 1. For Customer
-![TRN in Customer](/files/tax-id-customer.png)
+[Screenshot on the live page: TRN in Customer]
 
 2. For Company
-![TRN in Company](/files/tax-id-company.png)
+[Screenshot on the live page: TRN in Company]
 
 ### 2. Setting up TAX Code for Products
 Setup tax code in the item master, system will fetch same code in the sales/purchase invoice on selection of an item.
 
-![Tax Code in Item](/files/tax-code-item.png)
+[Screenshot on the live page: Tax Code in Item]
 ### 3. Default Tax Templates
 
 ERPNext provides you default tax template for vat(5%, zero, exempted) and excise(50%, 100%). You can create your own [tax template](/erpnext/setting-up-taxes.html).
 
-![Default Tax Template](/files/uae-tax-templates.png)
+[Screenshot on the live page: Default Tax Template]
 
 ### 3. Making VAT Ready Invoices
 
@@ -325,22 +325,22 @@ For **Sales Invoice**,
 4. Select the template that you have created based on the type of transaction
 5. Save and Submit the Invoice
 
-![VAT Invoice](/files/vat-invoice.gif)
+[Screenshot on the live page: VAT Invoice]
 
 ### 4. Print Tax Invoice
 
 ERPNext provides two default print format
 
 1. Simplified Tax Invoice
-![Simplified Tax Invoice](/files/simplified-invoice.png)
+[Screenshot on the live page: Simplified Tax Invoice]
 
 2. Detailed Tax Invoice
-![Detailed Tax Invoice](/files/detailed-invoice.png)
+[Screenshot on the live page: Detailed Tax Invoice]
 
 ### 5. Set-up VAT Accounts
 Select the accounts that will be used for creating VAT invoices here.
 
-![UAE VAT Account Settings](/files/uae-vat-account-settings.png)
+[Screenshot on the live page: UAE VAT Account Settings]
 
 <!-- page: erpnext/erpnext__understand-debit-and-credit.md -->
 ---
@@ -633,7 +633,7 @@ ERPNext offers a full 2-way integration with Unicommerce using Uniware's REST AP
 
 ## Authentication and basic setup
 
-![unicommerce auth setup](/files/unicommerce-auth-setup.png)
+[Screenshot on the live page: unicommerce auth setup]
 
 1. Once app is installed go to "Unicommerce Settings" page.
 2. Click on "Enable Unicommerce" checkbox.
@@ -668,8 +668,8 @@ To map and item group to product category:
 1. First find product category code on Unicommerce.
 2. Open related Item Group on ERPNext and update Unicommerce product category code there.
 
-![Unicommerce product category](/files/unicommerce-product-category.png)
-![ERPNext item group](/files/erpnext-item-group.png)
+[Screenshot on the live page: Unicommerce product category]
+[Screenshot on the live page: ERPNext item group]
 
 Item sync field mapping is as follows:
 
@@ -711,7 +711,7 @@ Once Item sync is setup Inventory Sync can be enabled. The integration checks fo
 
 Following is workflow for processing orders on ERPNext. You can alternatively also process orders on Unicommerce and only sync finished order. 
 
-![Unicommerce workflow](/files/unicommerce_workflow.png)
+[Screenshot on the live page: Unicommerce workflow]
 
 ## Sales Order Sync - Channel(s) Setup
 
@@ -721,7 +721,7 @@ Unicommerce Integration supports receiving and processing from multiple channel.
 
 ### Defaults for Sales Order Sync
 
-![default sales order sync](/files/sales-order-sync.png)
+[Screenshot on the live page: default sales order sync]
 
 1. Go to "Unicommerce Settings".
 2. Scroll to "Sales Order Sync" setting section.
@@ -731,7 +731,7 @@ Unicommerce Integration supports receiving and processing from multiple channel.
 
 ### Channel specific Sales Order sync configurations
 
-![channel specific sales order sync](/files/unicommerce-channel-setup.png)
+[Screenshot on the live page: channel specific sales order sync]
 
 To allow for flexible configuration for each channel you need to create "Unicommerce Channel" document for each channel you want to enable for Sales Order sync.
 
@@ -760,7 +760,7 @@ If you want to process orders and invoices on Unicommerce and only sync fully pr
 
  In order to generate invoice, go to synced Unicommerce Sales Order, click on "Unicommerce > generate invoice". This will create a Sales Invoice and deduc the stock too.
  
- ![generate invoice button](/files/generate-invoice.png)
+ [Screenshot on the live page: generate invoice button]
 
 ## Shipment Manifest
 
@@ -771,7 +771,7 @@ Pre-requisites is to setup following doctypes, you can find code on Unicommerce 
 2. Create Unicommerce Shipping Method
 
 
-![Unicommerce shipment manifest](/files/shipment-manifest.png)
+[Screenshot on the live page: Unicommerce shipment manifest]
 
 Process of creating manifest:
 
@@ -783,7 +783,7 @@ Process of creating manifest:
 
 ## Status Updates
 
-![Unicommerce details section](/files/unicommerce-details-section.png)
+[Screenshot on the live page: Unicommerce details section]
 
 Status of Unicommerce is periodically updated in ERPNext, you can see the current status in the "Unicommerce details" section.
 
@@ -809,7 +809,7 @@ You can view all returns by going to "Sales Invoice" and filtering by "Is Return
 While creating returns, the return warehouse is picked based on configured Return Warehouse in Unicommerce settings. If it's not set, original warehouse will be used. 
 
 
-![Unicommerce return warehouse](/files/return-warehouse-map.png)
+[Screenshot on the live page: Unicommerce return warehouse]
 
 <!-- page: erpnext/erpnext__united_arab_emirates.md -->
 ---
@@ -853,11 +853,11 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 
 Before submitting, verify the Payment Entry, the linked invoice, and the amount that will be unlinked.
 
-![Unreconcile Payment showing the 400 USD allocation that will be removed](https://novacompanies.m.frappe.cloud/files/docs-unreconcile-before-v2.png)
+[Screenshot on the live page: Unreconcile Payment showing the 400 USD allocation that will be removed]
 
 After submission, the example Payment Entry has no invoice allocation and its 400 USD is available again as an unallocated amount.
 
-![Payment Entry after unreconciliation showing zero allocated and 400 USD unallocated](https://novacompanies.m.frappe.cloud/files/docs-unreconcile-after-v2.png)
+[Screenshot on the live page: Payment Entry after unreconciliation showing zero allocated and 400 USD unallocated]
 
 ## Important fields and what they mean
 
@@ -932,7 +932,7 @@ The UoM list by itself only stores the name. The actual conversion rates are sto
 
 For example, here 1 Kg is approximately 2.2 Pounds and the exact conversion factor is stored:
 
-![](/files/uom-conversion.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__update-gstr-1-data-in-gst-offline-tool.md -->
 ---
@@ -944,14 +944,14 @@ updated: "2026-07-31"
 
   
 Follow below steps to generate JSON file using ERPNext.  
-**Setup GST Parameters:**Go to Accounts > Goods and Services Tax (GST India) > GST Settings and update GST parameters.![](/files/l1CthRB.png)  
-**Report GSTR-1:**Go to Accounts > Goods and Services Tax (GST India) > GSTR-1. Also, you can search in awesome bar.![](/files/Screen Shot 2018-07-22 at 12.10.10 PM.png)  
-**Select Return period and Type of Business:**Update filters as per return period and type of Business ( invoice Type) to get the required data.![](/files/Screen Shot 2018-07-22 at 12.31.17 PM.png)  
+**Setup GST Parameters:**Go to Accounts > Goods and Services Tax (GST India) > GST Settings and update GST parameters.[Screenshot on the live page]  
+**Report GSTR-1:**Go to Accounts > Goods and Services Tax (GST India) > GSTR-1. Also, you can search in awesome bar.[Screenshot on the live page]  
+**Select Return period and Type of Business:**Update filters as per return period and type of Business ( invoice Type) to get the required data.[Screenshot on the live page]  
 **Download GSTR-1 Data:**Go to Menu and export and download GSTR-1 Data.  
-**GST Return Offline Tool:**Open GST Offline Tool. (Download Offline Tool from [GST Portal](https://www.gst.gov.in/download/returns))![](/files/1c3pG37.png)**﻿**Press **New** button and update GST return type, GSTIN Fiscal Year and Tax Period in Offline Tool .![](/files/SwIbsdI.png)  
-**Select Section and Import GSTR-1 CSV in Offline Tool.**![](/files/M2G3Scu.png)  
-**Generate and Download JSON file.**![](/files/rzGSbRJ.png)  
-**Upload JSON file on GST Portal.**![](/files/BkOkjRq.png)
+**GST Return Offline Tool:**Open GST Offline Tool. (Download Offline Tool from [GST Portal](https://www.gst.gov.in/download/returns))[Screenshot on the live page]**﻿**Press **New** button and update GST return type, GSTIN Fiscal Year and Tax Period in Offline Tool .[Screenshot on the live page]  
+**Select Section and Import GSTR-1 CSV in Offline Tool.**[Screenshot on the live page]  
+**Generate and Download JSON file.**[Screenshot on the live page]  
+**Upload JSON file on GST Portal.**[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__update-stock-option-in-sales-invoice.md -->
 ---
@@ -964,7 +964,7 @@ updated: "2026-03-02"
 
 If you have items delivery and invoicing happening at the same time, you can create delivery from with Sales Invoice itself. Sales Invoice has field called **Update Stock**, just before Item table. If this field is checked, on submission of Sales Invoice, stock of Item will be deducted from selected Warehouse.
 
-![Update Stock via Sales Invoice](/files/update-stock-via-sales-invoice.png)
+[Screenshot on the live page: Update Stock via Sales Invoice]
 
 On checking Update Stock, Sales Invoice Item will show relevant fields like Warehouse, Serial No., Batch No., Item valuation etc.
 

@@ -429,7 +429,7 @@ You can use this method to show a progress bar in a dialog:
 frappe.publish_progress(25, title='Some title', description='Some description')
 ```
 
-![frappe publish realtime](/files/frappe-publish-realtime.png)
+[Screenshot on the live page: frappe publish realtime]
 
 ## **Custom Event Handlers (Python)**
 
@@ -1440,7 +1440,7 @@ updated: "2026-02-17"
 
 The Tree View is generated for all DocTypes that has Is Tree enabled.
 
-![Tree View](/files/treeview.png)
+[Screenshot on the live page: Tree View]
 *Tree View*
 
 ## Standard Tree JS

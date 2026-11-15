@@ -1008,7 +1008,7 @@ html_content = """
 
     <p>Learn how to integrate with our <a href="/api">REST API</a>.</p>
 
-    <img src="/images/api-flow.png" alt="API workflow diagram">
+    [Screenshot on the live page]
 
     <ul>
 

@@ -42,7 +42,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Select the Document Type and the Import Type as *Insert New Records
   3. Click on Save and then download the template
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 490–730  (https://docs.frappe.io/erpnext/data-import)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 392–632  (https://docs.frappe.io/erpnext/data-import)
 
 ### Export records to a spreadsheet
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Data > Data Export**, or type *Data Export* in the search bar at the top
@@ -54,7 +54,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Select the fields to export; the red ones are mandatory
   6. You can also add filters to select only specific data. For example, 'Territory = Asia' will export all Customers whose Territory is set as 'Asia'
   7. Click on Export to download the file
-- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 462–488  (https://docs.frappe.io/erpnext/data-export)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 364–390  (https://docs.frappe.io/erpnext/data-export)
 
 ### Update many records at once
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Desk > Bulk Update**, or type *Bulk Update* in the search bar at the top
@@ -81,7 +81,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Company-independent masters
   3. Company-specific masters
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-30.md` lines 541–643  (https://docs.frappe.io/erpnext/import-accounting-masters)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-30.md` lines 3–105  (https://docs.frappe.io/erpnext/import-accounting-masters)
 
 ### Import advances, payments and balances
 - **Path (checked on v16.55):** https://your-site/desk → type *Opening Invoice Creation Tool* in the search bar at the top and open the doctype
@@ -91,7 +91,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Add each Item and Warehouse
   3. Enter opening quantity
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-30.md` lines 645–753  (https://docs.frappe.io/erpnext/import-advances-unallocated-payments-bank-stock-and-asset-balances)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-30.md` lines 107–215  (https://docs.frappe.io/erpnext/import-advances-unallocated-payments-bank-stock-and-asset-balances)
 
 ### Migrate from QuickBooks
 - **Path (checked on v16.55):** **Not available on ERPNext v16.** The QuickBooks Migrator was removed. Export the QuickBooks lists to spreadsheets and load them with **Data Import** (the frappe-data-import skill) instead. Tell the user this before starting.
@@ -100,7 +100,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Go to Inuit Developer Portal
   3. Sign In with your existing account or Sign Up
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-49.md` lines 135–333  (https://docs.frappe.io/erpnext/quickbooks-migrator)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-49.md` lines 85–283  (https://docs.frappe.io/erpnext/quickbooks-migrator)
 
 ## What cannot be done in the interface
 

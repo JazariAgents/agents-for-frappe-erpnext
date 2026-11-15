@@ -1273,7 +1273,7 @@ Here is an architecture diagram of Frappe Cloud (traffic enters from the top). N
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=24erat618m)
+[Screenshot on the live page]
 
 Here are some specifics of how proxies protect the servers.
 

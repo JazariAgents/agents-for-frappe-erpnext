@@ -1,81 +1,5 @@
 <!-- Frappe documentation: erpnext, part 62 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__supplier-essentials.md -->
----
-title: "Supplier Essentials"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/supplier-essentials"
-updated: "2026-02-26"
----
-
-In ERPNext, supplier doctypes refer to the types of documents or records associated with managing suppliers within the system. By utilizing supplier doctypes effectively, businesses can streamline their supplier management processes, maintain accurate records, and ensure timely and efficient procurement operations.
-
-* [Supplier Group](/erpnext/user/manual/en/supplier-group)
-* [Supplier](/erpnext/user/manual/en/supplier)
-
-<!-- page: erpnext/erpnext__supplier-group.md -->
----
-title: "Supplier Group\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/supplier-group"
-updated: "2026-02-27"
----
-
-**Supplier Group is an aggregation of suppliers that are similar in some way.**
-
-A supplier may be distinguished from a contractor or subcontractor, who
-commonly adds specialized input to deliverables. A supplier is also known as a
-vendor. There are different types of suppliers based on the goods and
-products they supply.
-
-ERPNext allows you to create your own categories of suppliers. These
-categories are known as Supplier Groups. For example, if your suppliers are
-mainly pharmaceutical companies and FMCG distributors, you can create a new
-Supplier Groups for them and name the groups accordingly.
-
-To access Supplier Group, go to:
-> Home Buying > Supplier > Supplier Group
-
-## 1. Prerequisites
-Before creating and using a Supplier Group, it is advised that you create the following first:
-
-* [Supplier](/erpnext/supplier)
-
-## 2. How to create a Supplier Group
-1. Go to the Supplier Group list, click on New.
-1. Type a name for your new Supplier Category.
-1. You can set a Parent Supplier Group for this Supplier Group.
-1. Ticking the Is Group checkbox will make it a Parent Supplier Group.
-1. You can also assign a default Payment Terms Template to the Supplier Group. Useful in a case where all your hardware suppliers take half payment on sales order and half post shipment.
-1. Save.
-
-![Supplier Group](/files/supplier-group.png)?
-
-You can classify your suppliers from a range of choices available in ERPNext.
-Choose from a set of given options like Distributor, Electrical, Hardware, Local, Pharmaceutical, Raw Material, Services etc. Classifying your supplier into different types facilitates accounting and payments.
-
-## 3. Supplier Group Tree
-
-You can also construct Supplier Group in the form of a tree hierarchy, similar
-to Chart of Accounts.
-
-To view the Tree structure, click on **Tree** from the sidebar. To go back to the
-list view, simply select: **Menu > View List**.
-
-![Supplier Group](/files/supplier-group-tree.png)
-
-With the new [User Permissions](/erpnext/users-and-permissions)
-in place, you can now apply hierarchy based permissions.
-That is, if a User is permitted to view parent node of Supplier Group,
-he/she automatically qualifies to view the child nodes of that parent node.
-
-For example, in the above image, let's say that user permission is applied for a User to
-view 'Distributor' document. Then the user also gets permitted to view its
-child nodes 'Book Distributor', 'Electronic Distributor', etc.
-
-### 4. Related Topics
-1. [Supplier](/erpnext/supplier)
-
 <!-- page: erpnext/erpnext__supplier-quotation.md -->
 ---
 title: "Supplier Quotation\n"
@@ -89,7 +13,7 @@ updated: "2026-02-27"
 
 A Supplier Quotation may also contain terms of sale, terms of payment, and warranties. Acceptance of quotation by the buyer can be considered as an agreement binding on both parties.
 
-![Buying Flow](/files/buying_flow_sq.png)
+[Screenshot on the live page: Buying Flow]
 
 To access Supplier Quotation, go to:
 > Home > Buying > Purchasing > Supplier Quotation
@@ -105,7 +29,7 @@ Before creating and using a Supplier Quotation, it is advised that you create th
 ### 2.1 Supplier Quotation from Material Request
 
 You can make a supplier quotation from a Material Request:
-![Supplier Quotation from Material Receipt](/files/supplier-quotation-from-mr.png)
+[Screenshot on the live page: Supplier Quotation from Material Receipt]
 
 Or:
 
@@ -122,7 +46,7 @@ The supplier can submit you a quotation himself via ERPNext. To know more about 
 1. Select the Supplier who sent you the quotation.
 1. The Address and Contact will be fetched if you've saved it in the supplier master.
 1. Enter the Item code, select the quantity. Rate will be fetched if you've set the Standard Buying rate for the item in [Item Price](/erpnext/item-price).
- ![Supplier Quotation](/files/supplier-quotation.png)
+ [Screenshot on the live page: Supplier Quotation]
 
 If you have multiple Suppliers who supply you with the same Item, you
 usually send out a [Request for Quotation](/erpnext/request-for-quotation) to various Suppliers. In
@@ -192,12 +116,12 @@ Before creating and using a Supplier Scorecard, it is advised that you create th
 3. Select the evaluating period whether weekly, monthly, or yearly.
 4. Setup the scoring function (details in next section).
 5. A supplier scorecard is created for each supplier individually. Only one supplier scorecard can be created for each supplier.
-![Purchase Order](/files/supplier-scorecard.png)
+[Screenshot on the live page: Purchase Order]
 
 ## 2. Features
 ### 2.1 Scoring Setup
 The supplier scorecard consists of a set evaluation periods, during which the performance of a supplier is evaluated. This period can be weekly, monthly or yearly. The current score is calculated from the score of each evaluation period based on the weighting function. The default formula is linearly weighed over the previous 12 scoring periods.
-![Purchase Order](/files/supplier-scorecard-weighing.png)
+[Screenshot on the live page: Purchase Order]
 This formula is customizable.
 
 #### Supplier Standings
@@ -205,13 +129,13 @@ This formula is customizable.
 The supplier standing is used to quickly sort suppliers based on their performance. These are customizable for each supplier.
 
 The scorecard standing of a supplier can also be used to restrict suppliers from being included in Request for Quotations or being issued Purchase Orders. The following screen can be seen on expanding a row in the 'Scoring Standings' table, click on the downward facing arrow.
-![Purchase Order](/files/supplier-scorecard-standing.png)
+[Screenshot on the live page: Purchase Order]
 
 ### 2.2 Criteria Setup
 A supplier can be evaluated on several individual evaluation criteria, including (but not limited to) quotation response time, delivered item quality, and delivery timeliness. These criteria are weighed to determine the final period score.
 
 To create a new Criteria, go to Buying > Supplier Scorecard > Supplier Scorecard Criteria:
-![Purchase Order](/files/supplier-scorecard-criteria.png)
+[Screenshot on the live page: Purchase Order]
 
 Note: Criteria weights for a scorecard should add up to 100.
 
@@ -226,7 +150,7 @@ The value of each of these variables is calculated over the scoring period for e
  - The total number of deliveries from the supplier
  - The total amount (in dollars) received from a supplier
 
-![Supplier Scorecard variable](/files/supplier-scorecard-variables.png)
+[Screenshot on the live page: Supplier Scorecard variable]
 
 Variables are pre-set, additional variables can be added through server-side customizations. Tick the Custom checkbox if the variable you're creating is for a custom field.
 
@@ -284,7 +208,7 @@ To access the Supplier list, go to: > Home > Buying > Supplier > Supplier
 1. Go to the Supplier list and click on New.
 2. Enter a name for the supplier.
 3. Select the supplier group whether Pharmaceutical, Hardware etc.
-4. Save. ![Supplier Master](/files/supplier-master.png)
+4. Save. [Screenshot on the live page: Supplier Master]
 
 The options to Warn RFQs, POs, Prevent RFQs, POs will be available once you create a Supplier Scorecard and transactions are made.
 
@@ -314,13 +238,13 @@ For India:
 
 If the "Purchase Order Required" or "Purchase Receipt Required" option is configured as "Yes" in Buying Settings, it can be overridden for a particular supplier by enabling the "Allow Purchase Invoice Creation Without Purchase Order" or "Allow Purchase Invoice Creation Without Purchase Receipt" in the Supplier Master.
 
-![Supplier Master](/files/supplier-po-pr-required.png)
+[Screenshot on the live page: Supplier Master]
 
 ### 2.3 Currency and Price List
 
 **Billing Currency**: Your supplier's currency can be different from your company currency. If you choose JPY for a supplier, then the currency will be filled as JPY and the exchange rate shown for future purchase transactions.
 
-![Supplier Currency](/files/supplier-currency.gif)
+[Screenshot on the live page: Supplier Currency]
 
 Each Supplier can have a default **Price List** so that every time you buy a new item from this supplier for different prices, the price list associated with the supplier would be updated as well. Under the price list comes item price, you can see the prices in Buying > Items and Pricing > Item Price.
 
@@ -347,7 +271,7 @@ You can **integrate** a supplier with an account. For all Suppliers, "Creditor" 
 
 If you want to customize payable account for the Supplier, you should first add a payable Account in the Chart of Account, and then select that Payable Account in the Supplier master.
 
-![Supplier Master](/files/supplier-payable-account.png)
+[Screenshot on the live page: Supplier Master]
 
 If you don't want to customize payable account, and proceed with default payable account "Creditor", then do not update any value in the Default Supplier Account's table.
 
@@ -363,7 +287,7 @@ You can add the supplier's website and any additional details about your supplie
 
 Contacts and Addresses in ERPNext are stored separately so that you can create multiple Contacts and Addresses for one Supplier. Once Supplier is saved, you will find the option to create Contact and Address for that Supplier.
 
-![Supplier Master](/files/supplier-new-address-contact.png)
+[Screenshot on the live page: Supplier Master]
 
 > Tip: When you select a Supplier in any transaction, Contact for which "Is Primary" field id checked, it will auto-fetch with the Supplier details.
 
@@ -379,7 +303,7 @@ Once all the necessary details are filled, save the document. On saving, options
 - **Payment Entry**: Payment Entries for the Purchase Invoices against this supplier.
 - **Pricing Rule**: Any Pricing Rules linked with this supplier. See section *2.2 Currency and Price List* to know how it works.
 
-![Supplier Save](/files/supplier-save.png)
+[Screenshot on the live page: Supplier Save]
 
 By clicking on the View button, you can view the Accounting Ledger or Accounts Payable directly for this supplier.
 
@@ -459,7 +383,7 @@ To access Support Settings, go to:
 > 
 > 
 
-![Support Settings](/files/support-settings.png)  
+[Screenshot on the live page: Support Settings]  
 
 
 1. Service Level Agreements
@@ -498,7 +422,7 @@ This report provides a date-wise summary of Average First Response Time for Issu
 To access the First Response Time for Issues report, go to:
 > Home > Support > Reports > First Response Time for Issues
 
-![First Response Time for Issues](/files/first-response-time.png)
+[Screenshot on the live page: First Response Time for Issues]
 
 ## 2. Issue Summary
 
@@ -521,7 +445,7 @@ The stacked chart shows the number of issues classified by status for each custo
 To access the Issue Summary report, go to:
 > Home > Support > Reports > Issue Summary
 
-![Issue Summary](/files/issue-summary-report.png)
+[Screenshot on the live page: Issue Summary]
 
 ## 3. Issue Analytics
 
@@ -535,7 +459,7 @@ This report provides a count of issues according to weekly, monthly, quarterly, 
 To access the Issue Analytics report, go to:
 > Home > Support > Reports > Issue Analytics
 
-![Issue Analytics](/files/issue-analytics.png)
+[Screenshot on the live page: Issue Analytics]
 
 <!-- page: erpnext/erpnext__system-settings.md -->
 ---
@@ -558,7 +482,7 @@ Use an account with System Manager access. Confirm the intended country, time zo
 
 ## General and localisation settings
 
-![General localisation and language fields in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-localisation.png)
+[Screenshot on the live page: General localisation and language fields in ERPNext System Settings]
 
 
 | Setting                  | What it means                                   | Nova example                                                                                                         |
@@ -600,7 +524,7 @@ Use an account with System Manager access. Confirm the intended country, time zo
 
 ## Sessions, login methods, and brute-force protection
 
-![Session expiry and document-share controls in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-session.png)
+[Screenshot on the live page: Session expiry and document-share controls in ERPNext System Settings]
 
 
 | Setting                         | What it means                                               | Nova example                                                                                                                |
@@ -619,31 +543,31 @@ Use an account with System Manager access. Confirm the intended country, time zo
 | Allow Login After Fail          | Delay before another attempt                                | A 60-second delay slows automated guessing.                                                                                 |
 
 
-![Two-factor authentication controls in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-security.png)
+[Screenshot on the live page: Two-factor authentication controls in ERPNext System Settings]
 
 Two-factor settings enable OTP App, SMS, or Email verification. The bypass options change how restricted IP addresses interact with two-factor authentication, so test them with the exact network policy. QR-code expiry limits setup-page lifetime, while OTP Issuer Name is the label users see in the authenticator app. SMS also requires a working SMS configuration and template.
 
 ## Password settings
 
-![Password policy controls in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-password.png)
+[Screenshot on the live page: Password policy controls in ERPNext System Settings]
 
 Logout All Sessions on Password Reset removes existing sessions after a reset. Force User to Reset Password sets the age after which a reset is required. Reset-link expiry and generation limit reduce the useful life and volume of reset links. Enable Password Policy and Minimum Password Score require stronger passwords. Nova tests these rules with a normal user before enforcing them company-wide.
 
 ## Email settings
 
-![Email footer and delivery controls in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-email.png)
+[Screenshot on the live page: Email footer and delivery controls in ERPNext System Settings]
 
 Email Footer Address supplies the organisation address. Email Retry Limit controls retries after delivery failure. The footer controls determine whether the standard footer, auto-email-report footer, and web-view link appear. Store Attached PDF Document keeps the generated attachment as a File. Welcome and reset-password templates allow approved messages instead of generic text.
 
 ## File settings
 
-![File upload controls in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-files.png)
+[Screenshot on the live page: File upload controls in ERPNext System Settings]
 
 Max File Size limits each upload. Guest uploads should be enabled only with an explicit list of allowed DocTypes. Web Capture can prefer a camera on supported devices. EXIF removal strips embedded image metadata, while the public-file restriction limits who may publish files. Allowed File Extensions provides an allow-list, and background export retention removes generated report files after the configured hours.
 
 ## Display, backups, and advanced settings
 
-![Backup retention and encryption controls in ERPNext System Settings](https://novacompanies.m.frappe.cloud/files/setup-core-20260815-system-backups.png)
+[Screenshot on the live page: Backup retention and encryption controls in ERPNext System Settings]
 
 Display settings can suppress update notices, change-log notices, empty read-only fields, and product suggestions. Number of Backups controls retention; Encrypt Backups protects backup contents but requires secure key handling and a tested restore process.
 
@@ -709,7 +633,7 @@ The Table MultiSelect field is very similar to Link Field. The key difference is
 
 Let us consider an example to understand the same. Let's say you want to assign a ToDo to multiple users, as shown below:
 
-![Screenshot 2024-06-25 at 4.58.41 PM](/files/Screenshot 2024-06-25 at 4.58.41 PM.png)  
+[Screenshot on the live page: Screenshot 2024-06-25 at 4.58.41 PM]  
 
 
 You can add a Table MultiSelect Field by using the following steps:
@@ -721,7 +645,7 @@ Create a new DocType, enable 'Is Child Table' and 'Editable Grid' check-boxes an
 
 Set the link field as mandatory. Ensure that the field within the child table has "In List View" ticked.
 
-![Screenshot 2024-06-25 at 4.55.49 PM](/files/Screenshot 2024-06-25 at 4.55.49 PM.png)  
+[Screenshot on the live page: Screenshot 2024-06-25 at 4.55.49 PM]  
 
 
 Step 2: Add a field with type 'Table MultiSelect'.
@@ -729,7 +653,7 @@ Step 2: Add a field with type 'Table MultiSelect'.
 
 Create a field with type 'Table MultiSelect' and add the DocType created in first step in 'options'.
 
-![Screenshot 2024-06-25 at 4.57.08 PM](/files/Screenshot 2024-06-25 at 4.57.08 PM.png)  
+[Screenshot on the live page: Screenshot 2024-06-25 at 4.57.08 PM]  
 
 
 You can remove any selected value by clicking on the cross sign next to selected value or by placing the cursor next to the value and pressing Backspace.
@@ -748,7 +672,7 @@ updated: "2026-03-02"
 
 **In project management, a task is an actionable unit or activity which needs to be completed.**
 
-![](/files/imagef14e5f.png)
+[Screenshot on the live page]
 
 To access Tasks, go to,
 
@@ -759,7 +683,7 @@ To access Tasks, go to,
 1. Go to the Task List and click on New.
 2. Add the subject of the task.
 3. Save.
-  ![](/files/task7e7df9.gif)
+  [Screenshot on the live page]
 
 Alternatively, a task can also be created from a Project in the following way:
 
@@ -798,7 +722,7 @@ The following additional details can be added when editing a new task:
 
 > **Note**: Based on the values of **Begin** and **Duration** field, the **Expected Start Date** and **Expected End Date** gets calculated for Project Tasks created using Project Template. This calculation skips holidays based on the holiday list of your company.
 
-![](/files/image825fe3.png)
+[Screenshot on the live page]
 
 ### Dependencies and Actual Time Tracking
 
@@ -806,12 +730,12 @@ The following additional details can be added when editing a new task:
 
  Task dependencies can be viewed in the Gantt Charts in the following way.
 
-![](/files/imagedbb600.png)
+[Screenshot on the live page]
 
 - **Actual Start Date**: The actual date and time on which the Task is started get recorded basis the Timesheets.
 - **Actual End Date**: The actual date and time on which the task was finished get recorded here via the Timesheets.
 
-![](/files/image4e4084.png)
+[Screenshot on the live page]
 
 ### Task costing and Billing
 
@@ -826,7 +750,7 @@ The following additional details can be added when editing a new task:
   - One company executes Tasks for its Parent, Subsidiary, or Sister Company
   - Projects span across multiple legal entities
 
-![](/files/image05684c.png)
+[Screenshot on the live page]
 
 ## Related Topics
 

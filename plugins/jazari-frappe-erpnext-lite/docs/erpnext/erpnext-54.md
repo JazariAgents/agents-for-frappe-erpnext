@@ -1,156 +1,5 @@
 <!-- Frappe documentation: erpnext, part 54 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__sales-person.md -->
----
-title: "Sales Person | ERPNext Documentation"
-description: "Set up Sales Persons, hierarchies, contribution, commission rates, and sales targets in ERPNext for accurate performance reporting."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/sales-person"
-updated: "2026-07-24"
----
-
-A Sales Person represents an individual or team responsible for selling to customers. Assigning Sales Persons to transactions lets ERPNext attribute revenue, calculate contribution percentages, track targets, and report performance across a hierarchy.
-
-Sales Persons can be arranged under group nodes such as **Retail Sales**, **Enterprise Sales**, or regional teams. This structure lets managers review both individual and rolled-up team performance.
-
-## Before you begin
-
-Decide:
-
-- Whether the record represents an individual or a group.
-- Where it belongs in the Sales Person hierarchy.
-- Whether it should be linked to an [Employee](/erpnext/employee).
-- Which commission rate, if any, should be stored as the default.
-- Whether you will allocate targets by Item Group and Fiscal Year.
-
-## Create a Sales Person
-
-1. Open **Sales Person** in the Selling or CRM workspace.
-2. Review the hierarchy and select **New**, as highlighted.
-
-![Sales Person hierarchy with a group and individual sales people](https://novacompanies.m.frappe.cloud/files/sales-person-tree.png)
-
-3. Enter the **Sales Person Name**.
-4. Select the **Parent Sales Person**.
-5. Link an **Employee** when the salesperson is also maintained in Frappe HR.
-6. Enter a **Commission Rate** if your process uses it as a default reference.
-7. Select **Is Group** only when the record will contain child Sales Persons.
-8. Keep **Enabled** selected for an active salesperson.
-9. Save.
-
-The highlighted fields show how an individual Sales Person is placed under a parent group. Use **Is Group** for team or regional nodes, not for an individual.
-
-![Sales Person hierarchy fields and target table](https://novacompanies.m.frappe.cloud/files/sales-person-details.png)
-
-## Important fields and what they mean
-
-
-| Field               | What it controls                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Sales Person Name   | The name shown in transactions, reports, and the hierarchy                                                   |
-| Parent Sales Person | The group or manager node under which the record appears                                                     |
-| Employee            | Optional link to the corresponding employee record                                                           |
-| Commission Rate     | Default commission percentage associated with the Sales Person                                               |
-| Is Group            | Allows child Sales Persons below this record; group nodes are not intended for direct individual attribution |
-| Enabled             | Determines whether the Sales Person is available for current use                                             |
-| Targets             | Item Group-wise quantity or amount goals for a Fiscal Year                                                   |
-
-
-## Build a useful hierarchy
-
-Use group nodes to match how performance is reviewed. For example:
-
-- Sales Team
-  - Retail Sales
-    - Alex Morgan
-    - Jordan Lee
-  - Enterprise Sales
-    - Casey Brooks
-
-A clean hierarchy provides several benefits:
-
-- Team totals can roll up from individual Sales Persons.
-- transaction attribution remains consistent when the organization grows.
-- reports can compare individuals, teams, or branches of the sales structure.
-- targets can be assigned at the level that managers actually review.
-
-Avoid creating duplicate individuals under several groups. A sales transaction can already split contribution among multiple Sales Persons when several people share credit.
-
-## Add Sales Persons to transactions
-
-Sales Persons are added in the **Sales Team** child table of supported transactions such as a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), [Delivery Note](/erpnext/delivery-note), and [Sales Invoice](/erpnext/sales-invoice).
-
-For each row:
-
-1. Select the Sales Person.
-2. Enter the **Contribution (%)**.
-3. Use the highlighted pencil icon to open the child row when more fields are needed.
-4. Ensure the total contribution across rows is 100% when the full transaction value must be allocated.
-
-Contribution controls how ERPNext attributes the transaction amount to each Sales Person. It does not by itself create a payroll payment or accounting entry.
-
-Read [Sales Persons in Sales Transactions](/erpnext/sales-persons-in-the-sales-transactions) for transaction-level examples.
-
-## Set and review targets
-
-Use the **Targets** table to assign Item Group-wise goals for a Fiscal Year. A target can be based on quantity, amount, or both, and can use a [Monthly Distribution](/erpnext/monthly-distribution) to spread the goal across the year.
-
-See [Sales Person Target Allocation](/erpnext/sales-person-target-allocation) for the complete setup and reporting workflow.
-
-## Commission and incentives
-
-The **Commission Rate** on the Sales Person is a stored percentage that can support commission calculations and reports. The actual incentive process can depend on contribution, transaction status, collected revenue, custom rules, or payroll policy.
-
-For team incentive workflows, see [Calculate Incentive for Sales Team](/erpnext/calculate-incentive-for-sales-team) and [Sales Commission](/erpnext/sales-commission).
-
-## Disable or reorganize a Sales Person
-
-Disable a Sales Person when they should no longer be selected in new transactions. Historical transaction links remain available.
-
-To reorganize the hierarchy, change the parent or use the tree controls according to your permissions. Review reports after moving a record because the new hierarchy can change how future roll-up analysis is presented.
-
-## Troubleshooting
-
-### A Sales Person is missing from a transaction
-
-Confirm that the record is enabled and is not a group node. Also check user permissions and any company-specific restrictions.
-
-### Contribution totals are incorrect
-
-Review every row in the Sales Team table. The percentages should match how credit is shared and normally total 100%.
-
-### Performance reports show no value
-
-Confirm that the Sales Person is present on submitted transactions, the report dates and company are correct, and the relevant document status is included.
-
-### The hierarchy is hard to maintain
-
-Use a small number of durable group nodes based on teams, channels, or regions. Avoid mirroring every temporary reporting relationship.
-
-## Frequently asked questions
-
-### Must every Sales Person be linked to an Employee?
-
-No. The Employee link is optional, but it is useful when sales responsibility and HR records should connect.
-
-### Can one transaction have several Sales Persons?
-
-Yes. Add multiple rows and divide contribution among them.
-
-### Does disabling a Sales Person remove historical sales?
-
-No. Existing links and reports remain available.
-
-### Can a group node receive transaction credit?
-
-Use individual Sales Persons for direct attribution. Group nodes are intended to organize and roll up the hierarchy.
-
-## Related topics
-
-- [Sales Person Target Allocation](/erpnext/sales-person-target-allocation)
-- [Sales Persons in Sales Transactions](/erpnext/sales-persons-in-the-sales-transactions)
-- [Setting Company Sales Goal](/erpnext/setting-company-sales-goal)
-
 <!-- page: erpnext/erpnext__sales-persons-in-the-sales-transactions.md -->
 ---
 title: "Add Sales Persons to Sales Transactions | ERPNext Documentation"
@@ -180,7 +29,7 @@ Decide how your team will allocate shared sales. The total contribution on a tra
 4. Add additional rows when several people normally share the Customer.
 5. Save.
 
-![A Customer with a default Sales Team allocation.](https://novacompanies.m.frappe.cloud/files/sales-team-customer-default.png)
+[Screenshot on the live page: A Customer with a default Sales Team allocation.]
 
 ERPNext can carry this allocation into new sales transactions for that Customer. Review it on each document because responsibility may differ for a particular deal.
 
@@ -196,7 +45,7 @@ The Sales Team table is available in supported transactions such as a [Quotation
 6. Add other Sales Persons when the sale is shared.
 7. Confirm that the total contribution is 100%, then save or submit the transaction.
 
-![The Sales Team table on a Sales Order with two contributors.](https://novacompanies.m.frappe.cloud/files/sales-team-sales-order.png)
+[Screenshot on the live page: The Sales Team table on a Sales Order with two contributors.]
 
 Select the highlighted pencil icon to open the full child-row editor when you need fields that are not visible in the table.
 
@@ -546,7 +395,7 @@ Go to **Accounting &gt; Taxes &gt; Sales Taxes and Charges Template** and select
 7. Add more rows in the exact order in which they should calculate.
 8. Save.
 
-![Sales tax template title, company, and Tax Category](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-sales-template-overview.png)
+[Screenshot on the live page: Sales tax template title, company, and Tax Category]
 
 The **Disabled** checkbox makes the template unavailable for new selection without removing its historical references.
 
@@ -558,13 +407,13 @@ Use the pencil icon to open the complete child-table row.
 
 
 
-![Open a Sales Taxes and Charges row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-sales-template-tax-row.png)
+[Screenshot on the live page: Open a Sales Taxes and Charges row]
 
 Select the calculation type, account, and rate. A clear description is useful because it can appear on quotations and invoices.
 
 
 
-![Calculation type, account, and rate](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-sales-template-calculation-fields.png)
+[Screenshot on the live page: Calculation type, account, and rate]
 
 ## Important row fields and what they mean
 
@@ -583,7 +432,7 @@ Select the calculation type, account, and rate. A clear description is useful be
 | Cost Center                         | Allocates an income or expense charge to a Cost Center when the selected account requires one           |
 
 
-![Description and tax-inclusive pricing option](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-sales-template-posting-fields.png)
+[Screenshot on the live page: Description and tax-inclusive pricing option]
 
 Do not select **Is Tax Withholding Account** merely because the row is a normal sales tax. Withholding is a separate deduction workflow. Use [Tax Withholding Category](/erpnext/tax-withholding-category) and the appropriate party or payment configuration.
 
@@ -637,7 +486,7 @@ In the demo transaction, an 8% row calculates $55.92 on a $699 net item value, p
 
 
 
-![Sales tax total and Grand Total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-templates-sales-template-result.png)
+[Screenshot on the live page: Sales tax total and Grand Total]
 
 Selecting a template copies its current rows to the transaction. Later edits to the master template do not safely substitute for checking existing drafts. Reselect the template or recreate the draft when configuration has materially changed, then verify the result again.
 
@@ -724,7 +573,7 @@ More than this, by looking at the way these numbers change over time, you can id
 
 Select the Company, select the From Date, To Date and select Sales Funnel in Chart.
 
-![Sales Funnel](/files/sales-funnel.png)
+[Screenshot on the live page: Sales Funnel]
 
 ### Sales Pipeline
 
@@ -732,7 +581,7 @@ An opportunity will pass through many sales stages before it yields any business
 
 Select the Company, select the From Date, To Date and select Sales Pipeline in Chart.
 
-![Sales Pipeline](/files/analysis_on_sales_stage.png)
+[Screenshot on the live page: Sales Pipeline]
 
 ### Opportunities by Lead Source
 
@@ -740,7 +589,7 @@ This report helps you visualise the business potential of opportunities based on
 
 Select the Company, select the From Date, To Date and select 'Opportunities by Lead Source' in Chart.
 
-![Opportunities By Lead Source](/files/opportunities_by_lead_source.png)
+[Screenshot on the live page: Opportunities By Lead Source]
 
 <!-- page: erpnext/erpnext__sales_stage.md -->
 ---
@@ -765,8 +614,185 @@ To access Sales Stage, go to:
 - Go to the Sales Stage and select New.
 - Enter the Stage Name.
 
-![Screenshot 2023-12-28 at 11.08.40 AM](/files/Screenshot 2023-12-28 at 11.08.40 AM.png)
+[Screenshot on the live page: Screenshot 2023-12-28 at 11.08.40 AM]
 
 The system allows you to maintain a list of different sales stages.
 
-![Screenshot 2023-12-28 at 11.08.14 AM](/files/Screenshot 2023-12-28 at 11.08.14 AM.png)
+[Screenshot on the live page: Screenshot 2023-12-28 at 11.08.14 AM]
+
+<!-- page: erpnext/erpnext__salesperson-permissions.md -->
+---
+title: "Restrict Sales Users to Their Customers and Transactions | ERPNext Documentation"
+description: "Learn how to use ERPNext roles and User Permissions so sales users see only assigned Leads, Customers, and transactions linked to those Customers."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/salesperson-permissions"
+updated: "2026-07-25"
+---
+
+Use [User Permissions](/erpnext/user-permissions) when a sales user should work only with named Leads, Customers, and the sales transactions connected to those Customers. A [Sales Person](/erpnext/sales-person) record is useful for targets, commissions, and the Sales Team table, but assigning a Sales Person does not by itself create record-level access restrictions.
+
+This guide uses Avery Stone as a sales user. Avery can work with Northstar Retail, Summit Digital Stores, and two assigned Leads, but not the rest of the sales portfolio.
+
+## Before you begin
+
+- You need System Manager or equivalent permission to manage Users and User Permissions.
+- The user must be a System User with the roles required for their work.
+- Create the relevant [Customers](/erpnext/customer) and [Leads](/erpnext/lead) first.
+- Decide whether access will be maintained customer by customer or through a grouping master such as [Territory](/erpnext/territory).
+
+> **Roles and User Permissions do different jobs.** A role grants access to a document type. A User Permission limits which records of that type the user can access.
+
+## 1. Give the user the required sales role
+
+1. Open **User** and select the sales user.
+2. Open **Roles &amp; Permissions**.
+3. Enable **Sales User**.
+4. Add another role only when the person needs the corresponding actions. For example, do not assign Sales Manager merely to make the workspace visible.
+5. Save the User.
+
+[Screenshot on the live page: Avery Stone User form with the Sales User role highlighted.]
+
+The Sales User role normally provides access to sales masters and transactions according to the configured [Role Permission Manager](/erpnext/permissions). User Permissions added in the following steps narrow that access.
+
+## 2. Open User Permission
+
+Go to **Users and Permissions &gt; User Permission**, then select **Add User Permission**.
+
+[Screenshot on the live page: User Permission list with Add User Permission highlighted.]
+
+You can also open the User and use **Permissions &gt; Set User Permissions**. Both routes create the same User Permission records.
+
+## 3. Allow the Customers assigned to the sales user
+
+Create one User Permission for each Customer in the user's portfolio:
+
+1. In **User**, select the sales user.
+2. Set **Allow** to **Customer**.
+3. In **For Value**, select an allowed Customer.
+4. Save the User Permission.
+5. Repeat for each additional Customer.
+
+[Screenshot on the live page: User Permission for Avery Stone allowing access to Northstar Retail, with User, Allow, and For Value highlighted.]
+
+For example, Avery has separate permissions for Northstar Retail and Summit Digital Stores. ERPNext combines permissions for the same master, so Avery can access either Customer.
+
+### Why this also restricts sales transactions
+
+A Customer is linked from documents such as a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), [Delivery Note](/erpnext/delivery-note), and [Sales Invoice](/erpnext/sales-invoice). When the user's role applies User Permissions, the Customer restriction is carried into those linked documents.
+
+This means you normally do not create separate User Permissions for every Sales Order or Sales Invoice. Maintain the Customer portfolio, and the restriction follows the Customer link.
+
+## 4. Add Lead permissions separately
+
+A Lead is not yet a Customer. A Customer permission therefore cannot decide which unconverted Leads the user may access.
+
+Create a separate User Permission for each assigned Lead:
+
+1. Select the same sales user.
+2. Set **Allow** to **Lead**.
+3. Select the permitted Lead in **For Value**.
+4. Save and repeat for the user's other Leads.
+
+When a Lead is converted, add the resulting Customer to the user's Customer permissions. Review the old Lead permission according to your retention policy.
+
+## 5. Apply the restriction to linked document types
+
+Keep **Apply To All Document Types** enabled when the Customer permission should restrict every supported document containing a Customer link.
+
+[Screenshot on the live page: Apply To All Document Types highlighted on a Customer User Permission.]
+
+Clear this option only when the permission must apply to one specific document type. After clearing it, select that document type in **Applicable For**. For example, limiting a Customer permission to Sales Order would not provide the same restriction across Quotations, Delivery Notes, and Sales Invoices.
+
+## 6. Review the complete portfolio
+
+Open the User Permission list and filter by the user. Confirm that every permitted Customer and every unconverted Lead appears once.
+
+[Screenshot on the live page: User Permission list showing two Customers and two Leads allowed for Avery Stone.]
+
+In this example, Avery can access:
+
+- Northstar Retail and Summit Digital Stores;
+- the sales transactions linked to those Customers; and
+- Leads CRM-LEAD-2026-00001 and CRM-LEAD-2026-00002.
+
+Avery should not receive a broad Customer, Customer Group, or Territory permission that includes the rest of the portfolio. A broader permission expands access rather than overriding the individual Customer permissions.
+
+## 7. Verify access before handing over the account
+
+Do not assume that a saved permission produces the intended result.
+
+1. Open the User.
+2. Select **Permissions &gt; View Permitted Documents**.
+3. Check Customer, Lead, Quotation, Sales Order, Delivery Note, and Sales Invoice.
+4. Confirm that permitted records appear and an unrelated Customer does not.
+5. Test list views and the reports the user will actually use.
+
+[Screenshot on the live page: Permissions menu with View Permitted Documents highlighted on the Avery Stone User form.]
+
+For a final security check, sign in with a non-administrator test user that has the same roles and permissions. System Manager and Administrator accounts can bypass restrictions and are not suitable for validating a salesperson's experience.
+
+## How access is determined
+
+
+| Configuration                 | What it controls                                                        |
+| ----------------------------- | ----------------------------------------------------------------------- |
+| Sales User role               | Which sales document types and actions are available                    |
+| Customer User Permission      | Which Customers and Customer-linked transactions the user can access    |
+| Lead User Permission          | Which specific unconverted Leads the user can access                    |
+| Apply To All Document Types   | Whether the allowed value restricts all supported linked document types |
+| Applicable For                | Limits one User Permission to a selected document type                  |
+| Apply Strict User Permissions | Controls whether records with a blank restricted link remain visible    |
+
+
+## When there are many Customers
+
+Individual Customer permissions are precise and easy to audit, but they require maintenance when portfolios change. If Customers and Leads are cleanly divided by region, create a User Permission for the appropriate Territory instead. A parent Territory can also include descendants unless **Hide Descendants** is enabled.
+
+Use a grouping master only when it matches the real access boundary. Do not use [Customer Group](/erpnext/customer-group) for access if the group exists mainly for pricing or reporting and contains Customers belonging to several salespeople.
+
+## Records with a blank Customer or Territory
+
+Review **Apply Strict User Permissions** in [System Settings](/erpnext/system-settings). When strict permissions are enabled, a record with a blank restricted link is hidden. When they are not enabled, records whose restricted link is blank may remain visible.
+
+Before enabling this setting, review integrations and older data for missing Customer or Territory values. Test the effect on all teams because it is a system-level setting.
+
+## Troubleshooting
+
+
+| Problem                                             | What to check                                                                                                                      |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| The user can still see every Customer               | Check for a broader Customer, Customer Group, or Territory permission. Confirm the user's role has Apply User Permissions enabled. |
+| The user cannot open any sales transactions         | Confirm the Sales User role grants Read access and that the transaction contains an allowed Customer.                              |
+| The user can see unrelated records with blank links | Review missing Customer or Territory values and the Apply Strict User Permissions setting.                                         |
+| Assigned Leads are missing                          | Create Lead User Permissions separately. Customer permissions do not cover unconverted Leads.                                      |
+| A report shows more data than expected              | Test the report with the restricted user. Review custom or script reports to confirm they apply permission-aware queries.          |
+| A manager cannot see a salesperson's portfolio      | Add the required broader permissions to the manager. A Sales Person hierarchy does not automatically replace User Permissions.     |
+
+
+## Frequently asked questions
+
+### Is linking a User to a Sales Person enough?
+
+Sales Person assignment supports sales attribution, targets, and commission reporting. Use User Permissions for record-level restrictions.
+
+### Must I add every Sales Order to User Permissions?
+
+Allow the Customer and keep Apply To All Document Types enabled. Supported Customer-linked transactions inherit that restriction.
+
+### Can one salesperson have several Customers and Leads?
+
+Y
+
+es. Create one User Permission for each allowed value, or use a suitable Territory when the portfolio follows that hierarchy.
+
+### Can sales managers see all records?
+
+Yes, if their roles and User Permissions grant the broader access. Test managers separately instead of assuming the Sales Person tree controls visibility.
+
+## Related topics
+
+- [User Permissions](/erpnext/user-permissions)
+- [Role Based Permissions](/erpnext/permissions)
+- [Adding Users](/erpnext/adding-users)
+- [Sales Person](/erpnext/sales-person)
+- [System Settings](/erpnext/system-settings)

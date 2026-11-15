@@ -34,19 +34,19 @@ Use this report to investigate a schedule or reconcile posted and pending deprec
 
 The example below shows seven submitted monthly depreciation entries for Nova Industries' NovaPack labeler. The report makes it possible to trace each $760 expense to its depreciation Journal Entry and follow the accumulated balance.
 
-![Loaded Asset Depreciation Ledger with seven posted entries](https://novacompanies.m.frappe.cloud/files/22-asset-depreciation-ledger-v2.png)
+[Screenshot on the live page: Loaded Asset Depreciation Ledger with seven posted entries]
 
 ## Asset Depreciations and Balances
 
 Use it to explain how carrying value changed across a period. It is the strongest starting point for reconciling additions, depreciation, and closing value.
 
-![Loaded Asset Depreciations and Balances report](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Loaded Asset Depreciations and Balances report]
 
 ## Fixed Asset Register
 
 Use it for the controlled asset listing and location or custodian review. The chart gives a quick acquisition view while the rows contain the audit detail.
 
-![Loaded Fixed Asset Register with chart and asset rows](https://novacompanies.m.frappe.cloud/files/24-fixed-asset-register.png)
+[Screenshot on the live page: Loaded Fixed Asset Register with chart and asset rows]
 
 ## Asset Activity
 
@@ -56,7 +56,7 @@ Use this report when the question is "what happened to this asset?" Filter to th
 
 The example below contains real lifecycle events for Nova's laptops and production equipment, including creation, location receipt, submission, and a repair event.
 
-![Asset Activity with real lifecycle transactions](https://novacompanies.m.frappe.cloud/files/25-asset-activity-v2.png)
+[Screenshot on the live page: Asset Activity with real lifecycle transactions]
 
 ## Read a report safely
 
@@ -129,7 +129,7 @@ Asset Shift Allocation records the shifts worked during each period. ERPNext use
 
 Enable **Shift Based** in the Asset's Finance Book row and confirm the configured shift factors follow the approved accounting policy.
 
-![Asset Finance Book used for shift-based depreciation](https://novacompanies.m.frappe.cloud/files/09-production-asset-depreciation.png)
+[Screenshot on the live page: Asset Finance Book used for shift-based depreciation]
 
 ## Allocate a shift
 
@@ -143,7 +143,7 @@ Enable **Shift Based** in the Asset's Finance Book row and confirm the configure
 
 The shift factor changes how much depreciation is assigned to the relevant period. It does not change the acquisition cost. The total schedule must still respect the residual value.
 
-![Report used to verify depreciation after shift allocation](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Report used to verify depreciation after shift allocation]
 
 ## Troubleshooting
 
@@ -208,13 +208,13 @@ Obtain an approved valuation, confirm the effective date, select the correct [Fi
 5. Select the Difference Account and cost center.
 6. Submit and open the linked Journal Entry.
 
-![Asset Value Adjustment from 36000 to 39000](https://novacompanies.m.frappe.cloud/files/18-asset-value-adjustment.png)
+[Screenshot on the live page: Asset Value Adjustment from 36000 to 39000]
 
 ## Verify the result
 
 Confirm the Asset's carrying value and future depreciation schedule changed only for the intended Finance Book. Use Asset Depreciations and Balances to reconcile the result.
 
-![Asset report used to verify an adjusted value](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Asset report used to verify an adjusted value]
 
 ## Troubleshooting
 
@@ -279,7 +279,7 @@ Prepare the fixed-asset Item, [Asset Category](https://docs.frappe.io/erpnext/as
 5. Enter purchase and available-for-use dates, value, and quantity.
 6. Enable maintenance and depreciation only when they apply.
 
-![Core ERPNext Asset fields for a Nova Industries laptop](https://novacompanies.m.frappe.cloud/files/07-asset-core-details.png)
+[Screenshot on the live page: Core ERPNext Asset fields for a Nova Industries laptop]
 
 ## Important fields and what they mean
 
@@ -303,7 +303,7 @@ Prepare the fixed-asset Item, [Asset Category](https://docs.frappe.io/erpnext/as
 
 Each Finance Book may have a different method, useful life, residual value, and posting frequency.
 
-![Finance Book configuration on an ERPNext Asset](https://novacompanies.m.frappe.cloud/files/08-asset-finance-books.png)
+[Screenshot on the live page: Finance Book configuration on an ERPNext Asset]
 
 ## Status and downstream actions
 
@@ -319,7 +319,7 @@ Each Finance Book may have a different method, useful life, residual value, and 
 | **Capitalized**                    | The asset was created or updated through Asset Capitalization. |
 
 
-![Asset statuses in the ERPNext list view](https://novacompanies.m.frappe.cloud/files/01-assets-overview-list.png)
+[Screenshot on the live page: Asset statuses in the ERPNext list view]
 
 ## Troubleshooting
 
@@ -380,7 +380,7 @@ The ERPNext Assets module keeps the complete story of those assets in one place.
 5. Record assignment, [movement](https://docs.frappe.io/erpnext/asset-movement), [maintenance](https://docs.frappe.io/erpnext/asset-maintenance), [repair](https://docs.frappe.io/erpnext/asset-repair), and value adjustments during its life.
 6. Finish the lifecycle by [selling](https://docs.frappe.io/erpnext/selling-an-asset) or [scrapping](https://docs.frappe.io/erpnext/scrapping-an-asset) the asset.
 
-![ERPNext Asset list for Nova Industries showing laptops and production equipment](https://novacompanies.m.frappe.cloud/files/01-assets-overview-list.png)
+[Screenshot on the live page: ERPNext Asset list for Nova Industries showing laptops and production equipment]
 
 ## What the module records
 
@@ -465,18 +465,18 @@ To set up an automatic assignment:
 
 1. Select the assignment rule.
 
- ![Assignment Rule](/files/assignment-rule-select.png)
+ [Screenshot on the live page: Assignment Rule]
 
  * **Round Robin**: Assign each document to a User in sequence.
  * **Load Balancing**: Assign new documents to the User who has the least number of assignments.
 
  Select the list of Users to whom this Assignment Rule will apply:
- ![Users in Assignment Rule](/files/auto-assign-2.png)
+ [Screenshot on the live page: Users in Assignment Rule]
 
  * **Based on Field**: Introduced in v13, this rule can be used to assign a document to the User that is set in the configured field.
 
  Select the User link field which will determine to whom this Assignment Rule will apply:
- ![Field Assign](/files/field-auto-assign.png)
+ [Screenshot on the live page: Field Assign]
 
 
 1. Save.
@@ -491,7 +491,7 @@ High Priority Issue *File Upload not working* has been assigned to you.
 
 You can also set up multiple auto assignments for each Document Type, the one with the highest Priority will be applied first.
 
-![Assignment Rule with Higher Priority](/files/assignment-rule-with-higher-priority.png)
+[Screenshot on the live page: Assignment Rule with Higher Priority]
 
 
 assignment-rule-with-higher-priority
@@ -504,7 +504,7 @@ Example:
 
 If you want to set a due date on Issue assignment based on the "Resolution By" date of the Issue, you can do so by selecting "Resolution By" field in `Due Date Based On` option in Assignment Rule.
 
-![Due Date Based On](/files/assignment-rule-due-date-based-on.png)
+[Screenshot on the live page: Due Date Based On]
 
 **Note:**
 
@@ -548,7 +548,7 @@ Review [Inter Company Invoices](/erpnext/inter-company-invoices) before using th
 4. Enable **Is Internal Supplier** and select the represented Company.
 5. Save both records.
 
-![](/files/subsidiary-drop-ship-internal-customer-v3.webp)
+[Screenshot on the live page]
 
 ## Create the customer Sales Order
 
@@ -559,7 +559,7 @@ Review [Inter Company Invoices](/erpnext/inter-company-invoices) before using th
 5. Select the Supplier that represents the supplying subsidiary.
 6. Save and submit.
 
-![A Sales Order Item with Supplier delivers to Customer and the subsidiary Supplier highlighted.](https://novacompanies.m.frappe.cloud/files/subsidiary-drop-ship-sales-order-v2.png)
+[Screenshot on the live page: A Sales Order Item with Supplier delivers to Customer and the subsidiary Supplier highlighted.]
 
 In a drop-ship flow, stock availability in the selling Company's Warehouse does not replace Supplier fulfilment planning.
 
@@ -573,7 +573,7 @@ From the submitted Sales Order:
 4. Confirm the buying Company, schedule dates, rates, taxes, and terms.
 5. Save and submit.
 
-![A Purchase Order created for an internal Supplier with the Customer delivery address.](https://novacompanies.m.frappe.cloud/files/subsidiary-drop-ship-purchase-order.png)
+[Screenshot on the live page: A Purchase Order created for an internal Supplier with the Customer delivery address.]
 
 The Purchase Order instructs the supplying subsidiary to deliver directly to the external Customer.
 
@@ -646,7 +646,7 @@ Example: If a Sales Order's Grand Total exceeds $1,000, then it should be verifi
 
 On the same lines, you can define Authorization Rule based on the fields like Net Total, Grand Total, Discount % and specify who would be the document approver if the authorization condition is matched.
 
-![Authorization Rule](/files/authorization-rule.png)
+[Screenshot on the live page: Authorization Rule]
 
 Let's consider a detailed example of an Authorization Rule to learn better.
 
@@ -664,11 +664,11 @@ Assume that the Sales Manager needs to authorize Sales Orders, only if it's Gran
 1. You can also select a specific Sales Manager.
 1. Save.
 
-![Authorization Rule](/files/new-authorization-rule.png)
+[Screenshot on the live page: Authorization Rule]
 
 If the Sales User tries submitting the Sales Order of value higher than 10,000, then he will get an error message.
 
-![Authorization Rule Validation Message](/files/authorization-rule-validation-message.png)
+[Screenshot on the live page: Authorization Rule Validation Message]
 
 > If you wish to restrict Sales User from submitting Sales Orders, then instead of creating Authorization Rule, you should remove submit privilege for Sales User from [Role Permission Manager](/erpnext/role-based-permissions).
 
@@ -705,19 +705,19 @@ To prevent stockouts, you can track item's reorder level. When stock level goes 
 
 In ERPNext, you can update item's Reorder Level and Reorder Qty in the Item master. If same item has different reorder level, you can also update warehouse-wise reorder level and reorder qty.
 
-![reorder level](/files/reorder-request-1.png)  
+[Screenshot on the live page: reorder level]  
 
 
 With reorder level, you can also define what should be the next action. Either new purchase or transfer from another warehouse. Based on setting in Item master, purpose will be updated in the Material Request as well.
 
-![reorder level next action](/files/reorder-request-2.png)  
+[Screenshot on the live page: reorder level next action]  
 
 
 When item's stock reaches reorder level, Material Request is auto-created automatically. You can enable this feature from:
 
 `Stock > Setup > Stock Settings`
 
-![active auto-material request](/files/reorder-request-3.png)  
+[Screenshot on the live page: active auto-material request]  
 
 
 A separate Material Request will be created for each item. User with Purchase Manager's role will receive email alert about these Material Requests.
@@ -756,12 +756,12 @@ You can find Auto Email Report at:
 3. Select the user for which you want to create this report (permissions will apply for this user).
 4. Set the Email Addresses to which you want this report to be emailed and the frequency of the report. Emails will be sent at midnight. The date will be repeated in case of weekly/monthly/yearly frequency.
 
-![With Filters](/files/auto-email-2.png)
+[Screenshot on the live page: With Filters]
 5. Save.
 
 You can test the report by clicking on "Download" or "Send Now". Here is an example of the email you will receive for a general ledger report:
 
-![Report by Email](/files/auto-email-4.png)  
+[Screenshot on the live page: Report by Email]  
 
 
 2. Features
@@ -777,7 +777,7 @@ You can test the report by clicking on "Download" or "Send Now". Here is an exam
 
 If your report has filters, you will be able to see them. Click on the table to edit it:
 
-![Edit Filters](/files/auto-email-3.png)  
+[Screenshot on the live page: Edit Filters]  
 
 
 For example, if the email is on the report 'Project Billing Summary' select the Project. The date range here is the date range of the 'Project Billing Summary'.
@@ -821,7 +821,7 @@ Use Auto Repeat for stable recurring transactions. Use [Subscription](/erpnext/s
 3. Set the start date and, when the agreement ends, an end date.
 4. Enable Submit on Creation only when the generated transaction needs no manual review.
 
-![Auto Repeat reference document and creation settings](https://novacompanies.m.frappe.cloud/files/sales-receivables-auto-repeat-recurring-orders-and-invoices-auto-repeat-details.png)
+[Screenshot on the live page: Auto Repeat reference document and creation settings]
 
 
 
@@ -829,7 +829,7 @@ Use Auto Repeat for stable recurring transactions. Use [Subscription](/erpnext/s
 
 Choose the frequency and the relevant schedule options. For monthly billing, set the expected day or use the last day of the month when that matches the contract.
 
-![Auto Repeat schedule for a recurring invoice](https://novacompanies.m.frappe.cloud/files/sales-receivables-auto-repeat-recurring-orders-and-invoices-auto-repeat-schedule.png)
+[Screenshot on the live page: Auto Repeat schedule for a recurring invoice]
 
 
 
@@ -889,7 +889,7 @@ To access Auto Repeat, go to:
 2. Select the form in which you want to allow creation of repeatable documents.
 3. Check 'Allow Auto Repeat' to allow the creation of repeatable documents for that Form. This is necessary for the document type to show up in the Reference Document field under the Auto Repeat doctype.
 
- ![Allow Auto Repeat](/files/allow-auto-repeat.png)
+ [Screenshot on the live page: Allow Auto Repeat]
 
 ### 1.2 Set up Auto Repeat
 1. Go to **Home > Settings > Automation > Auto Repeat > New**.
@@ -906,11 +906,11 @@ You can also set a document on Auto Repeat by clicking the **Repeat** option fro
 
 **Note**: If a document is already on Auto Repeat, the Repeat option is not available.
 
-![Repeat in Transactions](/files/repeat-option.png)
+[Screenshot on the live page: Repeat in Transactions]
 
 Once you click on Repeat, a prompt for Auto Repeat will show up. Fill in the details and click on Save.
 
-![Auto Repeat Prompt](/files/auto-repeat-prompt.png)
+[Screenshot on the live page: Auto Repeat Prompt]
 
 ## 2. Features
 
@@ -919,7 +919,7 @@ Once you click on Repeat, a prompt for Auto Repeat will show up. Fill in the det
 
 If the reference document type is submittable, you get an option called _Submit on Creation_. If this is checked, your document will be submitted on creation.
 
-![Auto Repeat Submit on Creation](/files/submit-on-creation.png)
+[Screenshot on the live page: Auto Repeat Submit on Creation]
 
 ### 2.2 Notify by Email
 If you want to notify certain contacts whenever the recurring documents are created, you can check 'Notify by Email' in the Notification section of Auto Repeat. This will send the auto-generated recurring documents to the specified Email Addresses. Fields for the same are explained below:
@@ -946,19 +946,46 @@ If the frequency is set as Monthly, Quarterly, Half-yearly or Yearly, then it wi
 
 Auto Repeat with Weekly frequency allows you to select the days on which you want the recurring documents to be created.
 
-![Auto Repeat Weekdays](/files/auto-repeat-weekdays.png)
+[Screenshot on the live page: Auto Repeat Weekdays]
 
 ### 2.5 Dashboard
 
 You can see the Auto Repeat schedule in the Dashboard of Auto Repeat document. If you don't specify the End Date then the schedule will show only the Next Schedule Date.
 
-![Auto Repeat Dashboard](/files/auto-repeat-dashboard.png)
+[Screenshot on the live page: Auto Repeat Dashboard]
 
 ### 2.6 Auto Repeat Frequency on the sidebar
 When a document is set on Auto Repeat you can see the Auto Repeat frequency on the sidebar.
 You can click on the status to see the linked Auto Repeat document.
 
-![Auto Repeat Frequency](/files/auto-repeat-frequency.png)
+[Screenshot on the live page: Auto Repeat Frequency]
 
 ### 2.7 Disable Auto Repeat
 If you check this field it will stop creating recurring documents and unlink the Auto Repeat document from the Reference Document.
+
+<!-- page: erpnext/erpnext__automate_lead_capturing.md -->
+---
+title: "Automate Lead Creation | ERPNext Documentation"
+description: "Learn how ERPNext can create Leads from email, Web Forms, ecommerce activity, and data imports."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/automate_lead_capturing"
+updated: "2026-07-23"
+---
+
+Leads come from many different sources. It is important that all leads are recorded, assigned to sales executives and followed up.
+
+## Create Leads From Emails
+
+You may have an email address like '[sales@yourcompany.com](mailto:sales@yourcompany.com)' which is probably displayed on your website. People may send emails asking information about your products and services. You can enable [Email Account](/erpnext/email-account) to pull these emails and create a lead for each email.
+
+## Create Leads From Webforms
+
+You can also map the Lead form to a [Web Form](/erpnext/web-form) and publish it on your website. When visitors of your website fill the form, it will be automatically added as a Lead.
+
+## Create Leads From Incomplete Orders in E-Commerce Module
+
+You can publish an e-commerce website and allow users to place an order for your products. If a user selects items but doesn't complete the process you can pursue that user as a lead.
+
+## Create Leads By Importing Spreadsheet
+
+If you have a spreadsheet with details of the leads, you can use the [Data Import](/erpnext/data-import) feature to import the leads.

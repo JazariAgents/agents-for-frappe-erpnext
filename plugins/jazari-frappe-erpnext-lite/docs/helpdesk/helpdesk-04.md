@@ -10,7 +10,7 @@ updated: "2026-05-15"
 
 To go to the settings tab click on the dropdown present in the sidebar, then click on settings to open the settings modal. Settings tab will only be shown to the users who are either "System Manager" or "Administrator".
 
-![open setting](/files/open-setting.gif)
+[Screenshot on the live page: open setting]
 
 
 
@@ -22,7 +22,7 @@ Inside the modal, 2 settings are present, let's go through them one by one,
 
 Inside this settings, user can create a new email account or edit an existing one
 
-![](/files/9XZop8H.png)
+[Screenshot on the live page]
 
 
 
@@ -31,7 +31,7 @@ Inside this settings, user can create a new email account or edit an existing on
 To create a new email account click on the "Add Account Button"
 	
 
-![](/files/XxFZ65F.png)
+[Screenshot on the live page]
 
 
 
@@ -52,7 +52,7 @@ Select the email account provider from the list , then fill the fields mentioned
 
 
 
-![](/files/Screenshot%202025-05-18%20at%2010.16.29%20PM.png)
+[Screenshot on the live page]
 
 **Pull Emails:** All emails are pulled every 10 minutes, if you manually want to trigger that, you can click on the "Pull Emails" button to get the latest tickets. This button is only visible when the "Enable Incoming" is checked.
 
@@ -62,7 +62,7 @@ Select the email account provider from the list , then fill the fields mentioned
 
 Inside the settings, user can change the logo and favicon of their Helpdesk.
 
-![](/files/DSKMXAD.png)
+[Screenshot on the live page]
 
 
 
@@ -92,7 +92,7 @@ If team restrictions are enabled, tickets can still be assigned to agents outsid
 
 To enable it, go to HD Settings and click on "Restrict agent assignment to selected Team"
 
-![](/files/Screenshot%202025-07-30%20at%2010.13.00%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 > Note: We need to enable "Restrict tickets by Team" for this setting to work. 
 
@@ -125,7 +125,7 @@ This field is visible if the "Automatically Close Tickets when" field is enabled
 **Auto-close after (Days)**  
 This field is visible if the "Automatically Close Tickets when" field is enabled. Here you can set after how many days the tickets in the status mentioned above closes automatically (e.g: after the ticket has been in resolved status for 3 days the ticket will be closed automatically)
 
-![](/files/Auto%20update.png)
+[Screenshot on the live page]
 
 **Enable feedback for Email Tickets**   
 
@@ -133,17 +133,17 @@ This field is visible if the "Automatically Close Tickets when" field is enabled
 
 Click on "Ticket" tab, and click on "Enable feedback for Email Tickets".
 
-![](/files/1st.png)
+[Screenshot on the live page]
 
 Once you enable it, the feedback email will be sent to the customer either when the status of the ticket is "Resolved" or "Closed". You can configure the status on which email is sent by using the field "Send feedback when"
 
-![](/files/2nd.png)
+[Screenshot on the live page]
 
 Now once the ticket status is changed to "Resolved" or "Closed", the email is shared with the customer on the same thread. When they click on the button in the email, they are redirected to a "WebForm" on which they can fill the feedback. Once they click on submit, the feedback is attached to the relevant ticket.
 
 When the email is shared, the agent is also notified about it on the frontend via toast:
 
-![](/files/3rd.png)
+[Screenshot on the live page]
 
 **Internal working**
 
@@ -185,7 +185,7 @@ To toggle the theme:
 1. Click on User Dropdown at the top left corner.
 2. Click on Toggle Theme
 
-![](/files/imagea753bb.png)
+[Screenshot on the live page]
 
 
 
@@ -203,13 +203,13 @@ If you wish to alter it to something like "INCD-0001" or "ISS-01" or something e
 
 1. Go to the URL /desk/hd-ticket
 2. Click on overflow menu on the right (triple dots)
-  ![](/files/image21eb48.png)
+  [Screenshot on the live page]
 3. Customize
 4. Click on "Details" Tab at the top
 5. Click on Naming
 6. Change Naming Rule to "Expression".
 
-![](/files/image2476eb.png)
+[Screenshot on the live page]
 
 Update Auto Name field to "INCD-.#####". Where ##### represent the digits to be followed after the INCD key word. So for e.g. if the naming series is "INCD-.###" then the ticket name would be "INCD-001" and so on.
 
@@ -324,7 +324,7 @@ In Frappe Helpdesk, you can automate ticket routing using the Server Script feat
 
 ## 1.Route tickets based on the type of ticket
 
-![](/files/Screenshot%202025-08-19%20at%2011.16.11%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 `agent_group` is the name of the field that translates to "Team".
@@ -344,7 +344,7 @@ else:
 ## 2.Route tickets based on the type of email_account
 
 
-![](/files/Screenshot%202025-08-19%20at%2011.18.41%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ```python 
 if (doc.email_account == "Accounting"):
@@ -365,7 +365,7 @@ To add custom fields follow [this](https://docs.frappe.io/helpdesk/field-depende
 After adding custom fields you can write your script like this to route the tickets based on custom fields
 
 
-![](/files/Screenshot%202025-08-19%20at%2011.20.27%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ```python
 if (doc.custom_category == "Frappe Cloud"):
@@ -412,7 +412,7 @@ The `HD Ticket Status` DocType defines the lifecycle states of helpdesk tickets 
 
 
 Setting up a ticket status:
-![](/files/Screenshot%202025-08-25%20at%2012.42.11%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 ---
@@ -427,7 +427,7 @@ Global settings define status behavior when tickets are created or reopened:
 These apply system-wide unless an SLA overrides them.
 
 
-![](/files/HD%20Settings.png)
+[Screenshot on the live page]
 
 
 
@@ -440,7 +440,7 @@ You can set **Default** and **Reopen** statuses per SLA. Preference order:
 This allows different SLAs (e.g., team A vs team B) to have distinct creation/reopen workflows while maintaining a global default.
 
 
-![](/files/HD%20SLA.png)
+[Screenshot on the live page]
 
 ---
 
@@ -462,7 +462,7 @@ Available permissions: Create, Read, Write, Delete.
 This is how status looks like on the Agent Side:
 
 
-![](/files/TV.png)
+[Screenshot on the live page]
 
 <!-- page: helpdesk/helpdesk__ticket-type.md -->
 ---
@@ -507,7 +507,7 @@ updated: "2026-08-03"
 
 In Frappe Helpdesk, a Ticket represents a digital record used to manage and track customer support and service requests. These tickets can be created by customers using Portal or by sending an email to the email address specified by admin.  
   
-A Ticket can have an [SLA](https://docs.frappe.io/helpdesk/service-level-agreement) attached to it, which gets updated based on interaction with the customer. Where a ticket has one, both the agent and customer are aware of the expectations of ticket resolution. A ticket that [matches](https://docs.frappe.io/helpdesk/service-level-agreement#sla-assignment-conditions) no SLA policy has none, and shows no response or resolution target![Screenshot 2024-07-17 at 11.52.05 PM](/files/Screenshot 2024-07-17 at 11.52.05 PM.png)  
+A Ticket can have an [SLA](https://docs.frappe.io/helpdesk/service-level-agreement) attached to it, which gets updated based on interaction with the customer. Where a ticket has one, both the agent and customer are aware of the expectations of ticket resolution. A ticket that [matches](https://docs.frappe.io/helpdesk/service-level-agreement#sla-assignment-conditions) no SLA policy has none, and shows no response or resolution target[Screenshot on the live page: Screenshot 2024-07-17 at 11.52.05 PM]  
   
 
 
@@ -550,13 +550,13 @@ If you are facing something similar. Follow this:
 2. Go to Email Account => Open your Email Account
 3. Click on Incoming Tab
 
-![Screenshot 2025 12 11 at 2.45.59 PM](/files/Screenshot%202025-12-11%20at%202.45.59%E2%80%AFPM.png)
+[Screenshot on the live page: Screenshot 2025 12 11 at 2.45.59 PM]
 
 
 4. Scroll down to the section called IMAP Details 
 5. Here configure the the "IMAP Folder" like this
 
-![IMAP](/files/IMAP.png)
+[Screenshot on the live page: IMAP]
 
 Add "INBOX" in "Folder Name"
 Add "HD Ticket" in "Append To"
@@ -581,10 +581,10 @@ To configure Twilio for use within the Helpdesk, follow these steps:
 1. **Twilio Subscription:** Obtain an active Twilio subscription (refer to Twilio's documentation for details).
 2. **Twilio Credentials:** From your Twilio account, retrieve your Account SID, Auth Token, and Twilio Mobile Number.
 3. **Settings**: Click the dropdown menu on the top left logo and select "Settings."
-  ![](/files/Screenshot%202025-08-19%20122908.png)
+  [Screenshot on the live page]
 4. **Telephony Settings:** Navigate to Telephony Settings, enable Twilio and add your Account SID, Auth Token and twilio number. You can also enable call recording at this point.
 
-![](/files/telephony-settings.png)
+[Screenshot on the live page]
 
 ## Twilio API configuration
 
@@ -595,7 +595,7 @@ For your Helpdesk's API to connect with Twilio, perform the following configurat
     "https://<yoursitename>/api/method/telephony.twilio.api.twilio_incoming_call_handler"
   ```
 
-![](/files/twilio-voice-config.png)
+[Screenshot on the live page]
 
 ```
 This URL is responsible for handling incoming calls. 
@@ -608,7 +608,7 @@ This URL is responsible for handling incoming calls.
     "https://<yoursitename>/api/method/telephony.twilio.api.voice"
   ```
 
-![](/files/twilio-app-voice-config.png)
+[Screenshot on the live page]
 
 ```
 This URL is used for making outbound calls.
@@ -621,7 +621,7 @@ This URL is used for making outbound calls.
 ## Make call
 
 - **Ticket page:** A call button is available in the right section above ticket details, use this button to initiate a call.
-  ![](/files/ticket-view-call.png)
+  [Screenshot on the live page]
 
 ## Call pop-up
 
@@ -634,11 +634,11 @@ Upon making or receiving a call, a pop-up window appears displaying:
 - Mute button
 - Action buttons (Accept, Reject, Cancel Call)
 
-![](/files/Diler.png)
+[Screenshot on the live page]
 
 This window can be minimized, allowing navigation to other screens, while remaining accessible in the far-right corner of the navbar.  
 
-![](/files/diler-minimized.png)
+[Screenshot on the live page]
 
 <!-- page: helpdesk/helpdesk__your-first-steps-with-frappe-helpdesk.md -->
 ---
@@ -664,10 +664,10 @@ The frontend of Helpdesk has two portals:
 
 1. **Agent portal:** This is the first screen you will see. If not accessible, type add **/helpdesk** in the URL. This is where your team manages tickets and replies to customers.
 
-  ![](/files/image%20(14).png)
+  [Screenshot on the live page].png)
 
 2. **Customer portal:** Where customers can raise tickets and track updates. To access this, go to **Settings → Customer Portal.**
-  ![](/files/image%20(15).png)
+  [Screenshot on the live page].png)
 
 ### The backend (Desk)
 
@@ -687,13 +687,13 @@ Now that you’ve understood the basic structure of Frappe Helpdesk, let’s div
 
 All your basic setup can be done through the **Settings** in the Agent view.
 
-![](/files/image%20(16).png)
+[Screenshot on the live page].png)
 
 #### a. Upload your logo
 
 To make the support portal your own. Go to Settings → Branding, and update the logo and favicon. This will show up both in your Agent and Customer portal.
 
-![](/files/image%20(17).png)
+[Screenshot on the live page].png)
 
 #### b. Connect your support email account
 
@@ -701,13 +701,13 @@ To set up your email account to send/receive suppot tickets via emails, go to **
 
 Select the email service provider, and for the rest, follow the steps as mentioned [here](https://docs.frappe.io/helpdesk/email-communication#2-how-to-create-an-email-account).
 
-![](/files/image%20(18).png)
+[Screenshot on the live page].png)
 
 #### c. Invite agents
 
 Now that you have your email account set up, add your team so they can start replying to tickets. Go to Settings → Agents → Add Agent. An invitation email will be sent to them. You can then set the their role as Agent or Manager (full access).
 
-![](/files/image%20(19).png)
+[Screenshot on the live page].png)
 
 #### d. Add agents to teams
 
@@ -715,7 +715,7 @@ Create teams from the **Settings → Teams** section in the Agent portal.
 
 Tickets can be assigned directly to agents or routed to a team, where Helpdesk will auto-assign them to a member.
 
-![](/files/image%20(20).png)
+[Screenshot on the live page].png)
 
 Once this is done, you’re ready to define how tickets get handled.
 
@@ -727,12 +727,12 @@ Before tickets start coming in, we need to define how the SLA should be handled.
 
 1. Go to **Apps → Desk**
 
-![](/files/image%20(21).png)
+[Screenshot on the live page].png)
 
 1. Search for **“HD Service Level Agreement”** in the search bar. You’ll see the Default SLA already created
 2. You can define multiple SLAs for different scenarios — for example, separate rules for Enterprise customers or Indian customers. If no match is found, the **Default SLA** will be applied to all tickets.
 
-![](/files/image%20(22).png)
+[Screenshot on the live page].png)
 
 Here’s what you can configure:
 
@@ -771,7 +771,7 @@ Share your Customer Portal URL with your customers so they can directly log in, 
 
 If you have [help articles created](https://docs.frappe.io/helpdesk/lesson-4-knowledge-base), your customer should be able to see recommended articles based on subject they’ve typed. Once they’ve created the ticket, agents should be able to see the ticket in the Agent view as well where they work on resolving it. Customers can track SLA and see replies inside the ticket (as and when the Agent responds).
 
-![](/files/image%20(23).png)
+[Screenshot on the live page].png)
 
 #### b. Email
 
@@ -783,7 +783,7 @@ If your agent receives a customer query through a call or chat, they can manuall
 
 In the ticket view, you can see ticket details, SLA timers, customer replies, agent assignments, priority settings, team changes, internal comments, and tagging—all in one place.
 
-![](/files/image%20(24).png)
+[Screenshot on the live page].png)
 
 ---
 

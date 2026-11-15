@@ -156,15 +156,15 @@ or reconcile the two afterwards with Payment Reconciliation. Say which to the us
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Create and manage items | Item | `POST /api/v2/document/Item` (and the list/read/update calls above) | `docs/erpnext/erpnext-33.md` lines 396–700 |
-| Group items | Item Group | `POST /api/v2/document/Item%20Group` (and the list/read/update calls above) | `docs/erpnext/erpnext-32.md` lines 786–856 |
-| Define item attributes | Item Attribute | `POST /api/v2/document/Item%20Attribute` (and the list/read/update calls above) | `docs/erpnext/erpnext-32.md` lines 573–612 |
-| Sell a product bundle | Product Bundle | `POST /api/v2/document/Product%20Bundle` (and the list/read/update calls above) | `docs/erpnext/erpnext-44.md` lines 717–794 |
+| Create and manage items | Item | `POST /api/v2/document/Item` (and the list/read/update calls above) | `docs/erpnext/erpnext-33.md` lines 3–307 |
+| Group items | Item Group | `POST /api/v2/document/Item%20Group` (and the list/read/update calls above) | `docs/erpnext/erpnext-32.md` lines 175–245 |
+| Define item attributes | Item Attribute | `POST /api/v2/document/Item%20Attribute` (and the list/read/update calls above) | `docs/erpnext/erpnext-31.md` lines 884–923 |
+| Sell a product bundle | Product Bundle | `POST /api/v2/document/Product%20Bundle` (and the list/read/update calls above) | `docs/erpnext/erpnext-44.md` lines 669–746 |
 | Set up warehouses | Warehouse | `POST /api/v2/document/Warehouse` (and the list/read/update calls above) | `docs/erpnext/erpnext-67.md` lines 667–745 |
-| Make a stock entry | Stock Entry | `POST /api/v2/document/Stock%20Entry` (and the list/read/update calls above) | `docs/erpnext/erpnext-59.md` lines 568–752 |
-| Reconcile physical stock | Stock Reconciliation | `POST /api/v2/document/Stock%20Reconciliation` (and the list/read/update calls above) | `docs/erpnext/erpnext-60.md` lines 39–164 |
+| Make a stock entry | Stock Entry | `POST /api/v2/document/Stock%20Entry` (and the list/read/update calls above) | `docs/erpnext/erpnext-59.md` lines 487–671 |
+| Reconcile physical stock | Stock Reconciliation | `POST /api/v2/document/Stock%20Reconciliation` (and the list/read/update calls above) | `docs/erpnext/erpnext-60.md` lines 3–128 |
 | Track batches | Batch | `POST /api/v2/document/Batch` (and the list/read/update calls above) | `docs/erpnext/erpnext-09.md` lines 522–608 |
-| Track serial numbers | Serial No | `POST /api/v2/document/Serial%20No` (and the list/read/update calls above) | `docs/erpnext/erpnext-57.md` lines 48–144 |
+| Track serial numbers | Serial No | `POST /api/v2/document/Serial%20No` (and the list/read/update calls above) | `docs/erpnext/erpnext-56.md` lines 545–641 |
 | Set putaway rules | Putaway Rule | `POST /api/v2/document/Putaway%20Rule` (and the list/read/update calls above) | `docs/erpnext/erpnext-48.md` lines 418–520 |
 | Inspect incoming quality | Quality Inspection | `POST /api/v2/document/Quality%20Inspection` (and the list/read/update calls above) | `docs/erpnext/erpnext-48.md` lines 566–701 |
 
@@ -177,15 +177,15 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Create item variants | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-33.md` lines 255–316 |
+| Create item variants | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-32.md` lines 575–636 |
 | Manage units of measure | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-66.md` lines 918–935 |
-| Load opening stock | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-39.md` lines 683–723 |
-| Use the serial and batch bundle | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-56.md` lines 504–635 |
-| Reserve stock for an order | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-60.md` lines 380–437 |
-| Configure stock settings | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-60.md` lines 439–643 |
-| Read the stock ledger | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-59.md` lines 773–815 |
-| Check stock levels | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-59.md` lines 817–844 |
-| Close a stock period | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-59.md` lines 490–512 |
+| Load opening stock | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-39.md` lines 455–495 |
+| Use the serial and batch bundle | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-56.md` lines 304–435 |
+| Reserve stock for an order | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-60.md` lines 344–401 |
+| Configure stock settings | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-60.md` lines 403–607 |
+| Read the stock ledger | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-59.md` lines 692–734 |
+| Check stock levels | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-59.md` lines 736–763 |
+| Close a stock period | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-59.md` lines 409–431 |
 
 ## Not an API job
 

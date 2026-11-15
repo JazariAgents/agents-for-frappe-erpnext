@@ -40,7 +40,7 @@ The first doctype we will create is **Article**. To create it, click on New.
 
 Refer the following GIF to check how it should be done:
 
-![Article DocType](/files/article-doctype.gif)
+[Screenshot on the live page: Article DocType]
 
 
 
@@ -52,7 +52,7 @@ Let's create some records. But before that, we need to clear the Desk cache. Cli
 
 Now, you should see the **New** button. Click on it and you will see the Form view of the Article doctype. Fill in the form and click on Save. You have created your first Article document. Go back to the list view and you should see one record.
 
-![Article New Form](/files/article-new-form.gif)
+[Screenshot on the live page: Article New Form]
 
 
 
@@ -263,7 +263,7 @@ $ bench --site site_name add-to-hosts
 
 This will ask for your root password and will add an entry to your `/etc/hosts` file.
 
-![Site Login Page](/files/site-login-page.png)
+[Screenshot on the live page: Site Login Page]
 
 Great, now you can access your site at `http://library.localhost:8000`. Congratulations for making it this far.
 
@@ -304,7 +304,7 @@ To create DocTypes in our app, we must log in to Desk. Go to [http://library.loc
 
 Enter Administrator as the user and password that you set while creating the site.
 
-![Setup Wizard](/files/setup-wizard.png)
+[Screenshot on the live page: Setup Wizard]
 
 After successful login, you will see the setup wizard. This is a one-time setup wizard used to set up localization details for your site. Go ahead, select your language, and complete the wizard.
 
@@ -312,7 +312,7 @@ Good job making it this far!
 
 You should see the Desk that looks something like this:
 
-![Desk](/files/desk.png)
+[Screenshot on the live page: Desk]
 
 ## Site commands
 
@@ -510,7 +510,7 @@ To do that, open the doctype list from the search bar and click on Article. Now,
 
 Now, go back to the Article List and create a new article again.
 
-![](/files/nTqBymM.gif)
+[Screenshot on the live page]
 
  
 
@@ -537,7 +537,7 @@ Form Layout
 
 Let's customize the layout of how the fields are laid out in the form while making good use of the available space. Go to the Article doctype, scroll to the Fields section, and add two new fields of type **Column Break** and **Section Break**. We will also hide the Image field as it is not needed to be shown in the form. Check out the GIF to see it in action.
 
-![](/files/XqlAtTg.gif)
+[Screenshot on the live page]
 
 Form Settings
 
@@ -545,7 +545,7 @@ Go to the Article doctype and scroll down to the **Form Settings** section. Ente
 
  
 
-![](/files/QRZDdTG.gif)
+[Screenshot on the live page]
 
 Permissions
 -----------
@@ -554,7 +554,7 @@ You can also configure what roles you want to allow and which actions you want t
 
 You can also configure the type of action that is allowed for a particular role. Let's add a **Librarian** role that has permission for all actions and a **Library Member** role that has permission for **Read** action.
 
-![](/files/UOan9ER.gif)
+[Screenshot on the live page]
 
 You can test this by creating a new User that has the **Librarian** role, and another User that has the **Library Member** role. Login with each user, and see what actions are allowed.
 
@@ -601,7 +601,7 @@ Now, refresh your page and go to the Library Member form. You should see two but
 on the top right. Click on them to try them out. They will automatically set the
 Library Member in each of those documents making the process easier.
 
-![Library Member Form Actions](/files/library-member-form-actions.png)
+[Screenshot on the live page: Library Member Form Actions]
 
 We have only scratched the surface here. You can do a lot more with Form
 Scripts. Learn more about the API at [Form Scripts
@@ -805,7 +805,7 @@ It will have **Is Submittable** enabled. It will have Naming set as
 **LMS.#####** and restricted to **Librarian** role. Also, the Title Field should
 be set to `full_name` in the View Settings section.
 
-![Library Membership DocType](/files/library-membership-doctype.gif)
+[Screenshot on the live page: Library Membership DocType]
 
 The Link field **Library Member** is similar to a Foreign Key column in other
 frameworks. It will let you link the value to a record in another DocType. In
@@ -878,7 +878,7 @@ letting the user know the reason.
 Now, try creating a Library Membership with an overlapping period and you should
 see an error when you submit the document.
 
-![Library Membership Validation](/files/library-membership-validation.png)
+[Screenshot on the live page: Library Membership Validation]
 
 ## Library Transaction
 
@@ -895,7 +895,7 @@ fields:
 
 This doctype will also be a Submittable doctype.
 
-![Library Transaction Doctype](/files/library-transaction-doctype.gif)
+[Screenshot on the live page: Library Transaction Doctype]
 
 ### Validation for Transaction
 
@@ -970,7 +970,7 @@ the following fields:
 Since we don't need to have multiple records for these settings, we will enable
 **Is Single** for this doctype.
 
-![Library Settings Doctype](/files/library-settings-doctype.gif)
+[Screenshot on the live page: Library Settings Doctype]
 
 After creating the doctype, click on **Go to Library Settings**, to go to the
 form and set the values for **Loan Period** and **Maximum Number of Issued

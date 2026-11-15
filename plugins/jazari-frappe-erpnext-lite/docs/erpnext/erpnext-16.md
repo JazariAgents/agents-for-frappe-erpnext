@@ -47,7 +47,7 @@ Use clear qualification criteria. For example, confirm the requirement, approxim
 
 An Opportunity represents potential revenue being actively pursued. It can be linked to a Lead, Customer, or Prospect. Add the requested items or services, expected closing date, probability, opportunity amount, source, and sales stage. The [Sales Stage](/erpnext/sales-stage) helps teams distinguish early discovery from evaluation, negotiation, and other defined stages.
 
-![ERPNext Opportunity list with realistic demo opportunities and their current statuses](https://novacompanies.m.frappe.cloud/files/opportunities.png)
+[Screenshot on the live page: ERPNext Opportunity list with realistic demo opportunities and their current statuses]
 
 The Opportunity list provides a shared view of active deals and their status. Filters, assignments, and saved views can help each salesperson focus on the records that need attention.
 
@@ -175,7 +175,7 @@ By analyzing these reports, companies can make informed decisions, streamline th
 
 It typically provides an overview of the leads you are managing, including key details and metrics related to lead status, source, conversion, and more.
 
-![Screenshot 2024-08-29 at 4.29.26 PM](/files/Screenshot 2024-08-29 at 4.29.26 PM.png)
+[Screenshot on the live page: Screenshot 2024-08-29 at 4.29.26 PM]
 
 ### Sales Funnel
 
@@ -183,13 +183,13 @@ The Sales Funnel Report provides a visual and analytical view of your sales pipe
 
 For more details check [Sales Funnel](/erpnext/sales_funnel).
 
-![Screenshot 2024-08-29 at 4.31.20 PM](/files/Screenshot 2024-08-29 at 4.31.20 PM.png)
+[Screenshot on the live page: Screenshot 2024-08-29 at 4.31.20 PM]
 
 ### Prospects Engaged But Not Converted
 
 It helps you identify and analyze leads or opportunities that were engaged but did not result in a conversion.
 
-![Prospects Engaged But Not Converted](/files/prospects-engaged-but-not-converted.png)
+[Screenshot on the live page: Prospects Engaged But Not Converted]
 
 ### Minutes to First Response for Opportunity
 
@@ -201,19 +201,19 @@ You can input the date range for which you would like to analyse the minutes to 
 
 This report shows the list of customers who have not purchased since specific number of days. You can mention the number of days in 'Days Since Last Order' filter. Also you can mention if Sales Order or Sales Invoice is to be considered in DocType filter.
 
-![Screenshot 2024-08-29 at 4.34.35 PM](/files/Screenshot 2024-08-29 at 4.34.35 PM.png)
+[Screenshot on the live page: Screenshot 2024-08-29 at 4.34.35 PM]
 
 ### Lost Opportunity
 
 This report provides Lost Opportunity details like opportunity from, party, customer name, lost reasons, sales stage, territory, and other details.
 
-![Lost Opportunity](/files/lost-opportunity.png)
+[Screenshot on the live page: Lost Opportunity]
 
 ### Campaign Efficiency
 
 This report evaluates the effectiveness of your marketing campaigns by analyzing various performance metrics. This report helps you understand how well your campaigns are performing, the return on investment (ROI), and areas where improvements can be made.
 
-![Screenshot 2024-08-29 at 4.39.12 PM](/files/Screenshot 2024-08-29 at 4.39.12 PM.png)
+[Screenshot on the live page: Screenshot 2024-08-29 at 4.39.12 PM]
 
 <!-- page: erpnext/erpnext__crm_settings.md -->
 ---
@@ -234,7 +234,7 @@ To access CRM Settings, go to:
 
 ## Lead
 
-![Screenshot 2024-06-03 at 12.48.00 PM](/files/Screenshot 2024-06-03 at 12.48.00 PM.png)
+[Screenshot on the live page: Screenshot 2024-06-03 at 12.48.00 PM]
 
 ### Campaign Naming By
 
@@ -250,7 +250,7 @@ The system will automatically create a new Contact on creation of a Lead.
 
 ## Opportunity
 
-![Screenshot 2024-06-03 at 12.54.38 PM](/files/Screenshot 2024-06-03 at 12.54.38 PM.png)
+[Screenshot on the live page: Screenshot 2024-06-03 at 12.54.38 PM]
 
 ### Close Replied Opportunity After Days
 
@@ -258,7 +258,7 @@ If there are many Opportunities having a status other than Open, then they will 
 
 ## Quotation
 
-![Screenshot 2024-06-03 at 12.56.40 PM](/files/Screenshot 2024-06-03 at 12.56.40 PM.png)
+[Screenshot on the live page: Screenshot 2024-06-03 at 12.56.40 PM]
 
 ### Default Quotation Validity Days
 
@@ -266,7 +266,7 @@ You can configure quotations to the customer to be valid only for certain days. 
 
 ## Other Settings
 
-![Screenshot 2024-06-03 at 12.58.09 PM](/files/Screenshot 2024-06-03 at 12.58.09 PM.png)
+[Screenshot on the live page: Screenshot 2024-06-03 at 12.58.09 PM]
 
 ### Carry Forward Communication and Comments
 
@@ -307,7 +307,7 @@ Enable the required [Currency](/erpnext/currency) records. Review the stale-rate
 6. Review request Parameters and Result Key mappings.
 7. Save, then test from a draft foreign-currency transaction.
 
-![Frankfurter v2 provider configuration](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-exchange-provider-settings.png)
+[Screenshot on the live page: Frankfurter v2 provider configuration]
 
 The current develop options include `frankfurter.dev`, `frankfurter.dev - v2`, `exchangerate.host`, and `Custom`. Frankfurter v2 supports more currencies than the older v1 configuration. Exchangerate.host requires an access key. Provider coverage and commercial terms can change, so validate them directly with the provider before rollout.
 
@@ -462,11 +462,11 @@ The list can contain multiple dated records for the same pair. ERPNext searches 
 
 
 
-![Dated Currency Exchange records](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-exchange-list.png)
+[Screenshot on the live page: Dated Currency Exchange records]
 
 
 
-![EUR to USD exchange rate for buying and selling](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-exchange-rate.png)
+[Screenshot on the live page: EUR to USD exchange rate for buying and selling]
 
 ## Important fields and what they mean
 
@@ -593,7 +593,7 @@ You also need permission to read or update Currency masters. If the purpose is t
 4. Review the fraction, symbol, and number format.
 5. Save the record.
 
-![EUR currency settings in ERPNext](https://novacompanies.m.frappe.cloud/files/docs-multi-currency-2026-currency-eur-settings.png)
+[Screenshot on the live page: EUR currency settings in ERPNext]
 
 Enabling a currency makes it available for selection. It does not make it the default currency of any Company, party, account, [Price List](/erpnext/price-lists), or document.
 

@@ -1,513 +1,5 @@
 <!-- Frappe documentation: erpnext, part 31 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__incoterm-and-named-place.md -->
----
-title: "Record Incoterms and Named Places | ERPNext Documentation"
-description: "Record an Incoterm and its named place on ERPNext sales and purchase transactions so delivery responsibilities are captured consistently."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/incoterm-and-named-place"
-updated: "2026-07-25"
----
-
-Use **Incoterm** and **Named Place** to record the agreed trade term and location on sales and purchase transactions. Together they provide commercial context about delivery responsibilities, costs, and risk transfer.
-
-ERPNext records the agreement. It does not interpret the legal obligations, calculate every freight or insurance charge, or replace the complete contract.
-
-## Before you begin
-
-Confirm:
-
-- The Incoterm edition and term agreed with the counterparty.
-- The exact named port, terminal, warehouse, city, or other place.
-- Currency, freight, insurance, taxes, and delivery terms.
-- Whether the term is appropriate for the transport mode.
-
-Seek qualified trade or legal advice when choosing the term. A short code without a named place is incomplete for many practical uses.
-
-## Add an Incoterm to a transaction
-
-The fields are available on supported documents such as a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), [Delivery Note](/erpnext/delivery-note), [Sales Invoice](/erpnext/sales-invoice), [Purchase Order](/erpnext/purchase-order), and [Purchase Invoice](/erpnext/purchase-invoice).
-
-1. Open or create the transaction.
-2. Find the shipping or terms section.
-3. Select the agreed **Incoterm**.
-4. Enter the complete **Named Place**.
-5. Confirm that freight, taxes, shipping address, and Terms and Conditions are consistent.
-6. Save.
-
-![A Sales Order with Incoterm and Named Place highlighted.](https://novacompanies.m.frappe.cloud/files/incoterm-sales-order.png)
-
-Example: **CIP, Seattle-Tacoma International Airport, Seattle, WA, USA, Incoterms 2020**.
-
-Use the location detail your contract requires. Avoid a vague value such as only “USA” or “Port”.
-
-## Understand the two fields
-
-
-| Field       | What to record                                 |
-| ----------- | ---------------------------------------------- |
-| Incoterm    | Standard trade-term code agreed by the parties |
-| Named Place | Exact agreed location associated with the term |
-
-
-The meaning of the named place depends on the selected term. For one term it may identify the place of delivery; for another it may identify a destination to which specified costs are paid. Do not infer all obligations from the location alone.
-
-## Keep the sales cycle consistent
-
-When creating downstream documents, verify that the Incoterm and Named Place remain aligned with the latest agreement.
-
-If the agreement changes after a Sales Order is submitted:
-
-- Use the supported amendment or after-submit update workflow.
-- Retain approval evidence.
-- Update downstream documents that have not yet been submitted.
-- Use a revised commercial document when required.
-
-Do not overwrite a completed historical agreement merely to show the latest terms.
-
-## Freight, insurance, and accounting
-
-Incoterm fields do not automatically create every related charge or accounting entry. Configure freight through shipping charges, taxes, landed costs, or supplier invoices according to the transaction and accounting policy.
-
-For stock purchases, [Landed Cost Voucher](/erpnext/landed-cost-voucher) may be relevant when additional costs need to be included in inventory valuation.
-
-## Terms and printed documents
-
-Use [Terms and Conditions](/erpnext/terms-and-conditions) to state the complete commercial wording, Incoterm edition, responsibilities, exclusions, and documentary requirements.
-
-Check the Print Format to ensure Incoterm and Named Place appear on the document sent to the Customer or Supplier.
-
-## Troubleshooting
-
-
-| Problem                               | What to check                                               |
-| ------------------------------------- | ----------------------------------------------------------- |
-| Named Place is hidden                 | Select the Incoterm first                                   |
-| Downstream document has old terms     | Review mapped values and whether the source was amended     |
-| Freight is not calculated             | Configure charges separately; Incoterm is descriptive       |
-| The printed document omits the fields | Update the Print Format                                     |
-| Users select inconsistent terms       | Add approval, training, or a Workflow for commercial review |
-
-
-## Frequently asked questions
-
-### Does ERPNext choose the correct Incoterm?
-
-No. Users must select the term agreed by the parties.
-
-### Is the Named Place always the delivery destination?
-
-No. Its role depends on the selected Incoterm.
-
-### Do Incoterm fields calculate freight or insurance?
-
-Not by themselves. Configure the relevant charges and accounting separately.
-
-### Should the Incoterm edition be recorded?
-
-Yes. Include the agreed edition in Terms and Conditions or another controlled field or print format.
-
-## Related topics
-
-- [Terms and Conditions](/erpnext/terms-and-conditions)
-- [Sales Order](/erpnext/sales-order)
-- [Purchase Order](/erpnext/purchase-order)
-- [Shipping Rule](/erpnext/shipping-rule)
-- [Landed Cost Voucher](/erpnext/landed-cost-voucher)
-
-<!-- page: erpnext/erpnext__india-compliance-app.md -->
----
-title: "India Compliance"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/india-compliance-app"
-updated: "2026-07-02"
----
-
-Any ERPNext user who needs India-specific statutory features can install the India Compliance app to unlock the capabilities inside ERPNext. After installation and setup, the app adds the workflows, fields, reports, and validations required for operating ERPNext in India.
-
-Official documentation: [https://docs.indiacompliance.app/docs/getting-started/introduction](https://docs.indiacompliance.app/docs/getting-started/introduction)
-
-## What the India Compliance app provides
-
-The India Compliance app extends ERPNext for Indian tax and regulatory needs. It is especially useful for companies that need to manage GST, e-Invoicing, e-Way Bills, TDS, TCS, and India-specific reporting from within ERPNext.
-
-Broadly, the app helps with:
-
-- GST setup and GST-aware transactions
-- GSTIN and party tax details
-- HSN/SAC handling for items and services
-- GST tax templates and tax treatment
-- GST returns and statutory reports
-- e-Invoice generation and management
-- e-Way Bill generation and management
-- TDS and TCS compliance
-- India-specific validations on transactions
-- Regional fields and workflows needed by Indian businesses
-
-The exact features available may depend on the installed app version, ERPNext version, and the configuration enabled for the company.
-
-## Why it is separate from ERPNext
-
-ERPNext serves users across many countries. Keeping India-specific compliance in a separate app makes the core product cleaner while still allowing Indian companies to get the workflows they need.
-
-This means a company that does not need Indian compliance can continue using standard ERPNext, while an Indian company can install the India Compliance app and enable the additional features required for local operations.
-
-## Typical usage flow
-
-```
-Install ERPNext
-      |
-      v
-Install India Compliance app
-      |
-      v
-Configure company and GST settings
-      |
-      v
-Set up masters such as GSTIN, HSN/SAC, tax templates
-      |
-      v
-Create transactions in ERPNext
-      |
-      v
-Generate India-specific compliance outputs
-```
-
-## Common areas affected
-
-### Masters
-
-The app can add or use India-specific details in masters such as Company, Customer, Supplier, Address, Item, and tax templates. These details help ERPNext understand how GST and other rules should apply during transactions.
-
-### Transactions
-
-Sales Invoices, Purchase Invoices, Delivery Notes, and other documents can include India-specific tax information. The app helps validate and process these transactions according to Indian compliance needs.
-
-### Reporting
-
-The app provides reports and outputs needed for Indian statutory compliance, including GST-related reporting and other tax summaries.
-
-### Electronic compliance
-
-For businesses that need e-Invoicing or e-Way Bill workflows, the India Compliance app provides the required integration and document handling experience inside ERPNext.
-
-## When should you install it?
-
-Install the India Compliance app if your ERPNext site is used by an Indian company or by a company that must comply with Indian tax and invoicing rules.
-
-You may not need it if your company does not operate in India and does not need Indian statutory reporting.
-
-## Learn more
-
-Read the official India Compliance documentation here:
-
-[https://docs.indiacompliance.app/docs/getting-started/introduction](https://docs.indiacompliance.app/docs/getting-started/introduction)
-
-<!-- page: erpnext/erpnext__installation-note.md -->
----
-title: "Installation Note\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/installation-note"
-updated: "2026-02-27"
----
-
-
-**An Installation Note can be created when a product/item is being installed or set up at the Customer's place.**
-
-For example, if you sell an Air Conditioner, a service person generally accompanies the delivery to install the Air Conditioner at the Customer’s place. The service person can create an “Installation Note”, to track the date and details of the installation.
-
-To access the Installation Note list, go to:
-> Home > Stock > Serial No and Batch > Installation Note
-
-## 1. How to create an Installation Note
-An Installation Note is usually created from a Delivery Note. You can also create it manually and click on the 'From Delivery Note' button to fetch details from a selected Delivery Note.
-
-1. Go to the Installation Note list, click on New.
-1. The Customer, Item, and quantity will be fetched from the Delivery Note.
-1. The date and time are set to when the note is created.
-1. Save and submit.
-
- ![Installation Note](/files/installation-note.png)
-
-Any additional remarks about the installation can be added. If the Item is serialized, the serial numbers can be added in Items table.
-
-### 2. Related Topics
-1. [Delivery Note](/erpnext/delivery-note)
-1. [Delivery Trip](/erpnext/delivery-trip)
-
-<!-- page: erpnext/erpnext__installing_redisearch_to_enable_super_fast_e_commerce_search.md -->
----
-title: "Installing RediSearch to enable fast E-commerce Search"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/installing_redisearch_to_enable_super_fast_e_commerce_search"
-updated: "2026-03-02"
----
-
-
-> **Experimental**
-> 
-> 
-
-The E-Commerce module of ERPNext optionally uses RediSearch to enable search functionality which is configurable via **E Commerce Settings**.
-
-Once installed and configured, RediSearch will be used to charge the search functionality of the E-Commerce website. This includes features like fuzzy-word searching, autocomplete, results ranking and customizable field indexing.
-
-### Pre-requisites
-
-1. Frappe Framework + ERPNext Setup
-2. Redis 6+
-
-### Installation Instructions
-
-
-```
-$ git clone --recursive https://github.com/RediSearch/RediSearch.git
-$ cd RediSearch
-$ sudo make setup # Remove `sudo` on macOS
-$ make build
-  
-
-```
-
-> Please Note: the latest version of RediSearch requires Redis 7.1+, while the stable redis as on 01-Aug-2023 available in snap repos is 7.0. Therefore, Redis need to be compiled from source for Redissearch to be compatible with Redis.
-> 
-> Also note ERPNext requires Redis 6+, therefore using Redis 7.1+ might break thinks. Use Redis 7.1+ with caution.
-> 
-> 
-
-On successful completion of the above instructions, a `redisearch.so` binary file will be generated in the `RediSearch/build` directory.
-
-Move this binary to the `/etc` directory and restart your Frappe Server:
-
-
-```
-sudo mv build/redisearch.so /etc/
-  
-
-```
-Now, open the `redis_cache.conf` file located in the `config` directory (inside the bench directory). Add the following line before the `save ""` line and then restart bench server:
-
-
-```
-loadmodule /etc/redisearch.so
-  
-
-```
-This will load the redisearch module at startup. You can check if the module was loaded successfully by running the following command in the `redis-cli -p 13000` (assuming port as 13000 default port for redis in frappe config):
-
-
-```
-> MODULE LIST
-  
-
-```
-and `search` should be one of the modules.
-
-You can also load the module on a running redis instance by running the following command in the `redis-cli`:
-
-
-```
-> MODULE LOAD /etc/redisearch.so
-  
-
-```
-
-> We placed the `redisearch.so` module in the `/etc` directory, but it can be placed anywhere in the file system. We have used this directory because in the future the `loadmodule` line will be populated in the config file automatically and it will assume the binary is in the `/etc` directory.
-> 
-> 
-
-
-> More detailed instructions can be found [here](https://github.com/RediSearch/redisearch-getting-started/blob/master/docs/002-install-redisearch.md).
-> 
-> 
-
-<!-- page: erpnext/erpnext__integrating-erpnext-with-other-applications.md -->
----
-title: "Integrating ERPNext with other Applications"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/integrating-erpnext-with-other-applications"
-updated: "2026-07-04"
----
-
-ERPNext is designed to be integrated with other applications. Because ERPNext is built on Frappe Framework, business records are exposed through a consistent REST API. This makes it straightforward to connect ERPNext with external systems such as CRM platforms, logistics providers, order management systems, recommerce platforms, Google services, banking systems, payment gateways, and internal business applications.
-
-## Why ERPNext Is Easy To Integrate
-
-Most ERPNext business objects are DocTypes. Customers, Items, Sales Orders, Purchase Orders, Sales Invoices, Delivery Notes, Payment Entries, Stock Entries, Projects, and many other records follow the same document model. Frappe automatically provides REST API access for DocTypes, so integrations can read, create, update, and delete records using predictable endpoints.
-
-This means a third-party application does not need a separate custom API for every ERPNext module. Once the external system knows the DocType and field names, it can exchange data with ERPNext using standard HTTPS requests and JSON payloads.
-
-Custom fields added in ERPNext become part of the DocType metadata and are available to integrations immediately. For example, if a business adds a custom field such as `marketplace_order_id` on Sales Order or `courier_tracking_id` on Delivery Note, third-party applications can send and receive those values through the same REST API used for standard fields.
-
-This is especially useful when ERPNext is connected to external systems that need their own identifiers, statuses, references, or operational data. Custom fields let teams extend ERPNext without breaking the standard data model.
-
-## How REST APIs Work
-
-Frappe provides REST API endpoints for DocTypes. A third-party application can authenticate with an API key and API secret, then call endpoints to list documents, fetch a specific document, create a new record, update an existing record, or delete a record where permissions allow it.
-
-Common integration patterns include:
-
-- **Read from ERPNext:** Fetch customers, items, prices, stock levels, invoices, or payment status.
-- **Write to ERPNext:** Create leads, customers, sales orders, purchase orders, delivery notes, payment entries, or support tickets.
-- **Update ERPNext:** Send shipping updates, reconciliation references, bank transaction IDs, marketplace order IDs, or fulfillment statuses.
-- **React to ERPNext events:** Use webhooks to notify another application when a document is created, updated, submitted, or cancelled.
-
-## Examples Of Integrations
-
-- **CRM:** Sync leads, opportunities, customers, quotations, and follow-up status between ERPNext and a sales CRM.
-- **Logistics:** Send delivery notes or shipment requests to a courier platform and receive tracking numbers back into ERPNext.
-- **Order Management:** Push orders from an order management system into ERPNext as Sales Orders, then send fulfillment and invoice status back.
-- **Recommerce Platforms:** Sync product catalog, customer orders, stock availability, returns, refurbishment status, and payouts.
-- **Google Services:** Connect ERPNext with Google Workspace, Google Calendar, Google Sheets, or reporting workflows.
-- **Banks And Payment Systems:** Import bank transactions, update payment references, reconcile payments, or connect payment collection workflows.
-
-## Typical Integration Flow
-
-1. Identify the ERPNext DocTypes involved, such as Customer, Item, Sales Order, Delivery Note, Sales Invoice, Payment Entry, or a custom DocType.
-2. Map the fields between ERPNext and the external application, including any custom fields required by the business process.
-3. Create an integration user in ERPNext with only the roles and permissions required for the integration.
-4. Generate API credentials for that user and authenticate API calls securely.
-5. Use REST API endpoints to create, fetch, update, or delete records as needed.
-6. Use webhooks or background jobs for event-driven sync, retries, and asynchronous processing.
-
-## Good Practices
-
-- Use a dedicated integration user instead of an administrator account.
-- Apply role-based permissions so the integration can access only the records it needs.
-- Store external IDs in custom fields to make reconciliation and troubleshooting easier.
-- Design integrations to be idempotent, so retrying a request does not create duplicate records.
-- Use webhooks or queues for high-volume workflows instead of making everything synchronous.
-- Log request IDs, external references, and error messages so failures can be traced quickly.
-
-## Related Topics
-
-- [Frappe REST API](https://docs.frappe.io/framework/user/en/api/rest)
-- [Token Based Authentication](https://docs.frappe.io/framework/user/en/guides/integration/token_based_authentication)
-- [Webhooks](https://docs.frappe.io/framework/user/en/guides/integration/webhooks)
-- [Insert A Document Via API](https://docs.frappe.io/framework/user/en/guides/app-development/insert-a-document-via-api)
-- [Custom Field](https://docs.frappe.io/erpnext/custom-field)
-
-<!-- page: erpnext/erpnext__inter-company-invoices.md -->
----
-title: "Inter Company Invoices | ERPNext Documentation"
-description: "Create linked Sales and Purchase Invoices between companies in ERPNext and verify parties, accounts, taxes, stock, and balances."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/inter-company-invoices"
-updated: "2026-07-23"
----
-
-Inter Company Invoices in ERPNext create the matching receivable and payable transactions when one Company sells goods or services to another Company in the same ERPNext site. A submitted Sales Invoice can create a linked Purchase Invoice for the buying Company, reducing duplicate entry while preserving separate ledgers.
-
-## Before you begin
-
-- Create both Companies and their charts of accounts.
-- Create a Customer that represents the buying Company.
-- Create a Supplier that represents the selling Company.
-- In the Customer and Supplier records, set the corresponding **Represents Company** value.
-- Make sure both Companies can transact in the required Currency.
-- Create matching Items, UOMs, taxes, warehouses, and accounts for both Companies.
-
-The Customer and Supplier links are essential. They tell ERPNext which legal entity is on the other side of the transaction.
-
-## Configure the inter-company parties
-
-For the buying Company, create or open the Customer used by the selling Company and set **Represents Company** to the buying Company.
-
-![The internal Customer with Is Internal Customer enabled and Nova Industries selected as Represents Company.](/files/internal-customer-company-link.webp)
-
-For the selling Company, create or open the Supplier used by the buying Company and set **Represents Company** to the selling Company.
-
-![The internal Supplier with Is Internal Supplier enabled and Nova Electronics Trading selected as Represents Company.](/files/internal-supplier-company-link.webp)
-
-Use distinct party records for each legal entity, even when the Companies share ownership. Confirm the tax identifiers, addresses, payment terms, and receivable or payable accounts that apply to each entity.
-
-## Create a Purchase Invoice from a Sales Invoice
-
-1. Create and submit a [Sales Invoice](/erpnext/sales-invoice) in the selling Company for the Customer that represents the buying Company.
-2. Confirm the items, quantities, rates, taxes, Company, and posting date.
-3. From the submitted Sales Invoice, select **Create > Inter Company Purchase Invoice**.
-4. Review the mapped document in the buying Company.
-5. Select the correct expense or asset accounts, warehouses, taxes, and cost centers.
-6. Save and submit the Purchase Invoice.
-
-![The Sales Invoice showing Nova Electronics Trading as Company and Nova Industries Intercompany as Customer.](/files/inter-company-sales-invoice.webp)
-
-![The highlighted Inter Company Purchase Invoice action in the submitted Sales Invoice Create menu.](/files/create-purchase-invoice-action.webp)
-
-The Purchase Invoice is a separate accounting transaction. ERPNext maps source values, but the user must verify the accounts and taxes appropriate to the buying Company.
-
-## Create a Sales Invoice from a Purchase Invoice
-
-The flow can also begin with a submitted Purchase Invoice in the buying Company. Use **Create > Inter Company Sales Invoice** to create the corresponding Sales Invoice in the selling Company, then review and submit it.
-
-Choose one direction for each transaction. Do not create both counterparts independently, or the same trade may be recorded twice.
-
-## Important fields and what they mean
-
-
-| Field                   | What it means                                                                           |
-| ----------------------- | --------------------------------------------------------------------------------------- |
-| Company                 | The legal entity whose books receive the transaction.                                   |
-| Customer                | The inter-company Customer used on the Sales Invoice.                                   |
-| Supplier                | The inter-company Supplier used on the Purchase Invoice.                                |
-| Represents Company      | Links a Customer or Supplier to the other Company in the same site.                     |
-| Inter Company Reference | Identifies the linked source transaction where available.                               |
-| Currency                | The transaction currency. Conversion rates apply when it differs from Company currency. |
-| Debit To                | The receivable account used by the selling Company.                                     |
-| Credit To               | The payable account used by the buying Company.                                         |
-| Income Account          | The revenue account for the selling Company.                                            |
-| Expense Account         | The expense or asset account for the buying Company.                                    |
-| Cost Center             | The organizational unit to which income or expense is assigned.                         |
-
-
-## Items, warehouses, and taxes
-
-Item Codes should exist and be usable in both Companies. Accounts and warehouses remain Company-specific, so review every mapped row. Open a child-table row with the pencil icon when you need to verify hidden item fields.
-
-Tax treatment can differ between the selling and buying entities. Do not assume the tax rows on the source document are correct for the target Company. Check tax templates, accounts, rates, addresses, and regional compliance before submission.
-
-For stock items, the invoice pair does not by itself replace the required stock movement. Use the approved Delivery Note, Purchase Receipt, or inter-company stock process so physical inventory agrees with accounting.
-
-## Cancel or amend linked invoices
-
-The two invoices remain separate submitted documents. If one must be cancelled or amended, review the effect on its counterpart and any linked payments, returns, or stock transactions. Follow your accounting period and audit controls. Do not leave one Company with a valid invoice while the corresponding document in the other Company is incorrect.
-
-## Reconcile inter-company balances
-
-Run receivable, payable, and general ledger reports for both Companies. The balances should agree after accounting for timing differences, currency conversion, taxes, credit notes, and payments. Use a consistent reference or naming practice so finance users can match the two sides quickly.
-
-## Frequently asked questions
-
-### Why is the inter-company create option missing?
-
-Check that the source invoice is submitted, the party has **Represents Company** set, the represented Company is different from the source Company, and a counterpart has not already been created.
-
-### Are both invoices submitted automatically?
-
-No. Review and submit the mapped target invoice separately.
-
-### Can the Companies use different currencies?
-
-Yes, when the required currencies and conversion rates are configured. Review exchange rates and Company-currency totals on both documents.
-
-### Does this consolidate the Companies?
-
-No. It records transactions in separate Company ledgers. Consolidated reporting and elimination entries are separate accounting activities.
-
-### Can I create inter-company credit notes?
-
-Use the applicable return or credit-note process for both Companies and link the transactions according to your controls.
-
-## Related topics
-
-- [Sales Invoice](/erpnext/sales-invoice)
-- [Purchase Invoice](/erpnext/purchase-invoice)
-- [Company](/erpnext/company)
-- [Customer](/erpnext/customer)
-- [Supplier](/erpnext/supplier)
-- [Inter Company Journal Entry](/erpnext/inter-company-journal-entry)
-- [Drop Ship Between Subsidiary Companies](/erpnext/drop-ship-between-subsidiary-companies)
-
 <!-- page: erpnext/erpnext__inter-company-journal-entry.md -->
 ---
 title: "Inter Company Journal Entry | ERPNext Documentation"
@@ -567,7 +59,7 @@ Set **Entry Type** to **Inter Company Journal Entry** and select the company tha
 
 
 
-![The first submitted Inter Company Journal Entry with Company and Entry Type highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-source-entry.png)
+[Screenshot on the live page: The first submitted Inter Company Journal Entry with Company and Entry Type highlighted]
 
 In **Accounting Entries**, add the accounts and amounts for that company. Add a Cost Center or another [Accounting Dimension](https://docs.frappe.io/erpnext/accounting-dimensions) when required.
 
@@ -580,7 +72,7 @@ Select the pencil icon to open a child row when you need to enter a Cost Center,
 
 
 
-![The first company's account rows with the row edit pencil highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-source-accounts.png)
+[Screenshot on the live page: The first company's account rows with the row edit pencil highlighted]
 
 Confirm that **Total Debit** equals **Total Credit**, add a clear remark, then save and submit the first Journal Entry. Submission posts the first company’s [General Ledger](https://docs.frappe.io/erpnext/general-ledger) entries. It does not yet post the other company’s side.
 
@@ -590,13 +82,13 @@ Open the submitted first entry. Select **Make**, then select **Create Inter Comp
 
 
 
-![Create Inter Company Journal Entry highlighted in the Make menu](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-create-action.png)
+[Screenshot on the live page: Create Inter Company Journal Entry highlighted in the Make menu]
 
 Select the company that should receive the other side, then select **Create**.
 
 
 
-![Nova Electronics Distribution selected in the Select Company dialog](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-select-company.png)
+[Screenshot on the live page: Nova Electronics Distribution selected in the Select Company dialog]
 
 ERPNext opens a new draft and carries forward the following context:
 
@@ -613,7 +105,7 @@ ERPNext does not copy the first company’s account rows because account names b
 
 
 
-![The second company's linked draft with an empty Accounting Entries table](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-counterpart-draft.png)
+[Screenshot on the live page: The second company's linked draft with an empty Accounting Entries table]
 
 ## Enter the second company’s accounts
 
@@ -623,7 +115,7 @@ Add the second company’s accounting treatment. In this example:
 2. Credit **Due to Nova Electronics Trading** by $1,200.
 3. Use the second company’s Cost Center.
 
-![The second company's opposite account rows with the row edit pencil highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-counterpart-accounts.png)
+[Screenshot on the live page: The second company's opposite account rows with the row edit pencil highlighted]
 
 The individual accounts do not need to have the same names as the first company’s accounts. What must agree is the economic treatment and, for companies using the same currency, the reversed debit and credit totals.
 
@@ -635,13 +127,13 @@ On either submitted entry, open **More Info**, then expand **Reference**. **Inte
 
 
 
-![The linked Inter Company Journal Entry Reference highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-linked-reference.png)
+[Screenshot on the live page: The linked Inter Company Journal Entry Reference highlighted]
 
 You can also review both entries from the Journal Entry list.
 
 
 
-![The two linked Inter Company Journal Entries in the list](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-inter-company-journal-entry-inter-company-journal-list.png)
+[Screenshot on the live page: The two linked Inter Company Journal Entries in the list]
 
 Use **View &gt; Ledger** on each entry to confirm the separate [GL Entries](https://docs.frappe.io/erpnext/accounting-entries). If consolidated group reporting is used, review the due-from and due-to balances and apply the organization’s elimination process outside the operating entries where required.
 
@@ -741,7 +233,7 @@ ERPNext is business management software that helps companies stay on top of thei
 
 Most ERPs are clunky, expensive, and a headache to customize. ERPNext is different. It is open-source, cloud-ready, and built to be flexible. You get the power of an enterprise system without the usual complications.
 
-![ERPNext](/files/erpnext-hero-image.png)
+[Screenshot on the live page: ERPNext]
 
 ## Why ERPNext?
 
@@ -803,18 +295,629 @@ updated: "2026-02-25"
 In ERPNext, users can either set up a Warehouse-wise Inventory Account or use the default Inventory Account from the Company master, which is 'Stock In Hand.'
 
 
-![warehouse inventory account](/files/warehouse-inventory-account.png)
+[Screenshot on the live page: warehouse inventory account]
 
 From the Version 16, users can also able to set the Item-wise Inventory Account. To do this, they need to enable the option 'Enable Item-wise Inventory Account' in the Company master.
 
 
-![company configuration](/files/company-configuration.png)
+[Screenshot on the live page: company configuration]
 
 After enabling it, users can define the Default Inventory Account in the Item master. Alternatively, they can set a Default Inventory Account at the Item Group or Brand level if they do not wish to define it for each item individually. 
 
 
 
-![item inventory account](/files/item-inventory-account.png)
+[Screenshot on the live page: item inventory account]
 
 
 Users can choose to use either item-wise or warehouse-wise inventory accounts, but not both.
+
+<!-- page: erpnext/erpnext__inventory_dimension.md -->
+---
+title: "Inventory Dimension"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/inventory_dimension"
+updated: "2026-02-26"
+---
+
+
+> Introduced in Version 14
+> 
+> 
+
+Inventory dimensions in ERPNext are used to track an inventory with multiple parameters. By default, ERPNext allows to track an inventory using warehouses, batches, and serial numbers. If users want to track inventory with custom parameters then they can configure it using the Inventory Dimension feature. The user gets an option to select the Inventory Dimension on respective inventory documents as well in the stock ledger and stock balance report. With this feature, you can view dimension-wise stock ledger and stock balance reports.
+
+To access the Inventory Dimension list, go to:
+
+
+> Stock > Settings > Inventory Dimension
+> 
+> 
+
+Create Inventory Dimension
+--------------------------
+
+[Screenshot on the live page: new inventory dimension]  
+
+
+* Create a new record and select the Reference Document which you want to use as a custom Inventory Dimension.
+* You can select any non-child document in the reference document.
+* Next, the user has to put the dimension name against which the system will create a custom link field in the Applicable Documents.
+
+Applicable For Documents
+------------------------
+
+### Apply to All Inventory Documents
+
+[Screenshot on the live page: inventory dimension applicable for all inventory documents]  
+
+
+* It will be used to select the custom Dimension in the inventory-related documents.
+* For example, the user has created Inventory Dimension with the name "Shelf" and enabled "Apply to All Inventory Document Types". Then the system will create the custom link field with the name "Shelf" in the inventory documents where Batch No and Serial No fields exist.
+
+### Apply to Specific Document
+
+[Screenshot on the live page: inventory dimension applicable for]  
+
+
+* If the user wants to add Inventory Dimension to a specific document then they have to disable the checkbox "Apply to All Inventory Document Types" and select the respective document in the "Applicable to Document" field.
+* Also if you want to add Inventory Dimension for a specific condition like for stock entry type Issue you want separate dimension as "From Shelf" and stock entry type Material Receipt you want separate dimension as "To Shelf" then that can be possible using "Applicable Condition"
+* Applicable Condition only can be visible if "Apply to All Inventory Document Types" is disabled
+* You can also use the "Type of Transaction" with options such as Inward or Outward for a condition.
+ 
+### Fetch value from
+
+Users can set the 'Fetch Value From' field to fetch data from a field that exists at the parent form level. For example, on the Purchase Receipt form, a user has added a custom field called 'Shelf' and created the inventory dimension to 'Shelf'. If a Purchase Receipt contains 200 line items, the user would typically need to set the 'Shelf' value manually for each row—even if the value is the same across all items. However, by setting the 'Fetch Value From' option in the inventory dimension as 'Shelf' and specifying the value at the parent (Purchase Receipt) level, the system will automatically apply the same 'Shelf' value to all Stock Ledger Entries, even if the user hasn’t entered it in each individual line item.
+
+
+[Screenshot on the live page]
+
+Use of Inventory Dimension
+--------------------------
+
+[Screenshot on the live page: inventory dimension on transaction]  
+
+
+* Once the Inventory Dimension is created system will create the custom field in respective documents
+* User gets an option to select the Inventory Dimension in the respective transaction.
+* For example, if the user has added Inventory Dimension as "Shelf" in the Stock Entry Detail document. Then in the stock entry, the child table user gets an option to select shelf (see above image). Post submission of the stock entry system will create the stock ledgers with selected inventory dimensions.
+
+Validate Negative Stock
+-----------------------
+
+[Screenshot on the live page]  
+
+
+If user has enabled the "Validate Negative Stock" checkbox in the inventory dimension, system will not allow to make stock transactions if the respective dimensions has negative stock in the respective warehouse. If user has tried to create the stock transaction with negative stock for the inventory dimension then system will throw the below error
+
+  
+
+
+[Screenshot on the live page]  
+
+
+Stock Balance and Stock Ledger Report
+-------------------------------------
+
+* Users can able to filter the Stock Balance and Stock Ledger report using Inventory Dimension
+* With this feature, users can able to see Inventory Dimension wise available quantity
+
+### Stock Balance Report
+
+[Screenshot on the live page: inventory dimension stock balance]  
+
+
+### Stock Ledger Report
+
+[Screenshot on the live page: inventory dimension stock ledger]  
+
+
+  
+
+
+Note:
+
+User can only use the stock reconciliation with inventory dimensions to enter opening values and they can't use the stock reconciliation to modify the available stock or the valuation. Since we are not maintaining inventory dimensions wise valuation rate there is not sense to allow to modify valuation rate through stock reconciliation. in case if they tried to update the quantity or valuation rate through stock reconciliation, system will throw the below error
+
+  
+
+
+[Screenshot on the live page]  
+
+<!-- page: erpnext/erpnext__invoice-rounding-issue.md -->
+---
+title: "Invoice rounding issue"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/invoice-rounding-issue"
+updated: "2026-08-14"
+---
+
+Nova Industries disables rounded totals, but an invoice print still rounds the amount in words. Two settings can influence the result: the global rounded-total preference and the smallest currency fraction. The currency master must describe the real precision of the transaction currency.
+
+## Check both settings
+
+1. Open Global Defaults and confirm **Disable Rounded Total** matches the company’s policy.
+2. Open the Currency used on the invoice.
+3. Set **Smallest Currency Fraction Value** correctly, such as 0.01 for a currency whose smallest unit is one cent.
+4. Save, reload the invoice, and regenerate the print.
+
+[Screenshot on the live page: Currency master with current precision and fraction settings]
+
+
+
+## Troubleshooting
+
+### The printed words still differ
+
+Check the Print Format, currency, precision, Rounded Total field, and cached print preview. Compare the numeric Grand Total, Rounded Total, and amount in words before changing any ledger posting.
+
+## Frequently asked questions
+
+### Does changing currency precision rewrite old invoices?
+
+It changes how later calculations and displays use that currency. Review the effect carefully and do not expect submitted historical ledger entries to be recalculated automatically.
+
+## Related topics
+
+- [Accounting overview](/erpnext/accounting/introduction)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [General Ledger](/erpnext/general-ledger)
+- [Fiscal Year](/erpnext/fiscal-year)
+
+<!-- page: erpnext/erpnext__invoice_discounting.md -->
+---
+title: "Invoice Discounting | ERPNext Documentation"
+description: "Record invoice-backed short-term financing, disbursement, settlement, charges, and receivable accounts in ERPNext."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/invoice_discounting"
+updated: "2026-08-01"
+---
+
+**Invoice Discounting** uses unpaid Sales Invoices as collateral for short-term financing from a Bank or finance company. ERPNext tracks the financed invoices, loan period, Bank charges, status, and the accounts used when financing is sanctioned, disbursed, and settled.
+
+Use this feature only after finance has approved the accounting design. The receivable remains connected to the Customer while the financing creates a separate obligation to the lender.
+
+## Before you begin
+
+You need:
+
+- one or more submitted [Sales Invoices](/erpnext/sales-invoice) with an outstanding balance;
+- a Company Bank Account and Bank ledger;
+- short-term loan and Bank charges accounts;
+- Accounts Receivable credit, discounted, and unpaid accounts configured for the workflow;
+- agreed financing amount, period, fees, recourse terms, and settlement process.
+
+Test the complete lifecycle with finance before using it for live financing. The account names in examples are illustrative and must match your Chart of Accounts and policy.
+
+## Create Invoice Discounting
+
+1. Go to **Accounting &gt; Banking &gt; Invoice Discounting**.
+2. Select **Add Invoice Discounting**.
+
+[Screenshot on the live page: Invoice Discounting list with Add Invoice Discounting highlighted]
+
+3. Select the Company and enter the Posting Date.
+4. Enter the **Loan Start Date** and **Loan Period (Days)**. Verify the calculated Loan End Date against the lender agreement.
+
+[Screenshot on the live page: Invoice Discounting dates and loan period]
+
+5. Select **Get Invoices** or add eligible Sales Invoices to the Invoices table.
+6. Verify the Customer, date, outstanding amount, and receivable account for every row.
+7. Select the highlighted pencil icon to open the full discounted-invoice row when you need to inspect row details.
+
+[Screenshot on the live page: Discounted Sales Invoice row and pencil icon]
+
+8. Enter Bank charges and verify the Total Amount.
+9. Select the **Short Term Loan Account**.
+
+[Screenshot on the live page: Short-term loan account for Invoice Discounting]
+
+10. Select the Bank Account that receives the disbursement.
+
+[Screenshot on the live page: Bank Account for the financing disbursement]
+
+11. Select the Bank Charges Account and the three Accounts Receivable control accounts.
+
+[Screenshot on the live page: Bank Charges Account for Invoice Discounting]
+
+12. Save and submit after the selected invoices and accounts have been reviewed.
+
+## Important fields and what they mean
+
+
+| Field                                  | What it controls                                                                     |
+| -------------------------------------- | ------------------------------------------------------------------------------------ |
+| Posting Date                           | Accounting date for the workflow action.                                             |
+| Loan Start Date                        | Date financing begins.                                                               |
+| Loan Period                            | Financing duration in days.                                                          |
+| Loan End Date                          | Expected maturity or settlement date.                                                |
+| Status                                 | Draft, Sanctioned, Disbursed, Settled, or Cancelled stage.                           |
+| Invoices                               | Sales Invoices pledged or discounted. Each must have an eligible outstanding amount. |
+| Total Amount                           | Total outstanding value represented by selected invoices.                            |
+| Bank Charges                           | Fees deducted or charged by the financier.                                           |
+| Short Term Loan Account                | Liability account for the financing obligation.                                      |
+| Bank Account                           | Ledger receiving the disbursed funds.                                                |
+| Bank Charges Account                   | Expense account for financing fees.                                                  |
+| Accounts Receivable Credit Account     | Control account used when receivables are credited in the financing entries.         |
+| Accounts Receivable Discounted Account | Tracks receivables assigned or discounted.                                           |
+| Accounts Receivable Unpaid Account     | Tracks financed invoices that remain unpaid under the configured lifecycle.          |
+
+
+## Status and lifecycle
+
+
+| Status     | Operational meaning                                                            |
+| ---------- | ------------------------------------------------------------------------------ |
+| Draft      | Financing proposal is being prepared and has not posted the lifecycle actions. |
+| Sanctioned | Lender has approved the facility or selected invoices.                         |
+| Disbursed  | Funds have been received and the financing obligation is active.               |
+| Settled    | Customer receipt and lender settlement have completed the financing lifecycle. |
+| Cancelled  | The arrangement was canceled under ERPNext cancellation rules.                 |
+
+
+Use the actions available on the document to move through sanctioned, disbursed, and settled stages. Review every generated [Journal Entry](/erpnext/journal-entry) and [Payment Entry](/erpnext/payment-entry) before submission.
+
+## When the Customer pays
+
+Record the Customer receipt using the agreed collection route. Depending on whether the Customer pays your Company or the lender, the accounting and bank movement may differ. Follow the facility agreement and the configured ERPNext workflow.
+
+After collection:
+
+1. allocate the receipt to the correct Sales Invoice;
+2. settle the lender liability and fees;
+3. update the Invoice Discounting status;
+4. confirm that the Customer outstanding, discounted receivable, Bank, and loan balances are correct;
+5. reconcile the bank statement.
+
+Use [Payment Reconciliation](/erpnext/payment-reconciliation) only when allocations need adjustment. Do not use reconciliation to hide an incorrect accounting entry.
+
+## Controls and reporting
+
+Maintain evidence for lender approval, disbursement, charges, pledged invoices, Customer receipts, and settlement. Reconcile:
+
+- the Invoice Discounting register to short-term loan balances;
+- discounted and unpaid receivable accounts to individual invoices;
+- disbursement and settlement to [Bank Transactions](/erpnext/bank-transaction);
+- charges to lender statements and agreements;
+- maturity dates to open facilities.
+
+Prevent the same Sales Invoice from being financed twice unless the product and agreement explicitly support it and the remaining eligible balance is clear.
+
+## Troubleshooting
+
+### Get Invoices returns no records
+
+Confirm that Sales Invoices are submitted, belong to the selected Company, have an outstanding balance, and are not already fully allocated to another discounting record.
+
+### An account cannot be selected
+
+Check its Company, root type, group status, and currency. Use ledger accounts, not groups, and confirm the account purpose with finance.
+
+### The disbursed amount differs from the invoice total
+
+Review Bank charges, holdbacks, advance rates, and lender deductions. Record each difference in the correct account instead of forcing the Bank amount to equal the gross invoice value.
+
+### The Customer paid after the loan maturity date
+
+Follow the lender agreement for interest, penalties, or recourse. Record additional charges separately and settle the open liability using supported vouchers.
+
+## Frequently asked questions
+
+### Does Invoice Discounting sell the invoice?
+
+Not always. The legal and accounting substance depends on the agreement, recourse, control, and local standards. Confirm treatment with finance and auditors.
+
+### Can several invoices be financed together?
+
+They can when eligible. Add each invoice row and verify the outstanding amount and Customer.
+
+### Does creating the record receive money automatically?
+
+It does not at the draft stage. Use the documented lifecycle action and verify the generated accounting entries when funds are disbursed.
+
+## Related topics
+
+- [Sales Invoice](/erpnext/sales-invoice)
+- [Bank Account](/erpnext/bank-account)
+- [Payment Entry](/erpnext/payment-entry)
+- [Journal Entry](/erpnext/journal-entry)
+- [Payment Reconciliation](/erpnext/payment-reconciliation)
+- [Bank Reconciliation](/erpnext/bank-reconciliation)
+
+<!-- page: erpnext/erpnext__issue-type-and-priority.md -->
+---
+title: "Issue Type\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/issue-type-and-priority"
+updated: "2026-02-28"
+---
+
+**Issue Type is useful for tagging and classifying Issues.**
+
+Classifying Issues helps in assigning the concerned team members to specific Issues. Examples of Issue Types can be: 'Functional', 'Technical', 'Hardware', etc. So engineers can be assigned to technical or hardware issues and consultants would be assigned to address functional issues.
+
+To access the Issue Type list, go to:
+
+> Home > Support > Issues > Issue Type
+
+To create an Issue Type, click on New and enter a name for the type. A description can be added.
+
+[Screenshot on the live page]
+
+Issue Priority
+==============
+
+**Issue Priority indicates the urgency of solving an Issue**
+
+User can create priorities like "Low", "Medium", "High", "Critical", etc. Issue Priority will be used while creating the [Service Level Agreement](/erpnext/service-level-agreement).
+
+To access the Issue Priority list, go to:
+
+> Home > Support > Issues > Issue Priority
+
+To create an Issue Priority, click on New and enter a name for the type. A description can be added.
+
+[Screenshot on the live page: Issue Priority]
+
+**Issue Priority list**
+
+[Screenshot on the live page: Issue Priority List]
+
+### Related Topics
+
+1. [Issue](/erpnext/issue)
+2. [Service Level Agreement](/erpnext/service-level-agreement)
+
+<!-- page: erpnext/erpnext__issue.md -->
+---
+title: "Issue\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/issue"
+updated: "2026-02-28"
+---
+
+
+**An Issue is an incoming query from a Customer, usually via email or from the *Contact* section of your website.**
+
+> Tip: A dedicated support Email Address is a good way to keep track of incoming
+queries. For example, you can send support queries to ERPNext at
+support@erpnext.com and it will automatically create an Issue in our system.
+
+To access the Issue list, go to:
+> Home > Support > Issues > Issue
+
+[Screenshot on the live page: Issue]
+
+## 1. Prerequisites
+Before creating and using Issues, it is advised that you create the following first:
+
+* [Customer](/erpnext/customer)
+* [Email Account](/erpnext/email-account)
+
+## 2. How to Create Issue
+Issues are automatically created if you use the **append to feature** in [Email Account](/erpnext/email-account#32-incoming-email-accounts).
+
+You can also create an Issue manually, to do that:
+
+1. Go to the Issue list, click on New.
+1. Enter the Subject, Raised By, and a description of the Issue.
+
+### 2.1 Additional Options when Creating an Issue
+* **Status**: When a new Issue is created, its status will be "Open", when it is
+replied, its status becomes "Replied".
+ * Open: The Issue has been created and yet to be replied to.
+ * Replied: A reply has been sent to the Issue.
+ * Hold: The Issue is on Hold due to some reason.
+ * Resolved: When the users are reasonably sure that they have provided the customer with a solution to their problem but have not received an acknowledgment about the resolution from the customer.
+ * Closed: The Customer got a satisfactory resolution that he has indicated with an acknowledgment and the Issue was closed.
+
+ If the sender replies to the thread, the status becomes "Open" again. User can "Close" the Issue manually by clicking on the **Close** button on the top right.
+
+> Note: If SLA has been set up, then the fulfillment status of the SLA will be updated on both, the **Closed** as well as the **Resolved** status.
+
+* **Customer**: If the email was sent from a [Customer](/erpnext/customer) stored in your ERPNext account, then a Customer link will appear in this field.
+* **Priority**: Priority can be set as per the requirements. By default, there are three priorities--Low, Medium, and High. You can delete these or add more as needed.
+* **Issue Type**: An Issue can be classified using Issue Type. Examples of Issue Types can be: 'Functional', 'Technical', 'Hardware', etc.
+* **Raised By (Email)**: The email ID from which the Issue was sent will be shown here.
+
+## 3. Features
+
+### 3.1 Details
+* **Description**: This is a text field in which details about the Issue can be seen. This can also contain an image or a table.
+
+### 3.2 Service Level Agreement
+It is a contract between a service provider and the end user that defines the level of service expected from the service provider.
+
+User can select the [Service Level Agreement](/erpnext/service-level-agreement) (SLA) from the list.
+
+* Every Issue will have a Time to Response and Time to Resolve within which the Support team has to Respond and Resolve the Issue.
+* The Priority can be changed to escalate the Issue. The priorities need to be specified in the Service Level Agreement.
+* If needed, the Service Level Agreement can be reset by clicking on the **Reset Service Level Agreement** button in Issues shown as follows:
+
+[Screenshot on the live page: SLA]
+
+### 3.3 Response
+* **Mins to First Response**: Time in minutes from when the Issue was created to when the first reply was sent.
+
+* **First Responded on**: When a Support team member first replies to the issue, first response date and time will be updated.
+
+* **Average Response Time**: The average time taken to respond to the Customer. This is calculated by taking the average of all time spans between Received and Sent Communications. This field will be updated on every reply sent to the customer.
+
+[Screenshot on the live page: Response Details]
+
+### 3.4 Reference
+User can filter the issues based on these fields linked to the Issue:
+
+* Lead
+* Contact
+* Email Account
+* Project
+* Company
+
+### 3.5 Resolution
+* **Opening Date**: When the issue is created or logged the date be posted.
+* **Opening Time**: When the issue is created or logged the exact time will automatically be posted.
+* **Resolution Date**: When the user resolved the issue, Date and Time will get updated in this field.
+* **Resolution Details**: User can enter the details of the issue, once it is resolved. This is a text field. Also, user can upload the image, enter or create a table.
+* **Resolution Time**: Total time taken to close the ticket (from Issue creation to closing).
+* **User Resolution Time**: Many times a user has to wait for a customer's reply in order to solve some Issue. While measuring User's productivity this wait time shouldn't be taken into consideration. Hence, user resolution time is the total time taken by a user to close the ticket and can be calculated as:
+
+ _Resolution time - Total Time for which the user had to wait for a customer's reply_
+
+The Resolution Time and User Resolution Time metrics are set on "Close". These metrics reset automatically when the Issue reopens or splits.
+
+[Screenshot on the live page: Resolution]
+
+#### Via Customer Portal
+If the Customer raising the Issue is a Website User (no access to modules), this checkbox will be ticked to indicate that.
+
+## 4. After Saving
+
+### 4.1 Add Comments
+Once the Issue is registered, support team Users can add comments for the issue. This field is editable. Comments in Issues are for internal discussions and will not be visible to the Customers.
+
+### 4.2 New Email
+Users can compose an email to the person that has raised the Issue. All the mails (received as well as sent) can be seen in a thread in the Issue.
+
+### 4.3 Discussion Thread
+
+The email discussion thread in an Issue maintains all the emails which are sent back and forth against this Issue in the system so that you can track what transpired between the sender and the person responding.
+
+* When a New Email is sent from your mailbox, an automatic reply is sent to the sender with your message and the Support Ticket Number.
+* The sender can send additional information to this email.
+* All subsequent emails containing this Issue number in the subject will be added to this Issue thread.
+* The sender can also add attachments to the email.
+
+### 4.4 Assigning Issues to Users
+
+> Issues can be assigned automatically among Users using [Assignment Rule](/erpnext/assignment-rule).
+
+You can assign an Issue to a specific User by clicking on "Assign" feature in the left sidebar. This will add a new To Do to the user and also send a message indicating that this Issue is allocated.
+
+[Screenshot on the live page: Assign Issue]
+
+
+### 4.5 Closing
+
+* You can close the Issue manually by clicking on 'Close' in the toolbar.
+* If the sender does not reply in 7 days, then the Issue gets closed automatically.
+
+### 5. Related Topics
+1. [Issue Type and Priority](/erpnext/issue-type-and-priority)
+
+<!-- page: erpnext/erpnext__italy.md -->
+---
+title: "Requirements for Italy"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/italy"
+updated: "2026-02-27"
+---
+
+
+ERPNext aims to support local regulation for different regions in the world. In most cases ERPNext is very flexible so you can easily add Custom Fields and make Custom Reports to support the regulation of your region.
+
+This section contains region specific features for Italy. 
+
+- [Importing e-invoice from Supplier](/erpnext/import-e-invoice)
+
+<!-- page: erpnext/erpnext__item-alternative.md -->
+---
+title: "Item Alternative\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/item-alternative"
+updated: "2026-02-27"
+---
+
+
+**An Item Alternative is an Item similar to the original one and can be used instead of the original Item in manufacturing.**
+
+If the raw material defined in the BOM is not available during the production process then their respective available alternative Item can be used to complete the production process.
+
+First you need to enable the "Allow Alternative Item" in the Item.
+[Screenshot on the live page: Item]
+
+To access the Item alternative list, go to:
+> Home > Stock > Items and Pricing > Item Alternative
+
+This can also be done by clicking the plus sign next to 'Item Alternative' from the Item master dashboard.
+You can enable Two-Way replacement between an Item and their alternative item if both can be used as an alternative to each other.
+
+[Screenshot on the live page: Item Alternative]
+
+## 1. Prerequisites
+Before creating and using an Item Alternative, it is advised that you create the following first:
+
+* [Item](/erpnext/item)
+
+## 2. Item Alternative for Work Order
+
+To allow to using alternative Items in the manufacturing process, the user can configure to 'Allow Alternative Item' in the BOM/Work Order
+
+### 2.1 Provision to allow alternative item in the BOM
+You can enable 'Allow Alternative Item' in a BOM then select the alternative item in the Stock Entry. This can also be done with a Work Order.
+[Screenshot on the live page: Item]
+
+
+### 2.2 Provision to allow alternative item in the Work Order
+User can also enable/disable allow alternative item for individual Work Orders.
+[Screenshot on the live page: Item]
+
+
+Ticking on the 'Allow Alternative Item' checkbox will show a button named 'Alternate Item'. You can click on this to set the Item Alternative in the Work Order. This is how you use Item Alternative in a Work Order:
+[Screenshot on the live page: Item]
+
+This is how you use Item Alternative with a Stock Entry:
+[Screenshot on the live page: Item]
+
+If the 'Allow Alternative Item' checkbox in the Item table is disabled, you cannot set an Alternate Item for this Item.
+
+### 2.3 Item Alternative for subcontract
+In subcontract, the user has to transfer raw materials to the subcontracted supplier to get finished good from them. If the raw material is not available in the stock, with this feature, the user can transfer the alternate item of the subcontracted raw material to the supplier. This is done in the Stock Entry.
+
+[Screenshot on the live page: Item]
+
+After this, when you create a Purchase Receipt from the Work Order, the alternate item will be shown.
+
+### 3. Related Topics
+1. [Bill Of Materials](/erpnext/bill-of-materials)
+1. [Work Order](/erpnext/work-order)
+
+<!-- page: erpnext/erpnext__item-attribute.md -->
+---
+title: "Item Attribute"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/item-attribute"
+updated: "2026-03-06"
+---
+
+### **'Item Attributes' are the characteristics based on which Item Variants are created.**
+
+The attributes can be defined based on item's physical appearance and capabilities. Defining item attributes properly will be helpful in creating item variants as a combination of multiple attributes.
+
+[Screenshot on the live page]
+
+To access the Item Attribute list, go to:
+
+> Home > Stock > Settings > Item Attribute
+
+## How to create an Item Attribute?
+
+1. Go to the Item Attribute list, click on 'Add Item Attribute'.
+2. Enter a name for the Attribute.
+3. Enter the attribute values in the table.
+4. Save.
+
+The attribute values can be numeric or non-numeric.
+
+##### Non-Numeric Attributes
+
+For Non-numeric attributes, specify attribute values along with their abbreviations in the Attribute Values table.
+
+[Screenshot on the live page]
+
+##### Numeric Attribute
+
+If your attribute is 'Numeric', then specify the range and increment so that the system can generate respective variants.
+
+In the following example, the cable length is of range 1 to 5 and the increment is 1. Hence, the variants will be 1,2,3,4,5.
+
+[Screenshot on the live page]

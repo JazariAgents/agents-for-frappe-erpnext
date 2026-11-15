@@ -373,13 +373,13 @@ Accounts Receivable reports track outstanding customer invoices and credits. Acc
 
 Use Accounts Receivable to review customer exposure, follow up overdue invoices, investigate unapplied credits, and estimate incoming cash.
 
-![Loaded Accounts Receivable report with Nova customer balances and ageing](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-accounts-receivable.png)
+[Screenshot on the live page: Loaded Accounts Receivable report with Nova customer balances and ageing]
 
 ## Accounts Payable
 
 Use Accounts Payable to plan supplier payments, protect cash flow, capture early-payment opportunities, and avoid overdue bills.
 
-![Loaded Accounts Payable report with Nova supplier balances and ageing](https://novacompanies.m.frappe.cloud/files/docs-accounting-reports-20260814-accounts-payable.png)
+[Screenshot on the live page: Loaded Accounts Payable report with Nova supplier balances and ageing]
 
 ## Run either report
 
@@ -478,7 +478,7 @@ Submit your [Sales Invoices](/erpnext/sales-invoice) and record customer receipt
 3. Add filters such as Customer, Receivable Account, Cost Center, Project, Territory, or Customer Group when you need a narrower view.
 4. Review the invoice rows and the total outstanding amount.
 
-![Accounts Receivable report with populated customer balances](https://novacompanies.m.frappe.cloud/files/accounts-receivables-accounts-receivable-report575529.png)
+[Screenshot on the live page: Accounts Receivable report with populated customer balances]
 
 ## Understand the columns
 
@@ -573,7 +573,7 @@ This tab controls invoice validation, stock expense posting, analytical accounti
 | Enable Discount Accounting                                            | Posts discounts to configured discount accounts                                          |
 
 
-![Invoice cancellation and invoicing controls](/files/accounts-settings-transaction-controls.webp)
+[Screenshot on the live page: Invoice cancellation and invoicing controls]
 
 Use cancellation options only after deciding how your audit trail should work. Immutable Ledger is the safer choice when accounting history must not be rewritten.
 
@@ -595,7 +595,7 @@ Journal settings control when ERPNext uses Journal Entries for specific accounti
 | Book deferred entries via Journal Entry         | Creates Journal Entry documents instead of posting only ledger rows |
 
 
-![Deferred accounting settings](/files/accounts-settings-deferred-accounting.webp)
+[Screenshot on the live page: Deferred accounting settings]
 
 If automatic processing is disabled, run [Process Deferred Accounting](https://docs.frappe.io/erpnext/process-deferred-accounting) manually and monitor unprocessed schedules.
 
@@ -609,7 +609,7 @@ Currency Exchange settings determine whether stale rates are allowed and how old
 
 The Payments tab controls payment reconciliation, repost behavior, and payment options.
 
-![Payment reconciliation and repost settings](/files/accounts-settings-payments.webp)
+[Screenshot on the live page: Payment reconciliation and repost settings]
 
 ### Payment Reconciliation Settings
 
@@ -636,7 +636,7 @@ Review payment-entry creation, allocation, and exchange-difference behavior. Tes
 
 This tab controls overbilling and overdue-balance restrictions.
 
-![Credit limit and overbilling settings](/files/accounts-settings-credit-limits.webp)
+[Screenshot on the live page: Credit limit and overbilling settings]
 
 
 | Setting                                      | What it means                                                             |
@@ -653,7 +653,7 @@ Customer and Company records provide credit limits. Accounts Settings determines
 
 The Assets tab controls automatic depreciation and other asset-accounting behavior.
 
-![Asset accounting settings](/files/accounts-settings-assets.webp)
+[Screenshot on the live page: Asset accounting settings]
 
 Enable automatic depreciation only after setting Asset Categories, finance books, depreciation methods, schedules, and default accounts. Confirm that scheduled jobs are running. Review depreciation entries, asset purchases, capitalization, transfers, disposals, and value adjustments in a test company.
 
@@ -663,7 +663,7 @@ Changing asset settings does not automatically correct previously posted depreci
 
 The Accounts Closing tab restricts backdated postings and identifies who can work in frozen periods.
 
-![Accounts closing settings](/files/accounts-settings-closing.webp)
+[Screenshot on the live page: Accounts closing settings]
 
 
 | Setting                                                     | Purpose                                                                                    |
@@ -681,7 +681,7 @@ Before freezing a period, reconcile bank accounts, receivables, payables, taxes,
 
 The Reports tab tunes the output and performance of accounting reports.
 
-![Accounting report settings](/files/accounts-settings-reports.webp)
+[Screenshot on the live page: Accounting report settings]
 
 **Remarks Column Length** limits how much voucher text appears in report results. Longer remarks may help investigation but can make reports harder to scan.
 
@@ -693,7 +693,7 @@ Legacy fields preserve compatibility with older reports or implementations. Leav
 
 The Others tab groups Chart of Accounts, banking, Payment Request, and budget behavior.
 
-![Other accounting settings](/files/accounts-settings-others.webp)
+[Screenshot on the live page: Other accounting settings]
 
 ### Chart of Accounts
 
@@ -715,7 +715,7 @@ Budget settings determine whether ERPNext warns or stops users when a transactio
 
 This tab controls naming series for accounting documents.
 
-![Accounting document naming settings](/files/accounts-settings-document-naming.webp)
+[Screenshot on the live page: Accounting document naming settings]
 
 Choose naming series before go-live. A good series distinguishes company or document type without becoming difficult to read. Confirm legal invoice-number requirements, yearly resets, amendments, returns, credit notes, and multi-company use.
 
@@ -766,7 +766,7 @@ updated: "2026-02-26"
 
 The system pulls this rate while making Timesheets. It is used to determine the Project Cost.
 
-![](/files/imagee5e591.png)
+[Screenshot on the live page]
 
 To access Activity Cost, go to,
 
@@ -781,7 +781,7 @@ To access Activity Cost, go to,
 
 Alternatively, an Activity Cost can also be created via the Activity List.
 
-![](/files/imagef472d6.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__activity-type.md -->
 ---
@@ -797,7 +797,7 @@ To access Activity Type, go to,
 
 > Home > Projects > Time Tracking > Activity Type
 
-![](/files/image966eda.png)
+[Screenshot on the live page]
 
 ## How to create Activity Type
 

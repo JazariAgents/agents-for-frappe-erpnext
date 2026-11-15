@@ -1,397 +1,5 @@
 <!-- Frappe documentation: erpnext, part 34 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__item_group_wise_product_listing.md -->
----
-title: "Item Group-wise Product Listing"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/item_group_wise_product_listing"
-updated: "2026-03-02"
----
-
-Similar to the [Product Listing](/erpnext/product-listing) at `/all-products`, ERPNext offers Product Listings that are Item Group-wise as well. You can link these pages on your landing page to direct users easily.
-
-### Setting Up an Item Group Page
-To provide a Product Listing page for an Item Group (e.g. Products), go to:
-
-> Item Group List > Products
-
-- Enable **Show in Website**.
-- Scroll down to the **Website Filters** section and add field and attribute filters similar to E Commerce Settings.
-- You can also add a description in the RichText Editor that will show above the product list as a banner.
-
-Now if you click on the **See on Website** link, on the top left, above the image in the current document, you will be redirected to the **Products** Item Group's listing page.
-
-#### Product Visibility
-Consider the Item Group **Products** has child Item Groups **Mobile Services** and **Mobiles**. 
-
-Website Items that will be visible on the **Products** page are:
-
-- Those having **Products** as their Item Group
-- Those having **Products** in their **Website Item Groups** table.
-
-Website Items having their Item Groups as **Mobile Services** or **Mobiles** will be visible on their respective pages. These pages will be linked in the **Products** page.
-
-> Child Item Groups such as **Mobile Services** and **Mobiles** will be visible as pills above the search bar on the **Producst** page.
-
-![Item Group-wise Product Listing](/files/item-group-page.png)
-
-<!-- page: erpnext/erpnext__job-card-summary.md -->
----
-title: "Job Card Summary\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/job-card-summary"
-updated: "2026-02-26"
----
-
-
-To access the Job Card Summary, go to:
-
-> Home > Manufacturing > Reports > Job Card Summary
-
-![Task](/files/job-card-summary.png)
-
-This report will give information about the Job Card as well as their status. Using this report users can check the month's Open and Completed Job Cards for the selected periods.
-
-<!-- page: erpnext/erpnext__job-card.md -->
----
-title: "Job Card\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/job-card"
-updated: "2026-05-20"
----
-
-**A Job Card stores actual production information about a particular Operation performed on a particular Workstation.**
-
-A Job Card is created from the Work Order and given to each of the Workstations in the manufacturing floor to start the production of an item with a certain quantity in each of the operations defined in the Work Order.
-
-Job Card allows each Operation's workstation to issue a “Material Request” and “Stock Transfer to Manufacture” for raw material required against a “Job Card”.
-
-Job Card completion will change the production status in Work Order, we can track the completion of production progress for each of the Operations defined in the Work Order.
-
-![Work Order](/files/manufacturing-flow-jc.png)
-
-To access the Job Card list, go to:
-
-> Home > Manufacturing > Production > Job Card
-
-## 1. Prerequisites
-
-Before creating and using a Job Card, it is advised that you create the following first:
-
-- [Bill Of Materials](/erpnext/bill-of-materials)
-- [Operation](/erpnext/operation)
-- [Workstation](/erpnext/workstation)
-- [Work Order](/erpnext/work-order)
-
-## 2. How to Create a Job Card
-
-Job Card for Operations is automatically created when a Work Order is submitted.
-
-This is what a Job Card looks like:
-
-![Job Card](/files/job-card.png)
-
-To use a Job Card follow these steps:
-
-1. Click on the Start Job button, then on Complete Job when you're done.
-2. Alternatively, you can also fill the From Time and To Time in the Time Logs table.
-3. Select the Employee to whom the Job Card was assigned.
-4. Enter the Completed Quantity. This is the number of Items on which the Operation was performed for the selected time interval.
-5. Add more rows in the Time Logs table and record time using the Start/Completed buttons.
-6. Click on Submit.
-
-In a Work Order, the Operations and Workstations are fetched from the BOM of an Item. For ease of use, you should ensure that the [Routing](/erpnext/routing) is configured in the BOM.
-
-Each Job Card created will have Workstation & Operations assigned. The raw material required from each Source Warehouse will be calculated based on quantity required for production.
-
-On submitting a Work Order, Job Cards will be auto-created based on the values in the Operations table.
-
-![Create Shareholder](/files/work-order-job-card-creation.gif)
-
-### 2.1 Select Work Order with Item to Manufacture
-
-You can select 'Transfer Material Against' as 'Job Card' on the Bill of Materials to transfer raw materials for Production against Job Cards.
-
-In the Work Order, you can select the option:
-
-![Create Shareholder](/files/work-order-transfer-against-job-card.png)
-
-### 2.3 Using a Job Card
-
-Employee assignment and timing detail will also be defined in Job Card. The time taken to do a job can be recorded. If multiple employees are working on the same Operation, add new job cards by clicking on the 'Create Job' Card button.
-
-![Create Shareholder](/files/job-card-form.png)
-
-### 2.4 Material Request against Job Card
-
-A Material Request will be raised from the Job Card as a basis/order to prepare raw material required for the manufacturing process. The Material Request raised will have its reference to the original Job Card number.
-
-![Create Shareholder](/files/material-request-against-job-card.png)
-
-Track the Manufacturing Progress in The Work Order by The Completion of Each Operations defined in Work Order.
-
-Job Card completion allows you to track the manufacturing progress inside the Work Order by looking at the completion of each Operation related to the Work Order.
-
-![Work Order Job Card Completion](/files/work-order-job-card-completion.png)
-
-### 2.5 Scrap Items
-
-While completing the operations, there might be chances that some scrap materials will be produced. This scrap materials are required to be added in the inventory. For that user needs to put the details of the scrap items in the job card. User can also set the defective materials / broken materials in the scrap items table.
-
-![Work Order Job Card Completion](/files/job_card_scrap_item.png)
-
-## 3. Features
-
-### 3.1 Tracking Quality Inspection
-
-> Introduced in Version 13
-
-For production orders, the quality of in-process (semi-finished) goods also needs to be tracked. It is defined by the process (operation) performed on it which is in turn defined in the Job Card. In-process tests are different than incoming and outgoing material tests. Monitoring quality during manufacturing helps to make sure that the finished product produced is of the desired quality. You can create a Quality Inspection for the Production Item against the Job Card.
-
-![Quality Inspection Against Job Card](/files/qi-against-job-card.png)
-
-![Quality Inspection link in Job Card](/files/qi-link-in-job-card.png)
-
-## **Pending Qty in Job Card**
-
-A new **Pending Qty** field has been introduced in the **Job Card (in Version 16)** to handle partial production and prevent incorrect Process Loss calculation.
-
-
-
-#### Problem
-
-Previously, while completing a Job Card, the system automatically considered the **remaining quantity** as **Process Loss Qty**. This caused issues in cases where the operation was only partially completed, preventing users from submitting the Job Card.
-
-#### Solution
-
-To support partial completion, a **Pending Qty** field has been added to the Job Card.
-
-- Users can now specify the quantity that is still pending for the operation. 
-- The system will **not treat the remaining quantity as Process Loss** if a **Pending Qty** is specified. 
-- **Process Loss Qty** will be calculated **only when the Pending Qty is zero**, indicating that the operation is fully completed.
-
-
-
-#### Example
-
-- Qty to Manufacture: **10** 
-- Completed Qty: **6** 
-- Pending Qty: **4**
-
-
-
-
-
-In this case, the system will **not calculate Process Loss Qty**, as the remaining quantity is marked as pending.
-
-
-
-If:
-
-- Qty to Manufacture: **10** 
-- Completed Qty: **6** 
-- Pending Qty: **0**
-
-
-
-Then the remaining quantity (**4**) will be treated as **Process Loss Qty**.
-
-
-
-This enhancement allows users to perform **partial production tracking** without affecting Job Card submission.
-
-
-
-![](/files/Screen Recording 2026-05-20 at 2.07.12 PM.mov)
-
-
-
-
-
-
-
-For more details, refer the [Quality Inspection](/erpnext/quality-inspection) page.
-
-<!-- page: erpnext/erpnext__journal-entry-template.md -->
----
-title: "Journal Entry Template | ERPNext Documentation"
-description: "Learn how to create and use Journal Entry Templates in ERPNext to preload recurring accounts, dimensions, entry settings, and other accounting details."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/journal-entry-template"
-updated: "2026-08-03"
----
-
-A Journal Entry Template stores the structure of a recurring [Journal Entry](https://docs.frappe.io/erpnext/journal-entry). It can prefill the company, entry type, naming series, opening-entry setting, multi-currency setting, and account rows. Use a template when the same accounts and dimensions recur, but the amount, date, reference, or remark changes each time.
-
-
-
-For example, Nova Electronics Trading pays office maintenance from its operating bank account every month. A template can preload **Office Maintenance Expenses** and **Nova Operating Bank**, while the accountant enters the actual amount and reference for that month.
-
-Templates reduce repetitive selection and help users choose the intended accounts consistently. They do not post to the [General Ledger](https://docs.frappe.io/erpnext/general-ledger) by themselves. The resulting Journal Entry must still be reviewed, balanced, saved, and submitted.
-
-## Before you begin
-
-Confirm that:
-
-1. The accounts exist in the company’s [Chart of Accounts](https://docs.frappe.io/erpnext/chart-of-accounts).
-2. Each account is a ledger account, not a group account.
-3. You know which account should be debited and which should be credited for the recurring transaction.
-4. Any required [Cost Center](https://docs.frappe.io/erpnext/cost-center), [Project](https://docs.frappe.io/erpnext/project), or other [Accounting Dimension](https://docs.frappe.io/erpnext/accounting-dimensions) is available.
-5. If the template uses accounts in different currencies, [multi-currency accounting](https://docs.frappe.io/erpnext/multi-currency-accounting) is configured.
-
-## Create a Journal Entry Template
-
-To open the list, search for **Journal Entry Template** from the Awesome Bar. Select **Add Journal Entry Template** or open an existing template.
-
-
-
-![A Journal Entry Template list showing Monthly Office Maintenance highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-journal-entry-template-journal-entry-template-list.png)
-
-Enter a clear **Template Title** that identifies the recurring purpose, such as `Monthly Office Maintenance`.
-
-Select the **Journal Entry Type**, **Series**, and **Company**. Set **Is Opening** to **Yes** only when the resulting Journal Entry records an opening balance. Enable **Multi Currency** when the template uses an account whose currency differs from the company currency.
-
-
-
-![Journal Entry Template fields for entry type, company, and naming series](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-journal-entry-template-journal-entry-template-details.png)
-
-In **Accounting Entries**, add the accounts that should be copied to each Journal Entry. Do not enter transaction amounts in the template. Amounts belong to the actual Journal Entry because they can change for every occurrence.
-
-Select the pencil icon to edit a row and add its Party, Cost Center, Project, or other dimensions when required.
-
-
-
-![Accounting Entries with the row edit pencil highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-journal-entry-template-journal-entry-template-account-rows.png)
-
-
-
-![A Journal Entry Template account row editor with the Account field highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-journal-entry-template-journal-entry-template-row-editor.png)
-
-Save the template.
-
-## Important fields and what they mean
-
-
-| Field                | What it controls                                                                   | Guidance                                                                                                                |
-| -------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| Template Title       | The name users select from a Journal Entry                                         | Use a purpose-based name, not a month or voucher number.                                                                |
-| Journal Entry Type   | The intended kind of Journal Entry                                                 | Choose the type that matches the transaction. It can also influence defaults such as bank or cash behavior.             |
-| Series               | The naming series copied to the new Journal Entry                                  | Use the company’s approved Journal Entry series.                                                                        |
-| Company              | The company copied to the new Journal Entry                                        | Accounts in the template must belong to this company.                                                                   |
-| Is Opening           | Marks the resulting entry as an opening entry                                      | Use this only for migration or opening balances. See [Opening Balance](https://docs.frappe.io/erpnext/opening-balance). |
-| Multi Currency       | Allows accounts in currencies other than the company currency                      | Review exchange rates and account currencies in the resulting entry.                                                    |
-| Account              | A ledger account copied into the Journal Entry                                     | Add at least two accounts so the resulting entry can be balanced.                                                       |
-| Party Type and Party | Associates the row with a Customer, Supplier, Employee, or another supported party | Set these only when the selected account requires party-wise accounting.                                                |
-| Cost Center          | Tracks income or expense by business unit                                          | Set a default here only if it applies to every entry created from the template.                                         |
-| Project              | Tracks the row against a project                                                   | Leave it blank when the project changes each time.                                                                      |
-
-
-## Choose the right entry type
-
-The template supports the Journal Entry types available in the current ERPNext version, including Journal Entry, Inter Company Journal Entry, Bank Entry, Cash Entry, Credit Card Entry, Debit Note, Credit Note, Contra Entry, Write Off Entry, Opening Entry, Depreciation Entry, and Exchange Rate Revaluation.
-
-The most commonly used choices are:
-
-
-| Entry type                  | When it is useful                                                                                                                                     |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Journal Entry               | General adjustments and recurring accruals where a more specific transaction is not available.                                                        |
-| Bank Entry                  | A journal-based bank transaction. For routine customer and supplier payments, prefer a [Payment Entry](https://docs.frappe.io/erpnext/payment-entry). |
-| Cash Entry                  | A journal-based cash transaction.                                                                                                                     |
-| Opening Entry               | Opening balances during setup or migration. ERPNext marks **Is Opening** accordingly.                                                                 |
-| Inter Company Journal Entry | Adjustments between companies. See [Inter Company Journal Entry](https://docs.frappe.io/erpnext/inter-company-journal-entry).                         |
-| Exchange Rate Revaluation   | Adjustments arising from currency revaluation.                                                                                                        |
-
-
-Selecting Bank Entry or Cash Entry on a normal Journal Entry can load the company’s default bank or cash account when the account table is still empty. A template can also store the intended account rows directly. Opening Entry identifies the voucher as an opening transaction, but it does not automatically add the entire Chart of Accounts. Add only the accounts needed for the opening entry.
-
-## Create a Journal Entry from the template
-
-1. Create a new Journal Entry.
-2. Open the **More Info** tab.
-3. Expand **Additional Info**.
-4. Select the template in **From Template**.
-
-![The From Template field highlighted in a new Journal Entry](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-journal-entry-template-journal-entry-from-template.png)
-
-
-
-![Monthly Office Maintenance entered in the From Template field](https://novacompanies.m.frappe.cloud/files/journal-entry-template-20260802-journal-entry-select-template.png)
-
-ERPNext copies the template’s company, entry type, naming series, opening setting, multi-currency setting, and account rows into the new Journal Entry.
-
-
-
-![A new Journal Entry with the template fields and account rows loaded](https://novacompanies.m.frappe.cloud/files/journal-entry-template-20260802-journal-entry-template-loaded.png)
-
-Enter the debit and credit amounts, posting date, reference details, and remarks. Add or remove account rows if this occurrence needs them. Confirm that total debit equals total credit, then save and submit the Journal Entry.
-
-## Important warning when selecting a template
-
-Selecting **From Template** clears the existing **Accounting Entries** rows before loading the template’s rows. Choose the template before entering account rows, or copy any work you need to retain.
-
-The template is a starting structure, not a lock. After it loads, you can add more accounts or change copied values before saving. Review every resulting Journal Entry because the template does not validate whether the accounts and dimensions remain appropriate for that month’s transaction.
-
-## Maintain templates safely
-
-Update a template when the recurring accounting treatment changes for future entries. Previously submitted Journal Entries are not changed when a template is edited.
-
-Avoid creating several templates with nearly identical names. Use titles that describe the business event, such as `Monthly Office Maintenance`, `Payroll Accrual`, or `Bank Charges`. Keep one approved template for each recurring pattern and review it when the Chart of Accounts or dimension structure changes.
-
-## Troubleshooting
-
-### The From Template field is not visible
-
-In a new Journal Entry, open **More Info** and expand **Additional Info**. The top-right **Templates** button is the general Frappe form-template feature. It is different from the ERPNext **Journal Entry Template** selected in the **From Template** field.
-
-### The template does not appear in search
-
-Confirm that the Journal Entry Template is saved and that you have permission to read it. Also confirm that the template’s company and accounts are available to your user.
-
-### Existing account rows disappeared
-
-This is expected when **From Template** is selected. ERPNext clears the current Accounting Entries before copying the template’s rows. Select the template first, then add occurrence-specific rows.
-
-### An account cannot be selected
-
-Confirm that it is a non-group ledger account belonging to the template’s company. Also check account currency restrictions when **Multi Currency** is not enabled.
-
-### The Journal Entry is not balanced
-
-The template copies account structure, not debit and credit amounts. Enter the amount on each row and ensure total debit equals total credit before saving.
-
-## FAQs
-
-### Does a Journal Entry Template create or submit entries automatically?
-
-No, It only prefills a new Journal Entry. A user must add the current amounts and references, review the entry, and submit it.
-
-### Can I change the accounts after loading a template?
-
-Yes, You can edit, add, or remove rows before saving the Journal Entry. Treat the template as a reusable starting point.
-
-### Can one template be used for several companies?
-
-No, A template stores one company, and its accounts belong to that company. Create a separate template for each company when the same accounting pattern is needed.
-
-### Should I store amounts in the template?
-
-No, Journal Entry Template account rows define accounts, parties, and dimensions. Enter debit and credit amounts in each actual Journal Entry.
-
-### Can a template include Cost Center or Project?
-
-Yes, Add the dimension on the account row when it should apply every time. Leave it blank when the dimension changes for each transaction.
-
-### Does editing a template update past Journal Entries?
-
-No, Changes affect only entries created from the template after the change. Existing drafts and submitted entries retain their own values.
-
-## Related topics
-
-- [Finance Book](https://docs.frappe.io/erpnext/finance-book)
-- [Immutable Ledger](https://docs.frappe.io/erpnext/immutable-ledger-in-erpnext)
-- [Repost Accounting Ledger](https://docs.frappe.io/erpnext/repost-accounting-ledger)
-
 <!-- page: erpnext/erpnext__journal-entry.md -->
 ---
 title: "Journal Entry | ERPNext Documentation"
@@ -427,18 +35,18 @@ If the entry records a Customer or Supplier balance, use the correct receivable 
 ## Create a Journal Entry
 
 1. Open the Journal Entry list and select **Add Journal Entry**.  
-![Journal Entry list showing the submitted office-maintenance example](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-list.png)
+[Screenshot on the live page: Journal Entry list showing the submitted office-maintenance example]
 2. Select the **Company**, **Entry Type**, and **Posting Date**. For a general adjustment, keep **Entry Type** as **Journal Entry**.  
-![Company and Entry Type selected on a new Journal Entry](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-company-type.png)
+[Screenshot on the live page: Company and Entry Type selected on a new Journal Entry]
 3. In **Accounting Entries**, add the account to debit and enter the debit amount. Add the offsetting account and enter the credit amount. Total Debit and Total Credit must be equal before submission.
 
   The grid shows the main columns. Select the highlighted pencil icon to open the complete row editor when you need Party, reference, currency, Cost Center, Project, or other row-level fields.
-  ![Balanced Accounting Entries with the first row pencil icon highlighted](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-accounting-rows.png)
+  [Screenshot on the live page: Balanced Accounting Entries with the first row pencil icon highlighted]
 4. In the row editor, confirm the **Account** and enter either a debit or a credit, never both on the same row. In the example, Office Maintenance Expenses is debited by $845.  
-![Account and debit fields in the Journal Entry row editor](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-row-editor.png)
+[Screenshot on the live page: Account and debit fields in the Journal Entry row editor]
 5. Add a clear **User Remark** and, when applicable, a Reference Number, Reference Date, Bill Number, Bill Date, and Due Date. These supporting fields do not replace a formal link to an ERPNext document.
 6. Save, review the accounts and dimensions, then submit. Submission posts the debit and credit to the General Ledger.  
-![Submitted Journal Entry with balanced account rows](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-submitted.png)
+[Screenshot on the live page: Submitted Journal Entry with balanced account rows]
 
 ## Create a Journal Entry with Quick Entry
 
@@ -446,7 +54,7 @@ Use **Quick Entry** for a straightforward two-account posting. Enter the amount,
 
 
 
-![Quick Journal Entry dialog with amount, debit account, and credit account highlighted](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-quick-entry.png)
+[Screenshot on the live page: Quick Journal Entry dialog with amount, debit account, and credit account highlighted]
 
 You can also select a reusable [Journal Entry Template](/erpnext/journal-entry-template). Loading a template replaces the current account rows and brings in its Entry Type, Company, naming series, opening-entry setting, multi-currency setting, and accounts. You can add or edit rows after loading it.
 
@@ -495,13 +103,13 @@ On the submitted Journal Entry, open **View &gt; Ledger**.
 
 
 
-![Ledger action highlighted in the View menu of a submitted Journal Entry](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-view-ledger-menu.png)
+[Screenshot on the live page: Ledger action highlighted in the View menu of a submitted Journal Entry]
 
 The report should show the same total debit and credit under the Journal Entry voucher. In this example, Office Maintenance Expenses is debited by $845 and Nova Operating Bank is credited by $845.
 
 
 
-![General Ledger filtered to the submitted Journal Entry](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-general-ledger.png)
+[Screenshot on the live page: General Ledger filtered to the submitted Journal Entry]
 
 For very large entries with more than 100 account rows, current ERPNext can queue submission or cancellation in the background. Wait for processing to finish before relying on the ledger or financial reports.
 
@@ -513,7 +121,7 @@ Use **Actions &gt; Reverse Journal Entry** when the accounting correction should
 
 
 
-![Reverse Journal Entry action highlighted on a submitted entry](https://novacompanies.m.frappe.cloud/files/journal-entry-20260802-journal-entry-reverse-action.png)
+[Screenshot on the live page: Reverse Journal Entry action highlighted on a submitted entry]
 
 ## Troubleshooting
 
@@ -575,10 +183,10 @@ updated: "2026-02-26"
 
 For creating a **Landed cost voucher** in ERPNext: You have to create it against a **Purchase Receipt** and **Purchase Invoice.**  
 While creating against **Purchase Invoice**: In the Purchase Invoice --> **Update Stock** should be checked.  
-![](/files/z3sBK9F.png)  
+[Screenshot on the live page]  
  If this field is unchecked, the Purchase Invoices will not be fetched in the Landed Cost Voucher  
 While creating against **Purchase Receipt**: The Item selected should have **Maintain Stock** checked.  
-![](/files/vEwpm61.png)  
+[Screenshot on the live page]  
  If this field is not checked, the Items will not be displayed when you click **Get items from Purchase Receipt.**   
 While creating a Landed cost Voucher, additional costs can be added for the items until they land in our Inventory.  
 These additional charges once added, get added in the **Item Valuation rate** and update the Item Rate.  
@@ -701,3 +309,493 @@ Open LDAP may need this field to be enabled on your LDAP server. Please see exam
 In the LDAP Settings area, there are two dropdowns.
 1. SSL/TLS Mode - set this to **StartTLS** to connect to your LDAP server using StartTLS. If your LDAP server does not support StartTLS, setting this to StartTLS will result in an error `StartTLS is not supported`. Check the configuration on your LDAP server if you receive this error.
 2. Require Trusted Certificate - if you change this to **Yes** then the certificate provided by the LDAP server must be trusted by the Frappe/ERPNext server. If you would rather use StartTLS with a self-signed (untrusted) certificate, set this to **No**. If you do not use StartTLS, this setting is ignored.
+
+<!-- page: erpnext/erpnext__lead.md -->
+---
+title: "Lead | ERPNext Documentation"
+description: "Learn how to create, qualify, assign, and convert Leads in ERPNext CRM."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/lead"
+updated: "2026-07-23"
+---
+
+**A lead is a potential customer who might be interested in your products or services.**
+
+To get the customer through the door, you may be doing all or any of the following:
+
+- Listing your product on directories.
+- Maintaining an updated and searchable website.
+- Meeting people at trade events.
+- Advertising your products or services.
+
+When you send out the word that you are around and have something valuable to offer, people will come in to check out your products. These are your Leads.
+
+They are called Leads because they may lead you to a sale. Sales executives usually work on leads by calling them, building a relationship and sending information about products or services. It is important to track all this conversation to enable another person who may have to follow-up on that contact. The new person is then able to know the history of that particular Lead.
+
+To access the Lead list, go to:
+
+> Home > CRM > Sales Pipeline > Lead
+
+- How to Create a Lead
+- Go to the Lead list and select New.
+- If the person represents an organization, check the 'Lead is an Organization' checkbox. Notice that when you check, the 'Company Name ' field becomes mandatory. Enter the Company Name.
+- If the person is an individual, leave the checkbox unchecked and enter Person Name and Gender.
+- Enter the 'Email Address'.
+- **Status is the important field** in the Lead. You can set the status manually and also it will be updated automatically based on your actions against the lead. Lead: This is the default status assigned when a Lead is created and it indicates an action is needed against this Lead.  
+ Open: Sales executive needs to contact the Lead.  
+ Replied: A sales executive has provided the information needed and response from Lead is awaited.  
+ Opportunity: If an Opportunity is created against the Lead, the status is set to Opportunity. It indicates that the Lead is qualified and may lead to sales.  
+ Quotation: If a quotation is created against a Lead, then the status is set to Quotation.  
+ Lost Quotation: If the quotation given to the lead has been marked as lost, then the status is set to 'Lost Quotation'.  
+ Interested: The lead is interested in the products or services.  
+ Converted: If the quotation given to the Lead has resulted in confirmation of an order and if the Sales Order has been created against the quotation, then the status is set to Converted.  
+ Do Not Contact: Lead is not interested and no further communication is needed.
+- You can set the Lead Source in Source field.
+- Enter email ID for communication.
+- select 'Save'.
+
+[Screenshot on the live page: Lead]
+
+You can also record the details of the conversation in the NOTES section.
+
+Further details like Lead Type, Market Segment, Industry can be added in the 'MORE INFORMATION' section.
+
+If you have a healthy number of leads, all this information will help you prioritize the leads you can pursue.
+
+You can assign the Lead to a user by clicking on 'Assign' button on left bar. You can also attach files/images by clicking on 'Attach File' button.
+
+- Features
+
+### Reminders to Follow Up on the Leads
+
+It is important to reach out to leads from time to time and build the relationship. You can create a calendar event from the **Activities** tab for the user and a notification will be shown on that date.
+
+### Adding Multiple Contacts and Addresses
+
+In Busines-to-business(B2B) scenario, in order to close a sales deal, you will have to contact multiple people working in the prospective company. You can add the details of all such people in the same lead. Once you save a Lead, you will get the option to add [Contact](/erpnext/contact) details by clicking on 'New Contact' button. Similarly, you can add the [Address](/erpnext/address) details by clicking on 'New Address'.
+
+[Screenshot on the live page: Multiple Contacts and Addresses in Lead]
+
+### 3 Recording Comments, Emails and Events
+
+- **Comments**: You can write your comment in 'Add a comment' box and select 'Comment'.
+- **Emails**: You can send an email to the lead by clicking on the 'New Email' button and when the lead responds to your email, it will be appended to your email creating an email thread.
+- **Events**: You can also records the Meetings, Calls etc you have had with the Lead by clicking on 'New Event'
+
+### Creating Opportunity, Customer and Quotation
+
+You can create an Opportunity, Customer or a Quotation from the Make dropdown. Relevant field values will be copied over.
+
+### Auto-assigning the Leads to Sales Executives
+
+> Introduced in Version 12
+
+You can define [Assignment Rules](/erpnext/assignment-rule) to automatically assign the leads to sales executives.
+
+[Screenshot on the live page: Lead Assignment Rule]
+
+- Adding Custom Fields
+
+You may need to add custom fields to capture additional details as per your needs.
+
+You can customize the Lead DocType using [Customize Form](/erpnext/custom-field) tool.
+
+- Related Topics
+- [Opportunity](/erpnext/opportunity)
+- [Customer](/erpnext/customer)
+- [Difference between Lead, Contact, and Customer](/erpnext/difference_between_lead_contact_and_customer)
+
+<!-- page: erpnext/erpnext__lead_source.md -->
+---
+title: "Lead Source | ERPNext Documentation"
+description: "Learn how to configure Lead Sources in ERPNext and use them to track where leads and sales opportunities originate."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/lead_source"
+updated: "2026-07-23"
+---
+
+**Lead Source is a channel through which the leads are generated.**
+
+It is important to track the source from which you are getting the leads. This will help in measuring effectiveness of various marketing campaigns and allocate the budgets accordingly.
+
+To access the Lead Source list, go to:
+
+> Home > Selling > Settings > Lead Source
+
+- How to Create a Lead Source
+- Go to the Lead Source list, select New.
+- Enter 'Source Name'.
+- Enter 'Details' if you need to elaborate more on the source.
+
+Typical lead sources are contact forms on your website, marketing campaigns, events, references, ads on social media etc.
+
+[Screenshot on the live page: Screenshot 2023-12-28 at 10.30.48 AM]
+
+The system will allow you to maintain a list of various lead sources leveraged by you.
+
+[Screenshot on the live page: Screenshot 2023-12-28 at 10.35.00 AM]
+
+<!-- page: erpnext/erpnext__legacy-controller-for-period-closing-voucher.md -->
+---
+title: "Legacy Controller for Period Closing Voucher"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/legacy-controller-for-period-closing-voucher"
+updated: "2026-08-14"
+---
+
+A small company can close its Profit and Loss balances in one operation. A company with millions of General Ledger rows may time out when the same work is attempted as one large database transaction. The Period Closing Voucher controller lets ERPNext use either the legacy single-transaction process or newer batched background processing.
+
+
+
+The name is technical, but the decision is operational: keep the familiar legacy process for modest ledgers, or use batched processing when volume and accounting dimensions make one large close unreliable.
+
+## Find the setting
+
+1. Open **Accounts Settings**.
+2. Open the **Accounts Closing** or Period Closing section.
+3. Find **Use legacy controller for Period Closing Voucher**.
+4. Save the setting before creating the next closing voucher.
+
+[Screenshot on the live page: Use legacy controller for Period Closing Voucher in Accounts Settings]
+
+
+
+## Choose the controller
+
+
+| Setting  | Processing                                                     | Best fit                                                                      |
+| -------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Enabled  | Processes the voucher in one database transaction.             | Small and medium ledgers where closing completes reliably.                    |
+| Disabled | Splits work into background batches, including date-wise jobs. | Large ledgers, timeouts, and closes that must preserve dimensional reversals. |
+
+
+With the legacy controller, reversals are primarily account-based. Batched processing is designed to honour dimensional postings more fully. Test the result in a representative environment and reconcile the closing account before changing a live year-end process.
+
+## Troubleshooting
+
+### The voucher remains queued
+
+Check background workers, failed jobs, error logs, and the voucher status. Do not submit duplicate closing vouchers until you know whether the queued job posted any entries.
+
+### The closing totals differ after switching
+
+Compare company, fiscal year, Finance Book, cost-center option, dimensions, and source ledger entries. Reconcile the General Ledger to the approved Profit and Loss before accepting the result.
+
+## Frequently asked questions
+
+### Should every company disable the legacy controller?
+
+Change it only for a clear reason such as volume, timeout risk, or dimensional processing. A stable close does not need extra complexity.
+
+### Can I switch after a voucher has started?
+
+Do not change processing assumptions mid-run. First confirm the job state and whether entries were posted, then follow an approved recovery plan.
+
+## Related topics
+
+- [Accounting overview](/erpnext/accounting/introduction)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [General Ledger](/erpnext/general-ledger)
+- [Fiscal Year](/erpnext/fiscal-year)
+
+<!-- page: erpnext/erpnext__letter-head-in-the-report.md -->
+---
+title: "Letter Head in the Report\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/letter-head-in-the-report"
+updated: "2026-03-04"
+---
+
+
+In the reports, Letter Head is fetched from the Company master.
+
+To have the company's Letter Head fetched correctly in the report, please ensure that you have updated the default Letter Head in the Company master.
+
+> Explore > Accounting > Company
+
+[Screenshot on the live page: Letter Head]
+
+In a Company master, if no Letter Head is set as default, then in the reports, Letter Head having Default field checked will be fetched.
+
+[Screenshot on the live page: Letter Head]
+
+If you are managing multiple companies in a single ERPNext account, then ensure that for each Company, default Letter Head is set in the Company master.
+
+After updating Letter Head in the Company master, refresh your ERPNext account, and then check the print format of a report.
+
+<!-- page: erpnext/erpnext__letter-head.md -->
+---
+title: "Letter Head\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/letter-head"
+updated: "2026-03-02"
+---
+
+
+**A Letter Head contains your organization's name, logo, address, etc which appears at the top portion in documents.**
+
+Every company has a default Letter Head. These Letter Head values are generally set as Header and Footer in the documents. In ERPNext, you can capture these details in the Letter Head master.
+
+These details will appear in the Print Format of transactions like Sales Order, Sales Invoice, Salary Slip, Purchase Order, etc. In ERPNext, the Letter Head is only for setting up the top part of the document, other content is pre-formatted and can be configured via [Print Format](/erpnext/print-format) and [Print Headings](/erpnext/print-headings).
+
+To access Letter Head, go to:
+> Home > Settings > Letter Head
+
+## 1. How to create a Letter Head
+1. Go to the Letter Head list, click on New.
+1. Enter a name for the Letter Head. You can create a separate Letter Head for different office locations.
+1. Choose whether based on image or HTML.
+1. You can enter details in a Letter Head by using:
+
+ * Logo Image: Click on the Attach button to attach an image. Once the image is inserted, HTML for it will be generated automatically.
+ * Other information (like Address, tax ID, etc.) that you want to put on your Letter Head.
+
+ [Screenshot on the live page: Print Heading]
+
+ > If you want to make this the default Letter Head, click on "Default Letter Head".
+
+1. After entering values in the Header and Footer section, save the Letter Head.
+
+You can set the Letter Head based on HTML to make changes to it:
+
+[Screenshot on the live page: Letter Head based on]
+
+This is how the Letter Head looks in a document's print.
+
+[Screenshot on the live page: Print Heading]
+
+> Note that Footer will be visible only when the document's print is seen in the PDF. Footer will not be visible in the HTML based print preview.
+
+## 2. Video
+
+<iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/cKZHcx1znMc?end=58&amp;rel=0">
+</iframe>
+
+
+
+### 3. Related Topics
+1. [Address Template](/erpnext/address-template)
+1. [Terms and Conditions](/erpnext/terms-and-conditions)
+1. [Cheque Print Template](/erpnext/cheque-print-template)
+1. [Print Headings](/erpnext/print-headings)
+
+<!-- page: erpnext/erpnext__linkedin-settings.md -->
+---
+title: "LinkedIn Settings | ERPNext Documentation"
+description: "Configure the LinkedIn integration settings in ERPNext for publishing supported social posts."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/linkedin-settings"
+updated: "2026-07-23"
+---
+
+> Note: This integration is deprecated and will be removed in v15. 
+
+LinkedIn related settings like OAuth can be configured here. ERPNext needs access to the API through which the post is shared and achieved using OAuth 2.0 Authentication Protocol.
+
+1. How to set up LinkedIn Developer App
+
+---
+
+You must have LinkedIn Developer App for your company. ERPNext interacts with this App for sharing the post.
+
+### Create LinkedIn Developer App
+
+Create App by link `https://www.linkedin.com/developers` fill all the details and verify it. And that App has the following products.
+
+1. Share on LinkedIn
+2. Sign In with LinkedIn
+3. Marketing Developer Platform [Screenshot on the live page: LinkedIn Developer App Product]
+
+### Configure Redirect URLs:
+
+1. Goto your LinkedIn Developers App then **Auth** tab.
+2. In **OAuth 2.0 settings** section add **Redirect URLs**: `https://{yoursite}/api/method/erpnext.crm.doctype.linkedin_settings.linkedin_settings.callback`
+3. Click **Update** to make changes. [Screenshot on the live page: LinkedIn Redirect URL]
+4. How to set up LinkedIn Settings
+
+---
+
+To access LinkedIn Settings, go to:
+
+> Home > CRM > Settings > LinkedIn Settings
+
+Current availability
+
+This integration is deprecated. Confirm support in your ERPNext version and the current LinkedIn API requirements before configuring new credentials.
+
+
+
+### Company ID
+
+You get the Company ID from your LinkedIn Company URL. 
+
+[Screenshot on the live page: LinkedIn Company ID]
+
+
+
+### Consumer Key and Consumer Secret
+
+You get **Consumer Key** and **Consumer Secret** from your LinkedIn Developer account go to:
+
+> `https://www.linkedin.com/developers/` > My Apps > `{Your App}` > Auth
+
+[Screenshot on the live page: LinkedIn Client]
+
+
+
+Once you save the doc by filling **Company ID**, **Consumer Key**, and **Consumer Secret** it will redirect to LinkedIn's sign-in page by providing valid LinkedIn credentials and clicking Allow, the member approves your application's request to access their member data and interact with LinkedIn on their behalf. 
+
+[Screenshot on the live page: Authorize LinkedIn]
+
+<!-- page: erpnext/erpnext__linking-emails-to-document.md -->
+---
+title: "Linking Emails to Documents"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/linking-emails-to-document"
+updated: "2026-03-02"
+---
+
+
+> Introduced in v12
+> 
+> 
+
+**An email can be linked to multiple documents in ERPNext.**
+
+This can be done in the following two ways:
+
+* Email Aggregation in Contact, Customer, Supplier.
+* Automatic Email Linking.
+
+1. Email Aggregation for Customer and Supplier
+----------------------------------------------
+
+Email Aggregation takes place in Contact, Customer, and Supplier. All the Emails sent or received from a Contact can be viewed in that Contact's Timeline and as well as linked Customer's or Supplier's Timeline. To enable Email Aggregation, do the following:
+
+1. In a Contact, add Links for the Customer or Supplier respectively.
+
+[Screenshot on the live page: Add Customer/Supplier in Contact]
+2. Now when an Email is sent to or received from the Contact associated with Customer or Supplier, that email is linked to the Customer or Supplier mentioned in the Links section of the Contact.
+
+[Screenshot on the live page: With Filters]
+
+2. Automatic Email Linking to a Document
+----------------------------------------
+
+Automatic Email Linking links an Email to the Document specified in the unique Email Address generated by the system for a document. If an Email is sent or received using the unique Email Address, the system will link that Email to the Document.
+
+1. Enable Automatic Email Linking in Email Account. This feature can be used only with one Email Account at a time.
+
+[Screenshot on the live page: Add Customer/Supplier in Contact]
+2. Once this feature has been enabled, you will see a unique Email ID generated using the Email ID mentioned in the Email Account.
+3. Now you can copy the Email ID by clicking on it and you can send or receive Emails using the unique Email ID. If an Email contains this unique Email ID either in the Recipients or Cc section, the system will link that Email to the specified Document.
+
+[Screenshot on the live page: Add Customer/Supplier in Contact]
+
+
+> Note: Email linking with BCC is not supported. You have to add unique email as receipient in TO or CC.
+> 
+> 
+
+### 3. Related Topics
+
+1. [Auto Email Reports](/erpnext/auto-email-reports)
+2. [Sending Email from any Document](/erpnext/sending-email)
+3. [Document Follow](/erpnext/document-follow)
+
+<!-- page: erpnext/erpnext__local_overrides.md -->
+---
+title: "Sales and Payment Transactions\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/local_overrides"
+updated: "2026-07-02"
+---
+
+
+In order to be compliant with the latest finance law applicable to POS software, ERPNext automatically registers all sales and payment transactions in a chained log.
+
+If your country is set to "France", the deletion of sales and payment transactions will also not be permitted, even if the appropriate permissions are given to the user.
+
+Please note that ERPNext is not yet fully compliant with the 2016 Finance Law.
+
+# Chained log Report
+
+A dedicated report called "Transaction Log Report" is available to verify that the logged chain has not been broken.
+
+If the status of the column "Chain Integrity" is "True", the chain has not been broken.
+It means that you can consult the full chain of events that occurred in your system.
+
+If the status of the column "Chain Integrity" is "False", it means that there is a discrepancy in the chain.
+In this case, the previous row has been removed or altered in the database. It is a probable effect of a fraudulent behavior.
+
+<!-- page: erpnext/erpnext__lower-deduction-certificate.md -->
+---
+title: "Lower Deduction Certificate\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/lower-deduction-certificate"
+updated: "2026-02-27"
+---
+
+
+According to the tax withholding category, a person responsible for making payments is required to deduct tax at source at prescribed rates. Instead of receiving tax on your income from you at a later date, the government wants the payers to deduct tax beforehand and deposit it with the government. However this scheme of deducting tax at source may cause issues to a few taxpayers who may not have taxable income for that fiscal year.
+
+Therefore, for such taxpayers, the government provides an option to obtain a certificate confirming to either a lower rate or NIL rate of TDS compared to the rate specified in the tax withholding category.
+
+## 1. Prerequisites
+Before creating and using a Lower Deduction Certificate, it is advised to create and study the following first:
+
+1. [Supplier](/erpnext/supplier)
+1. [Tax Withholding Category](/erpnext/tax-withholding-category)
+
+## 2. How to create a Lower Deduction Certificate
+1. Go to the Lower Deduction Certificate list and click on New.
+1. Enter the Certificate No.
+1. Select the Section Code.
+1. Enter the [Fiscal Year](/erpnext/fiscal-year).
+1. Select the Supplier having a valid PAN number. PAN number will be auto fetched on the selection of Supplier.
+1. Enter Valid From and Valid Up To dates.
+1. Enter rate of TDS as per the certificate and the certificate limit.
+1. Click on Save.
+
+ [Screenshot on the live page: Lower Deduction Certificate]
+
+## 3. Using Lower Deduction Certificate
+
+### 3.1 Use in Purchase Invoice
+
+In the following example, we have selected TDS category as 'TDS - 194D - Individual' which has a rate of 5%.
+
+ [Screenshot on the live page: Tax Withholding Category]
+
+1. Set the Tax Withholding Category for the Supplier in the supplier master. Then upon selecting that Supplier, a checkbox will become visible in the Purchase Invoice to select whether to apply tax or not and the TDS category will be auto-fetched.
+
+ [Screenshot on the live page: Supplier With Tax Withholding Category]
+
+1. Let's create an invoice for 20,000. Saving the invoice automatically calculates tax and appends it in the Purchase Taxes and Charges table. Although the tax category assigned to the supplier has a tax rate of 5%, the prevailing tax rate is 1% which is mentioned in the Lower Deduction Certificate.
+
+ [Screenshot on the live page: Lower TDS in Purchase Invoice]
+
+### 4. Related Topics
+1. [Tax Withholding Category](/erpnext/tax-withholding-category)
+
+<!-- page: erpnext/erpnext__loyalty-points-redemption-in-pos.md -->
+---
+title: "Loyalty points redemption in POS"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/loyalty-points-redemption-in-pos"
+updated: "2026-03-02"
+---
+
+In ERPNext POS module, the invoices are auto generated. You can set your complete POS system right with the following configuration steps:   
+* Create a Loyalty program in the doctype: You can set Single Tier or a Multiple Tier Program based on the slabs existing in the amount of Purchase that is done in ERPNext.
+
+[Screenshot on the live page]* Once the loyalty program is set, you can create a Customer and link the Loyalty program to it.
+
+[Screenshot on the live page]Once this Customer is linked to the Loyalty program, you can now setup your POS profile if it is not set yet:  
+[Screenshot on the live page]  
+Now, you can go to POS transaction:* Select Customer
+* Add items
+* Pay
+* Check the field --> **Redeem Loyalty Points**
+
+[Screenshot on the live page]

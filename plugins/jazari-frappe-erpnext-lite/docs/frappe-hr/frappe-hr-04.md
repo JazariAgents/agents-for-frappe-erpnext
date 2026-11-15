@@ -1,67 +1,5 @@
 <!-- Frappe documentation: frappe-hr, part 4 of 10. Index: docs/INDEX.md -->
 
-<!-- page: frappe-hr/hr__how-to-process-payroll-in-frappehr.md -->
----
-title: "How to process Payroll in Frappe HR"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/how-to-process-payroll-in-frappehr"
-updated: "2026-02-09"
----
-
-Most of the users find it difficult to process payroll in Frappe HR, but rather than it being difficult, it is a bit tedious in the initial setup. Once, the setup is done it, the process for the following months becomes easy. Kindly go through the below steps for a quick guide:
-
-**1) Create Payroll Period**
-
-In this, you define a period for which you want to process the payroll for. It could be January to December or April to March as per the year followed by your company.
-
-**2) Create Income Tax Slabs**
-
-Over here, you can create multiple Income Tax slabs if you are following the Indian Income Tax system. Define the slabs as per the government rule. You can also add additional tax in the section below and conditions in the table if required and also check 'Allow Tax Exemption' in case there is a standard deduction applicable.
-
-![](https://docs.erpnext.com/files/J2NBGym.png)  
-
-
-**3) Submit Employee Tax Exemption Declaration**
-
-An employee who has some investments can submit tax declarations to avail tax benefits and thus can reduce their Income Tax amount. They can invest in various sub categories under 80C, 80D, etc. (Applicable for Indian Taxation).
-
-**4) Define Salary Components**
-
-You can create salary components and define whether the component is an Earning or a Deduction component. There are certain checkboxes that you can check depending on the component type. Select the company and a default ledger account. Now, these salary components can be based on a particular formula or it can be a fixed amount. Only for Income Tax component you need to check a particular checkbox called "Variable based on Taxable Salary". This will ensure that the Income Tax is calculated automatically in the backend.
-
-**5)Create a Salary Structure**
-
-Once you have created all the salary components, you can define a salary structure. You can also define whether the salary is based on timesheets. You can add the earnings and deductions as per your choice and the mode of payment.
-
-![](https://docs.erpnext.com/files/AnuaBH8.png)  
-
-
-**6) Assign the Salary Structure**
-
-Once the salary structures have been created, you need to assign it to employees. If you miss this step, then you will not be able to proceed further. During assignment, you have to select the Income Tax Slab (if you have multiple slabs), since the percentage deduction of Income Tax will be calculated based on the same. You can also define a base amount if your salary structures are based on formulas.
-
-![](https://docs.erpnext.com/files/Zg8nsfS.png)  
-
-
-**7) Create a Payroll Entry & Salary Slips**
-
-Once all of the above steps are done, you need to create a payroll entry. Once you have selected the payroll date, frequency and added the payment account, you can filter employees on the basis on department, designation and branch. If you do not wish to do so then you can directly click on 'Get employees'. On doing so, a list of all the employees will populate in the Employee Details section. You can then proceed by clicking on "Create Salary Slips" and all the salary slips will be generated in draft.
-
-![](https://docs.erpnext.com/files/HQAMnYm.png)  
-
-
-You can verify the draft salary slips and then submit them via the payroll entry. On submitting the salary slips, an accrual journal entry will be created. This means we are booking the salary expenses in the system and not paying them. 
-
-
-![](https://docs.erpnext.com/files/z7DIBpo.png)  
-
-
-**8) Bank Entry**
-
-Once you have booked the accrued salary slips, as a last step you need to make a Bank Entry. With this last step, your payroll process is completed, but this does not mean the salaries are transferred in the bank. That minor step has to be done manually.
-
-![](https://docs.erpnext.com/files/iOrcSFs.png)  
-
 <!-- page: frappe-hr/hr__hr-settings.md -->
 ---
 title: "HR Settings"
@@ -79,7 +17,7 @@ There are various settings available in the HR Settings.
 **1. Employee Settings**
 ------------------------
 
-![Previous Work Experience](https://frappehr.com/files/hr-settings1.png)  
+[Screenshot on the live page: Previous Work Experience]  
 
 
 ### **1.1. Retirement Age:**
@@ -107,7 +45,7 @@ In Expense Claim Document the 'Expense Approver' field is set to mandatory on ch
 **2. Payroll Settings**
 -----------------------
 
-![Previous Work Experience](https://frappehr.com/files/hr-settings2.png)  
+[Screenshot on the live page: Previous Work Experience]  
 
 
 ### **2.1 Calculate Payroll Working Days Based On**
@@ -158,7 +96,7 @@ This will generate a password like SAL-Jane-1972
 **3. Shift Settings**
 ---------------------
 
-**![](https://lh7-us.googleusercontent.com/A9IyXp8Eyjcnl4aVb164XrJ-bE-senEbgybURCe9zXcvMAKbzj-wXdCNPNgBc8xyWvpCBDQrXnHfMv5827Q6nFb2tEj-zwLnYtsuSpuaTbyKdqFOhenGoOsqQRydhWMbIalDoshnR1Lh)**  
+**[Screenshot on the live page]**  
 
 
 ### **3.1 Allow Multiple Shift Assignments for Same Date**
@@ -168,7 +106,7 @@ Enabling this allows the user to create Shift Assignments for an employee with p
 **4. Leave Settings**
 ---------------------
 
-![Previous Work Experience](https://frappehr.com/files/hr-settings3.png)  
+[Screenshot on the live page: Previous Work Experience]  
 
 
 ### **4.1 Leave Approval Notification Template**
@@ -204,7 +142,7 @@ If checked, leaves will be granted to the employees automatically based on the E
 **5. Hiring Settings**
 ----------------------
 
-![image](https://user-images.githubusercontent.com/24353136/135511758-4300b29e-78c2-4492-a6a7-d75d0632fd5a.png)  
+[Screenshot on the live page: image]  
 
 
 ### **5.1 Check Vacancies On Job Offer Creation**
@@ -222,7 +160,7 @@ Enabling this option will trigger reminder emails to be sent to Interviewers who
 **6. Mobile Settings**
 ----------------------
 
-![Screenshot 2024-04-08 at 2 49 50 PM](https://private-user-images.githubusercontent.com/52369157/320425819-5d05a9e1-7df9-4cc8-ad02-b90f2e383159.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTI4MzEyNjksIm5iZiI6MTcxMjgzMDk2OSwicGF0aCI6Ii81MjM2OTE1Ny8zMjA0MjU4MTktNWQwNWE5ZTEtN2RmOS00Y2M4LWFkMDItYjkwZjJlMzgzMTU5LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA0MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNDExVDEwMjI0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTIxNzBmYTA4MjI1NWY2ZjZiY2FmMDkwOTFjMDFiNjA3ZGVhNGQ3ODczOTFhNDg5YTM1ZTZlYjhjMDU4MDdiYjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.MARRAtci4sfl2GJEgPWhvmwmu2O0oLu952O19A8jw_8)  
+[Screenshot on the live page: Screenshot 2024-04-08 at 2 49 50 PM]  
 
 
 ### **6.1 Allow Employee Checkin from Mobile App**
@@ -250,7 +188,7 @@ To solve this problem, Holiday List Assignment feature is introduced. This will 
 1. Set **Applicable For,** this could be either Company or Employee
 2. Select the employee or company to assign the holiday list to
 3. Select the holiday list to be assigned. You can edit the **Assignment Starts From** date, this is the date from which the selected holiday list is applicable for the employee or company and remains applicable till the end of the holiday list, unless another assignment is created.
-  ![](/files/Screenshot From 2026-01-08 13-07-48.png)
+  [Screenshot on the live page]
 
 ### 2. Switch List Assignment
 
@@ -277,11 +215,11 @@ Leave adjustment allows you to adjust leaves from existing leave allocations. Th
 
 1. Go to any leave allocation document
 2. Select **Adjust Allocation** from Actions menu
-  ![](/files/Screenshot 2026-01-08 at 12.37.40.png)
+  [Screenshot on the live page]
 3. Set adjustment type either allocate new leaves or reduce from the allocation, number of leaves to adjust and click on **Adjust Leaves.**
-  ![](/files/Screenshot 2026-01-08 at 12.42.20.png)
+  [Screenshot on the live page]
 4. A new leave adjustment document will be created to correct the existing leave allocation.
-  ![](/files/Screenshot 2026-01-08 at 12.43.28.png)
+  [Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__human-resource-setup.md -->
 ---
@@ -342,7 +280,7 @@ updated: "2026-02-04"
 **1. Employee Leave Balance**
 -----------------------------
 
-![Employee Leave Balance](https://frappehr.com/files/employee-leave-balance.png)  
+[Screenshot on the live page: Employee Leave Balance]  
 
 
 **2. Salary Register**
@@ -350,7 +288,7 @@ updated: "2026-02-04"
 
 Salary Register shows net pay and its components of employee(s) at a glance.
 
-![Monthly Salary Register](https://frappehr.com/files/monthly-salary-register.png)  
+[Screenshot on the live page: Monthly Salary Register]  
 
 
 **3. Monthly Attendance Sheet**
@@ -358,12 +296,12 @@ Salary Register shows net pay and its components of employee(s) at a glance.
 
 Monthly Attendance Sheet shows you the employee-wise attendance status. If you assign shifts to employees, this sheet will also show you shift-wise attendance for each employee.
 
-![Monthly Attendance Sheet](https://frappehr.com/files/monthly-attendance-sheet.png)  
+[Screenshot on the live page: Monthly Attendance Sheet]  
 
 
 If you do not want to see day-wise attendance, and get a summarized view of total absent, present, leave days, etc. you can switch to the summarized view:
 
-![Monthly Attendance Sheet](https://frappehr.com/files/monthly-attendance-summarized.png)  
+[Screenshot on the live page: Monthly Attendance Sheet]  
 
 
 This will show you:
@@ -395,7 +333,7 @@ Entries can be further filtered on the basis of:
 * Late Entry
 * Early Exit
 
-![](https://frappehr.com/files/KBfhUlt.png)  
+[Screenshot on the live page]  
 
 
 **5. Vehicle Expenses Report**
@@ -403,7 +341,7 @@ Entries can be further filtered on the basis of:
 
 To track and monitor Vehicle Expenses you can use the Vehicle Expenses report. This report gives a one-stop view of all your Vehicle Expenses month-wise.
 
-![Vehicle Log](https://frappehr.com/files/vehicle-expenses-report.png)  
+[Screenshot on the live page: Vehicle Log]  
 
 
 **6. Employee Exits**
@@ -427,7 +365,7 @@ This report also provides extra filters for:
 
 Users can set up auto email reports on the above filters to make pending exit tracking easier.
 
-![Monthly Salary Register](https://frappehr.com/files/employee-exits.png)  
+[Screenshot on the live page: Monthly Salary Register]  
 
 
 **7. Employee Birthday**
@@ -435,7 +373,7 @@ Users can set up auto email reports on the above filters to make pending exit tr
 
 Employee Birthday Report shows month-wise birthdays of your Employees.
 
-![Employee Birthday](https://frappehr.com/files/employee-birthday.png)  
+[Screenshot on the live page: Employee Birthday]  
 
 
 **8. Employee working on a holiday**
@@ -443,7 +381,7 @@ Employee Birthday Report shows month-wise birthdays of your Employees.
 
 Employee Holiday Attendance shows the list of Employees who attended on Holidays.
 
-![Employee Working on a Holiday](https://frappehr.com/files/employees-working-on-a-holiday.png)  
+[Screenshot on the live page: Employee Working on a Holiday]  
 
 
 **9. Bank Remittance Report**
@@ -451,7 +389,7 @@ Employee Holiday Attendance shows the list of Employees who attended on Holidays
 
 This report helps you to track bank transactions of payroll entries between companie(s) and employees. It shows the transaction between the bank accounts of the Company and the Employee with the Payment Date.
 
-![Monthly Salary Register](https://frappehr.com/files/bank_remittance_report.png)  
+[Screenshot on the live page: Monthly Salary Register]  
 
 
 **10. Loan Repayment Report**
@@ -477,7 +415,7 @@ updated: "2026-02-09"
 * If an employee has any kind of investments or tax declarations such as PPF, insurance, mutual funds, HRA, etc., add these in "Employee Tax Exemption Declaration". Screenshot attached:
 
   
-![](https://docs.erpnext.com/files/K0DGKxb.png)  
+[Screenshot on the live page]  
 
 
 * While creating salary component of Income Tax, check the box "Variable Based On Taxable Salary". Ticking this checkbox means, income tax will be calculated automatically taking the payroll period and tax declarations into consideration.
@@ -487,12 +425,12 @@ updated: "2026-02-09"
 
 * Create a salary structure and add Income Tax in the deduction section leaving the amount section blank. Along with that kindly add Education cess which will be based on a formula. Screenshot attached:
 
-![](https://docs.erpnext.com/files/paJO8Kk.png)  
+[Screenshot on the live page]  
 
 
 * Create a payroll entry and generate salary slips. Income tax will be calculated automatically along with the education cess. Screenshot attached:
 
-![](https://docs.erpnext.com/files/svhgWSq.png)  
+[Screenshot on the live page]  
 
 
   
@@ -527,7 +465,7 @@ To create a new Income Tax Slab:
 
 In the Tax Slab table, you can define the rate for different income slabs. To define slab, From Amount and To Amount should be entered. For the first slab, From Amount is optional and for the last slab, To Amount is optional. Both the amount is inclusive while evaluating tax based on taxable income.
 
-![Income Tax Slab](https://frappehr.com/files/income-tax-slab.png)  
+[Screenshot on the live page: Income Tax Slab]  
 
 
 The tax slab can be applicable based on specific conditions. Conditions can be written using all field names of Employee, Salary Structure, Salary Structure Assignment, and Salary Slip documents.
@@ -554,7 +492,7 @@ annual_taxable_earning > 500000
 
 If other taxes are applicable on calculated income tax, you can enter those using this table. You can also define the min and max taxable amount for which this tax will be applicable. For example, Health and Education Cess is applied additionally on income tax to everyone in India.
 
-![Other Charged on Income Tax](https://frappehr.com/files/other-taxes-on-income-tax.png)  
+[Screenshot on the live page: Other Charged on Income Tax]  
 
 
 ### **2.3 Other Properties**
@@ -729,7 +667,7 @@ The Employees' State Insurance scheme (ESI) is a mandatory social security schem
 3. Optionally enter your **ESIC Registration Number** (appears on the ESIC Register report).
 4. Save.
 
-![](/files/image363911.webp)
+[Screenshot on the live page]
 *Enabling ESI deduction*
 
 ---
@@ -775,7 +713,7 @@ To apply the higher ₹25,000 ceiling for a PwD employee:
 1. Open the **appropriate Salary Structure Assignment** document.
 2. Check **Is Person with Disability**.
 
-![](/files/imagec6a7e8.webp)
+[Screenshot on the live page]
 
 The hook reads this field on every slip save, so changing the flag mid-year takes effect on the next payroll run.
 
@@ -828,7 +766,7 @@ The Labour Welfare Fund (LWF) is a statutory contribution collected by state gov
 2. Check **Enable LWF Deduction**.
 3. Save.
 
-![](/files/image691bee.webp)
+[Screenshot on the live page]
 *Enable Labour Welfare Fund*
 
 ---
@@ -907,8 +845,184 @@ Some employees may be exempt from LWF by local law (e.g., contract workers, empl
 3. Check **LWF Exempted**.
 4. Fill in **LWF Exemption Reason** (optional, for audit trail).
 
-![](/files/image6540b3.webp)
+[Screenshot on the live page]
 
 > **Key behaviour:** The `lwf_exempted` flag is **never auto-overridden** by the hook. Only an HR user with write access to the Employee document can change it. This ensures manual exemptions are preserved across all payroll runs.
 
 ---
+
+<!-- page: frappe-hr/hr__india-payroll__multi-company-settings.md -->
+---
+title: "Multi-Company Settings"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/india-payroll/multi-company-settings"
+updated: "2026-08-31"
+---
+
+Payroll Settings is a single, site-wide document, so by default, one India Payroll configuration applies to every company on the site. That works for a single legal entity, but a group running two or more entities has only one place to record an ESIC employer code or an EPF establishment code, and each registered entity has its own.
+
+Multi-company payroll lifts that limit. It adds a table where you record statutory registration details per company, and it scopes statutory deductions to the companies you list.
+
+It is **off by default**. Existing sites are unaffected until you turn it on.
+
+[Screenshot on the live page]
+*Multi-Company Settinga*
+
+## **When you need it**
+
+Turn it on when either is true:
+
+- You run payroll for more than one company on this site, and they have **different** statutory registration numbers.
+- Some companies on this site are registered under a scheme (EPF, ESIC, LWF, Professional Tax), and others are not. For example, a newly incorporated entity still below the headcount threshold.
+
+You do **not** need it when every company on the site shares one registration, or when only one company runs payroll.
+
+## **Enabling it**
+
+1. Go to **Payroll Settings &gt; India Payroll**.
+2. Under **Multi-Company Payroll**, tick **Enable Multi-Company Payroll**.
+3. In the **Company Payroll Settings** table that appears, add a row for each company that participates in statutory payroll.
+4. Save.
+
+Each row holds:
+
+
+| Field                                    | Description                                                                       |
+| :---------------------------------------- | :--------------------------------------------------------------------------------- |
+| **Company**                              | The company this row configures. Required, and each company may appear only once. |
+| **ESIC Registration Number**             | 17-digit ESIC employer code for this company.                                     |
+| **EPF Establishment Code**               | EPFO Establishment Code used in this company's ECR file header.                   |
+| **Professional Tax Registration Number** | State Professional Tax enrolment / registration number.                           |
+| **LWF Registration Number**              | State Labour Welfare Fund establishment registration number.                      |
+
+
+Only **Company** is mandatory. Leave a registration number blank if the company is not registered under that scheme, or if you have not received the number yet.
+
+While multi-company payroll is on, the site-wide **ESIC Registration Number** and **EPF Establishment Code** fields are hidden, so there is never any question about which value applies to a given company.
+
+## **How it changes payroll**
+
+The per-scheme checkboxes (**Enable Professional Tax Deduction**, **Enable ESIC Deduction**, **Enable LWF Deduction**, **Enable EPF Deduction**) remain the master switches. Multi-company payroll narrows their reach; it does not override them.
+
+A statutory deduction is applied to a salary slip only when **both** are true:
+
+1. The scheme is enabled in Payroll Settings, **and**
+2. The slip's company appears in the Company Payroll Settings table.
+
+A company with no row is treated as **not configured** and gets no statutory deduction:
+
+
+| Multi-company | Scheme enabled | Company listed | Deduction applied |
+| :------------- | :-------------- | :-------------- | :----------------- |
+| Off           | No             | n/a            | No                |
+| Off           | Yes            | n/a            | Yes               |
+| On            | No             | Any            | No                |
+| On            | Yes            | Yes            | Yes               |
+| On            | Yes            | No             | **No**            |
+
+
+This applies to all four schemes and takes effect the next time a salary slip is created or saved. Salary slips already submitted are not altered. See [Removing a company](https://file+.vscode-resource.vscode-cdn.net/Users/deepesh/frappe/my-bench/apps/india_payroll/docs/setup/multi-company-payroll.md#removing-a-company) below.
+
+One related behaviour: the Salary Structure Assignment warning about a missing **Employment State** is also scoped this way. Assignments for a company outside Professional Tax scope will not raise it.
+
+## **How it changes reports**
+
+The statutory registers (**Employee Provident Fund Register**, **ESIC Register** and **LWF Register**) follow the same scope, with one deliberate exception that protects filed records.
+
+A salary slip appears in a register when **either**:
+
+- its company is currently in scope for that scheme, **or**
+- the slip **actually recorded** that deduction.
+
+The second rule matters. A register is a record of liabilities that were incurred, not a projection of current configuration. If a company deducted ESI in June and you remove it from the table in September, the June contributions were still deducted from employees and remitted to ESIC, so they must remain reportable, and the June ECR file must still regenerate identically. The registers therefore never erase history when scope changes.
+
+The practical effect of the two rules together:
+
+- Slips from **before** a company was removed keep their deductions and stay reported.
+- Slips created **after** removal carry no statutory deductions, so they drop out.
+
+The **Bank Mandate Report** is not scoped, by design: it lists salary payment instructions, not statutory liabilities.
+
+### **ECR export**
+
+An ECR file is filed against a **single** EPF establishment code. Once codes are recorded per company, a file spanning several companies cannot be filed.
+
+So while multi-company payroll is on, **Generate ECR File** requires a Company filter, and will show *"Select a Company before generating the ECR file"* if one is not set. In single-company mode, the filter stays optional, as before.
+
+## **Validation**
+
+Saving Payroll Settings enforces three rules:
+
+- **A company may appear only once.** A duplicate is rejected, naming both row numbers.
+- **Registration numbers are trimmed** of leading and trailing whitespace.
+- **The table cannot be empty while multi-company payroll is on.** Without this, ticking the box would silently switch off every statutory deduction across the site.
+
+## **Removing a company**
+
+Removing a company's row stops it accruing new statutory deductions from the next salary slip onward. Its history is preserved: past slips keep the deductions they recorded, and those amounts continue to appear in the registers and the ECR export.
+
+To also strip deductions from slips that are already **draft**, re-save them after removing the row. **Submitted** slips are unchanged. Amending a submitted slip to remove a statutory deduction is a payroll correction and should be done deliberately, not as a side effect of a settings change.
+
+## **Turning it off**
+
+Unticking **Enable Multi-Company Payroll** returns the site to a single shared configuration:
+
+- The site-wide ESIC and EPF registration fields reappear, holding whatever they held before.
+- Every company is back in scope for whichever schemes are enabled.
+- The Company Payroll Settings rows are retained, so re-enabling restores your per-company details.
+
+Check the site-wide registration numbers after switching back, since they are not populated from the table.
+
+## **Developer reference**
+
+`india_payroll/india_payroll/company_settings.py` is the single place that resolves statutory configuration. Use it rather than reading Payroll Settings fields directly, so behaviour stays consistent across schemes.
+
+```python
+from india_payroll.india_payroll.company_settings import (
+    is_statutory_enabled,
+    get_applicable_companies,
+    get_registration_number,
+)
+
+```
+
+`is_statutory_enabled(statute, company)` **→** `bool`
+
+Whether a scheme applies to a company right now. This is the salary-slip gate. `statute` is one of `"professional_tax"`, `"esic"`, `"lwf"`, `"epf"`.
+
+`get_applicable_companies(statute)` **→** `list[str] | None`
+
+The company scope for a register. Three-valued, and the distinction matters:
+
+
+| Return    | Meaning                                                                                                         |
+| :--------- | :--------------------------------------------------------------------------------------------------------------- |
+| `None`    | No restriction. Multi-company payroll is off, so reports behave exactly as they did before the feature existed. |
+| `[]`      | Multi-company payroll is on but the scheme is globally disabled, so no company is currently in scope.           |
+| `[names]` | Only these companies are currently in scope.                                                                    |
+
+
+`None` is not the same as an empty list, and a caller that treats them alike will silently change single-company behaviour.
+
+Because this returns *current* scope, never apply it as a bare filter to historical records. Combine it with evidence from the slip, as the registers do:
+
+```python
+applicable = get_applicable_companies("esic")
+if applicable is not None:
+    with_esi = get_slips_with_deduction([r.slip for r in rows], [ESI_EMPLOYEE_COMPONENT])
+    rows = [r for r in rows if r.company in applicable or r.slip in with_esi]
+
+```
+
+`get_slips_with_deduction` lives in `india_payroll/india_payroll/utils.py`. It returns the subset of slips carrying a given deduction with a positive amount. Statutory deduction rows are only ever written when the amount is above zero, so a row's presence is the slip's own record that the liability was incurred, independent of how Payroll Settings is configured today.
+
+`get_registration_number(statute, company)` **→** `str | None`
+
+The registration identifier for a scheme. Reads the company's row when multi-company payroll is on, and falls back to the site-wide field otherwise.
+
+## **Current limitations**
+
+- **Registration numbers are stored but not yet consumed.** No report or export currently prints them: the ECR file format carries no header, and the ESIC Register has no registration column. The fields are in place so entities can be recorded correctly now, and so the values are available when those outputs are added.
+- **No site-wide fallback for Professional Tax and LWF.** Those two registration numbers exist only on the per-company table. In single-company mode `get_registration_number` returns `None` for them.
+- **Registers ignore the master switches in single-company mode.** With multi-company payroll off, the registers report computed liabilities regardless of whether the scheme's checkbox is ticked. This predates multi-company payroll and is unchanged by it.
+- **TDS is configured separately.** Deductor details for Form 24Q (TAN, deductor type, responsible person) live on the Company record itself and were already per-company. They are not affected by this setting.

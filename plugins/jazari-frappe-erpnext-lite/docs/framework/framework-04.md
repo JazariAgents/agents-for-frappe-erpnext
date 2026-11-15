@@ -59,7 +59,7 @@ The `label` key specifies the label to be appended in the Chart. The `points` ke
 
 This would produce a Chart like
 
-![RealtimeChart](/files/realtime-chart.png)
+[Screenshot on the live page: RealtimeChart]
 
 ### frappe.ui.RealtimeChart.start_updating
 
@@ -71,7 +71,7 @@ Start listening to the specified socket event and update the RealtimeChart accor
 frappe.ui.RealtimeChart.start_updating();
 ```
 
-![RealtimeChart](/files/realtime-chart-demo.gif)
+[Screenshot on the live page: RealtimeChart]
 _frappe.ui.RealtimeChart.start_updating_
 
 ### frappe.ui.RealtimeChart.stop_updating
@@ -883,7 +883,7 @@ d.show();
 
 ```
 
-![Dialog](/files/dialog-api-custom-dialog.png)
+[Screenshot on the live page: Dialog]
 
  *frappe.ui.Dialog*
 
@@ -907,7 +907,7 @@ frappe.msgprint({
 
 ```
 
-![Msgprint](/files/dialog-api-msgprint.png)
+[Screenshot on the live page: Msgprint]
 
  *frappe.msgprint*
 
@@ -943,7 +943,7 @@ frappe.msgprint({
 
 ```
 
-![Msgprint with Primary Action](/files/dialog-api-msgprint-with-primary-action.png)
+[Screenshot on the live page: Msgprint with Primary Action]
 
  *frappe.msgprint with primary action bound*
 
@@ -959,7 +959,7 @@ frappe.throw(__('This is an Error Message'))
 
 ```
 
-![Throw](/files/dialog-api-throw.png)
+[Screenshot on the live page: Throw]
 
  *frappe.throw*
 
@@ -1004,7 +1004,7 @@ frappe.prompt([
 
 ```
 
-![Prompt](/files/dialog-api-prompt.png)
+[Screenshot on the live page: Prompt]
 
  *frappe.prompt*
 
@@ -1025,7 +1025,7 @@ frappe.confirm('Are you sure you want to proceed?',
 
 ```
 
-![Prompt](/files/dialog-api-confirm.png)
+[Screenshot on the live page: Prompt]
 
  *frappe.confirm*
 
@@ -1048,7 +1048,7 @@ frappe.warn('Are you sure you want to proceed?',
 
 ```
 
-![Prompt](/files/dialog-api-warn.png)
+[Screenshot on the live page: Prompt]
 
  *frappe.confirm*
 
@@ -1072,7 +1072,7 @@ frappe.show_alert({
 
 ```
 
-![Show Alert](/files/dialog-api-show-alert.png)
+[Screenshot on the live page: Show Alert]
 
  *frappe.showalert*
 
@@ -1088,7 +1088,7 @@ frappe.show_progress('Loading..', 70, 100, 'Please wait');
 
 ```
 
-![Show Progress](/files/dialog-api-progress.png)
+[Screenshot on the live page: Show Progress]
 
  *frappe.showprogress*
 
@@ -1211,7 +1211,7 @@ new frappe.ui.form.MultiSelectDialog({
 
 ```
 
-![MultiSelectDialog](/files/dialog-api-multiselectdialog.png)
+[Screenshot on the live page: MultiSelectDialog]
 
  *frappe.ui.form.MultiSelectDialog*
 
@@ -1249,7 +1249,7 @@ new frappe.ui.form.MultiSelectDialog({
 
 ```
 
-![MultiSelectDialog](/files/dialog-api-multiselectdialog-child-selection.png)
+[Screenshot on the live page: MultiSelectDialog]
 
  *frappe.ui.form.MultiSelectDialog*
 

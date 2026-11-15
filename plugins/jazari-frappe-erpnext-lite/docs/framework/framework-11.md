@@ -609,15 +609,15 @@ After letsencrypt initializes, you will be prompted for some information. This e
 
 At the prompt, enter an email address that will be used for notices and lost key recovery:
 
-![](https://assets.digitalocean.com/articles/letsencrypt/le-email.png)
+[Screenshot on the live page]
 
 Then you must agree to the Let's Encrypt Subscribe Agreement. Select Agree:
 
-![](https://assets.digitalocean.com/articles/letsencrypt/le-agreement.png)
+[Screenshot on the live page]
 
 Then enter your domain name(s). Note that if you want a single cert to work with multiple domain names (e.g. example.com and www.example.com), be sure to include all of them:
 
-![](https://assets.digitalocean.com/articles/letsencrypt/le-domain.png)
+[Screenshot on the live page]
 
 ### Certificate Files
 
@@ -709,7 +709,7 @@ Example:
 
 You can check your usage by opening the "Usage Info" page from the toolbar / AwesomeBar. A limit will only show up on the page if it has been set.
 
-![Doctype Saved](/files/usage_info.png)
+[Screenshot on the live page: Doctype Saved]
 
 <!-- page: framework/framework__user__en__bench__guides__setup-multitenancy.md -->
 ---

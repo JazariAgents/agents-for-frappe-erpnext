@@ -1,86 +1,5 @@
 <!-- Frappe documentation: erpnext, part 59 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__stale-cheque-accounting.md -->
----
-title: "Stale Cheque Accounting | ERPNext Documentation"
-description: "Reverse or replace an expired check while preserving the ERPNext audit trail."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/stale-cheque-accounting"
-updated: "2026-08-01"
----
-
-A stale check has passed the validity period and is no longer expected to clear. Do not delete the original entry. Reverse or cancel it according to its status, then issue a replacement when required.
-
-## Before you begin
-
-Confirm the correct Company, currency, receivable or payable account, and bank or cash ledger. Use submitted source documents and keep the bank reference or remittance advice available.
-
-## Use Stale Cheque Accounting
-
-1. Confirm with the bank that the check is stale and has not cleared.
-2. Locate the original Payment Entry and its ledger impact.
-3. Cancel it when ERPNext permits and your control policy allows cancellation.
-4. If cancellation is not appropriate, post an authorized reversing Journal Entry with a clear reference.
-5. Create a new Payment Entry for the replacement check and reconcile only when it clears.
-
-![Stale Cheque Accounting in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-14-journal-entry-list.png)
-
-## Important fields and what they mean
-
-
-| Field                  | What it controls                                    |
-| ---------------------- | --------------------------------------------------- |
-| Cheque or Reference No | Identifies the original instrument.                 |
-| Reference Date         | Issue date of the check.                            |
-| Posting Date           | Accounting date of the original or reversal entry.  |
-| Remarks                | Reason for reversal and replacement reference.      |
-| Clearance Date         | Date the bank confirms settlement, when applicable. |
-
-
-## What happens after you submit or process
-
-ERPNext updates the relevant accounting records and, where applicable, the outstanding or unallocated amounts. Review the General Ledger, party ledger, and source document status before treating the workflow as complete. A saved draft does not affect the ledger.
-
-## Troubleshooting
-
-### The stale cheque belongs to a closed accounting period
-
-Do not cancel or backdate into a locked period without approval. Record the reversal or reclassification in the current permitted period using the workflow approved by your accountant.
-
-### Reissuing the cheque would pay the invoice twice
-
-First reverse or clear the stale cheque's payment effect, verify that the supplier balance is outstanding, and only then issue the replacement.
-
-### The cheque was actually dishonoured, not merely stale
-
-Record the correct event and supporting evidence. A dishonoured cheque can include bank charges and an immediate restoration of the invoice balance, while a stale cheque has expired without clearing.
-
-## Frequently asked questions
-
-### When does a cheque become stale?
-
-The validity period depends on the bank and jurisdiction. Confirm the date with the bank rather than assuming a universal number of months.
-
-### Should the original Payment Entry be deleted?
-
-Keep the audit trail. Use cancellation, reversal, or a current-period adjustment according to the document status and accounting-period controls.
-
-### Can a replacement cheque reuse the same reference number?
-
-Use the new cheque's actual reference and link it to the reversal or stale cheque explanation. Reusing the old number weakens traceability.
-
-### Does marking a cheque stale automatically reopen the invoice?
-
-The invoice is restored only when the accounting effect of the original payment is properly reversed or unallocated. Verify Accounts Payable afterward.
-
-## Related topics
-
-- [Payment Entry](/erpnext/payment-entry)
-- [Payment Reconciliation](/erpnext/payment-reconciliation)
-- [Bank Reconciliation](/erpnext/bank-reconciliation)
-- [Bank Transaction](/erpnext/bank-transaction)
-- [Journal Entry](/erpnext/journal-entry)
-
 <!-- page: erpnext/erpnext__standard-valuation-rate.md -->
 ---
 title: "Standard Valuation Rate"
@@ -405,23 +324,23 @@ This section explains how negative stock entries lead to stock adjustments. Many
 
 They do this to dispatch materials to customers with a delivery receipt. To correct negative stock, they usually record a purchase receipt or material receipt. Most users post purchase entries after the delivery note date, resulting in stock adjustments. For example, consider an item called 'Testing Item Stock Adj' with no initial stock. If a delivery note is created for this item, an error appears requiring a valuation rate. The user temporarily sets the valuation rate to 100 to proceed.
 
-![item master](/files/item master.png)
+[Screenshot on the live page: item master]
 
 **Delivery Note** 
 
-![](/files/bUy86PL.png)
+[Screenshot on the live page]
 
 Since the stock did not exist, the system used a valuation rate of 100 and recorded the stock on hand as shown below.
 
-![gl-entry-negative-stock](/files/gl-entry-negative-stock.png)
+[Screenshot on the live page: gl-entry-negative-stock]
 
 Since the stock is negative, we need to record a purchase entry to correct it. We'll do this by creating a purchase receipt with a rate of 300.
 
-![](/files/9e9U8LG.png)
+[Screenshot on the live page]
 
 The purchase receipt entry is now created, but it occurs after the Delivery Note (verify the posting date and time for both). The Delivery Note has a valuation rate of 100, while the Purchase Receipt should have a valuation rate of 300 (reflecting the purchase cost). Since the stock was negative, the system applies a valuation rate of 100 (from the previous Delivery Note) for the Purchase Receipt. If it had used 300, the stock quantity would be zero, but the stock value would incorrectly be 200. To avoid this, the system uses a valuation rate of 100, and the discrepancy of 200 is recorded as a stock expense in the Stock Adjustment/COGS account.
 
-![cogs:stock_adjustment](/files/cogs:stock_adjustment.png)
+[Screenshot on the live page: cogs:stock_adjustment]
 
 ## How to Solve the Problem
 
@@ -429,13 +348,13 @@ Either don't use the negative stock feature or make the purchase entry (backdate
 
 
 
-![backdated-pr](/files/backdated-pr.png)
+[Screenshot on the live page: backdated-pr]
 
 
 
 On submission of the above back-dated purchase entry, the system will create a reposting entry that will fix the valuation rate of the delivery note. After the reposting, the Delivery Note's Valuation Rate changes from 100 to 300; therefore, the 'Stock In Hand' changes to 300.
 
-![stock-in-hand-after-repost](/files/stock-in-hand-after-repost.png)
+[Screenshot on the live page: stock-in-hand-after-repost]
 
 <!-- page: erpnext/erpnext__stock-balance-and-stock-account-balance-syncing.md -->
 ---
@@ -457,7 +376,7 @@ ERPNext shows the validation message so that new transactions do not build on an
 
 
 
-![Value out of sync validation message in ERPNext](https://docs.frappe.io/files/kh7A7Gv.png)
+[Screenshot on the live page: Value out of sync validation message in ERPNext]
 
 ## How to fix it
 
@@ -472,7 +391,7 @@ The Journal Entry adjusts the accounting balance so that it matches the stock le
 
 
 
-![Creating a Journal Entry to sync stock and stock account balance](https://docs.frappe.io/files/dd0SQji.gif)
+[Screenshot on the live page: Creating a Journal Entry to sync stock and stock account balance]
 
 ## Before submitting the Journal Entry
 
@@ -504,7 +423,7 @@ The user is required to create a stock closing entry for the desired period, whi
 
 Stock Closing Entry
 
-![](/files/stock-closing-entry.png)
+[Screenshot on the live page]
 
 Stock reports, such as Stock Balance and Batch-Wise Balance History, use the Stock Closing Balance data to calculate the opening stock, which is significantly faster than calculating the closing stock using the Stock Ledger Entry.
 
@@ -527,7 +446,7 @@ Material Issue entry create to issue item(s) from a warehouse. On submission of 
 
 Material Issue is generally made for the low value consumable items like office stationary, product consumables etc. Also you can create Material Issue to reconcile serialized and batched item's stock.
 
-![Material Issue](/files/stock-entry-issue.png)
+[Screenshot on the live page: Material Issue]
 
 #### 2.Purpose: Material Receipt
 
@@ -535,25 +454,25 @@ Material Receipt entry is created to inward stock of item(s) in a warehouse. Thi
 
 For the stock valuation purpose, provided Item Valuation becomes a mandatory field in the Material Receipt entry.
 
-![Material Receipt](/files/stock-entry-receipt.png)
+[Screenshot on the live page: Material Receipt]
 
 #### 3.Purpose: Material Transfer
 
 Material Transfer entry is created for the inter-warehouse Material Transfer.
 
-![Material Transfer](/files/stock-entry-transfer.png)
+[Screenshot on the live page: Material Transfer]
 
 #### 4.Purpose: Material Transfer for Manufacture
 
 In the manufacturing process, raw-materials are issued from the stores to the production department (generally WIP warehouse). This Material Transfer entry is created from Work Order. Items in this entry are fetched from the BOM of production Item, as selected in Work Order.
 
-![Transfer for Manufacture](/files/stock-entry-manufacture-transfer.gif)
+[Screenshot on the live page: Transfer for Manufacture]
 
 #### 5.Purpose: Manufacture
 
 Manufacture is created from Work Order. In this entry, both raw-material item as well as production item are fetched from the BOM, selected in the Work Order. For the raw-material items, only Source Warehouse (generally WIP warehouse) is mentioned. For the production item, only target warehouse as mentioned in the Work Order is updated. On submission, stock of raw-material items are deducted from Source Warehouse, which indicates that raw-material items were consumed in the manufacturing process. Production Item is added to the Target Warehouse marking the completion of production cycle.
 
-![Manufacture](/files/stock-entry-manufacture.gif)
+[Screenshot on the live page: Manufacture]
 
 #### 6.Purpose: Repack
 
@@ -563,7 +482,7 @@ Repack Entry is created when items purchases in bulk is repacked under smaller p
 
 Subcontracting transaction involves company transfer raw-material items to the sub-contractors warehouse. This requires adding a warehouse for the sub-contractor as well. Sub-contract entry transfers stock from the companies warehouse to the sub-contractors warehouse. [Check this page to know more about Subcontracting](/erpnext/subcontracting.html).
 
-![Subcontract](/files/stock-entry-subcontract.gif)
+[Screenshot on the live page: Subcontract]
 
 <!-- page: erpnext/erpnext__stock-entry.md -->
 ---
@@ -615,7 +534,7 @@ Stock Entries for Manufacturing purposes are usually created from a [Work Order]
 6. The basic rate will be fetched and the amount will be calculated automatically.
 7. Save and Submit.
 
-![Stock Entry](/files/stock-entry.png)
+[Screenshot on the live page: Stock Entry]
 
 Usually, "Source Warehouse" and "Target Warehouse" both are set for recording a movement.
 
@@ -630,7 +549,7 @@ Usually, "Source Warehouse" and "Target Warehouse" both are set for recording a 
 
 You can also create a Stock Entry Type where only the name will be different, for example 'Scrap Entry'. The purpose will be Material Transfer but the name will be different. This is useful if you want certain Users to have access only to specific actions related to stock.
 
-![Stock Entry Type](/files/stock-entry-type.png)
+[Screenshot on the live page: Stock Entry Type]
 
 
 
@@ -646,14 +565,14 @@ Ticking on 'Allow Zero Valuation Rate' will allow submitting the Stock Entry eve
 
 Different Source and Target Warehouses can be set for different Items.
 
-![](/files/imaged7013f.png)
+[Screenshot on the live page]
 
 ### 3.2 Scrap and Process Loss
 
 - **Scrap Item**: Scrap items are the by-product and can be treated as products. The scrap items will have the valuation rate and they will be added to the scrap warehouse. Users can set the valuation rate for the scrap item manually in the Basic Rate field.
 - **Process Loss**: Process Loss has no impact on the stock, this will reduce the number of FG Items. Check the below image, the user has planned to produce 100 FG Items but after the manufacturing process, the quantity has been produced as 80. To produce 80 FG Items, the user has used all raw material quantity. So here 20 quantity has been produced so therefore the system has marked it as Process Loss Qty. The process loss cost of 20 quantities has been added to the 80 quantities of FG Item.
 
-![](/files/CleanShot 2026-04-03 at 10.44.32@2x.png)
+[Screenshot on the live page]
 
 ### 3.3 Additional Costs
 
@@ -664,7 +583,7 @@ To add additional costs:
 1. Select the Expense Account to which the expense from this Stock Entry will be recorded.
 2. Enter the description and amount of the cost in the Additional Costs table.
 
-![Stock Entry Additional Costs](/files/additional-costs-table.png)
+[Screenshot on the live page: Stock Entry Additional Costs]
 
 
 
@@ -672,7 +591,7 @@ The added Additional Costs will be distributed among the receiving items (where 
 
 Quantity and Rate is shown as follows when you expand the Items table. 
 
-![Stock Entry Item Valuation Rate](/files/stock-entry-item-valuation-rate.png)
+[Screenshot on the live page: Stock Entry Item Valuation Rate]
 
 
 
@@ -701,11 +620,11 @@ Purchase Receipt headings can also be changed when printing the document. You ca
 
 If the perpetual inventory system is enabled, additional costs will be booked in Expense Account mentioned in the Additional Costs table .
 
-![Additional Costs General Ledger](/files/stock-entry-additional-cost.png)
+[Screenshot on the live page: Additional Costs General Ledger]
 
 
 
-![Additional Costs General Ledger](/files/additional-costs-general-ledger.png)
+[Screenshot on the live page: Additional Costs General Ledger]
 
 
 
@@ -713,7 +632,7 @@ If the perpetual inventory system is enabled, additional costs will be booked in
 
 After submitting a Stock Entry, you can go to the stock ledger or the accounting ledger from the dashboard.
 
-![Additional Costs General Ledger](/files/stock-entry-submit.png)
+[Screenshot on the live page: Additional Costs General Ledger]
 
 
 
@@ -725,11 +644,11 @@ If you want to transfer materials from one warehouse to another and you want to 
 
 To use "Add to Transit" feature, make stock entry with type as "Material Transfer" and enable "Add to Transit" checkbox. Next you need to select the source warehouse from where you want to issue the material and then select the warehouse of type "Transit" in the target warehouse. To make transit warehouse you can goto the Warehouse master and select the warehouse type as "Transit". After that add items in the stock entry which needs to be transfer and submit it.
 
-![](/files/CleanShot 2026-04-03 at 11.01.51@2x.png)
+[Screenshot on the live page]
 
 To make second stock entry at the destination warehouse, users has two options. Either they can open the Original Stock Entry and click on "End Transit" or they can create new stock entry and click on "Get Items From" -> "Transit Stock Entry". System will fetch items from the original stock entry with the source warehouse (Transit warehouse) same as traget warehouse from the original stock entry. User has to set the target warehouse and save.
 
-![](/files/CleanShot 2026-04-03 at 11.02.51@2x.png)
+[Screenshot on the live page]
 
 5. How to update a Stock Entry
 
@@ -798,7 +717,7 @@ It reflects the same value as entered in the *Rate* field of the document.
 
 Here is how Stock Ledger Report represents a **Stock Entry** of type *Material Receipt*.
 
-![Stock Ledger Report](/files/stock-ledger.png)
+[Screenshot on the live page: Stock Ledger Report]
 
 It reflects an item **Chair** of quantity *1000 units* with Incoming Rate (Basic Rate) as *Rs.3000* received in warehouse *Stores - L* along with calculating Valuation Rate and Balance Value.
 
@@ -842,3 +761,39 @@ Projected Qty = Actual Qty + Planned Qty + Requested Qty + Ordered Qty - Reserve
 The projected inventory is used by the planning system to monitor the reorder point and to determine the reorder quantity. The projected Quantity is used by the planning engine to monitor the safety stock levels. These levels are maintained to serve unexpected demands.
 
 Having a tight control of the projected inventory is crucial to determine shortages and to calculate the right order quantity.
+
+<!-- page: erpnext/erpnext__stock-masters.md -->
+---
+title: "Stock Masters"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/stock-masters"
+updated: "2026-03-06"
+---
+
+In ERPNext, the masters play a crucial role in managing stock-related data, such as items, warehouses, batches, and stock transactions. They provide a structured way to input, store, and retrieve data related to stock items, their attributes, and movements within the system.
+
+Masters in the stock enables businesses to maintain accurate inventory records, track stock movements, and make informed decisions regarding procurement, sales, and stock optimisation. The following are the quick links to some of the important masters in the stock module.
+
+- [Item](/erpnext/user/manual/en/item)
+- [Item Group](/erpnext/user/manual/en/item-group)
+- [Brand](/erpnext/user/manual/en/brand)
+- [Item Variants](/erpnext/user/manual/en/item-variants)
+- [Item Attribute](/erpnext/user/manual/en/item-attribute)
+- [Unit of Measure](/erpnext/user/manual/en/uom)
+
+<!-- page: erpnext/erpnext__stock-received-but-not-billed.md -->
+---
+title: "Purpose of Stock Received but not Billed\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/stock-received-but-not-billed"
+updated: "2026-03-02"
+---
+
+
+When purchased items are received, an accounts posting is done based on the value of the purchased items in the Stock-in-hand / fixed-assets account. When you sell and deliver those items, an expense (cost-of-goods-sold) is booked, equal to the buying cost of the items.
+
+As stock balance increases through Purchase Receipt, Warehouse account is debited and an adjustment account called **Stock Received But Not Billed** account is credited. At the same time, the negative expense is booked in account head having category as "Valuation" or "Total and Valuation" in taxes and charges table for the amount added for valuation purpose, to avoid double expense booking.
+
+On receiving Bill from the supplier, you will make Purchase Invoice against a Purchase Receipt. Here **Stock Received But Not Billed** account is debited, hence nullifies the balance in the Stock Received but not Billed Account.
+
+The balance in the Stock Received but not Billed account indicates the value of items for which Purchase Receipt has been made, but billing is pending.

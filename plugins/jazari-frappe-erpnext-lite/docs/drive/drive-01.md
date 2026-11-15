@@ -42,7 +42,7 @@ Put simply, access "bubbles" downwards. When a user tries to access an item, Dri
 
 ### Sharing
 You can share with specific users, specific teams, or the world:
-![](/files/Permissions%20Frappe%20Build.png)
+[Screenshot on the live page]
 
 If you share an item publicly, **anyone can access the file**. They will not need to login.
 
@@ -85,7 +85,7 @@ You dislike domination of Google and closed-source cloud solutions. Given the se
 To your horror, you click through them all - NextCloud, OwnCloud - and none of them satisfy you. They are slow. The UI is subpar. They feel flaky.
 
 And then you discover Frappe Drive.
-![](/files/Frappe%20Drive%20Image.png)
+[Screenshot on the live page]
 
 
 Aesthetic. Powerful. Reliable. 
@@ -122,13 +122,13 @@ Writer — the document editor
 <details>
 <summary><em>More screenshots</em></summary>
 
-![Image Preview](https://github.com/user-attachments/assets/993cbd87-a96c-4e5c-8737-0c03c9222723)
+[Screenshot on the live page: Image Preview]
 
-![File Sharing Dialog](https://github.com/user-attachments/assets/acb1a542-53d1-4d0e-b2e2-6c9b87f04e69)
+[Screenshot on the live page: File Sharing Dialog]
 
-![Editor](https://github.com/user-attachments/assets/fe87dfd1-3f55-42df-94b9-f7baed03a391)
+[Screenshot on the live page: Editor]
 
-![Editor with real time editing](https://github.com/user-attachments/assets/f89a2fab-e618-4d7d-90a6-aaa2cf45fa55)
+[Screenshot on the live page: Editor with real time editing]
 
 </details>
 
@@ -311,7 +311,7 @@ A team has a specific total storage limit, and a per-user limit. This can be con
 ## Storage settings
 Frappe Drive offers a comprehensive breakdown of your storage. You can see both the team's and your personal files'. We also highlight the files contributing most to your storage, if you wanted to cut down on your cloud storage.
 
-![](/files/Storage.png)
+[Screenshot on the live page]
 
 ## Adding Storage
 ### Frappe Cloud

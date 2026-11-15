@@ -46,7 +46,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   6. It will take a few seconds for site creation depending on the apps you have chosen
   7. Click on Visit Site at the top of the page to access your site
   8. After site creation you will see a message, you can proceed to complete the setup wizard by clicking on login. You must log in and complete the setup wizard on your site. Analytics will be collected only after the setup is complete
-- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 286–312  (https://docs.frappe.io/cloud/sites/creating-a-new-site)
+- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 153–179  (https://docs.frappe.io/cloud/sites/creating-a-new-site)
 
 ### Create a bench group on Frappe Cloud
 - **Path:** open https://frappecloud.com/dashboard (the Frappe Cloud dashboard) and find *Creating a new bench* — the documentation page below shows the screen
@@ -64,16 +64,16 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Create a server
 - **Path:** open https://frappecloud.com/dashboard (the Frappe Cloud dashboard) and find *Creating new server* — the documentation page below shows the screen
-- **Full page, bundled offline:** `docs/cloud/cloud-07.md` lines 140–228  (https://docs.frappe.io/cloud/servers/new)
+- **Full page, bundled offline:** `docs/cloud/cloud-07.md` lines 54–142  (https://docs.frappe.io/cloud/servers/new)
 
 ### Back up a Frappe Cloud site
 - **Path:** open https://frappecloud.com/dashboard → **Backups** in the sidebar
-- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 136–255  (https://docs.frappe.io/cloud/sites/backups)
+- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 3–122  (https://docs.frappe.io/cloud/sites/backups)
 
 ### Move a site between benches or servers
 - **Path:** open https://frappecloud.com/dashboard → **Migrations** in the sidebar
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 72–117  (https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
+- **Full page, bundled offline:** `docs/cloud/cloud-07.md` lines 990–1035  (https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
 
 ### Add a custom domain to a Frappe Cloud site
 - **Path:** open https://frappecloud.com/dashboard (the Frappe Cloud dashboard) and find *Custom Domains* — the documentation page below shows the screen
@@ -82,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. After adding the DNS record, open your site dashboard
   3. From the site overview page, go to Domains card
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 314–527  (https://docs.frappe.io/cloud/sites/custom-domains)
+- **Full page, bundled offline:** `docs/cloud/cloud-08.md` lines 181–394  (https://docs.frappe.io/cloud/sites/custom-domains)
 
 ### Manage billing and payments
 - **Path:** open https://frappecloud.com/dashboard (the Frappe Cloud dashboard) and find *Bill Payments* — the documentation page below shows the screen
@@ -105,12 +105,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Click on Apps tab of your Site's dashboard
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/cloud/cloud-05.md` lines 3–61  (https://docs.frappe.io/cloud/installing-an-app)
+- **Full page, bundled offline:** `docs/cloud/cloud-04.md` lines 945–1003  (https://docs.frappe.io/cloud/installing-an-app)
 
 ### Publish an app to the marketplace
 - **Path:** open https://frappecloud.com/dashboard (the Frappe Cloud dashboard) and find *Publishing an App to Marketplace* — the documentation page below shows the screen
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/cloud/cloud-05.md` lines 778–840  (https://docs.frappe.io/cloud/marketplace/publishing-an-app-to-marketplace)
+- **Full page, bundled offline:** `docs/cloud/cloud-05.md` lines 718–780  (https://docs.frappe.io/cloud/marketplace/publishing-an-app-to-marketplace)
 
 ### Change a site plan
 - **Path:** open https://frappecloud.com/dashboard (the Frappe Cloud dashboard) and find *Change a site plan* — the documentation page below shows the screen
@@ -127,7 +127,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. web.log and web.err.log. These correspond to the STDOUT and STDERR streams of the web process. These handle the individual web requests to your site
   2. worker.log and worker.err.log. These correspond to the STDOUT and STDERR streams of the background workers. These run the background jobs
-- **Full page, bundled offline:** `docs/cloud/cloud-05.md` lines 544–574  (https://docs.frappe.io/cloud/logs)
+- **Full page, bundled offline:** `docs/cloud/cloud-05.md` lines 484–514  (https://docs.frappe.io/cloud/logs)
 
 ## What cannot be done in the interface
 

@@ -1,543 +1,5 @@
 <!-- Frappe documentation: erpnext, part 30 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__how-to-restore-deleted-documents-in-erpnext.md -->
----
-title: "Restore Deleted Documents"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-restore-deleted-documents-in-erpnext"
-updated: "2026-03-04"
----
-
-**Use Case:** Need to restore/ retrieve the documents that were deleted.  
-**Steps:**  
-1) Go to Settings > Deleted Documents (or search for "Deleted Document list" in the search bar).  
-2) Search for the deleted document. You can also filter out the document based on the Deleted DocType. For example we need to restore the Purchase Order, PUR-ORD-2019-00019. To do so, search for the same in the deleted document list and open it.  
-![](/files/x1l4m9r.png)  
-3) Click on the "Restore" button as shown below. Also note the Data box which gives the information on various fields of the document. This helps you confirm whether it is the same document you want to restore.  
-![](/files/5sXm7Xi.png)  
-4) Once the Restore button is clicked, the document gets restored in Draft State with a New Name according to the Naming Series.  
-![](/files/IRC4OKh.png)  
-![](/files/sxprDuY.png)  
-  
-5) You can directly open the newly restored document through the "Open" button or search for the same in that document's list (in this case, Purchase Order list).  
-![](/files/YBy5CQ4.png)  
-![](/files/mOroVFj.png)  
-![](/files/LBYeWKK.png)
-
-<!-- page: erpnext/erpnext__how-to-setup-seo-for-your-website-on-erpnext.md -->
----
-title: "3 Step SEO for your ERPNext Website"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-setup-seo-for-your-website-on-erpnext"
-updated: "2026-03-04"
----
-
-SEO stands for **Search Engine Optimisation** and is the process of increasing the quality and quantity of website traffic by increasing the visibility of a website or a web page to users of a web search engine. SEO refers to the improvement of unpaid results and excludes direct traffic/visitors and the purchase of paid placement.  
-![](/files/v8xyHVF.jpe)  
-  
-Having a presence in the top positions for keywords that your prospects are looking for will increase the probability of your business expansion. Enhance the visibility of your products and offerings by optimizing SEO and using it to maximize the social promotion of your website.   
-You can setup meta tags in ERPNext within 3 steps:  
-**Step 1: Using awesome bar (Global search bar), open "New Website Route Meta"**  
-![](/files/HDg5x4Z.png)  
-  
-**Step 2: Enter the key and value for the meta tag. In our example, we are making it for privacy, and have entered the key and value as below:**  
-![](/files/EX4HzWm.png)  
-**Step 3: Save this document.**  
-![](/files/hmVrshs.png)  
-**Watch SEO in action on your webpage. In this case, the webpage "privacy" holds the corresponding meta tag:**  
-![](/files/Zqx92Q5.png)  
-To learn more about Websites in ERPNext, click [here](https://erpnext.com/docs/user/manual/en/website)
-
-<!-- page: erpnext/erpnext__how-to-short-close-multiple-orders-in-erpnext.md -->
----
-title: "Short Close Multiple Orders | ERPNext Documentation"
-description: "Learn how to bulk close or reopen multiple Sales Orders in ERPNext while preserving fulfilled quantities and linked transactions."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-short-close-multiple-orders-in-erpnext"
-updated: "2026-07-24"
----
-
-Use the Sales Order list to close several submitted orders whose remaining quantities will no longer be delivered or billed. Bulk closing keeps every [Sales Order](/erpnext/sales-order) and its linked transactions in the audit trail while removing outstanding balances from active fulfilment.
-
-> Closing is not deletion. The orders, completed deliveries, invoices, and payments remain available.
-
-## Before you begin
-
-Review the selected orders and confirm that:
-
-- Each order is submitted and still open.
-- Any quantity accepted by the customer has already been handled through a [Delivery Note](/erpnext/delivery-note) or [Sales Invoice](/erpnext/sales-invoice).
-- The customer does not want the remaining quantity fulfilled.
-- You are not selecting a draft, completed, cancelled, or already closed order by mistake.
-
-Use [Cancel and Amend](/erpnext/amending-sales-order-after-submit) instead when the original order contains incorrect information.
-
-## Close multiple Sales Orders
-
-1. Open the **Sales Order** list.
-2. Use filters such as **Company**, **Customer**, **Delivery Status**, or **Billing Status** to narrow the list.
-3. Select the checkbox beside each order you want to close.
-4. Select **Actions**.
-5. Select **Close**, as highlighted.
-
-![Select Sales Orders and use Actions to close them](https://novacompanies.m.frappe.cloud/files/select-and-close.png)
-
-ERPNext changes eligible orders to **Closed**. Review the list after the operation and confirm that each intended order has the correct status.
-
-A closed order cannot create new Delivery Notes or Sales Invoices against its outstanding quantity. Submitted downstream documents remain linked and unchanged.
-
-## Reopen multiple Sales Orders
-
-Reopen orders when fulfilment should continue:
-
-1. Filter the Sales Order list to show **Closed** orders.
-2. Select the required orders.
-3. Select **Actions**.
-4. Select **Re-open**, as highlighted.
-
-![Select closed Sales Orders and use Actions to reopen them](https://novacompanies.m.frappe.cloud/files/select-and-reopen.png)
-
-After reopening, verify the outstanding quantities before creating a [Pick List](/erpnext/pick-list), Delivery Note, or Sales Invoice.
-
-## What happens to partially fulfilled orders
-
-If an order is partly delivered or partly billed, closing affects only the outstanding balance. Completed transactions remain valid.
-
-For example, if five selected orders each contain 10 units and 8 units have already been delivered, closing the orders removes the remaining 2 units per order from pending fulfilment. It does not reverse the 8 delivered units.
-
-Use [Partial Fulfilment of Sales Order](/erpnext/partial-fulfilment-of-sales-order) when the balance is still expected later. Use [Sales Return](/erpnext/sales-return) when delivered goods are coming back.
-
-## Troubleshooting
-
-### Close is not available under Actions
-
-Confirm that you selected at least one Sales Order and that your role has permission to update submitted orders. An administrator can review [Role-Based Permissions](/erpnext/role-based-permissions).
-
-### Some selected orders were not closed
-
-A mixed selection can include ineligible documents, such as drafts, completed orders, cancelled orders, or orders already closed. Filter the list by status and retry only with eligible submitted orders.
-
-### The wrong orders were closed
-
-Select the affected orders and use **Actions > Re-open**. Then review the intended selection before closing again.
-
-### Pending quantities still appear in a report
-
-Refresh the report and check its company, date, and status filters. Also confirm that the Sales Order itself shows **Closed**.
-
-## Frequently asked questions
-
-### Does bulk close cancel linked Delivery Notes or Sales Invoices?
-
-No. It closes only the outstanding Sales Order balance.
-
-### Can I close orders from different customers together?
-
-Yes, provided every selected order is eligible. Filtering by customer or company reduces selection mistakes.
-
-### Can I use the same process for Purchase Orders?
-
-The Purchase Order list provides equivalent bulk close and reopen actions for eligible orders. Review each order type separately before applying a bulk action.
-
-### Is there an undo button?
-
-There is no single undo command. Use **Re-open** for the selected closed orders.
-
-## Related topics
-
-- [Close Sales Order](/erpnext/close-sales-order)
-- [Amending Sales Order after Submit](/erpnext/amending-sales-order-after-submit)
-- [Sales Order Statuses](/erpnext/sales-order#statuses)
-
-<!-- page: erpnext/erpnext__how-to-sync-doc-types-with-calendar.md -->
----
-title: "Sync DocTypes with Events Calendar"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-to-sync-doc-types-with-calendar"
-updated: "2026-03-04"
----
-
-Create calendar view for sales order, sales invoice or any other doc-types by following these simple steps  
-* Type 'Calendar View List' in the awesome bar/ Search bar.
-* Click on new to create a new Calendar List
-* Select the Reference Doc-Type you want to be view in the calendar. Eg: Sales Order
-* Set the Start date and End date fields. Eg: Delivery Date.
-* Save your changes.
-
-  
-  
-![](https://frappe.erpnext.com/files/A2YkNIX.gif)  
-  
-![](/files/zrv75bC.png)
-
-<!-- page: erpnext/erpnext__how-transactions-affect-the-ledger.md -->
----
-title: "How Transactions Affect the Ledger | ERPNext Documentation"
-description: "Learn how ERPNext invoices, payments, stock transactions, assets, returns, and adjustments create General Ledger, Payment Ledger, and Stock Ledger entries."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/how-transactions-affect-the-ledger"
-updated: "2026-07-30"
----
-
-ERPNext creates ledger entries when an accounting or stock transaction is submitted. The source document describes what happened in the business; the generated entries record its financial effect. Understanding this connection helps you verify setup, investigate balances, and choose the correct document for a workflow.
-
-```mermaid
-flowchart LR
-    A["Draft document"] -->|"Submit"| B["Submitted document"]
-    B --> C["GL Entries"]
-    B --> D["Payment Ledger Entries"]
-    B --> E["Stock Ledger Entries, when applicable"]
-    C --> F["Financial reports"]
-    D --> G["Outstanding and ageing reports"]
-    E --> H["Stock balance and valuation reports"]
-```
-
-
-
-## When a transaction affects the books
-
-A draft normally has no ledger effect. On submission, ERPNext validates the posting date, company, currency, accounts, cost centers, dimensions, totals, and debit-credit balance. If validation succeeds, it creates the applicable entries.
-
-The **Posting Date** determines the accounting period. The document's creation date and submission time may be different. If stock is involved, **Posting Time** can also affect the sequence used for stock valuation.
-
-Cancelling a submitted transaction reverses its ledger effect if cancellation is allowed. ERPNext does not simply remove the original history. This supports the [immutable ledger](/erpnext/immutable-ledger-in-erpnext) and makes the sequence of posting and reversal traceable. To correct and replace a document, cancel it and create an amended copy.
-
-## The ledgers serve different purposes
-
-
-| Ledger             | Primary purpose                                                                       | Common sources                                                           |
-| ------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| **General Ledger** | Records debit and credit amounts by account                                           | Invoices, payments, journal entries, stock transactions, assets, payroll |
-| **Payment Ledger** | Tracks receivable and payable references, allocations, and outstanding amounts        | Invoices, payments, credit notes, journal entries                        |
-| **Stock Ledger**   | Tracks quantity, incoming rate, valuation rate, and stock value by Item and Warehouse | Receipts, deliveries, stock entries, stock-updating invoices             |
-
-
-One document can affect more than one ledger. For example, a stock-updating Sales Invoice records income and receivable in the General Ledger, reduces inventory in both the Stock and General Ledgers, and creates the Customer's outstanding amount in the Payment Ledger.
-
-## Common transaction effects
-
-The entries below show the normal pattern. Actual account names come from the Company, Item, Item Group, Warehouse, party, and tax configuration.
-
-### Sales Invoice
-
-Submitting a [Sales Invoice](/erpnext/sales-invoice) normally records:
-
-
-| Account             | Debit         | Credit     |
-| ------------------- | -------------: | ----------: |
-| Customer receivable | Invoice total |            |
-| Income              |               | Net sales  |
-| Output tax payable  |               | Tax amount |
-
-
-The Customer's outstanding amount remains open until it is paid, allocated, written off, or reversed.
-
-If **Update Stock** is enabled, the same invoice also reduces stock:
-
-
-| Account            | Debit          | Credit         |
-| ------------------ | --------------: | --------------: |
-| Cost of goods sold | Valuation cost |                |
-| Stock asset        |                | Valuation cost |
-
-
-Without **Update Stock**, a Delivery Note normally records the stock and cost effect separately.
-
-### Purchase Invoice
-
-Submitting a [Purchase Invoice](/erpnext/purchase-invoice) normally records:
-
-
-| Account               | Debit        | Credit        |
-| --------------------- | ------------: | -------------: |
-| Expense or asset      | Net purchase |               |
-| Recoverable input tax | Tax amount   |               |
-| Supplier payable      |              | Invoice total |
-
-
-When perpetual inventory is used with a Purchase Receipt, the Purchase Invoice can clear the **Stock Received But Not Billed** account rather than debit stock again. This prevents the same receipt from being capitalized twice.
-
-### Payment Entry
-
-An incoming [Payment Entry](/erpnext/payment-entry) normally debits Bank or Cash and credits the Customer receivable account. An outgoing payment debits the Supplier payable account and credits Bank or Cash. An internal transfer moves value between two cash or bank accounts.
-
-Payment allocation is separate from the cash posting. A payment can:
-
-- settle one invoice;
-- be divided across several invoices;
-- partially settle an invoice;
-- remain unallocated for later use;
-- be recorded as an advance against an order.
-
-Use [Payment Reconciliation](/erpnext/payment-reconciliation) to connect existing payments or credits to invoices without recording the money again.
-
-### Credit Note and Debit Note
-
-A return Sales Invoice, commonly called a Credit Note, reverses or reduces sales, tax, receivable, and stock effects according to the selected return options. A return Purchase Invoice, commonly called a Debit Note, reverses or reduces purchase, tax, payable, and stock effects.
-
-Create returns against the original invoice whenever possible. The reference improves traceability and updates the original document's returned and outstanding values.
-
-### Journal Entry
-
-A [Journal Entry](/erpnext/journal-entry) posts the debit and credit rows entered by an authorized user. It is suitable for accruals, provisions, reclassifications, opening entries, write-offs, inter-account transfers, and other adjustments without a more specific transaction.
-
-Do not replace a Sales Invoice, Purchase Invoice, or Payment Entry with a generic Journal Entry merely to save time. Specialized documents carry parties, taxes, items, due dates, stock behavior, and operational references that a manual entry may not provide.
-
-### Delivery Note and Purchase Receipt
-
-With perpetual inventory:
-
-- A [Delivery Note](/erpnext/delivery-note) credits the Warehouse's stock asset account and debits cost of goods sold.
-- A [Purchase Receipt](/erpnext/purchase-receipt) debits the Warehouse's stock asset account and credits stock received but not billed.
-
-These documents do not normally create Customer receivables or Supplier payables. Billing happens when the invoice is submitted.
-
-### Stock Entry and Stock Reconciliation
-
-A Stock Entry changes quantity and value for material receipt, issue, transfer, manufacture, and repack operations. Transfers can move value between Warehouse accounts. Manufacturing entries consume component value and add the resulting value to finished goods.
-
-[Stock Reconciliation](/erpnext/stock-reconciliation) sets counted quantities and valuation rates at a point in time. The difference is posted to the configured stock adjustment account when perpetual inventory is active.
-
-### Assets and depreciation
-
-Buying or capitalizing an Asset records its value in an asset account. Submitted depreciation entries debit depreciation expense and credit accumulated depreciation. Asset sale, disposal, scraping, and value adjustment create additional entries based on the Asset's current book value and proceeds.
-
-### Payroll and expenses
-
-Payroll entries generally debit salary and benefit expenses and credit payroll payables. Paying employees clears the liability against Bank. An [Expense Claim](/erpnext/expense-claim) records the approved expense and an amount payable to the employee; payment later clears that payable.
-
-### Deferred revenue and expense
-
-When deferred accounting is configured on an invoice item, the invoice first posts to a deferred account. ERPNext then recognizes income or expense across the configured service period through scheduled accounting entries. This separates billing date from recognition period.
-
-### Foreign-currency transactions
-
-ERPNext stores the party or account currency amount and its value in the Company's base currency. The invoice uses the exchange rate on its posting date. If settlement uses a different rate, the difference is posted as exchange gain or loss.
-
-An [Exchange Rate Revaluation](/erpnext/exchange-rate-revaluation) adjusts eligible open foreign-currency balances for reporting at a selected date. Revaluation entries should be distinguished from realized differences created during payment.
-
-## Commitment documents versus ledger documents
-
-Not every submitted business document posts accounting entries.
-
-
-| Document         | Business effect                         | Usual ledger effect                                        |
-| ---------------- | --------------------------------------- | ---------------------------------------------------------- |
-| Quotation        | Offer to a prospect or Customer         | None                                                       |
-| Sales Order      | Customer commitment and fulfilment plan | None, except linked advances recorded separately           |
-| Purchase Order   | Commitment to a Supplier                | None, except linked advances recorded separately           |
-| Delivery Note    | Goods delivered                         | Stock and cost entries with perpetual inventory            |
-| Purchase Receipt | Goods received                          | Stock and receipt accrual entries with perpetual inventory |
-| Sales Invoice    | Customer billing                        | Income, tax, receivable, and optional stock                |
-| Purchase Invoice | Supplier billing                        | Expense or asset, tax, payable, and optional stock         |
-| Payment Entry    | Movement of money                       | Bank or cash and party account                             |
-
-
-Orders affect operational reports even when they do not affect the General Ledger. They can reserve or plan stock, track fulfilment, establish payment schedules, and provide references for advances.
-
-## Trace an amount from document to report
-
-1. Open the submitted transaction.
-2. Use **View &gt; Accounting Ledger** to inspect its GL Entries.
-3. Confirm that total debits equal total credits and that the posting date, accounts, party, cost center, project, and dimensions are correct.
-4. If stock is involved, open **Stock Ledger** and compare the quantity and valuation effect.
-5. Review the [General Ledger](/erpnext/general-ledger) for the account and voucher.
-6. Review Accounts Receivable or Accounts Payable when an outstanding amount is involved.
-7. Open the relevant financial statement and drill into the amount when further analysis is needed.
-
-If the source document is correct but the account is wrong, inspect Company defaults, Item and Item Group defaults, Warehouse accounts, party accounts, tax templates, and rules. Correct configuration before posting additional transactions.
-
-## What downstream documents created directly can change
-
-ERPNext allows many downstream documents to be created without an order or receipt. A direct invoice can be valid, but it loses the upstream reference and its operational controls.
-
-- A direct Sales Invoice bills the Customer but does not update a Sales Order's billed percentage.
-- A direct Delivery Note reduces stock but does not update an order's delivered percentage.
-- A direct Purchase Invoice creates a payable but does not update a Purchase Order's billed percentage.
-- A direct stock-updating invoice combines stock and billing, so there is no separate delivery or receipt document.
-
-Choose the shorter path only when the business does not need the omitted commitment, approval, fulfilment, or audit milestone. See [Accounting Workflows by Business Type](/erpnext/accounting-workflows-by-business-type) for workflow choices.
-
-## Troubleshooting
-
-
-| Problem                                       | What to check                                                                                                                |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| A submitted document has no expected GL Entry | Confirm whether the document is a commitment or ledger document, then check perpetual inventory and stock-update settings.   |
-| The wrong income or expense account was used  | Review Item, Item Group, Company, and party defaults in their precedence order.                                              |
-| The invoice is paid but still outstanding     | Check Payment Entry references and allocations; reconcile an unallocated payment if necessary.                               |
-| Stock Ledger and General Ledger values differ | Check backdated stock entries, valuation reposting, cancelled vouchers, and the Stock and Account Balance Comparison report. |
-| A backdated correction is blocked             | Check Accounts Frozen Upto, Accounting Period restrictions, permissions, and the requested posting date.                     |
-
-
-## Related topics
-
-- [Accounting Introduction](/erpnext/accounting-introduction)
-- [Understanding Debit and Credit](/erpnext/understand-debit-and-credit)
-- [General Ledger](/erpnext/general-ledger)
-- [Payment Entry](/erpnext/payment-entry)
-- [Perpetual Inventory](/erpnext/perpetual-inventory)
-- [Accounting Reports](/erpnext/accounting-reports)
-
-<!-- page: erpnext/erpnext__immutable-ledger-in-erpnext.md -->
----
-title: "Immutable Ledger | ERPNext Documentation"
-description: "Understand ERPNext immutable ledger behavior, cancellation reversals, backdated stock reposting, audit trails, correction workflows, and closed-period controls."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/immutable-ledger-in-erpnext"
-updated: "2026-08-14"
----
-
-After Nova Industries closes a month, an accountant discovers that a submitted invoice was wrong. Quietly replacing its original ledger rows would make the audit trail impossible to trust because reviewers could no longer see what was posted first.
-
-
-
-ERPNext's immutable ledger keeps the original accounting and stock entries and records matching reversals when a transaction is cancelled. Corrections are made through traceable follow-up documents instead of silently rewriting history.
-
-
-
-This design makes period reviews, audits, and reconciliations more reliable because every posting and reversal remains visible.
-
-
-
-## Why the ledger is protected
-
-Accounting and stock transactions form ordered histories. A backdated change can affect later records:
-
-- Under FIFO valuation, inserting or changing an earlier stock movement can change which inventory layers are consumed later.
-- Under moving-average valuation, it can change later valuation rates and Cost of Goods Sold.
-- A changed invoice or tax entry can alter reports or tax declarations for an earlier period.
-- Recomputing every later stock or accounting entry can be expensive on a large database.
-
-The [General Ledger](https://docs.frappe.io/erpnext/general-ledger) and [Stock Ledger](https://docs.frappe.io/erpnext/stock-ledger-report) therefore retain traceable posting rows and use supported correction and reposting logic rather than inviting users to edit or delete ledger entries directly.
-
-## What happens when you cancel a transaction
-
-Consider a submitted [Journal Entry](https://docs.frappe.io/erpnext/journal-entry) that debits Office Maintenance Expense by $120 and credits Nova Operating Bank by $120. Cancelling the document changes its status to **Cancelled**.
-
-
-
-![A cancelled Journal Entry in ERPNext](https://novacompanies.m.frappe.cloud/files/immutable-ledger-20260802-immutable-ledger-cancelled-document.png)
-
-ERPNext retains the original debit and credit and adds opposite rows for the same voucher. The combined effect is zero, but the audit trail still shows what was posted and how it was cancelled.
-
-
-
-![Original and reversal rows for a cancelled Journal Entry in the General Ledger](https://novacompanies.m.frappe.cloud/files/immutable-ledger-20260802-immutable-ledger-reversal-entries.png)
-
-In the General Ledger report, enable **Show Cancelled Entries** to see these rows. Without that filter, cancelled rows are excluded from normal balances so the report shows only active accounting effects.
-
-The same principle applies to posting documents such as a [Payment Entry](https://docs.frappe.io/erpnext/payment-entry), [Sales Invoice](https://docs.frappe.io/erpnext/sales-invoice), and [Purchase Invoice](https://docs.frappe.io/erpnext/purchase-invoice). The exact linked records and reversal logic depend on the document.
-
-## Why cancelled transactions cannot normally be deleted
-
-A cancelled posting document remains the source of its original and reversal ledger rows. Deleting it would break that audit trail and remove the business context behind the entries. ERPNext therefore prevents normal deletion of cancelled documents linked to ledger entries.
-
-If a document is wrong, use its supported correction workflow:
-
-
-| Situation                                                    | Recommended correction                                                                                   |
-| ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| Draft is wrong                                               | Edit or delete the draft before submission.                                                              |
-| Submitted invoice is wrong                                   | Cancel and amend when the period and links permit it.                                                    |
-| Customer returns goods                                       | Create a return or [Credit Note](https://docs.frappe.io/erpnext/credit-note).                            |
-| Supplier return or rate correction                           | Create the appropriate return or [Debit Note](https://docs.frappe.io/erpnext/debit-note).                |
-| Journal needs an opposite entry without cancellation         | Use **Reverse Journal Entry** and review the generated draft.                                            |
-| Source document is correct but generated accounting is stale | Use [Repost Accounting Ledger](https://docs.frappe.io/erpnext/repost-accounting-ledger) after diagnosis. |
-
-
-Do not delete GL Entry or Stock Ledger Entry rows through the database or API. Those rows are system-generated evidence, not transaction-entry forms.
-
-## Backdated stock transactions and reposting
-
-The original immutable-ledger release placed a strict restriction on stock transactions dated before a later movement for the same item and warehouse. For example, after posting Item A at `19-06-2020 23:00:10`, an earlier posting could be blocked because recalculating all later FIFO or moving-average values was expensive.
-
-Current ERPNext builds include controlled stock-reposting infrastructure. A permitted backdated stock transaction can create a **Repost Item Valuation** job so later Stock Ledger Entries are recalculated in sequence. Whether the transaction is accepted also depends on Stock Settings, negative-stock rules, frozen periods, Accounting Period restrictions, serial and batch constraints, and other validations.
-
-
-
-![Repost Item Valuation records created for stock recalculation](https://novacompanies.m.frappe.cloud/files/immutable-ledger-20260802-immutable-ledger-repost-item-valuation.png)
-
-This means you should not assume that every backdated stock transaction is always prohibited, or that every backdated transaction is safe. Enter transactions promptly and in chronological order. When a backdated correction is unavoidable:
-
-1. Confirm that the posting period is open under [Freeze Accounting Entries](https://docs.frappe.io/erpnext/freeze-accounting-entries) and [Accounting Period](https://docs.frappe.io/erpnext/accounting-period).
-2. Check the item, warehouse, batch, serial number, posting date, and posting time.
-3. Submit the smallest necessary correction.
-4. Allow any Repost Item Valuation job to complete.
-5. Verify the Stock Ledger, Stock Balance, valuation rate, stock value, and affected accounting reports.
-
-Large or old corrections can require substantial processing. Test them on a restored backup when they can materially change valuation or closed reports.
-
-## Corrections in a closed period
-
-Immutable-ledger behavior does not replace period controls. A submitted [Period Closing Voucher](https://docs.frappe.io/erpnext/period-closing-voucher), frozen date, or Accounting Period can block cancellation, amendment, or reposting.
-
-Do not change a closed period simply to make an error disappear. Decide with your accountant whether to reopen the period under controlled approval, post an adjustment in the current open period, issue a return or credit note, or create a reversal Journal Entry. The correct treatment depends on reporting and regulatory requirements.
-
-## Verify the audit trail
-
-After any correction:
-
-1. Open the source document and confirm its status and amended-from or return reference.
-2. Use **View &gt; Ledger** or filter the General Ledger by voucher number.
-3. Enable **Show Cancelled Entries** when you need to inspect reversal rows.
-4. For stock documents, review the Stock Ledger Report and any Repost Item Valuation record.
-5. Confirm that active balances are correct and that original plus reversal rows net to zero where expected.
-6. Recheck the Profit and Loss Statement, Balance Sheet, stock valuation, tax reports, and outstanding balances affected by the change.
-
-## Troubleshooting
-
-### A cancelled voucher does not appear in the General Ledger
-
-Enable **Show Cancelled Entries** in the report filters. Cancelled rows are hidden from the normal report because their net accounting effect is zero.
-
-### ERPNext will not let me delete a cancelled transaction
-
-This is expected when the document has linked ledger entries. Keep the cancelled source document as part of the audit trail. Create the corrected document through amendment, return, or another supported workflow.
-
-### A backdated stock transaction is blocked
-
-Read the validation message before changing settings. Check later stock movements, negative stock, batches or serial numbers, frozen dates, closed Accounting Periods, and permissions. Do not alter the posting time merely to bypass valuation controls.
-
-### Stock values changed after a backdated posting
-
-The repost recalculated later FIFO or moving-average values. Wait for Repost Item Valuation to finish, then compare the Stock Ledger before and after the inserted transaction and verify related Cost of Goods Sold entries.
-
-### A cancellation is blocked by a closed period
-
-Follow your approved period-correction policy. You may need accounting authorization to reopen the period or to post a current-period reversal or adjustment instead.
-
-## FAQs
-
-### Is immutable ledger a blockchain?
-
-No, It is ERPNext's application-level audit and posting design. It retains and reverses ledger effects through database records; it is not a distributed blockchain network.
-
-### Can System Manager delete GL Entries directly?
-
-Normal business corrections should never be made by deleting GL Entries. Correct the source document through a supported workflow so linked ledgers and reports remain consistent.
-
-### Does cancelling a document erase its original accounting entry?
-
-No, The original rows and opposite cancellation rows remain available as cancelled entries. Their combined effect is zero in active balances.
-
-### Are all backdated stock entries prohibited?
-
-No, Current ERPNext can process permitted backdated entries through controlled valuation reposting, but validations and period controls still apply. Backdating can change later valuations and should be used carefully.
-
-### Is Repost Accounting Ledger the same as cancelling a transaction?
-
-No, Cancellation removes the active business and accounting effect through reversal logic. Reposting regenerates ledger entries from a source document that remains submitted and valid.
-
-## Related topics
-
-- [General Ledger](https://docs.frappe.io/erpnext/general-ledger)
-- [Stock Ledger Report](https://docs.frappe.io/erpnext/stock-ledger-report)
-- [Journal Entry](https://docs.frappe.io/erpnext/journal-entry)
-- [Repost Accounting Ledger](https://docs.frappe.io/erpnext/repost-accounting-ledger)
-- [Period Closing Voucher](https://docs.frappe.io/erpnext/period-closing-voucher)
-- [Accounting Entries](https://docs.frappe.io/erpnext/accounting-entries)
-
 <!-- page: erpnext/erpnext__import-accounting-masters.md -->
 ---
 title: "Import Accounting Masters | ERPNext Documentation"
@@ -569,7 +31,7 @@ For example, import Customer Groups and Territories before Customers, and Item G
 5. Download the template.
 6. Include only the columns needed for the approved mapping.
 
-![Data Import configured for a migration master](/files/data-import.webp)
+[Screenshot on the live page: Data Import configured for a migration master]
 
 Do not build a template from memory. Current mandatory and dependent fields may differ from an older version.
 
@@ -695,7 +157,7 @@ Use Stock Reconciliation with an opening purpose:
 5. Verify the total stock value.
 6. Submit after quantity and value totals match the approved stock report.
 
-![Stock Reconciliation configured for opening stock](/files/stock-reconciliation-opening.webp)
+[Screenshot on the live page: Stock Reconciliation configured for opening stock]
 
 Do not import stock value again through the opening Journal Entry when perpetual inventory creates the accounting balance.
 
@@ -775,7 +237,7 @@ ERPNext has a feature to import supplier invoices from XML files provided by sup
 ### 2. How to use Import Supplier Invoice
 
 1. Navigate to Import Supplier Invoice doctype from the global search bar and enter the Invoice Series, Company, Supplier Group, Tax Account, Item Code and Default Buying Price List.
- ![](/files/import_einvoice.png)
+ [Screenshot on the live page]
 
  - Invoice Series - The series with which the new Purchase Invoices will be created.
  - Company - The company for which the new Purchase Invoices will be created.
@@ -789,10 +251,10 @@ ERPNext has a feature to import supplier invoices from XML files provided by sup
 3. Attach the zip file with XML invoices.
 
 4. Click on Import invoices and the Purchase Invoices will be created. Suppliers would be created if they do not exist in the system already.
- ![](/files/purchase_invoices_created.png)
+ [Screenshot on the live page]
 
 5. If the file import completes successfully you would see a status of File Import Completed. If there are any errors you can view them from the Error Log.
- ![](/files/file_import_completed.png)
+ [Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__include-document-link-in-notification-email.md -->
 ---
@@ -805,13 +267,521 @@ updated: "2026-03-04"
 While sending an email notification in ERPNext, many a times, we need the document ID to be a part of the email message as a link. For example, if we have set a reminder (notification) for every new Material Request, then we would want the link of the new Material Request to be also sent in email to us. To set that up, following the below steps:  
 1) Go to Notification list, click on New.  
 2) Create a new Notification for any DocType. In this case, we have taken an example of sending an Email Notification on creation of every new Material Request as shown below.  
-![](/files/6WPgqY6.png)  
+[Screenshot on the live page]  
   
 3) To send the document ID of the associated record as a link, copy the below snippet in the email message: 
     
     `<a href="{{frappe.utils.get_url_to_form(doc.doctype, doc.name)}}">{{doc.name}}</a>`  
-    ![](/files/vHK6tDW.png)  
+    [Screenshot on the live page]  
 4) Now on creation of a new Material Request, following email will be received because of the above set Notification.  
-![](/files/3WOeTEv.png)  
+[Screenshot on the live page]  
 On clicking the link, you will be taken to the new Material Request.  
-![](/files/4hB36zh.png)   
+[Screenshot on the live page]   
+
+<!-- page: erpnext/erpnext__incoterm-and-named-place.md -->
+---
+title: "Record Incoterms and Named Places | ERPNext Documentation"
+description: "Record an Incoterm and its named place on ERPNext sales and purchase transactions so delivery responsibilities are captured consistently."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/incoterm-and-named-place"
+updated: "2026-07-25"
+---
+
+Use **Incoterm** and **Named Place** to record the agreed trade term and location on sales and purchase transactions. Together they provide commercial context about delivery responsibilities, costs, and risk transfer.
+
+ERPNext records the agreement. It does not interpret the legal obligations, calculate every freight or insurance charge, or replace the complete contract.
+
+## Before you begin
+
+Confirm:
+
+- The Incoterm edition and term agreed with the counterparty.
+- The exact named port, terminal, warehouse, city, or other place.
+- Currency, freight, insurance, taxes, and delivery terms.
+- Whether the term is appropriate for the transport mode.
+
+Seek qualified trade or legal advice when choosing the term. A short code without a named place is incomplete for many practical uses.
+
+## Add an Incoterm to a transaction
+
+The fields are available on supported documents such as a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), [Delivery Note](/erpnext/delivery-note), [Sales Invoice](/erpnext/sales-invoice), [Purchase Order](/erpnext/purchase-order), and [Purchase Invoice](/erpnext/purchase-invoice).
+
+1. Open or create the transaction.
+2. Find the shipping or terms section.
+3. Select the agreed **Incoterm**.
+4. Enter the complete **Named Place**.
+5. Confirm that freight, taxes, shipping address, and Terms and Conditions are consistent.
+6. Save.
+
+[Screenshot on the live page: A Sales Order with Incoterm and Named Place highlighted.]
+
+Example: **CIP, Seattle-Tacoma International Airport, Seattle, WA, USA, Incoterms 2020**.
+
+Use the location detail your contract requires. Avoid a vague value such as only “USA” or “Port”.
+
+## Understand the two fields
+
+
+| Field       | What to record                                 |
+| ----------- | ---------------------------------------------- |
+| Incoterm    | Standard trade-term code agreed by the parties |
+| Named Place | Exact agreed location associated with the term |
+
+
+The meaning of the named place depends on the selected term. For one term it may identify the place of delivery; for another it may identify a destination to which specified costs are paid. Do not infer all obligations from the location alone.
+
+## Keep the sales cycle consistent
+
+When creating downstream documents, verify that the Incoterm and Named Place remain aligned with the latest agreement.
+
+If the agreement changes after a Sales Order is submitted:
+
+- Use the supported amendment or after-submit update workflow.
+- Retain approval evidence.
+- Update downstream documents that have not yet been submitted.
+- Use a revised commercial document when required.
+
+Do not overwrite a completed historical agreement merely to show the latest terms.
+
+## Freight, insurance, and accounting
+
+Incoterm fields do not automatically create every related charge or accounting entry. Configure freight through shipping charges, taxes, landed costs, or supplier invoices according to the transaction and accounting policy.
+
+For stock purchases, [Landed Cost Voucher](/erpnext/landed-cost-voucher) may be relevant when additional costs need to be included in inventory valuation.
+
+## Terms and printed documents
+
+Use [Terms and Conditions](/erpnext/terms-and-conditions) to state the complete commercial wording, Incoterm edition, responsibilities, exclusions, and documentary requirements.
+
+Check the Print Format to ensure Incoterm and Named Place appear on the document sent to the Customer or Supplier.
+
+## Troubleshooting
+
+
+| Problem                               | What to check                                               |
+| ------------------------------------- | ----------------------------------------------------------- |
+| Named Place is hidden                 | Select the Incoterm first                                   |
+| Downstream document has old terms     | Review mapped values and whether the source was amended     |
+| Freight is not calculated             | Configure charges separately; Incoterm is descriptive       |
+| The printed document omits the fields | Update the Print Format                                     |
+| Users select inconsistent terms       | Add approval, training, or a Workflow for commercial review |
+
+
+## Frequently asked questions
+
+### Does ERPNext choose the correct Incoterm?
+
+No. Users must select the term agreed by the parties.
+
+### Is the Named Place always the delivery destination?
+
+No. Its role depends on the selected Incoterm.
+
+### Do Incoterm fields calculate freight or insurance?
+
+Not by themselves. Configure the relevant charges and accounting separately.
+
+### Should the Incoterm edition be recorded?
+
+Yes. Include the agreed edition in Terms and Conditions or another controlled field or print format.
+
+## Related topics
+
+- [Terms and Conditions](/erpnext/terms-and-conditions)
+- [Sales Order](/erpnext/sales-order)
+- [Purchase Order](/erpnext/purchase-order)
+- [Shipping Rule](/erpnext/shipping-rule)
+- [Landed Cost Voucher](/erpnext/landed-cost-voucher)
+
+<!-- page: erpnext/erpnext__india-compliance-app.md -->
+---
+title: "India Compliance"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/india-compliance-app"
+updated: "2026-07-02"
+---
+
+Any ERPNext user who needs India-specific statutory features can install the India Compliance app to unlock the capabilities inside ERPNext. After installation and setup, the app adds the workflows, fields, reports, and validations required for operating ERPNext in India.
+
+Official documentation: [https://docs.indiacompliance.app/docs/getting-started/introduction](https://docs.indiacompliance.app/docs/getting-started/introduction)
+
+## What the India Compliance app provides
+
+The India Compliance app extends ERPNext for Indian tax and regulatory needs. It is especially useful for companies that need to manage GST, e-Invoicing, e-Way Bills, TDS, TCS, and India-specific reporting from within ERPNext.
+
+Broadly, the app helps with:
+
+- GST setup and GST-aware transactions
+- GSTIN and party tax details
+- HSN/SAC handling for items and services
+- GST tax templates and tax treatment
+- GST returns and statutory reports
+- e-Invoice generation and management
+- e-Way Bill generation and management
+- TDS and TCS compliance
+- India-specific validations on transactions
+- Regional fields and workflows needed by Indian businesses
+
+The exact features available may depend on the installed app version, ERPNext version, and the configuration enabled for the company.
+
+## Why it is separate from ERPNext
+
+ERPNext serves users across many countries. Keeping India-specific compliance in a separate app makes the core product cleaner while still allowing Indian companies to get the workflows they need.
+
+This means a company that does not need Indian compliance can continue using standard ERPNext, while an Indian company can install the India Compliance app and enable the additional features required for local operations.
+
+## Typical usage flow
+
+```
+Install ERPNext
+      |
+      v
+Install India Compliance app
+      |
+      v
+Configure company and GST settings
+      |
+      v
+Set up masters such as GSTIN, HSN/SAC, tax templates
+      |
+      v
+Create transactions in ERPNext
+      |
+      v
+Generate India-specific compliance outputs
+```
+
+## Common areas affected
+
+### Masters
+
+The app can add or use India-specific details in masters such as Company, Customer, Supplier, Address, Item, and tax templates. These details help ERPNext understand how GST and other rules should apply during transactions.
+
+### Transactions
+
+Sales Invoices, Purchase Invoices, Delivery Notes, and other documents can include India-specific tax information. The app helps validate and process these transactions according to Indian compliance needs.
+
+### Reporting
+
+The app provides reports and outputs needed for Indian statutory compliance, including GST-related reporting and other tax summaries.
+
+### Electronic compliance
+
+For businesses that need e-Invoicing or e-Way Bill workflows, the India Compliance app provides the required integration and document handling experience inside ERPNext.
+
+## When should you install it?
+
+Install the India Compliance app if your ERPNext site is used by an Indian company or by a company that must comply with Indian tax and invoicing rules.
+
+You may not need it if your company does not operate in India and does not need Indian statutory reporting.
+
+## Learn more
+
+Read the official India Compliance documentation here:
+
+[https://docs.indiacompliance.app/docs/getting-started/introduction](https://docs.indiacompliance.app/docs/getting-started/introduction)
+
+<!-- page: erpnext/erpnext__installation-note.md -->
+---
+title: "Installation Note\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/installation-note"
+updated: "2026-02-27"
+---
+
+
+**An Installation Note can be created when a product/item is being installed or set up at the Customer's place.**
+
+For example, if you sell an Air Conditioner, a service person generally accompanies the delivery to install the Air Conditioner at the Customer’s place. The service person can create an “Installation Note”, to track the date and details of the installation.
+
+To access the Installation Note list, go to:
+> Home > Stock > Serial No and Batch > Installation Note
+
+## 1. How to create an Installation Note
+An Installation Note is usually created from a Delivery Note. You can also create it manually and click on the 'From Delivery Note' button to fetch details from a selected Delivery Note.
+
+1. Go to the Installation Note list, click on New.
+1. The Customer, Item, and quantity will be fetched from the Delivery Note.
+1. The date and time are set to when the note is created.
+1. Save and submit.
+
+ [Screenshot on the live page: Installation Note]
+
+Any additional remarks about the installation can be added. If the Item is serialized, the serial numbers can be added in Items table.
+
+### 2. Related Topics
+1. [Delivery Note](/erpnext/delivery-note)
+1. [Delivery Trip](/erpnext/delivery-trip)
+
+<!-- page: erpnext/erpnext__installing_redisearch_to_enable_super_fast_e_commerce_search.md -->
+---
+title: "Installing RediSearch to enable fast E-commerce Search"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/installing_redisearch_to_enable_super_fast_e_commerce_search"
+updated: "2026-03-02"
+---
+
+
+> **Experimental**
+> 
+> 
+
+The E-Commerce module of ERPNext optionally uses RediSearch to enable search functionality which is configurable via **E Commerce Settings**.
+
+Once installed and configured, RediSearch will be used to charge the search functionality of the E-Commerce website. This includes features like fuzzy-word searching, autocomplete, results ranking and customizable field indexing.
+
+### Pre-requisites
+
+1. Frappe Framework + ERPNext Setup
+2. Redis 6+
+
+### Installation Instructions
+
+
+```
+$ git clone --recursive https://github.com/RediSearch/RediSearch.git
+$ cd RediSearch
+$ sudo make setup # Remove `sudo` on macOS
+$ make build
+  
+
+```
+
+> Please Note: the latest version of RediSearch requires Redis 7.1+, while the stable redis as on 01-Aug-2023 available in snap repos is 7.0. Therefore, Redis need to be compiled from source for Redissearch to be compatible with Redis.
+> 
+> Also note ERPNext requires Redis 6+, therefore using Redis 7.1+ might break thinks. Use Redis 7.1+ with caution.
+> 
+> 
+
+On successful completion of the above instructions, a `redisearch.so` binary file will be generated in the `RediSearch/build` directory.
+
+Move this binary to the `/etc` directory and restart your Frappe Server:
+
+
+```
+sudo mv build/redisearch.so /etc/
+  
+
+```
+Now, open the `redis_cache.conf` file located in the `config` directory (inside the bench directory). Add the following line before the `save ""` line and then restart bench server:
+
+
+```
+loadmodule /etc/redisearch.so
+  
+
+```
+This will load the redisearch module at startup. You can check if the module was loaded successfully by running the following command in the `redis-cli -p 13000` (assuming port as 13000 default port for redis in frappe config):
+
+
+```
+> MODULE LIST
+  
+
+```
+and `search` should be one of the modules.
+
+You can also load the module on a running redis instance by running the following command in the `redis-cli`:
+
+
+```
+> MODULE LOAD /etc/redisearch.so
+  
+
+```
+
+> We placed the `redisearch.so` module in the `/etc` directory, but it can be placed anywhere in the file system. We have used this directory because in the future the `loadmodule` line will be populated in the config file automatically and it will assume the binary is in the `/etc` directory.
+> 
+> 
+
+
+> More detailed instructions can be found [here](https://github.com/RediSearch/redisearch-getting-started/blob/master/docs/002-install-redisearch.md).
+> 
+> 
+
+<!-- page: erpnext/erpnext__integrating-erpnext-with-other-applications.md -->
+---
+title: "Integrating ERPNext with other Applications"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/integrating-erpnext-with-other-applications"
+updated: "2026-07-04"
+---
+
+ERPNext is designed to be integrated with other applications. Because ERPNext is built on Frappe Framework, business records are exposed through a consistent REST API. This makes it straightforward to connect ERPNext with external systems such as CRM platforms, logistics providers, order management systems, recommerce platforms, Google services, banking systems, payment gateways, and internal business applications.
+
+## Why ERPNext Is Easy To Integrate
+
+Most ERPNext business objects are DocTypes. Customers, Items, Sales Orders, Purchase Orders, Sales Invoices, Delivery Notes, Payment Entries, Stock Entries, Projects, and many other records follow the same document model. Frappe automatically provides REST API access for DocTypes, so integrations can read, create, update, and delete records using predictable endpoints.
+
+This means a third-party application does not need a separate custom API for every ERPNext module. Once the external system knows the DocType and field names, it can exchange data with ERPNext using standard HTTPS requests and JSON payloads.
+
+Custom fields added in ERPNext become part of the DocType metadata and are available to integrations immediately. For example, if a business adds a custom field such as `marketplace_order_id` on Sales Order or `courier_tracking_id` on Delivery Note, third-party applications can send and receive those values through the same REST API used for standard fields.
+
+This is especially useful when ERPNext is connected to external systems that need their own identifiers, statuses, references, or operational data. Custom fields let teams extend ERPNext without breaking the standard data model.
+
+## How REST APIs Work
+
+Frappe provides REST API endpoints for DocTypes. A third-party application can authenticate with an API key and API secret, then call endpoints to list documents, fetch a specific document, create a new record, update an existing record, or delete a record where permissions allow it.
+
+Common integration patterns include:
+
+- **Read from ERPNext:** Fetch customers, items, prices, stock levels, invoices, or payment status.
+- **Write to ERPNext:** Create leads, customers, sales orders, purchase orders, delivery notes, payment entries, or support tickets.
+- **Update ERPNext:** Send shipping updates, reconciliation references, bank transaction IDs, marketplace order IDs, or fulfillment statuses.
+- **React to ERPNext events:** Use webhooks to notify another application when a document is created, updated, submitted, or cancelled.
+
+## Examples Of Integrations
+
+- **CRM:** Sync leads, opportunities, customers, quotations, and follow-up status between ERPNext and a sales CRM.
+- **Logistics:** Send delivery notes or shipment requests to a courier platform and receive tracking numbers back into ERPNext.
+- **Order Management:** Push orders from an order management system into ERPNext as Sales Orders, then send fulfillment and invoice status back.
+- **Recommerce Platforms:** Sync product catalog, customer orders, stock availability, returns, refurbishment status, and payouts.
+- **Google Services:** Connect ERPNext with Google Workspace, Google Calendar, Google Sheets, or reporting workflows.
+- **Banks And Payment Systems:** Import bank transactions, update payment references, reconcile payments, or connect payment collection workflows.
+
+## Typical Integration Flow
+
+1. Identify the ERPNext DocTypes involved, such as Customer, Item, Sales Order, Delivery Note, Sales Invoice, Payment Entry, or a custom DocType.
+2. Map the fields between ERPNext and the external application, including any custom fields required by the business process.
+3. Create an integration user in ERPNext with only the roles and permissions required for the integration.
+4. Generate API credentials for that user and authenticate API calls securely.
+5. Use REST API endpoints to create, fetch, update, or delete records as needed.
+6. Use webhooks or background jobs for event-driven sync, retries, and asynchronous processing.
+
+## Good Practices
+
+- Use a dedicated integration user instead of an administrator account.
+- Apply role-based permissions so the integration can access only the records it needs.
+- Store external IDs in custom fields to make reconciliation and troubleshooting easier.
+- Design integrations to be idempotent, so retrying a request does not create duplicate records.
+- Use webhooks or queues for high-volume workflows instead of making everything synchronous.
+- Log request IDs, external references, and error messages so failures can be traced quickly.
+
+## Related Topics
+
+- [Frappe REST API](https://docs.frappe.io/framework/user/en/api/rest)
+- [Token Based Authentication](https://docs.frappe.io/framework/user/en/guides/integration/token_based_authentication)
+- [Webhooks](https://docs.frappe.io/framework/user/en/guides/integration/webhooks)
+- [Insert A Document Via API](https://docs.frappe.io/framework/user/en/guides/app-development/insert-a-document-via-api)
+- [Custom Field](https://docs.frappe.io/erpnext/custom-field)
+
+<!-- page: erpnext/erpnext__inter-company-invoices.md -->
+---
+title: "Inter Company Invoices | ERPNext Documentation"
+description: "Create linked Sales and Purchase Invoices between companies in ERPNext and verify parties, accounts, taxes, stock, and balances."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/inter-company-invoices"
+updated: "2026-07-23"
+---
+
+Inter Company Invoices in ERPNext create the matching receivable and payable transactions when one Company sells goods or services to another Company in the same ERPNext site. A submitted Sales Invoice can create a linked Purchase Invoice for the buying Company, reducing duplicate entry while preserving separate ledgers.
+
+## Before you begin
+
+- Create both Companies and their charts of accounts.
+- Create a Customer that represents the buying Company.
+- Create a Supplier that represents the selling Company.
+- In the Customer and Supplier records, set the corresponding **Represents Company** value.
+- Make sure both Companies can transact in the required Currency.
+- Create matching Items, UOMs, taxes, warehouses, and accounts for both Companies.
+
+The Customer and Supplier links are essential. They tell ERPNext which legal entity is on the other side of the transaction.
+
+## Configure the inter-company parties
+
+For the buying Company, create or open the Customer used by the selling Company and set **Represents Company** to the buying Company.
+
+[Screenshot on the live page: The internal Customer with Is Internal Customer enabled and Nova Industries selected as Represents Company.]
+
+For the selling Company, create or open the Supplier used by the buying Company and set **Represents Company** to the selling Company.
+
+[Screenshot on the live page: The internal Supplier with Is Internal Supplier enabled and Nova Electronics Trading selected as Represents Company.]
+
+Use distinct party records for each legal entity, even when the Companies share ownership. Confirm the tax identifiers, addresses, payment terms, and receivable or payable accounts that apply to each entity.
+
+## Create a Purchase Invoice from a Sales Invoice
+
+1. Create and submit a [Sales Invoice](/erpnext/sales-invoice) in the selling Company for the Customer that represents the buying Company.
+2. Confirm the items, quantities, rates, taxes, Company, and posting date.
+3. From the submitted Sales Invoice, select **Create > Inter Company Purchase Invoice**.
+4. Review the mapped document in the buying Company.
+5. Select the correct expense or asset accounts, warehouses, taxes, and cost centers.
+6. Save and submit the Purchase Invoice.
+
+[Screenshot on the live page: The Sales Invoice showing Nova Electronics Trading as Company and Nova Industries Intercompany as Customer.]
+
+[Screenshot on the live page: The highlighted Inter Company Purchase Invoice action in the submitted Sales Invoice Create menu.]
+
+The Purchase Invoice is a separate accounting transaction. ERPNext maps source values, but the user must verify the accounts and taxes appropriate to the buying Company.
+
+## Create a Sales Invoice from a Purchase Invoice
+
+The flow can also begin with a submitted Purchase Invoice in the buying Company. Use **Create > Inter Company Sales Invoice** to create the corresponding Sales Invoice in the selling Company, then review and submit it.
+
+Choose one direction for each transaction. Do not create both counterparts independently, or the same trade may be recorded twice.
+
+## Important fields and what they mean
+
+
+| Field                   | What it means                                                                           |
+| ----------------------- | --------------------------------------------------------------------------------------- |
+| Company                 | The legal entity whose books receive the transaction.                                   |
+| Customer                | The inter-company Customer used on the Sales Invoice.                                   |
+| Supplier                | The inter-company Supplier used on the Purchase Invoice.                                |
+| Represents Company      | Links a Customer or Supplier to the other Company in the same site.                     |
+| Inter Company Reference | Identifies the linked source transaction where available.                               |
+| Currency                | The transaction currency. Conversion rates apply when it differs from Company currency. |
+| Debit To                | The receivable account used by the selling Company.                                     |
+| Credit To               | The payable account used by the buying Company.                                         |
+| Income Account          | The revenue account for the selling Company.                                            |
+| Expense Account         | The expense or asset account for the buying Company.                                    |
+| Cost Center             | The organizational unit to which income or expense is assigned.                         |
+
+
+## Items, warehouses, and taxes
+
+Item Codes should exist and be usable in both Companies. Accounts and warehouses remain Company-specific, so review every mapped row. Open a child-table row with the pencil icon when you need to verify hidden item fields.
+
+Tax treatment can differ between the selling and buying entities. Do not assume the tax rows on the source document are correct for the target Company. Check tax templates, accounts, rates, addresses, and regional compliance before submission.
+
+For stock items, the invoice pair does not by itself replace the required stock movement. Use the approved Delivery Note, Purchase Receipt, or inter-company stock process so physical inventory agrees with accounting.
+
+## Cancel or amend linked invoices
+
+The two invoices remain separate submitted documents. If one must be cancelled or amended, review the effect on its counterpart and any linked payments, returns, or stock transactions. Follow your accounting period and audit controls. Do not leave one Company with a valid invoice while the corresponding document in the other Company is incorrect.
+
+## Reconcile inter-company balances
+
+Run receivable, payable, and general ledger reports for both Companies. The balances should agree after accounting for timing differences, currency conversion, taxes, credit notes, and payments. Use a consistent reference or naming practice so finance users can match the two sides quickly.
+
+## Frequently asked questions
+
+### Why is the inter-company create option missing?
+
+Check that the source invoice is submitted, the party has **Represents Company** set, the represented Company is different from the source Company, and a counterpart has not already been created.
+
+### Are both invoices submitted automatically?
+
+No. Review and submit the mapped target invoice separately.
+
+### Can the Companies use different currencies?
+
+Yes, when the required currencies and conversion rates are configured. Review exchange rates and Company-currency totals on both documents.
+
+### Does this consolidate the Companies?
+
+No. It records transactions in separate Company ledgers. Consolidated reporting and elimination entries are separate accounting activities.
+
+### Can I create inter-company credit notes?
+
+Use the applicable return or credit-note process for both Companies and link the transactions according to your controls.
+
+## Related topics
+
+- [Sales Invoice](/erpnext/sales-invoice)
+- [Purchase Invoice](/erpnext/purchase-invoice)
+- [Company](/erpnext/company)
+- [Customer](/erpnext/customer)
+- [Supplier](/erpnext/supplier)
+- [Inter Company Journal Entry](/erpnext/inter-company-journal-entry)
+- [Drop Ship Between Subsidiary Companies](/erpnext/drop-ship-between-subsidiary-companies)

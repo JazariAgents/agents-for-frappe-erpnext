@@ -16,7 +16,7 @@ that follow from the answer.
 - **What the page says:** ERPNext values stock **perpetually**: every stock movement (receipt, issue, transfer, manufacture) updates the item's quantity *and* its monetary value in real time through the **Stock Ledger**. The **Valuation Method** decides *how the value of each outgoing unit is calculated* and therefore what your remaining invent
 - **It covers:** 1. Overview, 2. FIFO (First In, First Out), 2.1 How it works, 2.2 Worked example, 2.3 Accounting impact, 2.4 Pros, 2.5 Cons, 3. Moving Average
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/erpnext/erpnext-26.md` lines 891–1076  (https://docs.frappe.io/erpnext/fifo-and-moving-average)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-26.md` lines 3–188  (https://docs.frappe.io/erpnext/fifo-and-moving-average)
 
 ### Run perpetual inventory
 - **What the page says:** As per the perpetual inventory system, accounting entry is done for every stock transaction. Otherwise, it's done in larger intervals for example monthly or quarterly. Each warehouse is linked with a corresponding account head.

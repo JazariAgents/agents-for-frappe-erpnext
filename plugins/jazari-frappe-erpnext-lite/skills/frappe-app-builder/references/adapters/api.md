@@ -137,8 +137,8 @@ Do not guess the name.
 | Set how documents are named | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-08.md` lines 829–1004 |
 | Use a child table | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-08.md` lines 3–47 |
 | Publish a web form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-24.md` lines 344–382 |
-| Build a print format | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 811–871 |
-| Customize a form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 184–286 |
+| Build a print format | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 757–817 |
+| Customize a form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 86–188 |
 | Add a client script | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 456–489 |
 | Set up an approval workflow | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-69.md` lines 536–551 |
 | Design an app screen in Frappe Studio | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/studio/studio-01.md` lines 3–71 |

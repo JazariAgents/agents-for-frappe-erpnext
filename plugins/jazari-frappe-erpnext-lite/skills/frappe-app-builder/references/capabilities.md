@@ -31,9 +31,9 @@ Every row was confirmed against an official Frappe documentation page fetched on
 | `app.architecture` | Understand the framework architecture | guide | no | reversible | `docs/framework/framework-07.md` lines 934–977 | https://docs.frappe.io/framework/user/en/basics/architecture |
 | `app.directory` | Read an app's directory structure | guide | no | reversible | `docs/framework/framework-07.md` lines 1226–1343 | https://docs.frappe.io/framework/user/en/basics/directory-structure |
 | `app.assets` | Bundle app assets | bench | no | reversible | `docs/framework/framework-07.md` lines 979–1224 | https://docs.frappe.io/framework/user/en/basics/asset-bundling |
-| `setup.printformat` | Build a print format | browser | yes | reversible | `docs/erpnext/erpnext-43.md` lines 811–871 | https://docs.frappe.io/erpnext/print-format-builder |
+| `setup.printformat` | Build a print format | browser | yes | reversible | `docs/erpnext/erpnext-43.md` lines 757–817 | https://docs.frappe.io/erpnext/print-format-builder |
 | `setup.customfield` | Add a custom field | browser | yes | reversible | `docs/erpnext/erpnext-17.md` lines 3–89 | https://docs.frappe.io/erpnext/custom-field |
-| `setup.customizeform` | Customize a form | browser | yes | reversible | `docs/erpnext/erpnext-18.md` lines 184–286 | https://docs.frappe.io/erpnext/customize-form |
+| `setup.customizeform` | Customize a form | browser | yes | reversible | `docs/erpnext/erpnext-18.md` lines 86–188 | https://docs.frappe.io/erpnext/customize-form |
 | `setup.clientscript` | Add a client script | browser | yes | reversible | `docs/erpnext/erpnext-13.md` lines 456–489 | https://docs.frappe.io/erpnext/client-scripts |
 | `setup.workflow` | Set up an approval workflow | browser | yes | reversible | `docs/erpnext/erpnext-69.md` lines 536–551 | https://docs.frappe.io/erpnext/workflow |
 | `app.studio` | Design an app screen in Frappe Studio | browser | yes | reversible | `docs/studio/studio-01.md` lines 3–71 | https://docs.frappe.io/studio/editor-interface |

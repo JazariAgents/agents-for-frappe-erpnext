@@ -95,7 +95,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Add more rows in the Time Logs table and record time using the Start/Completed buttons
   6. Click on Submit
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 55–213  (https://docs.frappe.io/erpnext/job-card)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-33.md` lines 361–519  (https://docs.frappe.io/erpnext/job-card)
 
 ### Plan production
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Production Plan**, or type *Production Plan* in the search bar at the top
@@ -129,19 +129,19 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Watch the plant floor
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Plant Floor**, or type *Plant Floor* in the search bar at the top
-- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 57–91  (https://docs.frappe.io/erpnext/plant-floor)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 3–37  (https://docs.frappe.io/erpnext/plant-floor)
 
 ### Handle scrap and disassembly
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > BOM**, or type *BOM* in the search bar at the top
 - **On this screen:** Scrap items are a table on the BOM; whether scrap is taken from the BOM is set in **Manufacturing Settings**.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-55.md` lines 180–209  (https://docs.frappe.io/erpnext/scrap-management)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-55.md` lines 3–32  (https://docs.frappe.io/erpnext/scrap-management)
 
 ### Configure manufacturing settings
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Settings**, or type *Manufacturing Settings* in the search bar at the top
 - **Record type:** Manufacturing Settings
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-36.md` lines 807–962  (https://docs.frappe.io/erpnext/manufacturing-settings)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-36.md` lines 424–579  (https://docs.frappe.io/erpnext/manufacturing-settings)
 
 ## What cannot be done in the interface
 

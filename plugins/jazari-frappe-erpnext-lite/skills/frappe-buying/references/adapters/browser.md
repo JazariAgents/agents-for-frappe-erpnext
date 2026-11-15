@@ -44,7 +44,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Select the supplier group whether Pharmaceutical, Hardware etc
   4. Save. !Supplier Master
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 268–428  (https://docs.frappe.io/erpnext/supplier)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 192–352  (https://docs.frappe.io/erpnext/supplier)
 
 ### Raise a material request
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Material Request**, or type *Material Request* in the search bar at the top
@@ -59,7 +59,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   7. You can change the Required By date for individual Items in this table
   8. Save and Submit
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-37.md` lines 3–128  (https://docs.frappe.io/erpnext/material-request)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-36.md` lines 615–740  (https://docs.frappe.io/erpnext/material-request)
 
 ### Send a request for quotation
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Request for Quotation**, or type *Request for Quotation* in the search bar at the top
@@ -80,7 +80,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. You can also make a Supplier Quotation directly from
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 79–163  (https://docs.frappe.io/erpnext/supplier-quotation)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 3–87  (https://docs.frappe.io/erpnext/supplier-quotation)
 
 ### Place a purchase order
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Order**, or type *Purchase Order* in the search bar at the top
@@ -120,14 +120,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Add landed costs
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Tools > Landed Cost Voucher**, or type *Landed Cost Voucher* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 568–589  (https://docs.frappe.io/erpnext/landed-cost-voucher)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 176–197  (https://docs.frappe.io/erpnext/landed-cost-voucher)
 
 ### Run subcontracting
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Subcontracting > Subcontracting Order**, or type *Subcontracting Order* in the search bar at the top
 - **Documented steps:**
   1. Create a Service Item (Non-stock Item). It represents the service cost of the subcontracted operation
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-61.md` lines 296–513  (https://docs.frappe.io/erpnext/subcontracting)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-61.md` lines 109–326  (https://docs.frappe.io/erpnext/subcontracting)
 
 ### Score suppliers
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Setup > Supplier Scorecard**, or type *Supplier Scorecard* in the search bar at the top
@@ -139,7 +139,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Setup the scoring function (details in next section)
   5. A supplier scorecard is created for each supplier individually. Only one supplier scorecard can be created for each supplier
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 165–266  (https://docs.frappe.io/erpnext/supplier-scorecard)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 89–190  (https://docs.frappe.io/erpnext/supplier-scorecard)
 
 ### Agree a blanket order
 - **Path (checked on v16.55):** https://your-site/desk → type *Blanket Order* in the search bar at the top and open the doctype

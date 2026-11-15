@@ -1,103 +1,5 @@
 <!-- Frappe documentation: erpnext, part 18 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__customise-cash-flow-report.md -->
----
-title: "Customise Cash Flow Report"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/customise-cash-flow-report"
-updated: "2026-08-14"
----
-
-Nova Industries's default Cash Flow report explains how cash moved through operating, investing, and financing activities. Finance wants a reusable IFRS-style presentation with clearer lines for profit before tax, depreciation, finance costs, receivables, payables, inventory, equipment purchases, and financing.
-
-
-
-In the current ERPNext develop version, Nova can create or adapt a [Financial Report Template](/erpnext/financial-report-template) with Report Type set to **Cash Flow**. The template controls report headings, account selection, calculations, indentation, signs, hidden rows, and charts. It changes presentation, not the underlying [General Ledger](/erpnext/general-ledger) entries.
-
-## Before you begin
-
-- Run the standard [Cash Flow Report](/erpnext/cash-flow-report) and reconcile it with the General Ledger.
-- Have an accountant approve the required headings, classifications, signs, and calculations.
-- Review the [Chart of Accounts](/erpnext/chart-of-accounts) and assign consistent Account Categories where template rows use them.
-- Test the template with representative transactions before using it for management or external reporting.
-
-## Review the current report
-
-Run Cash Flow for Nova Industries with a period containing operating, investing, and financing transactions. Save the baseline totals before enabling a custom format.
-
-![Loaded Cash Flow report for Nova Industries before mapping review](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-cash-flow-loaded.png)
-
-## Create or copy a Cash Flow template
-
-1. Open Financial Report Template.
-2. Create a template, or copy an existing Cash Flow template when it is a suitable starting point.
-3. Set **Report Type** to **Cash Flow**.
-4. Enter a clear Template Name and keep the template enabled.
-
-## Build and arrange the report lines
-
-Add rows to **Report Line Items** in the exact order they should appear. Use blank or visual rows for section headings, Account Data rows for ledger-derived values, and Calculated Amount rows for subtotals. Indent supporting lines beneath their section and use stable Line References for formulas.
-
-![Standard Cash Flow Statement IFRS template showing its ordered report line items](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-form.png)
-
-
-| Example line                                    | Typical source      | Presentation                                              |
-| ----------------------------------------------- | ------------------- | --------------------------------------------------------- |
-| Cash flows from operating activities            | Visual or blank row | Section heading at indent level 0                         |
-| Profit before tax                               | Account Data        | Period movement with the appropriate sign                 |
-| Depreciation and amortisation                   | Account Data        | Indented non-cash adjustment                              |
-| Operating profit before working-capital changes | Calculated Amount   | Formula based on earlier Line References                  |
-| Change in trade receivables                     | Account Data        | Working-capital movement with reversed sign when required |
-
-
-## Verify the custom report
-
-![Cash Flow report after mapping with an account group opened for verification](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-ifrs-output-v2.png)
-
-
-
-1. Refresh Cash Flow for the same company and period used for the baseline.
-2. Confirm every expected line appears under the correct section.
-3. Compare section totals and closing cash with the standard report and General Ledger.
-4. Open unusual balances and verify the mapped accounts.
-5. Repeat the test for a second period before relying on the format.
-
-## Troubleshooting
-
-### A line is missing
-
-Confirm that the row is enabled, its Account Data filter matches the intended accounts, and the selected period contains relevant ledger activity. Check whether **Hide If Zero** is suppressing the row.
-
-### A value appears twice
-
-Review the template's account coverage for overlap. The same account may be included by more than one Account Data row, or a parent account and its children may both be selected.
-
-### Net cash does not reconcile
-
-Run the template and standard Cash Flow report with identical company, dates, Finance Book, dimensions, currency, and opening-balance options. Then check omitted accounts, duplicated coverage, formulas, Line References, and sign reversal.
-
-## Frequently asked questions
-
-### Does customisation change ledger entries?
-
-The configuration changes how existing balances are classified and displayed. It does not repost transactions.
-
-### Can I add a fourth cash-flow section?
-
-The standard structure uses Operating, Investing, and Financing Activities. Use approved labels and mappings inside those sections unless a current product extension explicitly supports another structure.
-
-### Should parent or child accounts be mapped?
-
-Use an approach that avoids overlap and matches how the account tree is maintained. Parent accounts work best when all children share the same cash-flow treatment.
-
-## Related topics
-
-- [Accounting Reports](/erpnext/accounting-reports)
-- [Chart of Accounts](/erpnext/chart-of-accounts)
-- [Accounts Settings](/erpnext/accounts-settings)
-- [General Ledger](/erpnext/general-ledger)
-- [Financial Report Template](/erpnext/financial-report-template)
-
 <!-- page: erpnext/erpnext__customise-your-items-tables-within-your-print-format-builder.md -->
 ---
 title: "Customize tables within your Print Format Builder"
@@ -118,7 +20,7 @@ You can customize the '**Items**' column present your Print Format Builder by na
   
 
 
-![](/files/IIunbhn.png)
+[Screenshot on the live page]
 
   
 
@@ -128,7 +30,7 @@ Open the table and you will see a list of columns that are present in the standa
   
 
 
-![](/files/HCA3S5a.png)
+[Screenshot on the live page]
 
   
 
@@ -146,7 +48,7 @@ Select the columns you want to keep in the Table that you are creating for your 
   
 
 
-![](/files/HEUrHpC.png)
+[Screenshot on the live page]
 
   
 
@@ -158,7 +60,7 @@ Once you have selected the columns you want your Print Format to have, click on 
 
 Refresh your screen and select the newly created Print Format. In this case, it is the 'Purchase Receipt'.
 
-![](/files/nwQT6g6.png)
+[Screenshot on the live page]
 
   
 
@@ -168,7 +70,7 @@ Once you click on the Print Format you newly created, the changes will be visibl
   
 
 
-![](/files/Bsp6PRj.png)
+[Screenshot on the live page]
 
   
 
@@ -204,7 +106,7 @@ To access Customize Form, go to:
 
 You can also go to the list view of any DocType and select Customize from the Menu options.
 
-![Customize Option in List View](/files/customize-option-in-list-view.png)  
+[Screenshot on the live page: Customize Option in List View]  
 
 
 1. How to Customize a Form
@@ -214,13 +116,13 @@ You can also go to the list view of any DocType and select Customize from the Me
 2. You will be redirected to a page wherein you will be asked to Enter Form Type.
 3. Once you enter the Form Type in this field, the page further expands and you will be able to see multiple features.
 
-![Select DocType in Customize Form](/files/customize-erpnext-custom-field-from-customize-form.gif)
+[Screenshot on the live page: Select DocType in Customize Form]
 
 ### 1.1. Options While Customizing a Form
 
 1. **Change Label**: This field gets fetched via Custom Translation. You can change the name of the field to suit your industry/language. E.g., if you are a services business and you want to change the Label from 'Customer' to 'Consumer', the same can be done via [Custom Translation](/erpnext/custom-translations) and the same shall be reflected here.
 
-![Change Label](/files/customize-customize-form-label.png)
+[Screenshot on the live page: Change Label]
 
 2. **Title Field**: This field can be used to generate the title while viewing the lists. Any "Data" type field can be set as the Title Field while viewing the forms in the list view. E.g., if you wish to view the list of all your employees with the Title field as the 'Employee Code' instead of Employee Name, the same can be configured here. Check our article on [Document title](/erpnext/document-title) for more information.
 
@@ -230,7 +132,7 @@ You can also go to the list view of any DocType and select Customize from the Me
 
 4. **Image Field**: You can select an "Attach Image" Field for your Image Field. This becomes the Image representing that particular DocType. E.g., the 'Image Field' for an Employee could be their photograph or a snapshot of their ID cards; the same can be configured here.
 
-![Image Field in DocType](/files/customize-form-image-field.png)
+[Screenshot on the live page: Image Field in DocType]
 
 5. **Max Attachments**: You can enter the maximum number of attachments that could be added to this DocType.
 
@@ -238,7 +140,7 @@ You can also go to the list view of any DocType and select Customize from the Me
 
 7. **Sort Field**: Records in any DocType List are generated based on the Field that you set at the Sort Field over here. E.g., for Items, if you want your list to be generated as per Item Name, you can configure the same here.
 
-![Sort Field](/files/customize-sort-field.png)
+[Screenshot on the live page: Sort Field]
 
 8. **Sort Order**: You can select whether you want the Sorting to be done in Ascending Order or Descending Order. To get more understanding on Sort Field and Sort Order, check out [Customizing Sorting Order in the List View](/erpnext/customizing-sorting-order-in-the-list-view).
 
@@ -254,7 +156,7 @@ You can also go to the list view of any DocType and select Customize from the Me
 
 * **Track Changes**: Checking this box will ensure that any changes made by any of the users to this DocType will be tracked and displayed.
 
-![Track Changes](/files/customize-track-changes.png)
+[Screenshot on the live page: Track Changes]
 
 * **Track Views**: This option will give you a trail of all the views towards this particular DocType.
 
@@ -272,7 +174,7 @@ Every form in ERPNext has a standard set of fields. If you need to capture some 
 
 ### 1.4. Trim Table, Reset Layout, and Reset All Customizations
 
-![](/files/UcB4Lpm.png)  
+[Screenshot on the live page]  
 
 
 * **Trim Table**: To remove unused database columns (fields) that are no longer needed by a doctype. It checks for fields that have been deleted from the form but still exist in the database. If such fields are found, it allows you to permanently delete these columns. This helps keep the database clean and improves performance by removing unnecessary data.
@@ -298,31 +200,31 @@ In ERPNext, there is a feature called the editable grid. This allows the user to
 
 This is how the Quotation Item table renders value when the Editable Grid is enabled. It will have a maximum of four columns in the table.
 
-![Child Table](/files/customize-child-table-5.png)
+[Screenshot on the live page: Child Table]
 
 As per the default setting, only four columns are listed in the child table. Following is how you can add more columns in the Editable Grid itself.
 
 For the field to be added as a column in the table, enter a value in the Column field. Also, ensure that the "Is List View" property is checked for that field.
 
-![Child Table](/files/customize-child-table-2.png)
+[Screenshot on the live page: Child Table]
 
 Based on the value in the Column field, columns will be added to the child table. Ensure that the total value added in the Column field doesn't exceed 10. Based on the Column value, the width for that column will be set.
 
-![Child Table](/files/customize-child-table-3.png)
+[Screenshot on the live page: Child Table]
 
 **Switch to Un-editable Grid**
 
 To have more values shown in the preview of the Quotation Item table, you can disable Editable Grid for the Quotation Item DocType. Steps below.
 
-![Child Table](/files/customize-child-table.gif)
+[Screenshot on the live page: Child Table]
 
 Once Editable Grid is disabled for the Quotation Item, the values will be rendered in a preview of the Quotation Item table in the following way:
 
-![Child Table](/files/customize-child-table-4.png)
+[Screenshot on the live page: Child Table]
 
 To have a specific field's value shown in the preview, ensure that for that field, in the Customize Form tool, "In List View" property is checked.
 
-![Child Table](/files/customize-child-table-1.png)
+[Screenshot on the live page: Child Table]
 
 <!-- page: erpnext/erpnext__customizing-module-visibility.md -->
 ---
@@ -341,8 +243,8 @@ Every ERPNext account holder has the option of customizing the visibility of the
 
 *In Version 12, you can go to Show / Hide Modules on the top right corner of the home screen for checking visibility of modules.**
 
-![Module Visibility](/files/customize-module-visibility-2.png)
-![Module Visibility](/files/customize-module-visibility.gif)
+[Screenshot on the live page: Module Visibility]
+[Screenshot on the live page: Module Visibility]
 
 > Note: Modules are automatically hidden for users that have no permissions on the documents within that module. For example, if a User has no permissions on Purchase Order, Purchase Request, Supplier, the “Buying” module will automatically hidden for that User.
 
@@ -352,11 +254,11 @@ Let's consider a scenario that a user has the permission for the Website module,
 
 As a basic requirement, ensure that the "Website Manager" role is assigned to that user. It is a standard Role that grants permission on the Website module. If permissions have been customized in your account, check Role Permission Manager to know which Role has permission on Website, and then check if the same Role is assigned to the User.
 
-![Module Visibility](/files/customize-module-visibility-4.png)
+[Screenshot on the live page: Module Visibility]
 
 Further, you should also check if the under the settings, 'Allow Modules', the required module has been enabled for the user
 
-![Module Visibility](/files/customize-module-visibility-1.png)
+[Screenshot on the live page: Module Visibility]
 
 Reload tab of your ERPNext account and the changes made will be applied and will be visible in the system.
 
@@ -381,14 +283,14 @@ updated: "2026-03-04"
 
 Select document type for which Sort Order is to be customized.
 
-![Sort Order field](/files/customize-sorting-order-2.png)
+[Screenshot on the live page: Sort Order field]
 
 #### Step 3: Update Sort Details
 
 In the Customize Form, you will find these fields.
 
-![Sort Order Field](/files/customize-sort-field.png)
-![Sort Order field](/files/customize-sorting-order-1.png)
+[Screenshot on the live page: Sort Order Field]
+[Screenshot on the live page: Sort Order field]
 
 1. Sort Field: Select the Field based on which sorting will be done. It will be "Item_Code" field in the scenario.
 2. Sort Order: Sort Order will be two possible options, **Asc** for ascending, and **Desc** for descending.
@@ -412,7 +314,7 @@ Daily Depreciation calculates the expense using the actual number of days the as
 
 Open the relevant Asset Category or Asset Finance Book row, enable **Daily Pro Rata Based**, and confirm the depreciation start date. ERPNext then uses actual day counts instead of equal periodic amounts.
 
-![Finance Book settings used for daily depreciation](https://novacompanies.m.frappe.cloud/files/09-production-asset-depreciation.png)
+[Screenshot on the live page: Finance Book settings used for daily depreciation]
 
 ## How the amount is determined
 
@@ -422,7 +324,7 @@ ERPNext calculates the daily amount from the depreciable value and schedule dura
 
 Check the first and last rows, the total depreciation, and the expected value after useful life. The Asset Depreciations and Balances report should reconcile the opening value, booked depreciation, and closing value.
 
-![Asset Depreciations and Balances report](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Asset Depreciations and Balances report]
 
 ## Troubleshooting
 
@@ -483,7 +385,7 @@ To access Data Export, go here.
 6. You can also add filters to select only specific data. For example, 'Territory = Asia' will export all Customers whose Territory is set as 'Asia'.
 7. Click on Export to download the file.
 
-![](/files/image9dfe7c.png)
+[Screenshot on the live page]
 
 After exporting data, you can use the same file to import data using [Data Import](/erpnext/data-import).
 
@@ -519,7 +421,7 @@ Before starting the import process, make sure that all required data is prepared
 
 The Data Import Tool in ERPNext allows users to upload bulk records into the system using a predefined template. This document outlines the step-by-step process for importing new records.
 
-![](https://docs.frappe.io/files/imagebfd4b7.png)
+[Screenshot on the live page]
 
 1. Navigate to Data Import
 2. Select the Document Type and the Import Type as *Insert New Records*.
@@ -531,7 +433,7 @@ We have an option to download the template to insert the records/update the reco
 
 1. Clicking on Download Template opens a dialog box
 
-![](/files/image79c0b4.png)
+[Screenshot on the live page]
 *Download Template Dialog box*
 
 > While inserting new records, the template should be blank. If you have a few records in your system, you can select Export Type as "5 Records" to see the format in which you have to enter the data in the template.
@@ -550,11 +452,11 @@ We have an option to download the template to insert the records/update the reco
 Once the data has been added to the downloaded template, the following steps are followed:
 
 1. After updating your template file, go back to the Data Import form and attach the file by clicking on the **Attach** button.
-  ![](/files/imagef9ce89.png)
+  [Screenshot on the live page]
   *Attaching file for import*
 2. Select the template file and click on **Upload**, after the upload is successful, click on **Start Import**. There are various ways to import the data; you can refer [here](https://docs.frappe.io/erpnext/data-import#ways-to-import-data)
 3. Once the Sheet is uploaded, the system validates the sheet and gives the result on screen before importing the data
-  ![](/files/image799c07.png)
+  [Screenshot on the live page]
 4. If there are any errors in your template, they will be shown in the Warnings section. The warnings will be categorized by Row or Column with their number so that you can easily track them down in the template and resolve them. You must resolve all the warnings before you can import the data.
 5. After you have resolved the warnings, click on **Start Import** again to import the data. On successful import of the data, you'll see a log of each record that was created in the Import Log section.
 
@@ -564,7 +466,7 @@ Once the data has been added to the downloaded template, the following steps are
 
 In case we try to add a record with a duplicate name, it will throw an error like this
 
-![](/files/imagebff69b.png)
+[Screenshot on the live page]
 *Duplicate Name Error*
 
 ### Mapping of missed columns
@@ -573,7 +475,7 @@ When we add additional columns while downloading the template, or we have rename
 
 
 
-![](/files/Screen Recording 2026-02-18 at 9.43.24 PM.mov)
+[Screenshot on the live page]
 
 
 
@@ -609,7 +511,7 @@ When you export a document with child tables, for e.g., each child row will appe
 
 ---
 
-![](/files/imagedf8b35.png)
+[Screenshot on the live page]
 *Child records importing*
 
 ## Updating Records
@@ -619,11 +521,11 @@ Let's say you want to update Customer data in bulk in your system. The first ste
 1. We start by downloading the template. While doing this, since we want to update, we can use filters to extract the exact records and import them back for updating.
 2. First, we select the document type and the import type as **Update Existing Records,** and Save
 3. When we try to download the template, we can apply filters, something like this
-  ![](/files/image0baff8.png)
+  [Screenshot on the live page]
 4. We click on **Export.**
 5. Now, based on the template, the existing records look like this:
 
-![](/files/image7a4518.png)
+[Screenshot on the live page]
 
 :::tip
 While exporting records for updating them, ensure that the ID column is exported and is untouched. The values in the ID column are used to identify the records in the system. You can update the values in other columns but not in the ID column. If you remove some child table row, the system will consider that the row is supposed to be deleted.
@@ -647,7 +549,7 @@ While exporting records for updating them, ensure that the ID column is exported
 
 6. Now, change the values in your template and save the file as Excel or CSV.
 
-![](/files/imageebf859.png)
+[Screenshot on the live page]
 
 ## Ways to Import Data
 
@@ -660,7 +562,7 @@ You can import data directly from Google Sheets by following these steps:
 3. Ensure the Google Sheet is set to **Public** access.
 4. Once confirmed, use the Google Sheets link in the Data Import page to proceed with the import.
 
-![](/files/imaged49cb3.png)
+[Screenshot on the live page]
 *Google sheet Data File*
 
 :::tip
@@ -681,7 +583,7 @@ To verify that the sheet is publicly accessible, open the Google Sheets URL in a
 
 
 
-![](/files/imagebbb644.png)
+[Screenshot on the live page]
 *Post Import using google sheets*
 
 ### Import from the file system
@@ -689,9 +591,9 @@ To verify that the sheet is publicly accessible, open the Google Sheets URL in a
 1. On the **Data Import Page**, there are two available options:
   - Attach File
   - Import Using Google Sheets
-    ![](/files/imageb8e55f.png)
+    [Screenshot on the live page]
 2. After clicking **Attach**, you will see multiple upload options:
-  ![](/files/imageb4e113.png)
+  [Screenshot on the live page]
 3. Available Upload Options
 
 - **My Device**  
@@ -817,17 +719,17 @@ The quantity of goods owned by the Company does not change. Therefore, do not se
 2. Select **Create &gt; Return / Debit Note**.
 3. Confirm that **Is Return (Debit Note)** is selected and **Return Against Purchase Invoice** references the original invoice.
 
-![Price adjustment Debit Note linked to the original Purchase Invoice](https://novacompanies.m.frappe.cloud/files/purchase-payables-08-rate-adjustment-setting.png)
+[Screenshot on the live page: Price adjustment Debit Note linked to the original Purchase Invoice]
 
 4. Remove Items that are not part of the price correction.
 5. Open the affected Item row using its pencil icon.
 6. Enter the full original billed quantity as a negative quantity. For the example, enter `-10`.
 
-![Full original quantity entered as a negative quantity](https://novacompanies.m.frappe.cloud/files/purchase-payables-09-rate-adjustment-full-quantity.png)
+[Screenshot on the live page: Full original quantity entered as a negative quantity]
 
 7. Enter only the price reduction per unit in **Rate**, not the revised unit price. For the example, enter `$20`, which produces an amount of `-$200`.
 
-![Per-unit price difference entered as the Debit Note rate](https://novacompanies.m.frappe.cloud/files/purchase-payables-10-rate-adjustment-difference.png)
+[Screenshot on the live page: Per-unit price difference entered as the Debit Note rate]
 
 8. Leave **Update Stock** clear because the goods are not being returned.
 9. Review taxes. Adjust them only when the Supplier's credit document and applicable tax rules require it.
@@ -909,3 +811,150 @@ Retain the Supplier's credit note, revised invoice, or other approved evidence t
 - [Accounts Payable](/erpnext/accounts-payable)
 - [Payment Reconciliation](/erpnext/payment-reconciliation)
 - [Purchase Taxes and Charges Template](/erpnext/purchase-taxes-and-charges-template)
+
+<!-- page: erpnext/erpnext__debit-note.md -->
+---
+title: "Debit Note | ERPNext Documentation"
+description: "Create and submit an ERPNext Debit Note to return purchases or reduce a Supplier invoice."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/debit-note"
+updated: "2026-08-14"
+---
+
+Apex Components, a supplier to Nova Industries, delivered phone batteries, but two were damaged and must be returned. Nova Industries needs to reduce what it owes the supplier without changing or deleting the original Purchase Invoice.
+
+
+
+A Debit Note records that supplier return or credit as a separate return Purchase Invoice. It reverses the relevant payable, tax, expense, and stock effects while preserving the original transaction.
+
+
+
+Use a Debit Note when goods are returned to a supplier, a supplier invoice must be reduced, or a supplier credit must be recorded against an earlier Purchase Invoice.
+
+
+
+## Before you begin
+
+You need a submitted [Purchase Invoice](/erpnext/purchase-invoice). Confirm:
+
+- which Items and quantities are being returned;
+- whether ERPNext must also reverse stock;
+- whether a linked Purchase Receipt exists;
+- whether the Supplier has already been paid;
+- the posting date on which the return should affect the ledgers.
+
+If you are correcting only the price while keeping the goods, follow [Debit Note for price adjustment](/erpnext/debit-note-for-price-adjustment).
+
+## Create a Debit Note
+
+1. Open the submitted Purchase Invoice that must be reduced.
+2. Select **Create &gt; Return / Debit Note**.
+
+[Screenshot on the live page: Return or Debit Note action on a submitted Purchase Invoice]
+
+3. ERPNext creates a new Purchase Invoice with **Is Return (Debit Note)** selected and **Return Against Purchase Invoice** linked to the original invoice. Verify both fields before changing the Items.
+
+[Screenshot on the live page: Debit Note return setting and original Purchase Invoice reference]
+
+4. Keep only the Items being returned. Remove unaffected rows.
+5. Enter the return quantity as a negative number. For example, use `-2` to return two units from an original quantity of ten.
+6. Select the pencil icon on the Item row to open the full row editor. Verify the returned quantity, original rate, Warehouse, expense account, Cost Center, and source-document references.
+
+[Screenshot on the live page: Negative quantity and original rate in the Debit Note Item row]
+
+7. If the return must move stock out, select **Update Stock** and verify the Warehouse. Leave it clear when stock was already returned through a Purchase Return against the Purchase Receipt.
+8. Review taxes and totals. A return should have negative amounts.
+9. Save and submit the Debit Note.
+
+## What the Debit Note updates
+
+On submission, ERPNext reduces the Supplier payable and reverses the relevant expense, asset, tax, or receipt-clearing values. When **Update Stock** is selected, it also posts the stock movement out of the selected Warehouse.
+
+The original Purchase Invoice remains submitted. Its outstanding amount is reduced by the Debit Note. This maintains a clear audit trail instead of rewriting the original bill.
+
+If the Supplier invoice was unpaid, the Debit Note reduces the amount to pay. If the Supplier was already paid, the result may be a Supplier credit that can be allocated against another invoice or settled through a payment. Use [Payment Reconciliation](/erpnext/payment-reconciliation) when allocations need correction.
+
+## Important fields and what they mean
+
+
+| Field                                    | What it controls                                                                                                                                                |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Is Return (Debit Note)                   | Marks the Purchase Invoice as a return and changes amounts to reversal values.                                                                                  |
+| Return Against Purchase Invoice          | Links the Debit Note to the original invoice and supports outstanding and document-status updates.                                                              |
+| Update Outstanding for Self              | Updates the Debit Note's own outstanding amount even when it references an original invoice. Use the default unless your accounting process requires otherwise. |
+| Update Billed Amount in Purchase Order   | Reduces the billed amount on the linked Purchase Order when applicable.                                                                                         |
+| Update Billed Amount in Purchase Receipt | Reduces the billed amount on the linked Purchase Receipt when applicable.                                                                                       |
+| Update Stock                             | Posts the physical purchase return from the Warehouse through this document.                                                                                    |
+| Items                                    | Identifies what is returned. Quantities and amounts are normally negative.                                                                                      |
+| Posting Date and Time                    | Determines the accounting and optional stock period for the return.                                                                                             |
+| Credit To                                | The Supplier payable account affected by the Debit Note.                                                                                                        |
+
+
+## Partial returns
+
+You can return selected Items or only part of an Item quantity. Retain the original rate unless the Debit Note is specifically a price adjustment. ERPNext limits the return against the quantities and amounts available on the referenced document.
+
+Example: an invoice contains ten phones at $520 each. If two damaged phones are returned, enter quantity `-2` at rate `$520`. The Debit Note total is `$1,040` before tax, and the original payable is reduced by that amount.
+
+## Submit and next steps
+
+After submission:
+
+- check the original invoice's outstanding amount;
+- review the Supplier balance in [Accounts Payable](/erpnext/accounts-payable);
+- inspect the General Ledger entries from **View &gt; Accounting Ledger**;
+- inspect the Stock Ledger when **Update Stock** was enabled;
+- allocate any remaining Supplier credit to a later Purchase Invoice or payment.
+
+## Status
+
+
+| Status   | Meaning                                                                             |
+| -------- | ----------------------------------------------------------------------------------- |
+| Draft    | The Debit Note has not affected ledgers.                                            |
+| Return   | The return Purchase Invoice is submitted.                                           |
+| Unpaid   | The submitted Debit Note has an outstanding credit that is not allocated.           |
+| Paid     | The Debit Note has been fully allocated or settled.                                 |
+| Canceled | Its accounting and stock effect has been reversed under ERPNext cancellation rules. |
+
+
+## Troubleshooting
+
+### The return quantity is rejected
+
+Confirm that the quantity is negative, does not exceed the remaining returnable quantity, and references the correct original Item row.
+
+### Stock is reversed twice
+
+Use either a stock-updating Debit Note or a Purchase Return against the Purchase Receipt for the same physical movement. Do not post both for the same returned units.
+
+### The original invoice outstanding amount did not change as expected
+
+Check **Return Against Purchase Invoice**, the update-outstanding option, existing payments, and reconciliations. Then review the Payment Ledger entries for both documents.
+
+### The Supplier was already paid
+
+The Debit Note creates a Supplier credit. Reconcile it against a later invoice or record the appropriate refund payment according to your process.
+
+## Frequently asked questions
+
+### Can I create a Debit Note without an original Purchase Invoice?
+
+ERPNext can support an unlinked return in some configurations, but linking the original invoice gives better quantity validation, outstanding updates, and audit evidence. Prefer the linked workflow.
+
+### Can a Debit Note return only one line?
+
+You can. Remove all unaffected rows and retain only the returned line and quantity.
+
+### Does every Debit Note update stock?
+
+It does not. Stock changes only when the document is configured to update stock. A price-only adjustment should not move stock.
+
+## Related topics
+
+- [Purchase Invoice](/erpnext/purchase-invoice)
+- [Debit Note for price adjustment](/erpnext/debit-note-for-price-adjustment)
+- [Purchase Receipt](/erpnext/purchase-receipt)
+- [Payment Entry](/erpnext/payment-entry)
+- [Payment Reconciliation](/erpnext/payment-reconciliation)
+- [Accounts Payable](/erpnext/accounts-payable)

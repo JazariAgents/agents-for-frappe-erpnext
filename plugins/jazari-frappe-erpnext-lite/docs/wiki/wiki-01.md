@@ -12,7 +12,7 @@ Users that do not have System Manager roles need approval to merge their patches
 
 A Patch can be approved from the desk.
 
-![](https://wiki.frappe.cloud/files/SDWcRZn.gif)  
+[Screenshot on the live page]  
 
 
   
@@ -27,7 +27,7 @@ updated: "2026-01-13"
 
 You can check revisions by clicking on the Kebab (3-dot) menu button and select Revisions.
 
-![](https://wiki.frappe.cloud/files/Screen-Recording-2023-05-09-at-4(3).gif)  
+[Screenshot on the live page].gif)  
 
 
   
@@ -85,7 +85,7 @@ updated: "2026-01-13"
 Wiki is an open-source wiki management application built on the Frappe Framework. It's designed to handle dynamic, text-heavy content like documentation and knowledge bases. Think of it as a flexible content management system that allows for quick publishing of small changes and new pages without requiring deployments
 
 
-![](/files/Screenshot%202025-03-13%20at%204.57.34%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ## Why Wiki?
 
@@ -141,7 +141,7 @@ Wiki Groups can be added simply by clicking on the the Edit Sidebar button on th
 > 
 > 
 
-![](https://wiki.frappe.cloud/files/Screen-Recording-2023-05-09-at-4.gif)  
+[Screenshot on the live page]  
 
 
   
@@ -157,7 +157,7 @@ updated: "2026-01-13"
 A new Wiki Page can be created simply by clicking the Edit Sidebar button on the left sidebar and then clicking on the + icon near the desired Wiki Group we want the Wiki Page to be in.
 
 Once an empty editor is opened you can add the title and content.
-![](/files/New%20wiki%20page.gif)
+[Screenshot on the live page]
 
 <!-- page: wiki/wiki-v2__use-on-frappe-cloud.md -->
 ---
@@ -208,7 +208,7 @@ Wiki Settings allow you to change generic configurations of the wiki app.
 General
 -------
 
-![](/files/Screenshot%202025-03-06%20at%204.11.59%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 1. **Light Mode Logo**: The default logo that is visible on the top left of each wiki page
@@ -222,7 +222,7 @@ General
 Navbar
 ------
 
-![](/files/Screenshot%202025-03-06%20at%204.14.17%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 1. **Navbar Items**: Add Navbar Items similar to how it is in Website module
@@ -234,7 +234,7 @@ Navbar
 Feedback
 --------
 
-![](/files/Screenshot%202025-03-06%20at%204.15.47%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 1. **Enable Feedback:** Allow users to submit feedback
 2. **JavaScript**: Allows you to add Custom JS that would be run on each Wiki Page
@@ -258,7 +258,7 @@ To create a new Wiki Space
 2. Type in the Wiki Space route
 3. Optionally add Wiki Pages (that aren't associated with other Wiki Spaces)
 
-![](https://wiki.frappe.cloud/files/4op3AHQ.gif)  
+[Screenshot on the live page]  
 
 
   

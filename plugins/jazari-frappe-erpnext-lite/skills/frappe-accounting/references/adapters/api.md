@@ -158,15 +158,15 @@ or reconcile the two afterwards with Payment Reconciliation. Say which to the us
 | Raise a sales invoice | Sales Invoice | `POST /api/v2/document/Sales%20Invoice` (and the list/read/update calls above) | `docs/erpnext/erpnext-52.md` lines 306–524 |
 | Record a purchase invoice | Purchase Invoice | `POST /api/v2/document/Purchase%20Invoice` (and the list/read/update calls above) | `docs/erpnext/erpnext-47.md` lines 3–202 |
 | Issue a credit note | Sales Invoice | `POST /api/v2/document/Sales%20Invoice` (and the list/read/update calls above) | `docs/erpnext/erpnext-15.md` lines 715–814 |
-| Issue a debit note | Purchase Invoice | `POST /api/v2/document/Purchase%20Invoice` (and the list/read/update calls above) | `docs/erpnext/erpnext-19.md` lines 3–148 |
+| Issue a debit note | Purchase Invoice | `POST /api/v2/document/Purchase%20Invoice` (and the list/read/update calls above) | `docs/erpnext/erpnext-18.md` lines 815–960 |
 | Record a payment entry | Payment Entry | `POST /api/v2/document/Payment%20Entry` (and the list/read/update calls above) | `docs/erpnext/erpnext-40.md` lines 353–551 |
-| Post a journal entry | Journal Entry | `POST /api/v2/document/Journal%20Entry` (and the list/read/update calls above) | `docs/erpnext/erpnext-34.md` lines 395–566 |
+| Post a journal entry | Journal Entry | `POST /api/v2/document/Journal%20Entry` (and the list/read/update calls above) | `docs/erpnext/erpnext-34.md` lines 3–174 |
 | Set up cost centers | Cost Center | `POST /api/v2/document/Cost%20Center` (and the list/read/update calls above) | `docs/erpnext/erpnext-15.md` lines 3–98 |
-| Chase overdue invoices with dunning | Dunning | `POST /api/v2/document/Dunning` (and the list/read/update calls above) | `docs/erpnext/erpnext-23.md` lines 386–490 |
-| Bill customers on a subscription | Subscription | `POST /api/v2/document/Subscription` (and the list/read/update calls above) | `docs/erpnext/erpnext-61.md` lines 735–838 |
+| Chase overdue invoices with dunning | Dunning | `POST /api/v2/document/Dunning` (and the list/read/update calls above) | `docs/erpnext/erpnext-22.md` lines 775–879 |
+| Bill customers on a subscription | Subscription | `POST /api/v2/document/Subscription` (and the list/read/update calls above) | `docs/erpnext/erpnext-61.md` lines 548–651 |
 | Manage fixed assets | Asset | `POST /api/v2/document/Asset` (and the list/read/update calls above) | `docs/erpnext/erpnext-07.md` lines 254–357 |
-| Create a sales tax template | Sales Taxes and Charges Template | `POST /api/v2/document/Sales%20Taxes%20and%20Charges%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-54.md` lines 510–706 |
-| Set item-level tax | Item Tax Template | `POST /api/v2/document/Item%20Tax%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-33.md` lines 3–215 |
+| Create a sales tax template | Sales Taxes and Charges Template | `POST /api/v2/document/Sales%20Taxes%20and%20Charges%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-54.md` lines 359–555 |
+| Set item-level tax | Item Tax Template | `POST /api/v2/document/Item%20Tax%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-32.md` lines 323–535 |
 | Use tax categories | Tax Category | `POST /api/v2/document/Tax%20Category` (and the list/read/update calls above) | `docs/erpnext/erpnext-63.md` lines 3–195 |
 | Apply tax rules automatically | Tax Rule | `POST /api/v2/document/Tax%20Rule` (and the list/read/update calls above) | `docs/erpnext/erpnext-63.md` lines 566–765 |
 | Set up withholding tax | Tax Withholding Category | `POST /api/v2/document/Tax%20Withholding%20Category` (and the list/read/update calls above) | `docs/erpnext/erpnext-64.md` lines 3–239 |
@@ -182,22 +182,22 @@ Do not guess the name.
 |---|---|---|
 | Send a payment request | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-41.md` lines 164–306 |
 | Set payment terms | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-41.md` lines 402–476 |
-| Reconcile the bank | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-08.md` lines 735–822 |
+| Reconcile the bank | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-08.md` lines 708–795 |
 | Reconcile payments against invoices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-41.md` lines 3–162 |
-| Enter opening balances | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-39.md` lines 390–493 |
-| Import opening invoices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-39.md` lines 495–610 |
+| Enter opening balances | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-39.md` lines 162–265 |
+| Import opening invoices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-39.md` lines 267–382 |
 | Set and track a budget | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 541–701 |
 | Use accounting dimensions | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-01.md` lines 226–369 |
 | Close an accounting period | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-42.md` lines 3–85 |
-| Freeze accounting entries | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-27.md` lines 633–688 |
-| Set up deferred revenue and expense | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-19.md` lines 252–410 |
-| Send a statement of accounts | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-44.md` lines 568–672 |
+| Freeze accounting entries | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-27.md` lines 128–183 |
+| Set up deferred revenue and expense | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-19.md` lines 105–263 |
+| Send a statement of accounts | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-44.md` lines 520–624 |
 | Run asset depreciation | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-06.md` lines 407–498 |
-| Track shareholders and share transfers | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-58.md` lines 67–140 |
-| Set up taxes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-57.md` lines 755–833 |
+| Track shareholders and share transfers | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-57.md` lines 731–804 |
+| Set up taxes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-57.md` lines 378–456 |
 | Create a purchase tax template | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-48.md` lines 3–215 |
 | Set up UAE VAT | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-66.md` lines 287–343 |
-| Set up KSA VAT reporting | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-58.md` lines 718–751 |
+| Set up KSA VAT reporting | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-58.md` lines 364–397 |
 
 ## Not an API job
 

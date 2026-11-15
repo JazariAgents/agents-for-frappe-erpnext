@@ -147,9 +147,9 @@ or reconcile the two afterwards with Payment Reconciliation. Say which to the us
 | Build a bill of materials | BOM | `POST /api/v2/document/BOM` (and the list/read/update calls above) | `docs/erpnext/erpnext-09.md` lines 610–802 |
 | Update BOMs in bulk | BOM Update Tool | `PUT /api/v2/document/BOM%20Update%20Tool/BOM%20Update%20Tool` — Single DocType, update only | `docs/erpnext/erpnext-10.md` lines 827–887 |
 | Run a work order | Work Order | `POST /api/v2/document/Work%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext-69.md` lines 147–379 |
-| Record work on a job card | Job Card | `POST /api/v2/document/Job%20Card` (and the list/read/update calls above) | `docs/erpnext/erpnext-34.md` lines 55–213 |
+| Record work on a job card | Job Card | `POST /api/v2/document/Job%20Card` (and the list/read/update calls above) | `docs/erpnext/erpnext-33.md` lines 361–519 |
 | Plan production | Production Plan | `POST /api/v2/document/Production%20Plan` (and the list/read/update calls above) | `docs/erpnext/erpnext-45.md` lines 201–398 |
-| Configure manufacturing settings | Manufacturing Settings | `PUT /api/v2/document/Manufacturing%20Settings/Manufacturing%20Settings` — Single DocType, update only | `docs/erpnext/erpnext-36.md` lines 807–962 |
+| Configure manufacturing settings | Manufacturing Settings | `PUT /api/v2/document/Manufacturing%20Settings/Manufacturing%20Settings` — Single DocType, update only | `docs/erpnext/erpnext-36.md` lines 424–579 |
 
 ## Capabilities that need a schema lookup first
 
@@ -163,8 +163,8 @@ Do not guess the name.
 | Design a BOM with the BOM creator | the DocType is `BOM Creator`; read the bundled page, then `GET /api/v2/doctype/BOM%20Creator/meta` — a `design_file` field means the rebuilt screen (ERPNext 16.53 and later) | `docs/erpnext/erpnext-10.md` lines 292–681, older: `docs/erpnext/erpnext-10.md` lines 683–728 |
 | Set up workstations | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-69.md` lines 729–858 |
 | Define operations and routing | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-51.md` lines 717–768 |
-| Watch the plant floor | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 57–91 |
-| Handle scrap and disassembly | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-55.md` lines 180–209 |
+| Watch the plant floor | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 3–37 |
+| Handle scrap and disassembly | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-55.md` lines 3–32 |
 
 ## Not an API job
 

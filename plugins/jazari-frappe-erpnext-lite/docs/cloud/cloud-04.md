@@ -16,7 +16,7 @@ Both "Active" and "Inactive" sites are billed, you have to drop the site in orde
 
 Your site may be suspended for one of the following reasons. Please check your dashboard — a banner will display the reason for suspension :
 
-![](/files/banner-suspension76f79b.png)
+[Screenshot on the live page]
 
 1. **Unpaid Invoices** : If you have pending invoices, your site will be suspended.
   You can pay them through the **Billing** section in your FC dashboard to restore access.
@@ -40,21 +40,21 @@ If your site has been suspended already, you might not access the site to reduce
 
 You can see which tables/doctypes are using most space within your site itself. Search for **Database storage report** in the search bar and you will find report like follows 
 
-![Database Storage report](https://user-images.githubusercontent.com/9079960/196618374-5b268f58-b213-458f-8390-8b8beb404cdf.png)
+[Screenshot on the live page: Database Storage report]
 
 #### Clearing logs
 
 More often than not, log tables can take up a lot of space. You can control size of log tables with: **Log Settings**
 
-![](/files/image62a6b4.png)
+[Screenshot on the live page]
 
 You can safely add additional doctypes such as **Deleted Document** to this list. The system will only let you add supported doctypes to this table. If you attempt to add unsupported doctypes, it will throw an error like so:
 
-![](/files/image1dbe27.png)
+[Screenshot on the live page]
 
 To allow deletion for your doctypes within your app, implement the staticmethod within your doctype controller like so 
 
-![](/files/image9d54c7.png)
+[Screenshot on the live page]
 
 > Log cleanup happens on daily basis. Please wait for a day for the size change to reflect in your Frappe Cloud dashboard
 
@@ -125,7 +125,7 @@ Alternatively, you can also manually go find and update such data in your site. 
 
 You can login as administrator to your site directly from your Frappe Cloud dashboard.
 
-![](/files/NmMkuTf.png)
+[Screenshot on the live page]
 
 If you still wish to obtain the new administrator password set on your site, you may request for the same through our support portal.
 
@@ -154,13 +154,13 @@ after_request = ["custom_app..after_request"]
 
 If you try to access endpoints of your FC site from another site (or localhost) you will run into this error. To allow cross-origin requests to your site, you need to set `allow_cors` in your site config to all the sites from which you need to perform the requests.
 
-![](/files/bXPJqgZ.png)
+[Screenshot on the live page]
 
 ref: [https://frappeframework.com/docs/user/en/basics/site_config](https://frappeframework.com/docs/user/en/basics/site_config)
 
 #### Add allow_cors from Site Config tab of your site dashboard
 
-![](/files/image216e0f.png)
+[Screenshot on the live page]
 
 ### Scheduler not running in my site
 
@@ -170,13 +170,13 @@ At times, it may seem that the scheduled jobs in your site aren't running at the
 
 If scheduler is running, you'll see status like so
 
-![](/files/eob8616.png)
+[Screenshot on the live page]
 
 #### Dormant days setting
 
 You should also check **Run Jobs only Daily if Inactive For (Days)** setting within **System Settings** as well. All your scheduled jobs will run once daily regardless of their specified frequency when no user **logs in** to the site in specified number of days.
 
-![](/files/dI3yf6y.png)
+[Screenshot on the live page]
 
 ### Need 4096 bit https certificate
 
@@ -190,7 +190,7 @@ Often, you may need the IP addresses used by your site for whitelisting or black
 
 You can get the same from within your site dashboard under the **Overview** tab.
 
-![](https://frappecloud.com/files/3MWe7ri.png)
+[Screenshot on the live page]
 
 When your site makes a request to an external endpoint, the endpoint sees the **Outbound IP.** This should be used for whitelisting your site's access to some 3rd party service.
 
@@ -214,11 +214,11 @@ It may be the case that you dropped a site by accident or want to restore an old
 
 > If your trial site got dropped, then there is nothing we can do. We don't take backups of trial sites. You will have to start over from a new site.
 
-![](/files/Xgy4bag.png)
+[Screenshot on the live page]
 
 Clicking on these will essentially allow you to access the **Backups** tab of your site, from where you can **Restore Backup on another Site** easily
 
-![](/files/wBiX2Ld.png)
+[Screenshot on the live page]
 
 ### Outgoing requests blocked
 
@@ -241,15 +241,15 @@ Sometimes it may seem that a job (most often update site migrate) is taking too 
 
 You can change notification email per site from under your **Activity** tab:
 
-![](/files/Screenshot%202025-08-20%20at%203.43.37%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### India Compliance credits not correct after restore from backup
 
 After restoring a site from backup, you may notice from your India Compliance account page that the credits shown are not the same as it was on your previous instance. This happens due to a bug. In such case, you can logout and log back in to fix it.
 
-![](/files/Screenshot%202025-08-20%20at%203.40.36%E2%80%AFPM.png)
+[Screenshot on the live page]
 
-![](/files/7a1bfec8-75c3-4120-9679-32abb65e060b.jpeg)
+[Screenshot on the live page]
 
 ### Allow Changing System Timezone within site
 
@@ -260,17 +260,17 @@ You cannot change timezone under system settings once it's set. However, you may
 Currently, Frappe Cloud does not offer à la carte options. To increase your database capacity, you’ll need to upgrade your site to the next available plan. You can view the pricing here.  
 Also you can use the Database Analyzer tool to see which tables/doctypes are using the most space within your site itself. More often than not, log tables can take up a lot of space. You can control the size of log tables with: Log Settings.
 
-![](/files/balu-user-timezone.png)
+[Screenshot on the live page]
 
 ### How do I Deactivate my site ?
 
 The deactivate site feature makes the site inactive and inaccessible on the internet. When deactivated the site enters into maintenance mode and the user will still be billed for the site. Please refer to the below screenshot to deactivate your site.
 
-![](https://docs.frappe.io/files/maintenanc_mode.png)
+[Screenshot on the live page]
 
 This action is not very dangerous and can be reverted, but please make sure to verify yourself before Deactivating any site on your account.
 
-![](https://docs.frappe.io/files/deactivation_confirmation.png)
+[Screenshot on the live page]
 
 ### I am not able to upload large attachments
 
@@ -286,7 +286,7 @@ From your site dashboard > go to Actions > Dangerous Actions > Reset site.
 
 `Note:- This will reset your site's database to clean state`
 
-![](https://docs.frappe.io/files/imageb35d11.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__features.md -->
 ---
@@ -362,15 +362,15 @@ Insights is installed in same site and you haven't configured anything.
 
 1. Go to insights setup page &gt; &lt;https://test.com/insights/setup&gt;
 
-![Screenshot 2025-01-31 at 1.08.30 PM](/files/Screenshot 2025-01-31 at 1.08.30 PM.png "Screenshot 2025-01-31 at 1.08.30 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.08.30 PM]
 2. Click on the first option **Connect to your ERPNext Site**.
 3. Choose a title for your data source. It can be anything you prefer, then continue.
 
-![Screenshot 2025-01-31 at 12.55.02 PM](/files/Screenshot 2025-01-31 at 12.55.02 PM.png "Screenshot 2025-01-31 at 12.55.02 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 12.55.02 PM]
 4. This may take a few minutes. Once it's complete, you will be redirected to insight's dashboard.
 5. Open Data Sources and you will be able to see you database's tables.
 
-![Screenshot 2025-01-31 at 12.57.00 PM](/files/Screenshot 2025-01-31 at 12.57.00 PM.png "Screenshot 2025-01-31 at 12.57.00 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 12.57.00 PM]
 6. Now you can write query, reports. For more details, check the documentation &lt;https://docs.frappe.io/insights/introduction&gt; .
 
 Second Scenario
@@ -385,23 +385,23 @@ Insights is installed in different site and you need to connect with that.
 
 Typically, it takes a few seconds to configure the database user. Once it's complete, click on **View Credential**
 
-![Screenshot 2025-01-31 at 1.15.44 PM](/files/Screenshot 2025-01-31 at 1.15.44 PM.png "Screenshot 2025-01-31 at 1.15.44 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 2. Go to insights setup page &gt; &lt;https://test.com/insights/setup&gt;
 
-![Screenshot 2025-01-31 at 1.08.45 PM](/files/Screenshot 2025-01-31 at 1.08.45 PM.png "Screenshot 2025-01-31 at 1.08.45 PM.png")  
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.08.45 PM]  
 
 
 **Note :** If you have already completed setup and this page is not appearing to you, go to &lt;https://test.com/insights&gt; and click on **Connect Data Source**.
 3. Click on **MariaDB** and continue.
 4. Fill in the required information and make sure to check the **Use SSL** checkbox.
 
-![Screenshot 2025-01-31 at 1.26.50 PM](/files/Screenshot 2025-01-31 at 1.26.50 PM.png "Screenshot 2025-01-31 at 1.26.50 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.26.50 PM]
 5. Click on **Connect**
 6. Once connection verified, click on **Continue** button.
 7. This may take a few minutes. Once it's complete, you will be redirected to insights dashboard.
 8. Open Data Sources and you will be able to see you database's tables.
 
-![Screenshot 2025-01-31 at 12.57.00 PM](/files/Screenshot 2025-01-31 at 12.57.00 PM.png "Screenshot 2025-01-31 at 12.57.00 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 12.57.00 PM]
 9. Now you can write query, reports. For more details, check the documentation &lt;https://docs.frappe.io/insights/introduction&gt; .
 
   
@@ -564,7 +564,7 @@ You can contribute your regional Chart of Accounts to the core ERPNext repositor
 
 Contribute the regional Chart of Accounts in the core repo of ERPNext, in [this particular folder](https://github.com/frappe/erpnext/tree/develop/erpnext/accounts/doctype/account/chart_of_accounts/verified)
 
-![](/files/regional-coa.png)
+[Screenshot on the live page]
 
 Also, you can have Chart of Accounts setup via your custom application, which will include tax ledgers.
 
@@ -572,7 +572,7 @@ Also, you can have Chart of Accounts setup via your custom application, which wi
 
 To make applying taxes easier in transactions, ERPNext allows you to set up Tax Templates for sales and purchases. This helps new users correctly apply taxes to invoices to ensure they are compliant.
 
-![](/files/regional-tax-masters.png)
+[Screenshot on the live page]
 
 In cases where an invoice contains multiple items with different tax rates, an Item Tax Template should be auto-created. For instance, in India, there are GST slabs of 5%, 12%, 18%, and 28%. Since a single sales invoice can have items from different slabs, the tax must be defined at the item level.
 
@@ -580,11 +580,11 @@ In cases where an invoice contains multiple items with different tax rates, an I
 
 The final goal for tax ledgers is to provide reports as specified by the tax authorities. While tax ledgers are created in the Chart of Accounts, the system needs a setting to identify which ledger corresponds to which tax type. The India Compliance app, for example, has a GST Setting page for this.
 
-![](/files/regional-compliance-tax-setup.png)
+[Screenshot on the live page]
 
 This settings page can also store other country-specific configurations, such as API details for e-invoicing integrations.
 
-![](/files/regional-compliance-setup.png)
+[Screenshot on the live page]
 
 ## Workspace for Regional Taxation
 
@@ -595,7 +595,7 @@ Your regional compliance app will include several DocTypes, such as:
 - Link of Reports
 - Link of User manual and help videos
 
-![](/files/regional-links.png)
+[Screenshot on the live page]
 
 Do create a Workspace or sub-workspace that lists all these DocTypes, pages, and reports, grouped logically. This makes it easy for new users to find compliance features and helpful resources.
 
@@ -603,13 +603,13 @@ Do create a Workspace or sub-workspace that lists all these DocTypes, pages, and
 
 You can create a step-by-step onboarding guide to help users set up the app. For reference, you can look at the onboarding flow in the Thai Taxation app.
 
-![](/files/regional-onboarding.png)
+[Screenshot on the live page]
 
 ## Reports
 
 The success of a regional compliance app depends on providing accurate reports in the exact format and with the names specified by the tax authorities. It is extremely important to build these reports correctly. They should be grouped within the app's workspace based on their importance.
 
-![](/files/compliance-reports.png)
+[Screenshot on the live page]
 
 ## Review Process
 
@@ -716,13 +716,13 @@ Customer data security is of extreme importance to us. We want to treat that dat
 ### What should I as a customer do?
 You can manage incoming access requests from Frappe Cloud dashboard itself. You can go to this dedicated page from the sidebar. It will look like this.
 
-![image6357ec](/files/image6357ec.png)
+[Screenshot on the live page: image6357ec]
 
 This list should tell you about the target resource or resources, reason for the request, time for expiry and when was it requested. The list is sorted by last updated. So most relevant requests will be kept on top.
 
 Clicking any row will open a dialog with more details. It can show a list of resources and any additional permissions if requested.
 
-![image17afbf](/files/image17afbf.png)
+[Screenshot on the live page: image17afbf]
 
 Pending requests can be accepted or rejected. Once accepted, access will be granted for a limited amount of time. This includes any additional permissions mentioned in the request.
 
@@ -735,7 +735,7 @@ That’s it! There is nothing else you have to do. Your data will remain secure 
 ### What should I as an agent do?
 You are on the other side of this see-saw. Your role as an agent is to request access to a particular resource. There is no special page to do this. Instead, you can go a resource’s page and click on Request Access button. This will open a dialog asking for necessary information.
 
-![image4c3a4a](/files/image4c3a4a.png)
+[Screenshot on the live page: image4c3a4a]
 
 Ideally, you should ask for minimum required permissions depending on the need. More permissions can be asked later.
 
@@ -745,7 +745,7 @@ Clicking any of the rows will open up a dialog with it’s details. Like custome
 
 In addition to Access Requests page, you can see individual resource statuses in their own page. If you have access via request for a resource, a button with unlock icon will be shown on the top bar. This button opens a dialog with relevant permissions and dates. There is also an additional button to re-request access with or without permissions.
 
-![image277c18](/files/image277c18.png)
+[Screenshot on the live page: image277c18]
 
 That is all for an agent’s part. You can be headache free when it comes to consent, access and timelines. All of them are handled here!
 
@@ -780,9 +780,9 @@ updated: "2026-02-18"
 ---
 
 To change a site plan, click on the change button from your Frappe Cloud site's dashboard on the overview tab.  
-**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcoObKj79cLk85P5mYHY7Qx8YKTBMVgyXF6x1KFdWEMFbvtfPzswWs4fXkgQNj0AfyueLfToZAs0NbtLM2gRYPP2UmNCZ0RUrSW87r66TvanbYzmtRrWNp_r8r3ym2GUeMWBk5Av3-QYv8NK8HRJmVkibM?key=rRX4NjLc9xksOOZOmvo7iQ)**  
+**[Screenshot on the live page]**  
   
-Select the appropriate plan you want to change your site to and click on the change plan button to change your site plan to the newly selected one.**![](https://lh7-us.googleusercontent.com/docsz/AD_4nXcZC4TImcI60Or59EyJh8DuFv8tsrmY2O4gXG3J3yx9RxiDriyKZVQcQoTIomJL_AUqBeXe_8ogOAjOpRCJ3ReSh5oIA7zWeLrvq5RWZ5HddbgQ0bdHm4IuuNCdpcv8K14Ofy6rHFZBfsUJVN_hGZul6PvE?key=rRX4NjLc9xksOOZOmvo7iQ)**  
+Select the appropriate plan you want to change your site to and click on the change plan button to change your site plan to the newly selected one.**[Screenshot on the live page]**  
 
 <!-- page: cloud/cloud__how-to-disable-auto-update-for-your-site.md -->
 ---
@@ -797,13 +797,13 @@ updated: "2026-02-16"
 > 
 > 
 
-**1.** From your site’s dashboard click on the Update button.![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfPfVM3BldiLYJRE7hDz7zq9rX6HNv7mF-RaS-_b3e6jYb71CwuMcPx73FqeNdB4A6TBZ0K5tUpPvhbcL_2bWdelUVIe9YmqkP8ymLrnRqldjOXWVITt_JWLPPRtgyiTSiKNXiLEGR0wlRtHe6dTg5zbTg?key=CiJyoIIvFgjiTDtchgP-BQ)  
+**1.** From your site’s dashboard click on the Update button.[Screenshot on the live page]  
   
-**2.** Click on the “**Configure**” button.![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcwr2K1iA7FTgVoh4DD5XaIT4OMiX6ncBk7DV7uaQ6wQH0CokP3YN4hYdfjVcifi94qXXG59nBSxOoeXjR1itknT7wXA8P8WOLBzStI-pJRwQ4eZuCrfO863gBSET4y0qcufwosmosKEvfqrW2gPPNwue0q?key=CiJyoIIvFgjiTDtchgP-BQ)  
+**2.** Click on the “**Configure**” button.[Screenshot on the live page]  
   
 **3.** Once you click on the Configure button you will see a pop-up, you can toggle On/Off the “Enable Auto Update” option.  
   
-![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXfPHeo4m-0VhkQ8oMh13FPeemYczVENNmIb0f1NQOe2pqNiFuEwtJwQoErL5StGm7wVtoRrwIW7Xdrja53kjyTwgtu7MhhfjvxQZtVurQq8Vr53NXfqqzN23r8YC18LoKDrMMWT2vP3cJ_aKG_jBF-Xuw5u?key=CiJyoIIvFgjiTDtchgP-BQ)  
+[Screenshot on the live page]  
 
 
   
@@ -830,15 +830,15 @@ url: "https://docs.frappe.io/cloud/how-to-uninstall-an-app-from-the-site"
 updated: "2026-02-16"
 ---
 
-Go to the Apps tab from your Frappe Cloud dashboard.![](/files/2ZmfimM.png)  
+Go to the Apps tab from your Frappe Cloud dashboard.[Screenshot on the live page]  
   
 
 
-Click on the three dots of the app you want to uninstall from your site.![](/files/2CxpKvg.png)  
+Click on the three dots of the app you want to uninstall from your site.[Screenshot on the live page]  
   
 
 
-From the drop-down select uninstall.![](/files/moQ6fvZ.png)  
+From the drop-down select uninstall.[Screenshot on the live page]  
 
 <!-- page: cloud/cloud__in-place-updates.md -->
 ---
@@ -892,7 +892,7 @@ After you have enabled in place updates, a few conditions need to be met:
 
 To understand points 1. and 2. please see the image below:
 
-![](/files/cB5BL8z.png)  
+[Screenshot on the live page]  
 
 
 Here 7 **sites** under 3 **site groups** under the **FrappeDesk** Bench Group have been highlighted by red squares. When running an in place update only sites under one of these groups can be updated.
@@ -920,14 +920,14 @@ Using an in place update
 
 To use an in place update for deployment, follow this [document](https://frappecloud.com/docs/sites/how-to-update-an-app-site-on-a-private-bench) until step 2. If all the above mentioned conditions have been met, the dialog box you see will be a bit different:
 
-![](/files/RPsrZjb.png)  
+[Screenshot on the live page]  
 
 
 Enable the **Use in place update** checkbox. The action button will now say **Update site in place** instead of **Deploy and update site**.
 
 Once you click the **Update site in place** button, you will be redirected to the update job:
 
-![](/files/ThE8xUs.png)  
+[Screenshot on the live page]  
 
 
 
@@ -935,9 +935,69 @@ Once you click the **Update site in place** button, you will be redirected to th
 > 
 > If the Update Bench In Place job fails, Frappe Cloud will try to recover your bench by running the Recover Update In Place job:
 > 
-> ![](/files/i9rbFzl.png)  
+> [Screenshot on the live page]  
 > 
 > 
 > If this occurs, you cannot use in place update to update this bench.
 > 
 > 
+
+<!-- page: cloud/cloud__installing-an-app.md -->
+---
+title: "Installing an app"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/installing-an-app"
+updated: "2026-02-18"
+---
+
+## Public sites
+
+You will be able to install featured apps from the [marketplace](https://frappecloud.com/marketplace) only for your site. To install an app
+
+1. Click on Apps tab of your Site's dashboard
+
+[Screenshot on the live page]
+
+2. Click on Install App
+3. Select the app you need to install
+  [Screenshot on the live page]
+
+## Sites on Private bench groups
+
+You can add custom apps or any app from the [marketplace](https://frappecloud.com/marketplace) to your bench group and then install to your site. To install an app on a site on private bench group you have to add app in 2 places.
+
+### Bench Group
+
+1. Click on Apps tab of your Bench Group's dashboard
+
+[Screenshot on the live page]
+
+2. Click on Add App
+
+[Screenshot on the live page]
+
+3. Select any marketplace app or follow [this guide](https://frappecloud.com/docs/benches/custom-app) to install a custom app.
+
+[Screenshot on the live page]
+
+4. Click on the Update Available button to create a new deploy so that your site can install the app
+
+[Screenshot on the live page]
+
+5. Select your site while doing the update and click on deploy and update
+
+[Screenshot on the live page]
+
+### Site
+
+1. Once the update is done click on Apps tab of your Site's dashboard
+
+[Screenshot on the live page]
+
+2. Click on Install App
+
+[Screenshot on the live page]
+
+3. Select the app added earlier to install
+
+[Screenshot on the live page]

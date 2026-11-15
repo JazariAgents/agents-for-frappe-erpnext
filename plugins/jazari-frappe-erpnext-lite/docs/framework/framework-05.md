@@ -79,7 +79,7 @@ To create a new Client Script, go to
 
 **Home > Customization > Client Script > New**
 
-![New Client Script](/files/client-script-form.png) *New Client Script for Form*
+[Screenshot on the live page: New Client Script] *New Client Script for Form*
 
 Form Events
 -----------
@@ -323,7 +323,7 @@ if (!frm.doc.description) {
   
 
 ```
-![Intro text example](/files/Screenshot 2022-04-23 at 1.56.04 AM.png) *Intro Text Example*
+[Screenshot on the live page: Intro text example] *Intro Text Example*
 
 ### frm.add_custom_button
 
@@ -1049,7 +1049,7 @@ The List view is packed with features. Some of them are:
 * Filter by tags
 * Switch view to Report, Calendar, Gantt, Kanban, etc.
 
-![List View](/files/list-view.png) *List View*
+[Screenshot on the live page: List View] *List View*
 
 Standard List JS
 ----------------
@@ -1130,11 +1130,11 @@ To create a new Client Script, go to
 
 **Home > Customization > Client Script > New**
 
-![New Client Script](/files/client-script-list.png) *New Client Script for List*
+[Screenshot on the live page: New Client Script] *New Client Script for List*
 
 The above customization will result in a list view that looks like this:
 
-![List View Customized](/files/list-view-customized.png) *List View Customized*
+[Screenshot on the live page: List View Customized] *List View Customized*
 
 Multiple Buttons in the List JS
 -------------------------------
@@ -1214,7 +1214,7 @@ frappe.listview_settings["ToDo"] = {
     }
   };
 ```
-![](/files/w7DupHw.png)  
+[Screenshot on the live page]  
 
 <!-- page: framework/framework__user__en__api__logging.md -->
 ---
@@ -1354,7 +1354,7 @@ let page = frappe.ui.make_app_page({
   
 
 ```
-![New Page](/files/new-page.png) *New Page*
+[Screenshot on the live page: New Page] *New Page*
 
 Page methods
 ------------
@@ -1372,7 +1372,7 @@ page.set_title('My Page')
   
 
 ```
-![Page Title](/files/page-set-title.png) *Page Title*
+[Screenshot on the live page: Page Title] *Page Title*
 
 page.set_title_sub
 --------------------
@@ -1385,7 +1385,7 @@ page.set_title_sub('Subtitle')
   
 
 ```
-![Page Subtitle](/files/page-set-title-sub.png) *Page Subtitle*
+[Screenshot on the live page: Page Subtitle] *Page Subtitle*
 
 page.set_indicator
 -------------------
@@ -1398,7 +1398,7 @@ page.set_indicator('Pending', 'orange')
   
 
 ```
-![Page Indicator](/files/page-set-indicator.png) *Page Indicator*
+[Screenshot on the live page: Page Indicator] *Page Indicator*
 
 page.clear_indicator
 ---------------------
@@ -1422,7 +1422,7 @@ let $btn = page.set_primary_action('New', () => create_new(), 'octicon octicon-p
   
 
 ```
-![Page Primary Action](/files/page-primary-action.png) *Page Primary Action*
+[Screenshot on the live page: Page Primary Action] *Page Primary Action*
 
 page.clear_primary_action
 ---------------------------
@@ -1446,7 +1446,7 @@ let $btn = page.set_secondary_action('Refresh', () => refresh(), 'octicon octico
   
 
 ```
-![Page Secondary Action](/files/page-secondary-action.png) *Page Secondary Action*
+[Screenshot on the live page: Page Secondary Action] *Page Secondary Action*
 
 page.clear_secondary_action
 -----------------------------
@@ -1474,7 +1474,7 @@ page.add_menu_item('Send Email', () => open_email_dialog(), true)
   
 
 ```
-![Page Menu Dropdown](/files/page-menu-dropdown.png) *Page Menu Dropdown*
+[Screenshot on the live page: Page Menu Dropdown] *Page Menu Dropdown*
 
 page.clear_menu
 ----------------
@@ -1499,7 +1499,7 @@ page.add_action_item('Delete', () => delete_items())
   
 
 ```
-![Page Actions Dropdown](/files/page-actions-dropdown.png) *Page Actions Dropdown*
+[Screenshot on the live page: Page Actions Dropdown] *Page Actions Dropdown*
 
 page.clear_actions_menu
 -------------------------
@@ -1524,7 +1524,7 @@ page.add_inner_button('Update Posts', () => update_posts())
   
 
 ```
-![Page Inner Button](/files/page-inner-button.png) *Page Inner Button*
+[Screenshot on the live page: Page Inner Button] *Page Inner Button*
 
 
 ```
@@ -1533,7 +1533,7 @@ page.add_inner_button('New Post', () => new_post(), 'Make')
   
 
 ```
-![Page Inner Button Group](/files/page-inner-button-group.png) *Page Inner Button Group*
+[Screenshot on the live page: Page Inner Button Group] *Page Inner Button Group*
 
 ### page.change_custom*button*type
 
@@ -1598,7 +1598,7 @@ let field = page.add_field({
   
 
 ```
-![Page Form Toolbar](/files/page-add-field.png) *Page Form Toolbar*
+[Screenshot on the live page: Page Form Toolbar] *Page Form Toolbar*
 
 page.get_form_values
 ----------------------
@@ -1662,7 +1662,7 @@ frappe.msgprint(
   
 
 ```
-![frappe.msgprint](/files/dialog-api-msgprint-py.png) *frappe.msgprint*
+[Screenshot on the live page: frappe.msgprint] *frappe.msgprint*
 
 `primary_action` can contain a `server_action` **or** `client_side` action which must contain dotted paths to the respective methods. The JavaScript function must be a globally available function. You can also pass `hide_on_success` to close the message after the action is successfully completed.
 
@@ -1683,7 +1683,7 @@ frappe.msgprint(msg='This file does not exist',
   
 
 ```
-![frappe.msgprint with primary action](/files/dialog-api-msgprint-py-with-primary-action.png) *frappe.msgprint with primary action*
+[Screenshot on the live page: frappe.msgprint with primary action] *frappe.msgprint with primary action*
 
 ### frappe.throw
 
@@ -1703,4 +1703,4 @@ frappe.throw(
   
 
 ```
-![Throw-py](/files/dialog-api-msgprint-py.png) *frappe.throw*
+[Screenshot on the live page: Throw-py] *frappe.throw*

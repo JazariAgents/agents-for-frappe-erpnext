@@ -12,7 +12,7 @@ Owner: **Urwah** · verified: documentation; the screens, record types and API c
 2. **Restore a site from a backup** (`bench.restore`, bench mode) — FRESH BACKUP FIRST, irreversible
    read: `docs/framework/framework-12.md` lines 564–659   (https://docs.frappe.io/framework/user/en/bench/reference/restore)
 3. **Back up a Frappe Cloud site** (`cloud.site.backup`, browser mode)
-   read: `docs/cloud/cloud-08.md` lines 136–255   (https://docs.frappe.io/cloud/sites/backups)
+   read: `docs/cloud/cloud-08.md` lines 3–122   (https://docs.frappe.io/cloud/sites/backups)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

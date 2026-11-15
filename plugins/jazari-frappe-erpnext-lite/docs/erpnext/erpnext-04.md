@@ -11,15 +11,15 @@ updated: "2026-03-02"
 To explain, let's consider Purchase Order which has the following fields in the Print Format, and here, I want to add 'Supplier's Contact Name' under Supplier Name and remove the 'Weight Per Unit' column from the Item's table.
  
 
-![](/files/XcnBFUS.png)
+[Screenshot on the live page]
 
 **Step 1:** Navigate to the Print View of the document you want to change the Print Format of -> Menu (...) -> Customize
 
-![](/files/LfToZz3.png)
+[Screenshot on the live page]
 
 **Step 2:** Search for the field by name and add it to the desired location
 
-![](/files/5VNERDk.gif)
+[Screenshot on the live page]
 
 _Follow the same drag and drop method to remove the fields as well._
 
@@ -27,13 +27,13 @@ _Follow the same drag and drop method to remove the fields as well._
 
 **Step 3:** To add/remove the fields from the child table of the document: Locate the table -> Select Columns -> Check/Uncheck as you wish.
 
-![](/files/SOFuS2J.gif)
+[Screenshot on the live page]
 
  
 
 **The result:**
 
-![](/files/VrXN7YB.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__adding-attachments-to-outgoing-messages.md -->
 ---
@@ -48,7 +48,7 @@ updated: "2026-03-04"
 
 If you have certain files attached to your document and wish to attach the same to the outgoing email, you can do so by simply picking it from the attachments list.
 
-![Attachments in Outgoing Messages](/files/using-add-attachments-in-message.gif)
+[Screenshot on the live page: Attachments in Outgoing Messages]
 
 <!-- page: erpnext/erpnext__adding-margin.md -->
 ---
@@ -81,9 +81,9 @@ Margin needs a reference Price List Rate. If no rate is fetched, verify the Item
 6. Review the calculated Rate and Amount.
 7. Save.
 
-![A Sales Order item row with its pencil icon highlighted.](https://novacompanies.m.frappe.cloud/files/discount-item-pencil.png)
+[Screenshot on the live page: A Sales Order item row with its pencil icon highlighted.]
 
-![The item row editor with Margin Type and Margin Rate or Amount highlighted.](https://novacompanies.m.frappe.cloud/files/margin-item-fields-v2.png)
+[Screenshot on the live page: The item row editor with Margin Type and Margin Rate or Amount highlighted.]
 
 ## Margin calculation
 
@@ -119,7 +119,7 @@ Use a Pricing Rule when the same margin should apply under repeatable conditions
 5. Save and enable the rule.
 6. Test it on a new Quotation or Sales Order.
 
-![A Pricing Rule with its Margin settings highlighted.](https://novacompanies.m.frappe.cloud/files/margin-pricing-rule.png)
+[Screenshot on the live page: A Pricing Rule with its Margin settings highlighted.]
 
 When several rules can match, review their priorities and conditions. A more specific rule may need a higher priority than a general Item Group rule.
 
@@ -202,7 +202,7 @@ The example below writes off $221 from Northstar Retail's submitted Sales Invoic
 
 
 
-![Outstanding amount on the Sales Invoice used as the Journal Entry reference](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-adding-reference-to-journal-entry-journal-entry-reference-source-invoice.png)
+[Screenshot on the live page: Outstanding amount on the Sales Invoice used as the Journal Entry reference]
 
 ## Add the reference
 
@@ -212,13 +212,13 @@ For an invoice-related adjustment, use the receivable or payable account on the 
 
 
 
-![Pencil icon for opening the Journal Entry accounting row](https://novacompanies.m.frappe.cloud/files/journal-entry-reference-20260802-journal-entry-reference-row.png)
+[Screenshot on the live page: Pencil icon for opening the Journal Entry accounting row]
 
 Set **Party Type** to **Customer** or **Supplier**, then select the corresponding party. ERPNext uses these fields with the receivable or payable account to update the correct party ledger.
 
 
 
-![Party Type and Party on the Journal Entry accounting row](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-adding-reference-to-journal-entry-journal-entry-reference-party.png)
+[Screenshot on the live page: Party Type and Party on the Journal Entry accounting row]
 
 In the **Reference** section:
 
@@ -227,7 +227,7 @@ In the **Reference** section:
 3. Review the reference due date when ERPNext fetches it.
 4. Confirm that the row amount is the amount you intend to allocate.
 
-![Reference Type and Reference Name on a Journal Entry accounting row](https://novacompanies.m.frappe.cloud/files/docs-gl-correction-20260803-adding-reference-to-journal-entry-journal-entry-reference-fields.png)
+[Screenshot on the live page: Reference Type and Reference Name on a Journal Entry accounting row]
 
 Collapse the row and verify that total debit equals total credit. Save the draft, review all accounts and references, then submit.
 
@@ -362,7 +362,7 @@ An Email address is the unique key (ID) identifying the Users.
 2. Add an Email address and name of the user.
 3. Save.
 
-![](/files/imagef073c4.png)
+[Screenshot on the live page]
 *Details like Username and Language can also be changed.*
 
 
@@ -373,7 +373,7 @@ An Email address is the unique key (ID) identifying the Users.
 
 After saving, you will see a list of roles and checkboxes next to them. Just check the roles you want the user to have and save the document. The roles have pre-defined permissions, to know more about roles, [click here](/erpnext/role-based-permissions). You can set [Role profiles](/erpnext/role-and-role-profile) to use as a template which selects multiple roles together.
 
-![](/files/imageb3b571.png)
+[Screenshot on the live page]
 
 
 
@@ -416,7 +416,7 @@ Subscribe the user to different mailing lists of your company from this section.
 
 Users will have access to all modules for which they have role-based access. If you want to restrict access of certain modules for this user, un-check the modules from this list.
 
-![](/files/image6d7bb1.png)
+[Screenshot on the live page]
 
 
 
@@ -424,7 +424,7 @@ Users will have access to all modules for which they have role-based access. If 
 
 Role Profiles act as a template to store and select access to multiple modules. This Role Profile can then be assigned to a User. For example, HR Users will have access to multiple modules like HR, Payroll, etc. Role Profiles are useful to provide access to multiple modules at once when adding multiple users.
 
-![](/files/image93e649.png)
+[Screenshot on the live page]
 
 
 
@@ -451,7 +451,7 @@ You can generate API Secret keys from this section using the Generate Keys butto
 
 After saving a user, these buttons will be seen on the dashboard area of the User master.
 
-![](/files/image9fc1f4.png)
+[Screenshot on the live page]
 
 #### Permissions
 
@@ -483,13 +483,13 @@ In System Settings, under the Security section, if you check the 'Allow Login us
 
 Login with Email:
 
-![Email Login](/files/user-login-email.png)
+[Screenshot on the live page: Email Login]
 
 
 
 Login with Email or Mobile:
 
-![Mobile No Login](/files/user-login-mobile.png)
+[Screenshot on the live page: Mobile No Login]
 
 
 
@@ -514,7 +514,7 @@ An **Address Template** controls how ERPNext formats an [Address](/erpnext/addre
 
 ERPNext selects a template from the Address's Country. If no country-specific template exists, it uses the template marked as default.
 
-![United States Address Template editor with Jinja fields and default status.](https://novacompanies.m.frappe.cloud/files/address-template-editor.png)
+[Screenshot on the live page: United States Address Template editor with Jinja fields and default status.]
 
 ## Before you begin
 
@@ -548,7 +548,7 @@ Normally, create one template per Country. Keep only one appropriate default fal
 5. Open a representative Customer or Supplier Address and verify the rendered result.
 6. Test at least one [Quotation](/erpnext/quotation), [Sales Invoice](/erpnext/sales-invoice), or relevant print preview.
 
-![Formatted billing and shipping Addresses shown on a Customer.](https://novacompanies.m.frappe.cloud/files/customer-addresses-and-contacts.png)
+[Screenshot on the live page: Formatted billing and shipping Addresses shown on a Customer.]
 
 Do not treat a successful save as proof that the output is correct. Verify line breaks, missing values, labels, punctuation, and narrow print layouts.
 
@@ -666,7 +666,7 @@ An **Address** stores a physical or mailing location and can be linked to a [Cus
 
 Keep locations as linked Address records instead of creating duplicate Customers or Suppliers for each site.
 
-![Billing Address for Summit Digital Stores with preferred billing status.](https://novacompanies.m.frappe.cloud/files/address-details.png)
+[Screenshot on the live page: Billing Address for Summit Digital Stores with preferred billing status.]
 
 ## Before you begin
 
@@ -730,7 +730,7 @@ ERPNext adds the originating party link automatically. This route reduces link e
 
 Use **Links** to review every party connected to the Address. Add another link only when the same physical location genuinely serves multiple parties.
 
-![Links menu showing the Address connected to Summit Digital Stores.](https://novacompanies.m.frappe.cloud/files/address-linked-parties.png)
+[Screenshot on the live page: Links menu showing the Address connected to Summit Digital Stores.]
 
 Do not link unrelated Customers merely because they share a building. Separate Address records preserve independent primary flags and tax details.
 

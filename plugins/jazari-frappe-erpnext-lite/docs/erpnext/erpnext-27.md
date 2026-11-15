@@ -1,510 +1,5 @@
 <!-- Frappe documentation: erpnext, part 27 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__finance-book.md -->
----
-title: "Finance Book | ERPNext Documentation"
-description: "Learn how to use Finance Books in ERPNext for alternate accounting views, company defaults, report filters, and separate fixed-asset depreciation schedules."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/finance-book"
-updated: "2026-08-14"
----
-
-A Finance Book lets the same [Company](https://docs.frappe.io/erpnext/company) maintain parallel accounting views when a transaction or depreciation schedule must belong to one reporting basis but not another. A business may keep one book for statutory reporting and another for management or shareholder reporting.
-
-
-
-Finance Books are optional. Do not create several books merely to separate departments, branches, projects, or product lines. Use [Cost Centers](https://docs.frappe.io/erpnext/cost-center) or [Accounting Dimensions](https://docs.frappe.io/erpnext/accounting-dimensions) for those reporting segments. Use Finance Books only when the same company needs alternate accounting treatments or report views.
-
-
-
-Typical uses include:
-
-- statutory and management depreciation using different methods or useful lives;
-- local accounting rules and a separate group-reporting basis;
-- an alternate internal balance sheet without changing the company's primary ledger view.
-
-## Before you begin
-
-Agree the purpose and ownership of every book with your accountant. Decide which book is the company default, which entries must be common to all books, and which reports reviewers will run.
-
-The example below uses **Statutory Reporting** as the default Finance Book for Nova Electronics Trading and **Management Reporting** as an alternate book.
-
-## Create Finance Books
-
-Open **Finance Book** and select **Add Finance Book**. Enter a clear name that describes the reporting basis, then save.
-
-Create only the books your reporting policy requires. The Finance Book record itself contains a name; its effect comes from selecting it on accounting transactions, depreciation schedules, and reports.
-
-
-
-![Finance Book list with Statutory Reporting and Management Reporting](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-finance-book-finance-book-list.png)
-
-## Set the company default
-
-Open the Company record and select the **Accounts** tab. Set **Default Finance Book** to the book that represents normal accounting for that company, then save.
-
-
-
-![Default Finance Book on the Company record](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-finance-book-company-default-finance-book.png)
-
-The default is important because the current [Journal Entry](https://docs.frappe.io/erpnext/journal-entry) Finance Book field is read-only. ERPNext carries the company's default book into new Journal Entries instead of asking users to choose it manually each time.
-
-Do not change the default casually after transactions exist. Review the effect on reports and future entries with your accountant first.
-
-## Record an entry in a Finance Book
-
-Create the transaction using the normal workflow. In a Journal Entry, open **More Info** and review the **Finance Book** value before submission.
-
-
-
-![Finance Book carried into a submitted Journal Entry](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-finance-book-journal-entry-finance-book.png)
-
-The example posts a $450 maintenance adjustment to **Statutory Reporting**:
-
-
-| Account                     | Debit | Credit | Finance Book effect            |
-| --------------------------- | -----: | ------: | ------------------------------ |
-| Office Maintenance Expenses | $450  |        | Appears in the statutory book. |
-| Nova Operating Bank         |       | $450   | Appears in the statutory book. |
-
-
-An entry with a specific Finance Book belongs to that book. An entry whose Finance Book is blank is treated as common and is included in Finance Book report views. This preserves the original ERPNext behavior for transactions that apply to every reporting basis.
-
-## Review reports by Finance Book
-
-Open the [General Ledger](https://docs.frappe.io/erpnext/general-ledger), [Trial Balance](https://docs.frappe.io/erpnext/trial-balance), [Balance Sheet](https://docs.frappe.io/erpnext/balance-sheet), or [Profit and Loss Statement](https://docs.frappe.io/erpnext/profit-and-loss-statement). Select the company, dates, and Finance Book, then refresh the report.
-
-
-
-![General Ledger filtered by Statutory Reporting Finance Book](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-finance-book-general-ledger-finance-book-filter.png)
-
-In General Ledger, **Include Default FB Entries** is enabled by default. When it is enabled, ERPNext uses the company's default Finance Book and includes common entries whose Finance Book is blank. If you select a book different from the company default, clear **Include Default FB Entries** first. ERPNext otherwise stops the report and asks you to clear it.
-
-Use the same filters when comparing reports. A report filtered to one Finance Book cannot be compared reliably with an unfiltered report or a report using a different setting for default-book entries.
-
-## Use Finance Books for depreciation
-
-A company may depreciate the same [Asset](https://docs.frappe.io/erpnext/asset) differently for statutory and management reporting. For example, the statutory book may use Written Down Value while the management book uses Straight Line.
-
-On the asset's Finance Books table, each row can hold its own:
-
-
-| Field                         | What it controls                                                        |
-| ----------------------------- | ----------------------------------------------------------------------- |
-| Finance Book                  | Reporting book that receives the depreciation entries.                  |
-| Depreciation Method           | Straight Line, Double Declining Balance, Written Down Value, or Manual. |
-| Frequency of Depreciation     | Number of months between scheduled postings.                            |
-| Total Number of Depreciations | Number of scheduled depreciation entries.                               |
-| Depreciation Posting Date     | Date from which the schedule begins.                                    |
-| Salvage Value                 | Expected value after the useful life.                                   |
-| Rate of Depreciation          | Percentage used where the selected method requires it.                  |
-
-
-ERPNext can generate a separate [depreciation schedule](https://docs.frappe.io/erpnext/asset-depreciation) for each Finance Book and post the resulting automatic depreciation entries to the corresponding book. This keeps alternate asset values separate without duplicating the asset master.
-
-## Important fields and what they mean
-
-
-| Field or control           | Where it appears                               | Meaning                                                                                                |
-| -------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Name                       | Finance Book                                   | Identifies the reporting basis. Use a stable, policy-oriented name.                                    |
-| Default Finance Book       | Company                                        | Default book carried into supported accounting transactions.                                           |
-| Finance Book               | Journal Entry and supported accounting records | Book to which the resulting GL entries belong.                                                         |
-| Finance Book               | Financial reports                              | Limits the report to the selected book plus common entries.                                            |
-| Include Default FB Entries | General Ledger                                 | Includes the company's default book and common entries. Clear it before reporting on a different book. |
-
-
-## Troubleshooting
-
-### A depreciation entry does not appear in the Trial Balance
-
-Open the report and select the Finance Book used by the asset's depreciation schedule. A Finance Book-specific entry may not appear in a report using another book or no matching book filter.
-
-### ERPNext asks me to clear Include Default FB Entries
-
-The report has a Finance Book different from the company's default while **Include Default FB Entries** is enabled. Clear the checkbox, keep the alternate book selected, and refresh.
-
-### The Journal Entry Finance Book cannot be edited
-
-This is expected in current ERPNext. The field is read-only and comes from the company's **Default Finance Book**. Review the Company setup before creating entries that require a different accounting basis.
-
-### Two Finance Book reports do not reconcile
-
-Confirm that both reports use the same company, date range, accounts, opening-entry settings, and **Include Default FB Entries** choice. Then identify entries assigned exclusively to one book and compare the related asset schedules or Journal Entries.
-
-### An entry appears in more than one Finance Book
-
-Check whether the transaction's Finance Book is blank. Blank entries are common entries and appear with Finance Book report views. Assign a book only when the transaction belongs exclusively to that reporting basis.
-
-## FAQs
-
-### Is a Finance Book mandatory?
-
-No, A company with one accounting basis can operate without creating additional Finance Books.
-
-### Should I create one Finance Book for each department?
-
-No, Use Cost Centers or Accounting Dimensions for departments, branches, projects, and other operational segments. Finance Books are for alternate accounting treatments or reporting bases.
-
-### Can the same asset use different depreciation methods?
-
-Yes, Add separate Finance Book rows to the asset and configure a different depreciation method or schedule for each reporting basis.
-
-### Why does a blank Finance Book entry appear in a filtered report?
-
-A blank Finance Book means the entry is common. ERPNext includes common entries when it builds a Finance Book view so shared transactions are not lost.
-
-### Can I change the default Finance Book after posting transactions?
-
-Technically the Company setting can be changed, but treat it as an accounting-policy change. Review existing entries, future posting behavior, report filters, and audit requirements before changing it.
-
-## Related topics
-
-- [Journal Entry](https://docs.frappe.io/erpnext/journal-entry)
-- [General Ledger](https://docs.frappe.io/erpnext/general-ledger)
-- [Asset](https://docs.frappe.io/erpnext/asset)
-- [Asset Depreciation](https://docs.frappe.io/erpnext/asset-depreciation)
-- [Accounting Dimensions](https://docs.frappe.io/erpnext/accounting-dimensions)
-- [Cost Center](https://docs.frappe.io/erpnext/cost-center)
-
-<!-- page: erpnext/erpnext__financial-report-template.md -->
----
-title: "Financial Report Template"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/financial-report-template"
-updated: "2026-08-14"
----
-
-Nova Industries prepares monthly reports for its managers, investors, and lenders. The finance team needs one concise Profit and Loss view for the board and an IFRS-style Cash Flow presentation for external readers. Rebuilding each version in a spreadsheet is slow, makes formulas difficult to govern, and creates uncertainty about whether every report still agrees with the ledger.
-
-
-
-A Financial Report Template is a reusable blueprint that turns the same submitted accounting data into different report presentations. Nova can standardise headings across subsidiaries, reuse calculations such as Gross Profit and Operating Margin, hide zero or supporting rows, control signs and charts, and produce the same approved structure every month without changing its Chart of Accounts.
-
-
-
-Separate templates can support board packs, investor updates, lender reporting, group reporting, and regional presentation requirements. A template controls grouping, labels, calculations, and layout. It does not by itself make the underlying books compliant with IFRS, US GAAP, or another country's rules because recognition, valuation, depreciation, tax, and disclosure requirements must also be configured and professionally reviewed.
-
-## Before you begin
-
-- Review the [Chart of Accounts](/erpnext/chart-of-accounts) and assign Account Categories where the template will filter by category.
-- Decide the report's required lines, calculations, hierarchy, and sign presentation.
-- Choose stable Line References that formulas can reuse.
-- Test the template on a non-production company and period before relying on it for reporting.
-
-## Start from a template
-
-Open Financial Report Template. ERPNext may provide reusable templates that can be reviewed and adapted, or you can create a new template for a controlled reporting requirement.
-
-![Financial Report Template list on the Nova develop demo site](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-list.png)
-
-## Create the template
-
-![Standard Cash Flow Statement Financial Report Template opened on the Nova Industries demo site](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-form.png)
-
-
-
-1. Enter a descriptive Template Name and select the Report Type.
-2. Add rows to the Report Line Items table in the order they should appear.
-3. Select the Data Source for each row.
-4. Give calculated or reusable rows a unique Line Reference.
-5. Configure formatting, visibility, sign, and chart options.
-6. Save, run the associated report, and reconcile the output with standard financial statements.
-
-## Choose a row data source
-
-![Report Line Items in the Standard Cash Flow Statement template](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-form.png)
-
-
-
-
-| Data source       | Use it for                                                      | Example                                       |
-| ----------------- | --------------------------------------------------------------- | --------------------------------------------- |
-| Account Data      | Balances selected through account filters or categories         | All accounts in Revenue from Operations       |
-| Calculated Amount | Arithmetic based on referenced rows                             | `REVENUE - COST_OF_GOODS_SOLD`                |
-| Custom API        | Approved server-side logic unavailable through standard filters | A specialised regulatory or management metric |
-| Visual row        | Headers, blank lines, or layout structure                       | OPERATING EXPENSES                            |
-
-
-## Important row fields
-
-
-| Field                     | Meaning                                                                                                          |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Display Name              | The line label shown to report readers.                                                                          |
-| Line Reference            | A unique code used by calculations and other rows. Start with a letter and use letters, numbers, or underscores. |
-| Formula or Account Filter | The expression, filter, or API path used by the selected data source.                                            |
-| Balance Type              | Opening balance, closing balance, or movement during the period.                                                 |
-| Reverse Sign              | Changes presentation when a line should appear with the opposite sign.                                           |
-| Hide If Zero              | Removes an empty line from the rendered report.                                                                  |
-| Hidden Line               | Keeps a supporting calculation available without displaying it.                                                  |
-| Include in Charts         | Makes the line eligible for the report chart where supported.                                                    |
-
-
-## Build calculations safely
-
-Nova can define `REVENUE` and `COGS` as account-data rows, then calculate `GROSS_PROFIT` with `REVENUE - COGS`. A margin row can use `(GROSS_PROFIT / REVENUE) * 100 if REVENUE != 0 else 0` to avoid division by zero.
-
-## Validate coverage and output
-
-Check that all intended accounts are included once, formulas reference valid rows, no circular dependency exists, and parentheses are balanced. Compare the template output with the standard [Balance Sheet or Profit and Loss Statement](/erpnext/accounting-reports) for the same company, period, Finance Book, and dimensions.
-
-## See a template in the report
-
-Nova selects the **Cash Flow Statement (IFRS)** template in the Cash Flow report. The report now uses the template's headings, ordering, visual rows, and calculations while continuing to read the same General Ledger entries.
-
-![Cash Flow report for Nova Industries rendered with the Cash Flow Statement IFRS Financial Report Template](https://novacompanies.m.frappe.cloud/files/docs-20260814-financial-report-template-ifrs-output-v2.png)
-
-The result separates cash flows from operating activities, presents supporting adjustments such as depreciation and finance costs, and retains calculated totals such as operating profit before working-capital changes. Finance can reuse this view for every period and still drill into the underlying accounting values when a number needs investigation.
-
-## Troubleshooting
-
-### A formula references an unknown line
-
-Confirm that the source row has a Line Reference and that the formula uses the exact code. Keep references unique and create source rows before dependent calculations.
-
-### An account is missing from the report
-
-Review its Account Category and the row's account filter. Also check whether a parent or child account was selected and whether Hide If Zero suppresses the line.
-
-### The report total differs from the standard statement
-
-Align company, dates, Finance Book, cost center, dimensions, currency, period-closing treatment, and accumulation options. Then check for omitted or duplicated accounts.
-
-## Frequently asked questions
-
-### Should I edit a built-in template?
-
-Use a controlled copy when the standard template must remain available as a baseline. Document every custom calculation and account category dependency.
-
-### Can one template work across companies?
-
-A category-based design can support comparable charts across companies, but each company must map accounts consistently and the output must be tested separately.
-
-### Can a template replace statutory review?
-
-The template controls presentation and calculations inside ERPNext. It does not determine whether the report meets local statutory, audit, or filing requirements.
-
-## Related topics
-
-- [Using Custom API Rows](/erpnext/using-custom-api-rows-in-financial-report-template)
-- [Accounting Reports](/erpnext/accounting-reports)
-- [Chart of Accounts](/erpnext/chart-of-accounts)
-- [Finance Book](/erpnext/finance-book)
-- [Accounting Dimensions](/erpnext/accounting-dimensions)
-
-<!-- page: erpnext/erpnext__fiscal-year-error.md -->
----
-title: "Fixing Fiscal Year Error"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/fiscal-year-error"
-updated: "2026-08-14"
----
-
-Nova Industries creates an invoice dated 2 January 2027, but ERPNext reports that the date is not in the selected fiscal year. The transaction date, the selected Fiscal Year, and the company’s defaults no longer agree. Create the missing year or correct the default instead of changing the document to an inaccurate date.
-
-## Resolve the error
-
-1. Open **Fiscal Year** and confirm a record covers the transaction date.
-2. Check the start date, end date, and company assignment.
-3. Set the new Fiscal Year as default when it should be used for new transactions.
-4. Open Global Defaults and confirm the default Fiscal Year.
-5. Reload ERPNext and reopen the transaction.
-
-![Fiscal Year start and end dates highlighted](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-fiscal-year-dates.png)
-
-
-
-## Troubleshooting
-
-### The year exists but the error remains
-
-Check whether the Fiscal Year is assigned to the transaction’s company, whether another field explicitly contains the old year, and whether the posting date falls exactly within the configured range.
-
-### The date is intentionally in an older year
-
-Select the appropriate fiscal year and confirm that the period is not frozen or closed. Obtain approval before entering a backdated accounting transaction.
-
-## Frequently asked questions
-
-### Should I change the date just to submit?
-
-The posting date should reflect the real accounting event. Fix the year setup or obtain the required period access instead of using a false date.
-
-## Related topics
-
-- [Accounting overview](/erpnext/accounting/introduction)
-- [Chart of Accounts](/erpnext/chart-of-accounts)
-- [General Ledger](/erpnext/general-ledger)
-- [Fiscal Year](/erpnext/fiscal-year)
-
-<!-- page: erpnext/erpnext__fiscal-year.md -->
----
-title: "Fiscal Year | ERPNext Documentation"
-description: "Create, assign, and manage fiscal years in ERPNext and understand how they differ from accounting periods and year-end closing."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/fiscal-year"
-updated: "2026-08-14"
----
-
-A financial report is meaningful only when ERPNext knows where one reporting year ends and the next begins. A Fiscal Year defines that period for transactions, budgets, opening balances, and year-end closing.
-
-
-
-For Nova Industries, the finance team may report from January to December while another company on the same site follows April to March. Separate Fiscal Year records let both companies post and compare transactions using the periods required by their owners, auditors, and local regulations.
-
-
-
-This page shows how to create the period, assign it to the right companies, control posting dates, and avoid gaps or overlaps that can make transactions fail validation.
-
-## Create a Fiscal Year
-
-1. Go to **Home &gt; Accounting &gt; Accounting Masters &gt; Fiscal Year**.
-2. Click **Add Fiscal Year**.
-3. Enter a name, start date, and end date.
-4. Add the companies that use it.
-5. Enable **Is Short Year** only for a genuine transition period shorter than twelve months.
-6. Save.
-
-![Fiscal Year dates and company](/files/fiscal-year-dates.webp)
-
-## Set the default Fiscal Year
-
-Open the Fiscal Year and use the action to set it as default. ERPNext uses the default year when it initializes posting dates and report filters.
-
-The posting date still determines the actual fiscal year. A transaction cannot be posted outside a valid Fiscal Year for its company.
-
-## Create the next year
-
-ERPNext can create the next Fiscal Year shortly before the current year ends. Confirm the dates and company assignment before users begin posting in it.
-
-## Fiscal Year, Accounting Period, and closing
-
-These records serve different purposes:
-
-
-| Record                 | Purpose                                               |
-| ---------------------- | ----------------------------------------------------- |
-| Fiscal Year            | Defines the accounting year and reporting period      |
-| Accounting Period      | Restricts selected transaction types for a date range |
-| Period Closing Voucher | Transfers profit or loss to a closing account         |
-
-
-Creating a new Fiscal Year does not close the previous one. Complete reconciliation, adjustments, reporting, and the closing voucher as separate activities.
-
-## Troubleshooting
-
-**The posting date is outside the Fiscal Year**
-
-Create or assign the correct Fiscal Year to the company. Do not alter historical dates to bypass the validation.
-
-**A report opens in the wrong year**
-
-Change the report filter or set the intended Fiscal Year as default.
-
-## Related topics
-
-- [Accounting Period](https://docs.frappe.io/erpnext/accounting-period)
-- [Period Closing Voucher](https://docs.frappe.io/erpnext/period-closing-voucher)
-- [Company accounting defaults](https://docs.frappe.io/erpnext/company-accounting-defaults)
-- [Accounting Setup Checklist](https://docs.frappe.io/erpnext/accounting-setup-checklist)
-
-<!-- page: erpnext/erpnext__france.md -->
----
-title: "Requirements for France"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/france"
-updated: "2026-07-02"
----
-
-
-ERPNext aims to support local regulation for different regions in the world. In most cases, ERPNext is very flexible, so you can easily add custom fields and make custom reports to support the regulation of your region.
-
-This section contains region specific features for France.
-
-- [Le Fichier des Écritures Comptables (FEC)](/erpnext/fichier_des_ecritures_comptables)
-- [Sales and Payment Transactions](/erpnext/local_overrides)
-
-<!-- page: erpnext/erpnext__frappe-healthcare.md -->
----
-title: "Healthcare Module in ERPNext"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/frappe-healthcare"
-updated: "2026-07-04"
----
-
-Frappe Healthcare was earlier available as the Healthcare module inside ERPNext. It has now been separated into a dedicated open-source app called Marley Health.
-
-Marley Health is owned and maintained by earthians Health Informatics Private Limited. It can be installed alongside ERPNext when an organization wants to manage healthcare workflows such as patients, appointments, consultations, clinical records, laboratory tests, procedures, and billing.
-
-Marley Health documentation: [https://marley.frappe.cloud/docs](https://marley.frappe.cloud/docs)
-
-## Basic features
-
-### Patient management
-
-Marley Health helps maintain patient records, demographics, contact details, medical history, and related healthcare documents. The patient record becomes the central place from which appointments, consultations, lab tests, procedures, and billing can be tracked.
-
-### Healthcare practitioners
-
-Organizations can maintain doctors, consultants, therapists, and other healthcare practitioners. These records are used for appointments, schedules, consultations, and clinical documentation.
-
-### Appointments and scheduling
-
-The app supports appointment booking and scheduling so front-desk and clinical teams can manage patient visits. Appointments can be linked to patients, practitioners, departments, and service units.
-
-### Patient encounters and consultations
-
-Healthcare teams can record consultations using patient encounters. Encounters help capture symptoms, diagnosis, observations, notes, prescriptions, investigations, and follow-up advice.
-
-### Clinical records
-
-Marley Health helps maintain structured healthcare records such as vital signs, prescriptions, medical observations, and other clinical information. This gives practitioners a clearer view of the patient's treatment history.
-
-### Laboratory tests and procedures
-
-The app supports lab test and clinical procedure workflows. Tests and procedures can be ordered, recorded, and linked back to the patient record.
-
-### Inpatient care
-
-For facilities that admit patients, Marley Health can help manage inpatient records, admissions, service units, and patient movement inside the healthcare facility.
-
-### Billing integration
-
-Because Marley Health works with ERPNext, healthcare services can be connected to ERPNext billing documents such as Sales Invoices. This helps combine clinical operations with accounting and revenue tracking.
-
-## Typical healthcare cycle
-
-```
-Patient Registration
-        |
-        v
-Appointment Booking
-        |
-        v
-Patient Encounter / Consultation
-        |
-        +-------------------+
-        |                   |
-        v                   v
-Prescription          Lab Test / Procedure
-        |                   |
-        +---------+---------+
-                  v
-              Billing
-                  |
-                  v
-              Follow-up
-```
-
-## When should you install Marley Health?
-
-Install Marley Health if your ERPNext site is used by a clinic, hospital, diagnostic center, therapy center, or any healthcare organization that needs patient and clinical workflows.
-
-Read the Marley Health documentation here:
-
-[https://marley.frappe.cloud/docs](https://marley.frappe.cloud/docs)
-
 <!-- page: erpnext/erpnext__freeze-account.md -->
 ---
 title: "Freeze an Account | ERPNext Documentation"
@@ -541,7 +36,7 @@ The permission is company-specific in the current ERPNext interface.
 3. In **Roles Allowed to Set and Edit Frozen Account Entries**, select the role that may freeze Accounts and post or modify entries against them.
 4. Save the Company.
 
-![Company Accounts Closing tab with Roles Allowed to Set and Edit Frozen Account Entries highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-freeze-an-account-role-allowed-for-frozen-accounts.png)
+[Screenshot on the live page: Company Accounts Closing tab with Roles Allowed to Set and Edit Frozen Account Entries highlighted]
 
 Grant this role sparingly. A user with it can bypass the restriction when posting to a frozen Account. In older ERPNext documentation, this control may be described as an Accounts Settings field. On the current develop interface it appears in the Company's **Accounts Closing** tab.
 
@@ -553,11 +48,11 @@ Grant this role sparingly. A user with it can bypass the restriction when postin
 4. Set **Frozen** to **Yes**.
 5. Save the Account.
 
-![Ledger Account with Frozen set to No before the change](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-freeze-an-account-account-not-frozen.png)
+[Screenshot on the live page: Ledger Account with Frozen set to No before the change]
 
 
 
-![Ledger Account with Frozen set to Yes and Save highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-freeze-an-account-freeze-account-before-save.png)
+[Screenshot on the live page: Ledger Account with Frozen set to Yes and Save highlighted]
 
 After saving, ordinary users cannot use the Account in accounting transactions. Existing [Journal Entries](https://docs.frappe.io/erpnext/journal-entry), invoices, payments, and reports remain connected to it.
 
@@ -652,7 +147,7 @@ Use this control for migration cutover dates, completed month-end closes, and au
 4. Select **Roles Allowed to Set and Edit Frozen Account Entries**.
 5. Save the Company and test with a non-privileged account before relying on the control.
 
-![Company Accounts Closing tab showing the frozen date and authorized role](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-company-frozen-period.png)
+[Screenshot on the live page: Company Accounts Closing tab showing the frozen date and authorized role]
 
 
 
@@ -686,3 +181,819 @@ That is a common month-end practice after reconciliations and approval. Record t
 - [Chart of Accounts](/erpnext/chart-of-accounts)
 - [General Ledger](/erpnext/general-ledger)
 - [Fiscal Year](/erpnext/fiscal-year)
+
+<!-- page: erpnext/erpnext__general-ledger.md -->
+---
+title: "General Ledger"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/general-ledger"
+updated: "2026-08-14"
+---
+
+Nova Industries has finished its August review. The finance manager sees a $20,000 sale in the books and needs to confirm that the customer receivable, sales income, inventory value, and cost of goods sold were posted correctly. A financial statement shows the summarized result. The General Ledger shows the entries that created it.
+
+
+
+The General Ledger is ERPNext's detailed accounting trail. It lists every debit and credit generated by submitted transactions and connects each row to its source voucher. Use it to explain an account balance, investigate an unexpected posting, or provide transaction-level evidence for an audit. It does not replace the [Accounts Receivable](/erpnext/accounts-receivable) and [Accounts Payable](/erpnext/accounts-payable) reports when the question is which invoices remain outstanding.
+
+## Before you begin
+
+Transactions must be submitted before they appear in the ledger. Confirm the correct [Company](/erpnext/company), fiscal period, and reporting currency. If your organisation uses [Finance Books](/erpnext/finance-book), [Cost Centers](/erpnext/cost-center), Projects, or other [Accounting Dimensions](/erpnext/accounting-dimensions), use the same filters when comparing reports.
+
+## Run the General Ledger
+
+1. Open **Accounting** and select **General Ledger**.
+2. Select **Nova Industries** and the required date range.
+3. Leave Account and Party blank to review all postings, or narrow the report to the balance you are investigating.
+4. Use Voucher No when you already know the source transaction. Select a categorization option when you want entries arranged by Account, Voucher, or Party.
+5. Refresh the report and confirm that the result has fully loaded before interpreting it.
+
+[Screenshot on the live page: General Ledger filters showing Nova Industries and the selected reporting period]
+
+## Follow a Sales Invoice through the ledger
+
+For the selected period, Nova Industries has $395,762 in total debits and $395,762 in total credits. Equal totals show that the selected entries are mathematically balanced. They do not prove that every transaction used the correct account, so the finance manager opens the rows behind the $20,000 sale.
+
+[Screenshot on the live page: Populated General Ledger for Nova Industries with balanced debit and credit totals]
+
+
+| Posting             | Debit                      | Credit                | What it means                                               |
+| ------------------- | -------------------------- | --------------------- | ----------------------------------------------------------- |
+| Customer balance    | Debtors $20,000            |                       | The customer now owes Nova Industries.                      |
+| Sales income        |                            | Sales $20,000         | The sale increases income for the period.                   |
+| Inventory reduction |                            | Stock In Hand $14,500 | The inventory asset decreases by the delivered stock value. |
+| Cost recognition    | Cost of Goods Sold $14,500 |                       | The cost of the sold goods becomes an expense.              |
+
+
+The receivable and income rows explain the commercial sale. The stock and cost rows explain the inventory leaving the business. This is why one [Sales Invoice](/erpnext/sales-invoice) can produce more than two ledger rows when stock is updated.
+
+## Open the source voucher
+
+Select the Voucher No in the report to open the submitted transaction. Compare the customer, posting date, items, income account, taxes, stock settings, and totals with the ledger rows. The voucher explains the business event, while the General Ledger explains its accounting effect.
+
+[Screenshot on the live page: Submitted Sales Invoice opened from its General Ledger voucher link]
+
+Ledger rows cannot be edited directly. If an account or dimension is wrong, correct the source through its supported cancellation and amendment process or post an approved [Journal Entry](/erpnext/journal-entry). Review [Immutable Ledger](/erpnext/immutable-ledger) behavior before correcting backdated stock or accounting transactions.
+
+## Understand the important columns
+
+
+| Column                               | How to read it                                                                                |
+| ------------------------------------ | --------------------------------------------------------------------------------------------- |
+| Posting Date                         | The accounting date used by the source voucher. It determines the reporting period.           |
+| Account                              | The ledger account affected by the row.                                                       |
+| Debit and Credit                     | The two sides of the posting in the displayed currency.                                       |
+| Balance                              | The running debit less credit balance for the current report arrangement.                     |
+| Voucher Type and Voucher No          | The submitted source document that created the row.                                           |
+| Against Account                      | The counterpart account or accounts from the same voucher.                                    |
+| Party                                | The Customer, Supplier, Employee, Shareholder, or other party associated with a party ledger. |
+| Cost Center, Project, and dimensions | The reporting segments copied from the transaction.                                           |
+
+
+## Choose the right categorization
+
+
+| View                                 | Use it when                                                                                                        |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| No categorization                    | You need each individual GL Entry in posting order.                                                                |
+| Categorize by Account                | You need opening, movement, and closing values account by account.                                                 |
+| Categorize by Voucher                | You want all rows created by each transaction together. ERPNext does not allow a Voucher No filter with this view. |
+| Categorize by Voucher (Consolidated) | You want a compact voucher-level result instead of every underlying row.                                           |
+| Categorize by Party                  | You are reviewing ledger movement for customers or suppliers.                                                      |
+
+
+## General Ledger, Trial Balance, and Payment Ledger
+
+
+| Report                                    | Question it answers                                                                              |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| General Ledger                            | Which debit and credit entries created this balance, and which vouchers produced them?           |
+| [Trial Balance](/erpnext/trial-balance)   | What is the opening, period movement, and closing balance for every account?                     |
+| [Payment Ledger](/erpnext/payment_ledger) | How were invoices, payments, credit notes, and advances linked to calculate outstanding amounts? |
+
+
+Use the General Ledger for accounting evidence. Use Trial Balance for account-level closing balances. Use Payment Ledger and [Payment Reconciliation](/erpnext/payment-reconciliation) when an invoice remains outstanding because a payment or credit has not been allocated correctly.
+
+## Troubleshooting
+
+### A submitted voucher is missing
+
+Check Company, posting dates, Account, Party, Finance Book, dimensions, and Voucher No. Draft documents have not posted ledger entries. Also confirm that the report is not excluding cancelled or period-closing entries needed for the investigation.
+
+### General Ledger and Trial Balance appear different
+
+Run both reports with the same Company, dates, Finance Book, dimensions, presentation currency, and period-closing options. Trial Balance separates opening, movement, and closing values, while General Ledger lists the underlying postings.
+
+### The debit and credit totals do not match
+
+Remove narrow Account and Party filters before concluding that the books are unbalanced. A filtered subset can display only one side of otherwise balanced vouchers. Compare the full company scope for the same period.
+
+### The opening balance is unexpected
+
+The opening value includes qualifying postings before the From Date. Extend the date range, inspect the account from the fiscal-year start, and verify opening entries and previous closing activity.
+
+## Frequently asked questions
+
+### Can a General Ledger row be edited?
+
+ERPNext generates ledger rows from submitted source documents. Correct the voucher through its supported lifecycle or use an approved adjustment. Direct editing would break the audit trail.
+
+### Why does one voucher create several rows?
+
+A transaction can affect receivable, income, tax, stock, cost, discount, and dimension accounts. Each accounting effect appears as a separate row.
+
+### Does cancelling a transaction remove its history?
+
+ERPNext preserves the accounting history through reversal behavior where applicable. Review the original voucher, cancellation, and later amended voucher together.
+
+### Why is account currency different from company currency?
+
+A foreign-currency account retains amounts in its account currency while ERPNext also records company-currency values. Confirm the selected presentation currency before comparing reports.
+
+## Related topics
+
+- [Accounting Reports](/erpnext/accounting-reports)
+- [Trial Balance](/erpnext/trial-balance)
+- [Payment Ledger](/erpnext/payment_ledger)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [Journal Entry](/erpnext/journal-entry)
+- [Repost Accounting Ledger](/erpnext/repost-accounting-ledger)
+
+<!-- page: erpnext/erpnext__generate-item-code-based-on-custom-logic.md -->
+---
+title: "Generate Item Code Based On Custom Logic\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/generate-item-code-based-on-custom-logic"
+updated: "2026-03-02"
+---
+
+Add this Custom Script in the script of **Item**, so that the new Item Code is  
+generated just before the Item gets saved.
+
+
+
+```javascript
+ cur_frm.cscript.customvalidate = function (doc) {
+  // clear itemcode (name is from itemcode)
+  doc.itemcode = "";
+
+  // first 2 characters based on itemgroup
+  switch (doc.itemgroup) {
+    case "Test A":
+      doc.itemcode = "TA";
+      break;
+    case "Test B":
+      doc.itemcode = "TB";
+      break;
+    default:
+      doc.itemcode = "XX";
+  }
+
+  // add next 2 characters based on brand
+  switch (doc.brand) {
+    case "Brand A":
+      doc.itemcode += "BA";
+      break;
+    case "Brand B":
+      doc.itemcode += "BB";
+      break;
+    default:
+      doc.itemcode += "BX";
+  }
+};
+```
+
+<!-- page: erpnext/erpnext__geolocation-field.md -->
+---
+title: "Geolocation Field"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/geolocation-field"
+updated: "2026-03-04"
+---
+
+**The "Geolocation" field is used to capture and store geographical coordinates, such as latitude and longitude.** 
+
+This can be useful for various purposes, such as tracking the location of assets, employees, or events. The geolocation data can help in mapping and visualizing the geographical distribution of various entities within the ERP system.
+
+Here are a few key points about the Geolocation field in ERPNext:
+
+1. **Storing Coordinates**: The Geolocation field typically stores latitude and longitude values, which represent a specific point on the earth's surface.
+2. **Usage in Modules**: This field can be used in different modules where location information is relevant. For example, it can be used in the Assets module to track the physical location of assets or in the Employee module to log the locations of employees.
+3. **Integration with Maps**: The geolocation data can be integrated with map services (like Google Maps) to provide visual representations of locations. This can be helpful for route planning, site visits, and logistics management.
+4. **Automated Capture**: Some implementations allow for automated capture of geolocation data using GPS-enabled devices, ensuring accurate and real-time location tracking.
+5. **Customization**: ERPNext allows customization, so the Geolocation field can be added to custom forms and doctypes as per the specific needs of the organization.
+
+[Screenshot on the live page: geolocation field]  
+
+<!-- page: erpnext/erpnext__getting-started-with-erpnext.md -->
+---
+title: "Getting Started with ERPNext"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/getting-started-with-erpnext"
+updated: "2026-08-14"
+---
+
+Getting started with ERPNext can seem overwhelming, but focusing on these steps will help you set up and integrate the system effectively. Here’s a streamlined approach to kickstart your ERPNext journey.
+
+
+
+**1. Define Your Needs**
+
+- **Identify Requirements**: Determine the key features you need (e.g., inventory management, accounting).
+- **Set Goals**: Clarify what you aim to achieve with ERPNext.
+
+
+
+**2. Choose Deployment**
+
+- **Cloud Hosting**: Opt for an easy setup with minimal infrastructure by using [Frappe Cloud](https://frappe.io/cloud) or a third-party provider.
+- **Self-Hosting**: Install ERPNext on your own server if you have the technical resources and prefer control over your setup.
+
+
+
+**3. Setup ERPNext**
+
+- **Cloud**: Sign-up and follow the setup instructions.
+- **Self-Hosting**: Prepare your server, and follow the [installation guide](https://github.com/frappe/erpnext) to set up ERPNext.
+
+
+
+**4. Configure Basic Settings**
+
+- **Setup Admin Account**: Create your administrator profile.
+- **Enter Company Details**: Input essential information like company name, address, and currency.
+- **System Configuration**: Configure different modules and workflows to match your requirements.
+
+
+
+**5. Train and Launch**
+
+- **Train Users**: Provide training [sessions or resources](https://school.frappe.io/lms/courses) to help your team get familiar with ERPNext.
+- **Go Live**: Transition to ERPNext for your daily operations and monitor the system for any issues.
+
+<!-- page: erpnext/erpnext__global-defaults.md -->
+---
+title: "Global Defaults/ERPNext Settings | ERPNext Documentation"
+description: "Set ERPNext defaults for company, country, currency, distance, and transaction presentation with clear examples and precedence guidance."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/global-defaults"
+updated: "2026-08-15"
+---
+
+Nova Industries is a fictional electronics manufacturer and distributor. Its finance team creates dozens of quotations, invoices, payments, and stock transactions every day. Most of them belong to Nova Industries, use USD, and refer to United States addresses. Asking every user to select those same values repeatedly wastes time, while one accidental selection of the wrong company or currency can send a transaction into the wrong books.
+
+
+
+Global Defaults supplies the values ERPNext should suggest when a more specific rule has not already provided one. It reduces repetitive entry but does not replace judgement. Users must still verify the Company, Currency, and other values before submitting a transaction, especially in a multi-company or multi-currency organisation.
+
+## Configure the default business context
+
+[Screenshot on the live page: Default Company in ERPNext Global Defaults]
+
+
+| Setting               | What it controls                                                   | Nova example                                                                                |
+| --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| Default Company       | Company suggested on new records                                   | Nova Industries is suggested for routine operating transactions.                            |
+| Default Country       | Country suggested on addresses and regional fields                 | United States is proposed for a new customer address, but users can select another country. |
+| Default Currency      | Currency used when no company or transaction rule is more specific | USD is the normal working currency. A EUR customer invoice can still use EUR.               |
+| Default Distance Unit | Unit used for distance fields                                      | Mile suits Nova's United States operations; kilometre may suit another site.                |
+| Demo Company          | Company identified for demonstration behaviour where supported     | Use only on a genuine demo or training site, not to label a live Company as fictional.      |
+
+
+[Screenshot on the live page: Default Country in ERPNext Global Defaults]
+
+[Screenshot on the live page: Default Currency in ERPNext Global Defaults]
+
+## General settings and real effects
+
+
+| Setting                                   | What it changes                                                             | Nova example                                                                                                                              |
+| ----------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Hide Currency Symbol                      | Hides symbols where the interface uses the currency code or context instead | A report may show USD values without repeating the dollar symbol in every cell. Verify printed documents before enabling.                 |
+| Disable Rounded Total                     | Removes the separate rounded-total calculation                              | Nova keeps exact cent totals when its accounting policy does not use cash-style rounding.                                                 |
+| Disable In Words                          | Hides the amount written in words                                           | Useful when print formats do not require “One thousand dollars only.”                                                                     |
+| Use Posting Datetime for Naming Documents | Uses posting date and time when a naming rule depends on date values        | A backdated invoice can receive a series based on its posting date instead of the time it was created. Test naming rules before enabling. |
+
+
+## Which default wins
+
+A field may receive a value from Company configuration, a user default, a Session Default, a mapped source document, or transaction logic. The most specific valid source normally matters more than the global suggestion. For example, a Session Default of Nova Electronics Trading can be used for one accountant's current session even when the global Company is Nova Industries.
+
+
+
+Treat Global Defaults as convenience, not access control. User Permissions and roles decide what a user may open. A default value does not grant permission to that Company.
+
+## Troubleshooting
+
+### A new document shows a different Company
+
+Check the user's defaults, Session Defaults, the source document used to create the record, and company-specific logic. Clear the session value and reload before testing again.
+
+### The currency symbol still appears
+
+The print format, report, browser cache, or linked Currency may control the display. Verify the final printed document rather than relying only on the form.
+
+### A backdated document has an unexpected name
+
+Review the naming series and Use Posting Datetime for Naming Documents. Do not rename submitted accounting documents without following the supported correction process.
+
+## Frequently asked questions
+
+### Do Global Defaults change existing records?
+
+They normally supply values to newly created records. Existing records retain their saved values unless a separate supported process changes them.
+
+### Can every user have a different default Company?
+
+Users can have personal or session defaults, subject to permission. Global Defaults remains the common fallback.
+
+### Does Default Currency convert transactions automatically?
+
+It supplies a default context. Multi-currency transactions still require the correct party currency, account currency, and exchange rate.
+
+### Should a multi-company site leave Default Company blank?
+
+A common default can still be useful, but users must understand precedence and permissions. Leave it blank when no company is a safe general choice.
+
+## Related topics
+
+- [System Settings](/erpnext/system-settings)
+- [Session Defaults](/erpnext/session-defaults)
+- [Company](/erpnext/company-setup)
+- [Currency](/erpnext/currency)
+- [Multi Currency Accounting](/erpnext/multi-currency-accounting)
+- [Naming Series](/erpnext/document-naming-settings)
+- [User Permissions](/erpnext/user-permissions)
+
+<!-- page: erpnext/erpnext__gocardless-integration.md -->
+---
+title: "Setting up GoCardless\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/gocardless-integration"
+updated: "2026-02-26"
+---
+
+
+To setup GoCardless, go to `Explore > Integrations > GoCardless Settings`
+
+## Setup GoCardless
+
+To enable GoCardless in your ERPNext account, you need to configure the following parameters and Access Token and optionally (but highly recommended), a Webhooks Secret key.
+
+
+You can setup several GoCardless payment gateways if needed. The choice of payment gateway account will determine which GoCardless account is used for the payment.
+
+[Screenshot on the live page: GoCardless Settings]
+
+On enabling service, the system will create a Payment Gateway record and an Account head in chart of account with account type as Bank.
+
+[Screenshot on the live page: GoCardless COA]
+
+It will also create a payment gateway account. You can change the default bank account if needed and create a template for the payment request.
+
+[Screenshot on the live page: Payment Gateway Account]
+
+After configuring the Payment Gateway Account, your system is able to accept online payments through GoCardless.
+
+## SEPA Payments Flow
+
+When a new payment SEPA payment in initiated, the customer is asked to enter his IBAN (or local account number) and to validate a SEPA mandate.
+
+Upon validation of the mandate, a payment request is sent to GoCardless and processed.
+
+If the customer has already a valid SEPA mandate, when instead of sending a payment request to the customer, the payment request is directly sent to GoCardless without the need for the customer to validate it.
+The customer will only receive a confirmation email from GoCardless informing him that a payment has been processed.
+
+
+## Mandate cancellation
+
+You can setup a Webhook in GoCardless to automatically disabled cancelled or expired mandates in ERPNext.
+
+The Endpoint URL of your webhook should be:
+
+`https://yoursite.com/api/method/erpnext.erpnext_integrations.doctype.gocardless_settings.webhooks`
+
+
+In this case do not forget to configure your Webhooks Secret Key in your GoCardless account settings in ERPNext.
+
+
+## Supported transaction currencies
+ "EUR", "DKK", "GBP", "SEK"
+
+<!-- page: erpnext/erpnext__google_calendar.md -->
+---
+title: "Google Calendar Integration\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/google_calendar"
+updated: "2026-02-28"
+---
+
+
+ERPNext provides an integration with Google Calendar in order for all users to synchronize their Google Calendar Events with ERPNext.
+
+
+## How to set up Google Calendar Integration
+
+In order to allow a synchronization with Google Calendar, you need to authorize ERPNext to get Calendar Events data from Google. Google Calendar Integration is set up with the following steps:
+
+- Create OAuth 2.0 Credentials via [Google Settings](/erpnext/google_settings).
+- In the Google Calendar list, click on New. Enter Calendar Name and the User for whom you want to sync and then save it.
+- Depending what data you want to sync, you can select following
+ - Pull from Google Calendar - Syncs all event from Google Calendar to ERPNext.
+ - Push to Google Calendar - Syncs all event from ERPNext to Google Calendar.
+- Now click on **Authorize Calendar Access** to authorize ERPNext to get Calendar Events data from Google.
+- Once Authorized, you can manually sync Google Calendar Event or let ERPNext sync Google Contacts daily.
+
+## How to use Google Calendar Integration
+
+### Creating an Event in ERPNext
+- Once Google Calendar Integration is succesful, all the events created in ERPNext will be synced if `Push to Google Calendar` is checked.
+- Creating an Event in ERPNext
+ [Screenshot on the live page]
+- Deleting an Event in ERPNext
+ [Screenshot on the live page]
+
+### Syncing Events from Google Calendar
+- Once Google Calendar Integration is succesful, all the events in Google Calendar will be synced if `Pull from Google Calendar` is checked.
+- Syncing Events from Google Calendar to ERPNext
+ [Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__google_contacts.md -->
+---
+title: "Google Contacts Integration\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/google_contacts"
+updated: "2026-02-28"
+---
+
+
+ERPNext provides an integration with Google Contacts in order for all users to synchronize their Google Contacts with ERPNext.
+
+## How to set up Google Contacts Integration
+
+In order to allow a synchronization with Google Contacts, you need to authorize ERPNext to get Contacts data from Google. Google Contacts Integration is set up with the following steps:
+
+- Create OAuth 2.0 Credentials via [Google Settings](/erpnext/google_settings).
+- In the Google Contacts list, click on New. Enter the Google Account Email you want to sync and then save it. Now click on **Authorize Contacts Access** to authorize ERPNext to get Contacts data from Google.
+
+## How to use Google Contacts Integration
+
+### Creating a Contacts in ERPNext
+- Once Google Contacts Integration is succesful, all the contacts created in ERPNext will be synced if `Push to Google Contacts` is checked.
+
+Creating a Contact in ERPNext:
+[Screenshot on the live page]
+
+It will be shown in Google Contacts:
+[Screenshot on the live page]
+
+### Syncing Contacts from Google Contacts
+- Once Google Contacts Integration is succesful, all the contacts in Google Contacts will be synced if `Pull from Google Contacts` is checked.
+ [Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__google_drive.md -->
+---
+title: "Google Drive Integration"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/google_drive"
+updated: "2026-02-27"
+---
+
+ERPNext provides an integration with Google Drive in order for all users to backup their data to Google Drive.
+
+How to set up Google Drive Integration
+--------------------------------------
+
+In order to allow a ERPNext to upload backups to Google Drive, you need to authorize ERPNext to upload files to Google Drive. Google Drive Integration is set up with the following steps:
+
+* Create OAuth 2.0 Credentials via [Google Settings](/erpnext/google_settings).
+* In the Google Drive list, click on New. Enter the Backup folder name to save backups to Google Drive, the backup frequency and the email of the person to whom email is sent notifying the status of the backup and then save it. Now click on **Authorize Drive Access** to authorize ERPNext to push files to Google Drive.
+* Once Authorized, you can save your backup to Google Drive.
+
+How to use Google Drive Integration
+-----------------------------------
+
+
+> Note: If you are Frappe Cloud user, onsite and offsite backups are automatically created for you: <https://frappecloud.com/docs/sites/backups>
+> 
+> 
+
+### Uploading backup to Google Drive
+
+* Once Google Drive Integration is successful, you can upload the system backup as well as all your public and private files to Google Drive.
+* To backup data to Google Drive, click on **Take Backup**. Backup process will run in the background and you will be notified regarding the backup status. [Screenshot on the live page]
+
+> **Note**: If the compressed backup size exceeds 1GB (Gigabyte), the system will upload the latest available backup to Google Drive instead of generating a new backup file.
+
+<!-- page: erpnext/erpnext__google_maps.md -->
+---
+title: "Google Maps Integration\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/google_maps"
+updated: "2026-02-28"
+---
+
+
+ERPNext provides an integration with Google Maps to calculate and optimize time for Delivery Trips.
+
+
+## How to set up Google Maps Integration
+
+To setup Google Maps in order to allow a ERPNext to calculate and optimize time for Delivery Trip, follow the steps:
+
+- Enable API access [Google Settings](/erpnext/google_settings#for-google-maps).
+
+## How to use Google Maps Integration
+
+### Calculating and optimizing Delivery Trips
+- Once Google Maps Integration is succesful, you can calculate ETA for a delivery stop or optimize delivery stops
+ [Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__google_settings.md -->
+---
+title: "Google Settings"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/google_settings"
+updated: "2026-02-26"
+---
+
+To enable Google Integrations, ERPNext needs access to the API through which the data will be synced which is achieved using OAuth 2.0 Authentication Protocol.
+
+How to set up Google Settings
+-----------------------------
+
+### For Google Calendar, Google Contacts, Google Drive and Google Indexing
+
+In order to allow a synchronization with any of the above mentioned services, you need to authorize ERPNext to get data from Google. Following is an example for setting up Google Contacts Integration
+
+1. Create a new project on Google Cloud Platform and generate new OAuth 2.0 credentials. [Screenshot on the live page]
+* Enable API Access in API Library for the Integration you wish to integrate.
+
+
+	+ Google Calendar: **Calendar API**
+	+ Google Contacts: **People API**
+	+ Google Drive: **Drive API**
+	+ Google Indexing: **Indexing API**[Screenshot on the live page]
+* In **API & Services > Credentials** create a new Credential and select **Create OAuth client ID**
+* Select Application Type **Web Application**
+* Add `https://{yoursite}` to Authorized JavaScript origins.
+* Add `https://{yoursite}?cmd=frappe.integrations.doctype.google_calendar.google_calendar.google_callback` as an authorized redirect URI for Google Calendar.
+* Add `https://{yoursite}/api/method/frappe.integrations.google_oauth.callback` as an authorized redirect URI for rest of the services.
+
+[Screenshot on the live page]
+* Add your Client ID and Client Secret in the Google Settings in **Home > Integrations > Google Services > Google Settings**
+
+### For Google Maps
+
+
+> Setting the *API Key* is only required if you want to use the Directions API, for example in ERPNext's **Delivery Trip**. For the other features, this is not required.
+> 
+> 
+
+In order to allow a synchronization with Google Maps you need to generate an API key as Google Maps doesn't need access to data from Google.
+
+1. Create a new project on Google Cloud Platform and generate new API Key.
+* Enable API Access in API Library for the Directions API and then add the API Key in the Google Settings in **Home > Integrations > Google Services > Google Settings**. [Screenshot on the live page]
+
+<!-- page: erpnext/erpnext__gst-for-multiple-branches.md -->
+---
+title: "GST for multiple branches"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/gst-for-multiple-branches"
+updated: "2026-07-31"
+---
+
+This will help you automate GST calculation if your company has different branches with separate GSTIN. 
+
+  
+
+
+This is an extension to the blog: [5 Steps to automate Indian GST in ERPNext](https://erpnext.com/blog/erpnext-features/5-steps-to-automate-indian-gst-in-erpnext)
+
+  
+
+
+1. **Update your Company’s branch-wise addresses**
+2. **Configure State-wise GST Accounts** ***(Optional)***
+3. **Item-wise GST setup**
+4. **Classification of Inter-State and Intra-State Taxes**
+5. **Configuring Invoice Templates**
+
+  
+
+
+### Step 1- Update your Company’s branch-wise billing addresses
+
+  
+
+
+The very first step is to update your company’s branch wise Address with appropriate GSTIN as it will differ *(if in different states)* frombranch to branch. 
+
+  
+
+
+[Screenshot on the live page]
+
+﻿
+
+Now, make sure that your Customer's and Supplier's addresses have *GST State* and *Party GSTIN* configured properly.
+
+  
+
+
+﻿[Screenshot on the live page]
+
+### 
+
+### ﻿Step 2 - Configure State-wise GST Accounts ***(Optional)***
+
+  
+
+
+To configure, go to Chart of Accounts, create a state-wise set of GST accounts *(CGST, SGST & IGST)* as seen in the screenshot below.
+
+﻿
+
+﻿[Screenshot on the live page]
+
+  
+
+
+  
+
+
+Add these newly created accounts in *GST Accounts* table from **GST Settings**, to include this in all GST Reports.
+
+  
+
+
+[Screenshot on the live page]
+
+ 
+
+### Step 3 - Item-wise GST setup
+
+  
+
+
+a. Create **Item Tax Template** for different rates and add all the *GST Accounts* we have created in previous step.
+
+b. Define the rates.
+
+This helps system know which GST Accounts and Tax Rates to apply in the Invoices.
+
+  
+
+
+Your Item Tax Template should look like this: 
+
+[Screenshot on the live page]
+
+  
+
+
+**The same way you can create different Item Tax Templates for different GST Rates.** 
+
+  
+
+
+After the creation of Item Tax Templates, you can start with assigning these templates to their respective Items from the Item Master.
+
+  
+
+
+[Screenshot on the live page]
+
+ 
+
+### Step 4 - Classification of Inter-State and Intra-State Taxes
+
+  
+
+
+We are nearly there.
+
+Create two **Tax Categories**, for each of our branches in different State. The **Source State** on each *Tax Category* will correspond to each of our company’s branches.
+
+Each state will have two Tax Categories, one for Inter State and other for Out State transactions. 
+
+  
+
+
+**For ‘Out State’ Tax Categories, mark ‘Is Inter State’ checkbox as enabled.** 
+
+  
+
+
+*IN State Tax Category for Delhi:* 
+
+[Screenshot on the live page]
+
+  
+
+
+*﻿OUT State Tax Category for Delhi:* 
+
+[Screenshot on the live page]
+
+ 
+
+**Create for other States the same way as shown above.**
+
+  
+
+
+### Step 5 - Configuring our Invoice Templates
+
+  
+
+
+Finally, configure a set of two **Sales Taxes and Charges Templates**, and two **Purchase Taxes and Charges Templates, for each Tax Categories created.** 
+
+**﻿**
+
+Go to Sales Taxes and Charges Template, and define a set of two templates for each state (as seen in the screenshot below for Maharashtra)
+
+  
+
+
+*For IN State template, choose the IN State Tax Category and appropriate CGST & SGST account in* ***Account Head.*** 
+
+  
+
+
+[Screenshot on the live page]
+
+  
+
+
+*For OUT State template, choose the OUT State Tax Category and appropriate IGST account in* ***Account Head.*** 
+
+[Screenshot on the live page]
+
+  
+
+
+**Note: Enter our *Tax Accounts* in *Account Heads* and leave *rest as '0'* - since the tax rates will be fetched from the Item Master.**
+
+  
+
+
+Repeat the same process to configure **Purchase Taxes and Charges Template** and for other **States** as well. 
+
+  
+
+
+### We enjoy the fruits of our labour:
+
+  
+
+
+Refresh your account now as we have completed the setup now.
+
+  
+
+
+To verify if everything works as expected, create an Invoice or an Order:
+
+1. Select a Customer/Supplier.
+2. Check Company's Address and reselect it to whichever Branch you want to create the Invoice/Order from.
+3. Selecting Customer/Supplier will fetch the right template, check if the Taxes and Charges are fetched properly.
+
+  
+
+
+### Example 1:
+
+Here I have selected a **Customer from Maharashtra and Company's Address as Maharashtra** too, it should fetch the IN State template we created above.
+
+  
+
+
+[Screenshot on the live page]
+
+  
+
+
+It auto-fetched the following Taxes and Charges Template:
+
+[Screenshot on the live page]
+
+  
+
+
+### Example 2:
+
+Here I have selected a **Customer from Maharashtra and Company's Address as Delhi**, it should fetch the OUT State template we created above.
+
+  
+
+
+[Screenshot on the live page]
+
+  
+
+
+It auto-fetched the following Taxes and Charges Template:
+
+[Screenshot on the live page]

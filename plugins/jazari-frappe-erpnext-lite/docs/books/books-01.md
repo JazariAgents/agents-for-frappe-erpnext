@@ -1,4 +1,4 @@
-<!-- Frappe documentation: books, part 1 of 4. Index: docs/INDEX.md -->
+<!-- Frappe documentation: books, part 1 of 3. Index: docs/INDEX.md -->
 
 <!-- page: books/books__accounting-basics.md -->
 ---
@@ -157,7 +157,7 @@ In Frappe Books, you can view the balance sheet for your accounts based on month
 
 Navigate to this report from the sidebar: `Reports > Balance Sheet`
 
-[![Balance Sheet](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/balance-sheet.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/balance-sheet.png)  
+[[Screenshot on the live page: Balance Sheet]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/balance-sheet.png)  
 
 
 Filters
@@ -214,7 +214,7 @@ So clicking on **Hide Group Amounts** will display only the non group account am
 Folding Rows
 ------------
 
-[![Balance Sheet Folded Rows](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/balance-sheet-folded.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/balance-sheet-folded.png)  
+[[Screenshot on the live page: Balance Sheet Folded Rows]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/balance-sheet-folded.png)  
 
 
 Rows in the Balance Sheet report which display group accounts can be clicked to fold all the rows underneath them.
@@ -243,7 +243,7 @@ Batched Items
 
 Once Batch has been enabled, you can mark an Item as a Batched Item by first checking Track Item and then Has Batch.
 
-[![Enable Has Batch](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/item-has-batch.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/item-has-batch.png)  
+[[Screenshot on the live page: Enable Has Batch]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/item-has-batch.png)  
 
 
 ::: info Track Item
@@ -257,7 +257,7 @@ Once Batch has been enabled for an Item, transactions involving the item that up
 
 This can be done by clicking the edit button on the table row and selecting the batch.
 
-[![Mentioning Batches](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/mentioning-batches.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/mentioning-batches.png)  
+[[Screenshot on the live page: Mentioning Batches]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/mentioning-batches.png)  
 
 
 Batch-wise Reports
@@ -267,7 +267,7 @@ After batches have been enabled, the inventory reports i.e. Stock Ledger and Sto
 
 You can also set Batch specific filters to show information that relates only to the selected Batch.
 
-[![Batch-wise Report](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/batchwise-report.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/batchwise-report.png)  
+[[Screenshot on the live page: Batch-wise Report]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/batchwise-report.png)  
 
 
   
@@ -296,7 +296,7 @@ There are two types of accounts in the Chart of Accounts
 
 At the upper most level there are 4 Group Accounts. These can be thought of as the *Root Accounts*. These *Root Accounts* have all the other accounts grouped underneath them.
 
-[![Root Accounts](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/root-accounts.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/root-accounts.png)  
+[[Screenshot on the live page: Root Accounts]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/root-accounts.png)  
 
 
 ::: info Number of Root Accounts The number of Root Accounts depends on your country's CoA.
@@ -309,12 +309,12 @@ Each Root Account is either a Credit or a Debit account. If a Root Account is a 
 
 Clicking on a Root Account will reveal the accounts other it. This goes for the other Group Accounts too.
 
-[![Other Accounts](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/other-accounts.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/other-accounts.png)  
+[[Screenshot on the live page: Other Accounts]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/other-accounts.png)  
 
 
 Clicking on a Ledger Account will open that accounts Quick Edit Form where the details of the account can be viewed.
 
-[![Ledger Account](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/ledger-account.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/ledger-account.png)  
+[[Screenshot on the live page: Ledger Account]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/ledger-account.png)  
 
 
 Creating a New Account
@@ -325,7 +325,7 @@ To create a new account
 1. Hover over a Group Account
 2. Click on Add Account or Add Group
 
-[![Create a New Account](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/create-new-account.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/create-new-account.png)  
+[[Screenshot on the live page: Create a New Account]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/create-new-account.png)  
 
 
 This will display a new row where you can enter the account name. After you are done press Save to create the account.
@@ -355,7 +355,7 @@ you set up.
 > Note: **Discount Accounting** and **Pricing Rule** should be enabled to use **Coupon Codes**
 
 
-![Enable Coupon Codes](https://raw.githubusercontent.com/frappe/books_docs/5601f51269118621cdd73b3ad47f2033c1eff868/docs/entries/images/enable-coupon-code.png)
+[Screenshot on the live page: Enable Coupon Codes]
 
 Once that is done you will have to restart Frappe Books to see the Coupon Code
 in the sidebar.
@@ -370,7 +370,7 @@ To create a Coupon Code first navigate to the Coupon Code page
 
 Then click on the `+` button to open the Coupon Code form.
 
-![Coupon Code](https://raw.githubusercontent.com/frappe/books_docs/5601f51269118621cdd73b3ad47f2033c1eff868/docs/entries/images/coupon-code.png)
+[Screenshot on the live page: Coupon Code]
 
 - **Is Enabled:** To mark the Coupon Code as active.
 - **Pricing Rule:** Select the pricing rule that applies when a specific coupon
@@ -387,11 +387,11 @@ Then click on the `+` button to open the Coupon Code form.
 You can select coupons to get discounts. The coupon will apply a discount based
 on the rules set for that coupon.
 
-![Coupon Code](https://raw.githubusercontent.com/frappe/books_docs/5601f51269118621cdd73b3ad47f2033c1eff868/docs/entries/images/choose-coupon-code.png)
+[Screenshot on the live page: Coupon Code]
 
 Applied Pricing rule can be viewed in the Pricing Rule Detail section.
 
-![Coupon Code](https://raw.githubusercontent.com/frappe/books_docs/5601f51269118621cdd73b3ad47f2033c1eff868/docs/entries/images/applyed-coupon-code.png)
+[Screenshot on the live page: Coupon Code]
 
 <!-- page: books/books__create-initial-entries.md -->
 ---
@@ -412,7 +412,7 @@ Navigate to the **Chart of Accounts** page from the sidebar.
 
 `Setup > Chart of Accounts`
 
-[![Chart of Accounts](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/coa.png)](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/coa.png)  
+[[Screenshot on the live page: Chart of Accounts]](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/coa.png)  
 
 
 Then open the **Bank Accounts** group and click on **Add Account**.
@@ -428,7 +428,7 @@ If your company charges or will recover Sales Taxes, add any taxes that you will
 
 `Setup > Taxes`
 
-[![Tax](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/tax.png)](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/tax.png)  
+[[Screenshot on the live page: Tax]](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/tax.png)  
 
 
 1. **Create a New Tax Entry**: Click on the blue `+` button. Enter a name which will make it easier to identify. You can also mention the rate in the name. for e.g. Service Tax - 5%.
@@ -444,7 +444,7 @@ One of the most important things you will add in Books are your products or serv
 
 `Sales > Sales Items`
 
-[![Sales Item](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/sales-item.png)](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/sales-item.png)  
+[[Screenshot on the live page: Sales Item]](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/sales-item.png)  
 
 
 1. **Create a New Item Entry**: Click on the blue `+` button. Enter the Name and the Rate
@@ -465,7 +465,7 @@ Add your Customers to record their details and select them in Sales Invoices. Fi
 
 `Sales > Customers`
 
-[![Customer](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/customer.png)](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/customer.png)  
+[[Screenshot on the live page: Customer]](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/customer.png)  
 
 
 1. **Create a New Customer Entry**: Click on the blue `+` button. Enter the name of of the customer
@@ -502,7 +502,7 @@ To be able to customize a form you need to enable it from the General Settings.
 
 After you have navigated to the General Settings tab, click on the Enable Form Customization checkbox.
 
-[![Enable Form Customization](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/enable-form-customization.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/enable-form-customization.png)  
+[[Screenshot on the live page: Enable Form Customization]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/enable-form-customization.png)  
 
 
 You will have to reload Frappe Books to see the option, you can press `Ctrl + R` if you are on Windows or linux, or `command + R` on macOS.
@@ -520,7 +520,7 @@ After enabling form customization and reloading Frappe Books navigate to the Cus
 
 After that click on the blue `+` button to customize a form type. This will open a new Custom Form entry.
 
-[![Custom Form](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/custom-form.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/custom-form.png)  
+[[Screenshot on the live page: Custom Form]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/custom-form.png)  
 
 
 Select a Form Type to customize.
@@ -546,7 +546,7 @@ Setting the Label will auto set the Fieldname value. The Fieldname is a name use
 
 After setting the Label and the Fieldname, you can select the fieldtype, for more information on fieldtype and the other fields that you can set for each Custom Field row check the sections below.
 
-[![Custom Fields](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/custom-fields.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/custom-fields.png)  
+[[Screenshot on the live page: Custom Fields]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/custom-fields.png)  
 
 
 Once you are done click on the blue Save button.
@@ -555,7 +555,7 @@ Once you are done click on the blue Save button.
 
 After customizing a form you must reload Frappe Books to view the added fields in the forms. :::
 
-[![Customized Form](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/customized-form.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/customized-form.png)  
+[[Screenshot on the live page: Customized Form]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/customized-form.png)  
 
 
 After reloading the app, you will see the new fields in the form.
@@ -608,7 +608,7 @@ Deleting Customizations
 
 You can delete a forms customizations by deleting its Custom Form entry:
 
-[![Delete Customizations](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/delete-customizations.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/delete-customizations.png)  
+[[Screenshot on the live page: Delete Customizations]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/delete-customizations.png)  
 
 
 :::danger Data Loss
@@ -629,7 +629,7 @@ Dashboard show an overview of Cash Flow, Profit and Loss, Pending Payments and E
 
 You can access the Dashboard from the sidebar.
 
-[![Dashboard](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/dashboard.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/dashboard.png)  
+[[Screenshot on the live page: Dashboard]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/dashboard.png)  
 
 
 Period Selector
@@ -652,7 +652,7 @@ Consider today's date as 16 Jun, 2022. The three options will show analytics for
 Cashflow
 --------
 
-[![Cashflow](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/cashflow.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/cashflow.png)  
+[[Screenshot on the live page: Cashflow]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/cashflow.png)  
 
 
 The Cashflow chart shows the total amount of money being transferred into and out of your company over a period.
@@ -664,7 +664,7 @@ The Cashflow chart shows the total amount of money being transferred into and ou
 Pending Payments
 ----------------
 
-[![Pending Payments](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/pending-payments.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/pending-payments.png)  
+[[Screenshot on the live page: Pending Payments]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/pending-payments.png)  
 
 
 Pending Payments shows the invoice paid and unpaid (outstanding) amounts. It has two sub-sections
@@ -677,7 +677,7 @@ Pending Payments shows the invoice paid and unpaid (outstanding) amounts. It has
 Profit and Loss
 ---------------
 
-[![Profit and Loss Bar](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/pnl-bar.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/pnl-bar.png) This chart shows the profit (or loss) per month for a given period.
+[[Screenshot on the live page: Profit and Loss Bar]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/pnl-bar.png) This chart shows the profit (or loss) per month for a given period.
 
 ::: tip Profit and Loss Profit and Loss is the difference between the Income and Expense accounts. :::
 
@@ -686,7 +686,7 @@ Profit and Loss
 Top Expenses
 ------------
 
-[![Top Expenses](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/top-expenses.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/top-expenses.png)  
+[[Screenshot on the live page: Top Expenses]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/top-expenses.png)  
 
 
 This section shows your top five expenses sorted from your highest expenses to lowest expenses by category.
@@ -712,14 +712,14 @@ To enable discount accounting, first navigate to General Settings: `Setup > Sett
 
 Then check the Enable Discount Accounting checkbox.
 
-[![Enable Discount Accounting](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/enable-discount-accounting.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/enable-discount-accounting.png)  
+[[Screenshot on the live page: Enable Discount Accounting]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/enable-discount-accounting.png)  
 
 
 ::: warning Once Discount Accounting is enabled, it cannot be disabled. :::
 
 After that set the account that will be used for discounts
 
-[![Set Discount Account](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/set-discount-account.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/set-discount-account.png)  
+[[Screenshot on the live page: Set Discount Account]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/set-discount-account.png)  
 
 
 ::: info The discount account is an Indirect Income account, you can create it using the [Chart of Accounts](https://github.com/frappe/books_docs/blob/master/miscellaneous/chart-of-accounts) :::
@@ -729,7 +729,7 @@ Setting Discount Amount
 
 Discount is applied on an item-wise basis. After you have enabled discount click on the edit button on the item row to set the discount.
 
-[![Setting the Discount](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/set-discount.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/set-discount.png)  
+[[Screenshot on the live page: Setting the Discount]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/set-discount.png)  
 
 
 This will open Quick Edit Form to edit the invoice item values. Discount can be set in two ways:
@@ -748,7 +748,7 @@ By default the Discount is applied before the Tax is calculated.
 
 To apply the Discount after the Tax, select the Discount After Tax checkbox after opening the settings for the Invoice.
 
-[![Discount after Tax](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/discount-after-tax.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/discount-after-tax.png)  
+[[Screenshot on the live page: Discount after Tax]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/discount-after-tax.png)  
 
 
   
@@ -765,7 +765,7 @@ The General Ledger is a detailed report for all transactions posted to each acco
 
 This helps you to get a full update for all entries posted in a period against any account.
 
-[![General Ledger](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/general-ledger.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/general-ledger.png)  
+[[Screenshot on the live page: General Ledger]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/general-ledger.png)  
 
 
 Navigate to the General Ledger from the sidebar: `Report > General Ledger`
@@ -807,7 +807,7 @@ The final date before which all the entries are to be displayed. The default val
 
 Selecting a Group By option other than None groups the entry according to the selected option.
 
-[![Group By Reference](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/groupby-ref.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/groupby-ref.png)  
+[[Screenshot on the live page: Group By Reference]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/groupby-ref.png)  
 
 
 For instance setting Group By as Reference will group the entries by the Name of the transactional entry.
@@ -846,9 +846,9 @@ Now select an appropriate location where you want to store the file and give it 
 
 [
 
-![New File](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/new-file.png)
+[Screenshot on the live page: New File]
 
-]([https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/new-file.png](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/new-file.png))  
+](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/new-file.png (picture on the live page))  
 
 ::: tip File Location Frappe Books stores all your company data and transactions on a local `.db` file on your computer.
 
@@ -859,9 +859,9 @@ Now, enter your Business Name, Business Email and Country Information. This will
 
 [
 
-![Setup Wizard](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/setup-wizard.png)
+[Screenshot on the live page: Setup Wizard]
 
-]([https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/setup-wizard.png](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/setup-wizard.png))  
+](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/setup-wizard.png (picture on the live page))  
 
 ::: tip Chart of Accounts If you don't find the Chart of Accounts of your country, you can select the **Standard Chart of Accounts**. 
 :::
@@ -894,12 +894,12 @@ To use the Import Wizard navigate to it using the sidebar: `Setup > Import Wizar
 
 Once the Import Wizard has been opened you will have to select and Import Type which decides the kind of entries to be imported.
 
-[![Select Import Type](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/select-import-type.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/select-import-type.png)  
+[[Screenshot on the live page: Select Import Type]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/select-import-type.png)  
 
 
 After selecting the import type, you'll see the additional controls that are now available.
 
-[![Import Wizard Controls](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/import-wizard-controls.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-wizard-controls.png)  
+[[Screenshot on the live page: Import Wizard Controls]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-wizard-controls.png)  
 
 
 ### Using a Template
@@ -910,7 +910,7 @@ This will download a `.csv` template file.
 
 :::tip The Template.csv file The Template.csv file can be filled using any spreadsheet software.
 
-[![Import Template CSV](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/import-template-csv.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-template-csv.png)  
+[[Screenshot on the live page: Import Template CSV]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-template-csv.png)  
 
 
 The Import Template has three rows:
@@ -933,7 +933,7 @@ Once you have exported the `.csv` file, click on Select File to select the file.
 
 You can now check the imported values and if everything seems right. If you want to remove a row, click on the row index to delete it.
 
-[![Import File Selected](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/import-file-selected.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-file-selected.png)  
+[[Screenshot on the live page: Import File Selected]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-file-selected.png)  
 
 
 :::tip The Add Row button You can click on the Add Row button to add an additional empty row to the bottom of the import table which can be edited to enter the required values.
@@ -942,7 +942,7 @@ This feature can be used for making multiple entries quickly without even select
 
 :::info Fixing Conversion Errors If the Import Wizard couldn't convert a value then it will be marked with a red border.
 
-[![Conversion Error](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/import-conversion-error.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-conversion-error.png)  
+[[Screenshot on the live page: Conversion Error]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-conversion-error.png)  
 
 
 You can hover over the field to view what the raw value was and fix the value to remove the error :::
@@ -953,7 +953,7 @@ Finally if everything is fine, click on Import Data to begin importing the data.
 
 Once import is done, you'll see the Import Complete modal
 
-[![Import Complete](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/import-complete.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-complete.png)  
+[[Screenshot on the live page: Import Complete]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-complete.png)  
 
 
 Clicking on Show Me will take you to the List View of the newly created entries. Clicking on Done will reset the Import Wizard allowing you to make more entries.
@@ -969,7 +969,7 @@ You can pick the specific columns you want to import by clicking on the `...` bu
 
 This will open the Pick Import Columns modal
 
-[![Pick Import Column](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/picking-import-columns.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/picking-import-columns.png)  
+[[Screenshot on the live page: Pick Import Column]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/picking-import-columns.png)  
 
 
 The fields marked by the red `*` are required fields and cannot be unselected. Other than these you can choose to keep or remove the rest of the columns.
@@ -984,7 +984,7 @@ Column Assignment Bar
 
 The Column Assignment Bar is used to mark a column in the table as a certain field. This is useful if the file you have selected doesn't use the Import Wizard's template.
 
-Along with assigning columns you can even de-assign columns by selecting None [![Import Column Assignment](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/import-column-assignment.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-column-assignment.png)  
+Along with assigning columns you can even de-assign columns by selecting None [[Screenshot on the live page: Import Column Assignment]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/import-column-assignment.png)  
 
 
 If None is selected then that column is ignored while importing data.
@@ -1048,7 +1048,7 @@ Enabling Inventory
 
 To enable inventory you will have to first check the Enable Inventory. To navigate: `Setup > Settings > General Tab`.
 
-[![Enable Inventory](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/enable-inventory.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/enable-inventory.png)  
+[[Screenshot on the live page: Enable Inventory]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/enable-inventory.png)  
 
 
 Once that is done you will have to restart Frappe Books to see the Inventory item in the sidebar.
@@ -1062,7 +1062,7 @@ Tracking an Item
 
 Since you may not want to track the movement of all items, item tracking has to be enabled by setting the Track Item checkbox when creating an item.
 
-[![Track Item](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/track-item.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/track-item.png)  
+[[Screenshot on the live page: Track Item]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/track-item.png)  
 
 
 ::: info
@@ -1110,5 +1110,132 @@ To check which Location has sufficient quantity of an Item check the Stock Balan
 ---
 
 Now that you know how to enable inventory and are familiar with the basic concepts, you can move onto reading about the inventory transactions.
+
+  
+
+<!-- page: books/books__introduction.md -->
+---
+title: "Lead"
+space: "Books"
+url: "https://docs.frappe.io/books/introduction"
+updated: "2026-01-30"
+---
+
+_Lead_ is a term used in Frappe Books for any potential customer or client who
+has shown interest in the products or services offered.
+
+## Lead Status
+
+A Lead can have various statuses based on the stage of engagement:
+
+| Status         | Description                               |
+| :------------- | :---------------------------------------- |
+| Open           | Newly created and yet to be engaged.      |
+| Replied        | Replied to initial engagement.            |
+| Interested     | Shown interest in the product or service. |
+| Opportunity    | Opportunity for business.                 |
+| Converted      | Converted to a Customer or client.        |
+| Quotation      | To sent a Quotation.                      |
+| Do not Contact | Marked as not to be contacted.            |
+
+
+> Note: Ensure to update the status of the Lead appropriately as it progresses through
+different stages.
+
+## Lead Fields
+
+1. **Name**: The full name of the Lead. This is a required field to uniquely
+   identify each Lead.
+2. **Status**: The current status of the Lead. It indicates the stage of
+   engagement with the Lead and it will be updated automatically based on your
+   actions against the lead.
+3. **Email**: The email address of the Lead. This is used for communication and
+   may be displayed when printing invoices or other documents.
+4. **Mobile**: The mobile phone number of the Lead. This is used for quick
+   contact and may also be displayed when printing invoices or other documents.
+5. **Address**: The physical address associated with the Lead. This can include
+   street, city, state, and postal code, and is useful for sending physical
+   correspondence or deliveries.
+
+## Actions
+
+The Lead Quick Edit Form includes actions to create associated documents like
+Customer or Sales Quote.
+
+[Screenshot on the live page: Recent Actions Widget]
+
+### Create Customer
+
+- Converts the Lead into a Customer, retaining all relevant information.
+- Sets the status of the Lead to **Converted**.
+
+### Create Sales Quote
+
+- Creates a Sales Quote against the Lead.
+- Links the Sales Quote to the Lead as a reference.
+
+<!-- page: books/books__inventory-settings.md -->
+---
+title: "Inventory Settings"
+space: "Books"
+url: "https://docs.frappe.io/books/inventory-settings"
+updated: "2026-01-30"
+---
+
+Inventory settings will allow you to configure the inventory module to your requirements. To navigate to Inventory Settings: `Setup > Settings` then click on the Inventory tab
+
+[[Screenshot on the live page: Inventory Settings]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/inventory-settings.png)  
+
+
+Setting Items
+-------------
+
+The following values can be configured
+
+### Valuation Method
+
+This can be used to select either FIFO or Moving Average valuation methods.
+
+The valuation rate displayed in the Stock Ledger or the Stock Balance report is calculated on the basis of the Valuation Method selected.
+
+### Default Location
+
+This is used to set the location that is used whenever an inventory transaction detail is created.
+
+### Stock In Hand Account
+
+This is used to set the default Stock In Hand Account that is debited whenever stock is received.
+
+### Stock Received But Not Billed Account
+
+This is used to set the default Stock Received But Not Billed Account that is debited on making a Purchase Invoice for a tracked item, and credited when a Purchase Receipt is made.
+
+### Cost Of Goods Sold Account
+
+This is used to set the default Cost of Goods Sold Account that is debited whenever a Shipment is made.
+
+### Enable Barcodes
+
+Checking this will allow you to set barcodes on items. It will also display a barcode input in forms (such as Sales Invoice and Shipment) where items are entered.
+
+### Enable Batches
+
+Checking this will allow the usage of Batches. Items will have a Has Batch option if the item is being tracked.
+
+It will also enable the Batch entry type which can be navigated to by using the Quick Search.
+
+### Enable Serial Numbers
+
+Checking this will allow the usage of Serial Numbers. Items will have a Has Serial Number option if the item is being tracked.
+
+It will also enable the Serial Number entry type which can be navigated to by using the Quick Search.
+
+### Enable UOM Conversion
+
+Checking this will allow setting multiple UOMs for an Items. Then when making a entry that involves the Item, one of the other UOMs can be selected to mention its quantity.
+
+### Enable Stock Returns
+
+Checking this will allow you to create Purchase Receipt and Shipment Returns against the original Purchase Receipts or Shipments.
 
   

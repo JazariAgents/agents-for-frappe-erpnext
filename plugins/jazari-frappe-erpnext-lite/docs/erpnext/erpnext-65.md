@@ -36,7 +36,7 @@ Territories use a tree structure. A group territory contains lower-level territo
 4. Enable **Is Group** when this Territory will contain lower-level territories.
 5. Select **Create New**.
 
-![New Territory form with the Is Group checkbox highlighted](https://novacompanies.m.frappe.cloud/files/new-territory-form.png)
+[Screenshot on the live page: New Territory form with the Is Group checkbox highlighted]
 
 The deep-red square highlights **Is Group**. A group organizes child territories and is not selected on a transaction. Leave it disabled when creating a leaf territory such as a city, metro area, or final sales zone.
 
@@ -74,7 +74,7 @@ A well-designed hierarchy moves from broad groups to the lowest reporting level 
 
 
 
-![Expanded ERPNext Territory tree with United States regions and metro areas](https://novacompanies.m.frappe.cloud/files/territory-tree-1440.png)
+[Screenshot on the live page: Expanded ERPNext Territory tree with United States regions and metro areas]
 
 You can add multiple levels, but avoid unnecessary depth. A structure such as country → region → metro area is easier to maintain than a different hierarchy for every sales team.
 
@@ -110,7 +110,7 @@ Use the final selectable Territory rather than a group. For example, select New 
 5. Select a Target Distribution.
 6. Save the Territory.
 
-![ERPNext Territory target for New York Metro in fiscal year 2026](https://novacompanies.m.frappe.cloud/files/territory-target.png)
+[Screenshot on the live page: ERPNext Territory target for New York Metro in fiscal year 2026]
 
 The example assigns New York Metro a 2026 target of 3,000 units and 750,000 in sales for All Item Groups, distributed evenly across the year.
 
@@ -423,7 +423,7 @@ To access Timesheet, go to,
 
 > Home > Projects > Time Tracking > Timesheet
 
-![](/files/Screenshot 2026-01-09 at 12.53.27 PM.png)
+[Screenshot on the live page]
 
 ## How to create a Timesheet
 
@@ -444,7 +444,7 @@ To access Timesheet, go to,
 1. Go to the Task for which you want to create a new Timesheet.
 2. Go to 'Timesheet' under the Activity section on the Dashboard. The plus icon '+' here would re-direct you to the Timesheet creation page.
 3. Follow the steps to create a Time Sheet.
-  ![](/files/timesheet_creation.gif)
+  [Screenshot on the live page]
 
 ## Timer in Timesheet
 
@@ -458,12 +458,12 @@ A Timer can be used to record the actual time taken by an employee to finish a p
   - **Task**: The Task for which you are recording the time in the Timesheet.
   - **Expected Hrs**: Enter the number of hours that you expect the Task to finish in.
 
-![](/files/timer.gif)
+[Screenshot on the live page]
 
 - Once you have completed the Task, click on Complete. A new entry will be created in the Timesheet, and the time will get recorded as a Time Sheet in the Time Sheets Table in the Timesheet.
 - If the time exceeds the 'Expected Hrs', an alert box appears.
 
-![](/files/Screenshot 2026-01-09 at 2.53.01 PM1c3f85.png)
+[Screenshot on the live page]
 
 ## Additional Options while creating the Timesheet
 
@@ -479,7 +479,7 @@ The Time Sheet when expanded, allows you to enter the following details to it:
 - **Billing Amount**: The billing amount gets auto-calculated based on the billable number of hours and the billing Rate.
 - **Costing Amount**: The costing amount gets auto-calculated based on the number of hours and the costing rate.
 
-![](/files/Screenshot 2026-01-09 at 12.55.09 PM.png)
+[Screenshot on the live page]
 
 ## Timesheet Configurations
 
@@ -492,7 +492,7 @@ The Time Sheet when expanded, allows you to enter the following details to it:
 - **Total Costing Amount**: Based on the Timesheet, the Total Costing Amount, as specified by the Employee gets tagged here.
 - **% Amount Billed**: Once the Timesheet is submitted, and a Sales Invoice is created from the Timesheet, the percentage of the Amount out of the Total Billable Amount which has been amounted for the Total Billed Amount gets calculated and is reflected here.
 
-![](/files/Screenshot 2026-01-09 at 12.56.23 PM.png)
+[Screenshot on the live page]
 
 ## After Saving the Time Sheet
 
@@ -516,17 +516,17 @@ A barcode is a value decoded into vertical spaced lines. Barcode scanners are th
 
 To set the barcode of a particular item, you will have to open the Item record. You can also enter barcode while creating a new item.
 
-![Material Transfer](/files/barcode-item-master.png)
+[Screenshot on the live page: Material Transfer]
 
 Once barcode field is updated in item master, items can be fetched using barcode. This feature will be available in Delivery Note, Sales Invoice, Purchase Receipt, and Stock Reconciliation transactions only.
 
-![Material Transfer](/files/barcode-item-selection.gif)
+[Screenshot on the live page: Material Transfer]
 
 ### UOM specific barcode 
 
 You can also specify different barcode for different type of packaging of same item like unit and box. Select the UOM in Item Barcode table to get it auto selected when scanning items. 
 
-![uom specific barcode](/files/uom-specific-barcode.png)
+[Screenshot on the live page: uom specific barcode]
 
 
 ## Using mobile phone / smartphone to scan and add items
@@ -536,7 +536,7 @@ You can also specify different barcode for different type of packaging of same i
 
 Log in to your ERPNext account, go to the Item master and you'll be able to scan barcodes and add Items right from your smartphone!
 
-![Item Barcode using Smartphone](/files/item-barcode-phone.gif)
+[Screenshot on the live page: Item Barcode using Smartphone]
 
 <!-- page: erpnext/erpnext__track-purchases-in-accounts.md -->
 ---
@@ -635,7 +635,7 @@ A plain Material Transfer between warehouses does not change the total stock val
 
 Since every pair nets to zero, the Balance Sheet is unaffected — the accounts exist purely to make the stock value movements visible in the Profit & Loss and Trial Balance reports for COGS analysis.
 
-![](/files/purchase-expense-accounts.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__track-semi-finished-goods.md -->
 ---
@@ -672,7 +672,7 @@ BOM (with Operations)
 Work Order
 ----------
 
-![work-order-with-semi-fg](/files/work-order-with-semi-fg.gif)  
+[Screenshot on the live page: work-order-with-semi-fg]  
 
 
 In the work order, users can see the finished/semi-finished good as well raw materials against each operations. On submission of the work order system will create the job cards automatically and users have to complete the job cards manually. User can complete the job cards using job card view or from workstation dashboard. Below are different ways to complete the job cards
@@ -692,13 +692,13 @@ While making the Manufacture Stock Entry, the system will prompt the user to con
 Workstation Dashboard
 ---------------------
 
-![workstation-dashboard-png](/files/workstation-dashboard-png.png) Using the workstation dashboard, users can start, pause, resume, and complete job cards. Also, users can transfer raw materials from the source warehouse to the WIP warehouse against the job cards from the workstation dashboard. If "Skip Material Transfer" has enabled then no need to transfer raw materials. Also users don't get the subcontracted operations in the workstation dashboard.
+[Screenshot on the live page: workstation-dashboard-png] Using the workstation dashboard, users can start, pause, resume, and complete job cards. Also, users can transfer raw materials from the source warehouse to the WIP warehouse against the job cards from the workstation dashboard. If "Skip Material Transfer" has enabled then no need to transfer raw materials. Also users don't get the subcontracted operations in the workstation dashboard.
 
 ### Transfer Materials
 
 For the 'Brake Making' operation, the user has not enabled 'Skip Material Transfer', so they must transfer raw materials from the 'Stores' to the 'Work In Progress' warehouse. For the 'Chain Making' operation, the user has enabled 'Skip Material Transfer,' so they do not need to transfer raw materials.
 
-![transfer-materials](/files/transfer-materials.gif)  
+[Screenshot on the live page: transfer-materials]  
 
 
 ### Start Job
@@ -725,7 +725,7 @@ Start and Complete Jobs Using **QR code**
 
 If you have QR codes for the job cards, you can use them to start and complete the job cards by scanning the QR codes in the 'Start Job'/'Complete Job' QR code fields.
 
-![start-complete-job-suing-qrcode](/files/start-complete-job-suing-qrcode.gif)  
+[Screenshot on the live page: start-complete-job-suing-qrcode]  
 
 <!-- page: erpnext/erpnext__translations.md -->
 ---
@@ -750,7 +750,7 @@ The widely supported translations include French, Spanish, German, Turkish, Bosn
 6. Once you are done with all the translations you can click on **Contribute Translations** button.
 7. You can view the status of your contribution by clicking on the source text under Contributed Translations section.
 
-![Translation Tool](/files/translation_tool.gif)  
+[Screenshot on the live page: Translation Tool]  
 
 
 2. Status of the Contributed Translation
@@ -786,13 +786,13 @@ Following are the steps to be followed for renaming the ID of a master which is 
 
  When you click on that node, you will have an option to 'Rename' the document.
 
- ![Tree Master Renaming](/files/using-tree-renaming-1.png)
+ [Screenshot on the live page: Tree Master Renaming]
 
 * **Step 3:** Rename Account
 
  When you click on rename, a box will pop-up wherein you will be allowed to rename the document.
 
- ![Tree Master Renaming](/files/using-tree-renaming-2.gif)
+ [Screenshot on the live page: Tree Master Renaming]
 
 <!-- page: erpnext/erpnext__twitter-settings.md -->
 ---
@@ -815,7 +815,7 @@ You must have Twitter App for your company. ERPNext interacts with this App for 
 
 Create App by link [https://developer.twitter.com/](https://developer.twitter.com/) and check that the App has **Read and write** Access permission. 
 
-![Twitter App Permission](/files/twitter-app-permission.png)
+[Screenshot on the live page: Twitter App Permission]
 
 ### Configure Callback URL
 
@@ -824,7 +824,7 @@ Create App by link [https://developer.twitter.com/](https://developer.twitter.co
 - Add your website URL in **Callback URLs** like: https://{yoursite}/api/method/erpnext.crm.doctype.twitter_settings.twitter_settings.callback
 - Click **Save** to make changes.
 
-![Twitter App Callback URL](/files/twitter-callback-url.png)
+[Screenshot on the live page: Twitter App Callback URL]
 
 - How to set up Twitter Settings
 
@@ -832,7 +832,7 @@ To access Twitter Settings, go to:
 
 > Home > CRM > Settings > Twitter Settings
 
-![Twitter Settings](/files/twitter-settings.png)
+[Screenshot on the live page: Twitter Settings]
 
 ### API Key and API Key Secret
 
@@ -840,8 +840,8 @@ You get **API Key** and **API Key Secret** from your Twitter Developer account g
 
 > [https://developer.twitter.com/](https://developer.twitter.com/) > My Apps > {Your App} > Keys and tokens
 
-![Twitter Keys Tokens](/files/twitter-key-token.png)
+[Screenshot on the live page: Twitter Keys Tokens]
 
 Once you save the doc by filling **API Key** and **API Key Secret** it will redirect to Twitter's sign-in page by providing valid Twitter credentials and clicking **Authorize app**, the member approves your application's request to access their member data and interact with Twitter. 
 
-![Twitter Authorize App](/files/twitter-authorize-app.png)
+[Screenshot on the live page: Twitter Authorize App]

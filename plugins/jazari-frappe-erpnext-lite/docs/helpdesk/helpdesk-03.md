@@ -1,120 +1,5 @@
 <!-- Frappe documentation: helpdesk, part 3 of 4. Index: docs/INDEX.md -->
 
-<!-- page: helpdesk/helpdesk__lesson-4-knowledge-base.md -->
----
-title: "Knowledge Base"
-space: "Helpdesk"
-url: "https://docs.frappe.io/helpdesk/lesson-4-knowledge-base"
-updated: "2026-01-06"
----
-
-The Knowledge Base is a powerful tool for agents to create, organize, and reuse helpful articles when responding to tickets. It helps ensure accurate and consistent replies while reducing time spent typing the same responses.
-
-In addition, these articles are shown on the Customer Portal, allowing customers to find answers and solve issues on their own — which can lead to a **reduction in ticket volume** and faster resolution times. (We will talk about the Customer Portal in the next lesson)
-
-On the sidebar click on "Knowledge Base" or the "book icon" to navigate to Knowledge Base.
-
-
----
-
-### Creating a new article
-
-To create a new article:
-
-1. Click the **“+ Add New”** button on the top-right corner
-2. A dropdown will appear with two options:
-   - **Article**
-   - **Category**
-
-Click **“Article”** to get started.
-
-
-![](/files/Article.png)
-
-> The article will be created under the **General** category by default. You can change the category later inside the article editor.
-
-Edit the title and add some description of the article and click on "Create"
-
-![](/files/New%20Article.png)
-
-You have successfully created your first article🎉
-
-#### Publishing
-
-- New articles are saved in **Draft Mode** (internal only)
-- Click **“Publish”** to make it **Public**
-  - **Draft Mode**: Visible only to the internal team
-  - **Public Mode**: Visible to customers on the Customer Portal
-
-#### Article Actions:
-
-- **Edit** – Modify title, content, or category
-- **Move** – Change category of the article.
-- **Share Link** – Copy article URL (for customers, if public)
-- **Delete** – Remove the article
-
----
-
-### Creating a new category
-
-Creating categories is optional but important as it helps your organisation to maintain the articles and find them easily.
-
-To create a new category:
-
-1. Click the **“+ Add New”** button on the top-right corner
-2. A dropdown will appear with two options:
-   - **Article**
-   - **Category**
-
-Click on **“Category”**
-
-![](/files/New%20Cate.png)
-
-When you create a new category, a dialog box popus up, add the category name and click on "Create". When a category is created, an article named "New Article" is also created under the newly created category, you can edit the article and click on "Save".
-
-Here is a small video to understand the flow:
-
-![](/files/KB%20New%20Category%20Flow.gif)
-
----
-
-
-### Knowledge Base List View
-
-After creating articles and categories, your Knowledge Base would look something like this
-In the list view, articles are grouped by categories. You can filter and manage everything from here.
-
-![](/files/Screenshot%202025-04-23%20at%201.06.59%20AM.png)
-
-
-#### Features in the List View
-
-Each category has "three dots" icon on the right side of it. Clicking on it opens various options:
-
-![](/files/Screenshot%202025-04-23%20at%2012.35.07%20AM.png)
-
-- **Add New Article**
-- **Edit Category Title**
-- **Merge** this category into another
-- **Share** category link
-- **Delete** the category  
-
-
-#### Bulk Actions
-
-- Select multiple articles using checkboxes present on the left side of each row.
-- A popover menu appears click on three dots icon, you will see 2 buttons:
-  - **Delete** – Removes all selected articles
-  - **Move To** – Move selected articles to a different category
-
-
-> ⚠️ If a category is deleted, all its articles are automatically moved to the **General** category.
-
-> ℹ️ A category must contain at least one article. To move its only article, delete the category instead.
-
-
-Now that you've understood how the Knowledge Base works from the agent's side — from creating articles to managing categories — let's move on to explore the **Customer Portal** and how customers interact with your support system.
-
 <!-- page: helpdesk/helpdesk__notification.md -->
 ---
 title: "Notification"
@@ -125,7 +10,7 @@ updated: "2026-05-28"
 
 Stay informed about important activities within your Helpdesk system using the Notifications feature. This page serves as a central hub for all your Helpdesk-related alerts and updates.
 
-![Screenshot 2024-07-15 at 12.55.29 PM](/files/Screenshot 2024-07-15 at 12.55.29 PM.png)  
+[Screenshot on the live page: Screenshot 2024-07-15 at 12.55.29 PM]  
 
 
 **Accessing Notifications**
@@ -166,7 +51,7 @@ When an agent updates their status, it is immediately reflected across the team,
 
 Here is a short walkthrough of the feature in action:
 
-![](/files/Clipboard-20260606-172415-986.gif)
+[Screenshot on the live page]
 
 Each agent carries a live availability status  **Active**, **Away**, or **Unavailable** that is shown across the agent portal as a coloured presence dot.
 
@@ -178,7 +63,7 @@ Agents can change their own status from within the agent portal by following the
 2. Once the Settings modal is opened, inside in the Profile section find the **Agent Availability Dropdown**
 3. Click the **Dropdown** and switch your current status.
 
-![](/files/image134e4c.png)
+[Screenshot on the live page]
 
 Selecting a status:
 
@@ -211,7 +96,7 @@ Every status belongs to exactly one of three categories. The category — not th
 
 You can create a custom statuses by doing the following steps in the demonstration below:
 
-![](/files/Clipboard-20260606-171744-343.gif)
+[Screenshot on the live page]
 
 ## How to Navigate to HD Agent Status
 
@@ -252,11 +137,11 @@ This guarantees a ticket is always assigned to *someone* while still favouring p
 
 Manual assignment is never blocked. From a ticket's **Assignee** picker an agent can be assigned regardless of their status but if the chosen agent is **Away** or **Unavailable**, a warning toast is shown ("*{agent} is currently away.*" / "*{agent} is currently unavailable.*") so the assigner knows the work may not be picked up promptly. 
 
-![](/files/Screenshot 2026-06-05 at 3.34.52 PM.png)
+[Screenshot on the live page]
 
 Each agent in the picker shows a coloured presence dot and a tooltip describing their status and how long they've been in it (e.g. "*Away since 5m ago*").
 
-![](/files/image29142b.png)
+[Screenshot on the live page]
 
 ## Behavioural Rules for HD Agent Status
 
@@ -277,7 +162,7 @@ The Agent Home Page is a dynamic, customizable dashboard designed to give suppor
 
 
 
-![](/files/image0d0533.png)
+[Screenshot on the live page]
 *Agent Home Page*
 
 ### Key Features
@@ -457,15 +342,15 @@ updated: "2026-01-06"
 
 1. Click on the share button (middle one in the bottom navbar)
 
-    <img width="199" alt="Screenshot 2024-09-26 at 10 22 41 AM" src="https://github.com/user-attachments/assets/d7505f08-96ce-4b58-a920-eea223e568b6">
+    [Screenshot on the live page]
 
 2. Click on Add to Home screen button
 
-    <img width="199" alt="Screenshot 2024-09-26 at 10 22 42 AM" src="https://github.com/user-attachments/assets/acf4d19e-63e3-444c-9f9d-1289463300e9"> 
+    [Screenshot on the live page] 
 
 3. Click on Add
 
-    <img width="199" alt="Screenshot 2024-09-26 at 10 22 41 AM" src="https://github.com/user-attachments/assets/3f95257a-6fce-4b98-b90b-0f89233b5c8b">
+    [Screenshot on the live page]
 
 
 4. Login Once, and you are done ✅
@@ -474,11 +359,11 @@ updated: "2026-01-06"
 
 1. Click on Share Icon (position might differ for android phones)
 
-    <img width="199" alt="Screenshot 2024-09-26 at 10 22 41 AM" src="https://github.com/user-attachments/assets/174a1ad4-2c9b-44a9-af3a-a3ad94155166">
+    [Screenshot on the live page]
 
 2. Click on Add to Home Screen
 
-    <img width="199" alt="Screenshot 2024-09-26 at 10 22 41 AM" src="https://github.com/user-attachments/assets/664087cb-4c2f-4e71-9cf6-eaaa5b6b8f57">
+    [Screenshot on the live page]
 
 3. Click on Add
 
@@ -494,7 +379,7 @@ updated: "2026-08-12"
 
 Saved replies in Frappe Helpdesk are pre-written replies that support agents can use to respond to common customer inquiries quickly and consistently. These templates help streamline communication, ensuring that customers receive prompt and accurate information.
 
-![saved reply](/files/saved-reply.png)
+[Screenshot on the live page: saved reply]
 
 Key Features of Saved Replies
 --------------------------------
@@ -587,7 +472,7 @@ Most replies come with follow-up work. An escalation reply usually also moves th
 
 Actions run **after the reply email is sent**, on the ticket the reply was sent from.
 
-![saved reply actions](/files/docs-actions-editor.png)
+[Screenshot on the live page: saved reply actions]
 
 ### Available Actions
 
@@ -624,7 +509,7 @@ Actions run **after the reply email is sent**, on the ticket the reply was sent 
 3. Expand the strip to review the actions. You can change a value, remove a single action, or clear all of them before sending. A comment action can be edited inline, and whatever is in the editor at send time is what gets added.
 4. Send the reply. The actions are applied to the ticket right after the email goes out, and the ticket refreshes with the changes.
 
-![saved reply actions in the reply editor](/files/docs-actions-composer.png)
+[Screenshot on the live page: saved reply actions in the reply editor]
 
 > [!NOTE]
 > Actions are applied with the permissions of the agent sending the reply. An agent who cannot edit the ticket cannot apply actions to it either.
@@ -677,7 +562,7 @@ How to Use Saved Replies in Frappe Helpdesk
 	* Review the staged actions, if the reply has any.
 	* Send the response to the customer. 
 	
-![saved reply insert](/files/saved-reply%20insert.gif)
+[Screenshot on the live page: saved reply insert]
 
 By utilizing saved replies, Frappe Helpdesk can enhance the efficiency and effectiveness of support operations, ensuring that customers receive prompt, accurate, and consistent information.
 
@@ -696,13 +581,13 @@ Creating an SLA
 ---------------
 
 1. **Go to settings:** Click on logo at top left corner and click settings option
-![](/files/Screenshot%202025-07-03%20110517.png)
+[Screenshot on the live page]
 
 2. **SLA Policies:** Click on "SLA Policies" in the left sidebar and click "New" at top right corner
-![](/files/Screenshot%202025-07-03%20110645.png)
+[Screenshot on the live page]
 
 3. **Define SLA Details:** Fill the form with all required details
-![](/files/Screenshot%202025-07-03%20111322.png)
+[Screenshot on the live page]
 
 Each SLA is linked to the `HD Ticket` doctype and includes:
 
@@ -766,23 +651,23 @@ You can link a **Holiday List** to exclude specific dates from SLA time tracking
 #### Creating an Holiday list
 
 1. **Go to settings:** Click on logo at top left corner and click settings option
-![](/files/Screenshot%202025-07-03%20110517.png)
+[Screenshot on the live page]
 2. **Business holidays:** Click on "Business holidays" in the left sidebar and click "New" at top right corner
-![](/files/Screenshot%202025-07-03%20121953.png)
+[Screenshot on the live page]
 3. **Define Business holidays Details:** Fill the form with all required details
-![](/files/Screenshot%202025-07-03%20122153.png)
+[Screenshot on the live page]
 
 ##### Recurring holidays
-![](/files/Screenshot%202025-07-03%20133310.png)
+[Screenshot on the live page]
 Recurring holidays such as weekends can be added from Recurring holidays section, these holidays will be auto generate for duration of "From date" and "To date" set for the respective holiday list
 
 ##### Calendar view for holidays
-![](/files/Screenshot%202025-07-03%20133620.png)
+[Screenshot on the live page]
 Holidays and recurring holiday can be viewed from calendar view, where holiday dates are represented by light yellow and orange background, recurring holidays are represented by grey background.
 You can click on any date on the calendar to add holiday directly or by clicking on "Add Holiday" button at the bottom of the page
 
 ##### List view for holidays
-![](/files/Screenshot%202025-07-03%20134234.png)
+[Screenshot on the live page]
 By clicking on list icon above calendar view you can toggle between calendar and list view
 
 Example:  
@@ -809,7 +694,7 @@ Each SLA can define a condition using the UI in Assignment conditions section. T
 **Example Condition:**
 
 In the image below, conditions defined in the UI will be automatically converted into the condition string and store it in the backend
-![](/files/Screenshot%202025-07-03%20112s024.png)
+[Screenshot on the live page]
 Converted condition string:
 ```python
 doc.agent_group == 'Billing' and doc.ticket_type == 'Bug' and (doc.custom_app == 'FC' or doc.resolution_date == '2025-07-22 11:41:31' or doc.priority == 'Low')
@@ -953,12 +838,12 @@ updated: "2026-01-06"
 
 If you have installed Helpdesk on a brand new site, you will need to set up your account. Visit your site that has Helpdesk installed, and you should see a setup wizard.
 
-![Setup Wizard](/files/insights-setup-wizard.png)
+[Screenshot on the live page: Setup Wizard]
 *Setup Wizard*
 
 To complete the setup you will need to enter basic information like your country, name, email, and password. Make sure to remember your email and password as this is going to be your [admin account](/miscellaneous/faq#admin-account).
 
 Once you have gone through the setup wizard, you will be redirected to the Ticket List Page where you can see a List of pre-created ticket. You can click on the ticket to view the sample ticket. 
 
-![](/files/Screenshot%202025-04-28%20at%202.01.41%20PM.png)
+[Screenshot on the live page]
 *Ticket List View*

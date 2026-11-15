@@ -103,7 +103,7 @@ Every page behind this skill's 8 capabilities ships inside the plugin, as the ex
 - **Before doing anything non-trivial, open the bundled page for that capability and read it.** The adapter row is the index; the page is the instruction.
 - Each file keeps its original front matter — `title`, the live `url`, and the date Frappe last updated it. If the site disagrees with the page, say so and cite the date rather than improvising.
 - 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title, its file and its lines.
-- **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, search `docs/INDEX.md` for the page name (`/erpnext/credit-note` is listed as `erpnext__credit-note`).
+- **Screenshots are not bundled**: in this edition each picture is marked `[Screenshot on the live page: …]`, and the page's live `url` shows it. Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, search `docs/INDEX.md` for the page name (`/erpnext/credit-note` is listed as `erpnext__credit-note`).
 
 ## Gotchas
 

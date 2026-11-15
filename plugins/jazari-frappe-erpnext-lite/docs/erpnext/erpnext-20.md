@@ -1,328 +1,5 @@
 <!-- Frappe documentation: erpnext, part 20 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__deferred-revenue.md -->
----
-title: "Deferred Revenue | ERPNext Documentation"
-description: "Configure ERPNext deferred revenue for prepaid services, invoice the customer, recognize income over time, and verify the ledger."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/deferred-revenue"
-updated: "2026-08-14"
----
-
-Northstar Retail, a customer of Nova Industries, pays $1,200 upfront for a one-year warranty program. The invoice is raised today, but Nova Industries earns the revenue month by month as it provides the service.
-
-
-
-Deferred Revenue keeps the unearned portion out of current income. ERPNext first posts the invoice amount to a liability account, then recognizes the appropriate share as income over the service period.
-
-
-
-Use deferred revenue when a customer pays or is invoiced before your company has completed the related service, such as annual support, maintenance contracts, subscriptions, or prepaid service plans.
-
-
-
-## Understand the accounting effect
-
-Assume the invoice has no tax for simplicity.
-
-
-| Event                           | Debit                      | Credit                            |
-| ------------------------------- | -------------------------- | --------------------------------- |
-| Submit the $1,200 Sales Invoice | Debtors $1,200             | Deferred Revenue liability $1,200 |
-| Recognize one eligible period   | Deferred Revenue liability | Service Income                    |
-| Receive the Customer payment    | Bank $1,200                | Debtors $1,200                    |
-
-
-A [Payment Entry](/erpnext/payment-entry) clears the receivable. It does not determine when the income is earned. Recognition is controlled by the deferred settings and service dates.
-
-## Before you begin
-
-Prepare:
-
-- A deferred revenue liability account in the [Chart of Accounts](/erpnext/chart-of-accounts).
-- The final Income Account, such as Service Income.
-- A service [Item](/erpnext/item).
-- The contract or coverage start and end dates.
-- A Customer and a valid [Sales Invoice](/erpnext/sales-invoice) setup.
-- The applicable [Accounts Settings](/erpnext/accounts-settings) for automatic processing and day- or month-based allocation.
-
-Do not use an ordinary Income Account as the deferred account. The unearned balance belongs on the Balance Sheet until the service is delivered.
-
-## Configure deferred settings
-
-In Accounts Settings, choose whether ERPNext books deferred entries by **Days** or **Months**, whether processing runs automatically, and whether recognition is posted directly or through [Journal Entries](/erpnext/journal-entry).
-
-If $12,000 covers a 12-month service period, **Months** normally recognizes $1,000 for each complete month. With **Days**, a 30-day month may recognize about $986.30 and a 31-day month about $1,019.17, depending on the exact dates. This original example is retained because it shows why monthly recognition amounts can differ without being wrong.
-
-See [Deferred Accounting](/erpnext/deferred-accounting) for the full setting behavior.
-
-## Enable deferred revenue on the Item
-
-Open the Item used for the service or plan, select the **Accounting** tab, and enable **Deferred Revenue**. Enter a standard number of revenue months when it is useful for the Item.
-
-
-
-![Enable deferred revenue on the service Item](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-item-deferred-accounting.png)
-
-Current ERPNext keeps the deferred account and actual service dates on the Sales Invoice Item row. The Item option identifies that the line is eligible for deferred treatment.
-
-## Create the Sales Invoice
-
-Create a Sales Invoice for the Customer and add the deferred-revenue Item. Confirm the Company, posting date, currency, rate, taxes, and Cost Center as you would for any invoice.
-
-In the Items table, select the pencil icon to open the complete row editor.
-
-
-
-![Open the Sales Invoice Item row](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-sales-invoice-item-pencil.png)
-
-Expand **Deferred Revenue** and complete:
-
-
-| Field                    | What it means                                                             |
-| ------------------------ | ------------------------------------------------------------------------- |
-| Enable Deferred Revenue  | Applies deferred treatment to this invoice row                            |
-| Deferred Revenue Account | Liability account holding the unearned balance                            |
-| Service Start Date       | First date on which the service is provided                               |
-| Service End Date         | Final date of the service period                                          |
-| Service Stop Date        | Optional earlier stop date when service ends before the original end date |
-| Income Account           | Final account that receives recognized revenue                            |
-
-
-![Deferred revenue account and service dates](https://novacompanies.m.frappe.cloud/files/docs-deferred-2026-sales-invoice-service-period.png)
-
-The screenshot uses **Customer Advances - NET** as the deferred liability and **Service - NET** as the final income account. Use dedicated accounts if that gives your company clearer reporting.
-
-Submit the invoice only after verifying every deferred row. One invoice can contain several rows with different service periods.
-
-## What happens on submission
-
-ERPNext creates the normal Customer receivable, but credits the deferred liability instead of immediately crediting the Income Account for the eligible row. This keeps unearned revenue out of the Profit and Loss Statement.
-
-If tax is present, tax accounting follows the configured tax rules. Deferred revenue controls the eligible Item's net income recognition; it does not automatically defer every tax or charge on the invoice.
-
-## Recognize the revenue
-
-When automatic processing is enabled, ERPNext processes eligible schedules through a background job. Otherwise, create a [Process Deferred Accounting](/erpnext/process-deferred-accounting) document with **Type = Income**.
-
-For each eligible period, the recognition entry debits the deferred revenue account and credits the Sales Invoice row's Income Account. When posting through Journal Entry is enabled, ERPNext creates Journal Entry documents. They either remain Draft for review or are submitted automatically, depending on Accounts Settings.
-
-The original page described monthly Journal Entries. That remains valid when Journal Entry posting is enabled. With direct posting, the same accounting effect appears in the General Ledger without a separate Journal Entry document.
-
-## Verify recognized and pending revenue
-
-Run the [Deferred Revenue/Expense Report](/erpnext/deferred-revenue-expense-report). Check the invoice, service period, invoiced amount, recognized amount, and pending balance.
-
-Then review the [General Ledger](/erpnext/general-ledger):
-
-- The deferred liability should begin with the invoice amount.
-- Each recognition period should reduce that liability.
-- The same amount should increase the Income Account.
-- After the complete service term, the eligible deferred balance should be fully recognized, subject to rounding or approved changes.
-
-Also verify the Customer receivable separately. The invoice can be unpaid, partially paid, or fully paid while revenue recognition continues according to the service period.
-
-## Stop, cancel, or amend the service
-
-If a service ends early, record the supported **Service Stop Date** and follow your version's processing behavior. Check the deferred report after the next run.
-
-If the invoice itself is wrong, use the normal cancellation and amendment process. Do not manually delete recognition ledger entries. A credit note, cancellation, or amended invoice may need corresponding deferred processing and verification.
-
-## Video
-
-<iframe src="https://www.youtube.com/embed/j6mx-EHU4aY" title="Deferred Revenue in ERPNext" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0"></iframe>
-
-## Troubleshooting
-
-
-| Problem                                              | What to check                                                                                      |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Full amount appears in income immediately            | Confirm the row has Enable Deferred Revenue, a deferred liability account, and valid service dates |
-| No recognition entry appears                         | Check automatic processing, the date range, background jobs, and Draft generated Journal Entries   |
-| Monthly amounts are unequal                          | Check whether Accounts Settings uses Days rather than Months                                       |
-| Deferred report has a pending balance after the term | Check the processing end date, stop date, invoice status, and unsubmitted Journal Entries          |
-| Income posts to the wrong account                    | Review the Income Account on the Sales Invoice Item row                                            |
-
-
-## FAQs
-
-### Is deferred revenue the same as a Customer advance?
-
-No, a Customer advance is money received before allocation to an invoice. Deferred revenue is an invoiced amount that has not yet been earned. The example account name may include “Customer Advances,” but the underlying concepts and workflows remain different.
-
-### Can revenue be recognized before the Customer pays?
-
-Yes, payment status and revenue recognition are separate. ERPNext follows the service period for recognition and the invoice allocation for receivables.
-
-### Can different invoice lines use different service periods?
-
-Yes, configure deferred revenue and dates on each Item row.
-
-### Why are recognition Journal Entries Draft?
-
-Journal Entry posting is enabled while automatic submission is disabled. Review and submit the generated entries before expecting them in the General Ledger.
-
-### Does deferred revenue defer tax too?
-
-Not automatically. Taxes follow their configured tax and accounting rules. Confirm the required jurisdictional treatment with your accountant.
-
-## Related topics
-
-- [Deferred Accounting](/erpnext/deferred-accounting)
-- [Deferred Expense](/erpnext/deferred-expense)
-- [Process Deferred Accounting](/erpnext/process-deferred-accounting)
-- [Deferred Revenue/Expense Report](/erpnext/deferred-revenue-expense-report)
-- [Sales Invoice](/erpnext/sales-invoice)
-- [Journal Entry](/erpnext/journal-entry)
-- [General Ledger](/erpnext/general-ledger)
-
-<!-- page: erpnext/erpnext__delete-entries-linked-with-gl-entries.md -->
----
-title: "Delete entries linked with GL entries"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/delete-entries-linked-with-gl-entries"
-updated: "2026-08-14"
----
-
-ERPNext prevents Nova Industries from deleting a cancelled invoice because its accounting and stock ledger rows form part of the audit trail. Deleting a transaction is different from cancelling it, and should be rare. First decide whether you only need to reverse the business effect, which cancellation already does.
-
-## Before enabling deletion
-
-- Confirm the document is cancelled and no statutory or audit rule requires it to remain.
-- Take a backup and test in a non-production environment.
-- Understand that deleting ledger rows reduces traceability and may allow the naming series number to be reused depending on configuration.
-
-## Enable the setting
-
-1. Open **Accounts Settings**.
-2. Find **Delete Accounting and Stock Ledger Entries on deletion of Transaction**.
-3. Enable it, save, and reload.
-4. Delete only the intended cancelled document.
-5. Disable the setting again if it was approved for a one-time cleanup.
-
-![Accounts Settings option for deleting linked accounting and stock ledger entries](https://novacompanies.m.frappe.cloud/files/final-accounting-20260814-delete-linked-ledger-setting.png)
-
-
-
-## Troubleshooting
-
-### The document is still linked
-
-Open the document’s links and identify dependent records, allocations, returns, or amendments. Remove or resolve dependencies in the correct business order. Do not delete database rows directly.
-
-## Frequently asked questions
-
-### Should I delete an incorrect submitted invoice?
-
-Normally cancel and amend it. That preserves the original document, its reversal, and the correction for audit.
-
-## Related topics
-
-- [Accounting overview](/erpnext/accounting/introduction)
-- [Chart of Accounts](/erpnext/chart-of-accounts)
-- [General Ledger](/erpnext/general-ledger)
-- [Fiscal Year](/erpnext/fiscal-year)
-
-<!-- page: erpnext/erpnext__delete-submitted-document.md -->
----
-title: "Delete Submitted Document"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/delete-submitted-document"
-updated: "2026-03-04"
----
-
-To delete a submitted document, you need to cancel it first. Following are the steps to delete a submitted document.
-
-These steps assume that you have the appropriate permissions on the document that you wish to cancel and delete.
-
-#### Step 1: Cancel Submitted Document
-
-You will find the 'Cancel' button on upper right corner of submitted document.
-
-![Screenshot 2023-12-27 at 12.24.48 PM](/files/Screenshot 2023-12-27 at 12.24.48 PM.png)  
-
-
-#### Step 2: Delete the document
-
-On cancellation of the submitted document, the 'Amend' button becomes visible with the document status set to 'Cancelled'. This means that the document has been cancelled successfully.
-
-To delete the document, now click on Menu, then Delete. This will delete the selected document.
-
-![Screenshot 2023-12-27 at 12.39.59 PM](/files/Screenshot 2023-12-27 at 12.39.59 PM.png)  
-
-
-**Note:** To delete multiple submitted documents in one go, you can select them in the list view and proceed to cancel and delete.
-
-![Screenshot 2023-12-27 at 12.34.25 PM](/files/Screenshot 2023-12-27 at 12.34.25 PM.png)  
-
-
-If your document is linked with other documents, then you will need to cancel dependent document before trying to delete the parent document.
-
-![Screenshot 2023-12-27 at 12.37.51 PM](/files/Screenshot 2023-12-27 at 12.37.51 PM.png)  
-
-
-All deleted documents disappear from the respective DocType but can be seen in 'Deleted Documents'. They can either be deleted permanently or restored.
-
-![Screenshot 2023-12-27 at 12.53.50 PM](/files/Screenshot 2023-12-27 at 12.53.50 PM.png)  
-
-
-The restored documents are indicated in Deleted Documents.
-
-![Screenshot 2024-08-26 at 4.53.00 PM](/files/Screenshot 2024-08-26 at 4.53.00 PM.png)  
-
-
-  
-
-<!-- page: erpnext/erpnext__delete_company_transactions.md -->
----
-title: "Delete Company Transactions"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/delete_company_transactions"
-updated: "2026-03-12"
----
-
-ERPNext allows you to delete all the transactions like Sales Invoices, Sales Order, Payment Entries etc associated with a company, while keeping the master data intact.
-
-
-
-Often, users setup all the master data and then create a few dummy records to test/explore the system. Then, they want to delete the dummy records and start over again.
-
-### Transaction Deletion Record
-
----
-
-This feature allows you to delete all the records associated with a specified company, except for the ones belonging to the DocTypes listed in the **Excluded DocTypes** table.
-
-If you really want to wipe out the transactions, then follow these steps. However, the deleted transactions can't be restored.
-
-1. Create a new "Transaction Deletion Record" document.
-2. Enter the name of the Company whose records you wish to delete.
-3. Modify the "Excluded DocTypes" table if needed.
-4. Save and Submit.
-
-![](/files/imageaf22f8.png)
-
-The **Summary** table displays the names of the DocTypes whose records were deleted as well as the number of records that were deleted.
-
-
-
-## Delete Transactions
-
----
-
-1. Go to **Home > Accounting > Company** and find your company.
-2. On the top right, you'll find the **Delete Transactions** button under **Manage**.
-3. Enter your password.
-4. Enter the company name to confirm.
-
-![](/files/imagef7bec2.png)
-
-This will submit a record in the Transaction Deletion Record DocType.
-
-:::note
-To perform this action, the user must have the role of System Manager.
-:::
-
 <!-- page: erpnext/erpnext__deleting-all-transactions-for-the-company.md -->
 ---
 title: "Deleting all transactions for the Company while retaining masters"
@@ -446,17 +123,17 @@ If there is a custom report which needs to be deleted, it can be achieved by fol
 
 In the Awesome Bar, type and select "Report List" for an option.
 
-![Report Search](/files/customize-deleting-reports-1.png)
+[Screenshot on the live page: Report Search]
 
 #### Step 2: Delete the Report from the List
 
 The Report List will have all the standard and custom reports of your account. You can select Custom Report to be deleted from the list itself, and click on Delete icon in the Actions Menu.
 
-![Report List](/files/customize-deleting-reports.png)
+[Screenshot on the live page: Report List]
 
 Or you can open that report, and delete it from File menu.
 
-![Report Delete](/files/customize-deleting-reports-2.png)
+[Screenshot on the live page: Report Delete]
 
 <!-- page: erpnext/erpnext__delivery-note-stock-error.md -->
 ---
@@ -491,7 +168,7 @@ To access the Delivery Note list, go to:
 
 > Home > Stock > Stock Transactions > Delivery Note
 
-![Delivery Note flow](/files/delivery-note-flow.png)
+[Screenshot on the live page: Delivery Note flow]
 
 ## Prerequisites
 
@@ -538,7 +215,7 @@ When you create a Delivery Note from a Sales Order, the quantities can be change
 
 You can create Delivery Notes in bulk, from Pick Lists also. From a submitted Pick List, click on Create -> Delivery Note. 
 
-![](/files/image81aab7.png)
+[Screenshot on the live page]
 
 This would create separate Delivery Notes for Sales Orders, grouped by Customer.
 If a Pick List Item is not linked to a Sales Order(added manually by user), a separate DN would be created for all those items as well.
@@ -636,7 +313,7 @@ If you outsource transporting Items to their delivery location, the transporter 
 - **Transporter**: The Supplier who will transport the Item to your Customer. The transporter feature should be enabled in the Supplier master to select the Supplier here.
 - **Driver**: You can add a Driver here who will drive the mode of transport.
 
-![](/files/transportation.png)
+[Screenshot on the live page]
 
 The following details can be recorded:
 
@@ -688,7 +365,7 @@ If the sale took place via one of your Sales Partners, you can add their commiss
 
 This is usually fetched from a Sales Order, for example:
 
-![](/files/image71a4c0.png)
+[Screenshot on the live page]
 
 ### Shipping Packets or Items with Product Bundle
 
@@ -718,7 +395,7 @@ The Dashboard will show the following options:
 - Sales Return
 - Delivery Trip
 - Sales Invoice
-  ![](/files/image4843aa.png)
+  [Screenshot on the live page]
 
 > Tip: To disallow the creation of Delivery Notes without a Sales Order against it:
 
@@ -759,11 +436,11 @@ A Delivery Trip can be created from a [Delivery Note](/erpnext/delivery-note) by
 1. Set the date, departure date and time.
 1. Add customers for delivery stops, the address will be fetched if already set. Customers can also be fetched by clicking on 'Get customers from > Delivery Note'. Additional Delivery Stops can be added by clicking on the Add Row button before submitting:
 
- ![Delivery](/files/delivery_stops.png)
+ [Screenshot on the live page: Delivery]
 
 1. Save and submit.
 
- ![Delivery](/files/delivery_trip.png)
+ [Screenshot on the live page: Delivery]
 
 ## 2. Features
 ### 2.1 Calculate Estimated Arrival Times
@@ -789,12 +466,12 @@ To access the Forecating Report, go to:
 
 > Home > Manufacturing > Reports > Forecasting
 
-![Production Forecasting](/files/production-forecasting-using-sales-order.png)  
+[Screenshot on the live page: Production Forecasting]  
 
 
 Using exponential smoothing method and past Sales Order / Delivery Note / Quotation data, the forecasting will be calculated. The exponential smoothing method formula is as below:
 
-![Production Forecasting](/files/exponential-smoothing-formula041d6b.png)  
+[Screenshot on the live page: Production Forecasting]  
 
 
 Using exponential smoothing method, system predicts the forecasting for each period and same forecast data will be used to forecast the upcoming period data.
@@ -802,7 +479,7 @@ Using exponential smoothing method, system predicts the forecasting for each per
 How does the exponential smoothing method works
 -----------------------------------------------
 
-![Production Forecasting](/files/exponential-smoothing-formula-e.png)  
+[Screenshot on the live page: Production Forecasting]  
 
 
 For the above example, we have used one-year sales order data every month. The first-month forecast will be calculated based on the average of all total orders. From the second month onward, the difference between the last month's Total Order and Forecast Value will be multiplied with the Smoothing Constant Value (in between 0 to 1). The default value of the Smoothing Constant is 0.3 which gives efficient forecasting data. The last month's Total Order and Forecast Value difference called forecasting error and this error will be added in the same month of forecast value to calculate the forecast of the next month.
@@ -817,3 +494,378 @@ How do the filters work
 5. **Based On Data ( in years )** :- for forecasting requires past data, this filter helps system to check past data for number of years.
 6. **Periodicity** :- forecasting data can be viewed in Monthly / Quarterly / Half-Yearly / Yearly basis, the old forecast data can not be displayed for Monthly period for better view.
 7. **Smoothing Constant** - the Smoothing Constant will be used to forecast the data, the value should be between 0 and 1.
+
+<!-- page: erpnext/erpnext__depreciation-methods.md -->
+---
+title: "Depreciation Methods | ERPNext Documentation"
+description: "Choose and configure Straight Line, Double Declining Balance, Written Down Value, or Manual depreciation in ERPNext."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/depreciation-methods"
+updated: "2026-08-15"
+---
+
+Imagine Nova Industries buys two assets for the same price: an office table and a production machine. The table may provide roughly the same value every year. The machine may lose more value in its early years because it works hardest when it is new. Using one depreciation pattern for both may not reflect how they are actually used.
+
+
+
+Depreciation Methods let the accountant choose how an asset's cost is spread over its useful life. ERPNext supports methods such as Straight Line and declining balance so the schedule can follow the company's accounting policy and the asset's pattern of use.
+
+## Depreciation methods at a glance
+
+
+| Method                       | How it works                                                                                    | Best suited for                                                                                                               |
+| ---------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **Straight Line**            | Records an equal depreciation expense in every complete period.                                 | Assets that provide a similar benefit throughout their life, such as office furniture, air conditioners, and basic equipment. |
+| **Double Declining Balance** | Records a larger expense in the early years and a smaller expense later.                        | Assets that lose usefulness or value quickly when new, such as computers, mobile devices, and rapidly ageing machinery.       |
+| **Written Down Value**       | Applies a fixed percentage to the asset's opening book value, so the expense reduces over time. | Assets for which the company's accounting or tax policy prescribes depreciation on the remaining book value.                  |
+| **Manual**                   | Uses depreciation dates and amounts entered by the accountant instead of a standard formula.    | Assets with a contract-based, valuation-based, or specially approved depreciation schedule.                                   |
+
+
+Treat this table as a practical starting point. The method used in the accounts should ultimately follow the organization's approved accounting policy and applicable reporting rules.
+
+## Use one example to compare the methods
+
+Assume Nova Industries buys a packaging machine for $50,000. It expects to use the machine for five years and sell it for $5,000 at the end. The amount to depreciate is therefore:
+
+
+
+**Depreciable value = $50,000 cost - $5,000 residual value = $45,000**
+
+
+
+Every method eventually allocates the same $45,000. What changes is how much expense appears in each year.
+
+## Straight Line
+
+Straight Line records the same expense in every complete year.
+
+
+
+**Annual depreciation = $45,000 / 5 years = $9,000**
+
+
+| Year | Opening book value | Depreciation | Closing book value |
+| ---- | ------------------: | ------------: | ------------------: |
+| 1    | $50,000            | $9,000       | $41,000            |
+| 2    | $41,000            | $9,000       | $32,000            |
+| 3    | $32,000            | $9,000       | $23,000            |
+| 4    | $23,000            | $9,000       | $14,000            |
+| 5    | $14,000            | $9,000       | $5,000             |
+
+
+Use this method when the asset provides a similar benefit each year. Office furniture, air conditioners, and basic production equipment often fit this pattern.
+
+## Double Declining Balance
+
+Double Declining Balance records more depreciation while the asset is new. For a five-year life, the Straight Line rate is 20 percent. Double Declining uses twice that rate, or 40 percent, on each year's opening book value.
+
+
+
+**Year 1 depreciation = $50,000 x 40% = $20,000**
+
+
+
+The final expense is limited so the asset never falls below its $5,000 residual value.
+
+
+| Year | Opening book value | Calculation               | Depreciation | Closing book value |
+| ---- | ------------------: | ------------------------- | ------------: | ------------------: |
+| 1    | $50,000            | $50,000 x 40%             | $20,000      | $30,000            |
+| 2    | $30,000            | $30,000 x 40%             | $12,000      | $18,000            |
+| 3    | $18,000            | $18,000 x 40%             | $7,200       | $10,800            |
+| 4    | $10,800            | $10,800 x 40%             | $4,320       | $6,480             |
+| 5    | $6,480             | Limited to residual value | $1,480       | $5,000             |
+
+
+Use this method when an asset loses usefulness or market value faster in its early years. Computers, mobile devices, and some high-use machinery are common examples.
+
+## Written Down Value
+
+Written Down Value applies a chosen rate to the opening book value. Assume Nova's policy uses 30 percent per year for this machine.
+
+
+
+**Year 1 depreciation = $50,000 x 30% = $15,000**
+
+
+
+Because the opening value becomes smaller each year, the depreciation expense also becomes smaller. The last year is again limited so the closing value does not fall below $5,000.
+
+
+| Year | Opening book value | Calculation               | Depreciation | Closing book value |
+| ---- | ------------------: | ------------------------- | ------------: | ------------------: |
+| 1    | $50,000            | $50,000 x 30%             | $15,000      | $35,000            |
+| 2    | $35,000            | $35,000 x 30%             | $10,500      | $24,500            |
+| 3    | $24,500            | $24,500 x 30%             | $7,350       | $17,150            |
+| 4    | $17,150            | $17,150 x 30%             | $5,145       | $12,005            |
+| 5    | $12,005            | Limited to residual value | $7,005       | $5,000             |
+
+
+Use this method when the company's accounting or tax policy specifies a percentage on the remaining value. The example rate is illustrative. Use the rate approved for your organization.
+
+## Manual
+
+Manual depreciation lets the accountant define the dates and amounts instead of relying on a standard formula. Nova might use the following schedule when an equipment contract expects heavier use in its first two years.
+
+
+| Year | Opening book value | Depreciation entered | Closing book value |
+| ---- | ------------------: | --------------------: | ------------------: |
+| 1    | $50,000            | $15,000              | $35,000            |
+| 2    | $35,000            | $10,000              | $25,000            |
+| 3    | $25,000            | $8,000               | $17,000            |
+| 4    | $17,000            | $7,000               | $10,000            |
+| 5    | $10,000            | $5,000               | $5,000             |
+
+
+Use Manual only when a documented policy, valuation, or contract requires a custom pattern. The entered amounts should still total the $45,000 depreciable value.
+
+## Compare the result
+
+
+| Method                        | Expense pattern        | Year 1 expense | Year 5 expense                    | Closing value after year 5 |
+| ----------------------------- | ---------------------- | --------------: | ---------------------------------: | --------------------------: |
+| **Straight Line**             | Equal                  | $9,000         | $9,000                            | $5,000                     |
+| **Double Declining Balance**  | Highest in early years | $20,000        | $1,480                            | $5,000                     |
+| **Written Down Value at 30%** | Reduces each year      | $15,000        | $7,005 after residual-value limit | $5,000                     |
+| **Manual example**            | Set by policy          | $15,000        | $5,000                            | $5,000                     |
+
+
+## Set the method in ERPNext
+
+Set the default method, useful life, frequency, and residual value in the Asset Category Finance Book row. The Asset can then use those defaults when ERPNext builds its depreciation schedules.
+
+[Screenshot on the live page: Different depreciation methods by Finance Book]
+
+The submitted schedule below uses Straight Line for Nova's packaging equipment. ERPNext has calculated $760 per month, accumulated the amount, and linked each posted row to its Journal Entry.
+
+[Screenshot on the live page: Submitted depreciation schedule with calculated amounts]
+
+## Verify the result
+
+Before submission, compare total scheduled depreciation plus residual value with the capitalized value. Also check the last date and the first full or prorated period.
+
+## Troubleshooting
+
+### The last schedule row is unexpectedly small
+
+ERPNext may be limiting the final row so carrying value does not fall below the configured residual value.
+
+### Two Finance Books show different carrying values
+
+That is expected when they use different methods, useful lives, or start dates. Review reports with the intended Finance Book filter.
+
+## Frequently asked questions
+
+### Which method is best?
+
+There is no universal best method. Use the method approved by the organization's accounting policy and reporting requirements.
+
+### Can the method be changed after entries are posted?
+
+A policy change may require cancellation or adjustment of linked schedules and entries. Review the accounting impact before changing a submitted asset.
+
+### Can statutory and management reporting differ?
+
+Separate Finance Books can keep different depreciation policies for the same asset.
+
+## Related topics
+
+- [Asset Category](https://docs.frappe.io/erpnext/asset-category)
+- [Asset Location](https://docs.frappe.io/erpnext/asset-location)
+- [Asset](https://docs.frappe.io/erpnext/asset)
+- [Purchasing an Asset](https://docs.frappe.io/erpnext/purchasing-an-asset)
+- [Depreciation](https://docs.frappe.io/erpnext/asset-depreciation)
+- [Asset Movement](https://docs.frappe.io/erpnext/asset-movement)
+- [Asset Repair](https://docs.frappe.io/erpnext/asset-repair)
+- [Asset Reports](https://docs.frappe.io/erpnext/asset-reports)
+
+<!-- page: erpnext/erpnext__difference-between-system-user-and-website-user.md -->
+---
+title: "Difference Between System User and Website User"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/difference-between-system-user-and-website-user"
+updated: "2026-03-04"
+---
+
+**Question:** I have added my Employee as a User and have assigned them Roles as well. Still, they are not able to view Dashboard on the login.
+
+**Answer:**
+
+There are two type of Users in ERPNext.
+
+* **System Users**: They are typically internal users such as employees, managers, and administrators who need extensive access to the ERPNext system to perform various business operations. They have a higher level of access and more detailed permissions, allowing them to interact with multiple modules, generate reports, and customize workflows.
+* **Website Users**: They are typically external users like customers or suppliers who interact with the ERPNext system through a web portal. Their access is limited to functionalities relevant to their needs, such as placing orders, viewing order status, or managing their account information. Their interface is simpler compared to the comprehensive backend interface used by system users.
+
+Here is the tabular comparison between System User and Website User in ERPNext
+
+
+
+| **System User** | **Website User** |
+| --- | --- |
+| This type is useful for managing internal activities and operations | It is useful for managing external operations and transactions |
+| It provides full access to ERPNext modules and features | It provides restricted access to ERPNext modules and features |
+| Typical users in this category are internal employees  | The user persona in this type includes external parties such as customers, clients etc |
+| They are created by an administrator within ERPNext | They can be self-registered or created by an administrator |
+| It provides access to company-wide data and reports | It provides access to only personal data and limited reports |
+| They can view, create, edit, and delete records | They can mostly view and create records relevant to them |
+| They have full data entry capabilities across all modules | They have limited to data entry relevant to their role |
+
+<!-- page: erpnext/erpnext__difference-entry-button.md -->
+---
+title: "Difference Entry | ERPNext Documentation"
+description: "Use ERPNext Difference Entry to balance a Journal Entry, select the correct account, avoid masking errors, and verify the submitted General Ledger clearly."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/difference-entry-button"
+updated: "2026-08-03"
+---
+
+The **Make Difference Entry** action helps you complete an unbalanced [Journal Entry](/erpnext/journal-entry). ERPNext calculates the difference between Total Debit and Total Credit, adds a new accounting row for that amount, and leaves the Account blank for you to choose.
+
+
+
+It is a balancing aid inside Journal Entry, not a separate transaction and not an automatic correction. You must understand why the difference exists and select the account that represents it. If the source amount, exchange rate, tax, or original account is wrong, correct that value instead of hiding the error in a difference account.
+
+
+
+In this example, Nova Electronics Trading pays $1,000 from its bank. The main office-maintenance expense is $990 and the bank charges a $10 fee. The first two rows are therefore out of balance. **Make Difference Entry** adds the missing $10 debit, after which the user selects **Bank Charges - NET**.
+
+
+| Account                     | Debit         | Credit        | Meaning                              |
+| --------------------------- | -------------: | -------------: | ------------------------------------ |
+| Office Maintenance Expenses | $990.00       | $0.00         | Main expense paid.                   |
+| Bank Charges                | $10.00        | $0.00         | Separate fee deducted by the bank.   |
+| Nova Operating Bank         | $0.00         | $1,000.00     | Total reduction in the bank balance. |
+| **Total**                   | **$1,000.00** | **$1,000.00** | The Journal Entry is balanced.       |
+
+
+## Before you begin
+
+Confirm the following:
+
+1. You know what caused the imbalance and have supporting evidence for the amount.
+2. The correct ledger exists in the Company's [Chart of Accounts](/erpnext/chart-of-accounts). Use a non-group account belonging to the selected Company.
+3. The Posting Date is open and belongs to the intended Fiscal Year and [Accounting Period](/erpnext/accounting-period).
+4. Any required Cost Center, Project, Finance Book, or other [Accounting Dimension](/erpnext/accounting-dimensions) is available.
+5. For bank entries, you have the bank reference number and date. For ordinary Customer or Supplier receipts, consider whether a [Payment Entry](/erpnext/payment-entry) is the safer transaction.
+
+## Identify the difference
+
+1. Create or open a Draft Journal Entry.
+2. Select the Company, Entry Type, and Posting Date.
+3. Add the known debit and credit rows under **Accounting Entries**.
+4. Review **Total Debit**, **Total Credit**, and **Difference (Dr - Cr)**.
+
+The example has a $990 debit and a $1,000 credit. ERPNext shows a difference of -$10 and makes **Make Difference Entry** available.
+
+
+
+[Screenshot on the live page: Unbalanced Journal Entry with Make Difference Entry highlighted]
+
+Before continuing, check whether the difference is legitimate. A missing bank fee is legitimate. A transposed amount, duplicate row, wrong currency, or incorrect exchange rate should be fixed at its source.
+
+## Add and complete the difference row
+
+1. Select **Make Difference Entry**.
+
+ERPNext adds one row for the exact amount required to make Total Debit equal Total Credit. Because credit exceeds debit by $10 in this example, it adds a $10 debit row.
+
+2. Select the highlighted pencil icon on the new row.
+
+[Screenshot on the live page: Generated difference row with its pencil icon highlighted]
+
+3. Select the Account that explains the difference. In the example, select **Bank Charges - NET**.
+
+[Screenshot on the live page: Difference row editor with Bank Charges account highlighted]
+
+4. Add the same Cost Center, Project, Finance Book, or other dimensions required by your accounting policy.
+5. Close the row editor and review the complete table.
+
+[Screenshot on the live page: Balanced Journal Entry after selecting the difference account]
+
+Total Debit and Total Credit are now both $1,000. The entry is mathematically balanced, but you must still confirm that every account and amount is economically correct. Balanced totals do not prove correct accounting.
+
+## Submit and verify the result
+
+1. Review the Company, Posting Date, Entry Type, accounts, amounts, references, remarks, currencies, and dimensions.
+2. Save and submit the Journal Entry.
+3. Confirm that the submitted document contains the original rows and the completed difference row.
+
+[Screenshot on the live page: Submitted Journal Entry showing all three accounting rows]
+
+4. Open **View &gt; Ledger**, or run the [General Ledger](/erpnext/general-ledger) using the Journal Entry as the voucher filter.
+5. Confirm the debit and credit for each account and the zero total balance across the voucher.
+
+[Screenshot on the live page: General Ledger showing the Bank Charges difference entry]
+
+In the example, the ledger shows a $990 debit to Office Maintenance Expenses, a $10 debit to Bank Charges, and a $1,000 credit to the operating bank account.
+
+## Important fields and what they mean
+
+
+| Field or action                    | What it controls                                                                                                                  |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Total Debit                        | Sum of the debit values in the accounting rows.                                                                                   |
+| Total Credit                       | Sum of the credit values in the accounting rows.                                                                                  |
+| Difference (Dr - Cr)               | Total Debit minus Total Credit. A negative value means more debit is required; a positive value means more credit is required.    |
+| Make Difference Entry              | Adds one debit or credit row for the current difference. It does not select the Account or confirm that the difference is valid.  |
+| Account                            | Ledger that receives the difference. Select the account that represents the actual economic event.                                |
+| Debit or Credit                    | Amount added by ERPNext to balance the voucher. Review it before submission.                                                      |
+| Account Currency and Exchange Rate | Control the account-currency and Company-currency values in a [multi-currency Journal Entry](/erpnext/multi-currency-accounting). |
+| Reference Type and Reference Name  | Link an accounting row to a supported document when the adjustment genuinely belongs to that reference.                           |
+| Is Advance                         | Marks a party amount as an advance when it is not allocated to a specific invoice.                                                |
+| Cost Center and other dimensions   | Classify the posting for management reporting without replacing the ledger account.                                               |
+
+
+## When not to use Make Difference Entry
+
+Do not use this action merely to make an error disappear.
+
+- If an invoice, payment, or stock transaction is wrong, cancel and amend the source document where permitted instead of creating an unrelated balancing row.
+- If a genuine receipt or payment is being recorded, use the purpose-built payment workflow so invoice allocation, party balance, bank reference, and reconciliation remain clear.
+- If the difference comes from foreign currency conversion, review the account currency, exchange rate, and Company-currency values first. Use the supported [exchange gain or loss](/erpnext/managing-transactions-in-multiple-currency) process when that is the real cause.
+- If a small decimal difference is caused by configured precision, first review the source values and [System Settings](/erpnext/system-settings). Do not change precision casually after live transactions exist.
+- If the required treatment is recurring, create a controlled process or [Journal Entry Template](/erpnext/journal-entry-template) rather than repeatedly guessing the balancing account.
+
+## Troubleshooting
+
+
+| Issue                                            | What to check                                                                                                                                                       |
+| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Make Difference Entry is not visible             | The Journal Entry may already be balanced. Review Total Debit, Total Credit, and Difference. Also confirm the document is still in Draft.                           |
+| The generated row has no Account                 | This is expected. ERPNext supplies the amount only. Open the row and select the account that explains the difference.                                               |
+| The entry is balanced but submission still fails | Check mandatory party, reference, currency, Cost Center, bank-reference, account-type, and frozen-period requirements. Mathematical balance is only one validation. |
+| A tiny difference keeps appearing                | Check entered amounts, account currency, exchange rates, and precision. Correct the calculation source before using a rounding account.                             |
+| The wrong side was added                         | Review the sign of Difference. Negative means credit is greater than debit, so ERPNext adds a debit. Positive means debit is greater, so it adds a credit.          |
+
+
+## Frequently asked questions
+
+### Does ERPNext choose the difference account automatically?
+
+No, it adds a row with the required debit or credit and leaves the Account blank. The user must select the correct Company ledger.
+
+### Should every small difference go to a round-off account?
+
+No, first determine whether the cause is rounding. A wrong amount, exchange rate, tax calculation, or missing expense must be corrected or posted to the account that represents it.
+
+### Can Make Difference Entry correct a multi-currency mismatch?
+
+It can make the Company-currency totals balance, but it does not prove that the account-currency amounts and exchange rates are correct. Review both currencies before using it.
+
+### Why can a balanced Journal Entry still be rejected?
+
+ERPNext also validates Company, account type, party, reference, currency, dimensions, posting restrictions, and other mandatory values. Equal totals satisfy only the double-entry balance test.
+
+### Can I edit or remove the generated row?
+
+Yes, while the Journal Entry remains in Draft. You can select its Account, change the row when justified, or remove it and correct the original rows instead.
+
+## Related topics
+
+- [Journal Entry](/erpnext/journal-entry)
+- [Understanding Debit and Credit](/erpnext/understanding-debit-and-credit)
+- [Chart of Accounts](/erpnext/chart-of-accounts)
+- [General Ledger](/erpnext/general-ledger)
+- [Payment Entry](/erpnext/payment-entry)
+- [Multi Currency Accounting](/erpnext/multi-currency-accounting)
+- [Journal Entry Template](/erpnext/journal-entry-template)

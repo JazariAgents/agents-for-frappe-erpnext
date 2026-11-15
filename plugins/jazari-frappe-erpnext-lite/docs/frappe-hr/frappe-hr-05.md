@@ -1,181 +1,5 @@
 <!-- Frappe documentation: frappe-hr, part 5 of 10. Index: docs/INDEX.md -->
 
-<!-- page: frappe-hr/hr__india-payroll__multi-company-settings.md -->
----
-title: "Multi-Company Settings"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/india-payroll/multi-company-settings"
-updated: "2026-08-31"
----
-
-Payroll Settings is a single, site-wide document, so by default, one India Payroll configuration applies to every company on the site. That works for a single legal entity, but a group running two or more entities has only one place to record an ESIC employer code or an EPF establishment code, and each registered entity has its own.
-
-Multi-company payroll lifts that limit. It adds a table where you record statutory registration details per company, and it scopes statutory deductions to the companies you list.
-
-It is **off by default**. Existing sites are unaffected until you turn it on.
-
-![](/files/imagecbd416.webp)
-*Multi-Company Settinga*
-
-## **When you need it**
-
-Turn it on when either is true:
-
-- You run payroll for more than one company on this site, and they have **different** statutory registration numbers.
-- Some companies on this site are registered under a scheme (EPF, ESIC, LWF, Professional Tax), and others are not. For example, a newly incorporated entity still below the headcount threshold.
-
-You do **not** need it when every company on the site shares one registration, or when only one company runs payroll.
-
-## **Enabling it**
-
-1. Go to **Payroll Settings &gt; India Payroll**.
-2. Under **Multi-Company Payroll**, tick **Enable Multi-Company Payroll**.
-3. In the **Company Payroll Settings** table that appears, add a row for each company that participates in statutory payroll.
-4. Save.
-
-Each row holds:
-
-
-| Field                                    | Description                                                                       |
-| :---------------------------------------- | :--------------------------------------------------------------------------------- |
-| **Company**                              | The company this row configures. Required, and each company may appear only once. |
-| **ESIC Registration Number**             | 17-digit ESIC employer code for this company.                                     |
-| **EPF Establishment Code**               | EPFO Establishment Code used in this company's ECR file header.                   |
-| **Professional Tax Registration Number** | State Professional Tax enrolment / registration number.                           |
-| **LWF Registration Number**              | State Labour Welfare Fund establishment registration number.                      |
-
-
-Only **Company** is mandatory. Leave a registration number blank if the company is not registered under that scheme, or if you have not received the number yet.
-
-While multi-company payroll is on, the site-wide **ESIC Registration Number** and **EPF Establishment Code** fields are hidden, so there is never any question about which value applies to a given company.
-
-## **How it changes payroll**
-
-The per-scheme checkboxes (**Enable Professional Tax Deduction**, **Enable ESIC Deduction**, **Enable LWF Deduction**, **Enable EPF Deduction**) remain the master switches. Multi-company payroll narrows their reach; it does not override them.
-
-A statutory deduction is applied to a salary slip only when **both** are true:
-
-1. The scheme is enabled in Payroll Settings, **and**
-2. The slip's company appears in the Company Payroll Settings table.
-
-A company with no row is treated as **not configured** and gets no statutory deduction:
-
-
-| Multi-company | Scheme enabled | Company listed | Deduction applied |
-| :------------- | :-------------- | :-------------- | :----------------- |
-| Off           | No             | n/a            | No                |
-| Off           | Yes            | n/a            | Yes               |
-| On            | No             | Any            | No                |
-| On            | Yes            | Yes            | Yes               |
-| On            | Yes            | No             | **No**            |
-
-
-This applies to all four schemes and takes effect the next time a salary slip is created or saved. Salary slips already submitted are not altered. See [Removing a company](https://file+.vscode-resource.vscode-cdn.net/Users/deepesh/frappe/my-bench/apps/india_payroll/docs/setup/multi-company-payroll.md#removing-a-company) below.
-
-One related behaviour: the Salary Structure Assignment warning about a missing **Employment State** is also scoped this way. Assignments for a company outside Professional Tax scope will not raise it.
-
-## **How it changes reports**
-
-The statutory registers (**Employee Provident Fund Register**, **ESIC Register** and **LWF Register**) follow the same scope, with one deliberate exception that protects filed records.
-
-A salary slip appears in a register when **either**:
-
-- its company is currently in scope for that scheme, **or**
-- the slip **actually recorded** that deduction.
-
-The second rule matters. A register is a record of liabilities that were incurred, not a projection of current configuration. If a company deducted ESI in June and you remove it from the table in September, the June contributions were still deducted from employees and remitted to ESIC, so they must remain reportable, and the June ECR file must still regenerate identically. The registers therefore never erase history when scope changes.
-
-The practical effect of the two rules together:
-
-- Slips from **before** a company was removed keep their deductions and stay reported.
-- Slips created **after** removal carry no statutory deductions, so they drop out.
-
-The **Bank Mandate Report** is not scoped, by design: it lists salary payment instructions, not statutory liabilities.
-
-### **ECR export**
-
-An ECR file is filed against a **single** EPF establishment code. Once codes are recorded per company, a file spanning several companies cannot be filed.
-
-So while multi-company payroll is on, **Generate ECR File** requires a Company filter, and will show *"Select a Company before generating the ECR file"* if one is not set. In single-company mode, the filter stays optional, as before.
-
-## **Validation**
-
-Saving Payroll Settings enforces three rules:
-
-- **A company may appear only once.** A duplicate is rejected, naming both row numbers.
-- **Registration numbers are trimmed** of leading and trailing whitespace.
-- **The table cannot be empty while multi-company payroll is on.** Without this, ticking the box would silently switch off every statutory deduction across the site.
-
-## **Removing a company**
-
-Removing a company's row stops it accruing new statutory deductions from the next salary slip onward. Its history is preserved: past slips keep the deductions they recorded, and those amounts continue to appear in the registers and the ECR export.
-
-To also strip deductions from slips that are already **draft**, re-save them after removing the row. **Submitted** slips are unchanged. Amending a submitted slip to remove a statutory deduction is a payroll correction and should be done deliberately, not as a side effect of a settings change.
-
-## **Turning it off**
-
-Unticking **Enable Multi-Company Payroll** returns the site to a single shared configuration:
-
-- The site-wide ESIC and EPF registration fields reappear, holding whatever they held before.
-- Every company is back in scope for whichever schemes are enabled.
-- The Company Payroll Settings rows are retained, so re-enabling restores your per-company details.
-
-Check the site-wide registration numbers after switching back, since they are not populated from the table.
-
-## **Developer reference**
-
-`india_payroll/india_payroll/company_settings.py` is the single place that resolves statutory configuration. Use it rather than reading Payroll Settings fields directly, so behaviour stays consistent across schemes.
-
-```python
-from india_payroll.india_payroll.company_settings import (
-    is_statutory_enabled,
-    get_applicable_companies,
-    get_registration_number,
-)
-
-```
-
-`is_statutory_enabled(statute, company)` **→** `bool`
-
-Whether a scheme applies to a company right now. This is the salary-slip gate. `statute` is one of `"professional_tax"`, `"esic"`, `"lwf"`, `"epf"`.
-
-`get_applicable_companies(statute)` **→** `list[str] | None`
-
-The company scope for a register. Three-valued, and the distinction matters:
-
-
-| Return    | Meaning                                                                                                         |
-| :--------- | :--------------------------------------------------------------------------------------------------------------- |
-| `None`    | No restriction. Multi-company payroll is off, so reports behave exactly as they did before the feature existed. |
-| `[]`      | Multi-company payroll is on but the scheme is globally disabled, so no company is currently in scope.           |
-| `[names]` | Only these companies are currently in scope.                                                                    |
-
-
-`None` is not the same as an empty list, and a caller that treats them alike will silently change single-company behaviour.
-
-Because this returns *current* scope, never apply it as a bare filter to historical records. Combine it with evidence from the slip, as the registers do:
-
-```python
-applicable = get_applicable_companies("esic")
-if applicable is not None:
-    with_esi = get_slips_with_deduction([r.slip for r in rows], [ESI_EMPLOYEE_COMPONENT])
-    rows = [r for r in rows if r.company in applicable or r.slip in with_esi]
-
-```
-
-`get_slips_with_deduction` lives in `india_payroll/india_payroll/utils.py`. It returns the subset of slips carrying a given deduction with a positive amount. Statutory deduction rows are only ever written when the amount is above zero, so a row's presence is the slip's own record that the liability was incurred, independent of how Payroll Settings is configured today.
-
-`get_registration_number(statute, company)` **→** `str | None`
-
-The registration identifier for a scheme. Reads the company's row when multi-company payroll is on, and falls back to the site-wide field otherwise.
-
-## **Current limitations**
-
-- **Registration numbers are stored but not yet consumed.** No report or export currently prints them: the ECR file format carries no header, and the ESIC Register has no registration column. The fields are in place so entities can be recorded correctly now, and so the values are available when those outputs are added.
-- **No site-wide fallback for Professional Tax and LWF.** Those two registration numbers exist only on the per-company table. In single-company mode `get_registration_number` returns `None` for them.
-- **Registers ignore the master switches in single-company mode.** With multi-company payroll off, the registers report computed liabilities regardless of whether the scheme's checkbox is ticked. This predates multi-company payroll and is unchanged by it.
-- **TDS is configured separately.** Deductor details for Form 24Q (TAN, deductor type, responsible person) live on the Company record itself and were already per-company. They are not affected by this setting.
-
 <!-- page: frappe-hr/hr__india-payroll__professional-tax.md -->
 ---
 title: "Professional Tax"
@@ -198,7 +22,7 @@ Professional Tax (PT) is a state-level tax levied on employment income in India.
 2. Check **Enable Professional Tax Deduction**.
 3. Save.
 
-![](/files/image4a4563.webp)
+[Screenshot on the live page]
 *Enabling Professional Tax Deduction*
 
 
@@ -245,7 +69,7 @@ To set it:
 
 
 
-![](/files/image2d5f45.webp)
+[Screenshot on the live page]
 *Employment State in Salary Structure Assignment*
 
 ---
@@ -382,7 +206,7 @@ India Payroll ships the following reports, accessible from the **India Payroll*
 
 A month-wise ESI contribution statement showing each employee's gross wages, employee contribution (0.75%), employer contribution (3.25%), and coverage status. Use it to prepare the monthly filing for the ESIC portal.
 
-![](/files/Screenshot 2026-07-09 at 15.33.52.webp)
+[Screenshot on the live page]
 
 ## LWF Register
 
@@ -390,7 +214,7 @@ A state-wise Labour Welfare Fund deduction register showing each employee's dedu
 
 
 
-![](/files/Screenshot 2026-07-09 at 15.31.46.webp)
+[Screenshot on the live page]
 
 ## Bank Mandate Report
 
@@ -398,7 +222,7 @@ Lists each employee's net pay alongside their bank details (account number, IFSC
 
 
 
-![](/files/Screenshot 2026-07-09 at 15.35.35.webp)
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__india-payroll__tax-regime-selector.md -->
 ---
@@ -420,7 +244,7 @@ To access the Tax Regime Selector, go to
 
 
 
-![](/files/Screenshot 2026-07-03 at 12.28.05.webp)
+[Screenshot on the live page]
 
 ## 1. How to select a tax regime
 
@@ -432,7 +256,7 @@ To compare regimes and save a choice for an employee:
 - Review the comparison shown on the right. The recommended regime and the resulting saving are highlighted.
 - Select a regime and click Save Regime in the toolbar.
 
-![](/files/tax-select-docs.mp4)
+[Screenshot on the live page]
 
 The Payroll Period is mandatory. If no period covers today's date, the page will prompt you to create one. An employee with no Salary Structure Assignment cannot be processed.
 
@@ -488,7 +312,7 @@ Emails are sent to the employee's preferred email, falling back to the company e
 
 
 
-![](/files/tax-email.mp4)
+[Screenshot on the live page]
 
 
 
@@ -504,7 +328,7 @@ This opens a new Employee Tax Exemption Declaration, prefilled with:
 
 
 
-![](/files/declare.mp4)
+[Screenshot on the live page]
 
 Review the document and submit it as usual. The declaration is then available to payroll and to exemption proof submission, the same as one created manually.
 
@@ -745,3 +569,340 @@ The status also appears as a coloured indicator on the form: green for Filed and
 **A step is stuck.** Any step that has not finished in three hours is marked failed, so the return never sits waiting indefinitely. Run it again.
 
 **Everything is kept on the return.** Alongside the TXT, FVU, Form 27A and CSI, the exact data submitted is attached for audit, together with any report that came back. Reports are copied onto the return rather than linked, so they stay available after the filing portal expires them.
+
+<!-- page: frappe-hr/hr__integrating-frappe-hr-with-biometric-attendance-devices.md -->
+---
+title: "Integrating Frappe HR With Biometric Attendance Devices"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/integrating-frappe-hr-with-biometric-attendance-devices"
+updated: "2026-02-04"
+---
+
+**Background**
+--------------
+
+The Attendance punch logs from the biometric device are check-in and check-out logs of an employee. Frappe HR has a provision to store these logs in a document called Employee Checkin.
+
+Attendance can then be marked based on the [Employee Checkin](https://docs.frappe.io/hr/employee-checkin) records and the [Shift Type](https://docs.frappe.io/hr/shift-type) of the employee by using [Auto Attendance](https://docs.frappe.io/hr/auto-attendance)
+
+Hence, integrating your Biometric Device (*or any access control system that collects IN/OUT logs*), can be done using the following steps:
+
+### **1. Setting up Auto Attendance to mark attendance from the Employee Checkin**
+
+Before you import/sync employees' Check-in and Check-out logs into your Frappe HR system, you will have to set up the employees and their shifts to be able to generate attendance using the Auto Attendance feature in Frappe HR.
+
+Please refer to the following link to set up Auto Attendance: [Set up Auto Attendance](https://docs.frappe.io/hr/auto-attendance)
+
+Once you have set up the employee master and assigned shifts to the employees, you are now ready to proceed to the next step.
+
+### **2. Populating the Biometric Punch Logs into Frappe HR's Employee Checkin**
+
+Depending on your biometric system and its features, there can be a lot of ways you can populate the Punch logs into Frappe HR:
+
+1. **Use the Data Import Tool**:
+
+
+	* The simplest possible solution (in terms of implementation complexity) would be to generate an Excel/CSV of the Check-in/Check-out and use the built-in data import tool in Frappe HR to periodically import the logs to your Employee Checkin Document
+	* Please refer to [Documentation on Data Import Tool](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/data/data-import) for more on how to do this.
+2. **API Integration**:
+
+
+	* You can automate the process of syncing the Biometric Punch Logs by integrating it with the available API in Frappe HR.
+	* This method requires some technical knowledge and you should probably get in touch with your Frappe HR implementor or Biometric system vendor.
+	* Steps:
+	
+	
+		1. You will first need to create a [user](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/users-and-permissions/adding-users) in your Frappe HR instance that would be used for creating logs since this API method requires login. Make sure this user has all the required permissions to create Employee Checkin.
+		2. [Generate API Key and API Secret](https://docs.erpnext.com/docs/v14/user/manual/en/setting-up/users-and-permissions/adding-users#210-api-access) for the user which will be used for authentication.
+		3. Make sure you have set the [Attendance Device ID (Biometric/RF tag ID)](https://docs.frappe.io/hr/auto-attendance#3-setup-attendance-device-id-field-in-employee) for the employees based on your Biometric Device.
+		4. The API implementation details can be found [here](https://github.com/frappe/hrms/blob/d2529e03f92bf50efb65d3163bfcfdacbcf0b8f5/hrms/hr/doctype/employee_checkin/employee_checkin.py#L63-L109) and the API can be accessed at: `/api/method/hrms.hr.doctype.employee_checkin.employee_checkin.add_log_based_on_employee_field`.
+		5. You can write a script to send a POST request to the API. This endpoint finds the relevant Employee using the employee field value and creates an Employee Checkin. Details of the API endpoint:
+		
+		
+			+ URL: `/api/method/hrms.hr.doctype.employee_checkin.employee_checkin.add_log_based_on_employee_field`
+			+ Method: `POST`
+			+ Params:
+			
+			
+				- `employee_field_value`: The value to look for in the employee field. This will be the Attendance Device ID found in your biometric logs and also set in the employee record.
+				- `timestamp`: The timestamp of the Log. Currently expected in the following format as a string: '2022-04-08 10:48:08.000000'
+				- `device_id`: (optional) Location / Device ID. A short string is expected.
+				- `log_type`: (optional) Direction of the punch if available (IN/OUT).
+				- `skip_auto_attendance`: (optional) Skip auto attendance field will be set for this log (0/1)
+				- `employee_fieldname`: (Default: `attendance_device_id`) Name of the field in Employee DocType based on which employee lookup will happen.
+				- `latitude`: (optional) Latitude of the shift location if shift location is assigned.
+				- `longitude`: (optional) Longitude of the shift location if shift location is assigned.
+			+ Response: Returns an Employee Checkin document object which was inserted.
+3. **Set up a python script on your computer to integrate ZKTeco or similar devices**:
+
+
+	* This method works only for ZKTeco or similar devices that use the ZKProtocol to communicate over TCP/IP.
+	* This script is available at: [github:frappe/biometric-attendance-sync-tool](https://github.com/frappe/biometric-attendance-sync-tool).
+	* Please follow the instructions given on the script page to set it up on your computer.
+	* This Script pulls biometric logs from a supported device and uses the API mentioned in the above step to push the data into Frappe HR.
+
+**Frequently Asked Questions**
+------------------------------
+
+### **1. How do I select a Biometric Device which is compatible with Frappe HR?**
+
+If you are using method 1 or 2, you don't need to worry about compatibility.
+
+However, for the third method, the push biometric app internally uses a script that is compatible with the devices listed over [here](https://github.com/fananimi/pyzk#compatible-devices). Typically, any ZKTeco or similar device that uses the ZKProtocol to communicate over TCP/IP should work. As far as buying the device is concerned, we suggest you opt for a device trial with the vendor if possible, where the device can be tested with the sync tool, as it's dependent on multiple factors when it comes to compatibility.
+
+### **2. How do I know which method to use for integrating my biometric device with Frappe HR?**
+
+Method 1 is feasible in any situation but requires you to manually import logs periodically. Methods 2 and 3 need some monitoring and work for a one-time setup for the log syncing to be automated.
+
+**For a single location set up:**
+
+In the Push Biometric Device approach, the tool needs to be able to communicate with your biometric device via TCP/IP. So, it is usually the case that it needs to run on the same LAN Network as the biometric device. To sync these fetched logs to your Frappe HR instance it uses API access. This works best when you have a single location set up.
+
+**For a multi-location set up:**
+
+In this case, we usually recommend method 2 where most biometric vendors provide services to sync the biometric device logs from multiple locations to Frappe HR via API access. Method 3 (push biometric attendance tool) can also work in this case if you have some networking knowledge.
+
+  
+
+<!-- page: frappe-hr/hr__interview-feedback.md -->
+---
+title: "Interview Feedback"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/interview-feedback"
+updated: "2026-02-04"
+---
+
+**Interview feedback refers to the information and comments provided about a job applicant after an interview.**
+
+The Interview Feedback doctype allows you to assess a Job Applicant's Skills and comment on the Interview in general.
+
+To access Interview Feedback, go to:
+
+
+> **Home > Human Resources > Recruitment > Interview Feedback**
+> 
+> 
+
+**1. Prerequisites**
+--------------------
+
+Before creating an Interview Feedback, it is advisable you create the following:
+
+* [Interview Round](https://docs.frappe.io/hr/interview-round)
+* [Interview](https://docs.frappe.io/hr/interview)
+
+**2. How to Create an Interview Feedback**
+------------------------------------------
+
+1. Go to the Interview Feedback list and click on Add Interview Feedback.
+2. Select the Interview, Interviewer and Result.
+3. Selecting the Interview should automatically populate the Skill Assessment table with the Skills defined in the Interview Round corresponding to the selected Interview. You can then fill out stars for each Skill based on the Job Applicant's performance.
+4. Fill in the Feedback section with general feedback regarding the Interview (optional).
+5. Click on Save, and then Submit.
+
+[Screenshot on the live page]  
+
+
+**3. Features**
+---------------
+
+### **3.1 Feedback Summary**
+
+After submitting the Interview Feedback, you can view a summary of all the feedback associated with the Interview under its [Feedback Tab](https://docs.frappe.io/hr/interview#3-2-interview-feedback).
+
+### **3.2 Interview Feedback Reminder**
+
+You can [configure](https://docs.frappe.io/hr/hr-settings#4-2-send-interview-feedback-reminder) Frappe HR to send reminder emails to Interviewers for their Feedback.
+
+**4. Related Topics**
+---------------------
+
+1. [Job Opening](https://docs.frappe.io/hr/job-opening)
+2. [Job Applicant](https://docs.frappe.io/hr/job-applicant)
+
+  
+
+
+  
+
+<!-- page: frappe-hr/hr__interview-management.md -->
+---
+title: "Interview Management"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/interview-management"
+updated: "2026-02-04"
+---
+
+Frappe HR makes it easy to manage and track multiple interview rounds for job applicants interested in joining your company.
+
+Using this sub-module, you can:
+
+1. [Define Interview Types](https://docs.frappe.io/hr/interview-type) (optional)
+2. [Set up Interview Rounds](https://docs.frappe.io/hr/interview-round)
+3. [Create Interviews](https://docs.frappe.io/hr/interview)
+4. [Fill out Interview Feedbacks](https://docs.frappe.io/hr/interview-feedback)
+
+  
+
+<!-- page: frappe-hr/hr__interview-round.md -->
+---
+title: "Interview Round"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/interview-round"
+updated: "2026-02-04"
+---
+
+**Interview rounds are a series of interviews that a candidate goes through during the recruitment process. For example, technical interviews, HR interviews, etc.**
+
+The Interview Round doctype enables you to define and set up these rounds for future [Interviews](https://docs.frappe.io/hr/interview).
+
+To access Interview Round, go to:
+
+
+> **Home > Human Resources > Recruitment > Interview Round**
+> 
+> 
+
+**1. How to create an Interview Round**
+---------------------------------------
+
+1. From the Interview Round list, click on Add Interview Round.
+2. Enter the Round Name.
+3. Enter the Interview Type and the Expected Average Rating (optional).
+4. You can assign Interviewers, authorizing them to provide feedback for upcoming Interviews of this round.
+5. You can also enter Designation to filter Job Applicants during Interview creation.
+6. Fill in the Expected Skillset table by clicking on Skill and creating Skills as shown below.
+
+[Screenshot on the live page]
+7. Save
+
+[Screenshot on the live page: 135508716-5c416fef-7ceb-44b4-b0f4-4994f8a8a4a1]  
+
+
+After saving the Interview Round, you can [Create Interviews](https://docs.frappe.io/hr/interview) directly from the dashboard. The assigned Interviewers can then provide [Feedback](https://docs.frappe.io/hr/interview-feedback) for the created Interviews.
+
+**2. Related Topics**
+---------------------
+
+1. [Interview Type](https://docs.frappe.io/hr/interview-type)
+2. [Interview](https://docs.frappe.io/hr/interview)
+3. [Job Opening](https://docs.frappe.io/hr/job-opening)
+4. [Designation](https://docs.frappe.io/hr/designation)
+
+  
+
+<!-- page: frappe-hr/hr__interview-type.md -->
+---
+title: "Interview Type"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/interview-type"
+updated: "2026-02-04"
+---
+
+**Interview type refers to the various types of interviews conducted by an organization, such as panel interviews, walk-in interviews, etc.**
+
+Interview Types can be used to specify the type of interview for a particular [Interview Round](https://docs.frappe.io/hr/interview-round).
+
+To access Interview Type, go to:
+
+
+> **Home > Human Resources > Recruitment > Interview Type**
+> 
+> 
+
+**1. How to Create an Interview Type**
+--------------------------------------
+
+1. Click on Add Interview Type.
+2. Enter the Name and Description
+3. Save
+
+[Screenshot on the live page: image]  
+
+
+**2. Related Topics**
+---------------------
+
+1. [Interview Round](https://docs.frappe.io/hr/interview-round)
+2. [Interview](https://docs.frappe.io/hr/interview)
+3. [Interview Feedback](https://docs.frappe.io/hr/interview-feedback)
+
+  
+
+<!-- page: frappe-hr/hr__interview.md -->
+---
+title: "Interview"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/interview"
+updated: "2026-02-04"
+---
+
+**Interviews are formal meetings between Job Applicants and Interviewers to assess whether the former is suitable for the Job Opening they're applying for.**
+
+Frappe HR allows you to maintain a record of all Interviews conducted with Job Applicants.
+
+To access Interview, go to:
+
+
+> **Home > Human Resources > Recruitment > Interview**
+> 
+> 
+
+**1. Prerequisites**
+--------------------
+
+Before creating an Interview, it is advisable you create the following:
+
+* [Interview Round](https://docs.frappe.io/hr/interview-round)
+* [Job Applicant](https://docs.frappe.io/hr/job-applicant)
+
+**2. How to Create an Interview**
+---------------------------------
+
+1. Go to Interview list, click on Add Interview.
+2. First select the Interview Round and then Job Applicant. Order is important.
+3. Enter the date (Scheduled On) and time (From Time & To Time).
+4. Enter the Resume Link (optional).
+5. Click on Save.
+
+[Screenshot on the live page]  
+
+
+After saving the Interview, you can reschedule the interview using the Reschedule Interview button. You can also directly [Submit Feedback](https://docs.frappe.io/hr/interview-feedback) from the dashboard.
+
+> **Note:** Only Interviewers associated with the selected [Interview Round](https://docs.frappe.io/hr/interview-round) can submit Feedback.
+
+**3. Features**
+---------------
+
+### **3.1 Calendar View**
+
+Scheduled interviews can be viewed in a color-coded calendar format by going to the Interview list, clicking on List View, and selecting Calendar.
+
+[Screenshot on the live page: image]  
+
+
+### **3.2 Interview Feedback**
+
+After an interview has received [Feedback](https://docs.frappe.io/hr/interview-feedback), you can click on the Feedback tab to access a summary of the feedback. This summary includes the overall average rating, the distribution of ratings for each Feedback, the average rating for each Skill, and the individual Feedback comments.
+
+[Screenshot on the live page]  
+
+
+### **3.3 Tracking Interviews**
+
+Interviews related to a Job Applicant can be easily [tracked](https://docs.frappe.io/hr/job-applicant#3-2-tracking-interviews) from its dashboard.
+
+### **3.4 Interview Reminder**
+
+You can [configure](https://docs.frappe.io/hr/hr-settings#4-2-send-interview-reminder) Frappe HR to send reminder emails to Interviewers for upcoming Interviews.
+
+**4. Related Topics**
+---------------------
+
+1. [Job Opening](https://docs.frappe.io/hr/job-opening)
+2. [Interview Type](https://docs.frappe.io/hr/interview-type)
+3. [Interview Feedback](https://docs.frappe.io/hr/interview-feedback)
+4. [Job Offer](https://docs.frappe.io/hr/job-offer)
+
+  

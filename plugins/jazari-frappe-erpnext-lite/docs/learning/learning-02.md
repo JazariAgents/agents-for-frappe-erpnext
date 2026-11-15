@@ -142,7 +142,7 @@ Frappe Learning is an easy-to-use Learning Management System (LMS) designed to h
 
 Most LMS platforms are rigid, complex, and expensive. Learning is different. It is open-source, flexible, and cloud-ready, making it easy to create and manage courses.
 
-![](/files/frappe learn.mp4)
+[Screenshot on the live page]
 
 
 
@@ -225,13 +225,13 @@ The app provides a default certificate template but you can create a custom cert
 
 To create a custom certificate template, all you have to do is create a new Print Format.
 
-![](/files/Screenshot%202025-02-07%20at%207.48.28%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 There are various ways to create a Print Format. You can either use the Print Format Builder or the Print Designer App.
 
 Just remember to select the DocType as LMS Certificate.
 
-![](/files/Screenshot%202025-02-07%20at%207.48.08%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 To know more about how to create a Print Format [refer this documentation](https://docs.frappe.io/erpnext/user/manual/en/print-format)
 
@@ -251,15 +251,15 @@ To manage job openings, click on the `Jobs` section in the sidebar. This will op
 
 1. Click the `+ New Job` button.
 
-![](https://docs.frappe.io/files/Screenshot 2026-02-24 at 12.18.39 AM.png)
+[Screenshot on the live page]
 
 2. Once the document is created, fill in the [details](#job-fields-reference).
 
-![](/files/Screenshot 2026-02-24 at 12.19.53 AM.png)
+[Screenshot on the live page]
 
 3. Now you can view your jobs.
 
-![](/files/Screenshot 2026-02-24 at 12.21.08 AM.png)
+[Screenshot on the live page]
 
 ---
 
@@ -395,7 +395,7 @@ In Frappe Learning, you can add quizzes to both courses and batches.
 
 To create a quiz, click on the **Quizzes** section in the sidebar. You will see the **Quiz List**, where you can either edit an existing quiz or create a new one.  
 
-![](/files/Screenshot%202025-02-07%20at%204.49.49%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 To create a new quiz:  
 
@@ -414,7 +414,7 @@ After saving, you can configure additional quiz settings:
 8. **Limit Questions** – If **Shuffle Questions** is enabled, you can set a limit on how many questions are shown.
   - Example: If a quiz has 50 questions and you set a limit of 10, students will see a random selection of 10 questions each time they attempt the quiz.
 
-![](/files/Screenshot%202025-02-07%20at%204.50.00%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Types of Questions
 
@@ -430,7 +430,7 @@ This type requires students to enter short answers (one or two words). You must 
 
 These questions do not have predefined correct answers. Students enter detailed responses using a text editor, where they can also add images or screenshots. These responses must be manually graded by the instructor.  
 
-![](/files/Screenshot%202025-02-07%20at%204.50.10%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 ### Grading Submissions
 
@@ -438,7 +438,7 @@ For each quiz, instructors have access to the **Submission List**, which contain
 
 If the quiz includes open-ended questions, instructors can manually review and assign marks. The total marks and percentage will be calculated automatically.  
 
-![](/files/Screenshot%202025-02-07%20at%204.54.12%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 <!-- page: learning/learning__roles.md -->
 ---
@@ -450,7 +450,7 @@ updated: "2026-05-12"
 
 Frappe Learning uses specific roles to balance ease of use with system security. 
 
-![](https://docs.frappe.io/files/Screenshot%202025-02-06%20at%203.25.51%E2%80%AFPM.png)
+[Screenshot on the live page]
 *User Profile Page*
 
 
@@ -497,7 +497,7 @@ Each of these payment gateways has a respective Settings DocType. You can search
 
 Once the payment gateway is set, open the Settings dialog from the portal. There go to the Payment Gateway section. There select the Payment Gateway you want. You can also set the **Default Currency** and other such details here.
 
-![](/files/Screenshot%202025-02-07%20at%208.02.53%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 Once the Payment Gateway is set, you can configure your courses and batches to accept payments.
 
@@ -511,7 +511,7 @@ updated: "2026-02-25"
 
 Once you have installed the app, you will need to set up your account. Visit your newly created site that has the app installed, and you should see a setup wizard.
 
-![](/files/image10fcd6.png)
+[Screenshot on the live page]
 
 To complete the setup you will need to enter basic information like your country, name, email, and password. Make sure to remember your email and password as this is going to be your admin account.
 

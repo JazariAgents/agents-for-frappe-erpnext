@@ -10,7 +10,7 @@ updated: "2026-08-13"
 
 On **Server Actions** page, you will find several options for database configuration.
 
-![image9765dc](/files/image9765dc.png)
+[Screenshot on the live page: image9765dc]
 
 ## What is Binlog &amp; Why It's required ?
 
@@ -27,11 +27,11 @@ For example, if a site is accidentally deleted or broken due to a faulty SQL que
 
 You can view binary log file sizes by date. If you're running low on storage, it's possible to **purge old binlogs** that are no longer needed.
 
-![](/files/482719248-8eb4ca2d-b434-42c8-bf76-0e672384f3e5.png)
+[Screenshot on the live page]
 
-![](/files/img2.png)
+[Screenshot on the live page]
 
-![](/files/img3.png)
+[Screenshot on the live page]
 
 ## Manage Binlog Retention
 
@@ -43,7 +43,7 @@ Alternatively, for compliance or auditing purposes, you can **increase binlog re
 
 You can manage these settings directly from the interface:
 
-![](/files/482719805-9d2688b7-0a96-458e-aba1-186e417a56a9.png)
+[Screenshot on the live page]
 
 ## Binlog Auto-Purging Based on Size Limit
 
@@ -51,7 +51,7 @@ Binlog files can occasionally grow rapidly, consuming a significant portion of y
 
 The Binlog Auto-Purging feature helps prevent such issues by allowing you to define a size limit for binlogs. When the total binlog size exceeds this limit, the system automatically purges older binlogs to bring usage back within the specified threshold.
 
-![image3b13b3](/files/image3b13b3.png)
+[Screenshot on the live page: image3b13b3]
 
 ## Enable / Disable Binlog Indexer
 
@@ -59,11 +59,11 @@ The **Binlog Indexer** converts binary logs into a readable, searchable format, 
 
 To **enable** the binlog indexer and browser, click on `Enable Binlog Indexer` under `Database Server Actions`, then confirm the action.
 
-![image16cc0f](/files/image16cc0f.png)
+[Screenshot on the live page: image16cc0f]
 
 To **disable** the binlog indexer and browser, click on `Disable Binlog Indexer` under `Database Server Actions`, then confirm the action.
 
-![image7a1581](/files/image7a1581.png)
+[Screenshot on the live page: image7a1581]
 
 ## **Default Configuration for Database Servers:**
 
@@ -78,25 +78,25 @@ These are the default limits, but you can adjust them based on your requirements
 
 If you own some dedicated server, you can enable/disable the performance schema as per requirement.
 
-![](/files/Screenshot%20from%202025-04-09%2023-05-01.png)
+[Screenshot on the live page]
 
 ## Manage InnoDB Buffer Pool Size
 
 If you want to change innodb buffer pool size, you can now do that from Frappe Cloud dashboard.
 
-![](/files/Screenshot%20from%202025-04-09%2023-06-19.png)
+[Screenshot on the live page]
 
 ## Manage Max Database Connections
 
 When you create a database server, Frappe Cloud set a default max connections based on the total memory on the server. In case if you need more database connection, you can increase that from dashboard.
 
-![](/files/Screenshot%20from%202025-04-09%2023-11-58.png)
+[Screenshot on the live page]
 
 ## View Database Configurations
 
 If you want to check all the configuration of your dedicated database server, you can use the `View Database Configuration` option.
 
-![](/files/Screenshot%20from%202025-04-09%2023-13-16.png)
+[Screenshot on the live page]
 
 Currently, it's not allowed to change in variable. If you need some special configuration, please reach out to support.frappe.io
 
@@ -111,7 +111,7 @@ Database audit trail has two capture modes:
 1. **Only write queries :** Captures queries that modify the database, such as changes to databases, tables, or rows. Read queries are not logged.
 2. **Read and write queries :** Captures all queries running on the database, including `SELECT` queries. Since read queries are also logged, the log size can be **at least 3X larger**.
 
-![](/files/image701fa8.webp)
+[Screenshot on the live page]
 
 The cost is **2 INR per GB per month**, based on your log's storage usage. All audit logs are uploaded to S3, so they won't use additional disk space on the server.
 
@@ -123,7 +123,7 @@ We recommend keeping **at least 20 GB of free disk space** for audit logging. Au
 
 From the server actions, you can view all the stored audit logs.
 
-![](/files/imagea17bff.webp)
+[Screenshot on the live page]
 
 You can download the required ones from dashboard itself.
 
@@ -166,7 +166,7 @@ Go to Site Dashboard > Actions > Manage database users
 
 From here, you can view all the existing users of your site's database and manage their permissions and access settings.
 
-![](/files/oAAWNad.png)
+[Screenshot on the live page]
 
 
 
@@ -176,11 +176,11 @@ Click on `Add User` button to open the modal for creating database users.
 
 1. **Read Only Mode :**
 
-![](/files/LIaAMBi.png)
+[Screenshot on the live page]
 
 2. **Read Write Mode :**
 
-![](/files/rnKuRtd.png)
+[Screenshot on the live page]
 
 3. **Granular Mode :**
 
@@ -192,13 +192,13 @@ You can set the **Read Only** or **Read Write** mode for each table individually
 
 
 
-![](/files/0GCIfFc.png)
+[Screenshot on the live page]
 
 ## Edit Database User
 
 If you want to modify the permissions for a specific database user, you can easily do so by selecting the **Configure User** option in the row menu. This will allow you to adjust the user’s access levels and permissions as needed.
 
-![](/files/7yIJjuJ.png)
+[Screenshot on the live page]
 
 
 
@@ -210,13 +210,13 @@ You can make the changes to the user's permissions and save them. Once saved, it
 
 Click on the three dots in the row and select **View Credential** to view the details for that specific user’s credentials.
 
-![Screenshot 2024-12-03 at 12.18.52 PM](/files/Screenshot 2024-12-03 at 12.18.52 PM.png "Screenshot 2024-12-03 at 12.18.52 PM.png")
+[Screenshot on the live page: Screenshot 2024-12-03 at 12.18.52 PM]
 
 
 
 After selecting **View Credential**, a modal will appear displaying all the necessary information to connect to your site database.
 
-![Screenshot 2025-01-31 at 1.15.44 PM](https://frappecloud.com/files/Screenshot%202025-01-31%20at%201.15.44%20PM.png)
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 
 
 
@@ -224,13 +224,13 @@ After selecting **View Credential**, a modal will appear displaying all the nece
 
 Click on the three dots in the row and select **Delete User** to remove the database user.
 
-![Screenshot 2024-12-03 at 12.16.58 PM](/files/Screenshot 2024-12-03 at 12.16.58 PM.png "Screenshot 2024-12-03 at 12.16.58 PM.png")
+[Screenshot on the live page: Screenshot 2024-12-03 at 12.16.58 PM]
 
 
 
 When you click to delete a user, a confirmation modal will appear. Once you confirm the deletion, the selected database user will be deleted.
 
-![](/files/EMGuv7B.png)
+[Screenshot on the live page]
 
 
 
@@ -238,11 +238,11 @@ When you click to delete a user, a confirmation modal will appear. Once you conf
 
 If you want to view all the SQL query pass through FC SQL Proxy service, you can click on `View Logs` button.
 
-![](/files/Screenshot%20from%202025-05-29%2015-09-12.png)
+[Screenshot on the live page]
 
 You can filter search result by some keywords or client IP.
 
-![](/files/Screenshot%20from%202025-05-29%2015-08-47.png)
+[Screenshot on the live page]
 
 ## Connect External Tools to the Database
 
@@ -269,7 +269,7 @@ We only allow TLS connections. If you're having issues while connecting then ple
 
 ### MariaDB command line client
 
-![Database Access CLI](https://frappecloud.com/files/database-access-cli.png)
+[Screenshot on the live page: Database Access CLI]
 
 
 
@@ -326,13 +326,13 @@ In Site mode you can view and browse through the logs generated by a site and in
 * Select the mode from the dropdown.
 * Select the site/bench you want to view logs from the dropdown in the top right corner
 
-![](/files/mSVGlQQ.png)
+[Screenshot on the live page]
 * Select the log you want to view from the log list
 
-![](/files/1xDxcYJ.png)
+[Screenshot on the live page]
 * Filter, sort and search through the log file as you need
 
-![](/files/6dMT07r.png)
+[Screenshot on the live page]
 
 
 > Currently we don't support merged rotated log files yet.
@@ -352,11 +352,11 @@ updated: "2026-03-10"
 1. From your Bench dashboard go to Actions > Dangerous Actions.
 2. Click on the Drop button.
 
-![](/files/Screenshot 2026-03-10 at 11.01.58 AM.png)
+[Screenshot on the live page]
 
 3. You will be asked to confirm the name of the Bench you want to drop.
 
-![](/files/Screenshot 2026-03-10 at 11.02.35 AM.png)
+[Screenshot on the live page]
 
 4. Once you have typed in the name click on the `Drop` button
 
@@ -374,7 +374,7 @@ You need to [create a private bench](https://frappecloud.com/docs/benches) to en
 
 You can refer to this [documentation](https://frappeframework.com/docs/user/en/desk/scripting/server-script) for more information regarding server scripts.  
   
-Once your v15 site is moved from public/shared to private bench group, server script will be enabled automatically.![](/files/nRVHZHi.png)  
+Once your v15 site is moved from public/shared to private bench group, server script will be enabled automatically.[Screenshot on the live page]  
 
 
   
@@ -389,7 +389,7 @@ updated: "2026-02-16"
 
 If you have been seeing the *Attention Required* status badge next to your apps:
 
-![](/files/j6PGkOJ.png)  
+[Screenshot on the live page]  
 
 
 It means that Frappe Cloud could not fetch the source code of your application.
@@ -406,19 +406,19 @@ Invalid URL
 
 To figure out if your app has an invalid URL, navigate to **Apps** under your Bench Group's page and ensure that the *repository path* of your app is correct:
 
-![](/files/bw19HP3.png)  
+[Screenshot on the live page]  
 
 
 The *repository path* could have changed due to a repository rename or other reasons.
 
 If the *repository path* is invalid, you can first remove the App by clicking on the three-dots menu button and selecting **Remove App**:
 
-![](/files/bzqZifI.png)  
+[Screenshot on the live page]  
 
 
 Then re-add it back in by clicking on **Add App** and then **Add from GitHub**:
 
-![](/files/CuJcgo1.png)  
+[Screenshot on the live page]  
 
 
 If your App has been re-added in correctly you should not see the *Attention Required* status badge anymore.
@@ -439,11 +439,11 @@ This could be due to one of these reasons:
 
 To help us fix this issue you will have to re-install Frappe Cloud as a GitHub app. To do so, follow these steps:
 
-1. Visit the Installed GitHub Apps page ([link](https://github.com/settings/installations)), and click on configure next to Frappe Cloud:![](/files/cckfzkr.png)
-2. Ensure that your app is present in the list below if you have not checked **All repositories,** if your app is present then move onto step 3.![](/files/BJgiZQm.png)
-3. Uninstall Frappe Cloud:![](/files/C2DqXWK.png)
-4. Reinstall it by clicking on **Connect To GitHub** from the apps page on Frappe Cloud:![](/files/N7PHguf.png)
-5. Complete the authorization flow:![](/files/TotaLcx.png)
+1. Visit the Installed GitHub Apps page ([link](https://github.com/settings/installations)), and click on configure next to Frappe Cloud:[Screenshot on the live page]
+2. Ensure that your app is present in the list below if you have not checked **All repositories,** if your app is present then move onto step 3.[Screenshot on the live page]
+3. Uninstall Frappe Cloud:[Screenshot on the live page]
+4. Reinstall it by clicking on **Connect To GitHub** from the apps page on Frappe Cloud:[Screenshot on the live page]
+5. Complete the authorization flow:[Screenshot on the live page]
 6. Return to the Installed GitHub Apps page ([link](https://github.com/settings/installations)), and click on configure next to Frappe Cloud as shown in step 1. You will find that your address in your browser will be of the form: `https://github.com/settings/installations/INSTALLATION_ID` keep a note of this `INSTALLATION_ID` (this is the **App Installation ID**)
 
 If you have re-installed the App correctly, **your App Installation ID should be reset on Frappe Cloud within 30** **minutes** of having completed the steps above, and you should not be seeing the *Attention Required* badge anymore.
@@ -650,7 +650,7 @@ updated: "2026-05-07"
 
 Typical Frappe Cloud (FC) cluster has a similar architecture:
 
-![FC Cluster](/files/fc-cluster.png)
+[Screenshot on the live page: FC Cluster]
 
 A more complex architecture would explain the redundancy for each server along with the network cluster.
 
@@ -704,25 +704,25 @@ url: "https://docs.frappe.io/cloud/faq/custom_apps"
 updated: "2026-06-18"
 ---
 
-![Attention Required badge](/files/Screenshot%202022-08-16%20at%2012.36.46%20PM.png)
+[Screenshot on the live page: Attention Required badge]
 
 This means that we are **not able to fetch the latest updates from the associated GitHub repository** for the app. This happens most probably because the Frappe Cloud GitHub app does not have the permission to access the repository. 
 
 Please make sure Frappe Cloud app has proper permissions from GitHub settings:  
 
-![](/files/EDYZBF1.png)
+[Screenshot on the live page]
 
-![](/files/sSXn2kA.png)
+[Screenshot on the live page]
 
 You can then retry fetching the latest update:  
 
-![Fetch Latest Updates in dropdown](/files/fetch_updates.png)
+[Screenshot on the live page: Fetch Latest Updates in dropdown]
 
 ### Workaround: Attention required even after trying the above
 
 If you're getting the error even after adding and removing the app on Frappe Cloud, please visit <[https://github.com/settings/installations/](https://github.com/settings/installations/)> and then click the configure button next to the **Frappe Cloud** Github App.  
 
-![Configure Frappe Cloud Github](/files/Screenshot%202023-04-04%20at%2023-03-52%20Build%20software%20better%20together.png)
+[Screenshot on the live page: Configure Frappe Cloud Github]
 
 It should take you to another page with a URL like `https://github.com/settings/installations/<unique_number>`. Copy this number (or the URL as a whole).
 
@@ -795,13 +795,13 @@ updated: "2026-07-25"
 
 In the **analytics** tab of your site dashboard, you'll be able to see slow queries (tracked by MariaDB) being run on your site database. These usually mean that the queries can be optimized to improve performance (and reduce CPU usage!)
 
-![](/files/sXSiPap.png)
+[Screenshot on the live page]
 
 
 
 You can also see queries that aren't necessary slow, but frequent enough to increase cpu usage from the [Database Analyzer](https://docs.frappe.io/cloud/database-analyzer) tab of your site dashboard:
 
-![](/files/v2VTZt7.png)
+[Screenshot on the live page]
 
 
 

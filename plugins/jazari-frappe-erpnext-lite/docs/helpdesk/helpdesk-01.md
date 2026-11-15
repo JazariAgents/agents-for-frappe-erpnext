@@ -37,12 +37,12 @@ Pre-requisite: Email account must be setup, if it is not setup follow this [http
 
 Click on "Agents" on the sidebar and you will be navigated to this page.
 
-![](/files/Screenshot%202025-04-21%20at%202.33.41%20AM.png)
+[Screenshot on the live page]
 
 
 1. Click on "Create" button in the center
    
-![](/files/Screenshot%202025-04-21%20at%202.34.53%20AM.png)
+[Screenshot on the live page]
 
 2. A dialog will open, enter agent's email ID
 3. Click on "Send Invites", if you get an error like "Outgoing Email Error", this means you have not setup your email account, add it and try again.
@@ -66,12 +66,12 @@ Assignment Rules automate the process of assigning tickets to specific agents ba
 1. **Open settings modal:** Click on top left dropdown and click "Settings"
 
 
-![settings dropdown](/files/Screenshot%202025-08-19%20122908.png)
+[Screenshot on the live page: settings dropdown]
 
 2. **Open Assignment Rules tab:** Click on "Assignment Rules" in the sidebar and click on "Create new"
 
 
-![](/files/Screenshot%202025-08-19%20123014.png)
+[Screenshot on the live page]
 
 3. **Define the Rule:** Fill in the following mandatory fields:
 
@@ -80,7 +80,7 @@ Assignment Rules automate the process of assigning tickets to specific agents ba
 - **Name:** Give your rule a descriptive name for easy identification.
 - **Description:** Describe in short what does the rule do
 - **Assignment condition:** Define condition using the conditions builder for the assignment rule, complex nested conditions are also supported 
-![](/files/Screenshot%202025-08-19%20125226.png)
+[Screenshot on the live page]
 
 - **Users:** Choose the user(s) to whom tickets meeting the condition will be assigned.
 
@@ -114,7 +114,7 @@ updated: "2026-05-28"
 
 The comment feature allows internal communication and information sharing related to tickets. It facilitates collaboration among agents by providing a dedicated space to discuss, track progress, and share details.
 
-![Screenshot 2024-07-15 at 12.46.14 PM](/files/Screenshot 2024-07-15 at 12.46.14 PM.png)  
+[Screenshot on the live page: Screenshot 2024-07-15 at 12.46.14 PM]  
 
 
 **Key Features**
@@ -152,7 +152,7 @@ Custom actions are implemented using Form Scripts in Desk:
 4. **Define Your Action:** Here's how to define different types of actions:
   **Single Button:** This code creates a single button labelled "Open in Desk" that opens the current Ticket in a new browser tab.
      
-  ![](/files/Normal%20Button%20Script.png)
+  [Screenshot on the live page]
   ```
   	```
   	const actions = [{
@@ -173,10 +173,10 @@ Custom actions are implemented using Form Scripts in Desk:
   	`e.g: class: 'rounded-lg bg-surface-pink-1' `
   ```
      
-  ![](/files/Normal%20Button.png)
+  [Screenshot on the live page]
    **Grouped Actions:** This code creates a group of buttons hidden under a three-dot menu labelled "Add." Clicking on either "Open Weekly Analysis or "Open Article Analysis" will trigger their respective onClick functions (defined elsewhere).
      
-  ![](/files/Three%20dots%20script.png)
+  [Screenshot on the live page]
   ```
   	```
       const actions = [
@@ -212,10 +212,10 @@ Custom actions are implemented using Form Scripts in Desk:
   	```
   ```
      
-  ![](/files/Drop%20down%20three%20dots.png)
+  [Screenshot on the live page]
    **Grouped Actions with label:** This code creates a group of buttons hidden under a dropdown button labelled "Reports". Clicking on either "Open Weekly Analysis or "Open Article Analysis" will trigger their respective onClick functions (defined elsewhere)
      
-  ![](/files/Button%20Dropdown%20script.png)
+  [Screenshot on the live page]
   ```
   	```
       const actions = [{
@@ -236,12 +236,12 @@ Custom actions are implemented using Form Scripts in Desk:
   	```
   ```
      
-  ![](/files/Dropdown%20button.png)
+  [Screenshot on the live page]
    **Combined Actions:** You can combine both single buttons and group actions into a single list and pass them as the "actions" property.
      
-  ![](/files/Combined%20Script.png)
+  [Screenshot on the live page]
      
-  ![](/files/Combined%20Script%20UI.png)
+  [Screenshot on the live page]
 
 ## Using Context and Actions
 
@@ -259,7 +259,7 @@ Field Values in HD Form script doct
 - `Enabled`: Enable script, if no other options are ticket, the script will be applied to the Agent's Ticket View
 - `Apply to customer portal`: Script will be applied to Ticket View of Customer
 - `Apply on new page`: Script will be applied on creation of New Ticket
-  ![](/files/Screenshot%202025-03-29%20at%209.02.54%20PM.png)
+  [Screenshot on the live page]
 
 Function Support on various pages:
 
@@ -278,7 +278,7 @@ Function Support on various pages:
 
 Here's an example showcasing various custom actions you can create to manage Deals:  
 
-![](/files/Dialogs.gif)
+[Screenshot on the live page]
 
 
 
@@ -416,7 +416,7 @@ Tickets that have been recently assigned to the logged in agent and may need ini
 4. Pending Tickets  
 Tickets which are awaiting the response of the logged in agent.
 
-![](/files/imagecebdba.png)
+[Screenshot on the live page]
 *Standard views*
 
 
@@ -437,7 +437,7 @@ It becomes difficult for agents and customers to create different filters and co
 
 #### Creating a view
 
-![](/files/Creating%20a%20view.gif)
+[Screenshot on the live page]
 
 There are 4 types of views:
 
@@ -446,11 +446,11 @@ There are 4 types of views:
 - **Saved views**: Personal Views for easy filters, sort & column settings.
 - **Private views**: These are shown on the sidebar for easy access.
 
-![](/files/Types%20of%20views.png)
+[Screenshot on the live page]
 
 #### Actions available on each view
 
-![](/files/h8PJhxI.png)
+[Screenshot on the live page]
 
 Making views is also available on the customer portal side, all actions are possible except making public views.
 
@@ -460,7 +460,7 @@ Agents often need quick access to their open tickets. **Public Views** are perfe
 
 To create a view for "My Open Tickets", apply the following filters:
 
-![My Open Tickets Filter](/files/Screenshot%202025-04-23%20at%206.01.36%20PM.png)
+[Screenshot on the live page: My Open Tickets Filter]
 
 - Use the `@me` filter in the **assign_to** field.  
 - This automatically resolves to the current logged-in user.
@@ -512,7 +512,7 @@ To create a new ticket:
 2. Click the **Create** button.
 3. Fill in the **Subject** and other necessary details.
 
-![](/files/CP%20Suggestion%20&%20Ticket%20Creation.gif)
+[Screenshot on the live page]
 
 > 💡 As you type the subject, relevant articles will appear based on your query.  
 > This helps customers resolve issues on their own before submitting a ticket.
@@ -537,7 +537,7 @@ On the **Tickets** list view, users can manage and track the status of their sub
 3. Click the **three dots** (•••) to:
    - Export the selected tickets
    - Or export **all tickets** in the list
-![](/files/Export%20Customer%20Portal.gif)
+[Screenshot on the live page]
 ---
 
 
@@ -546,10 +546,10 @@ On the **Tickets** list view, users can manage and track the status of their sub
 The Customer Portal includes a built-in **Knowledge Base** to help users find answers faster.
 
 - As users type their questions, relevant articles automatically appear.
-![](/files/Screenshot%202025-04-23%20at%203.32.27%20PM.png)
+[Screenshot on the live page]
 
 - Users can browse through the Knowledge Base to find the information they need without having to raise a ticket.
-![](/files/KB%20Customer.gif)
+[Screenshot on the live page]
 
 > 🧠 A well-maintained Knowledge Base can significantly reduce support load by enabling users to self-serve.
 
@@ -581,12 +581,12 @@ A **Customer** refers to an organization or a company. It is used to group [Cont
 
 1. Navigate to the **Customer** page using the sidebar.
 2. Click on "Create", present in the top right corner, and fill in the details. Optionally, you can add details of the primary contact for the customer. If added, the contact will be created automatically and will be invited to the system.
-  ![](/files/image421694.webp)
+  [Screenshot on the live page]
 3. Click **Create** to save the customer.
 
 ## Customer View
 
-![](/files/imagebfefed.webp)
+[Screenshot on the live page]
 
 Open a customer from the list to see its full details. The top of the page shows:
 
@@ -629,7 +629,7 @@ The **Tickets** tab lists all tickets raised under this customer.
 
 ### Managing Contacts under a Customer
 
-![](/files/image2ede6e.webp)
+[Screenshot on the live page]
 
 
 
@@ -643,7 +643,7 @@ The **Contacts** tab lists everyone grouped under the customer as cards, and is 
 - **Assign / change role** — Promote a contact to **Manager** or revoke manager access from the card menu. Managers can see all of the organization's tickets; regular contacts only see their own. A customer can have multiple managers.
 - **Remove a contact** — Removes the contact from this customer only. The contact itself is not deleted and stays available for other customers.
 - To view the invited contacts, click the Invite button to see the pending Invites.  
-  ![](/files/image1fef71.webp)
+  [Screenshot on the live page]
 
 
 
@@ -680,7 +680,7 @@ A **Contact** is an individual user who may be linked to a Customer (organizatio
   - **Customer** *(Optional)* — Select a customer this contact belongs to.
   - **Invite as User** *(Optional)* — If checked, the contact will be invited to the system as a user.
 
-![](/files/image5d3361.webp)
+[Screenshot on the live page]
 
 4. Click **Create** to save the contact. On saving the contact, if the **Invite as User** option was checked, an email will be sent to the contact's email address with a link to set their password and access the system.
 
@@ -698,12 +698,12 @@ A **Customer** refers to an organization or a company. It is used to group conta
 
 1. Navigate to the **Customer** page using the sidebar.
 2. Click on "Create", present in the top right corner, and fill in the details. Optionally, you can add details of the primary contact for the customer. If added, the contact will be created automatically and will be invited to the system.
-  ![](/files/image421694.webp)
+  [Screenshot on the live page]
 3. Click **Create** to save the customer.
 
 ### Managing Contacts under a Customer
 
-![](/files/image2ede6e.webp)
+[Screenshot on the live page]
 
 
 
@@ -717,7 +717,7 @@ The **Contacts** tab lists everyone grouped under the customer as cards, and is 
 - **Assign / change role** — Promote a contact to **Manager** or revoke manager access from the card menu. Managers can see all of the organization's tickets; regular contacts only see their own. A customer can have multiple managers.
 - **Remove a contact** — Removes the contact from this customer only. The contact itself is not deleted and stays available for other customers.
 - To view the invited contacts, click the Invite button to see the pending Invites.  
-  ![](/files/image1fef71.webp)
+  [Screenshot on the live page]
 
 ## Notes
 
@@ -785,10 +785,10 @@ The **Contacts** tab lists everyone grouped under the customer as cards, and is 
 > If you want all contacts to see each other's tickets again, like before the upgrade, use the **Customer portal update** banner:
 >
 > - The banner appears in the **sidebar of the agent portal** and is visible only to **Agent Managers** and **System Managers**. Customer portal users never see it.  
->   ![](/files/image75c4eb.webp)
+>   [Screenshot on the live page]
 > - Clicking **Learn more** opens a dialog explaining the change. To restore the old behavior, check **Make all existing contacts customer managers** and click **Confirm**. Every existing contact is marked as a customer manager, so all contacts of a customer can see that customer's tickets again. This runs in the background and may take a few minutes on large sites.
 > - To keep the new restricted behavior, leave the checkbox unchecked and click **Confirm**.  
->   ![](/files/image43ff5f.webp)
+>   [Screenshot on the live page]
 >
 >
 >
@@ -839,7 +839,7 @@ To access and update these settings:
 
 From this section, you can manage all email-related preferences in one place.
 
-![](/files/imageada66c.png)
+[Screenshot on the live page]
 
 ## Email Signature
 
@@ -857,7 +857,7 @@ After making your changes, click **Save** to apply them.
 
 In the below demonstration you can see how Email Signature works in Frappe Helpdesk.
 
-![](/files/Screen Recording 2026-05-03 at 8.18.05 PM.mov)
+[Screenshot on the live page]
 
 
 
@@ -879,7 +879,7 @@ A "From" dropdown menu appears in the email editor toolbar. Click it to switch b
 
 In the below demonstration you can see how you can switch between your outgoing emails while reply to a ticket
 
-![](/files/Screen Recording 2026-05-03 at 8.32.08 PM.mov)
+[Screenshot on the live page]
 
 
 
@@ -903,7 +903,7 @@ This feature allows you to seamlessly exchange emails with your customers direct
 1. **Locate the Reply Button:** On the Ticket page, find the "Reply" button, typically situated at the bottom of the page.
 2. **Compose Your Email:** A new email composition window will appear. Here, you can:
 
-![Screenshot 2024-07-05 at 11.04.39 AM](/files/Screenshot 2024-07-05 at 11.04.39 AM.png)  
+[Screenshot on the live page: Screenshot 2024-07-05 at 11.04.39 AM]  
 
 
 
@@ -913,7 +913,7 @@ This feature allows you to seamlessly exchange emails with your customers direct
 	* **Message Body:** Compose the main content of your email. You can leverage formatting options for better readability and include attachments if necessary.
 3. **Leverage Canned Responses (Optional):** Streamline communication by incorporating pre-defined Canned Responses. Click on the "Canned Responses" icon and select the desired message from the available list. This pre-populates the message body, saving you time and ensuring consistency.
 
-![Screenshot 2024-07-05 at 11.06.47 AM](/files/Screenshot 2024-07-05 at 11.06.47 AM.png)
+[Screenshot on the live page: Screenshot 2024-07-05 at 11.06.47 AM]
 4. **Hit Submit:** Once you've crafted your email, click the "Submit" button to send it to the recipient(s).
 
 **Viewing Email Communication**
@@ -921,7 +921,7 @@ This feature allows you to seamlessly exchange emails with your customers direct
 
 All email interactions related to a specific Ticket are consolidated within the system.
 
-![Screenshot 2024-07-05 at 10.58.40 AM](/files/Screenshot 2024-07-05 at 10.58.40 AM.png)  
+[Screenshot on the live page: Screenshot 2024-07-05 at 10.58.40 AM]  
 
 
 **Email Account Setup**
@@ -977,7 +977,7 @@ Some emails are sent by Helpdesk based on the activities carried out by the user
 
 To customize the content and the related options associated with each kind of email, you can use the 'Email Notifications' tab of the settings view.
 
-![email notification list](/files/email-notification-listb47594.png)
+[Screenshot on the live page: email notification list]
 
 ## Share Feedback
 
@@ -989,7 +989,7 @@ If **feedback** already **exists** for the ticket, the **email** will **not** be
 
 The available customizations are highlighted in the image below.
 
-![share feedback customizations](/files/share-feedbackc4e5ff.png)
+[Screenshot on the live page: share feedback customizations]
 
 ### Available variables (share feedback)
 
@@ -1006,7 +1006,7 @@ This email is sent to the user right after creating an email ticket. The purpose
 
 The available customizations are highlighted in the image below.
 
-![acknowledgement customizations](/files/acknowledgement.png)
+[Screenshot on the live page: acknowledgement customizations]
 
 ### Available variables (acknowledgement)
 
@@ -1021,7 +1021,7 @@ This email is sent to all of the assigned agents after a reply from one of the c
 
 The available customizations are highlighted in the image below.
 
-![reply from contact customizations](/files/reply-from-contact.png)
+[Screenshot on the live page: reply from contact customizations]
 
 > The email content is used only for tickets raised via Portal.
 
@@ -1042,7 +1042,7 @@ This email is sent to all of the recipients associated with an agent reply. The 
 
 The available customizations are highlighted in the image below.
 
-![reply from agent customizations](/files/reply-from-agent.png)
+[Screenshot on the live page: reply from agent customizations]
 
 > The email content is used only for tickets raised via Portal.
 

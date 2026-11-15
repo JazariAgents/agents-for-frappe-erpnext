@@ -1,37 +1,5 @@
 <!-- Frappe documentation: erpnext, part 46 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__project-template.md -->
----
-title: "Project Template\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/project-template"
-updated: "2026-02-26"
----
-
-**A Project Template is a predefined sequence of tasks arranged in stipulated schedule.**
-
-These templates can be pulled for similar kind of Projects and the tasks therein get auto-populated at the time of creation of each new project.
-
-To access Project Template, go to:
-
-> Home > Projects > Projects > Project Template
-
-![](/files/image9c09a2.png)
-
-## How to Create A New Project Template:
-
-1. Go to the Project Template List and click on New.
-2. Add the following details:
-
-- **Project Template Name**: Title of the Project Template
-- **Project Type**: Project Templates, just like projects can be classified into different project types, e.g., Internal or External.
-- **Tasks**: Each Project Template will have a set of a predefined sequence of tasks. In this table, you can select the tasks you want for this template.
-
-## Related Topics
-
-1. [Project](/erpnext/user/manual/en/project)
-2. [Task](/erpnext/user/manual/en/tasks)
-
 <!-- page: erpnext/erpnext__project-type.md -->
 ---
 title: "Project Type\n"
@@ -44,7 +12,7 @@ updated: "2026-02-26"
 
 Internal Projects, External Projects could be examples of Project types and are already created in the system. You can choose to add more Project Types. This comes handy when you are reviewing the Projects, and you want to filter the information based on Project Types.
 
-![](/files/imagec36751.png)
+[Screenshot on the live page]
 
 To access Project Type, go to:
 
@@ -73,7 +41,7 @@ updated: "2026-02-26"
 
 Each time you want to update the stakeholders about the project, you can send a Project Update to them.
 
-![](/files/imagee61c72.png)
+[Screenshot on the live page]
 
 To access Project Update, go to:
 
@@ -114,7 +82,7 @@ Apart from the generic list and report views for projects and tasks, ERPNext als
 
 A Gantt Chart shows how tasks are linked to each other and shows their execution sequence, based on start and end dates set in the tasks along with any dependencies, if available.
 
-![](/files/image6344a3.png)
+[Screenshot on the live page]
 *Gantt Chart View*
 
 You can update the range of the chart by selecting one of Quarter Day, Half Day, Day, Week, or Month.
@@ -127,7 +95,7 @@ If you want to further customize the chart and make it more colorful, read this 
 
 Kanban in Japanese means "billboard" or "signboard" as the task management method traces its origin back to Toyota's lean manufacturing process. In a typical kanban board setup, you have a board or wall which is divided into section which represent different stages of execution or realization. Tasks go up on the board as sticky notes or Post Its and move through the board updating its current stage in the process.
 
-![](/files/image8704a3.png)
+[Screenshot on the live page]
 *Kanban View*
 
 ERPNext renders the Kanban view for tasks based on its status. You can update the status of a task by moving the representative card from one column to the next. You can also assign colors to these columns for visual reference.
@@ -138,7 +106,7 @@ Read customizing Kanban board to learn more.
 
 Like the Gantt chart, the calendar view also shows the task and the planned number of days it'll take to complete. However, this one shows the task spread across your regular calendar.
 
-![](/files/image5e941a.png)
+[Screenshot on the live page]
 *Calendar view *
 
 <!-- page: erpnext/erpnext__project.md -->
@@ -163,7 +131,7 @@ To access Projects, go to:
 
 > Home > Projects > Project
 
-![](/files/imagec3fe96.png)
+[Screenshot on the live page]
 
 ## How to Create a Project
 
@@ -184,7 +152,7 @@ To access Projects, go to:
 6. **Is Active**: A Yes/No tab, which lets you change the active status of the project at any later stage.
 7. **Completion Method**: You can track the % completion of your project based on one of the three methods, viz. **Manual, Task Completion, Task Progress and Task Weight**.
 
-![](/files/image2d8eef.png)
+[Screenshot on the live page]
 
 Some examples of how the Percentage Completion is calculated based on Tasks:
 
@@ -224,7 +192,7 @@ Some examples of how the Percentage Completion is calculated based on Tasks:
 
 > Learn more about allowing users to view projects - click [here](/erpnext/project-customer-portal)
 
-![](/files/imagebf5e91.png)
+[Screenshot on the live page]
 
 ### **Project Timeline Tracking**
 
@@ -233,7 +201,7 @@ Some examples of how the Percentage Completion is calculated based on Tasks:
 
 > To learn more about Timesheets, click [here](/erpnext/timesheets).
 
-![](/files/image1e72e3.png)
+[Screenshot on the live page]
 
 ### Costing, Billing, and Financial Tracking
 
@@ -267,7 +235,7 @@ Gross Margin = (Total Sales Amount + Total Billable Amount)
 + Total Consumed Material Cost) / Total Sales Amount) 100*
 ```
 
-![](/files/imagecf9da7.png)
+[Screenshot on the live page]
 
 ### Monitor progress
 
@@ -276,7 +244,7 @@ When you enable the 'Collect Progress' option by checking the box, it will enabl
 - **Holiday List**: You can select the Holiday List for your company. This will allow you to collect the Progress Reports only on the Working Days.
 - **Frequency**: You can set the frequency at which you wish to get the reports. It can be set to an hourly, twice daily, daily or on a weekly frequency.
 
-![](/files/imagebeb9e1.png)
+[Screenshot on the live page]
 
 ## Related Topics
 
@@ -306,7 +274,7 @@ maintained to serve unexpected demands.
 Having tight control of the projected inventory is crucial to determine
 shortages and to calculate the right order quantity.
 
-![Projected Quantity](/files/projected_quantity.png)
+[Screenshot on the live page: Projected Quantity]
 
 The formula to calculate projected quantity is as follows:
 
@@ -380,45 +348,45 @@ A manufacturing company receives an order to make a **custom metal storage rack*
 
 > Home > Selling  > Sales Order
 
-![](/files/sales_order.png)
+[Screenshot on the live page]
 *Sales order with the Storage Rack*
 
 ### Step 2: **Create the project from the Sales Order**
 
 - After the sales order is submitted, we can create the project from it
-- ![](/files/project from sales order.png)
+- [Screenshot on the live page]
 *Creating project from Sales Order*
 - Once the project is created, the dashboard will be created, which will allow the creation of tasks and timesheets
-- ![](/files/project dashboard.png)
+- [Screenshot on the live page]
 *Project Dashboard*
 
 ### Step 3:  **Creating the Basic Tasks for the project**
 
 - We create separate tasks for the project, like cutting and welding, painting, and final assembly. 
-- ![](/files/taskf4bc2a.png)
+- [Screenshot on the live page]
 *Task for Cutting & welding*
 
 ### **Step 4: Create purchase orders for the raw materials and respective stock entries as well**
 
 - The raw material required for making the Storage rack would be purchased, therefore the purchase order would be made for the same 
-- ![](/files/purchase order.png)
+- [Screenshot on the live page]
 *Purchase order for raw material*
 
 ### Step 5: **Create a timesheet to record the execution of steel sections and paints**
 
 - To maintain the execution of the steel sections and the painting of the storage rack, we create a timesheet 
 - The changes made in this project will reflect the costing and billing details
-- ![](/files/timesheet.png)
+- [Screenshot on the live page]
 *Execution details in timesheet*
 
 ### **Step 6: As the process continues, we update the task with its progress**
 
-![](/files/task status.png)
+[Screenshot on the live page]
 *Task Status *
 
 - Once all the tasks are completed, the project moves into a fully completed state as well
 
-![](/files/completed project.png)
+[Screenshot on the live page]
 *Final Project Status*
 
 <!-- page: erpnext/erpnext__projects__project-settings.md -->
@@ -435,7 +403,7 @@ There are certain settings that are available for the Project module, which allo
 
 The settings available are: 
 
-![](/files/imagee007f5.png)
+[Screenshot on the live page]
 *Project Settings*
 
 ### Ignore Workstation Time Overlap
@@ -492,7 +460,7 @@ Define the business rule in plain language before configuring slabs. Include eli
 8. Set validity, currency, warehouse, and priority when applicable.
 9. Save.
 
-![An ERPNext Promotional Scheme with applicability and party settings.](https://novacompanies.m.frappe.cloud/files/promotional-scheme-form.png)
+[Screenshot on the live page: An ERPNext Promotional Scheme with applicability and party settings.]
 
 Saving the scheme creates linked Pricing Rules. Manage the scheme as the source of the slab configuration instead of editing generated rules independently without understanding the relationship.
 
@@ -614,7 +582,7 @@ The Purchase Order records what the company agreed to buy, the supplier, rate, w
 
 
 
-![Submitted Purchase Order for stock-controlled electronic items](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662878970-01-goods-purchase-order-commitment.png)
+[Screenshot on the live page: Submitted Purchase Order for stock-controlled electronic items]
 
 ### 2. Submit the Purchase Receipt
 
@@ -627,7 +595,7 @@ The Purchase Receipt confirms that the stock has physically arrived. ERPNext inc
 | Stock Received But Not Billed |           | $2,600.00 | The goods have arrived, but the supplier invoice is not yet represented as a confirmed payable. |
 
 
-![General Ledger entries created by the Purchase Receipt](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662879163-02-goods-purchase-receipt-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the Purchase Receipt]
 
 **Stock Received But Not Billed** is a clearing account. It allows the physical receipt and the supplier invoice to be recorded on different dates without losing the liability created by the receipt.
 
@@ -642,7 +610,7 @@ When the supplier invoice is recorded against the Purchase Receipt, ERPNext move
 | Accounts Payable (Creditors)  |           | $2,600.00 | The confirmed amount is now owed to the supplier.                   |
 
 
-![General Ledger entries created by the stock Purchase Invoice](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662879221-03-goods-purchase-invoice-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the stock Purchase Invoice]
 
 The Stock In Hand debit is not repeated on the invoice because the Purchase Receipt already increased inventory. Across the receipt and invoice together, Stock In Hand remains debited and Accounts Payable remains credited, while Stock Received But Not Billed returns to zero.
 
@@ -657,7 +625,7 @@ Submit a Pay-type Payment Entry and allocate it to the Purchase Invoice.
 | Bank                         |           | $2,600.00 | Money leaves the company's bank account.    |
 
 
-![General Ledger entries created by the supplier Payment Entry](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662879279-04-goods-supplier-payment-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the supplier Payment Entry]
 
 The Payment Entry does not increase inventory or recognize the purchase again. Those effects were already recorded by the Purchase Receipt and Purchase Invoice. The payment only settles the supplier liability.
 
@@ -675,7 +643,7 @@ The Purchase Order records the scope, quantity, rate, supplier, and expected com
 
 
 
-![Submitted Purchase Order for externally supplied services](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662879418-05-service-purchase-order-commitment.png)
+[Screenshot on the live page: Submitted Purchase Order for externally supplied services]
 
 ### 2. Submit the Purchase Invoice
 
@@ -688,7 +656,7 @@ When the supplier invoice is accepted, ERPNext recognizes the service expense an
 | Accounts Payable (Creditors)                    |           | $2,000.00 | The company now owes the supplier.            |
 
 
-![General Ledger entries created by the service Purchase Invoice](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662879498-06-service-purchase-invoice-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the service Purchase Invoice]
 
 Choose the expense account that describes the service and supports useful reporting. For example, legal work may use Legal Expenses, rent may use Office Rent, and outsourced implementation may use Professional Services or an appropriate project expense account.
 
@@ -703,7 +671,7 @@ The supplier payment has the same basic effect as it does for a stock purchase.
 | Bank                         |           | $2,000.00 | The bank balance decreases.        |
 
 
-![General Ledger entries created by the service supplier payment](https://novacompanies.m.frappe.cloud/files/purchase-cycle-ledger-1785662879568-07-service-supplier-payment-ledger.png)
+[Screenshot on the live page: General Ledger entries created by the service supplier payment]
 
 ## Compare the two workflows
 
@@ -765,7 +733,7 @@ Nova Industries receives a supplier bill from Apex Components, its regular parts
 4. Set the correct default payable account on the Supplier or Company if the wrong account keeps returning.
 5. Save and submit the invoice again.
 
-![Purchase Invoice with the complete Credit To field highlighted](https://novacompanies.m.frappe.cloud/files/purchase-invoice-credit-to-v2.png)
+[Screenshot on the live page: Purchase Invoice with the complete Credit To field highlighted]
 
 
 

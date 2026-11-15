@@ -32,7 +32,7 @@ Go to **Accounting &gt; Taxes &gt; Tax Withholding Category**, then select **New
 
 
 
-![Tax Withholding Category list](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-tax-withholding-category-list.png)
+[Screenshot on the live page: Tax Withholding Category list]
 
 Enter a specific name, such as **Professional Services Withholding**. In **Category Name**, describe the income or payment class covered by the rule.
 
@@ -49,7 +49,7 @@ The correct basis depends on the applicable law. Verify it with your accountant.
 
 
 
-![Withholding basis and threshold controls](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-tax-withholding-category-overview.png)
+[Screenshot on the live page: Withholding basis and threshold controls]
 
 ## Add rates and thresholds
 
@@ -57,7 +57,7 @@ In **Rates**, add one row for every effective date range and rate combination. S
 
 
 
-![Open the withholding-rate child row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-tax-withholding-rate-row.png)
+[Screenshot on the live page: Open the withholding-rate child row]
 
 Complete these fields:
 
@@ -71,7 +71,7 @@ Complete these fields:
 | Cumulative Threshold  | The combined amount at which transactions in the applicable period trigger withholding      |
 
 
-![Effective dates, rate, and withholding thresholds](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-tax-withholding-rate-fields.png)
+[Screenshot on the live page: Effective dates, rate, and withholding thresholds]
 
 Current ERPNext uses **From Date** and **To Date** rather than the older Fiscal Year field. Keep date ranges continuous when the same category spans several periods.
 
@@ -102,13 +102,13 @@ In **Accounts**, add each company and the Account Head where withholding will be
 
 
 
-![Open the company-account child row](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-tax-withholding-account-row.png)
+[Screenshot on the live page: Open the company-account child row]
 
 Select the company and its matching account. The account must belong to that company.
 
 
 
-![Company and withholding account](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-tax-withholding-account-fields.png)
+[Screenshot on the live page: Company and withholding account]
 
 For supplier withholding, the account is normally a liability representing tax withheld and payable to the authority. Confirm its root type and reporting position with your accountant.
 
@@ -118,7 +118,7 @@ Open the Supplier and go to the **Tax** tab. Select the Tax Withholding Category
 
 
 
-![Tax Withholding Category assigned to a supplier](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-supplier-tax-withholding.png)
+[Screenshot on the live page: Tax Withholding Category assigned to a supplier]
 
 Use **Tax Withholding Group** when one category has group-specific rate rows, such as different rates for organizations and individuals. The supplier's group helps ERPNext select the matching rate row inside the category.
 
@@ -128,7 +128,7 @@ Create a [Purchase Invoice](/erpnext/purchase-invoice) for the supplier. ERPNext
 
 
 
-![Consider a Purchase Invoice for tax withholding](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-purchase-invoice-consider-withholding.png)
+[Screenshot on the live page: Consider a Purchase Invoice for tax withholding]
 
 When selected, ERPNext evaluates the category, effective rate, group, basis, thresholds, and earlier relevant transactions. In the example:
 
@@ -144,13 +144,13 @@ ERPNext adds the $40 as a deduction in Purchase Taxes and Charges.
 
 
 
-![Withholding deducted from the Purchase Invoice total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-purchase-invoice-withholding-result.png)
+[Screenshot on the live page: Withholding deducted from the Purchase Invoice total]
 
 The **Tax Withholding Entries** table records the category, taxable base, rate, amount, and source document. Use it to understand the calculation rather than relying only on Grand Total.
 
 
 
-![Detailed withholding entry on the Purchase Invoice](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-purchase-invoice-withholding-entry.png)
+[Screenshot on the live page: Detailed withholding entry on the Purchase Invoice]
 
 On submission, a simple expense invoice normally debits the expense, credits the supplier payable for the net amount, and credits the withholding liability for the withheld amount. Review the [General Ledger](/erpnext/general-ledger) because actual postings depend on the transaction and accounts.
 
@@ -165,11 +165,11 @@ Withholding may be due when an advance is paid against a [Purchase Order](/erpne
 5. Confirm the Tax Withholding Category.
 6. Save and review the generated Tax Withholding Entry before submission.
 
-![Apply withholding to a supplier advance in Payment Entry](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-payment-entry-consider-withholding.png)
+[Screenshot on the live page: Apply withholding to a supplier advance in Payment Entry]
 
 
 
-![Withholding entry calculated for the supplier advance](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-tax-withholding-category-payment-entry-withholding-entry.png)
+[Screenshot on the live page: Withholding entry calculated for the supplier advance]
 
 When the Purchase Invoice is created later, allocate the advance through the normal advance-allocation workflow. ERPNext uses the withholding entries to determine whether additional tax remains. Test this workflow with your jurisdiction's rules because timing requirements differ.
 
@@ -296,7 +296,7 @@ Create categories that describe the treatment, not a single transaction. Example
 
 
 
-![The Standard Tax category in ERPNext](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-tax-category.png)
+[Screenshot on the live page: The Standard Tax category in ERPNext]
 
 If a category should no longer be selected, enable **Disabled** instead of deleting a record already referenced by transactions.
 
@@ -306,13 +306,13 @@ Create a Sales Taxes and Charges Template for taxes collected from customers. Se
 
 
 
-![A reusable 8 percent sales tax template](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-sales-tax-template.png)
+[Screenshot on the live page: A reusable 8 percent sales tax template]
 
 Create a separate purchase template for taxes charged by suppliers. Use the input tax account when the tax is recoverable. When it is not recoverable, decide with your accountant whether it should affect valuation or an expense account. See [Include Tax or Charge in Valuation or Total?](/erpnext/include-tax-or-charge-in-valuation-or-total) for the available treatments.
 
 
 
-![A reusable 5 percent purchase tax template](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-purchase-tax-template.png)
+[Screenshot on the live page: A reusable 5 percent purchase tax template]
 
 Mark a template as default only if it applies to most transactions for that company. Otherwise, let a Tax Rule select it or choose it manually.
 
@@ -324,7 +324,7 @@ In this example, a sales rule applies the **Nova Standard Sales Tax 8%** templat
 
 
 
-![A Tax Rule that selects the standard sales tax template](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-sales-tax-rule.png)
+[Screenshot on the live page: A Tax Rule that selects the standard sales tax template]
 
 Keep rules mutually exclusive where possible. If more than one rule can match, use a clear priority and non-overlapping conditions. When troubleshooting, check the transaction date and every condition on the rule, not only the Tax Category.
 
@@ -338,7 +338,7 @@ In the example below, an invoice with a net total of $699 uses an 8% output tax 
 
 
 
-![Tax category, template, row calculation, and invoice totals](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-sales-invoice-tax-row.png)
+[Screenshot on the live page: Tax category, template, row calculation, and invoice totals]
 
 Do not rely only on the template name. Confirm the account, rate, taxable basis, and amount on the transaction. A user can change a draft transaction, and a category or rule can select a different template from the one expected.
 
@@ -346,7 +346,7 @@ After submission, the calculated amount becomes part of the accounting entry.
 
 
 
-![Submitted Sales Invoice tax and grand total](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-submitted-sales-invoice-tax-total.png)
+[Screenshot on the live page: Submitted Sales Invoice tax and grand total]
 
 ## Understand the General Ledger impact
 
@@ -360,7 +360,7 @@ For the example sale, ERPNext posts the following entries:
 | Output Sales Tax Payable |         | $55.92  | Tax collected and owed to the tax authority |
 
 
-![General Ledger entries for the taxed Sales Invoice](https://novacompanies.m.frappe.cloud/files/docs-tax-compliance-20260803-taxes-compliance-taxes-overview-sales-tax-general-ledger.png)
+[Screenshot on the live page: General Ledger entries for the taxed Sales Invoice]
 
 On a purchase with recoverable input tax, ERPNext normally debits the input tax asset and credits the supplier for the tax-inclusive total. The exact entries depend on the selected accounts, perpetual inventory, and whether the tax affects valuation.
 
@@ -452,9 +452,9 @@ You will need the API tokens from your account to setup Taxjar.
 
 1. Create a [Taxjar account](https://www.taxjar.com/) first as per your requirements.
 2. Login to your account dashboard and click on the **Account** button and click on **TaxJar API** in the dropdown list of options.
-  ![](/files/CjhmW8k.png)
+  [Screenshot on the live page]
 3. You will now see your API tokens, these tokens would be needed to configure your ERPNext TaxJar integration.
-  ![](/files/FVvmUN1.png)
+  [Screenshot on the live page]
 
 ### Adding Nexus and states in TaxJar:
 
@@ -478,17 +478,17 @@ Please follow detailed instructions given on the official TaxJar page [here](htt
 
 From the Desktop click on the '**TaskJar**' icon. This will redirect you to the TaxJar Workspace.
 
-![](/files/image8570fc.png)
+[Screenshot on the live page]
 *Frappe Desktop with TaxJar desktop icon*
 
 Click on '**TaxJar Settings**'. This is where you configure your TaxJar integration in ERPNext.
 
-![](/files/image3844e2.png)
+[Screenshot on the live page]
 *TaxJar Workspace*
 
 Fill
 
-![](/files/image37c2c5.png)
+[Screenshot on the live page]
 *TaxJar Settings Form View*
 
 
@@ -502,19 +502,19 @@ TaxJar provides a sandbox environment for automated testing and development. Aft
 - When Enable TaxJar Logging is checked in **TaxJar Settings**, TaxJar requests/responses/skips/errors are written to TaxJar API Log and file logs.
 - When Enable TaxJar Logging is unchecked, tax logic still runs, but no new TaxJar log entries are written.
 
-![](/files/image1b3264.png)
+[Screenshot on the live page]
 *TaxJar API Log List View*
 
 Payload and responsed a stored in the Log,
 
-![](/files/image233747.png)
+[Screenshot on the live page]
 *TaxJar API Log Form View*
 
 **Setting up tokens and account heads:**
 
 1. Enable Tax Calculation, Create TaxJar Transaction:
 2. You need to enable these options for auto tax calculations and these transactions would appear on your TaxJar account transactions page where you can track them and analyse the tax breakdowns.
-3. Once you've made some transactions, they would automatically appear on your TaxJar **Transactions** page:![](/files/o54QVVm.gif)
+3. Once you've made some transactions, they would automatically appear on your TaxJar **Transactions** page:[Screenshot on the live page]
 4. You can check out all the transactions made and the detailed tax breakdowns.
 5. Copy the API tokens from your TaxJar account as directed above and paste it in the **Live API Key** and **Sandbox API key field.**
 6. You will have to set two account heads for Taxes and Shipping, select the accounts as required and once everything has been configured, click on save and you are good to go!
@@ -526,7 +526,7 @@ For the integration to work seamlessly please make sure you have created correct
 **Note:**
 
 1. While creating an address, make sure in the **State/Province** field you enter the correct state. TaxJar requires the 2 letter format for the states for ex. New York is considered as NY, but it **need not be** mandatorily entered that way, the system converts it to the 2-letter state code automatically.
-  ![](/files/image2b9f56.png)
+  [Screenshot on the live page]
   *Address Form View*
 2. You may check the **Preferred Billing Address** and **Preferred Shipping Address** checkboxes to auto-fill those fields in different invoices and avoid the hassle.
 3. Ensure that you have correctly filled the **City/Town, State/Province, Country, Postal Code** fields.
@@ -536,7 +536,7 @@ For the integration to work seamlessly please make sure you have created correct
 
 In this instance we have a company that is based out in **New York** and we are issuing a Sales Invoice to a customer based within the same state.
 
-![](/files/SvGCGB3.gif)
+[Screenshot on the live page]
 
 As you see, the taxes and charges based on the state and pincode gets applied automatically on saving.
 
@@ -556,30 +556,30 @@ To setup ***TDS*** in ERPNext follow below steps:
 
 * First you have to define Tax withholding categories, by default 28 categories are already pre-defined as per Indian statutory compliances. But if you want to add new category then you can create the same by clicking on "New"(button at right top corner)
 
-![](/files/Oq1mP48.png)  
+[Screenshot on the live page]  
 
 
 * As per category you have to define Tax withholding rate along with "Single Transaction Threshold" & "Cumulative Transaction Threshold" for Financial/Fiscal year.
 
-![](/files/MELGDIu.png)  
+[Screenshot on the live page]  
 
 
 * In same screen you will find another section of "Account Detail" to set company-wise TDS Payable account.
 
-![](/files/IIB6N8R.png)  
+[Screenshot on the live page]  
 
 
 * Once you are done with Tax withholding setup go to Supplier master and assign Tax withholding category.
 
-![](/files/aThoNuR.png)  
+[Screenshot on the live page]  
 
 
 * Now when you create a Purchase invoice against that supplier make sure "Apply Tax withholding Amount" is checked then only system will auto fetch TDS Payable amount in "Taxes & Charges" table based on Threshold you have defined.
 
-![](/files/zyZdwsr.png)  
+[Screenshot on the live page]  
 
 
-![](/files/XUJEgQ7.png)  
+[Screenshot on the live page]  
 
 
 Standard report is also available to check monthly payable, just search for "TDS payable monthly" report for the same.
@@ -615,7 +615,7 @@ ERPNext copies the selected template into the transaction. Users can review or e
 6. Enter and format the approved wording in **Terms and Conditions**.
 7. Save the template.
 
-![ERPNext Terms and Conditions template with module and attachment controls highlighted](https://novacompanies.m.frappe.cloud/files/template6d9024.png)
+[Screenshot on the live page: ERPNext Terms and Conditions template with module and attachment controls highlighted]
 
 The example is limited to Selling and contains reusable commercial terms for Nova Electronics Trading. 
 
@@ -629,7 +629,7 @@ The example is limited to Selling and contains reusable commercial terms for Nov
 4. Review the copied text in **Terms and Conditions Details**.
 5. Edit transaction-specific details when permitted, then save the document.
 
-![Sales Order Terms tab with the Terms template field highlighted](https://novacompanies.m.frappe.cloud/files/sales-order-termsdec98f.png)
+[Screenshot on the live page: Sales Order Terms tab with the Terms template field highlighted]
 
 The highlighted field selects Nova Standard Sales Terms. ERPNext copies the template content below it, where the terms can be reviewed before the document is submitted.
 
@@ -707,7 +707,7 @@ Once terms are present in a transaction, they can appear in its print view, PDF,
 4. Review the Terms and Conditions section.
 5. Print the document or generate its PDF.
 
-![ERPNext Sales Order print preview showing the Terms and Conditions section](https://novacompanies.m.frappe.cloud/files/print-preview7724b8.png)
+[Screenshot on the live page: ERPNext Sales Order print preview showing the Terms and Conditions section]
 
 The preview shows the commercial terms after the Sales Order totals. Always inspect the final document before sending it to the Customer.
 

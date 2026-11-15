@@ -51,7 +51,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to Home > Accounting > Accounting Masters > Fiscal Year
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-27.md` lines 341–410  (https://docs.frappe.io/erpnext/fiscal-year)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-26.md` lines 595–664  (https://docs.frappe.io/erpnext/fiscal-year)
 
 ### Set up the chart of accounts
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Chart of Accounts**, or type *Chart of Accounts* in the search bar at the top
@@ -82,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Edit the series as required with unique prefixes for each series
   3. If you want the user to explicitly select a series instead of the default one, check the “User must always select” checkbox
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-38.md` lines 616–698  (https://docs.frappe.io/erpnext/naming-series)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-38.md` lines 472–554  (https://docs.frappe.io/erpnext/naming-series)
 
 ### Add a letter head
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Printing > Letter Head**, or type *Letter Head* in the search bar at the top
@@ -90,7 +90,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Letter Head list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-35.md` lines 216–270  (https://docs.frappe.io/erpnext/letter-head)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 526–580  (https://docs.frappe.io/erpnext/letter-head)
 
 ### Connect an email account
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Email > Email Account**, or type *Email Account* in the search bar at the top
@@ -98,7 +98,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Email Account list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-24.md` lines 3–129  (https://docs.frappe.io/erpnext/email-account)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-23.md` lines 236–362  (https://docs.frappe.io/erpnext/email-account)
 
 ### Create an email template
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Email > Email Template**, or type *Email Template* in the search bar at the top
@@ -106,17 +106,17 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Email Template list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-24.md` lines 464–506  (https://docs.frappe.io/erpnext/email-template)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-23.md` lines 697–739  (https://docs.frappe.io/erpnext/email-template)
 
 ### Change system settings
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > System**, or type *System Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 540–698  (https://docs.frappe.io/erpnext/system-settings)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 464–622  (https://docs.frappe.io/erpnext/system-settings)
 
 ### Set global defaults
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > Global Defaults**, or type *Global Defaults* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-28.md` lines 252–344  (https://docs.frappe.io/erpnext/global-defaults)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-27.md` lines 434–526  (https://docs.frappe.io/erpnext/global-defaults)
 
 ### Assign documents automatically
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Automation > Assignment Rule**, or type *Assignment Rule* in the search bar at the top
@@ -146,7 +146,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. The completion date of a Task
   2. Expected Delivery Date of a Sales Order
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-39.md` lines 3–229  (https://docs.frappe.io/erpnext/notifications)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-38.md` lines 716–942  (https://docs.frappe.io/erpnext/notifications)
 
 ## What cannot be done in the interface
 

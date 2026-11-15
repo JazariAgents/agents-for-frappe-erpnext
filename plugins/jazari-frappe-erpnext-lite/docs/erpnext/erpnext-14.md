@@ -74,7 +74,7 @@ Confirm that:
 3. Enable **Enable Common Party Accounting**.
 4. Save Accounts Settings.
 
-![Accounts Settings with Enable Common Party Accounting highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-enable-common-party-accounting.png)
+[Screenshot on the live page: Accounts Settings with Enable Common Party Accounting highlighted]
 
 The setting applies to the site. There is no separate invoice-level switch to suppress the automatic adjustment while the feature is active. Enable it only after the policy and test results are approved.
 
@@ -92,7 +92,7 @@ If the Supplier already exists:
 2. Select **Actions &gt; Link with Customer**.
 3. Select or create the matching Customer.
 
-![Supplier Actions menu with Link with Customer highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-link-supplier-with-customer.png)
+[Screenshot on the live page: Supplier Actions menu with Link with Customer highlighted]
 
 If the Customer already exists, open it and select **Actions &gt; Link with Supplier** instead.
 
@@ -100,7 +100,7 @@ ERPNext creates a Party Link. Review the roles and parties carefully because the
 
 
 
-![Party Link connecting Vertex Components as Supplier and Customer](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-party-link.png)
+[Screenshot on the live page: Party Link connecting Vertex Components as Supplier and Customer]
 
 
 | Field           | Meaning                                                                                        |
@@ -119,7 +119,7 @@ After submission, the $800 Sales Invoice has an outstanding amount of $0 because
 
 
 
-![Sales Invoice with zero outstanding amount after Common Party Accounting](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-sales-invoice-paid-by-common-party.png)
+[Screenshot on the live page: Sales Invoice with zero outstanding amount after Common Party Accounting]
 
 ERPNext creates and submits a system-generated Journal Entry:
 
@@ -130,7 +130,7 @@ ERPNext creates and submits a system-generated Journal Entry:
 | Creditors, Supplier Vertex Components | $800  | $0     | Creates an unallocated Supplier advance. |
 
 
-![System-generated Journal Entry for the linked Customer and Supplier](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-generated-common-party-journal-entry.png)
+[Screenshot on the live page: System-generated Journal Entry for the linked Customer and Supplier]
 
 Review the generated entry before reconciliation. Confirm the Company, parties, Accounts, amounts, invoice reference, currencies, and posting date. The Journal Entry number may appear in the [General Ledger](https://docs.frappe.io/erpnext/general-ledger) because it is the voucher that performs the cross-party adjustment.
 
@@ -144,18 +144,18 @@ The generated primary-party amount is an advance until it is allocated. Use [Pay
 4. Select **Get Unreconciled Entries**.
 5. Select the invoice and Journal Entry rows.
 
-![Purchase Invoice and generated Journal Entry ready for Supplier reconciliation](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-reconcile-supplier-advance.png)
+[Screenshot on the live page: Purchase Invoice and generated Journal Entry ready for Supplier reconciliation]
 
 6. Select **Allocate**.
 7. Review the allocation amount, then select **Reconcile**.
 
-![Common Party allocation ready to reconcile](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-review-common-party-allocation.png)
+[Screenshot on the live page: Common Party allocation ready to reconcile]
 
 In the example, the $800 advance reduces the $1,200 Purchase Invoice to an outstanding amount of $400.
 
 
 
-![Purchase Invoice with $400 outstanding after Common Party reconciliation](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-common-party-accounting-purchase-invoice-after-common-party-reconciliation.png)
+[Screenshot on the live page: Purchase Invoice with $400 outstanding after Common Party reconciliation]
 
 ## Important behavior
 
@@ -237,7 +237,7 @@ The **Debit To** field on a Sales Invoice shows the receivable control account u
 
 
 
-![Sales Invoice accounting details showing the shared Debit To receivable account](https://novacompanies.m.frappe.cloud/files/sales-receivables-common-receivable-account-sales-invoice-debit-to.png)
+[Screenshot on the live page: Sales Invoice accounting details showing the shared Debit To receivable account]
 
 ## How customer balances remain separate
 
@@ -314,7 +314,7 @@ Open **Company**, select the company, and go to the **Accounts** tab.
 | Default Bank Account       | Bank payments and receipts when no more specific account is selected |
 
 
-![Company party account defaults](/files/company-default-party-accounts.webp)
+[Screenshot on the live page: Company party account defaults]
 
 Party-specific accounts on a Customer or Supplier can override the company defaults. A Mode of Payment can also supply a payment account.
 
@@ -322,7 +322,7 @@ Party-specific accounts on a Customer or Supplier can override the company defau
 
 Set the normal income account, expense account, and Cost Center for the company.
 
-![Company income and expense defaults](/files/company-default-income-expense.webp)
+[Screenshot on the live page: Company income and expense defaults]
 
 ERPNext normally resolves transaction defaults from the most specific source available. Item, Item Group, Warehouse, Customer, Supplier, and transaction values can take precedence over company defaults.
 
@@ -340,7 +340,7 @@ Set accounts used for write-offs, exchange differences, and rounding.
 | Round Off Cost Center                 | Cost Center used for the rounding entry                              |
 
 
-![Company adjustment account defaults](/files/company-default-adjustment-accounts.webp)
+[Screenshot on the live page: Company adjustment account defaults]
 
 ## Other company accounting defaults
 
@@ -387,7 +387,7 @@ Confirm the legal name, abbreviation, country, default currency, chart of accoun
 
 1. Open the Company tree view. Select **New** to create an independent Company, or select a group and use **Add Child** to create a subsidiary under it.
 
-![Company tree showing Nova Group, its two child companies, and Nova Industries](https://novacompanies.m.frappe.cloud/files/setup-20260814-company-tree.png)
+[Screenshot on the live page: Company tree showing Nova Group, its two child companies, and Nova Industries]
 
 
 
@@ -396,7 +396,7 @@ Confirm the legal name, abbreviation, country, default currency, chart of accoun
 4. Select a Parent Company when the entity belongs to a group structure.
 5. Save the Company and review the accounts, buying, selling, stock, manufacturing, and payroll defaults created for it.
 
-![Nova Industries Company form showing identity, currency, country, and parent-company fields](https://novacompanies.m.frappe.cloud/files/setup-20260814-company-form.png)
+[Screenshot on the live page: Nova Industries Company form showing identity, currency, country, and parent-company fields]
 
 
 
@@ -471,27 +471,27 @@ The need is to create naming series which is company-specific for documents such
 
 2) Next, below the field of Company, add another field and name it 'Abbr'. Add `company.abbr` in its Fetch From input.
 
-![](/files/3mLkrQs.png)  
+[Screenshot on the live page]  
 
 
 Also, keep this field hidden (if needed).
 
-![](/files/w6DS7FY.png)  
+[Screenshot on the live page]  
 
 
 3) Now, in the Customize Form itself, go to the Naming Series row and expand it. In the Options box, add another entry in new line (taking Sales Invoice as example) `SINV-.abbr.-.####` and set this as default.
 
-![](/files/WAE0FQA.png)  
+[Screenshot on the live page]  
 
 
-![](/files/2GJ5YLM.png)  
+[Screenshot on the live page]  
 
 
 Once this is done, click on Update.
 
 Now, go to Sales Invoice and create one. Select the Company and the Naming Series will be updated automatically based on the company's abbreviation.
 
-![](/files/PrEgDa7.png)  
+[Screenshot on the live page]  
 
 
   
@@ -809,7 +809,7 @@ updated: "2026-03-04"
 
 The 'Reply-To' Email Address is set based on the 'Default Incoming' checkbox in the required Email Account.
 
-![](/files/ywBv6dX.png)
+[Screenshot on the live page]
 
 Prerequisites:
 
@@ -819,7 +819,7 @@ Steps:
 
 In the record for email address ‘[abc@test.com](mailto:abc@test.com)' created in the 'Email Account' DocType, enable the 'Enable Incoming' checkbox and then the 'Default Incoming' checkbox. Enabling the 'Default Incoming' checkbox will then set this email as the email in 'Reply-To' (sample screenshot below).
 
- ![](/files/r5jqCdA.png)
+ [Screenshot on the live page]
 
 For more information on Email Accounts, please click [here](/erpnext/email-account).
 
@@ -835,7 +835,7 @@ To access the Issued Items Against Work Order, go to:
 
 > Home > Manufacturing > Reports > Issued Items Against Work Order
 
-![Task](/files/items-against-wo.png)  
+[Screenshot on the live page: Task]  
 
 
 Items that are issued against a Work Order and are transferred to the Work in Progress Warehouse are shown in this report.
@@ -862,7 +862,7 @@ To access the Contract list, go to:
 - Go to the Contract list and select New.
 - Choose the Customer.
 - Enter the Contract Terms. A template can also be created for easily fetching the terms.
-- Save.[Contract](/files/contract.png)
+- Save.Contract (picture on the live page)
 
 **Party User**: The employee from your Company who is in contact with the Customer.
 
@@ -882,7 +882,7 @@ The Start and End date within which the Contract is valid.
 
 This section will appear when the 'Signed' checkbox is ticked to indicate that the Customer has signed and accepted the Contract.
 
-![Contract Signee](/files/contract-signee.png)
+[Screenshot on the live page: Contract Signee]
 
 - **Signee**: Enter the name of the person that has signed the Contract.
 - **Signed On**: The date on which the Contract was signed.
@@ -895,7 +895,7 @@ Enter the terms of the Contract in the Contract Terms field. You can create a Co
 
 If the Contract requires some fulfilment from the Supplier's (your) end, their details can be recorded in the Fulfilment Terms table.
 
-![Contract Fulfilment](/files/contract-fulfilment.png)
+[Screenshot on the live page: Contract Fulfilment]
 
 - **Requirement**: Enter a requirement that needs to be fulfiled. For example, 'installation'.
 - **Notes**: Any notes about the requirement can be entered here.
@@ -910,7 +910,7 @@ You can create templates by using Jinja. Eg:
 
 The parties enter into this contract on {{ start_date }}.When you create a new contract using this template, the {{ start_date }} is replaced by the date entered into the field of the same name.
 
-![Contract Template](/files/contract-template-jinja.gif)
+[Screenshot on the live page: Contract Template]
 
 ### References
 
@@ -923,7 +923,7 @@ If the Contract can be linked to a transaction in ERPNext. Select the transactio
 - Sales Invoice
 - Purchase Invoice
 
-![Contract References](/files/contract-reference.png)
+[Screenshot on the live page: Contract References]
 
 ### Related Topics
 
@@ -952,7 +952,7 @@ Let's say, you have a list of items saved in an Excel sheet, and you need to cop
 
 * Prepare the source data in Excel or text editor with each column separated by a tab.
 
- ![Copy Pasting](/files/using-copy-paste-1.png)
+ [Screenshot on the live page: Copy Pasting]
 
 * Drag to select the records, and click the copy menu button or by Ctrl + C (Cmd + C) for
 
@@ -960,11 +960,11 @@ Let's say, you have a list of items saved in an Excel sheet, and you need to cop
 
  Case 2. When there is no defined column header, the data will be mapped to the visible columns.
 
- ![Copy Pasting](/files/using-copy-paste-4.png)
+ [Screenshot on the live page: Copy Pasting]
 
 * Place the cursor to the target input field of the child table, and paste it. Unlike the import via upload file feature, this copy & paste feature will trigger field change events automatically.
 
- ![Copy Pasting](/files/using-copy-paste-3.gif)
+ [Screenshot on the live page: Copy Pasting]
 
 For performance consideration, you should only paste less than or equal to 100 records at a time.
 

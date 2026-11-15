@@ -9,22 +9,22 @@ Every row was confirmed against an official Frappe documentation page fetched on
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
-| `crm.lead` | Capture leads | api | yes | reversible | `docs/crm/crm-02.md` lines 672–750 | https://docs.frappe.io/crm/lead |
+| `crm.lead` | Capture leads | api | yes | reversible | `docs/crm/crm-02.md` lines 637–715 | https://docs.frappe.io/crm/lead |
 | `crm.deal` | Move deals through the pipeline | api | yes | reversible | `docs/crm/crm-01.md` lines 1069–1144 | https://docs.frappe.io/crm/deal |
-| `crm.task` | Track CRM tasks | api | yes | reversible | `docs/crm/crm-03.md` lines 196–236 | https://docs.frappe.io/crm/task |
-| `crm.note` | Keep notes on a deal | api | yes | reversible | `docs/crm/crm-02.md` lines 822–859 | https://docs.frappe.io/crm/note |
-| `crm.organization` | Track organizations | api | yes | reversible | `docs/crm/crm-02.md` lines 897–926 | https://docs.frappe.io/crm/organization |
-| `crm.emailtemplate` | Reply with email templates | browser | yes | reversible | `docs/crm/crm-02.md` lines 3–36 | https://docs.frappe.io/crm/email-template |
+| `crm.task` | Track CRM tasks | api | yes | reversible | `docs/crm/crm-03.md` lines 149–189 | https://docs.frappe.io/crm/task |
+| `crm.note` | Keep notes on a deal | api | yes | reversible | `docs/crm/crm-02.md` lines 781–818 | https://docs.frappe.io/crm/note |
+| `crm.organization` | Track organizations | api | yes | reversible | `docs/crm/crm-02.md` lines 856–885 | https://docs.frappe.io/crm/organization |
+| `crm.emailtemplate` | Reply with email templates | browser | yes | reversible | `docs/crm/crm-01.md` lines 1216–1249 | https://docs.frappe.io/crm/email-template |
 | `crm.telephony` | Log calls against a deal | browser | yes | reversible | `docs/crm/crm-01.md` lines 42–90 | https://docs.frappe.io/crm/call-log |
-| `crm.sla` | Set a CRM service level agreement | browser | yes | reversible | `docs/crm/crm-03.md` lines 3–48 | https://docs.frappe.io/crm/service-level-agreement |
+| `crm.sla` | Set a CRM service level agreement | browser | yes | reversible | `docs/crm/crm-02.md` lines 1019–1064 | https://docs.frappe.io/crm/service-level-agreement |
 | `crm.status` | Customize deal statuses | browser | yes | reversible | `docs/crm/crm-01.md` lines 878–1049 | https://docs.frappe.io/crm/custom-statuses |
 | `crm.webform` | Capture leads from a web form | browser | yes | reversible | `docs/crm/crm-01.md` lines 92–176 | https://docs.frappe.io/crm/capturing-leads/web-form |
-| `crm.team` | Invite your sales team | browser | yes | reversible | `docs/crm/crm-02.md` lines 573–603 | https://docs.frappe.io/crm/inviting-your-team |
-| `crm.whatsapp` | Message a contact on WhatsApp | browser | yes | irreversible | `docs/crm/crm-03.md` lines 373–439 | https://docs.frappe.io/crm/whatsapp |
-| `crm.opportunity` | Work an opportunity in ERPNext | api | yes | reversible | `docs/erpnext/erpnext-39.md` lines 762–851 | https://docs.frappe.io/erpnext/opportunity |
+| `crm.team` | Invite your sales team | browser | yes | reversible | `docs/crm/crm-02.md` lines 538–568 | https://docs.frappe.io/crm/inviting-your-team |
+| `crm.whatsapp` | Message a contact on WhatsApp | browser | yes | irreversible | `docs/crm/crm-03.md` lines 326–392 | https://docs.frappe.io/crm/whatsapp |
+| `crm.opportunity` | Work an opportunity in ERPNext | api | yes | reversible | `docs/erpnext/erpnext-39.md` lines 534–623 | https://docs.frappe.io/erpnext/opportunity |
 | `crm.campaign` | Run a campaign | browser | yes | reversible | `docs/erpnext/erpnext-12.md` lines 504–580 | https://docs.frappe.io/erpnext/campaign |
-| `crm.emailcampaign` | Send an email campaign | browser | yes | irreversible | `docs/erpnext/erpnext-24.md` lines 131–224 | https://docs.frappe.io/erpnext/email-campaign |
-| `crm.newsletter` | Send a newsletter | browser | yes | irreversible | `docs/erpnext/erpnext-38.md` lines 700–757 | https://docs.frappe.io/erpnext/newsletter |
+| `crm.emailcampaign` | Send an email campaign | browser | yes | irreversible | `docs/erpnext/erpnext-23.md` lines 364–457 | https://docs.frappe.io/erpnext/email-campaign |
+| `crm.newsletter` | Send a newsletter | browser | yes | irreversible | `docs/erpnext/erpnext-38.md` lines 556–613 | https://docs.frappe.io/erpnext/newsletter |
 
 ## Version notes
 

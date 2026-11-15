@@ -1,306 +1,5 @@
 <!-- Frappe documentation: frappe-hr, part 9 of 10. Index: docs/INDEX.md -->
 
-<!-- page: frappe-hr/hr__salary-component.md -->
----
-title: "Salary Component"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/salary-component"
-updated: "2026-06-24"
----
-
-**Salaries are paid by organizations to their employees in exchange for the services rendered by them. The different components that make up the Salary Structure are called as Salary Components.**
-
-Salary paid to the employees comprises of several different components, such as basic salary, allowances, arrears, etc. Frappe HR allows you to define these Salary Components and also specify its various attributes.
-
-To access Salary Component, go to: > Home > Human Resources > Payroll > Salary Component
-
-## **1. How to create a Salary Component**
-
-To create a new Salary Component:
-
-1. Go to Salary Component list, click on New.
-2. Enter its Name and Abbreviation.
-3. Enter Description of the Salary Component (optional).
-4. Enter the Company name and the Default Account of the Salary Component in the Accounts table.
-5. Save.
-
-![](https://frappehr.com/files/of1TI53.png)
-
-## **2. Features**
-
-Apart from the above mentioned mandatory fields, some of the additional features of the Salary Component are given below:
-
-### **2.1 Condition and Formula**
-
-In this section, the Condition and Formula required for the calculation of the Salary Component can be specified. To specify the formula, enable the 'Amount based on formula' checkbox.
-
-![](https://frappehr.com/files/QoxdTZF.png)
-
-
-
-You can sync updated Condition and Formula values of a Salary Component with existing Salary Structures, where the Component is being used, with the Update Salary Structures button.
-
-![](https://frappehr.com/files/sgRLa11.png)
-
-
-
-In case the Salary Component is based on a pre-defined amount, Frappe HR allows you to directly enter the amount in the Amount field (disable the 'Amount based on formula' checkbox).
-
-You can also use some mathematical/date functions while writing formulae.
-
-```
-# Consider a component `basic` with amount as 1220.32 as an example:
-
-# int - cast the amount as int
-int(basic) # evaluates to 1220
-
-# flt - cast the amount as flt
-flt(basic, 1) # evaluates to 1220.3
-
-# round - rounds the amount (Banker's Rounding)
-round(basic) # evaluates to 1220
-
-# rounded - rounds the amount based on System Settings or passed method (Banker's Rounding or Commercial Rounding)
-# If basic is 1220.5
-round(1220.5) # evaluates to 1220
-rounded(1220.5, rounding_method="Banker's Rounding") # evaluates to 1220
-rounded(1220.5, rounding_method="Commercial Rounding") # evaluates to 1221
-
-# ceil - rounds the number up to the nearest integer
-ceil(basic) # evaluates to 1221
-
-# floor - rounds the number down to the nearest integer
-floor(basic) # evaluates to 1220
-
-# getdate/date - casts the value `start_date` to a `datetime.date` object
-# eg: Professional Tax is 300 in February and 200 in every other month. `start_date` takes up the value of salary slip's `start_date`
-# In that case the condition can be written as given below:
-
-300 if getdate(start_date).month == 2 else 200
-
-  
-
-```
-
-> **Note:** This above setup is optional. You can define Amount and Formula/Condition for a Salary Component directly in the Salary Structure also. If they are specified in the Salary Component document itself, the information will be directly fetched in the Salary Structure when the Component is selected.
-
-### **2.2 Additional Properties**
-
-Some of the additional attributes of the Salary Component that can be enabled using checkboxes are as follows:
-
-- **Is Payable:** Select this if the Salary Component is payable.
-- **Depends on Payment Days:** If this checkbox is enabled then the Salary Component will be calculated based on the number of working days.
-- **Is Tax Applicable:** This checkbox is applicable for Earning Components. Selecting this checkbox allows tax to be applied on this Salary Component.
-- **Deduct Full Tax on Selected Payroll Date:** If checked and the component is used in Additional Salary, the tax amount applicable on the additional amount will be deducted on the specific payroll month. If not checked, the tax will be distributed over the remaining months of the payroll period. For example, if a bonus is given in a particular month using Additional Salary, then you can deduct full tax amount in the same month only.
-- **Round to the Nearest Integer:** Selecting this checkbox allows you to round the amount of this Salary Component to the nearest integer.
-- **Statistical Component:** If selected, the value specified or calculated in this component will not contribute to the earnings or deductions. However, it's value can be referenced by other components that can be added or deducted. If you set a Salary Component as a Statistical component, then you do not have to set the Default Account for the same. Also, you would not be able to set this component as a Flexible Benefit.
-- **Do Not Include in Total:** Selecting this checkbox ensures that the Salary Component is not included in the Total Salary. It is used to define the component which is part of the CTC, not payable but should apprear on employee's salary slip (e.g. Usage of Company Cars).
-- **Variable Based On Taxable Salary:** The component is calculated automatically on taxable income based on applicable Income Tax Slab (e.g. TDS or Income Tax).
-- **Exempted from Income Tax:** If checked, the full amount will be deducted from taxable income before calculating income tax without any [declaration](https://docs.frappe.io/hr/employee-tax-exemption-declaration) or [proof submission](https://docs.frappe.io/hr/employee-tax-exemption-proof-submission). For example, Professional Tax in India is deducted from taxable income before calculating income tax.
-- **Disabled:** This checkbox can be selected to disable this Salary Component. A disabled Salary Component cannot be used in the Salary Structure.
-
-### **2.3 Flexible Benefits**
-
-This section is shown if the Salary Component is an Earning Component. Flexible Benefit plans allow employees to avail the benefits they want or need from a package of programs offered by an employer. They may include health insurance, pension plans, telephone expenses, etc. To set a Salary Component as a Flexible Benefit, check the 'Is Flexible Benefit' checkbox.
-
-![](https://frappehr.com/files/3lypNxJ.png)
-
-
-
-Enter the maximum yearly amount for this flexible benefit in the 'Max Benefit Amount (Yearly)' field. Some of the additional attributes of the Flexible Benefits that can be enabled using checkboxes are as follows:
-
-- **Pay Against Benefit Claim:** Enable this checkbox if you want to pay this benefit via the [Employee Benefit Claim](https://docs.frappe.io/hr/employee-benefit-claim).
-- **Only Tax Impact (Cannot Claim But Part of Taxable Income):** If set, the flexible benefit will be part of taxable income.
-- **Create Separate Payment Entry Against Benefit Claim:** If this checkbox is checked, it will let you create a separate payment entry against the Benefit Claim.
-
-### **2.4 Employer Contribution**
-
-Apart from Earning and Deduction, a Salary Component can be of the type Employer Contribution. This represents a cost the employer bears on the employee's behalf, such as the employer's share of provident fund or an employer NPS contribution. It is part of the Cost to Company (CTC), but it is not paid to the employee and does not appear on the Salary Slip.
-
-To set a Salary Component as an employer contribution, set Type to Employer Contribution while creating the component.
-
-![](/files/Screenshot From 2026-06-24 11-37-24.png)
-
-Employer contributions are added to the Salary Structure through a dedicated Employer Contributions table, separate from the Earnings and Deductions tables. The amount can be fixed or based on a formula, and the formula can reference earning abbreviations and `gross_pay` (for example, `BS * 0.12` for 12% of basic salary).
-
-When a Salary Structure Assignment is saved, employer contributions are included in the CTC but not in gross or net pay:
-
-> CTC = (per-cycle gross + employer contributions + non-payout earnings) x cycles per year
-
-You can view employer contributions against the employee's CTC in the [Employee CTC Break-up](https://docs.frappe.io/hr/reports/employee-ctc-break-up) report.
-
-## **3. Related Topics**
-
-1. [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-2. [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
-3. [Payroll Entry](https://docs.frappe.io/hr/payroll-entry)
-4. [Payroll Period](https://docs.frappe.io/hr/payroll-period)
-
-<!-- page: frappe-hr/hr__salary-slip.md -->
----
-title: "Salary Slip"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/salary-slip"
-updated: "2026-07-05"
----
-
-**A salary slip is a document issued to an employee. It contains a detailed description of the employee’s salary components and amounts.**
-
-To access Salary Slip, go to: > Home > Human Resources > Payroll > Salary Slip
-
-## **1. Prerequisites**
-
-Before creating Salary Slip, it is advised that you create the following first:
-
-- [Employee](https://docs.frappe.io/hr/employee)
-- [Salary Structure](https://docs.frappe.io/hr/salary-structure)
-- [Salary Structure Assignment](https://docs.frappe.io/hr/salary-structure-assignment)
-
-## **2. How to create a Salary Slip**
-
-1. Go to Salary Slip, Click on New.
-2. Select Employee. On selecting Employee all details of the Employee will be fetched from Salary Structure which is assigned to that Employee. This includes details such as Payroll Frequency, Earnings, Deductions, etc.
-3. Select Start Date and End Date.
-4. Save.
-
-## **3. Feature**
-
-### **3.1. Salary Slip based on Attendance/Leave**
-
-HR users can create Salary Slip based on Attendance or leave. The Working days will calculated on basis of leave/Attendance, depending on the field **Calculate Payroll Working Days Based On** in [HR Settings](https://docs.frappe.io/hr/hr-settings). If Payroll is based on Attendance then, the **Leave without pay** will be considered as absent and **half-day** will be considered as half-day absent.
-
-### **3.2. Salary Slip based on Timesheet**
-
-For creating Salary Slip based on timesheet you need to create Salary Structure for Timesheets.
-
-Frappe HR also provides an option to create Salary slip based on working hours based on [Timesheet](https://docs.erpnext.com/docs/user/manual/en/timesheets). You can create Salary Slip after submitting the Timesheet by clicking directly on **Create Salary Slip** button on the top right.
-
-![Create Salary Slip based on Timesheets](https://frappehr.com/files/create-salary-slip-based-on-timesheets.png)
-
-
-
-The Payment Amount is calculated based on Hour Rate defined in Salary Structure and is reflected in the Earnings table.
-
-### **3.3 Year to Date and Month to Date**
-
-For every salary slip, 'Year to Date' and 'Month to Date' are computed.
-
-![Year to Date and Month to Date](https://frappehr.com/files/ytd-and-mtd.png)
-
-
-
-- **Year to Date**: Total salary booked for that particular employee from the beginning of the year (payroll period or fiscal year) up to the current salary slip's end date.
-- **Month to Date**: Total salary booked for a particular employee from the beginning of the month (for which the payroll entry is created) up to the current salary slip's end date.
-
-Year to Date is also computed for every component in the earnings and deduction tables. The "Salary Slip with Year to Date" print format is available with Year to Date and Month to Date computations.
-
-![Year to Date for Salary Slip Components](https://frappehr.com/files/ytd-component.png)
-
-
-
-### **3.4 Bulk Email Salary Slips**
-
-By default, the Payroll Entry sends salary slip emails to all the employees on salary slip submission if **Email Salary Slip to Employee** is enabled in Payroll Settings. Optionally, you can also set up the sender email account and email template for this.
-
-![](https://frappehr.com/files/X8WK2C7.png)
-
-
-
-But if there are a few employees who don't have an email ID set or the setup is incorrect during this action, you can use the bulk action in the Salary Slip list view to trigger sending emails to selected employees later.
-
-![bulk](https://frappehr.com/files/bulk.png "bulk.png")
-
-<!-- page: frappe-hr/hr__salary-structure-and-payroll.md -->
----
-title: "Salary Structure and Payroll"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/salary-structure-and-payroll"
-updated: "2026-02-04"
----
-
-**Use case 1:**What if one Salary structure has to be assigned to all the Employees ?
-
-If a single Salary structure has to be assigned, it is preferable to create a structure for all the Employees, irrespective of their Salaries, but we can set formula based on which actual salary structures can be allocated to each employee in an organisation.
-
-Go to Salary Structure --> select the Earning or deduction component --> Add formula
-
-![](https://docs.erpnext.com/files/kNXzqwY.png)  
-
-
-This way, salary will be calculated individually for each employee depending on their monthly income.
-
-**Use case 2:** What if while generating a payroll, all the employees are not supposed to be fetched, payroll has to be created for selected employees?
-
-Generally, while a payroll is being processed, there is an option --> **Get Employees,** once it is clicked, all the employees are fetched.
-
-In case, there is only a selected list of employees payroll to be generated, it is preferable to select the employees by filtering on the basis of department, branch, or designation, this way only the selected list of employees belonging to the particular filter will be selected for payroll.
-
-![](https://docs.erpnext.com/files/BwEvgFb.png)  
-
-
-  
-
-<!-- page: frappe-hr/hr__salary-structure-assignment-tool.md -->
----
-title: "Salary Structure Assignment Tool"
-space: "Frappe HR"
-url: "https://docs.frappe.io/hr/salary-structure-assignment-tool"
-updated: "2026-02-04"
----
-
-The Salary Structure Assignment Tool allows you to assign Salary Structures to employees in bulk.
-
-> Home > Human Resources > Payroll > Salary Structure Assignment Tool
-
-**1\. Prerequisites**
----------------------
-
-Before using the Salary Structure Assignment Tool, it is advisable to create the following documents:
-
-*   [Employee](/hr/employee)
-    
-*   [Salary Structure](/hr/salary-structure)
-    
-
-**2\. How to assign Salary Structures using the Salary Structure Assignment Tool**
-----------------------------------------------------------------------------------
-
-1.  Select a Company if it hasn't already been selected. This should also fetch its default Payroll Payable Account.
-    
-2.  Select the Salary Structure that you wish to assign. This will fetch the Currency associated with it.
-    
-3.  Select From Date which is the date from which you wish to assign the Salary Structure. This will cause all employees, that do not already have a Salary Structure Assignment on that date, to be loaded in the Select Employees table below.
-    
-4.  Select an Income Tax Slab if applicable.
-    
-5.  Use Quick Filters for filtering employees based on specific fields, or add additional custom filters through Advanced Filters.
-    
-6.  Select suitable employees from the Select Employees table below.
-    
-7.  You can update the Base and Variable amounts for an employee by double clicking and editing the required cell. If you wish to update these values in bulk, click on the Update button, select the appropriate field, and enter the desired amount. Click on Update.
-    
-8.  If everything looks right, click on the Assign Structure button.
-    
-
-![](https://frappehr.com/files/pnlAEli.png)  
-
-[Salary Structure Assignments](https://docs.frappe.io/hr/salary-structure-assignment) made using this tool will now be found in their list:
-
-![](https://frappehr.com/files/ZZ01jWY.png)  
-
-**3\. Related Topics**
-----------------------
-
-1.  [Payroll Period](/hr/payroll-period)
-    
-2.  [Income Tax Slab](/hr/income-tax-slab)
-    
-3.  [Salary Component](/hr/salary-component)
-    
-4.  [Salary Slip](/hr/salary-slip)
-    
-5.  [Payroll Entry](/hr/payroll-entry)
-
 <!-- page: frappe-hr/hr__salary-structure-assignment.md -->
 ---
 title: "Salary Structure Assignment"
@@ -333,7 +32,7 @@ Before you create a Salary Structure Assignment, it is advisable you have the fo
 4. Select preferred Income Tax Slab for the employee.
 5. Enter Base and Variable amount as per requirement. Base amount refers to the Base Salary of the Employee, which is fixed and paid out, regardless of employees meeting their goals. Variable pay, on the other hand, is the portion of sales compensation determined by employee performance. When employees hit their goals (aka quota), variable pay is provided as a type of bonus, incentive pay, or commission.
 
-![Salary Structure Assignment](https://frappehr.com/files/salary-structure-assignment.png)
+[Screenshot on the live page: Salary Structure Assignment]
 
 ### **3.1 Bulk Salary Structure Assignment**
 
@@ -343,7 +42,7 @@ Frappe HR also allows creating Salary Structure Assignments for multiple employe
 2. Click on Bulk Salary Structure Assignment.
 3. This will take you to the [Salary Structure Assignment Tool](https://docs.frappe.io/hr/salary-structure-assignment-tool), where you can assign Salary Structures in bulk.
 
-![](https://frappehr.com/files/STjQmpp.png)  
+[Screenshot on the live page]  
 
 
 
@@ -353,17 +52,17 @@ Frappe HR also allows creating Salary Structure Assignments for multiple employe
 
 You can assign a Salary Structure to Employee(s) directly through the Salary Structure document. To assign the Salary Structure to a single employee, click on the 'Assign Salary Structure' button in the Salary Structure document.
 
-![Salary Structure Assignment](https://frappehr.com/files/assign-sal1.png)  
+[Screenshot on the live page: Salary Structure Assignment]  
 
 
 If you want to bulk assign the Salary Structure to multiple employees, you can do so via the 'Assign to Employees' button.
 
-![Salary Structure Assignment](https://frappehr.com/files/assign-sal2.png)  
+[Screenshot on the live page: Salary Structure Assignment]  
 
 
 You can optionally filter out employees based on Employee Grade, Department, Designation, and Employee itself.
 
-![Salary Structure Assignment](https://frappehr.com/files/assign-sal3.png)  
+[Screenshot on the live page: Salary Structure Assignment]  
 
 
 Once this is done, click on the 'Assign' button to assign the Salary Structure accordingly.
@@ -430,7 +129,7 @@ Earnings specify the Salary Components that are earned by an Employee. These com
 
 To create Earnings and Deductions, select the Salary Component in the Component column. Enter the Formula/Condition if not previously specified while creating the [Salary Component](https://docs.frappe.io/hr/salary-component). Additionally, you can also enter a pre-defined amount in the Amount column.
 
-![Salary Structure](https://frappehr.com/files/salary-structure.png)  
+[Screenshot on the live page: Salary Structure]  
 
 
 
@@ -454,7 +153,7 @@ Steps for creating Salary Structure based on Timesheets:
 4. Enter the Hour Rate. Based on the Rate entered, the amount for Working hours for the selected Salary Component will be calculated accordingly.
 5. Save and Submit.
 
-![Create Salary Slip based on Timesheets](https://frappehr.com/files/salary-structure-for-salary-based-on-timesheets.png)
+[Screenshot on the live page: Create Salary Slip based on Timesheets]
 
 ### **2.4 Leave Encashment Amount Per Day**
 
@@ -493,26 +192,26 @@ updated: "2026-02-04"
 
 2) In "Attendance and Leave Details" section, select the Leave Approver for that particular Employee.
 
-![](https://docs.erpnext.com/files/rVabhxn.png)
+[Screenshot on the live page]
 
 
 3) Assign a Leave Policy to the Employee through the Employee master and Grant leaves through Leave Period.
 
 4) Create a new Leave Application for the Employee. The system automatically fetches the Leave Approver set for that particular Employee.
 
-![](https://docs.erpnext.com/files/hVuDojL.png)  
+[Screenshot on the live page]  
 
 
 **Note:** In case you have set a Department for that Employee, and Leave Approvers are also set in that particular Department, then those Leave Approvers will also be fetched in the Leave Application. However, the default Leave Approver will always be the one set in the Employee master.
 
 For example, a Leave Approver is set in the Department.
 
-![](https://docs.erpnext.com/files/wKT4Zcb.png)  
+[Screenshot on the live page]  
 
 
 Now, if an Employee belonging to this Department creates a Leave Application, all the Leave Approvers set for this Department will also be fetched in his Leave Application.
 
-![](https://docs.erpnext.com/files/3nyXGpt.png)  
+[Screenshot on the live page]  
 
 <!-- page: frappe-hr/hr__setting-flexible-benefits-against-a-benefit-claim.md -->
 ---
@@ -534,21 +233,21 @@ To set Flexible Benefits in Frappe HR, follow the following steps:
 
 1) Go to Salary Component for which you want to set flexible benefits for and select the **"Is Flexible Benefit"** checkbox. Enter the Yearly **Max. Benefit Amount**. Select the **"Pay Against Benefit Claim**" checkbox to avail the flexible benefits via a Benefit Claim.
 
-![](https://docs.erpnext.com/files/gpYJN0U.png)  
+[Screenshot on the live page]  
 
 
 2) Set up a Salary Structure for the Employee with this Salary Component. Set the Amount to 0. Also, enter the Max Benefits Amount for this Salary Structure.
 
-![](https://docs.erpnext.com/files/CoNsmqr.png)3) Assign the Salary Structure to the employee via Salary Structure Assignment.
+[Screenshot on the live page]3) Assign the Salary Structure to the employee via Salary Structure Assignment.
 
 4) Create an Employee Benefit Claim for this employee. Select the Claim Date, Component and enter the Claimed Amount.
 
-![](https://docs.erpnext.com/files/Qvfr4xl.png)  
+[Screenshot on the live page]  
 
 
 5) Run the Payroll Entry. The amount will be fetched against the component in the Salary Slip as seen below.
 
-![](https://docs.erpnext.com/files/Iyh0LJa.png)  
+[Screenshot on the live page]  
 
 <!-- page: frappe-hr/hr__setting-up-income-tax-deduction.md -->
 ---
@@ -577,7 +276,7 @@ Exemptions from taxable salary are usually restricted to spendings on particular
 
 You can configure Employee Tax Exemption Category by going to, > Human resources > Payroll Setup > Employee Tax Exemption Category > New Employee Tax Exemption Category
 
-![Employee Tax Exemption Category](https://frappehr.com/files/employee-tax-exemption-category.png)  
+[Screenshot on the live page: Employee Tax Exemption Category]  
 
 
 ### **Employee Tax Exemption Sub Category**
@@ -586,7 +285,7 @@ Under each category, there could be many heads for which the exemptions are allo
 
 You can configure Employee Tax Exemption Sub Category by going to, > Human resources > Payroll Setup > Employee Tax Exemption Sub Category > New Employee Tax Sub Exemption Category
 
-![Employee Tax Exemption Sub Category](https://frappehr.com/files/employee-tax-exemption-subcategory.png)  
+[Screenshot on the live page: Employee Tax Exemption Sub Category]  
 
 
 ### **HRA Exemption - Regional, India**
@@ -659,7 +358,7 @@ Before using the Shift Assignment Tool, it is advisable to create the following 
 5. Select suitable employees from the Select Employees table.
 6. If everything looks good, click on the Assign Shift button at the top.
 
-![](https://frappehr.com/files/dCNR1ua.png)  
+[Screenshot on the live page]  
 
 As a result, Shift Assignments will be created for the selected employees.
 
@@ -671,7 +370,7 @@ As a result, Shift Assignments will be created for the selected employees.
 5. Select suitable employees from the Select Employees table.
 6. If everything looks good, click on the Assign Shift Schedule button at the top.
 
-![](/files/Screenshot%202024-12-19%20at%2012.26.21%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 As a result, Shift Schedule Assignments and their corresponding Shift Assignments will be created for the selected employees.
 
@@ -683,7 +382,7 @@ As a result, Shift Schedule Assignments and their corresponding Shift Assignment
 4. Select suitable shift requests from the Select Shift Requests table.
 5. If everything looks good, click on the Process Requests button at the top and select Approve or Reject.
 
-![](https://frappehr.com/files/L4mUQdk.png)  
+[Screenshot on the live page]  
 
 The selected Shift Requests will then be approved or rejected, and submitted accordingly.
 
@@ -733,12 +432,12 @@ To directly create a Shift Assignment, go to:
 * Save and Submit.
 * You can set the Assignment as Inactive after submission too.
 
-![Shift Assignment](https://frappehr.com/files/shift-assignment0b8bdd.png)  
+[Screenshot on the live page: Shift Assignment]  
 
 
 You can also switch to a calendar view to see shift schedules of multiple employees
 
-![Shift Assignment Calendar](https://frappehr.com/files/shift-assignment374dda.png)  
+[Screenshot on the live page: Shift Assignment Calendar]  
 
 
 
@@ -773,14 +472,14 @@ To create a new Shift Location, go to: Human Resources > Shift & Attendance > Sh
 4. You can now set the Checkin Radius, along with the Latitude and Logitude, or click on the Fetch Geolocation button to do so automatically.
 5. Save.
 
-![](/files/348245952-f1ca828c-0007-400a-9ad9-58234ffddbad.png)
+[Screenshot on the live page]
 
 ### **2. Geofencing**
 
 To implement geofencing, you will first have to assign a shift to an employee with the desired Shift Location. While checking in, if the employee is not within the Checkin Radius of the Shift Location, they will be faced with an error that will disallow them from doing so.
 
 
-![](/files/348247335-226408a2-7a21-45ae-a168-4337d20c59cc.png)
+[Screenshot on the live page]
 
 <!-- page: frappe-hr/hr__shift-management.md -->
 ---
@@ -831,7 +530,7 @@ To create a new Shift Request go to: > Human Resources > Shift Management > Shif
 5. Save.
 6. Once the Shift Request is Approved and submitted, it creates a [Shift Assignment](https://docs.frappe.io/hr/shift-assignment)
 
-![Shift Request](https://frappehr.com/files/shift-requestae7f8e.png)
+[Screenshot on the live page: Shift Request]
 
 ### **3. Setting Shift Request Approver**
 
@@ -839,13 +538,13 @@ A Shift Request Approver is a user who can approve a Shift Request of an Employe
 
 * **Department Level:** Shift Request Approvers for each department can be configured in the [Department](https://docs.frappe.io/hr/department) master. Multiple Shift Request Approver can be set in a Department.
 
-![Shift Request Approvers](https://frappehr.com/files/department-shift-request-approvers.png)  
+[Screenshot on the live page: Shift Request Approvers]  
 
 
 When an Employee belonging to a particular department request for Shift Type, the Shift Request Approver set in that Employee's department master will be considered as his Shift Type Approvers.
 * **Employee Level:** Shift Request Approver can also be set in the employee master.
 
-![Shift Request Approvers](https://frappehr.com/files/employee-shift-request-approver.png)
+[Screenshot on the live page: Shift Request Approvers]
 
 If Shift Request Approver are set at both employee and department level, the employee level Shift Request Approver will be considered as the default Leave Approver in this case.
 
@@ -887,7 +586,7 @@ To directly create a Shift Schedule Assignment, go to:
 * Set Create Shifts After. As the name suggests, shifts will be created after this date. This field will be automatically updated after shift assignments are created via the scheduler.
 * Click on Save.
 
-![](/files/Screenshot%202024-12-19%20at%2012.10.45%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 **4. Related Topics**
@@ -897,3 +596,367 @@ To directly create a Shift Schedule Assignment, go to:
 2. [Shift Assignment](https://docs.frappe.io/hr/shift-assignment)
 3. [Shift Assignment Tool](https://docs.frappe.io/hr/shift-assignment-tool)
 3. [Roster](https://docs.frappe.io/hr/roster)
+
+<!-- page: frappe-hr/hr__shift-schedule.md -->
+---
+title: "Shift Schedule"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/shift-schedule"
+updated: "2026-02-04"
+---
+
+Shift Schedule can be used to create definitions for recurring shift assignments based on selected days and frequency.
+
+**1. Prerequisites**
+--------------------
+
+To create a Shift Schedule, this needs to be created first:
+
+* [Shift Type](https://docs.frappe.io/hr/shift-type)
+
+**2. How to create a Shift Schedule**
+------------------------------------------------
+
+To directly create a Shift Schedule, go to:
+
+
+> **Frappe HR > HR > Shift & Attendance > Shift Schedule**
+> 
+> 
+
+* Click on Add Shift Schedule.
+* Enter the Name.
+* Select the Shift Type.
+* Select the Frequency.
+* Select the Repeat On Days.
+* Click on Save, and then Submit.
+
+[Screenshot on the live page]
+
+**3. Assigning Shift Schedule**
+--------------------------------------------
+
+To assign a shift schedule to an employee, and to create shift assignments based on it, use [Shift Schedule Assignment](https://docs.frappe.io/hr/shift-schedule-assignment). You can also assign shift schedules in bulk using the [Shift Assignment Tool](https://docs.frappe.io/hr/shift-assignment-tool).
+
+**4. Related Topics**
+---------------------
+
+1. [Shift Type](https://docs.frappe.io/hr/shift-type)
+2. [Shift Assignment](https://docs.frappe.io/hr/shift-assignment)
+3. [Roster](https://docs.frappe.io/hr/roster)
+
+<!-- page: frappe-hr/hr__shift-type.md -->
+---
+title: "Shift Type                                          "
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/shift-type"
+updated: "2026-02-04"
+---
+
+The Shift Type document allows you to define the different types of Shifts in your Organization and set up auto attendance for the shift. Auto attendance marks attendance based on [Employee Checkin](https://docs.frappe.io/hr/employee-checkin) records for employees assigned to a shift.
+
+To access Shift Type, go to:
+
+> **Home > Human Resources > Shift Management > Shift Type**
+
+1. Click on New.
+2. Enter the Shift Name, Start Time and End Time
+3. Save
+
+[Screenshot on the live page: Shift Type]
+
+In addition to defining the different shifts in your organization, the Shift Type document also has settings for auto attendance. Auto attendance marks the attendance for the employees assigned to this shift based on records in the 'Employee Checkin' Document. Auto Attendance for all shift type records is attempted to be marked every hour. You can also trigger the auto attendance manually for a single shift type by pressing the 'Mark Attendance' button in the shift type document.
+
+[Screenshot on the live page: auto attendance settings]
+
+### **1. Basic Set Up**
+
+1. **Start Time**: The time of the day when this shift starts. The time is to be entered in a 24Hrs format.
+2. **End Time**: The time of the day when this shift ends. The time is to be entered in a 24Hrs format.
+3. **Holiday List**: The applicable holidays for this shift can be selected here. If left blank, the default holiday list from the employee master or the company document is taken into account. Attendance is not marked via the scheduler if it's a holiday.
+4. **Enable Auto Attendance**: You can use this option to enable marking attendance for the employees assigned to this shift based on their [Employee Checkin](https://docs.frappe.io/hr/employee_checkin) records.
+
+> **Note: For cases where the 'End Time' is less than 'Start Time', the shift is assumed to be a night shift that starts on one calendar date and ends on the next calendar date.**
+
+### **2. Auto Attendance Settings**
+
+You can use the following settings to configure the Auto Attendance as per your requirements:
+
+- **Determine Check-in and Check-out**: This setting determines how your check-in logs should be interpreted by the auto attendance system.
+  1. **Alternating entries as IN and OUT during the same shift**: The first entry is taken as IN followed by the next entry as OUT and the following entry as IN and so on. Employee Check-in may not always have an IN/OUT log type. Not all biometric devices return Log Type for every log. For such scenarios you can use this option.
+  2. **Strictly based on Log Type in Employee Checkin**: The check-in is determined as IN or OUT strictly based on the 'Log Type' in the Employee Checkin record. This should be used when the logs that are being recorded in Frappe HR have the exact log type.
+- **Working Hours Calculation Based On**: Working hours can be calculated either by including the breaks in between the shift or by excluding the breaks. This can be configured using the following options:
+  1. **First Check-in and Last Check-out**:
+    - Use this option when you want to include breaks or all out/in entries in your working hours.
+    - Selecting this option calculates the working hours by considering the first IN and last OUT Employee Checkin during the shift. The time difference between the two is considered as the actual working hours.
+    - In case the IN/OUT is determined by alternating entries then the first Employee Checkin is considered as IN and the last Employee Checkin is considered as OUT for the purpose of calculating working hours.
+  2. **Every Valid Check-in and Check-out**:
+    - Selecting this option excludes the time during which the Employee is checked out.
+    - i.e. Only the time during which the employee is checked in is calculated as working hours.
+- **Begin check-in before shift start time (in minutes)**: Often employees would check-in a few minutes before the shift start time. To consider these check-ins as part of the shift during the calculation of working hours and marking attendance, you can set up this value accordingly.
+- **Allow check-out after shift end time (in minutes)**: Often employees would check-out after the shift end time. To consider these check-outs as part of the shift during the calculation of attendance, you can set up this value accordingly.
+- **Mark Auto Attendance on Holidays**: If enabled, auto attendance will be marked on holidays if Employee Checkins exist on that date. By default, auto attendance is skipped on holidays.
+- **Working Hours Threshold for Half Day**: If the actual number of working hours is less than the given value in this field then the employee attendance is marked as 'Half Day'. If you never want to mark Half Day based on working hours, you should set this value to zero.
+- **Working Hours Threshold for Absent**: If the actual number of working hours is less than the given value in this field then the employee attendance is marked as 'Absent'. If you never want to mark Absent based on working hours, you should set this value to zero.
+
+> Note: This only applies for cases when at least one checkin is present to process attendance. In case of absense of any checkin log, attendance will still be marked as Absent.
+
+- **Process Attendance After**: The date from which 'Auto Attendance' should start marking attendance. You should set it to a date after which you have Employee Checkin records for this shift.
+- **Last Sync of Checkin**: This is the timestamp up to which Employee Checkin records have been synced. This field has to be updated by the script/person(in case of manual entry) making the Employee Checkin Records. If your logs are automatically pushed to Frappe HR using the sync tool, this timestamp will automatically be updated for you. You should set this to a date and time up to which the Employee Checkin has been synced.
+- **Automatically update Last Sync of Checkin**: In case of a single biometric device, or check-ins through the mobile app, you can enable this to let the system take care of auto updating your last sync of checkin so that no scripting or manually updating this timestamp is required.
+
+### **3. Late Entry & Early Exit Settings for Auto Attendance**
+
+- **Enable Late Entry Marking**: Selecting this option marks those Attendance records with Late Entry wherein the employee's In Time exceeds the permissible In Time.
+- **Late Entry Grace Period**: Adds additional grace period in minutes to the Shift Start Time after which entries are marked as late.
+- **Enable Early Exit Marking**: Selecting this option marks those Attendance records with Early Exit wherein the employee's Out Time falls short of the permissible Out Time.
+- **Early Exit Grace Period**: Adds additional grace period in minutes to the Shift End Time before which exits are marked as early.
+
+<!-- page: frappe-hr/hr__staffing-plan.md -->
+---
+title: "Staffing Plan"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/staffing-plan"
+updated: "2026-02-04"
+---
+
+**Staffing Plan helps you to plan manpower requirements for your Company.**
+
+Frappe HR allows you to do this at a company level helping you efficiently plan and budget new hirings for a period. Job Openings can only be created as per the number of vacancies and budget as per the active Staffing Plan.
+
+To access Staffing, go to:
+
+> Home > Human Resources > Recruitment > Staffing Plan
+
+**1. Prerequisites**
+--------------------
+
+Before creating a Staffing Plan, it is necessary you create the following:
+
+* [Department](https://docs.frappe.io/hr/department)
+* [Designation](https://docs.frappe.io/hr/designation)
+
+**2. How to create a Staffing Plan**
+------------------------------------
+
+1. Go to Staffing Plan list, click on New.
+2. Enter the Name, From and To Date and select the Department for which you want to create the Staffing Plan.
+3. Enter the Staffing Plan Details such as Designation, Vacancies, Estimated Cost Per Position, Total Estimated Cost and Number of Positions.
+4. Save and Submit.
+
+[Screenshot on the live page: Staffing Plan]
+
+**3. Features**
+---------------
+
+Some of the additional features in the Staffing Plan doctype are explained below:
+
+* **Designation:** The designations for which the Staffing Plan is created.
+* **Number of Positions:** The number of positions you plan to recruit for between the From and To Dates of the Staffing Plan.
+* **Current Count:** This is the number of Employees already hired against the particular Designation.
+* **Vacancies:** The number of vacancies based on the Number of Positions you wish to recruit and the current Employee count.
+* **Estimated Cost Per Position:** You can specify the cost to company per position so that hiring officials can stick to the budget.
+
+[Screenshot on the live page: Staffing Plan Detail]
+* **Total Estimated Budget:** Once you enter the recruitment plan for all the designations, Staffing Plan will draw up the total estimated budget as per the plan.
+
+**4. Related Topics**
+---------------------
+
+1. [Job Opening](https://docs.frappe.io/hr/job-opening)
+2. [Job Applicant](https://docs.frappe.io/hr/job-applicant)
+3. [Job Offer](https://docs.frappe.io/hr/job-offer)
+
+  
+
+<!-- page: frappe-hr/hr__training-event.md -->
+---
+title: "Training Event"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/training-event"
+updated: "2026-02-04"
+---
+
+**Training Event allows you to schedule seminars, workshops, conferences, etc. under a Training Program.**
+
+You can also invite your employees to attend the event using this feature.
+
+To access Training Event, go to:
+
+> Home > Human Resources > Training > Training Event
+
+**1. Prerequisites**
+--------------------
+
+Before creating a Training Event, it is advisable you create the following documents:
+
+* [Training Program](https://docs.frappe.io/hr/training-program)
+* [Employee](https://docs.frappe.io/hr/employee)
+
+**2. How to create a Training Event**
+-------------------------------------
+
+1. Go to the Training Event list, click on New.
+2. Enter the Event Name.
+3. Select the Event Type.
+4. Select Event Level (Beginner, Intermediate, Expert).
+5. Enter the Trainer Name, Email and Contact Number.
+6. Select the Event [Course](https://docs.erpnext.com/docs/v143/user/manual/en/education/course). Enter the Start Time, End Time and Location of the Training Event.
+7. Additionally, you can also write a short description of the Event in the Description box.
+8. Save and Submit.
+
+[Screenshot on the live page: Employee]
+
+> **Note:** Check the 'Has Certificate' checkbox if the Training Event is a certified course.
+
+**3. Features**
+---------------
+
+### **3.1 Inviting Employees for the Event**
+
+You can invite your employees to attend the Training Event. You can do so by selecting the employees to be invited in the Employees table.
+
+By default the status of the employee will be 'Open'.
+
+[Screenshot on the live page: Employee]  
+
+
+When you submit the Training Event, a notification will be sent to the employee notifying that the Training has been scheduled. This is sent via Email Alert "Training Scheduled". You can modify this Email Alert to customize the message.
+
+**4. Related Topics**
+---------------------
+
+1. [Training Result](https://docs.frappe.io/hr/training-result)
+2. [Training Feedback](https://docs.frappe.io/hr/training-feedback)
+3. [Course](https://docs.erpnext.com/docs/v143/user/manual/en/education/course)
+
+  
+
+<!-- page: frappe-hr/hr__training-feedback.md -->
+---
+title: "Training Feedback"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/training-feedback"
+updated: "2026-02-04"
+---
+
+**Once the Training is complete, employees can share their feedback via Training Feedback.**
+
+To access Training Feedback, go to: > Human Resources > Training > Training Feedback
+
+**1. Prerequisites**
+--------------------
+
+Before creating a Training Event, it is advisable you create the following documents:
+
+* [Training Program](https://docs.frappe.io/hr/training-program)
+* [Training Event](https://docs.frappe.io/hr/training-event)
+* [Employee](https://docs.frappe.io/hr/employee)
+
+**2. How to create a Training Feedback**
+----------------------------------------
+
+1. Go to the Training Feedback list, click on New.
+2. Select the Employee.
+3. Select the Training Event. Based on that, the corresponding Event Name, Course and Trainer Name will get fetched.
+4. Enter the feedback in the Feedback box.
+5. Save and Submit.
+
+[Screenshot on the live page: Employee]
+
+> Note: You can also access Training Feedback directly through the Training Event dashboard.
+
+**3. Related Topics**
+---------------------
+
+1. [Training Result](https://docs.frappe.io/hr/training-result)
+
+last
+
+  
+
+<!-- page: frappe-hr/hr__training-program.md -->
+---
+title: "Training Program"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/training-program"
+updated: "2026-02-04"
+---
+
+**Training Program defines programs designed for training employees or other individuals in specific skills.**
+
+In Frappe HR, you can create a Training Program and schedule [Training Events](https://docs.frappe.io/hr/training-event) under it.
+
+To access Training Program, go to:
+
+> Home > Human Resources > Training > Training Program
+
+**1. How to create a Training Program**
+---------------------------------------
+
+1. Go to Training Program list, click on New.
+2. Enter the Training Program name.
+3. Enter the Trainer Name, Trainer Email and Contact Number.
+4. Select the Supplier n(optional) in case an outside vendor/expert was called to conduct the training.
+5. Additionally, you can also write a short description of the Training Program in the Description box (optional).
+
+[Screenshot on the live page: Training Program]
+
+> **Note:** By default, the Status of the Training Program is 'Scheduled'. However, you can change the status to 'Completed' or 'Cancelled' as per the requirement.
+
+Once the Training Program is saved, you can create Training Events under the same.
+
+**2. Related Topics**
+---------------------
+
+1. [Training Event](https://docs.frappe.io/hr/training-event)
+2. [Training Result](https://docs.frappe.io/hr/training-result)
+3. [Training Feedback](https://docs.frappe.io/hr/training-feedback)
+
+  
+
+<!-- page: frappe-hr/hr__training-result.md -->
+---
+title: "Training Result"
+space: "Frappe HR"
+url: "https://docs.frappe.io/hr/training-result"
+updated: "2026-02-04"
+---
+
+**After completion of the training event, employee-wise training results can be stored based on the evaluation done by the trainer.**
+
+Frappe HR allows you to create training results and share it with the employees with the Training Result doctype.
+
+To access Training Result, go to:
+
+> Home > Human Resources > Training > Training Result
+
+**1. Prerequisites**
+--------------------
+
+Before creating a Training Result, it is advisable you create the following documents:
+
+* [Training Program](https://docs.frappe.io/hr/training-program)
+* [Training Event](https://docs.frappe.io/hr/training-event)
+* [Employee](https://docs.frappe.io/hr/employee)
+
+**2. How to create a Training Result**
+--------------------------------------
+
+1. Go to the Training Result list, click on New.
+2. Select Training Event.
+3. Enter the Hours, Grade and Comments against the Employee Name.
+4. Save and Submit
+
+[Screenshot on the live page: Employee]
+
+When the Training Result is submitted, all the employees will receive an email notifying them that they must share their feedback via [Training Feedback](https://docs.frappe.io/hr/training-feedback). This is also managed via an Email Alert, so you can customize this alert too.
+
+> **Note:** You can also access Training Result directly from the Training Event dashboard.
+
+**3. Related Topics**
+---------------------
+
+1. [Training Feedback](https://docs.frappe.io/hr/training-feedback)
+
+  

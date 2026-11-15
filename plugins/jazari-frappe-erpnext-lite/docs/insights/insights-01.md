@@ -296,7 +296,7 @@ Best for: Displaying one or more key metrics prominently
 
 #### Table Chart
 
-![table chart](/files/Q1%20Performance%20_%20Workbook.jpeg)
+[Screenshot on the live page: table chart]
 
 
   Best for: Displaying detailed data in rows and columns
@@ -396,7 +396,7 @@ List of charts…
   
 #### Creating Your First Chart
 
-<video controls width="100%" height="auto"><source src="/files/chart.mp4" type="video/mp4"></video>
+[Video on the live page]
 
   1. Open your workbook
   2. Click the Charts tab
@@ -591,7 +591,7 @@ In this guide, we'll create a comprehensive sales performance dashboard using th
 2. Name it "Sales Performance"
 3. Click on "Query Builder"
 
-![New Workbook](/files/new-workbook.png)
+[Screenshot on the live page: New Workbook]
 
 ## 2. Create the Base Query
 
@@ -634,7 +634,7 @@ Let's create a query that combines data from multiple tables. When the query bui
 
 6. Name your query "Sales Data"
 
-![Sales Data Query](/files/sales-data-query.png)
+[Screenshot on the live page: Sales Data Query]
 
 ## 3. Create Charts
 
@@ -663,7 +663,7 @@ Now let's create various charts to visualize our sales data:
 - Enable "Show Comparison"
 - Enable "Show Sparkline"
 
-![Sales Overview](/files/sales-overview-number-chart.png)
+[Screenshot on the live page: Sales Overview]
 
 ### Revenue by Month
 
@@ -676,7 +676,7 @@ Now let's create various charts to visualize our sales data:
  - Column: price
  - Click the gear icon to set label as "Revenue"
 
-![Monthly Revenue](/files/monthly-revenue-line-chart.png)
+[Screenshot on the live page: Monthly Revenue]
 
 ### Revenue by Product Category
 
@@ -690,7 +690,7 @@ Now let's create various charts to visualize our sales data:
  - Click the gear icon to set label as "Revenue"
 - Sort: Revenue (Descending)
 
-![Revenue by Category](/files/top-categories-row-chart.png)
+[Screenshot on the live page: Revenue by Category]
 
 ### Quaterly Revenue by State
 
@@ -711,7 +711,7 @@ Now let's create various charts to visualize our sales data:
 - Enable "Show Color Scale"
 
 
-![Quaterly Revenue by State](/files/quarterly-state-performance-table-chart.png)
+[Screenshot on the live page: Quaterly Revenue by State]
 
 ## 4. Build the Dashboard
 
@@ -731,7 +731,7 @@ Let's combine all charts into an interactive dashboard:
    - Select `health_beauty` as the filter value
    - Click **Apply Filter**
 
-![Sales Dashboard](/files/sales-performance-dashboard.png)
+[Screenshot on the live page: Sales Dashboard]
 
 This sample dashboard gives a complete view of the sales performance, from high-level metrics to detailed breakdowns by category and location. The filters allow you to drill down into specific segments and analyze the data further.
 
@@ -744,7 +744,7 @@ updated: "2026-01-06"
 ---
 
 
-<video controls width="100%" height="auto"><source src="/files/dashboard-new.mp4" type="video/mp4"></video>  
+[Video on the live page]  
 
 1. Navigate to Dashboards
   
@@ -1014,14 +1014,14 @@ updated: "2026-01-06"
 
 If you have installed Insights on a brand new site, you will need to set up your account. Visit your site that has Insights installed, and you should see a setup wizard.
 
-![Setup Wizard](/files/insights-setup-wizard.png)
+[Screenshot on the live page: Setup Wizard]
 *Setup Wizard*
 
 To complete the setup you will need to enter basic information like your country, name, email, and password. Make sure to remember your email and password as this is going to be your [admin account](/miscellaneous/faq#admin-account).
 
 Once you have gone through the setup wizard, you will be redirected to the Insights Workbook page where you can see a sample workbook created based on the demo data
 
-![Workbook List](/files/insights-workbook-list.png)
+[Screenshot on the live page: Workbook List]
 *Sample Workbook*
 
 <!-- page: insights/insights__get-started__installation.md -->
@@ -1101,7 +1101,7 @@ updated: "2026-01-06"
 
 Insights is a completely open-source Business Intelligence (BI) tool. It makes data analysis and reporting accessible to everyone, whether they are technical or non-technical users. With Insights, you can connect to your databases, analyze data, and create beautiful reports and dashboards - all without writing complex SQL queries.
 
-<img src="https://raw.githubusercontent.com/frappe/insights/refs/heads/develop/.github/hero-image.png" alt="Hero Image" />
+[Screenshot on the live page]
 
 ## Why Insights?
 
@@ -1145,7 +1145,7 @@ updated: "2026-01-06"
 
 ### Step 1: Enable Team Permissions
 
-![enable-perms](/files/SCR-20251027-eake.png)
+[Screenshot on the live page: enable-perms]
 
 1. Go to **Settings** → **Permissions**
 2. Toggle **"Enable permissions to restrict access..."**
@@ -1349,7 +1349,7 @@ Resources that can be shared with teams:
 ### Granting Access to Data
 
 
-![access-data](/files/SCR-20251027-dzex.png)
+[Screenshot on the live page: access-data]
 
 1. Click on a team
 2. Go to the **Access** tab
@@ -1398,7 +1398,7 @@ Table restrictions are **filter expressions** that automatically limit which row
 ### How to Set Table Restrictions
 
 
-![india-team](/files/SCR-20251027-dzbt.png)
+[Screenshot on the live page: india-team]
 
 1. Click on a team → **Access** tab
 2. Select a data source to expand it
@@ -1452,7 +1452,7 @@ Teams are groups of users who share access to the same resources. Every Insights
 
 ### Managing Team Members
 
-![manage-team](/files/SCR-20251027-dzha.png)
+[Screenshot on the live page: manage-team]
 
 1. Click on a team from the list
 2. Go to the **Members** tab

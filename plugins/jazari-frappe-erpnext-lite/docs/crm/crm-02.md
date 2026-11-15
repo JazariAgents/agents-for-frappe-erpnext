@@ -1,40 +1,5 @@
 <!-- Frappe documentation: crm, part 2 of 3. Index: docs/INDEX.md -->
 
-<!-- page: crm/crm__email-template.md -->
----
-title: "Email Template"
-space: "CRM"
-url: "https://docs.frappe.io/crm/email-template"
-updated: "2026-04-23"
----
-
-Email Templates is a time-saving tool that lets you create reusable email drafts (such as introductions, follow-ups, or proposals) you frequently send to your leads and deals. With the ability to utilize Jinja templates, you can personalize emails to cater to specific recipients or contexts. 
-
-## Create a new Email Template
-
-To create a new email template, go to **Settings > Templates.** Click on Create, and add the:
-
-- **Name:** A label to identify the template in your list
-- **Subject:** The email subject line (Jinja variables supported)
-- **For:** Whether it is for a lead or a deal
-- **Content Type:** You can select how you want to format the template. There are two options: Rich Text and HTML
-
-![](/files/image8cee4e.png)
-
-Only "Enabled" Email Templates will be visible for further use. There is a toggle option against every template.
-
-## Using the Email Template
-
-You can use the Email Templates you have created in Lead and/or Deal while composing your emails by clicking on the Email Template button. When you click on Reply to compose an email, the email template button appears.
-
-For example, as seen in the screenshot, the email template "First response to deals" is selected.
-
-![](/files/image6ca4dd.png)
-
-The email content is then copied, and you are free to edit the content as well to personalize it further.
-
-![](/files/image422097.png)
-
 <!-- page: crm/crm__erpnext.md -->
 ---
 title: "ERPNext"
@@ -49,7 +14,7 @@ Frappe CRM, while a standalone application, offers seamless integration with ERP
 
 Both Frappe CRM and ERPNext are installed on the same site  
 
-![](/files/image0391fb.webp)
+[Screenshot on the live page]
 
 1. Navigate to **Settings** -> **ERPNext** -> **Enable** -> Set **Company**.
 2. Create **Customer** when status change -> Set **Deal Status (Optional)**
@@ -67,8 +32,8 @@ Once the integration is enabled, data flows between Frappe CRM and ERPNext as de
 **Two Ways:**
 
 1. Upon marking a Deal as "Won" (or a specified status, configurable in ERPNext settings), a new customer will be created in your ERPNext instance. The Deal's contacts and organization address will be automatically linked to this newly created customer.
-  ![Screenshot 2024-09-18 at 8.45.09 PM](https://docs.frappe.io/files/Screenshot%202024-09-18%20at%208.45.09%E2%80%AFPM.png)
-  ![Screenshot 2024-09-18 at 9.07.32 PM](https://docs.frappe.io/files/Screenshot%202024-09-18%20at%209.07.32%E2%80%AFPM.png)
+  [Screenshot on the live page: Screenshot 2024-09-18 at 8.45.09 PM]
+  [Screenshot on the live page: Screenshot 2024-09-18 at 9.07.32 PM]
 2. When a Sales Order is create in ERPNext from a Deal's Quotation.
   he Create Quotation button on a Deal opens a new Quotation in ERPNext with the Deal's data pre-filled:
 
@@ -78,25 +43,25 @@ Once the integration is enabled, data flows between Frappe CRM and ERPNext as de
 
 The typical Deal to Sales Order flow looks like: 
 
-![](/files/create quotation.webp)
+[Screenshot on the live page]
 *Create Quotation*
 
 Quotation line items are pre-filled from the deal's products
 
-![](/files/image9b795a.webp)
+[Screenshot on the live page]
 *New Quotation*
 
-![](/files/Sales Order1eb7d4.webp)
+[Screenshot on the live page]
 
 Once the customer is created, you'll find a "View Customer" button on the deal header, allowing you to easily access the customer from deal page.
 
-![Screenshot 2024-09-18 at 8.43.34 PM](/files/Screenshot 2024-09-18 at 8.43.34 PM.png)
+[Screenshot on the live page: Screenshot 2024-09-18 at 8.43.34 PM]
 
 ### CRM Product and ERPNext Item
 
 ERPNext Items and CRM Products are kept in sync with ERPNext as the source of truth. This sync runs on the same site only.
 
-![](/files/sync.webp)
+[Screenshot on the live page]
 
 - Creating an Item in ERPNext automatically creates a matching CRM Product and links the two records.
 - Updating an Item auto updates its CRM Product. The synced fields are: item name, rate, image, disabled status and description.
@@ -122,7 +87,7 @@ The **Create Quotation** and **View Custome**r buttons on the Deal page are rend
 - **Create Quotation** calls the backend to build the pre-filled quotation URL and opens it n a new tab.
 - **View Customer** shown only when the Deal already has a linked ERPNext Customer. opens the Customer record in a new tab.
 
-![](/files/imageec1372.webp)
+[Screenshot on the live page]
 *Form Script*
 
 ### Editing the script
@@ -205,11 +170,11 @@ Make call
 -----------
 
 * **Lead page:** A call button is available in the right section above lead details. Use this button to initiate a call, but ensure the **Mobile No** field in the **Person** section includes the country code.
-    ![](/files/PBAkpiy.png)
+    [Screenshot on the live page]
 * **Deal page:** In the **Contacts** section on the right side. You can add multiple contacts and designate a primary contact. The call button will utilize the primary contact's number.  
-    ![](/files/LKceTy6066660.png)
+    [Screenshot on the live page]
 * **Contact page:** Directly initiate a call by clicking the **Mobile No** displayed below the contact's name.  
-    ![](/files/9YnXfPgc03eb0.png)
+    [Screenshot on the live page]
 
 > Make sure to complete your KYC on Exotel before making calls [docs](https://support.exotel.com/support/solutions/articles/110606-trial-accounts-how-do-i-test-outbound-calling-)
 
@@ -228,12 +193,12 @@ Upon making or receiving a call, a pop-up window appears displaying:
 * Action buttons (Close or Minimize)
 
 
-![](/files/Screenshot%202025-01-20%20at%206.39.27%E2%80%AFPM607878.png)
+[Screenshot on the live page]
 
 
 This window can be minimized, allowing navigation to other screens, while remaining accessible in the far-right corner of the navbar.  
 
-![](/files/Screenshot%202025-01-20%20at%206.38.34%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 Take notes &amp; task during a call
@@ -242,8 +207,8 @@ Take notes &amp; task during a call
 While on a call, you can take notes/task using the note/task button. These notes/task are saved in the Call Log for later viewing and editing.  
 
 <div style="display: flex;">
-    <img style="height: 300px;" src="/files/Screenshot%202025-01-20%20at%206.32.05%E2%80%AFPM38cf45.png">
-    <img style="height: 300px;" src="/files/Screenshot%202025-01-20%20at%206.30.54%E2%80%AFPM2432c4.png">
+    [Screenshot on the live page]
+    [Screenshot on the live page]
 </div>
 
 Exotel setup
@@ -253,17 +218,17 @@ To configure Exotel for use within the CRM, follow these steps:
 
 1. **Exotel Subscription:** Obtain an active Exotel subscription (refer to Exotel's documentation for details).
 2. **Exotel Credentials:** From your Exotel account, retrieve your Account SID, Subdomain, API Key, API Token and Exotel Mobile Number (Exophones).
-    ![](/files/Screenshot%202025-01-20%20at%206.51.13%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%206.56.49%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
 3. **Settings**: Click the dropdown menu on the top left logo and select "Settings."
-    ![](/files/LHGhoZR.png)
+    [Screenshot on the live page]
 4. **Telephony Settings:** Navigate to Telephony Settings and enable Exotel. Add your Account SID, Subdomain, API Key, API Token and set Webhook verify token (it can be anything it will be used later in Exotel incoming call flow configuration). You can also enable call recording at this point.  
-    ![](/files/Screenshot%202025-01-20%20at%206.27.24%E2%80%AFPM.png)
+    [Screenshot on the live page]
 5. **Telephony Agent:** Go to Telephony Agent (In Desk) and add users (agents) with Exotel mobile number designated for making calls and also personal number(do not forget to mark one number as primary).
 
     >  Make sure the email is same in both Telephony Agent and Exotel.
 
-    ![](/files/Screenshot%202025-01-20%20at%206.41.03%E2%80%AFPM.png)
+    [Screenshot on the live page]
 
 
 Exotel incoming call flow configuration
@@ -273,17 +238,17 @@ For your CRM's API to connect with Exotel, perform the following configurations 
 
 1. Login to your Exotel account and go to App Bazar.
 2. Create a new "App" for a new flow.
-    ![](/files/Screenshot%202025-01-20%20at%207.02.50%E2%80%AFPM0a6a6d.png)
+    [Screenshot on the live page]
 3. Setup the flow as you wish it to be.
     
     * [Dial Whom](https://support.exotel.com/support/solutions/articles/3000088074-working-with-connect-applet-dial-whom-)
     * [Passthru](https://support.exotel.com/support/solutions/articles/48283-working-with-passthru-applet)
     * Check the documentation to learn about all the applets in flow builder - [Link](https://developer.exotel.com/applet)
 4. Set "Dial Whom" as user group. In user group there can be multiple agents. Incoming call will be redirected to agents in this group in the order they are added.
-    ![](/files/Screenshot%202025-01-20%20at%207.19.44%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%207.37.38%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
 5. You can also set how you want to distribute calls.
-    ![](/files/Screenshot%202025-01-20%20at%207.44.03%E2%80%AFPM.png)
+    [Screenshot on the live page]
 6. In your connect API under "Create popup...", copy and paste URL (Callback API) mentioned below. Here use webhook verify token which was mentioned in **Exotel Setup (point 4)**.
 
 
@@ -291,25 +256,25 @@ For your CRM's API to connect with Exotel, perform the following configurations 
     https://<yoursitename>/api/method/crm.integrations.exotel.handler.handle_request?key=<webhook-verify-token>
     ```
     
-    ![](/files/Screenshot%202025-01-20%20at%207.08.08%E2%80%AFPM.png)
+    [Screenshot on the live page]
 7. After that add a "Passthru applet" under "After Call Conversation ends" and paste the same URL.
     
-    ![](/files/Screenshot%202025-01-20%20at%207.20.05%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%207.20.46%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
     > Note: Make sure to check "Make Passthru Async".
 
 8. Similary, add another "Passthru applet" under "If nobody answers..." section and paste the same URL.
-    ![](/files/Screenshot%202025-01-20%20at%207.20.14%E2%80%AFPM.png)
-    ![](/files/Screenshot%202025-01-20%20at%207.24.51%E2%80%AFPM.png)
+    [Screenshot on the live page]
+    [Screenshot on the live page]
     > Note: Make sure to check "Make Passthru Async".
 
 9. Save the flow.
 10. Now assign this newly created "App" to your ExoPhone from which you receive your business calls.
-    ![](/files/Screenshot%202025-01-20%20at%207.26.56%E2%80%AFPM.png)
+    [Screenshot on the live page]
 
 Once this is done, you should see all new incoming calls on your exotel phone number in the "Call Log" list in your CRM instance.
 
-![](/files/Screenshot%202025-01-20%20at%207.30.13%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 <!-- page: crm/crm__general-and-defaults.md -->
 ---
@@ -325,7 +290,7 @@ These are system-wide settings that apply across your entire CRM. You'll probabl
 
 These settings control how your CRM behaves when emails and comments come in.
 
-![](/files/Screenshot 2026-04-20 at 5.44.28 PM.png)
+[Screenshot on the live page]
 
 - **Update timestamp on new communication** – When someone sends an email or leaves a comment on a lead or deal, this updates the "Last Modified" timestamp on that record. Useful for tracking recent activity across your pipeline. If you don't enable this, then new email activity won't affect the last modified timestamp
 - **Mark lead/deal as replied on response** – When a customer replies to your email, the lead or deal is automatically marked as "Replied". Only works if SLA is enabled
@@ -335,7 +300,7 @@ These settings control how your CRM behaves when emails and comments come in.
 
 These settings control how numbers, currencies, and dates are displayed across the CRM. Set these to match how your team works.
 
-![](/files/Screenshot 2026-04-20 at 5.45.52 PM.png)
+[Screenshot on the live page]
 
 - **Currency** – The default currency for all records. Can be changed on individual records if needed
 - **Currency Precision** – How many decimal places to show for currency values
@@ -360,7 +325,7 @@ It's a small thing, but it makes a big difference if your team is jumping betwee
 
 To get here, go to **Settings > Home Actions**.
 
-![](/files/Screenshot 2026-04-20 at 5.36.42 PM.png)
+[Screenshot on the live page]
 
 Each row in the list is one item in the dropdown. You can edit any row to configure:
 
@@ -582,7 +547,7 @@ Frappe CRM works best when your whole team is in. Once everyone's set up, you ca
 
 To invite someone, go to **Settings > Invite User**.
 
-![](/files/Screenshot 2026-04-20 at 5.04.48 PM.png)
+[Screenshot on the live page]
 
 There are two situations here:
 
@@ -592,7 +557,7 @@ There are two situations here:
 
 **Existing site users** – If someone already has an account on your Frappe site (maybe they use another Frappe app like HRMS or Helpdesk), they're not automatically part of the CRM. You can add them directly from **Settings > Users** without sending a new invite. Just add them and assign a role.
 
-![](/files/Screenshot 2026-04-20 at 5.14.42 PM.png)
+[Screenshot on the live page]
 
 There are three roles to choose from:
 
@@ -620,11 +585,11 @@ Before you begin, you must have atleast one Facebook page and a lead generation 
 
 Open **Settings** from the dropdown menu on top-left corner of the CRM dashboard:
 
-![Settings from Sidebar](/files/CleanShot%202025-11-11%20at%2017.09.58@2x.png)
+[Screenshot on the live page: Settings from Sidebar]
 
 Click on the **Lead Syncing** tab and then click on the `+ New` button to add a new Source:
 
-![Lead Syncing Settings](/files/CleanShot%202025-11-11%20at%2017.15.57@2x4d3c60.png)
+[Screenshot on the live page: Lead Syncing Settings]
 
 ### Configuring Lead Sync Source
 
@@ -635,15 +600,15 @@ Now follow these steps:
 3. Select a frequency for scheduled syncing: how frequently the leads should be automatically synced
 4. Paste the Access token obtained from Meta
 
-![New Lead Sync Source](/files/CleanShot%202025-11-11%20at%2017.18.55@2x047f4a.png)
+[Screenshot on the live page: New Lead Sync Source]
 
 Now click **Create**. It will take a few seconds since we are pulling the pages and forms from Facebook. But once it is done, you can select the page and the form from where the leads will be pulled in from:
 
-![Select Page and corresponding form](/files/CleanShot%202025-11-11%20at%2018.00.30@2x.png)
+[Screenshot on the live page: Select Page and corresponding form]
 
 As soon as you select the form, you will see a mapping table:
 
-![CRM Mapping Table](/files/CleanShot%202025-11-11%20at%2018.00.49@2x.png)
+[Screenshot on the live page: CRM Mapping Table]
 
 This table let's you easily map fields of your Facebook form to fields in Frappe CRM. Apart from this, we also store the Lead ID and Form ID in CRM Lead document. Once you are done configuring the field mapping, click on **Update**, and that is it! Your leads will start syncing in the background in some time.
 
@@ -663,7 +628,7 @@ You can also manually trigger a lead sync by clicking on the **Sync Now** button
 
 If your leads don't appear in your CRM, go to the **Failure Logs** tab, and check the logs. The failure log contains the reason for failure (e.g. Duplicate), the lead data we received from Facebook, and also error traceback if available:
 
-![Sync Failure Log](/files/CleanShot%202025-11-11%20at%2018.16.07@2xc169ec.png)
+[Screenshot on the live page: Sync Failure Log]
 
 You can click on the **Retry Sync** button to retry syncing of this particular lead. 
 
@@ -685,12 +650,12 @@ When you click on Leads in the sidebar, you see all your leads in one place. Eac
 
 You can filter, sort, and search across your leads from here. 
 
-![](/files/image7ce865.png)
+[Screenshot on the live page]
 *List View*
 
 You can also switch between List and Kanban view depending on how you like to work.
 
-![](/files/imageef81e1.png)
+[Screenshot on the live page]
 *Kanban View*
 
 
@@ -707,7 +672,7 @@ These are covered in detail in the [Capturing Leads](https://docs.frappe.io/crm/
 
 When you open a lead, everything about that person lives in one place.
 
-![](/files/imagef3ab15.png)
+[Screenshot on the live page]
 
 On the right side are the lead's details – their name, email, phone, organization, job title, source, industry, and who owns the lead. You can edit any of these inline. 
 
@@ -726,12 +691,12 @@ On the left is the activity panel, with tabs across the top:
 
 At the top, you'll also see the Lead status. Some of these statuses are available out of the box. If you want to add custom statuses, you can add them by going to the Desk view (more details [read here](https://docs.frappe.io/crm/setting-up#frontend-and-backend)) and searching for CRM Lead Status. Add the status of your choice, choose the type, and click on save.
 
-![](/files/imaged07f73.png)
+[Screenshot on the live page]
 *Adding new CRM Lead Status*
 
 It should then appear as a newly added status in the frontend view too.
 
-![](/files/image9ac94b.png)
+[Screenshot on the live page]
 
 
 
@@ -741,7 +706,7 @@ You can see who the lead is assigned to, what status it's in, and a **Convert to
 
 When a lead is qualified and ready to move forward, hit **Convert to Deal**. You'll get the option to create a new Contact and Organization from the lead's details, or link to existing ones if they're already in your CRM. Also, choose the status you want your Deal to be in. 
 
-![](/files/17e1-b1cb-4f43-b6b2-bd435b2f7a64.mp4)
+[Screenshot on the live page]
 
 
 
@@ -802,20 +767,14 @@ Devices
 3. Tap on Install, and wait for a few seconds.
 4. You will then be able to find the Frappe CRM app in your applications. You can login to this app with your site credentials.
 
-    <video controls data-setup="{}" height="auto" preload="auto" style="border-radius: 10px;
- border: 2px solid;" width="300">
-<source src="https://docs.frappe.io/files/AndroidPWAInstall.mp4" type="video/mp4">
-</video>
+    [Video on the live page]
 
 1. On iOS, if you're using Safari, tap on the share button shown in the video below.
 2. Scroll down the list of options, then tap Add to Home Screen.
 3. If you do not see "Add to Home Screen", click on "Edit Actions" and you should find the option.
 4. The icon will then appear on your home screen. You can login to this app with your site credentials.
 
-    <video controls data-setup="{}" height="auto" preload="auto" style="border-radius: 10px;
- border: 2px solid;" width="300">
-<source src="https://docs.frappe.io/files/IOSPWAInstall.mp4" type="video/mp4">
-</video>
+    [Video on the live page]
 
 **Congratulations! You've successfully installed the Frappe CRM PWA on your mobile device.**
 
@@ -833,12 +792,12 @@ Notes are for capturing anything important about a lead or deal that doesn't fit
 
 Click on Notes in the sidebar to see all notes across your CRM in one place, shown as cards. Each card shows the title, content, who wrote it, and when. You can filter and search to find what you need.
 
-![](/files/image3d95de.png)
+[Screenshot on the live page]
 *The Notes View*
 
 Every note is also linked back to the lead or deal it belongs to, so you can jump straight to the record from here.
 
-![](/files/image348688.png)
+[Screenshot on the live page]
 *Inside a Note - linked to a Lead / Deal*
 
 ## Notes inside a Lead or Deal
@@ -847,7 +806,7 @@ Each lead and deal has its own Notes tab. Notes created here are tied to that sp
 
 
 
-![](/files/imaged9af76.png)
+[Screenshot on the live page]
 *Notes tab inside a Lead / Deal*
 
 You can edit a note anytime by clicking on it.
@@ -856,7 +815,7 @@ You can edit a note anytime by clicking on it.
 
 You can also create a note directly from the Activity tab inside a lead or deal using the **+ New** button. It'll show up in the Notes tab and in the activity feed.
 
-![](/files/Screen Recording 2026-04-21 at 7.59.36 AM.mov)
+[Screenshot on the live page]
 
 <!-- page: crm/crm__notification.md -->
 ---
@@ -868,7 +827,7 @@ updated: "2026-02-05"
 
 Stay informed about important activities within your CRM system using the Notifications feature. This page serves as a central hub for all your CRM-related alerts and updates.
 
-![](/files/4pVP4rV.png)  
+[Screenshot on the live page]  
 
 
 Accessing Notifications
@@ -911,10 +870,10 @@ When you open an organization, you'll see its details on the left – name, webs
 On the right, you get two tabs:
 
 - **Deals** – Every deal linked to this organization, with the amount and current status. At a glance, you can see where each opportunity stands
-  ![](/files/image02ff87.png)
+  [Screenshot on the live page]
   *Linked Deals to an Organization - could be a new Deal, Upsell/Cross-sell, Renewal*
 - **Contacts** – Everyone at this organization who's in your CRM, with their email and phone
-  ![](/files/image36fbcf.png)
+  [Screenshot on the live page]
   *Multiple stakehoders of an Organization shown as Contacts*
 
 
@@ -942,13 +901,13 @@ Pinned Views let you quickly access frequently used saved views directly from th
 3. Hover over the desired view and click on the three-dot (...) menu.
 4. From the menu that appears, select **Pin View**.
 
-![](/files/Screenshot 2026-05-21 at 6.40.20 PM.png)
+[Screenshot on the live page]
 
 ## Managing pinned views
 
 Once you've pinned a view, it will be displayed in a dedicated "Pinned Views" section within the sidebar. You can access this view with a single click whenever needed.
 
-![](/files/image53f4b2.png)
+[Screenshot on the live page]
 
 ## Unpinning views
 
@@ -970,13 +929,13 @@ To get here, click your name at the top left of the sidebar and go to **Settings
 
 This is your personal account page. Keep it up to date, especially if you're communicating with leads and deals directly from the CRM.
 
-![](/files/Screenshot 2026-04-20 at 4.55.23 PM.png)
+[Screenshot on the live page]
 
 - **Name** – How you appear to your teammates inside the CRM
 - **Email & Signature** – Click Configure to open your Email Settings. Here you can set up two things: 
   - **Signature** – Write your email signature once, and it'll automatically appear at the bottom of every email you send from the CRM
   - **Emails** – If your team has multiple email accounts set up, you can choose which one to send from when composing an email. Useful if you handle both a personal inbox and a shared team inbox like [sales@yourcompany.com](mailto:sales@yourcompany.com)
-    ![](/files/Screenshot 2026-04-20 at 4.57.12 PM.png)
+    [Screenshot on the live page]
 - **Password** – Change your password anytime from here.
 
 ## Preferences
@@ -1019,7 +978,7 @@ Only users with the **Sales Manager and Admin** roles can create Public Views. T
 2. Go to the **List** dropdown and navigate to the saved view you want to make public.
 3. Hover over the desired view and click on the three-dot (...) menu.
 4. From the menu that appears, select **Make Public**.
-  ![](/files/image7615eb.png)
+  [Screenshot on the live page]
 
 This will convert your saved view into a Public View, making it accessible to all users in the sidebar under the **Public Views** section.
 
@@ -1036,14 +995,14 @@ updated: "2026-02-05"
 ---
 
 The Quick Entry Layout Builder allows you to customize the layout of quick entry forms in Frappe CRM, similar to how you can add custom sections and fields to Lead and Deal pages. This gives you more control over the data capture process for different document types.
-![](/files/Screenshot%202024-09-28%20at%203.15.58%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 
 Steps
 -----
 
 1. **Navigate to Lead/Deal ListView:** Go to Lead/Deal ListView and click on the "Create" to open quick entry modal. Click on the edit button.
-    ![](/files/Screenshot%202024-09-28%20at%203.14.48%E2%80%AFPM.png)
+    [Screenshot on the live page]
 2. **Select the Doctype:** A modal will open and doctype will be selected automatically but can still choose the doctype for which you want to add or edit fields in the quick entry form.
 3. **Utilize the Quick Entry Layout Builder:** Once you've selected the doctype, the Quick Entry Layout Builder interface for that doctype will appear. This interface provides functionalities for:
 	* Adding new sections to the quick entry form.
@@ -1053,6 +1012,53 @@ Steps
 	* Editing section labels to provide clear descriptions.
 	* and more
 4. **Preview Your Work (Optional):** The Quick Entry Layout Builder offers a **Show Preview** button. Clicking this button will display a preview of how the customized quick entry form will look for the chosen doctype. This allows you to visualize your layout changes before saving them.
-    ![](/files/Screenshot%202024-09-28%20at%203.15.34%E2%80%AFPM.png)
+    [Screenshot on the live page]
 
 By following these steps, you can effectively customize quick entry forms in Frappe CRM to better suit your specific data collection requirements for different document types.
+
+<!-- page: crm/crm__service-level-agreement.md -->
+---
+title: "Service Level Agreement"
+space: "CRM"
+url: "https://docs.frappe.io/crm/service-level-agreement"
+updated: "2026-05-07"
+---
+
+An SLA (Service Level Agreement) is a formal agreement outlining the level of service a provider commits to deliver and the expectations a customer has for that service. In Frappe CRM, SLAs establish response time benchmarks for communication related to Leads and Deals.
+
+### Prerequisites
+
+Before creating an SLA, ensure you have a **Holiday List** configured. This list is linked to the SLA to exclude holidays from response time calculations. You can create one under **Settings > Holiday List**.
+
+### Creating an SLA
+
+1. Go to **Settings > SLA Policies** and click on **+New**
+  [Screenshot on the live page]
+2. **Define SLA details:** Fill in the following information:
+  - **Name**: A label to identify the policy
+  - **Apply on:** Whether it is for a lead or a deal
+  - **Rolling Response:** If you want to set an SLA for subsequent responses
+  - **Assignment Conditions:**
+    - Set as Default SLA: Enable if you want this to be fetched as the default SLA
+    - Add custom conditions: You can specify which conditions this SLA applies to. For example, you want to set an SLA for leads coming in from Europe. Add the field, the condition, and the value)  
+    lid From: Set the date range during which the SLA will be active
+
+[Screenshot on the live page]
+
+3. **Response & Follow up:** To set the response time duration
+4. **Work Schedule & Holidays:** Set working hours for each day. Only communications received during these hours will count toward response time calculations. Link your Holiday List here to automatically exclude public holidays.
+
+[Screenshot on the live page]
+
+5. **Enable the SLA:** Once you've configured the SLA details, ensure it's enabled.
+
+### **Benefits of Using SLAs**
+
+SLAs offer several advantages for your sales team:
+
+- **Improved Response Times:** By establishing clear response time goals, SLAs encourage prompt communication with potential and existing customers, leading to better engagement and conversion rates.
+- **Enhanced Customer Satisfaction:** Timely responses demonstrate your commitment to customer service, fostering trust and positive client relationships.
+- **Streamlined Workflow:** SLAs help prioritize communication tasks, ensuring your team focuses on the most critical leads and deals within designated timeframes.
+- **Performance Measurement:** SLAs provide a benchmark for evaluating your team's responsiveness and identifying areas for improvement.
+
+By effectively utilizing SLAs in Frappe CRM, you can empower your sales team to deliver exceptional customer service and achieve optimal sales performance.

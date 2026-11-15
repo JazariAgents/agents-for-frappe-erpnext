@@ -1,205 +1,5 @@
 <!-- Frappe documentation: erpnext, part 56 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__selling-settings.md -->
----
-title: "Selling Settings | ERPNext Documentation"
-description: "Configure ERPNext Selling Settings for customer defaults, pricing, transaction rules, commissions, subcontracting, and document naming."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/selling-settings"
-updated: "2026-08-25"
----
-
-Selling Settings controls the defaults and validations used across the ERPNext sales cycle. These settings affect customers, pricing, quotations, sales orders, delivery notes, sales invoices, returns, commissions, and document naming.
-
-Review the settings with your sales, fulfilment, and finance teams before enabling them. A validation that improves control for one business can interrupt a different sales process.
-
-## Before you begin
-
-- You need permission to edit Selling Settings.
-- Create the required [Customer Groups](/erpnext/customer-group), [Territories](/erpnext/territory), and [Price Lists](/erpnext/price-list) first.
-- Test changes with representative transactions before applying them to production users.
-
-To open the page, go to **Selling &gt; Settings &gt; Selling Settings**. Settings are organized into six tabs. Select **Save** after making changes.
-
-## Customer Defaults
-
-Customer defaults reduce data entry when creating a [Customer](/erpnext/customer) or converting a Lead or Quotation into a Customer.
-
-
-
-![Customer Defaults tab in ERPNext Selling Settings](https://novacompanies.m.frappe.cloud/files/customer-defaults-1440.png)
-
-
-| Field                  | What it means                                                                                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Customer Naming By     | Choose Customer Name, Naming Series, or Auto Name for the customer ID. Customer Name is the default. Naming Series produces IDs such as CUST-00001.                   |
-| Default Customer Group | Sets the Customer Group on new customers when another value is not provided. It is also used when ERPNext creates a Customer while converting a Lead-based Quotation. |
-| Default Territory      | Sets the Territory on new customers and supports automatic Customer creation from a Lead-based Quotation.                                                             |
-
-
-If Default Customer Group or Default Territory is blank, automatic conversion can stop and ask for the missing value.
-
-## Pricing
-
-The Pricing tab determines how ERPNext fetches and validates item rates throughout the sales cycle.
-
-
-
-![Pricing tab in ERPNext Selling Settings](https://novacompanies.m.frappe.cloud/files/pricing-1440.png)
-
-
-| Field                                                     | What it means                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Default Price List                                        | Provides the default selling Price List for a [Quotation](/erpnext/quotation), [Sales Order](/erpnext/sales-order), Delivery Note, and Sales Invoice.                                                                                                                           |
-| Use prices from Default Price List as fallback            | Fetches an Item Price from the default Price List when the transaction’s selected Price List has no matching Item Price. Do not combine it with automatic insertion of missing Item Prices in Stock Settings, because a fallback rate could be written into another Price List. |
-| Allow editing Price List rate in transactions             | Makes Price List Rate editable in sales item tables. Keep it disabled when rates must always come from [Item Price](/erpnext/item-price) records.                                                                                                                               |
-| Maintain same rate throughout sales cycle                 | Checks whether an item rate changes in a Delivery Note or Sales Invoice created from a Sales Order.                                                                                                                                                                             |
-| Action if same rate is not maintained                     | Appears after maintaining the same rate is enabled. Warn allows the transaction after showing a message. Stop prevents the change.                                                                                                                                              |
-| Role allowed to override Stop action                      | Appears when the action is Stop. Users with the selected role can override the validation.                                                                                                                                                                                      |
-| Validate selling price against purchase or valuation rate | Blocks a sale when the selling rate is below the relevant purchase or valuation rate. Test this carefully for promotions and clearance items.                                                                                                                                   |
-| Calculate Product Bundle price based on child Item rates  | Makes packed-item rates editable and calculates the [Product Bundle](/erpnext/product-bundle) price from its child items. A manually changed bundle rate is recalculated when the document is saved.                                                                            |
-| Allow negative rates for Items                            | Permits negative item rates for supported adjustments, refunds, returns, or special pricing. Use this only with appropriate accounting review.                                                                                                                                  |
-
-
-## Transaction
-
-Transaction settings define which documents are required and which exceptions users may use.
-
-
-
-![Transaction tab in ERPNext Selling Settings](https://novacompanies.m.frappe.cloud/files/transaction-1440.png)
-
-
-| Field                                                             | What it means                                                                                                                                                                                                       |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Is Sales Order required to create Sales Invoice or Delivery Note? | Set to Yes to require a Sales Order before a [Sales Invoice](/erpnext/sales-invoice) or [Delivery Note](/erpnext/delivery-note). A Customer can allow Sales Invoice creation without a Sales Order as an exception. |
-| Is Delivery Note required to create Sales Invoice?                | Set to Yes to require a Delivery Note before invoicing. A Customer can allow invoicing without a Delivery Note as an exception.                                                                                     |
-| How often should sales data be updated in Company or Project?     | Choose Each Transaction, Daily, or Monthly. Daily or Monthly can reduce repeated updates on sites with a high transaction volume.                                                                                   |
-| Allow same Item to be added multiple times                        | Allows the same item on more than one row of a transaction. Disable it when duplicate lines are usually an error.                                                                                                   |
-| Allow multiple Sales Orders against a customer’s Purchase Order   | Allows several Sales Orders to use the same customer purchase order number and date.                                                                                                                                |
-| Hide Customer’s Tax ID from sales transactions                    | Stops the Customer Tax ID from appearing in selling transactions when your process does not require it.                                                                                                             |
-| Allow Sales Order creation for expired Quotation                  | Allows an expired Quotation to be converted. Users should still confirm that the rate and terms remain valid.                                                                                                       |
-| Don’t reserve Sales Order qty on sales return                     | Prevents a return from automatically reserving quantity against the linked Sales Order.                                                                                                                             |
-| Enable cut-off date on creating bulk Delivery Notes               | Adds a cut-off date to bulk Delivery Note creation so only eligible Sales Orders up to that date are processed.                                                                                                     |
-| Set incoming rate as zero for expired Batch                       | Sets the incoming rate to zero for a stand-alone credit note containing an item from an expired Batch.                                                                                                              |
-| Allow Quotation with zero quantity                                | Allows zero-quantity lines when the rate is agreed before the quantity, such as a rate contract.                                                                                                                    |
-| Allow Sales Order with zero quantity                              | Allows zero-quantity Sales Order lines for a similar rate-contract workflow.                                                                                                                                        |
-| Blanket Order Allowance (%)                                       | Controls how much a Sales Order may exceed the quantity agreed in a [Blanket Order](/erpnext/blanket-order).                                                                                                        |
-
-
-## **Skip Delivery Note Creation for Service Items**
-
-![](/files/Screenshot 2026-08-25 at 5.20.08 PM.webp)
-
-Sales Orders that contain services no longer wait for a delivery that will never happen. When this setting is on, non-stock items are excluded from delivery tracking, and an order made up entirely of them completes as soon as it is fully billed.
-
-### The problem it solves
-
-A Sales Order for services — consulting, installation, an AMC — has nothing to deliver. Without this feature the order still expects a Delivery Note, so after billing it sits at **To Deliver** and eventually shows as **Overdue**, even though the work is done and paid for.
-
-### Enabling it
-
-> **Selling Settings → Skip Delivery Note for Service Items**
-
-The switch applies to all order types — Sales, Maintenance, and Shopping Cart alike. No per-order checkbox is needed; each order works it out from its items.
-
-### How items qualify
-
-Every time a Sales Order is saved, each item row is marked with a hidden `Skip Delivery` flag. A row is exempt from delivery only when **all** of these hold:
-
-- the item is not a stock item
-- the item is not a fixed asset
-- the item is not a Product Bundle that contains stock items
-- the row is not delivered by the supplier (drop shipping)
-
-Anything failing a check keeps normal delivery tracking. The flags refresh on every save — including **Update Items** on a submitted order — so changing the item mix or the setting is always reflected.
-
-### Order status
-
-When every row on the order is exempt, the order needs no delivery at all: **% Delivered** is set to 100 and the delivery status shows **Not Applicable**.
-
-```
-To Bill  →  (Sales Invoice for the full amount)  →  Completed
-```
-
-On a mixed order, only the deliverable rows count toward **% Delivered**, and the Delivery Note picks up only those rows. The order completes once the stock items are delivered and everything is billed.
-
-### Examples
-
-
-| Order contents         | Delivery Note   | Completed when                        |
-| ---------------------- | --------------- | ------------------------------------- |
-| Services only          | Not required    | Fully billed                          |
-| Stock items + services | Stock rows only | Stock rows delivered and fully billed |
-| Setting disabled       | All rows        | Fully delivered and fully billed      |
-
-
-## Advanced Features
-
-Use these settings when your implementation requires commission tracking, separate discount accounting, or campaign attribution.
-
-
-
-![Advanced Features tab in ERPNext Selling Settings](https://novacompanies.m.frappe.cloud/files/advanced-features-1440.png)
-
-
-| Field                                  | What it means                                                                                                                             |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Enable tracking sales commissions      | Enables commission management for Sales Partners and the sales team.                                                                      |
-| Enable discount accounting for selling | Creates additional ledger entries to post discounts to a separate Discount Account.                                                       |
-| Enable UTM                             | Adds UTM attribution fields to supported documents including Lead, Quotation, Sales Order, Delivery Note, Sales Invoice, and POS Invoice. |
-| Use Legacy (Client side) Reactivity    | An experimental compatibility option. Keep the default unless a tested customization requires the legacy behavior.                        |
-
-
-## Subcontracting Inward
-
-These controls apply when your company receives materials from a customer, processes them, and delivers finished goods back to that customer.
-
-
-
-![Subcontracting Inward tab in ERPNext Selling Settings](https://novacompanies.m.frappe.cloud/files/subcontracting-inward-1440.png)
-
-
-| Field                                   | What it means                                                                                                      |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| Allow delivery of overproduced quantity | Allows the entire produced quantity to be delivered even when it exceeds the Subcontracting Inward Order quantity. |
-| Deliver secondary Items                 | Adds secondary items generated with a finished good to the Stock Entry used for delivery.                          |
-
-
-## Document Naming
-
-This tab shows the current naming series for Quotation, Sales Order, Sales Invoice, and Delivery Note, including separate return series where applicable.
-
-
-
-![Document Naming tab in ERPNext Selling Settings](https://novacompanies.m.frappe.cloud/files/document-naming-1440.png)
-
-Configure or extend naming series according to your company’s document-control policy. Avoid changing an active series without checking reporting, integrations, and print formats.
-
-## Frequently asked questions
-
-### Can I require a Sales Order for most customers but allow exceptions?
-
-Y
-
-es. Set the global requirement in Selling Settings, then use the relevant exception on the Customer record for approved cases.
-
-### Why are some pricing fields not visible?
-
-Action and override-role fields appear only after Maintain same rate throughout sales cycle is enabled. The override role is relevant when the selected action is Stop.
-
-### Should I allow users to edit Price List Rate?
-
-Enable it only when users are authorized to depart from maintained Item Prices. Otherwise, keep the field controlled and use Pricing Rules for repeatable exceptions.
-
-### When should zero-quantity transactions be allowed?
-
-Use them for rate contracts or agreements where the unit rate is confirmed before the final quantity. They should not replace quantities in normal orders.
-
-### What should I test after changing Selling Settings?
-
-Create a test Customer, Quotation, Sales Order, Delivery Note, Sales Invoice, and return that reflect your normal and exception workflows. Confirm rates, document links, accounting entries, and permissions before production use.
-
 <!-- page: erpnext/erpnext__selling.md -->
 ---
 title: "Introduction to Selling Module | ERPNext Documentation"
@@ -227,7 +27,7 @@ You can begin with a small set of masters and add more controls as your sales pr
 
 ## Understand the sales cycle
 
-![ERPNext CRM and sales cycle from Lead through Payment, including the direct Sales Order to Sales Invoice path](/files/order-to-cash-selling-module-v2.svg)
+[Screenshot on the live page: ERPNext CRM and sales cycle from Lead through Payment, including the direct Sales Order to Sales Invoice path]
 
 The diagram above is the main ERPNext sales cycle. It provides a common reference for this page and for the detailed documentation of Quotation, Sales Order, Delivery Note, Sales Invoice, and Payment Entry.
 
@@ -242,7 +42,7 @@ Choose the shortest variation that still gives your team the control and audit t
 
 ### Standard goods sale
 
-![Standard goods sale from Quotation through Sales Order, Delivery Note, Sales Invoice, and Payment Entry](/files/standard-goods-sale.svg)
+[Screenshot on the live page: Standard goods sale from Quotation through Sales Order, Delivery Note, Sales Invoice, and Payment Entry]
 
 **Best for:** distributors, wholesalers, manufacturers, and businesses that pick and dispatch stocked goods.
 
@@ -257,7 +57,7 @@ Sales Order is the commitment. Delivery Note updates stock. Sales Invoice and Pa
 
 ### Direct invoice with stock update
 
-![Direct stock sale using a Sales Invoice with Update Stock followed by Payment Entry](/files/direct-invoice-stock.svg)
+[Screenshot on the live page: Direct stock sale using a Sales Invoice with Update Stock followed by Payment Entry]
 
 **Best for:** retail counters, small showrooms, spare-parts desks, and simple cash-and-carry sales where goods are handed over immediately.
 
@@ -272,7 +72,7 @@ The submitted invoice affects both the stock ledger and general ledger. Because 
 
 ### Service sale without stock delivery
 
-![Service sale from optional Quotation through Sales Order, Sales Invoice, and Payment Entry without a Delivery Note](/files/service-sale.svg)
+[Screenshot on the live page: Service sale from optional Quotation through Sales Order, Sales Invoice, and Payment Entry without a Delivery Note]
 
 **Best for:** consulting firms, agencies, software companies, maintenance providers, training businesses, and project-based teams.
 
@@ -287,7 +87,7 @@ Sales Order is the commitment. Sales Invoice and Payment Entry affect the genera
 
 ### Drop-shipped sale
 
-![Drop-shipped sale using Sales Order, supplier Purchase Order, customer Sales Invoice, and supplier Purchase Invoice](/files/drop-shipped-sale.svg)
+[Screenshot on the live page: Drop-shipped sale using Sales Order, supplier Purchase Order, customer Sales Invoice, and supplier Purchase Invoice]
 
 **Best for:** online sellers, trading companies, distributors with supplier-direct fulfilment, and businesses selling bulky or special-order goods they do not store.
 
@@ -308,7 +108,7 @@ From the ERPNext home screen, open **Selling**. The workspace provides shortcuts
 
 
 
-![ERPNext Selling workspace showing the complete Sales Order Trends chart, transactions, masters, settings, and reports](https://novacompanies.m.frappe.cloud/files/selling-workspace-full.png)
+[Screenshot on the live page: ERPNext Selling workspace showing the complete Sales Order Trends chart, transactions, masters, settings, and reports]
 
 The primary shortcuts at the top help users open Quotations, Sales Orders, and Sales Invoices quickly. Expand the workspace sections to reach pricing tools, settings, and reports.
 
@@ -397,7 +197,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. Adjust allocations when the suggestion is incomplete or incorrect.
 5. Reconcile and verify the updated outstanding balances.
 
-![Semi-Auto Payment Reconciliation in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-11-payment-reconciliation.png)
+[Screenshot on the live page: Semi-Auto Payment Reconciliation in ERPNext]
 
 ## Important fields and what they mean
 
@@ -465,14 +265,14 @@ updated: "2026-03-02"
 
 In ERPNext you can send any document as email (with a PDF attachment) by clicking on Menu > Email after opening any document.
 
-![Send Email](/files/send-email.gif)  
+[Screenshot on the live page: Send Email]  
 
 
 **Note:** You must have outgoing [Email Accounts](/erpnext/email-account) set up for this.
 
 After you click on send, the email gets added to the email queue. It will be in the Sending status until it is Sent. The status of the email is displayed in the queue, if sending has failed, it can be sent by clicking on Send Now.
 
-![Email Queue](/files/email-queue.png)  
+[Screenshot on the live page: Email Queue]  
 
 
 The following options are available when sending an Email.
@@ -489,7 +289,7 @@ The following options are available when sending an Email.
 
 The following two fields are the fields which appear on the print screen:
 
-![Email Print Options](/files/email-print-options.png)  
+[Screenshot on the live page: Email Print Options]  
 
 
 * **Select Print Format**: The print format of the document. Know more about Print Format [here](/erpnext/print-format).
@@ -519,7 +319,7 @@ In version 15, we introduced the **Serial and Batch Bundle**. This feature is us
 
 Before version 15, the *Serial No* field was a Small Text field, which meant one column could hold more than one serial number. Because of this design, there were a lot of data integrity issues. To solve this, we changed the *Serial No* field from Small Text to a Link field in version 15. Since we can't add a child table inside a child table, we added a new DocType: **Serial and Batch Bundle** to pick/dispatch multiple Serial / Batch numbers.
 
-![Serial no Configure](/files/serial-and-batch-bundle.png)
+[Screenshot on the live page: Serial no Configure]
 
 ## How does this work?
 
@@ -531,45 +331,45 @@ If the user wants to auto-create a **Serial and Batch Bundle** for an inward ent
 
 #### For Serial No
 
-![Serial no Configure](/files/auto-serial-creation.png)
+[Screenshot on the live page: Serial no Configure]
 
 #### For Batch No
 
-![Batch no Configure](/files/auto-batch-creation.png)
+[Screenshot on the live page: Batch no Configure]
 
 After the configuration, when the user creates a **Purchase Receipt** or a **Stock Entry** with the Type "Material Receipt", the system will automatically create the inward **Serial and Batch Bundle** on submission of the record.
 
-![Auto Serial Batch Bundle Inward](/files/auto-create-serial-batch-for-inward.gif)
+[Screenshot on the live page: Auto Serial Batch Bundle Inward]
 
 ### Auto Creation of Serial and Batch Bundle for Outward Entry
 
 If the user wants to auto-create a **Serial and Batch Bundle** for an outward entry, they must enable the checkbox *Auto Create Serial and Batch Bundle For Outward* in **Stock Settings**. They can also set *Pick Serial / Batch Based On* to "FIFO / LIFO / Expiry" in **Stock Settings**.
 
-![Auto Serial Batch Bundle Outward Configure](/files/auto-outward-configuration.png)
+[Screenshot on the live page: Auto Serial Batch Bundle Outward Configure]
 
 After the configuration, when the user creates a **Delivery Note** or a **Stock Entry** with the Type "Material Issue", the system will automatically create the outward **Serial and Batch Bundle** on submission of the record.
 
-![Auto Serial Batch Bundle Outward](/files/auto-create-serial-batch-for-outward.gif)
+[Screenshot on the live page: Auto Serial Batch Bundle Outward]
 
 ### Manual Creation of Serial and Batch Bundle for Inward Entry
 
 For the **Serial and Batch Bundle**, both **Serial No** and **Batch** records must already exist in the system. With the manual option, the user must first create the **Serial No** / **Batch** records in the system. Users can use the CSV import option to create **Serial No** / **Batch** records. The blank CSV template can be downloaded using the Serial and Batch Selector.
 
-![create-using-csv](/files/create-using-csv.png)
+[Screenshot on the live page: create-using-csv]
 
 Complete GIF for manual creation of a **Serial and Batch Bundle** for an inward entry is as follows:
 
-![manually-create-serial-no-inward](/files/manually-create-serial-no-inward.gif)
+[Screenshot on the live page: manually-create-serial-no-inward]
 
 ### Manual Creation of Serial and Batch Bundle for Outward Entry
 
 Using the Serial and Batch Selector, the user can pick the Serial / Batch Nos based on the "FIFO / LIFO / Expiry" method.
 
-![serial-batch-selector-outward](/files/serial-batch-selector-outward.png)
+[Screenshot on the live page: serial-batch-selector-outward]
 
 Complete GIF for manual creation of a **Serial and Batch Bundle** for an outward entry is as follows:
 
-![manually-create-serial-no-outward](/files/manually-create-serial-no-outtward.gif)
+[Screenshot on the live page: manually-create-serial-no-outward]
 
 ### Serial and Batch Bundle Creation Using CSV for Outward Entry
 
@@ -577,7 +377,7 @@ Complete GIF for manual creation of a **Serial and Batch Bundle** for an outward
 
 Now users can create serial and batch bundles for outward entries by importing a CSV file.
 
-![](/files/Screenshot 2026-01-20 at 12.19.18 PM.png)
+[Screenshot on the live page]
 
 
 
@@ -587,39 +387,39 @@ Now users can create serial and batch bundles for outward entries by importing a
 
 To check the history of serial numbers, see the report "Serial No Ledger".
 
-![](/files/Screenshot 2026-01-20 at 1.15.35 PM.png)
+[Screenshot on the live page]
 
 ## Serial / Batch Selector
 
 This is used to select Serial Nos / Batches manually. This popup is also used to create serial nos / batches automatically if they do not exist.
 
-![serial-batch-selector](/files/serial-batch-selector.gif)
+[Screenshot on the live page: serial-batch-selector]
 
 ## Disable Serial / Batch Selector
 
 If users don't want to use the Serial and Batch Selector (popup), they can disable it through **Stock Settings**. To disable it, go to **Stock Settings** > Serial and Batch Item (TAB) > enable *Disable Serial No And Batch Selector*, then save.
 
-![disable-serial-batch-selector](/files/disable-serial-batch-selector.png)
+[Screenshot on the live page: disable-serial-batch-selector]
 
 ## Old Serial / Batch Fields
 
 Many customers requested that we retain the old serial and batch fields to address UX issues. In response to this demand, we retained the old serial/batch fields. These fields are solely used for entering serial numbers and batches. The system will automatically create the **Serial and Batch Bundle** upon submission of the stock transaction. To enable this feature, users must navigate to **Stock Settings** and enable the *Use Serial / Batch Fields* option (see the image below).
 
-![use-serial-batch-fields-global](/files/use-serial-batch-fields-global.png)
+[Screenshot on the live page: use-serial-batch-fields-global]
 
 After that, when the user creates a stock transaction (for example, a **Delivery Note**), the system will show the old Serial / Batch fields. For more details, see the GIF below.
 
-![user-old-serial-batch-fieldsd](/files/user-old-serial-batch-fieldsd.gif)
+[Screenshot on the live page: user-old-serial-batch-fieldsd]
 
 Users can disable the old serial / batch fields at the transaction level too.
 
-![use-serial-batch-for-dn](/files/use-serial-batch-for-dn.gif)
+[Screenshot on the live page: use-serial-batch-for-dn]
 
 ## Update Serial / Batch on Creation of Auto Bundle
 
 If the user wants to automatically update the Serial No / Batch in the Serial / Batch fields when a **Serial and Batch Bundle** is created, go to **Stock Settings** and disable *Do Not Update Serial / Batch on Creation of Auto Bundle*.
 
-![update-Serial-Batch-on-creation-of-auto-bundle](/files/update-Serial-Batch-on-creation-of-auto-bundle.png)
+[Screenshot on the live page: update-Serial-Batch-on-creation-of-auto-bundle]
 
 Case:
 
@@ -655,19 +455,19 @@ To view Serial No and Batch Traceability Report GoTo
 To find out which components are required to manufacture the batch and where they came from, use the Backward Traceability filter.
 
 
-![](/files/backward-tracebility.png)
+[Screenshot on the live page]
 
 ## Forward Traceability 
 
 To find out where the batch has been used or to whom it was delivered, use the Forward Traceability filter.
 
 
-![](/files/forward-tracebility.png)
+[Screenshot on the live page]
 
 ## Backward and Forward (Both) Traceability 
 
 
-![](/files/both-tracebility.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__serial-and-batch.md -->
 ---
@@ -696,3 +496,380 @@ Both serial and batch tracking functionalities in ERPNext provide businesses wit
 - [Serial Number Naming](/erpnext/user/manual/en/serial-no-naming)
 - [Installation Notes](/erpnext/user/manual/en/installation-note)
 - [Managing Batch Wise Inventory](/erpnext/user/manual/en/managing-batch-wise-inventory)
+
+<!-- page: erpnext/erpnext__serial-no-naming.md -->
+---
+title: "Serial Number Naming"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/serial-no-naming"
+updated: "2026-02-26"
+---
+
+
+Serial Nos. is unique value assigned on each unit of an item. Serial no. helps in tracking item's warranty and expiry details. Generally high value items like machines, computers, costly equipments are serialized.
+
+To make item Serialized, in the Item master, check **Has Serial No**.
+
+There are two ways Serial no. can be generated in ERPNext.
+
+###1. Serializing Purchase Items
+
+If purchased items are received with Serial Nos. applied by OEM (original equipment manufacturer), you can follow same Serial No in ERPNext as well. While creating Purchase Receipt, you shall scan or manually enter Serial nos. for an item. On submitting Purchase Receipt, Serial Nos. will be created in the backend as per Serial Nos. provided for an item. If using OEM' Serial No., then in the Item master, Prefix should not be mentioned for serializalization. As per this scenaio, Prefix field should be left blank.
+
+If received items already has its Serial No. barcoded, you can simply scan that barcode for entering Serial No. in the Purchase Receipt. Click [here](https://frappe.io/blog/management/using-barcodes-to-ease-data-entry) to learn more about it.
+
+On submission of Purchase Receipt or Stock entry for the serialized item, Serial Nos. will be auto-generated.
+
+[Screenshot on the live page: Serial Nos Entry]
+
+Generated Serial numbers will be updated for each item.
+
+[Screenshot on the live page: Serial Nos Created]
+
+###2. Serializing Manufacturing Item
+
+To Serialize Manufacturing Item, you can define Series for Serial No. Generation in the Item master itself. Following that series, system will create Serial Nos. for Item when its Production entry is made.
+
+####2.1 Serial No. Series
+
+When Item is set as serialized, it will allow you to mentioned Series for it.
+
+[Screenshot on the live page: Serial Nos Created]
+
+####2.2 Production Entry for Serialized Item
+
+On submission of production entry for manufacturing item, system will automatically generate Serial Nos. following Series as specified in the Item master.
+
+[Screenshot on the live page: Serial Nos Created]
+
+<!-- page: erpnext/erpnext__serial-no.md -->
+---
+title: "Serial Number"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/serial-no"
+updated: "2026-03-06"
+---
+
+> Allow Negative Stock has removed for Serial / Batch Items from version 15. So from version 15 users won't be able to make negative stock transactions for serial /batch items even though Allow Negative Stock has enabled in the Stock Settings.
+
+
+
+To enable serial / batch feature for the item, first check the 'Enable Serial and Batch No for Item' checkbox in the 'Stock Settings'.
+
+[Screenshot on the live page]
+
+
+
+As discussed in the [Item](/erpnext/item) page, if an **Item** is *serialized*, a **Serial Number** (Serial No) record is maintained for each quantity of that **Item**. This information helps track the location of the Serial No, its warranty and end-of-life (expiry) information.
+
+You can also track from which **Supplier** you purchased the **Serial No** and to which **Customer** you have sold it. The **Serial No** status will tell you its current inventory status.
+
+If your Item is *serialized* you will have to enter the Serial Nos in the related column with each Serial No in a new line. You can maintain single units of serialized items using Serial Number.
+
+To access the Serial Number list, go to: > Home > Stock > Serial No and Batch > Serial No
+
+1. Prerequisites
+
+---
+
+Before creating and using a Serial Number, it is advised that you create the following first:
+
+- [Item](/erpnext/item)
+- Enable 'Has Serial No' in the Item master [Screenshot on the live page: Serial No Enabled]
+
+2. How to create a Serial Number
+
+---
+
+Usually, Serial Numbers are auto-created when transactions are made against a serialized Item. This works only when 'Has Serial No' is enabled and a series is set in the Item master.
+
+For example, a series was set for the following Item as 'PB2L.#####'. Then a Stock Entry was submitted to receive the Item. The Serial Numbers were created accordingly.
+
+[Screenshot on the live page: Serial No Created]
+
+
+
+However, if you want to create a Serial No *manually* follow these steps:
+
+1. Go to the Serial Number list, click on New.
+2. Enter a Serial Number.
+3. Enter the Item Code and details will be fetched.
+4. If any transaction is done with an item, Serial No cannot be set or unset.
+5. Save.
+
+Inventory of an Item can only be affected if the Serial No is transacted via a Stock transaction (Stock Entry, Purchase Receipt, Delivery Note, Sales Invoice). When a new Serial No is created directly, its Warehouse cannot be set.
+
+[Screenshot on the live page: Serial Number]
+
+
+
+### 2.1 Notes about Serial Number
+
+- The Status is set based on Stock Entry.
+- Only Serial Numbers with status 'Available' can be delivered.
+- Serial Nos can automatically be created from a Stock Entry or Purchase Receipt. If you mention Serial No in the Serial Nos column, it will automatically create those serial Nos.
+- If in the Item Master, the Serial No Series is mentioned, you can leave the Serial No column blank in a Stock Entry / Purchase Receipt. Serial Nos will automatically be set from that series.
+
+3. Features
+
+---
+
+### 3.1 Purchase/Manufacture details
+
+The document from which the Serial No was created will be shown. If you purchased it from a Supplier, it'll be linked here.
+
+### 3.2 Delivery Details
+
+If the Serial No was generated from a Sales Order, the Customer will be linked here.
+
+### 3.3 Warranty/AMC Details
+
+If the Item is under warranty or AMC (Annual Maintenance Contract), the expiry dates for these can be set.
+
+### 3.4 More Information
+
+Any additional information about this specific Item unit can be set under 'Serial No Details'.
+
+4. Video
+
+---
+
+### 5. Related Topics
+
+1. [Item Codification](/erpnext/item-codification)
+2. [Item Variants](/erpnext/item-variants)
+3. [Serial Number Naming](/erpnext/serial-no-naming)
+
+<!-- page: erpnext/erpnext__service-level-agreement.md -->
+---
+title: "Service Level Agreement\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/service-level-agreement"
+updated: "2026-02-28"
+---
+
+
+**A service level agreement (SLA) is a contract between a service provider (either internal or external) and the end user on the level of service expected from the service provider.**
+
+SLAs are output-based, their purpose is specifically to define the timeline in which the Customer will receive the service. SLAs do not define how the service itself is provided or delivered.
+
+To access the Service Level Agreement list, go to:
+> Home > Support > Service Level Agreement > Service Level Agreement
+
+## 1.Prerequisites
+
+Before creating and using a Service Level Agreement, it is advised that you create/update the following first:
+
+* [Holiday List](/hr/holiday-list)
+
+* Enable **Track Service Level Agreement** in Support Settings
+
+ [Screenshot on the live page: Service Level Agreement]
+
+## 2. How to Create a Service Level Agreement
+1. Go to the Service Level Agreement list, click on New.
+1. Enter a name for the Service Level.
+1. Select an Employee group, that will handle a particular Service Level.
+1. Set a Holiday List. Service Level Agreement won't be applied in the days mentioned in the Holiday List.
+1. 'Enable' determines if a Service Level Agreement is enabled or disabled.
+1. Ticking 'Default Service Level Agreement' will apply this SLA to a customer if they don't have a particular SLA assigned to them.
+1. Entity Type: Service Level Agreements can be assigned to a Customer/Customer Group/Territory enabling you to apply Service Level Agreement based on these factors.
+1. Entity: Select the specific Customer/Customer Group/Territory.
+1. Start / End Date: Defines the validity of the agreement.
+1. Priorities: You can set multiple Issue Priorities and their Time to Respond and Resolve (in hours and mins).
+
+ [Screenshot on the live page: Service Level]
+1. Default Priority: Default Priority selected in Priorities table that will be applied in the Service Level Agreement.
+1. Support Hours: Contains the Days of the week on which Support is provided. Has a Start Time and End Time of the Working day.
+
+ [Screenshot on the live page: SLA Support Hours]
+1. Save.
+
+ [Screenshot on the live page: SLA]
+
+## 3. Features
+### 3.1 Applies to New Issues
+
+Once an SLA is saved, it'll be applied to Issues raised by Customers/Territories as per the option you chose in 'Entity Type'.
+
+[Screenshot on the live page: SLA in Issue]
+
+### 3.2 Resetting an SLA
+An SLA can also be reset until the time does not fail. For example, if the SLA is 3 days, you can reset the SLA only within 3 days of the Issue being created. After that, the Service Level will display failed.
+
+[Screenshot on the live page: SLA Issue]
+
+### 3.3 Time respond / resolve in Issues
+The time to respond to an Issue and the time to resolve will be shown:
+ [Screenshot on the live page: SLA in Issue]
+
+These times are based on the timelines set in the 'Priority' field in the Service Level's Priorities table.
+
+
+### 3.4 Pause SLA on Statuses
+From version 13 onwards, ERPNext allows you to pause SLA on issues when you are waiting for an event to happen. You can do this by selecting a status that is configured in this "Pause SLA On" table.
+
+* Set the statuses on which you want to pause SLA in the SLA document. You can also add custom statuses here.
+ [Screenshot on the live page: Service Level]
+* When the status is changed to any of the above, resolution and response fields are unset and the dashboard indicators change to:
+ [Screenshot on the live page: Service Level]
+* When the status of the issue changes back to a non-hold status (which is not configured in the "Pause SLA On" table), the **Total Hold time** field will be set in your Issue document.
+ [Screenshot on the live page: Service Level]
+The Response and Resolution time will be recalculated by adding the hold time, thereby restarting your SLA timers.
+
+> Note: Service Level DocType was removed in version 13 and all functions are handled only with the Service Level Agreement DocType.
+
+<!-- page: erpnext/erpnext__session-defaults.md -->
+---
+title: "Session Defaults | ERPNext Documentation"
+description: "Use ERPNext Session Defaults to temporarily prefill a company or other value for one user session without changing global defaults."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/session-defaults"
+updated: "2026-08-15"
+---
+
+Nova Industries is a fictional electronics manufacturer and distributor with a child company, Nova Electronics Trading. Priya normally works in the parent company's books, but this afternoon she must enter and review only the subsidiary's transactions. Changing the global Company would affect everyone. Re-selecting the subsidiary on every form and report makes it easy to miss one record.
+
+
+
+Session Defaults lets Priya choose Nova Electronics Trading for her current login session. New supported transactions and reports can begin with that Company already selected. Other users keep their own context, and the temporary choice is cleared when Priya logs out.
+
+## Allow a value to be used as a Session Default
+
+Open **Session Default Settings** and add the DocTypes that users may choose temporarily. Company is the most common example. Add only fields that provide a useful and unambiguous working context.
+
+[Screenshot on the live page: Company configured as an available ERPNext Session Default]
+
+
+| Setting                | What it means                                           | Nova example                                                               |
+| ---------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- |
+| Session Defaults table | DocTypes available in the user's session-default menu   | Company allows Priya to choose Nova Electronics Trading for the afternoon. |
+| Reference DocType      | The master whose record will become the temporary value | Selecting Company presents Companies the user is permitted to access.      |
+
+
+## Select the value for the current session
+
+Open the user menu or sidebar Session Defaults control, then choose the permitted value. Create a new transaction or open a report and confirm the Company is prefilled. A submitted record must still be checked before relying on the default.
+
+## Understand the scope
+
+Session Defaults affects the current user and current session. It does not change Global Defaults, does not grant access, and does not rewrite existing records. Logging out clears the temporary choice. A value may also be replaced when a mapped source document or a more specific transaction rule supplies the field.
+
+## Troubleshooting
+
+### The Session Defaults option is missing
+
+A System Manager must first add an allowed Reference DocType in Session Default Settings. The user also needs permission to the referenced records.
+
+### The selected Company is not used
+
+Test with a new supported document. A mapped document, user default, or document-specific rule may supply a more specific Company.
+
+### The old value appears after changing it
+
+Reload the form or create a new draft. Existing open forms can retain values loaded before the session change.
+
+## Frequently asked questions
+
+### Does a Session Default apply to other users?
+
+The value belongs to the current user's session. It does not change the common site default.
+
+### Is a Session Default permanent?
+
+Logging out clears it. Use a user default or Global Defaults when the choice should persist according to policy.
+
+### Can it bypass User Permissions?
+
+A default only suggests a value. The user must still have permission to read and use that record.
+
+### Can several DocTypes be configured?
+
+The settings table can allow more than one reference type, but each should provide a clear working context rather than adding clutter.
+
+## Related topics
+
+- [Global Defaults](/erpnext/global-defaults)
+- [System Settings](/erpnext/system-settings)
+- [Company](/erpnext/company-setup)
+- [User Permissions](/erpnext/user-permissions)
+- [Adding Users](/erpnext/adding-users)
+- [Reports](/erpnext/reports)
+
+<!-- page: erpnext/erpnext__set-language.md -->
+---
+title: "Set Language | ERPNext Documentation"
+description: "Set the default ERPNext language or a user-specific language and understand translation scope, fallback, and verification."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/set-language"
+updated: "2026-08-15"
+---
+
+Nova Industries is a fictional electronics manufacturer and distributor. Most employees use ERPNext in English, but the company hires Sofia to coordinate Spanish-speaking customers and suppliers. Changing the whole site to Spanish would disrupt the rest of the team, while forcing Sofia to translate every menu in her head makes routine work slower and more error-prone.
+
+
+
+ERPNext separates the site's default language from a user's preferred language. The System Manager can keep English as the shared fallback and set Spanish only for Sofia. When she signs in again, supported labels and messages appear in her language while other users continue in English.
+
+## Set the default site language
+
+Open **System Settings**, choose **Language**, save, and reload the site. Use this when the chosen language should be the default for users who do not have a personal override.
+
+[Screenshot on the live page: Default Language in ERPNext System Settings]
+
+## Set a language for one user
+
+Open the User record, select the preferred **Language**, save, then ask the user to sign out and sign in again. Nova assigns Spanish to Sofia without changing the default for the finance and warehouse teams.
+
+[Screenshot on the live page: Language field on an ERPNext User record]
+
+
+| Choice                             | Scope                    | Example                                                                                                        |
+| ---------------------------------- | ------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| System Settings Language           | Default for the site     | English remains Nova's shared default.                                                                         |
+| User Language                      | One user                 | Sofia sees Spanish where translations exist.                                                                   |
+| Written master or transaction text | The saved content itself | A Customer name or Item description remains the language in which it was entered unless separately translated. |
+
+
+Translation coverage can vary by app and version. Product labels may be translated while custom fields, user-entered text, print-format content, or a newly released message remains in the source language.
+
+## Troubleshooting
+
+### The interface did not change
+
+Save the User or System Settings record, then sign out and sign in again. Confirm the User record has the expected language and that the translation exists.
+
+### Some labels remain in English
+
+The app, custom field, or new message may not have a translation. Verify the source text and contribute or maintain the translation rather than changing unrelated settings.
+
+### Printed documents use the wrong language
+
+Print Format text, letterheads, Item descriptions, and transaction content may need separate translated templates or records.
+
+## Frequently asked questions
+
+### Can every user choose a different language?
+
+A User record can carry a personal language where the user has permission and translations are available.
+
+### Does changing language translate existing Customer or Item names?
+
+The setting translates supported interface text. It does not rewrite business data entered by users.
+
+### Which language is used when a translation is missing?
+
+ERPNext falls back to the available source text, commonly English.
+
+### Does language change date and number formats?
+
+Language can influence presentation, but System Settings and Currency formatting also matter. Verify both when localisation looks inconsistent.
+
+## Related topics
+
+- [System Settings](/erpnext/system-settings)
+- [Adding Users](/erpnext/adding-users)
+- [Translations](/erpnext/translations)
+- [Country](/erpnext/country)
+- [Global Defaults](/erpnext/global-defaults)
+- [Print Format](/erpnext/print-format)

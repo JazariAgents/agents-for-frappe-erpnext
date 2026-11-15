@@ -1,479 +1,5 @@
 <!-- Frappe documentation: erpnext, part 22 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__discount_accounting.md -->
----
-title: "Discount Accounting | ERPNext Documentation"
-description: "Configure ERPNext discount accounting to post sales discounts separately, then verify item, invoice total, and General Ledger values with a clear example."
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/discount_accounting"
-updated: "2026-08-03"
----
-
-Discount Accounting lets ERPNext show a sales discount separately in the [General Ledger](/erpnext/general-ledger) instead of posting only the reduced revenue. Use it when finance needs to report gross sales and discounts allowed as distinct amounts.
-
-
-
-This setting changes accounting presentation. It does not decide who receives a discount or calculate promotional eligibility. Configure the commercial discount using the normal [discount fields](/erpnext/applying-discount), a [Pricing Rule](/erpnext/pricing-rule), or another approved pricing method.
-
-
-
-For example, Nova Electronics Trading invoices two phones at a list price of $699 each. It applies a 10% item discount and then a 5% additional discount. With Discount Accounting enabled, ERPNext posts:
-
-
-| Account                 | Debit     | Credit    | Meaning                                                      |
-| ----------------------- | ---------: | ---------: | ------------------------------------------------------------ |
-| Debtors                 | $1,195.29 | $0.00     | Amount owed by the Customer.                                 |
-| Sales                   | $0.00     | $1,398.00 | Revenue before the discounts.                                |
-| Sales Discounts Allowed | $202.71   | $0.00     | Item discount of $139.80 plus additional discount of $62.91. |
-
-
-Without separate discount accounting, the same commercial discount normally reduces the net revenue represented by the invoice lines instead of appearing as a separate discount-account debit.
-
-## Before you begin
-
-Confirm the following:
-
-1. The discount account exists in the [Chart of Accounts](/erpnext/chart-of-accounts) for each Company that will use it. Confirm with your accountant whether it should be an expense account or a contra-revenue account in your reporting structure.
-2. The [Item](/erpnext/item) has an applicable [Item Price](/erpnext/item-price) in the intended [Price List](/erpnext/price-lists). Item discounts use Price List Rate as their reference.
-3. Users can create and submit a [Sales Invoice](/erpnext/sales-invoice) and view its ledger.
-4. You have tested the expected posting with representative taxes, currencies, rounding, and discounts before enabling the workflow for regular transactions.
-
-## Enable Discount Accounting for selling
-
-Two settings control the current workflow.
-
-1. Open [Selling Settings](/erpnext/selling-settings).
-2. Select **Advanced Features**.
-3. Enable **Enable discount accounting for selling** and save.
-
-![Selling Settings with Enable discount accounting for selling highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-enable-selling-discount-accounting.png)
-
-This setting tells ERPNext to create additional ledger entries for sales discounts in the selected Discount Account.
-
-4. Open [Accounts Settings](/erpnext/accounts-settings).
-5. Select **Invoice and Billing**.
-6. Enable **Enable Discounts and Margin** and save.
-
-![Accounts Settings with Enable Discounts and Margin highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-enable-discounts-and-margin.png)
-
-This setting makes the discount and margin controls available for transaction items. It does not, by itself, create a separate discount-account posting.
-
-## Set a default Discount Account for an Item
-
-A default avoids selecting the account on every invoice row.
-
-1. Open the Item.
-2. Select **Accounting**.
-3. In **Item Defaults**, find the row for the Company.
-4. Select the highlighted pencil icon to open the complete row editor.
-
-![Item Defaults row with the pencil icon highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-item-default-row.png)
-
-5. Set **Discount Account** to the Company account that should receive item-level and invoice-level sales discounts.
-6. Save the Item.
-
-![Item Default with Discount Account highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-item-default-discount-account.png)
-
-The Item Default is Company-specific. Configure a valid account and other defaults for each Company rather than copying an account from a parent or sibling Company.
-
-## Record an item-level discount
-
-1. Create a Sales Invoice and select the Company and Customer.
-2. Add the Item to the **Items** table.
-3. Select the highlighted pencil icon on the item row.
-
-![Sales Invoice item row with the pencil icon highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-sales-invoice-item-row.png)
-
-4. Expand **Discount and Margin**.
-5. Enter **Discount (%) on Price List Rate with Margin** or **Discount Amount**.
-
-![Sales Invoice item discount percentage highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-sales-invoice-item-discount-percentage.png)
-
-6. Expand **Accounting Details**.
-7. Confirm the **Discount Account**. ERPNext fetches the Item Default when one is configured, but you remain responsible for verifying the account on the transaction.
-
-![Sales Invoice item Discount Account highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-sales-invoice-item-discount-account.png)
-
-In the example, the Price List Rate is $699 and the item discount is 10%. For two units, ERPNext records an item discount of $139.80 and an amount of $1,258.20 before the invoice-wide discount.
-
-## Record an additional discount on the invoice
-
-Use an additional discount when the reduction applies to the complete transaction instead of one item row.
-
-1. Expand **Additional Discount** on the Sales Invoice.
-2. Set **Apply Additional Discount On** to **Net Total** or **Grand Total**.
-3. Enter **Additional Discount Percentage** or **Additional Discount Amount**.
-4. Select the **Discount Account**.
-
-![Sales Invoice Additional Discount fields and Discount Account highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-sales-invoice-additional-discount.png)
-
-In the example, 5% of the $1,258.20 Net Total is $62.91. The item and additional discounts therefore total $202.71.
-
-Apply on Net Total and Apply on Grand Total can produce different tax and net-value results. Review the tax breakup, rounding, and final amount with the configuration used by your business.
-
-## Submit and verify the ledger
-
-1. Review the discount amounts, taxes, Grand Total, and Discount Accounts.
-2. Save and submit the Sales Invoice.
-3. Open **View &gt; Ledger**, or run General Ledger for the invoice voucher.
-
-The submitted example has a Grand Total and outstanding amount of $1,195.29.
-
-
-
-![Submitted Sales Invoice total after discounts](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-submitted-sales-invoice-total.png)
-
-The ledger shows gross Sales of $1,398.00, a $202.71 debit to Sales Discounts Allowed, and a $1,195.29 debit to Debtors.
-
-
-
-![General Ledger showing the separate Sales Discounts Allowed entry](https://novacompanies.m.frappe.cloud/files/docs-gl-2026-discount-accounting-discount-account-general-ledger.png)
-
-Do not treat the invoice as verified merely because its total looks correct. Confirm that the discount account, gross revenue, receivable, tax, currency, Cost Center, and any other [accounting dimensions](/erpnext/accounting-dimensions) appear as intended.
-
-## Important fields and what they mean
-
-
-| Field                                    | What it controls                                                                                                                |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| Enable discount accounting for selling   | Creates separate sales-discount ledger entries when the required Discount Accounts are present.                                 |
-| Enable Discounts and Margin              | Makes discount and margin controls available on supported transaction item rows.                                                |
-| Price List Rate                          | Reference rate before item discount and margin. Overwriting Rate can change the calculated discount relative to this reference. |
-| Discount Percentage                      | Percentage reduction calculated against the Price List Rate after applicable margin behavior.                                   |
-| Discount Amount                          | Monetary reduction represented on the item row.                                                                                 |
-| Item Discount Account                    | Account used for the item-level discount ledger posting.                                                                        |
-| Apply Additional Discount On             | Chooses whether the transaction-level discount uses Net Total or Grand Total as its basis.                                      |
-| Additional Discount Percentage or Amount | Transaction-wide reduction after item-level pricing has been calculated.                                                        |
-| Additional Discount Account              | Account used for the invoice-wide discount ledger posting.                                                                      |
-
-
-## Purchase discounts
-
-The current ERPNext develop version supports separate Discount Account posting for selling. A [Purchase Invoice](/erpnext/purchase-invoice) still supports item and additional discount values, but its current standard fields do not provide the equivalent Purchase Invoice Item Discount Account or Additional Discount Account used by this sales workflow.
-
-Do not force a sales-only field into a Purchase Invoice through customization without reviewing the accounting logic. If your organization must report purchase discounts separately, define the required treatment with your accountant and validate the supported transaction or [Journal Entry](/erpnext/journal-entry) process in a test Company.
-
-## Troubleshooting
-
-
-| Issue                                                     | What to check                                                                                                                                                                                              |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Discount and Margin is unavailable                        | Confirm **Enable Discounts and Margin** is enabled, the invoice is in Draft, and Price List Rate is not zero. Open the item row with the pencil icon.                                                      |
-| Discount Account is unavailable                           | Confirm **Enable discount accounting for selling** is enabled, reload the invoice after saving the setting, and expand **Accounting Details** in the item row.                                             |
-| No separate discount ledger entry is posted               | Verify the selling setting, the item or additional Discount Account, and the submitted invoice ledger. A visible commercial discount does not automatically prove separate accounting is enabled.          |
-| The discount amount is unexpectedly negative or too large | Compare Price List Rate, Margin, Rate, Discount Percentage, and Discount Amount. ERPNext treats the difference between the reference Price List Rate and the entered Rate as part of pricing calculations. |
-| The wrong Company account is selected                     | Correct the Company-specific Item Default and the invoice row before submission. Accounts cannot be shared across unrelated Companies.                                                                     |
-
-
-## Frequently asked questions
-
-### Does Discount Accounting change the amount the Customer owes?
-
-No, it changes how the discount is presented in the ledger. The invoice total still reflects the commercial discount entered on the transaction.
-
-### Can I use both an item discount and an additional discount?
-
-Yes, ERPNext applies both. Review the effective discount and the ledger, because both values can post to the selected discount account.
-
-### Why is the calculated discount different after I overwrite Rate?
-
-Item discount is based on Price List Rate and margin behavior. If you replace Rate directly, ERPNext can represent the difference from Price List Rate as a discount or negative discount. Set an intentional Item Price or editable Price List Rate when that better represents the commercial baseline.
-
-### Should the Discount Account be an expense or contra-revenue account?
-
-That depends on your chart and reporting policy. ERPNext posts the value to the account you select. Your accountant should decide its classification and where it appears in financial reports.
-
-### Does the same separate-account workflow work for Purchase Invoices?
-
-Not in the current standard develop fields. Purchase transactions support commercial discount values, but the equivalent purchase-side Discount Account controls documented on older versions are no longer present.
-
-## Related topics
-
-- [Apply Discounts to Sales Transactions](/erpnext/applying-discount)
-- [Sales Invoice](/erpnext/sales-invoice)
-- [Pricing Rule](/erpnext/pricing-rule)
-- [Selling Settings](/erpnext/selling-settings)
-- [Chart of Accounts](/erpnext/chart-of-accounts)
-- [General Ledger](/erpnext/general-ledger)
-- [Purchase Invoice](/erpnext/purchase-invoice)
-
-<!-- page: erpnext/erpnext__distributed-cost-center.md -->
----
-title: "Distributed Cost Center"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/distributed-cost-center"
-updated: "2026-08-14"
----
-
-Nova Electronics Trading pays $10,000 each month for software used by two teams. Retail Operations uses most of it, while Online Sales uses the rest. If Nova charges the complete bill to Retail Operations, that team's expenses look too high and Online Sales appears to use the software for free.
-
-
-
-Nova can record the bill once against a shared main [Cost Center](/erpnext/cost-center). A [Cost Center Allocation](/erpnext/cost-center-allocation) then distributes 60% to Retail Operations and 40% to Online Sales. The source bill remains one transaction, but management reports show $6,000 against Retail Operations and $4,000 against Online Sales.
-
-
-
-A distributed cost center is not a separate ERPNext record. It describes the accounting result of posting to one main Cost Center and letting an allocation rule divide the amount among receiving Cost Centers.
-
-## Before you begin
-
-Create the main Cost Center and every receiving Cost Center in the same [Company](/erpnext/company). Choose a percentage that the business can explain, such as employee count, floor area, revenue, or actual software usage.
-
-
-
-The percentages must add up to 100%. Choose the effective date carefully. ERPNext compares the transaction's **Posting Date** with **Valid From** to decide which allocation to use.
-
-## Set up the distribution
-
-Open the Cost Center Allocation list and select **Add Cost Center Allocation**.
-
-
-
-![Cost Center Allocation list in ERPNext](/files/cost-center-allocation-list.webp)
-
-Select the shared **Main Cost Center**, the **Company**, and the **Valid From** date.
-
-
-
-![Main Cost Center and Valid From fields for a distributed cost center](/files/allocation-main-and-date.webp)
-
-In the allocation table, add each receiving cost center and its percentage. Save the record after the total reaches 100%.
-
-
-
-![Receiving cost centers and their allocation percentages](/files/allocation-percentages.webp)
-
-## What happens in a transaction
-
-When you enter a supported accounting transaction, select only the main Cost Center. This can apply to a [Purchase Invoice](/erpnext/purchase-invoice), [Sales Invoice](/erpnext/sales-invoice), or [Journal Entry](/erpnext/journal-entry). You do not need to calculate and enter every receiving share manually.
-
-
-
-When the transaction posts, ERPNext applies the allocation valid on that date. The resulting [General Ledger](/erpnext/general-ledger) entries carry the receiving Cost Centers and their calculated shares. The allocation changes the reporting classification, not the supplier, invoice total, taxes, or payment due.
-
-## Example result
-
-
-| Posting            | Cost center             | Amount  |
-| ------------------ | ----------------------- | ------- |
-| Original selection | Shared Services - NET   | $10,000 |
-| Distributed share  | Retail Operations - NET | $6,000  |
-| Distributed share  | Online Sales - NET      | $4,000  |
-
-
-Use the [Profit and Loss Statement](/erpnext/profit-and-loss-statement) with a Cost Center filter to compare each team's expense. Open the General Ledger when you need to inspect the individual debit and credit lines behind the report. The [Accounts Payable](/erpnext/accounts-payable) amount remains $10,000 because the supplier is still owed one complete invoice.
-
-## Change the distribution later
-
-Create a new allocation with a later **Valid From** date when the ratio changes. For example, if Online Sales grows, Nova may change the split from 60:40 to 50:50 from the next month. The earlier allocation remains available to explain transactions posted under the old arrangement.
-
-
-
-Do not change old submitted transactions merely to apply a new allocation. Review the business effective date with the finance team before changing the rule.
-
-## Troubleshooting
-
-### The amount was not distributed
-
-Confirm that the transaction used the exact main cost center, its posting date falls on or after the allocation's Valid From date, and the allocation belongs to the same company.
-
-### The percentages cannot be saved
-
-Check that every row has a receiving cost center and that the total is exactly 100%.
-
-### The report shows an unexpected split
-
-Check which allocation was valid on the transaction's posting date. Then inspect the voucher and its General Ledger entries to confirm the cost center stored on each line.
-
-## Frequently asked questions
-
-### Does distribution create several invoices?
-
-ERPNext keeps one invoice. It distributes the accounting entries across the receiving Cost Centers.
-
-### Can the receiving cost centers belong to different companies?
-
-The main and receiving Cost Centers must belong to the same Company. Use an [inter-company workflow](/erpnext/inter-company-invoices) when separate companies need to charge one another.
-
-### Can I use a different ratio next month?
-
-You can create a new allocation with the revised ratio and the correct Valid From date. ERPNext uses the allocation applicable to each transaction's Posting Date.
-
-## Related topics
-
-- [Cost Center Allocation](/erpnext/cost-center-allocation)
-- [Cost Center](/erpnext/cost-center)
-- [Accounting Dimensions](/erpnext/accounting-dimensions)
-- [General Ledger](/erpnext/general-ledger)
-- [Budget](/erpnext/budget)
-
-<!-- page: erpnext/erpnext__do-i-need-an-erp.md -->
----
-title: "Do I Need ERPNext?"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/do-i-need-an-erp"
-updated: "2026-08-14"
----
-
-Are you still using multiple specialised tools/platforms for managing your operations and finding it challenging to maintain data consistency?
-
-Are you hesitant to go paperless by digitising all your operations?
-
-Are you fed up with your legacy system which is difficult to cater to your ever evolving business needs?
-
-
-
-ERPNext will help you get rid of these pain points as it is an open source platform which will act as a single source of truth for all your operational needs. ERPNext can host all your data and replicate business processes to make them operate seamlessly. Since it covers a wide range of business functions/departments like Accounting, Procurement, Sales, HR, Inventory Management etc, ERPNext is a system that can be setup by any organisation.
-
-### Benefits over traditional accounting software:
-
-- **Integrated Modules:** ERPNext provides a complete package integrated modules including accounting, sales, purchasing, inventory, manufacturing, HR, CRM, and project management. This integration ensures that there is seamless data flow across various departments, reducing data silos and improving efficiency.
-- **Easy Customisation:** Highly customisable to fit specific business needs where tailored workflows can be designed
-- **Scalability:** the system can be scaled up with the growth of the business by accommodating increasing transaction volumes and additional functional requirements.
-- **Unified Platform:** ERPNext facilitates better collaboration across departments as all data and processes reside on the same platform.
-- **Real-Time Data:** Provides real-time visibility and accessibility to the business data allowing quick data driven decision making.
-- **Comprehensive Reports:** Offers detailed reports and dashboards covering all aspects of the business providing deeper insights and analytics capabilities.
-
-### Benefits over big ERPs
-
-- **Minimum Investment**: Since it is open source, ERPNext eliminates the need for expensive licensing fees unlike big ERPs.
-- **Affordable Implementation and Maintenance**: The implementation and maintenance cost of ERPNext is generally lower.
-- **Open Source Nature**: ERPNext allows complete access to the source code, enabling deep customisations and integrations.
-- **Faster Deployment Cycle**: ERPNext can be implemented more quickly unlike most of the big ERPs.
-- **Active Community**: There is a widespread community of users and developers around the globe which provides support and contributes to the continuous improvement of the platform.
-- **No Vendor Lock-In:** The open-source nature of ERPNext ensures that businesses are not locked into long-term contracts with a single vendor even through there is less satisfaction
-
-<!-- page: erpnext/erpnext__doctype.md -->
----
-title: "DocType\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/doctype"
-updated: "2026-03-04"
----
-
-
-**A DocType is the core building block of any application based on the Frappe Framework.**
-
-It describes the Model and the View of your data. It contains what fields are stored for your data, and how they behave with each other. It contains information about how your data is named. The forms like Sales Order, Sales Invoices, Work Order are added as DocTypes in the backend.
-
-DocType allows you to insert custom forms in ERPNext as per your requirement.
-
-To create a new DocType, go to:
-
-> Setup > Customize > Doctype > New
-
-## 1. How to create a New DocType:
-
-1. **Name**: Enter the name of the new DocType.
-1. **Module**: Enter which module would you like the new DocType to be added to.
-1. Save.
-
-![Custom DocType](/files/doctype-employee-transfer.png)
-
-### 1.1. Additional Details
-
-1. **Fields**
-
- You can choose to add as many fields as you want. The Label, Field Type, Mandatory Fields and other associated Options can also be added here. Learn more about field types [here](/erpnext/field-types.html).
-
- ![Fields in Custom DocType](/files/doctype-employee-transfer-fields.png)
-
-1. **Naming**
-
- Here you can choose if you would want each of your forms within this DocType to be named automatically. As given in the description, you can select the pattern for naming of the forms. The same can be a Field within the DocType, Naming Series, Prompt, A defined Naming Series, or a Format based Name. For Naming, you can also add a Description and the Name Case (as a Title Case or UPPER CASE)for your convenience.
-
- ![Naming Custom DocType](/files/doctype-employee-transfer-naming.png)
-
-1. **Form Settings**
-
- Additional Settings for the Form, Image Fields, Attachments, Timeline etc. can be configured here. To know more about Form, visit [Customize Form](/erpnext/customize-form).
-
- ![Custom DocType Form Settings](/files/doctype-employee-transfer-form-settings.png)
-
-1. **View Settings**
-
- Here, you can define the View settings for the DocType, like, Search Fields, Default Sort Field, Default Sort Order etc.
-
-1. **Permission Rules**
-
- You can define the Permission Rules for the DocType here, and configure which users would be able to use or make changes to this DocType. Learn more about [Users and Permissions](/erpnext/users-and-permissions) here.
-
- ![Custom DocType Permissions](/files/doctype-employee-transfer-permissions.png)
-
-1. **Web View**
-
- You can select whether you would want a Web View of this DocType or no. Having a Web View for a DocType will allow your website users to have access to the Forms. Feel free to learn more about [Website Users](/erpnext/difference-between-system-user-and-website-user).
-
-### 1.2. More Properties
-
-1. **Is Submittable**: You can select if you want this DocType to only be 'Saved' or to also be 'Submitted' by checking and un-checking this box.
-1. **Is Child Table**: You can define if you want the New DocType to be a Child Table within another DocType. Checkout [Child Table](/erpnext/customizing-data-visibility-in-child-table) for more information.
-1. **Is Single**: If checked, this Doctype will become a single form, like Sales Order, which user will
-not be able to re-produce. For e.g., Selling Settings in Sales Module is a Single DocType.
-1. **Is Tree**: A few DocTypes in ERPNext are structured as Trees, wherein there are some Parent DocTypes and some Children DocTypes. E.g., Doctype Company is structured as Tree, there are Parent Companies as well as Child Companies, which we call subsidiaries. If you want your DocTypes to be structured similarly, you can enable this option.
-
- ![DocType Tree View](/files/doctype-treeview.png)
-
-1. **Quick Entry**: You can select if you want a Quick Entry to be made for this DocType. This will allow you to enter only a few mandatory details and save the DocType, so that a Quick Entry is made. For example, check Quick Entry in [Journal Entry](/erpnext/journal-entry#11-quick-entry).
-1. **Track Changes**: You can select this option if you want to maintain a log of the changes made to each Form. Check Out [Document Versioning](/erpnext/document-versioning) for more understanding on this.
-1. **Track Seen**: You can select this option if you want to maintain a log of all the Users who have seen this Form.
-1. **Track Views**: You can select this option if you want to maintain a log of all the times each User has Viewed this Form.
-
- ![DocType Tree View](/files/doctype-track-views.png)
-
-1. **Custom?**: This field will be checked by default when adding Custom Doctype. Similarly, if you are customizing a DocType which already exists in the system, this field by default would be unchecked.
-
-## 2. Videos
-
-
-<iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/WSzkpPm3iIU?start=585" width="560"></iframe>
-
-<!-- page: erpnext/erpnext__document-follow.md -->
----
-title: "Document Follow\n"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/document-follow"
-updated: "2026-03-02"
----
-
-
-> Introduced in v12
-
-**Document Follow is a feature that allows users to track changes in documents via email notifications.**
-
-## 1. How to Activate Document Follow
-1. Go to: **Settings > My Settings**.
-1. In the Document Follow section, tick the 'Send Notifications for documents followed by me' checkbox.
-1. Set the frequency at which you want to receive emails.
-1. Now, you can receive emails for the documents you follow.
-
-## 1.1 How to Follow documents
-1. Go to any document, you'll see an option to follow the document.
-1. Click on 'Follow'.
-
-![Defining Criteria](/files/document-follow-how-to-follow.png)
-
-1. After following, you can also unfollow a document.
-
-1. Note that you can only follow documents for which track changes are on.
-1. To enable track changes, go to **Menu > Customize > *tick the Track Changes checkbox***.
-
-### 1.2 Automatic Follow
-Cases where the document will be __automatically__ followed after activating Document Follow:
-
-* When you create a new document.
-* When you modify a document.
-* When you like a document using the heart icon.
-* When another user shares a document with you or assigns you to a document, you'll be following the document.
-
-This is what an email notification for Document Follow will look like:
-
-![Defining Criteria](/files/document-follow-email.png)
-
-### 2. Related Topics
-1. [Linking Emails to Document](/erpnext/linking-emails-to-document)
-1. [Notifications](/erpnext/notifications)
-
 <!-- page: erpnext/erpnext__document-naming-for-avoiding-tab-series-issues.md -->
 ---
 title: "Document Naming for Avoiding tabSeries Issues"
@@ -582,7 +108,7 @@ You can define or select the Naming Series pattern from:
 2. Edit the series as required with unique prefixes for each series.
   he first prefix will be the default prefix. Each new prefix Naming Series must be added on a new line. The newly added naming series will be available in the document.
 
-![document naming settings](/files/document_naming_settings.gif)
+[Screenshot on the live page: document naming settings]
 
 3. If you want the user to explicitly select a series instead of the default one, check the “User must always select” checkbox.
   here will be no default naming series if this is ticked.
@@ -597,7 +123,7 @@ You can also show the financial year in the Naming Series. By default, if you en
 
 As you can see, in the following screenshot of a Sales Invoice, the year 2019 is listed:
 
-![Fiscal year in Naming Series](/files/year-naming-series.png)
+[Screenshot on the live page: Fiscal year in Naming Series]
 
 ## 3. Updating the current value for existing Naming Series
 
@@ -637,7 +163,7 @@ To configure the naming of amended documents:
   1. Apply the Default Amend Counter to change the naming for all doctypes.
   2. Customize naming for specific doctypes by selecting the relevant doctypes and defining their naming methods.
 
-![Amended Naming Series](/files/Screenshot%202024-11-21%20at%2012.17.06%E2%80%AFPM.png)
+[Screenshot on the live page: Amended Naming Series]
 
 
 
@@ -681,7 +207,7 @@ Assign a Priority number to the rule.
 🔹 Higher priority rules (e.g., 10) are applied before lower ones (e.g., 5).
 🔹 If multiple rules match, the one with the highest priority is used.
 
-![Selsct a DocType](/files/Screenshot%202025-06-16%20at%205.19.58%E2%80%AFPM.png)
+[Screenshot on the live page: Selsct a DocType]
 
 3. Add Rule Conditions
 ➕ You can add multiple conditions per rule. The rule is applied only when all conditions are satisfied.
@@ -710,7 +236,7 @@ Example: PSI/
 Specify the starting serial number in the field next to the prefix.
 Example: 5 → The first document will be named PSI/00005
 
-![](/files/Screenshot%202025-06-19%20at%203.44.10%E2%80%AFPM.png)
+[Screenshot on the live page]
 
 Here is an Example:
 
@@ -754,7 +280,7 @@ Here are the steps,
 
 **_Here's an example of how it looks_**
 
-![](/files/Eb81KLe.png)
+[Screenshot on the live page]
 
  
 
@@ -770,7 +296,7 @@ This is how the field configuration will look
 
  
 
-![](/files/FXuN3dK.png)
+[Screenshot on the live page]
 
  
 
@@ -784,7 +310,7 @@ Here's the output of the above configuration
 
  
 
-![](/files/gHpmXZY.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__document-title.md -->
 ---
@@ -799,7 +325,7 @@ updated: "2026-02-26"
 
 For example, the default title on a Quotation is the customer name, but if you are dealing with only a few customers and sending lots of quotations to each customer, you may want to customize.
 
-![Document Title](/files/document-title.png)
+[Screenshot on the live page: Document Title]
 
 ## Setting Title Fields
 
@@ -815,17 +341,17 @@ You can set the default value of that property by using Python style string form
 
 You can define the title by setting document properties in braces `{}`. For example, if your document has fields `customer_name`, you can specify that as the Title of the Form.
 
-![Set Document Title](/files/set-document-title.gif)
+[Screenshot on the live page: Set Document Title]
 
 Alternatively, you can also define a particular field as the 'Title Field' in Customize Form.
 
-![Title Field](/files/title-field-in-view-settings.png) 
+[Screenshot on the live page: Title Field] 
 
 ## Fixed or Editable Titles
 
 If your title is generated as a default title, it can be edited by the user by clicking on the heading of the document.
 
-![Editable Title](/files/customize-document%20title.gif)
+[Screenshot on the live page: Editable Title]
 
 If you want a fixed title, you can set the rule in the **Options** property. In this way, the title will be automatically updated every time the document is updated.
 
@@ -841,7 +367,7 @@ updated: "2026-03-04"
 
 This feature comes handy while conducting an Audit Tail to check on what changes were made in a document along with the time of change and the stakeholder responsible.
 
-![Document Versioning](/files/using-document-versioning-1.png)
+[Screenshot on the live page: Document Versioning]
 
 ## How to Enable Document Versioning
 
@@ -851,7 +377,7 @@ Let's assume that we need to enable Document Versioning for Purchase Order.
 2. Click on Customize from the drop-down menu.
 3. You shall be directed to the [Customize Form](/erpnext/customize-form) page for Purchase Order.
 4. Check the field "Track changes" in the Properties.
-  [Document Versioning](/files/using-document-versioning-2.gif)
+  Document Versioning (picture on the live page)
 
 With this, Document Versioning shall be enabled for all the Purchase Orders edited henceforth.
 
@@ -861,4 +387,665 @@ For each document that has Document Versioning enabled, a Version Log is created
 
 When you click on these links, you will be directed to a log of all the fields and the changes made therein.
 
-![Document Versioning](/files/using-document-versioning-3.gif)
+[Screenshot on the live page: Document Versioning]
+
+<!-- page: erpnext/erpnext__domain-settings.md -->
+---
+title: "Domain Settings | ERPNext Documentation"
+description: "Use ERPNext Domain Settings to keep relevant business domains active and understand how domains differ from modules, workspaces, and permissions."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/domain-settings"
+updated: "2026-08-15"
+---
+
+Nova Industries is a fictional electronics manufacturer and distributor. Its employees sell devices, manage warehouses, assemble selected products, and maintain equipment. They do not run a school or a healthcare facility. If every industry-specific feature is shown, a warehouse user may waste time searching through Student, Patient, or other records that have nothing to do with the job.
+
+
+
+Domain Settings lets the administrator keep only the relevant business domains active across the site. This makes navigation and available business features easier to understand. It is not a security boundary: roles, permissions, User Permissions, and Workspace rules must still control who may read or change data.
+
+## Select active domains
+
+Open **Domain Settings**, review the domains available from the installed apps, and select only the domains the organisation genuinely uses. Nova keeps manufacturing and distribution-related functionality available while leaving unrelated industry domains inactive.
+
+[Screenshot on the live page: Active Domains area in ERPNext Domain Settings]
+
+
+| Setting        | What it means                         | Nova example                                                                                               |
+| -------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Active Domains | Business domains enabled for the site | Nova enables a relevant manufacturing domain but does not enable Education merely to explore its DocTypes. |
+
+
+After saving, reload Desk and verify the affected workspaces, DocTypes, and navigation. Also test with a normal user's roles. A domain can make a feature available, while permission still decides whether the user can access it.
+
+## Domain Settings versus nearby controls
+
+
+| Control                    | Use it for                                                                        | Do not use it for                    |
+| -------------------------- | --------------------------------------------------------------------------------- | ------------------------------------ |
+| Domain Settings            | Activating an installed business domain                                           | Restricting one user's data          |
+| Module Settings            | Changing process behaviour within a module                                        | Hiding data from unauthorised users  |
+| Roles and Role Permissions | Granting DocType actions                                                          | Selecting which industry is relevant |
+| User Permissions           | Restricting particular Companies, territories, customers, or other linked records | Enabling an installed domain         |
+| Workspace configuration    | Controlling navigation and cards                                                  | Replacing server-side permissions    |
+
+
+## Troubleshooting
+
+### A DocType disappeared after changing domains
+
+Re-enable the required domain and reload Desk. Then verify that the app remains installed and the user has the required role.
+
+### A user can access a record even though its workspace is hidden
+
+Navigation visibility is not permission. Review Role Permissions and User Permissions for the DocType and record.
+
+### A domain is not available to select
+
+Confirm that the app supplying it is installed and compatible with the current version. Domain Settings cannot activate code that is not installed.
+
+## Frequently asked questions
+
+### Should every available domain be enabled?
+
+Enable only the domains the organisation uses. Extra domains add navigation and records that can confuse users.
+
+### Does disabling a domain delete data?
+
+Do not treat domain selection as deletion. Existing records may remain in the database even when the related interface becomes unavailable. Re-enable the domain and verify before making structural changes.
+
+### Can one user have a different domain?
+
+Domain Settings is site-wide. Use roles, permissions, and workspace configuration for user-specific access and navigation.
+
+### Is a domain the same as a module?
+
+A domain represents a business context that can activate related functionality. A module groups application features. They overlap, but they are not interchangeable.
+
+## Related topics
+
+- [Module Settings](/erpnext/module-settings)
+- [Role Based Permissions](/erpnext/role-based-permissions)
+- [User Permissions](/erpnext/user-permissions)
+- [Workspace](/erpnext/workspace)
+- [System Settings](/erpnext/system-settings)
+- [Adding Users](/erpnext/adding-users)
+
+<!-- page: erpnext/erpnext__download-backup.md -->
+---
+title: "Downloading Backups"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/download-backup"
+updated: "2026-02-26"
+---
+
+In ERPNext, you can manually download a database backup.
+
+To get the latest database backup, go to:
+
+> Home  > Download Backups
+
+Backup available for the download is updated every eight hours. Click on the link to download the backup at a given time.
+
+If you want to set the number of Backups available for download at a time, then click on 'Set Number of Backups', which will navigate you to 'System Settings', where you can set the number.
+
+[Screenshot on the live page]
+*Download backup post backup taken*
+
+[Screenshot on the live page]
+
+## Downloading Files Backup
+
+Clicking on Download Files Backup will send an email with links to the backup for both private and public files. Email must be configured for this to work.
+
+[Screenshot on the live page]
+
+## Getting Backup Encryption Key
+
+In order to get the backup encryption key, click on the designated button. Upon getting your system password validated, the system will provide you with the encryption key.
+
+[Screenshot on the live page]
+
+## Automating Backups to Cloud Storage
+
+You can also automate your backups to be uploaded directly to a cloud storage platform. Currently, ERPNext supports:
+
+1. Amazon S3
+2. Dropbox
+3. Google Drive
+
+<!-- page: erpnext/erpnext__downtime-analysis.md -->
+---
+title: "Downtime Analysis\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/downtime-analysis"
+updated: "2026-03-02"
+---
+
+
+To access the Downtime Analysis report, go to:
+
+> Home > Manufacturing > Reports > Downtime Analysis
+
+[Screenshot on the live page: Task]
+
+This report will give information about the captured Machines Downtime in hours. Using Downtime analysis report, operators will know which machine was not performing well and needs maintenance.
+
+<!-- page: erpnext/erpnext__downtime-entry.md -->
+---
+title: "Downtime Entry\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/downtime-entry"
+updated: "2026-02-26"
+---
+
+
+To access the Downtime Entry, go to:
+
+> Home > Manufacturing > Production > Downtime Entry
+
+[Screenshot on the live page: Production Forecasting]
+
+Downtime Entry document is used to capture the machine's Downtime in minutes. User needs to manually create the downtime record by selecting the proper machine alongwith the machine's down time. Using Downtime entry data operator knows which machine not performing well and needs maintenance.
+
+<!-- page: erpnext/erpnext__drop-shipping-in-erpnext.md -->
+---
+title: "Drop Ship | ERPNext Documentation"
+description: "Set up drop shipping in ERPNext so suppliers deliver items directly to customers through linked Sales Orders and Purchase Orders."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/drop-shipping-in-erpnext"
+updated: "2026-07-23"
+---
+
+Drop shipping lets a Supplier deliver an item directly to your Customer. Your company creates the Sales Order and Purchase Order, but the goods do not pass through your warehouse. ERPNext links the two transactions so purchasing and sales teams can follow the same fulfilment.
+
+[Screenshot on the live page: Drop-ship Sales Order with the customer, delivery date, supplier-delivered items, quantities, rates, and stock indicators.]
+
+## Before you begin
+
+Create the [Customer](/erpnext/customer), Supplier, [Item](/erpnext/item), selling and buying prices, Customer shipping address, and Supplier contact details. The Item must have a Default Supplier or an appropriate supplier must be selected during purchasing.
+
+## Create a drop-ship Sales Order
+
+1. Go to **Selling > Sales > Sales Order** and select **Add Sales Order**.
+2. Select the Customer, Company, and delivery date.
+3. Add the Item and Quantity.
+4. Open the item row with the pencil icon.
+5. Enable **Deliver to Customer** for the row.
+6. Select the Supplier and confirm the Customer shipping address.
+7. Save and submit the Sales Order.
+
+[Screenshot on the live page: The highlighted pencil icon opens the complete Sales Order item row.]
+
+The stock indicator before an Item Code is green when the item is in stock and red when it is out of stock. Drop shipping does not require the item to be received into your warehouse, but the indicator can still help users understand the item’s current availability.
+
+[Screenshot on the live page: The item row with Supplier delivers to Customer enabled and Apex Devices selected as the Supplier.]
+
+[Screenshot on the live page: The Customer and company address information used for the drop-ship transaction.]
+
+## Create the Purchase Order
+
+From the submitted Sales Order, select **Create > Purchase Order**. In the dialog, select the Supplier and the drop-ship items, then create the Purchase Order.
+
+Review the following before submission:
+
+- **Is Subcontracted** should remain disabled unless the transaction is genuinely subcontracting.
+- **Supplier** must be the party that will ship the goods.
+- **Customer** and **Customer Address** must identify the final delivery destination.
+- The items, quantities, rates, taxes, schedule dates, and terms must match the supplier agreement.
+
+Submit the Purchase Order and send the approved document or instructions to the Supplier.
+
+## Important fields and what they mean
+
+
+| Field                 | What it means                                                                                                               |
+| --------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| Deliver to Customer   | Marks the Sales Order item for direct delivery by a Supplier.                                                               |
+| Supplier              | The Supplier expected to fulfil that item.                                                                                  |
+| Customer              | The party receiving the goods. It is mapped to the Purchase Order for drop shipping.                                        |
+| Customer Address      | The shipping destination printed or shared with the Supplier.                                                               |
+| Schedule Date         | The date by which the Supplier should deliver the item.                                                                     |
+| Warehouse             | Usually not used to receive a drop-shipped item because it does not enter your stock.                                       |
+| Delivered By Supplier | Indicates that fulfilment is performed by the Supplier. Availability and wording can depend on the transaction and version. |
+
+
+## Complete the sales cycle
+
+A drop-ship Purchase Order does not create a stock receipt for your company. When the Supplier confirms delivery, use the actions available on the linked Sales Order or Purchase Order to record the delivery status according to your ERPNext version and process.
+
+Create the [Sales Invoice](/erpnext/sales-invoice) for the Customer and the Purchase Invoice for the Supplier. Verify linked quantities so the Sales Order, Purchase Order, receivable, and payable all represent the same fulfilment.
+
+If only part of an order is drop shipped, keep the remaining items on the normal warehouse fulfilment path. Each row can follow the appropriate route, but teams should verify the linked documents carefully.
+
+## Returns and exceptions
+
+If the Customer returns a drop-shipped item, coordinate the commercial and physical return with the Supplier. Create the appropriate return or credit documents for both sides. Because the goods did not enter your warehouse during the original delivery, do not create a warehouse receipt unless your return process actually brings them into your stock.
+
+If the Supplier cannot fulfil the order, update or cancel the affected Purchase Order and resolve the Customer commitment on the Sales Order. Do not leave an open quantity without an owner or revised delivery date.
+
+## Frequently asked questions
+
+### Does drop shipping update stock?
+
+Normally no. The Supplier delivers directly to the Customer, so the item does not pass through your warehouse.
+
+### Can one Sales Order contain warehouse and drop-ship items?
+
+Yes. Mark only the rows that the Supplier will deliver directly. Fulfil the other rows through Delivery Notes from your warehouse.
+
+### Can different Suppliers fulfil different items?
+
+Yes. Create the required Purchase Orders by Supplier and confirm that each item row is linked correctly.
+
+### Why is the Purchase Order not available from the Sales Order?
+
+Check that the Sales Order is submitted, the item row is marked for delivery to the Customer, a Supplier is selected or available, and the quantity is not already fully ordered.
+
+### Who sends the invoice to the Customer?
+
+Your company normally invoices the Customer. The Supplier invoices your company under the linked purchase transaction.
+
+## Related topics
+
+- [Sales Order](/erpnext/sales-order)
+- [Purchase Order](/erpnext/purchase-order)
+- [Delivery Note](/erpnext/delivery-note)
+- [Sales Invoice](/erpnext/sales-invoice)
+- [Sales Return](/erpnext/sales-return)
+- [Drop Ship Between Subsidiary Companies](/erpnext/drop-ship-between-subsidiary-companies)
+
+<!-- page: erpnext/erpnext__dropbox-backup.md -->
+---
+title: "Setting Up Dropbox Backups"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/dropbox-backup"
+updated: "2026-03-06"
+---
+
+We always recommend customers to maintain backup of their data in ERPNext. The database backup is downloaded in the form of an SQL file. If needed, this SQL file of backup can be restored in the another ERPNext account as well.
+
+You can automate database backup download of your ERPNext account into your Dropbox account.
+
+
+&gt; Note: If you are Frappe Cloud user, onsite and offsite backups are automatically created for you: &lt;https://frappecloud.com/docs/sites/backups&gt;
+&gt; 
+&gt; 
+
+To setup Dropbox Backup, &gt; Home &gt; Integrations &gt; Dropbox Settings
+
+  
+
+
+#### Step 1: Login to Dropbox Developer area
+
+&lt;https://www.dropbox.com/developers/apps&gt;
+
+  
+
+
+#### Step 2: Create a new Dropbox app
+
+[Screenshot on the live page: Create new]  
+
+
+  
+
+
+#### Step 3: Fill in the details for your new app
+
+[Screenshot on the live page: Choose Dropbox API and type as APP Folder] [Screenshot on the live page: Setup APP Name]  
+
+
+[Screenshot on the live page: https://support.frappe.io/files/nBdh7wu.png]  
+
+
+#### Step 4: Insert your custom domain Redirect URI
+
+`https://{yourwebsite.com}/api/method/frappe.integrations.doctype.dropbox_settings.dropbox_settings.dropbox_auth_finish` [Screenshot on the live page: Set Redirect URL]  
+
+
+  
+
+
+#### Step 5: In a new window, open the Dropbox Settings page in your ERPnext installation
+
+  
+
+
+#### Step 6: Set backup frequency and email
+
+Set the frequency to download your site backups to your Dropbox account. [Screenshot on the live page: set frequency]  
+
+
+#### Step 7: Input Keys from your Dropbox App window
+
+From your Dropbox App page, enter the app key and (unhidden) app secret into the ERPnext Dropbox settings page.
+
+Alternatively, you can enter it manually in `sites/{sitename}/site_config.json` as follows,
+
+
+```
+       {
+ "db_name": "demo",
+ "db_password": "DZ1Idd55xJ9qvkHvUH",
+ "dropbox_access_key": "ACCESSKEY",
+ "dropbox_secret_key": "SECRECTKEY"
+}
+
+    
+```
+  
+
+
+#### Step 8: Click Save before continuing
+
+  
+
+
+#### Step 9: After saving, click "Allow Dropbox Access"
+
+The Dropbox login page will open in the new tab. This might require you to allow pop-up for your ERPNext account.
+
+  
+
+
+#### Step 11: Allow Dropbox Access
+
+On successful login, you will find a confirmation message as following. Click on "Allow" to let your ERPNext account have access to your Dropbox account. [Screenshot on the live page: Allow]  
+
+
+  
+
+
+#### Step 12: Confirm Backups Work
+
+From the ERPnext Dropbox page, click `Take Backup Now` and then go to you Dropbox files view. You should see a new folder in Dropbox named `Apps` and inside of it your {New App} folder. Inside of it should be backup folders for both files and database. So for an app named `erpnext`, following are the folder locations:
+
+
+```
+Database files: /Apps/erpnext/database
+Public files: /Apps/erpnext/files
+Private files: /Apps/erpnext/private/files
+  
+
+```
+&gt; **Note**: If the compressed backup size exceeds 1GB (Gigabyte), the system will upload the latest available backup to Dropbox instead of generating a new backup file.
+
+<!-- page: erpnext/erpnext__dunning.md -->
+---
+title: "Sales Interest and Dunning | ERPNext Documentation"
+description: "Set up formal overdue-payment reminders with interest, fees, letter text, and payment processing in ERPNext."
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/dunning"
+updated: "2026-08-14"
+---
+
+Northstar Retail has not paid an invoice by its due date. Nova Industries can see the overdue balance in Accounts Receivable, but the customer now needs a formal notice that states what is overdue, the interest or reminder fee being charged, and the amount required to settle it.
+
+
+
+A **Dunning** turns that overdue balance into a traceable collection document. It brings the relevant Sales Invoice instalments into a formal reminder, calculates optional interest and fees, stores the letter sent to the Customer, and links the eventual payment back to the demand.
+
+
+
+Use Dunning when ordinary follow-up is no longer enough and your collection policy requires a formal reminder. It does not replace the Sales Invoice or create another sale. This guide explains how to configure reusable Dunning Types, issue the notice, and record the payment that resolves it.
+
+## Before you begin
+
+- The [Sales Invoice](/erpnext/sales-invoice) must be submitted and overdue.
+- Create at least one Dunning Type.
+- Choose the income account and Cost Center that should receive interest and dunning fees.
+
+## Set up a Dunning Type
+
+A Dunning Type stores reusable defaults for the reminder. Create different types for stages such as first reminder, second reminder, and final notice.
+
+
+| Field                       | What it controls                                  |
+| --------------------------- | ------------------------------------------------- |
+| Is Default                  | Applies this type automatically when appropriate  |
+| Dunning Fee                 | Fixed charge added to the reminder                |
+| Rate of Interest (%) Yearly | Annual rate used to calculate interest            |
+| Dunning Letter              | Language-specific body and closing text           |
+| Income Account              | Account credited when fees and interest are paid  |
+| Cost Center                 | Cost Center used for the fee and interest posting |
+
+
+[Screenshot on the live page: Dunning Type with fee, interest, reminder text, and accounting defaults]
+
+## Create a Dunning
+
+### From an overdue Sales Invoice
+
+1. Open the overdue Sales Invoice.
+2. Select **Create &gt; Dunning**.
+3. Review the overdue payment schedule rows fetched into the document.
+4. Select a **Dunning Type**, or enter the fee, interest, and letter text manually.
+5. Save and submit.
+
+### From the Dunning list
+
+1. Open the Dunning list and select **Add Dunning**.
+2. Select the Customer.
+3. Select **Fetch Overdue Payments**.
+4. Choose the overdue rows and select **Get Items**.
+5. Complete the reminder details, then save and submit.
+
+The Dunning must reflect the amount you intend to collect. Review the invoice rows, interest, fee, total outstanding, income account, and Cost Center before submission.
+
+## Record payment
+
+When the customer pays the invoice together with the interest and fee:
+
+1. Open the submitted Dunning.
+2. Select **Create &gt; Payment**.
+3. Review the referenced invoices and the additional amount.
+4. Submit the Payment Entry.
+
+ERPNext records the interest and fee through the deductions or loss section of the Payment Entry and resolves the Dunning after the full amount is received.
+
+## Statuses
+
+
+| Status     | Meaning                                                   |
+| ---------- | --------------------------------------------------------- |
+| Draft      | Reminder has not been submitted                           |
+| Unresolved | Submitted, but the required payment has not been received |
+| Resolved   | Outstanding amount, interest, and fee have been settled   |
+| Cancelled  | Submitted Dunning was cancelled                           |
+
+
+## Troubleshooting
+
+**Create Dunning is not available**
+
+Confirm that the Sales Invoice is submitted, has an outstanding amount, and is past its due date.
+
+**Interest or fee posts to the wrong account**
+
+Review the Income Account and Cost Center on both the Dunning Type and the Dunning before creating the Payment Entry.
+
+**The Dunning remains unresolved**
+
+Open the linked Payment Entry and verify that it is submitted and covers all referenced invoice, interest, and fee amounts.
+
+## Related topics
+
+- [Sales Invoice](/erpnext/sales-invoice)
+- [Payment Entry](/erpnext/payment-entry)
+- [Accounts Receivables](/erpnext/accounts-receivables)
+- [Process Statement Of Accounts](/erpnext/process-statement-of-accounts)
+- [Payment Terms](/erpnext/payment-terms)
+
+<!-- page: erpnext/erpnext__duplicate-record.md -->
+---
+title: "Duplicate Records\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/duplicate-record"
+updated: "2026-03-04"
+---
+
+
+**'Duplicate' is a feature that helps you to copy values of existing document as-is into a new document.**
+
+## Scenario
+
+A customer has placed a 'reorder' for certain items with an electronic items supplier.
+
+Since the new Sales Order will have all the details the same as that of the original Sales order, the supplier can simply open the original one and 'Duplicate' the order. The values of the original document will get updated as it is in the new Sales Order. Any changes, if required can be made thereafter.
+
+To make a Duplicate document, you can go to the original document and click on 'Duplicate' from the Drop-Down menu.
+
+[Screenshot on the live page: Duplicate Record]
+
+<!-- page: erpnext/erpnext__dynamic-link-fields.md -->
+---
+title: "Dynamic Link Fields\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/dynamic-link-fields"
+updated: "2026-03-04"
+---
+
+
+Dynamic Link field is a field which can search and hold the value of any DocType. Let's consider an example to learn how Dynamic Link field works.
+
+While creating Opportunity or Quotation, we have to explicitly define if it is for a Lead or a Customer. Based on our selection (Lead/Customer), another link field shows up where we can select the actual Lead or Customer.
+
+If you set the former field as Dynamic Link, where we select actual Lead or Customer, then the later field will be automatically linked to master selected in the first field, i.e. Leads or Customers. Hence we need not insert separate link fields for Customer and Lead.
+
+Below are the steps to insert Custom Dynamic Field. For instance, we will insert Dynamic Link Field in Journal Entry.
+
+#### Step 1: Insert Link Field for DocType
+
+First, we will create a link field that will be linked to the DocType.
+
+[Screenshot on the live page: Custom Link Field]
+
+By **DocType** mentioned in the Option field, we mean parent DocType. So, just like Quotation is one DocType, which has multiple Quotation under it. Same way, DocType is also a DocType which has Sales Order, Purchase Order and other doctypes created as DocType records.
+
+**DocType**  
+
+---- Sales Order  
+
+---- Purchase Invoice  
+
+---- Quotation  
+
+---- Sales Invoice  
+
+---- Employee  
+
+---- Work Order  
+
+.. and so on.
+
+So linking this field with parent DocType will list all the DocType records.
+
+[Screenshot on the live page: journal Voucher Link Field]
+
+#### Step 2: Insert Dynamic Link Field
+
+This custom field's type will be "Dynamic Link". In the Option field, the name of the Doctype link field will be mentioned.
+
+[Screenshot on the live page: Custom Dynamic Field]
+
+This field will allow selecting document id, based on the value selected in the Doctype link field. For example, if we select Sales Order in the prior field, the Dynamic Link field will list all the Sales Orders ids.
+
+[Screenshot on the live page: Custom Dynamic Field]
+
+**Customizing options in the Doctype Link field**
+
+By default, the DocType link field will provide all the forms/docTypes for selection. If you wish this field to show certain specific docTypes in the search result, you will need to write Custom Script for it.
+
+<!-- page: erpnext/erpnext__e-commerce-integrations-for-erpnext.md -->
+---
+title: "E-commerce Integrations for ERPNext"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/e-commerce-integrations-for-erpnext"
+updated: "2026-07-04"
+---
+
+ERPNext is easy to integrate with recommerce and ecommerce platforms because business data in ERPNext is available through the Frappe Framework REST API. Products, customers, orders, invoices, payments, shipments, returns, and stock movements are stored as DocTypes, and DocTypes can be read or updated through standard API endpoints.
+
+This makes ERPNext a practical backend for recommerce platforms that handle refurbished, pre-owned, rental, buyback, resale, or reverse-logistics workflows. The storefront can focus on customer experience, while ERPNext manages inventory, accounting, fulfillment, purchasing, returns, and reporting.
+
+## Why Integration Is Straightforward
+
+- **REST APIs are available by default:** External systems can create and update ERPNext records without direct database access.
+- **Commerce records already exist:** Items, Customers, Sales Orders, Sales Invoices, Delivery Notes, Payment Entries, Stock Entries, and Warehouses are standard ERPNext records.
+- **Recommerce data can be added:** Fields such as condition, grade, serial inspection, refurbishment status, warranty, buyback source, and resale channel can be added with custom fields or DocTypes.
+- **Sync can be automated:** Webhooks, scheduled jobs, and background workers can sync orders, stock, payment status, shipment updates, and returns between systems.
+
+## Common Integration Flows
+
+- **Catalog sync:** Send item details, prices, images, condition, and stock availability from ERPNext to the platform.
+- **Order sync:** Create Sales Orders or Sales Invoices in ERPNext when orders are placed.
+- **Inventory sync:** Update the platform when stock is reserved, sold, returned, refurbished, or made available again.
+- **Fulfillment sync:** Send shipment and tracking details from ERPNext back to the platform.
+- **Returns and buybacks:** Track incoming goods using Stock Entries, Purchase Receipts, Quality Inspections, or custom DocTypes.
+
+## Ready-Made Marketplace Options
+
+Before building a custom connector, check whether an existing Frappe Marketplace app already covers the workflow:
+
+- [Ecommerce Integrations](https://cloud.frappe.io/marketplace/apps/ecommerce_integrations): E-commerce marketplace integrations for ERPNext.
+- [WooCommerce Connector](https://cloud.frappe.io/marketplace/apps/woocommerceconnector): Synchronizes items, stock, customers, addresses, sales orders, sales invoices, and payment entries with WooCommerce.
+- [ERPNext Shipping](https://cloud.frappe.io/marketplace/apps/erpnext_shipping): Shipping integration for ERPNext, useful for fulfillment and tracking.
+- [Frappe Paystack](https://cloud.frappe.io/marketplace/apps/frappe_paystack): Payment gateway integration for ERPNext and Frappe.
+
+## When To Build A Custom Connector
+
+Build a custom connector when the recommerce platform has unique flows such as device grading, serialized refurbishment, trade-in pricing, warranty tracking, marketplace-specific listing rules, or reverse logistics. In most cases, the connector maps platform events to ERPNext documents and calls the REST API securely.
+
+## Best Practices
+
+- Keep ERPNext as the source of truth for stock and accounting.
+- Use stable external IDs to match ERPNext records with platform records.
+- Log every sync attempt so failed updates can be retried.
+- Use API keys with limited permissions and test on a staging site before going live.
+
+## Related Topics
+
+- [Frappe REST API](/framework/user/en/api/rest)
+- [Sales Order](/erpnext/sales-order)
+- [Item](/erpnext/item)
+- [Stock Entry](/erpnext/stock-entry)
+- [Frappe Cloud Marketplace](https://cloud.frappe.io/marketplace)
+
+<!-- page: erpnext/erpnext__e_commerce_search.md -->
+---
+title: "E-commerce Search"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/e_commerce_search"
+updated: "2026-03-02"
+---
+
+All Product Listing pages contain a **Search bar** that lets users quickly search for Website Items or Item Groups. It also stores recent searches that you can click on and reuse.
+
+[Screenshot on the live page: Search]
+
+## RediSearch
+
+> **Experimental**: Requires Redis 6+
+
+
+By default ERPNext performs a simple DB search but you can **optionally** choose to use [RediSearch](https://redis.com/modules/redis-search/) for super fast search instead. You can refer to RediSearch's [installation documentation](/erpnext/installing_redisearch_to_enable_super_fast_e_commerce_search).
+
+
+> Go to > **E Commerce Settings** > **Item Search Settings** > Check **Enable Redisearch**
+
+[Screenshot on the live page: Item Search Settings with RediSearch]
+
+#### Settings without RediSearch
+If RediSearch is not installed, this is what the **Item Search Settings** will look like:
+[Screenshot on the live page: Item Search Settings without RediSearch]
+
+#### Configurable Fields
+Along with fast search you get the option to configure fields that you want search to consider. Add comma separated fields in the **Search Index Fields** text box to make them searchable.
+
+E.g. Adding **brand** to these fields makes it searchable. Typing a brand, e.g. 'Apple', should give results where the brand is 'Apple'.
+
+The results will be based on values in all the fields mentioned in the **Search Index Fields** text box.
+
+> Fields of the foll.g types are supported: **Link**, **Table MultiSelect**, **Data**, **Small Text**, **Text Editor**

@@ -11,7 +11,7 @@ updated: "2026-07-29"
 
 A Blanket Order in ERPNext records a long-term commitment to buy or sell specified items within an agreed period and at negotiated rates. It does not deliver, receive, bill, or pay for goods by itself. Instead, it becomes the reference for multiple downstream transactions as quantities are released over time.
 
-![Blanket Order with the selling party, validity period, company, committed items, quantities, rates, and ordered quantities.](/files/blanket-order-overview.webp)
+[Screenshot on the live page: Blanket Order with the selling party, validity period, company, committed items, quantities, rates, and ordered quantities.]
 
 ## Before you begin
 
@@ -26,11 +26,11 @@ Create the relevant [Customer](/erpnext/customer) or Supplier, [Items](/erpnext/
 5. Add each Item, committed Quantity, Rate, and item-specific Terms and Conditions.
 6. Save and submit the Blanket Order.
 
-![The highlighted pencil icon opens the complete Blanket Order item row.](/files/blanket-order-item-pencil.webp)
+[Screenshot on the live page: The highlighted pencil icon opens the complete Blanket Order item row.]
 
 When editing an item row, select the pencil icon to open the complete row editor. This is useful when the row contains more fields than the table shows.
 
-![The Blanket Order item row with committed quantity, negotiated rate, ordered quantity, and item-specific terms.](/files/blanket-order-item-row.webp)
+[Screenshot on the live page: The Blanket Order item row with committed quantity, negotiated rate, ordered quantity, and item-specific terms.]
 
 ## Important fields and what they mean
 
@@ -77,7 +77,7 @@ ERPNext may not automatically close an agreement when its period ends or its qua
 
 ## Video explaining Blanket Order
 
-![](/files/blanket-order-smooth.mp4)
+[Screenshot on the live page]
 
 ## Frequently asked questions
 
@@ -142,7 +142,7 @@ To access the Blog Post, go to:
 The Blog Intro is a short description of your blog that appears just after the
 title and before the content.
 
-![New Blog Post](/files/new-blog-post.png)
+[Screenshot on the live page: New Blog Post]
 
 You can write your blog in Rich Text, Markdown, or HTML. If you want to write
 simple content pages, Rich Text and Markdown are great options. Learn how to
@@ -150,17 +150,17 @@ attach images to your blog [here](/erpnext/web-page#images).
 
 > Learn markdown in a few minutes at [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
 
-![Blog Post in Markdown](/files/blog-post-in-markdown.png)
+[Screenshot on the live page: Blog Post in Markdown]
 *Blog Post in Markdown*
 
 View your Blog Post by clicking on **See on Website** in the sidebar.
-![Blog Post](/files/blog-post.png)
+[Screenshot on the live page: Blog Post]
 *Blog Post*
 
 Check the **Disable Comments** option if you'd like to disable the ability for readers to add comments to the current blog post.
-![Blog Post](/files/blog-post-disable-comments.png)
+[Screenshot on the live page: Blog Post]
 
-![Blog Post](/files/blog-post-no-comments.png)
+[Screenshot on the live page: Blog Post]
 *Adding Comments Disabled*
 
 ## 2. Features
@@ -173,11 +173,11 @@ Blogger is a user who can post blogs. To create a Blogger, go to:
 
 You can mention a short bio about the blogger and also set an avatar here.
 
-![Blogger](/files/blogger.png)
+[Screenshot on the live page: Blogger]
 *Blogger*
 
 The preview will be shown at the end of the blog post.
-![Blogger Preview](/files/blogger-preview.png)
+[Screenshot on the live page: Blogger Preview]
 *Blogger Preview*
 
 ### 2.2 Blog Category
@@ -186,13 +186,13 @@ You can group your blogs into categories. To create a new Blog Category, go to:
 
 **Home > Website > Blog > Blog Category**.
 
-![Blog Category](/files/blog-category.png)
+[Screenshot on the live page: Blog Category]
 *Blog Category*
 
 If you click on **See on Website** in the sidebar, you'll be redirected to a
 list of blogs under that category.
 
-![Blog Category - General](/files/blog-category-web-view.png)
+[Screenshot on the live page: Blog Category - General]
 *Blog Category - General*
 
 ### 2.3 Meta Tags
@@ -210,7 +210,7 @@ Under the SEO section, you can add the meta description and image for your blog 
 
 If you leave this section empty, the blog introduction or the first 140 characters of the blog will be shown as the meta description. In the same way, if you leave the meta image empty, the first image in the blog will be selected.
 
-![Google Search Preview](/files/blog-post-seo-meta.png)
+[Screenshot on the live page: Google Search Preview]
 *Blog Post Google Search Preview*
 
 On submitting the blog, you can also preview how the blog will look when shared on a social media platform like Facebook or Twitter. To check this, use the debugging tools offered by the platforms:
@@ -223,7 +223,7 @@ On submitting the blog, you can also preview how the blog will look when shared 
 
 To check the post preview, simply enter the webpage/blog link in the tool:
 
-![Facebook Sharing Debugger](/files/blog-post-facebook-debugger.png)
+[Screenshot on the live page: Facebook Sharing Debugger]
 *Using Facebook's Sharing Debugger Tool*
 
 Using these tools, you can optimize your blog post for sharing.
@@ -268,7 +268,7 @@ To use the BOM Comparison Tool, go to:
 2. Select the new BOM of which you want to see the changes in **BOM 2** field.
 3. The changes will be shown as soon as you select both the values.
 
-![BOM Comparison Tool](/files/bom-comparison-tool.png)
+[Screenshot on the live page: BOM Comparison Tool]
 
 <!-- page: erpnext/erpnext__bom-costing-in-different-currency.md -->
 ---
@@ -283,11 +283,11 @@ User can change the Currency in the BOM *before* submitting. The system calculat
 
 Consider that you import plastic as a raw material from Japan and the Sales Invoices are in the Yen currency. Your company Currency is INR but you want the BOM costing to be done in Yen. On setting 'Rate Of Materials Based On' to 'Price List' the raw materials used in the BOM will also have rates set in Yen. These rates are fetched from the Price List you create for Japan. In this case, it is a buying Price List called 'Import Japan'.
 
-![BOM in different Currency](/files/bom-currency.png)
+[Screenshot on the live page: BOM in different Currency]
 
 If you select 'Rate Of Materials Based On' to 'Valuation Rate' or 'Last Purchase Rate', the prices will be fetched from the Item master or the Sales Invoice respectively. In case of Item master, you'll need to enter the Valuation Rate in **your** Currency. In the BOM, Valuation Rate will be converted to the Currency set in the BOM.
 
-![BOM in different Currency](/files/bom-currency-1.png)
+[Screenshot on the live page: BOM in different Currency]
 
 <!-- page: erpnext/erpnext__bom-creator-new.md -->
 ---
@@ -351,7 +351,7 @@ After the system reads the file, the **Design** tab shows two panels with the sa
 - **3D model (left):** turn the model with the mouse. Zoom with the scroll wheel.
 - **Part tree (right):** the top row is the finished good. Under it are the assemblies and the parts, with the quantity from the design file. The **Amount** column shows the cost of each row.
 
-![](/files/bom-creator-tree.webp)
+[Screenshot on the live page]
 
 Click a row in the tree to highlight the part in the model. Click a part in the model to select its row in the tree.
 
@@ -394,7 +394,7 @@ Each part in the tree needs an item before the system can create the BOMs. A par
 2. Type the item code or the item name.
 3. Select the item from the list.
 
-![](/files/bom-creator-map-item.webp)
+[Screenshot on the live page]
 
 Use the up and down arrow keys to go to the previous or the next row. The item list of that row opens. This lets you map a long tree with the keyboard only.
 
@@ -402,7 +402,7 @@ Use the up and down arrow keys to go to the previous or the next row. The item l
 
 If the item does not exist, select **Create a new Item** in the item list. The **New Item** dialog opens with the part number in **Item Code** and the part name in **Item Name**. Click **Save**. The system maps the new item to the part.
 
-![](/files/bom-creator-create-item.webp)
+[Screenshot on the live page]
 
 ### 3.3 Map many parts at a time
 
@@ -411,9 +411,9 @@ After you submit the document, the **Map Items** menu shows two options:
 - **Suggest Items:** maps each part to an item that has the same item code as the part number, or the same item name as the part name.
 - **Create Missing Items:** creates an item for each part that has no item. Select the **Item Group** and the **Default Unit of Measure** in the dialog.
 
-![](/files/bom-creator-map-items-menu.webp)_Suggest Items_
+[Screenshot on the live page]_Suggest Items_
 
-![](/files/bom-creator-create-missing-items.webp)_Create Missing Items_
+[Screenshot on the live page]_Create Missing Items_
 
 ### 3.4 Item images
 
@@ -421,7 +421,7 @@ When the system creates an item from a part, it takes a picture of that part fro
 
 To take the picture again, click **⋯** on the row and select **Set Item Image**. For a material that is not in the 3D model, select **Upload Item Image**. You can also click the small picture in the row.
 
-![](/files/bom-creator-mapped.webp)
+[Screenshot on the live page]
 
 ## 4\. Change the tree
 
@@ -443,7 +443,7 @@ Some materials are not in the design file, for example glue, paint or packing. T
 2. Type the item in the new row and select it. The new row stays open, so you can add the next material.
 3. Click **×** at the end of the row to close it.
 
-![](/files/bom-creator-add-material.webp)
+[Screenshot on the live page]
 
 ### 4.3 Remove a part from the BOM
 
@@ -542,7 +542,7 @@ The design file of the Steel Workbench 1200 with Drawer has four assemblies. The
 
 The line under the tree shows **5 BOMs will be created**. Click **Create BOMs**. When the BOMs are ready, the status changes to **Completed**.
 
-![](/files/bom-creator-completed.webp)
+[Screenshot on the live page]
 
 | BOM for | Raw materials |
 | --- | --- |
@@ -583,7 +583,7 @@ Select the **Produce an Item at Each Operation** check box on the **Design** tab
 
 Before you add operations, the **Operations** tab shows one **Raw Materials** card. The output of this card is the finished good. The **Parts Not Used in Any BOM** list shows the parts that no operation uses yet.
 
-![](/files/bom-creator-operations-empty.webp)
+[Screenshot on the live page]
 
 If you clear the check box, the panel shows the part tree again.
 
@@ -594,7 +594,7 @@ If you clear the check box, the panel shows the part tree again.
 3. Select or change the **Workstation Type**.
 4. Type the time in minutes.
 
-![](/files/bom-creator-add-operation.webp)
+[Screenshot on the live page]
 
 To delete a step, click **×** at the end of its header.
 
@@ -630,15 +630,15 @@ The Steel Workbench 1200 with Drawer is made in five operations:
 
 Step 1 makes the Frame Assembly. A line under the card shows that a later step uses this output. In the image, step 1 is selected, so the model highlights its raw materials. The line under the steps shows the number of operations, the total time and the **Total Cost**.
 
-![](/files/bom-creator-operations.webp)
+[Screenshot on the live page]
 
 The last step uses the outputs of steps 1, 2 and 4. Its output is the finished good.
 
-![](/files/bom-creator-operations-last-step.webp)
+[Screenshot on the live page]
 
 The **Parts** tab shows the operation that uses each part. **Output of Welding** means that the Welding step makes this part.
 
-![](/files/bom-creator-parts-tab.webp)
+[Screenshot on the live page]
 
 ### 8.6 Give a sub-assembly its own BOM
 
@@ -650,7 +650,7 @@ You can make a sub-assembly in a separate BOM, for example when another work ord
 
 The system creates the BOM of the sub-assembly first. The BOM of the finished good uses it.
 
-![](/files/bom-creator-sub-assembly-bom.webp)
+[Screenshot on the live page]
 
 ### 8.7 Create the BOM
 
@@ -667,7 +667,7 @@ Correct the problems and click **Create BOMs** again.
 
 The system creates one BOM with **Track Semi Finished Goods** turned on. Each operation row has the **Output Item** of the step. The last operation makes the finished good. In the BOM, the output of an earlier step has **Do Not Explode** turned on, so the BOM does not use another BOM of that item.
 
-![](/files/bom-creator-bom-operations.webp)
+[Screenshot on the live page]
 
 When you make a [Work Order](/erpnext/work-order) from this BOM, each Job Card makes the output item of its operation.
 
@@ -690,7 +690,7 @@ updated: "2026-02-26"
 
 The BOM Creator enables users to create multi-level BOMs using a single screen.
 
-![bom_creator_tree](/files/bom_creator_tree.png "bom_creator_tree.png")  
+[Screenshot on the live page: bom_creator_tree]  
 
 
 ### Why use the BOM Creator?
@@ -703,17 +703,17 @@ Here's how it works:
 
 * The user selects the Final Product and saves the record.
 
-![bom-creator](/files/bom-creator.png "bom-creator.png")  
+[Screenshot on the live page: bom-creator]  
 
 
 * In the form, users will find an option to add Raw Materials and Sub-assembly items related to the Final Product.
 
-![toolbar_bom_creator](/files/toolbar_bom_creator.png "toolbar_bom_creator.png")  
+[Screenshot on the live page: toolbar_bom_creator]  
 
 
 * If a user wants to convert Raw Materials into Sub-assembly items, they need to click on the item first and then click the "Convert to Sub-Assembly" button.
 
-![convert_to_sub_assembly](/files/convert_to_sub_assembly.gif "convert_to_sub_assembly.gif")  
+[Screenshot on the live page: convert_to_sub_assembly]  
 
 
 * Users can edit the Quantity as needed.
@@ -725,7 +725,7 @@ One the BOM structure has made using the tree component, user has to submit the 
   
 
 
-![submit-bom](/files/submit-bom.gif "submit-bom.gif")  
+[Screenshot on the live page: submit-bom]  
 
 <!-- page: erpnext/erpnext__bom-operation-time.md -->
 ---
@@ -740,7 +740,7 @@ To access the BOM Operations Time, go to:
 
 > Home > Manufacturing > Reports > BOM Operations Time
 
-![Task](/files/bom-operations-time.png)
+[Screenshot on the live page: Task]
 
 This report will give the information about the Bill of Material's total expected time in minutes as well the count of the current BOM used as a subassembly item for different Finished Goods.
 
@@ -757,7 +757,7 @@ To access the BOM Search report, go to:
 
 > Home > Manufacturing > Reports > BOM Search Report
 
-![Task](/files/bom-search.png)
+[Screenshot on the live page: Task]
 
 In this report, you can search for specific BOMs based on the Items (raw materials) used in them. This report is useful if you have hundreds or thousands of BOMs.
 
@@ -794,13 +794,13 @@ Entering the value in the ***FG Item to make*** directly enters the detailed mod
 
 The maximum producible Item defines the maximum possible items producible based on the raw material availability. The green color indicates that it is possible to produce the FG item based on the Required Qty to make. The value turns red if the producible FG item is less than Required qty. 
 
-![](/files/image0bb381.png)
+[Screenshot on the live page]
 
 ### Summarised Mode 
 
 This mode can be used for quick answers to questions like - "How many finished goods can we make right now?" without specifying the production target. To enter this mode, we leave the **Fg Item to Make** empty and define the warehouse and BOM. 
 
-![](/files/image5f53bd.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__bom-stock-report.md -->
 ---
@@ -820,7 +820,7 @@ To access the BOM Stock Report, go to:
 
 > Home > Manufacturing > Reports > BOM Stock Report
 
-![Task](/files/bom-stock-report.png)
+[Screenshot on the live page: Task]
 
 The BOM Stock Report provides information about the raw materials required quantity and the in-stock quantity of the warehouse (which is selected in the filter). As you can see, the items which have insufficient quantity are shown in red and ones with enough quantity to manufacture the BOM Item are shown in green.
 
@@ -869,7 +869,7 @@ If more items need to be added, or existing items to be edited in the CPU BOM, t
 
 Select Current BOM and New BOM of the **sub-assembly** Item:
 
-![BOM Update Tool](/files/bom-update-tool.png)
+[Screenshot on the live page: BOM Update Tool]
 
 To update the new BOM in all the parent BOMs, where CPU is selected as sub-assembly, you can use the **Replace** button.
 
@@ -901,4 +901,4 @@ You need to select the BOM in the filter then the report will show the quantity 
 
 Using the BOM Explorer, user can view the quantity of raw materials and scraps from all exploded items and print it.
 
-![reorder level](/files/bom_explorer.png)
+[Screenshot on the live page: reorder level]

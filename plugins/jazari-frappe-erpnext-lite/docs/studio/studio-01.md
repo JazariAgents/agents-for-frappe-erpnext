@@ -19,30 +19,30 @@ Before we start building applications with Studio, let's first understand its in
 **Toolbar**: For quick tools like drawing containers, page settings and buttons to export, preview, publish
 
 <div align="center">
-    <img alt="Editor" src="/files/studio-editor-marked-1.png" style="margin: 0 0 0 0">
+    [Screenshot on the live page]
 </div>
 
 ## Left Panel
 
 **1. Pages Panel**: Manages all pages within your Studio application, displaying a list of existing pages with their titles and routes. You can navigate between pages, create new ones, and perform page-level actions like duplication, deletion, or switching the home page. The panel clearly indicates which page is currently active.
 
-<img alt="Pages Panel" class="screenshot" src="/files/1-pages-panel.png" style="margin: 0 0 0 0; width: 50%">
+[Screenshot on the live page]
 
 **2. Component Panel**: Provides access to the component library, divided into standard pre-built frappe-ui components and custom user-created components. Components can be searched and filtered for quick discovery, then dragged directly onto the canvas to add them to your page.
 
-<img alt="Components Panel" class="screenshot" src="/files/2-components-panel64cde7.png" style="margin: 0 0 0 0; width: 50%">
+[Screenshot on the live page]
 
 **3. Layers Panel**: Shows the hierarchical structure of all components on the current page in a tree view format. This panel allows you to select, reorder, and manage the visibility of components through drag-and-drop interactions. It's particularly useful for navigating complex page structures and understanding the parent-child relationships between components.
 
-<img alt="Layers Panel" class="screenshot" src="/files/3-layers-panel0599d3.png" style="margin: 0 0 0 0;">
+[Screenshot on the live page]
 
 **4. Data Panel**: Handles all data-related functionality including data sources and application variables. You can configure data sources to connect to Frappe's doctypes or APIs, create and manage reactive variables that store dynamic values, and browse the structure of available data through an interactive object browser.
 
-<img alt="Data Panel" class="screenshot" src="/files/4-data-panel.png" style="margin: 0 0 0 0; width: 50%">
+[Screenshot on the live page]
 
 **5. Code Panel**: Provides advanced scripting capabilities using watchers. Watchers allow you to create reactive code that responds to changes in data sources or variables.
 
-<img alt="Code Panel" class="screenshot" src="/files/5-code-panel.png" style="margin: 0 0 0 0">
+[Screenshot on the live page]
 
 
 ### Canvas
@@ -83,7 +83,7 @@ updated: "2026-01-06"
 Frappe Studio is a low-code, visual app builder for the Frappe Framework. It brings together the power of the framework, [frappe-ui](https://ui.frappe.io/) (vue component library), and a canvas interface like Frappe Builder.
 
 <div align="center">
-	<img src="/files/studio-main-image.png" alt="Frappe Studio" style="margin: 0 0 0 0">
+	[Screenshot on the live page]
 </div>
 
 ## Motivation

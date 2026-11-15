@@ -702,7 +702,7 @@ Data Masking can be enabled directly from the Doctype or through the Customize F
 Once enabled, users who do not have the Mask permission for that field will see masked or hidden data, while users with the appropriate permission will see the actual value.
 
 Here's a quick demo showing how to enable Data Masking:
-![Enable Data Masking](/files/data-masking.gif)
+[Screenshot on the live page: Enable Data Masking]
 
 
 #### Supported Field Types
@@ -947,7 +947,7 @@ def get_xlsx_styles(metadata: XLSXMetadata) -> dict:
 
 ## Example Output
 
-![](/files/image0ecd7d.png)
+[Screenshot on the live page]
 *Example Export with Styles*
 
 ## Recommendations

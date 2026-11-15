@@ -8,11 +8,11 @@ Owner: **Mizan** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Reconcile the bank** (`acc.bankreconciliation`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext-08.md` lines 735–822   (https://docs.frappe.io/erpnext/bank-reconciliation)
+   read: `docs/erpnext/erpnext-08.md` lines 708–795   (https://docs.frappe.io/erpnext/bank-reconciliation)
 2. **Reconcile payments against invoices** (`acc.paymentreconciliation`, browser mode) — SNAPSHOT FIRST, reversible
    read: `docs/erpnext/erpnext-41.md` lines 3–162   (https://docs.frappe.io/erpnext/payment-reconciliation)
 3. **Produce a balance sheet** (`rep.balancesheet`, browser mode)
-   read: `docs/erpnext/erpnext-08.md` lines 264–367   (https://docs.frappe.io/erpnext/balance-sheet)
+   read: `docs/erpnext/erpnext-08.md` lines 237–340   (https://docs.frappe.io/erpnext/balance-sheet)
 4. **Produce a profit and loss report** (`rep.pandl`, browser mode)
    read: `docs/erpnext/erpnext-45.md` lines 425–537   (https://docs.frappe.io/erpnext/profit-and-loss-report)
 5. **Close an accounting period** (`acc.periodclose`, browser mode) — SNAPSHOT FIRST, irreversible

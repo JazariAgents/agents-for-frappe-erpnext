@@ -29,9 +29,9 @@ For reliable reports:
 4. Select **Refresh**.
 5. Review, export, print, or chart the results as required.
 
-![The fully loaded Selling dashboard with sales-order trends, summary cards, and report links.](https://novacompanies.m.frappe.cloud/files/sales-reports-workspace-v2.png)
+[Screenshot on the live page: The fully loaded Selling dashboard with sales-order trends, summary cards, and report links.]
 
-![Sales Analytics for Nova Electronics Trading with Sales Order values for Northstar Retail.](https://novacompanies.m.frappe.cloud/files/sales-report-filters-v2.png)
+[Screenshot on the live page: Sales Analytics for Nova Electronics Trading with Sales Order values for Northstar Retail.]
 
 ## Choose the right report
 
@@ -142,7 +142,7 @@ A customer can be billed based on the total number of hours an employee has work
 
 **A sales invoice can be generated from each Timesheet submitted by an employee which can be used to bill the customer.**
 
-![](/files/imagea792c8.png)
+[Screenshot on the live page]
 
 ## How to Create A Sales Invoice from A Timesheet
 
@@ -155,7 +155,7 @@ A customer can be billed based on the total number of hours an employee has work
 
 To fetch the details automatically in a Sales Invoice, click on the **Get items from** button. The details can be fetched from a Sales Order, Delivery Note, or a Quotation. The details like Customer PO, Address and Contact Number, Currency and Price List, Items will get auto-populated.
 
-![](/files/timesheet with sales invoice.gif)
+[Screenshot on the live page]
 *Sales invoice from timesheet*
 
 ## Features
@@ -205,9 +205,9 @@ Create a non-stock service or charge Item instead when the same charge is likely
 8. Complete the Cost Center and tax-related fields required by your configuration.
 9. Review totals, save, and submit.
 
-![A Sales Invoice Items row with the pencil icon highlighted.](https://novacompanies.m.frappe.cloud/files/invoice-without-item-pencil.png)
+[Screenshot on the live page: A Sales Invoice Items row with the pencil icon highlighted.]
 
-![The Sales Invoice Item editor with an empty Item field and completed one-time charge details.](https://novacompanies.m.frappe.cloud/files/invoice-without-item-row-v2.png)
+[Screenshot on the live page: The Sales Invoice Item editor with an empty Item field and completed one-time charge details.]
 
 Because there is no Item Code, the stock-availability dot used for normal Item rows does not apply.
 
@@ -338,20 +338,20 @@ Prepare these records before creating an invoice:
 1. Go to **Accounting &gt; Sales and Receivables &gt; Sales Invoice**.
 2. Click **Add Sales Invoice**.
 
-![Sales Invoice list with Add Sales Invoice highlighted](https://novacompanies.m.frappe.cloud/files/01-sales-invoice-list.png)
+[Screenshot on the live page: Sales Invoice list with Add Sales Invoice highlighted]
 
 
 
 3. Select the **Company** and **Customer**. ERPNext fetches the Customer's billing address, contact, currency, price list, and receivable account when defaults exist.
 4. Check the **Posting Date** and **Payment Due Date**. The posting date decides the accounting period. The due date is used to determine whether the invoice is overdue.
 
-![Customer, Posting Date, and Payment Due Date highlighted](https://novacompanies.m.frappe.cloud/files/02-customer-and-dates.png)
+[Screenshot on the live page: Customer, Posting Date, and Payment Due Date highlighted]
 
 
 
 5. In **Items**, add each product or service. Check the Quantity, Rate, Amount, and Warehouse.
 
-![Sales Invoice item row and pencil icon highlighted](https://novacompanies.m.frappe.cloud/files/03-items-and-edit-row.png)
+[Screenshot on the live page: Sales Invoice item row and pencil icon highlighted]
 
 
 
@@ -359,13 +359,13 @@ The dot before an Item Code shows stock availability at a glance: green means in
 
 6. Click the pencil icon to edit a row. This opens fields that do not fit in the table, including UOM, Income Account, Cost Center, Project, Warehouse, serial or batch details, and deferred revenue settings.
 
-![Quantity and Rate highlighted in the open Sales Invoice item row](https://novacompanies.m.frappe.cloud/files/04-item-quantity-rate-warehousef569f5.png)
+[Screenshot on the live page: Quantity and Rate highlighted in the open Sales Invoice item row]
 
 
 
 7. Add the applicable taxes or select a Sales Taxes and Charges Template. Review the tax amount and Grand Total.
 
-![Sales Taxes and Charges table and Grand Total highlighted](https://novacompanies.m.frappe.cloud/files/06-taxes-and-totals.png)
+[Screenshot on the live page: Sales Taxes and Charges table and Grand Total highlighted]
 
 
 
@@ -381,7 +381,7 @@ Creating the invoice from an upstream document carries forward items, quantities
 
 Open a submitted Sales Order, click **Create**, and select **Sales Invoice**. Invoice only the lines and quantities that are ready for billing. You can create several invoices from one order for [partial fulfilment](/erpnext/partial-fulfilment-of-sales-order).
 
-![Sales Invoice action highlighted in the Sales Order Create menu](https://novacompanies.m.frappe.cloud/files/07-create-from-sales-order.png)
+[Screenshot on the live page: Sales Invoice action highlighted in the Sales Order Create menu]
 
 
 
@@ -393,7 +393,7 @@ Open a submitted Delivery Note, click **Create**, and select **Sales Invoice**. 
 
 For an immediate counter sale or another flow without a Delivery Note, create the invoice directly and enable **Update Stock**. Select the correct Warehouse on every stock Item.
 
-![Update Stock highlighted on a Sales Invoice](https://novacompanies.m.frappe.cloud/files/05-update-stock.png)
+[Screenshot on the live page: Update Stock highlighted on a Sales Invoice]
 
 
 
@@ -446,7 +446,7 @@ If Update Stock is enabled, ERPNext also posts Stock Ledger entries and the rela
 
 After submission, use **Create &gt; Payment** to make a [Payment Entry](/erpnext/payment-entry). The payment reduces the invoice's outstanding amount.
 
-![Payment action highlighted on a submitted Sales Invoice](https://novacompanies.m.frappe.cloud/files/08-create-payment.png)
+[Screenshot on the live page: Payment action highlighted on a submitted Sales Invoice]
 
 
 

@@ -25,10 +25,10 @@ While creating a Sales Order from WooCommerce, if the Customer or Item is missin
 1. From your WooCommerce site's sidebar, click on Settings.
 2. Click on the "Advanced" tab then click on the REST API link.
 
-![Woocommerce API](/files/wc-add-key.png)
+[Screenshot on the live page: Woocommerce API]
 3. Click on "Add key" button. Provide the necessary details and click on "Generate API key" button.
 
-![Woocommerce API Key](/files/wc-generate-keys.png)
+[Screenshot on the live page: Woocommerce API Key]
 
 ### 1.2 Woocommerce Settings
 
@@ -42,7 +42,7 @@ While creating a Sales Order from WooCommerce, if the Customer or Item is missin
 8. Click Save.
 9. After saving the Woocommerce Settings, "Secret" and "Endpoint" are generated automatically.
 
-![Woocommerce Settings](/files/woocommerce-settings.png)  
+[Screenshot on the live page: Woocommerce Settings]  
 
 
 ### 1.3 Woocommerce Webhook Settings
@@ -56,12 +56,12 @@ While creating a Sales Order from WooCommerce, if the Customer or Item is missin
 7. Copy "Secret" from "Woocommerce Settings" doctype in your ERPNext site and paste it in "Secret" field.
 8. Keep API VERSION as it is and click on Save Webhook. Now it is successfully set up.
 
-![Woocommerce Webhook](/files/wc-webhook.png)  
+[Screenshot on the live page: Woocommerce Webhook]  
 
 
 A GIF below to show the entire process:
 
-![Woocommerce Set Up](/files/woocommerce-setup.gif)  
+[Screenshot on the live page: Woocommerce Set Up]  
 
 
 
@@ -81,7 +81,7 @@ A GIF below to show the entire process:
 8. Now on your ERPNext instance, check the following Document Types: Customer, Address, Item, Sales Order. They will be fetched and created from the webhook data.
 9. In case the orders are not synced, you can check the error in **Home > Settings > Core > Error Log**.
 
-![Woocommerce Set Up](/files/woocommerce-order.gif)  
+[Screenshot on the live page: Woocommerce Set Up]  
 
 
 2. Features
@@ -96,7 +96,7 @@ In the Woocommerce Settings DocType:
 * **Sales Order Series**: You can set a separate series for Sales Orders created via woocommerce. The default series is "SO-WOO-".
 * **UOM**: This is the default UOM used for Items and Sales Orders. The default UOM is "Nos".
 
-![Woocommerce Defaults](/files/wc-defaults.png)  
+[Screenshot on the live page: Woocommerce Defaults]  
 
 
 3. Related Topics
@@ -120,7 +120,7 @@ To access the Work Order Consumed Materials, go to:
 
 > Home > Manufacturing > Reports > Work Order Consumed Materials
 
-![Task](/files/work-order-consumed-materialse15a6b.png)
+[Screenshot on the live page: Task]
 
 This report shows the information about the raw materials which has been transfer to work in progress warhouse as well consumed in manufacturing process.
 
@@ -138,7 +138,7 @@ To access the Work Order Summary, go to:
 > Home > Manufacturing > Reports > Work Order Summary
 
 
-![Task](/files/work-order-summary.png)
+[Screenshot on the live page: Task]
 
 This report will give information about the Work Order. Using this report user will understand the number of produced quantity against each Work Order as well the status of the Work Order.
 
@@ -154,7 +154,7 @@ updated: "2026-02-27"
 
 **A Work Order is a document given to the manufacturing shop floor by the Production Planner as a signal to manufacture a certain quantity of a certain Item.**
 
-![Work Order](/files/manufacturing-flow-wo.png)  
+[Screenshot on the live page: Work Order]  
 
 
 The Work Order also helps generate the material requirements (Stock Entry) for the Item to be produced from its **Bill of Materials**.
@@ -182,7 +182,7 @@ Before creating and using a Work Order, it is advised that you create the follow
 3. The default BOM for that item will be fetched by the system. You can also change the BOM.
 4. Enter the quantity to manufacture. Raw material Items will be fetched only when this is set.
 5. If the selected BOM has Operations mentioned in it, the system will fetch all Operations from BOM, these values can be changed. Refer [section 3.2](/erpnext/work-order#32-operations-table) to know more.
-6. Set the Planned Start Date (an Estimated Date at which you want the Production to begin). ![Work Order](/files/work-order.png)
+6. Set the Planned Start Date (an Estimated Date at which you want the Production to begin). [Screenshot on the live page: Work Order]
 7. **Use Multi-Level BOM**: This is enabled by default. If you want to plan materials for sub-assemblies of the Item you're manufacturing leave this enabled. If you plan and manufacture the sub-assemblies separately, you can disable this checkbox. To know more, visit [this page](/erpnext/managing-multi-level-bom).
 8. Select Warehouses:
 
@@ -203,7 +203,7 @@ A Work Order can also be directly created from a [Sales Order](/erpnext/sales-or
 * **Project**: Link the Work Order to a Project to track progress in cases like engineer to order.
 * **Allow Alternative Item**: Sometimes when manufacturing a finished good, specific materials may not be available. For example, using plastic beads instead of plastic crystals. The finished good itself could be different. Ticking this checkbox will allow you the select an Alternative Item. To know more, visit [this page](/erpnext/item-alternative).
 * **Skip Material Transfer to WIP Warehouse**: Usually, a Stock Entry is created when the raw materials are transferred to a Work In Progress Warehouse. In this case, the raw material is considered to be consumed hence the Stock Entry is skipped. The next option will be shown if you tick this checkbox.
-* **Backflush Raw Materials From Work-in-Progress Warehouse**: Ticking this checkbox will automatically create a Stock Entry with the type 'Manufacture'. This means that the raw materials were consumed from the Source Warehouse, used to manufacture finished goods and another Stock Entry was created for your Target Warehouse. ![Options when creating WO](/files/work-order-options.png)
+* **Backflush Raw Materials From Work-in-Progress Warehouse**: Ticking this checkbox will automatically create a Stock Entry with the type 'Manufacture'. This means that the raw materials were consumed from the Source Warehouse, used to manufacture finished goods and another Stock Entry was created for your Target Warehouse. [Screenshot on the live page: Options when creating WO]
 
 3. Features
 -----------
@@ -229,7 +229,7 @@ Once the Work Order is saved the following two fields will also show the availab
 * Available Qty at Source Warehouse
 * Available Qty at WIP Warehouse
 
-![WO material Qty](/files/work-order-material-qty.png)  
+[Screenshot on the live page: WO material Qty]  
 
 
 ### 3.2 Operations table
@@ -238,8 +238,8 @@ Materials can be transferred against a Work Order or a Job Card. This is usually
 
 The following will be fetched from the BOM:
 
-* In the Operations table: The Workstations where the Operations will be performed ![PO Opeartions](/files/PO-operations.png)
-* In the Items table: The Operations which will be performed on the Items ![PO reassigning Operations](/files/PO-reassigning-operations.png)
+* In the Operations table: The Workstations where the Operations will be performed [Screenshot on the live page: PO Opeartions]
+* In the Items table: The Operations which will be performed on the Items [Screenshot on the live page: PO reassigning Operations]
 
 These values can also be changed.
 
@@ -263,7 +263,7 @@ In this section, the following are shown:
 
 These values are calculated as per the Job Cards.
 
-![Work Order Operation Costs](/files/wo-operation-cost.png)  
+[Screenshot on the live page: Work Order Operation Costs]  
 
 
 ### 3.4 More Information
@@ -278,14 +278,14 @@ When a Work Order is created from a [Material Request](/erpnext/material-request
 * This will create a Stock Entry with all the Items required to complete this Work Order to be added to the WIP Warehouse. This will add the sub-assembly Items as is or explode them to show the raw materials depending on whether you ticked 'Use Multi-Level BOM' or not.
 * Click on 'Start'. Once you click on Start, Job Cards will be created for the [Operations](/erpnext/job-card) involved.
 
-![Transfer Materials](/files/PO-material-transfer.png)
+[Screenshot on the live page: Transfer Materials]
 * Mention the quantity of materials to be transferred in this run.
 
-![Material Transfer Qty](/files/PO-material-transfer-qty.png)
+[Screenshot on the live page: Material Transfer Qty]
 * You'll be taken to a Stock Entry for 'Material Transfer for Manufacture'. Submit it.
 * Material Transferred for Manufacturing will be updated in the Work Order based on the Stock Entry.
 
-![Stock Entry for PO](/files/PO-material-transfer-updated.png)
+[Screenshot on the live page: Stock Entry for PO]
 * **Note:** User can only transfer items which has "Include Item In Manufacturing" enabled in the item master
 
 ### 3.6 Material Transfer through Stock Entry
@@ -311,7 +311,7 @@ To know more about Job Cards, visit [this page](/erpnext/job-card).
 * This will create a Stock Entry that will deduct all the items and sub-assemblies from the WIP Warehouse and add them to the Finished Goods Warehouse.
 * Click on 'Finish'.
 
-![Update Finished Goods](/files/PO-FG-update.png)
+[Screenshot on the live page: Update Finished Goods]
 * Mention the quantity of materials to be transferred.
 
 > Tip: You can also partially complete a Work Order by updating the Finished Goods stock creating a Stock Entry.
@@ -331,24 +331,24 @@ When you stop a Work Order its status is changed to Stopped indicating that all 
 
 To stop a Work Order, click on the 'Stop' button.
 
-![PO - stop](/files/PO-stop.png)  
+[Screenshot on the live page: PO - stop]  
 
 
 You can also re-open the stopped Work Order.
 
-![Reopen Work Order](/files/reopen-work-order.png)  
+[Screenshot on the live page: Reopen Work Order]  
 
 
 ### 4.1 Return Non Consumed Materials to the Stores from WIP Warehouse
 
 If you have transferred extra materials to the Work In Progress warehouse and after completion of the work order you want to return it to the Store warehouse. Then you have to goto the Work Order and click on Return Components. After that system creates the return stock entry with type as Material Transfer for Manufacture.
 
-![Return Components](/files/return-components.png)  
+[Screenshot on the live page: Return Components]  
 
 
 You can also checks the returned components against the work order using Work Order Consumed Materials report
 
-![Return Components Qty](/files/work-order-consumed-materials-returned-qty.png)  
+[Screenshot on the live page: Return Components Qty]  
 
 
 ### 4.2 Transfer Addtional Materials
@@ -356,19 +356,19 @@ You can also checks the returned components against the work order using Work Or
 The Transfer Materials button is not showing because all required materials have already been transferred from Store to WIP warehouse against the work order, but the user wants to transfer additional materials since some are damaged.
 
 
-![](/files/no-option-additional-transfer.png)
+[Screenshot on the live page]
 
 **Configuration**
 
 To fixed the issue, user has to set the percentage for 'Transfer Extra Raw Materials to WIP (%)' in Manufacturing Settings.
 
 
-![](/files/configuration-to-define.png)
+[Screenshot on the live page]
 
 Once the user sets the 'Transfer Extra Raw Materials to WIP (%)' in Manufacturing Settings, they can transfer additional materials from the store to WIP against the work order.
 
 
-![](/files/additional-transfer-option-in-wo.png)
+[Screenshot on the live page]
 
 
 
@@ -404,12 +404,12 @@ To access Workflow Actions, go to:
 
 If a User is eligible to take action on some workflows, emails will be sent to the user with the relevant document as attachment. From there the user can `Approve` or `Reject` the Workflow.
 
-![Workflow Action Email](/files/workflow-actions-email.png)  
+[Screenshot on the live page: Workflow Action Email]  
 
 
 Also the users will see entries in their Workflow Action list:
 
-![Screenshot 2024-06-03 at 10.47.43 AM](/files/Screenshot 2024-06-03 at 10.47.43 AM.png)  
+[Screenshot on the live page: Screenshot 2024-06-03 at 10.47.43 AM]  
 
 
 **Note:**
@@ -436,7 +436,7 @@ Workflow states are crucial for managing multi stage approval processes, ensurin
 
 Different Workflow States may be achieved before or after applying different Workflow Actions on them. If you want to create a Workflow where there are multiple approvals from manager, senior manager, general manager, etc, you can set the states for it from Workflow States.
 
-![Screenshot 2024-05-27 at 10.12.28 AM](/files/Screenshot 2024-05-27 at 10.12.28 AM.png)  
+[Screenshot on the live page: Screenshot 2024-05-27 at 10.12.28 AM]  
 
 
 The system represents different states in different colours based on the Style tagged to each stage.
@@ -468,9 +468,9 @@ updated: "2026-03-02"
 
 ## Introduction
 Workflow Transition Tasks are actions that can be run during state transitions in workflows. Each Workflow Transition can link to a set of transition tasks.
-![Link to Workflow Transition Tasks](/files/Screenshot 2025-07-20 at 2.06.27 PM.png)
+[Screenshot on the live page: Link to Workflow Transition Tasks]
 
-![A Typical set of transition tasks](/files/Screenshot 2025-07-20 at 2.08.23 PM.png)
+[Screenshot on the live page: A Typical set of transition tasks]
 
 Each Workflow Transition Task can have tasks of the following types:
 
@@ -478,7 +478,7 @@ Each Workflow Transition Task can have tasks of the following types:
 2. [Server Scripts](/framework/user/en/desk/scripting/server-script)
 3. [Webhooks](/framework/user/en/guides/integration/webhooks)
 
-![A server script transition task](/files/Screenshot 2025-07-20 at 2.38.43 PM.png)
+[Screenshot on the live page: A server script transition task]
 
 On top of this, each transition task can be either:
 
@@ -507,7 +507,7 @@ def create_customer(doc):
 ```
 
 These will be available in the 'Tasks' drop-down if any of the apps has provided them.
-![app-defined tasks](/files/Screenshot 2025-07-20 at 2.56.05 PM.png)
+[Screenshot on the live page: app-defined tasks]
 
 If you are an end user, you can not create app-defined actions on your own and will have to use server scripts as mentioned below.
 
@@ -515,18 +515,18 @@ If you are an end user, you can not create app-defined actions on your own and w
 
 ### Server Scripts
 These also take the `doc: Document` parameter and can be set using the 'Workflow Task' Script Type.
-![server script tasks](/files/Screenshot 2025-07-20 at 3.00.48 PM.png)
+[Screenshot on the live page: server script tasks]
 
 And then these have to be linked to in the transition task:
-![A server script transition task](/files/Screenshot 2025-07-20 at 2.38.43 PM.png)
+[Screenshot on the live page: A server script transition task]
 
 
 ### Webhooks
 These can be created by setting the 'Doc Event' field of the webhook to 'workflow_transition':
-![workflow_transition webhook](/files/Screenshot 2025-07-20 at 3.03.12 PM.png)
+[Screenshot on the live page: workflow_transition webhook]
 
 And then these have to be linked to in the transition task:
-![link to webhook](/files/Screenshot 2025-07-20 at 3.13.25 PM.png)
+[Screenshot on the live page: link to webhook]
 
 ### Related Topics
 * [Workflow State](/erpnext/user/manual/en/workflow-state)
@@ -587,10 +587,10 @@ Before creating a Workflow, it is advised to create these first:
 
 The Workflow States can have different colors according to the state. Eg: Green for success. Document statuses: Saved = 0, Submitted = 1, Cancelled = 2.
 
-![Workflow](/files/workflow.png)
+[Screenshot on the live page: Workflow]
 4. Enter the Transition Rules.
 
-![Workflow Transition Rules](/files/workflow-transition-rules.png)
+[Screenshot on the live page: Workflow Transition Rules]
 
 ### 2.2 Things to note when creating a Workflow
 
@@ -616,7 +616,7 @@ If you don't apply a Workflow to a document, and that document is submittable, t
 
 In States, optional Workflow state means that the state may not be a part of final approval.
 
-E.g. states like Canceled or Rejected can be optional. ![Optional State](/files/workflow-optional-state.png)  
+E.g. states like Canceled or Rejected can be optional. [Screenshot on the live page: Optional State]  
 
 
 **Note:** Workflow Actions are not created for optional states.
@@ -662,17 +662,17 @@ doc.creation > frappe.utils.add_to_date(frappe.utils.now_datetime(), days=-5, as
 
 When a quotation is saved by sales user, the status of the document changes to "Draft" and when clicked on submit the status changes to 'Approval Pending By Sales Manager':
 
-![Workflow State in Transaction](/files/workflow-status-in-transaction.png)  
+[Screenshot on the live page: Workflow State in Transaction]  
 
 
 When the Sales Manager logs in, he can either Approve or Reject. If approved the status of the document changes to "Approval Pending By Regional Manager".
 
-![Workflow Action Options](/files/workflow-action-options.png)  
+[Screenshot on the live page: Workflow Action Options]  
 
 
 When the Regional Manager opens the quotation, he can finally "Approve" or "Reject" it.
 
-![Workflow Action Options](/files/workflow-action-options-2.png)  
+[Screenshot on the live page: Workflow Action Options]  
 
 
 5. Video
@@ -785,13 +785,13 @@ Optionally, you can enter a description for the Workstation.
 
 Using this table you can divide the different cost components and set it to the Operation.
 
-![](/files/Screenshot%202025-08-19%20at%2012.57.24%20PM.png)
+[Screenshot on the live page]
 
 ### Workstation Operating Component
 
 User can also define the expense account per component company wise in the Workstation Operating Component.
 
-![](/files/CleanShot 2026-02-19 at 12.20.21@2x.png)
+[Screenshot on the live page]
 
 ---
 
@@ -827,11 +827,11 @@ You can enable overtime for a Workstation in Manufacturing Settings.
 
 
 
-![](/files/CleanShot 2026-02-19 at 12.22.41@2x.png)
+[Screenshot on the live page]
 
 After saving the Workstation, the following actions can be performed against it:
 
-![](/files/CleanShot 2026-02-19 at 12.23.30@2x.png)
+[Screenshot on the live page]
 
 ---
 
@@ -841,7 +841,7 @@ After saving the Workstation, the following actions can be performed against it:
 
 Production Capacity is the total number of jobs can be executed at the same time in the respective workstation.
 
-![](/files/CleanShot 2026-02-19 at 12.24.54@2x.png)
+[Screenshot on the live page]
 
 ---
 
@@ -867,15 +867,15 @@ updated: "2026-02-26"
 
 If users have the same types of multiple Workstations (Machines) and users want to auto-assign jobs to the available workstation based on workstation type then this feature is the good option for them. A Workstation Type document will allow you to set the same operating cost to multiple operations by just setting the Workstation Type in the Operations table in [BOM](https://docs.frappe.io/erpnext/user/manual/en/bill-of-materials) or [Routing](https://docs.frappe.io/erpnext/user/manual/en/routing).
 
-![](/files/CleanShot 2026-02-19 at 12.10.36@2x.png)
+[Screenshot on the live page]
 
 After adding Workstation Type, users has to assign the Workstation Type to the respective Workstation and set the Workstation Type to the respective Operation in the BOM.
 
-![](/files/CleanShot 2026-02-19 at 12.11.38@2x.png)
+[Screenshot on the live page]
 
 After setting up Workstation Type when user make the Work Order with Operations system will create Job Cards against the Operation and set the available Workstation based on the Workstation Type set in the BOM.
 
-![](/files/CleanShot 2026-02-19 at 12.13.04@2x.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__zenoti_integration.md -->
 ---
@@ -916,7 +916,7 @@ The repository for app is hosted on GitHub: [http://github.com/frappe/ecommerce_
 
 > To access Zenoti Settings, go to: Awesome search bar > Zenoti Settings.
 
-![Zenoti setting page](/files/Zenoti Settings Screen.png)
+[Screenshot on the live page: Zenoti setting page]
 
 1. **Last Sync:** Date and time of when the invoices were synced last.
 2. **API Key:** API Key from Zenoti. If you do not have an API Key, you can easily generate one by going to Admin > Setup > API section.

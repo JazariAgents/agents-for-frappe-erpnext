@@ -12,7 +12,7 @@ The Production Plan Scheduler calculates realistic start and end dates for every
 
 
 
-![](/files/Screen Recording 2026-08-12 at 4.23.05 PM.mov)
+[Screenshot on the live page]
 
 ---
 
@@ -67,7 +67,7 @@ You don't need all of this, the scheduler uses the best information available fo
 
 ### Supplier Lead Time
 
-![](/files/Screenshot 2026-08-25 at 11.33.20 AM.webp)
+[Screenshot on the live page]
 
 Not every supplier delivers at the same speed - a local dealer may ship in 2 days while an importer needs 15. The Supplier Lead Times table lets the schedule reflect that difference:
 
@@ -91,7 +91,7 @@ Nothing is saved at this point, the preview is a safe "what-if". You can close i
 
 
 
-![](/files/Screenshot 2026-08-12 at 5.18.19 PM.webp)
+[Screenshot on the live page]
 
 ### Reading the preview
 
@@ -111,7 +111,7 @@ Nothing is saved at this point, the preview is a safe "what-if". You can close i
 
 Open it from the plan via **View → Production Schedule**, or from the new **Schedule** section in the plan's connections area. Each entry reads *Item · Activity* for example "Bicycle · Assembly", "Chain · Production", or "Front Wheel · Procurement". You can filter the calendar by **Production Plan**, **Workstation**, or **Item** filtering by workstation gives you that machine's day/week view, exactly like a booking calendar. A job that spans two shifts appears as two blocks, so shift handovers are visible at a glance.
 
-![](/files/Screenshot 2026-08-12 at 5.23.35 PM.webp)
+[Screenshot on the live page]
 
 ---
 
@@ -127,7 +127,7 @@ When you create and submit Work Orders from a scheduled plan, the schedule flows
 - **Before** Work Orders exist: re-run Schedule Items freely. Each Apply replaces the previous schedule completely.
 - **After** Work Orders exist: the schedule is **locked**. The preview still works for what-if analysis, but it shows a banner explaining that orders already exist, and Apply is disabled because the job cards on the shop floor are already following the old dates. Cancel the Work Orders if you genuinely need to re-plan.
 
-![](/files/Screenshot 2026-08-12 at 4.38.21 PM.webp)
+[Screenshot on the live page]
 
 ---
 
@@ -159,7 +159,7 @@ updated: "2026-08-31"
 
 
 
-![](/files/Screen Recording 2026-08-31 at 4.18.06 PM.mov)
+[Screenshot on the live page]
 
 ## What is this feature?
 
@@ -241,49 +241,49 @@ A Production Plan can also be created manually where you can select the Items to
 
 1. Select option as Sales Order from the 'Get Items From' drop-down list. The system will show the filters, using that you can pull the Sales Orders for the production. You don't need to use all these filters if you have only a few Sales Orders in a particular time frame.
 
-![Production Plan fetch items](/files/pp_fetch_from.png)
+[Screenshot on the live page: Production Plan fetch items]
 2. Click on Get Sales Orders to fetch sales orders based on the above filters.
 
-![Sales Order Filters](/files/sales_order_filter.png)
-3. Click on 'Get Items for Work Order' to fetch the items from the above Sales Orders. Items only for which a BOM is present will be fetched. ![Get items for Production Plan](/files/get_items_wo.png)
+[Screenshot on the live page: Sales Order Filters]
+3. Click on 'Get Items for Work Order' to fetch the items from the above Sales Orders. Items only for which a BOM is present will be fetched. [Screenshot on the live page: Get items for Production Plan]
 4. On expanding a row in the Items to Manufacture table, you'll see an option to 'Include Exploded Items'. Ticking this includes raw materials of the sub-assembly items in the production process.
-5. If "Consolidate Items" is ticked and saved, items with the same BOM are combined into a single item with the combined total planned quantity. ![Get items Combined for Production Plan](/files/get_items_combined_wo.png)
+5. If "Consolidate Items" is ticked and saved, items with the same BOM are combined into a single item with the combined total planned quantity. [Screenshot on the live page: Get items Combined for Production Plan]
 
 ### 2.2 Production Against Material Requests
 
 1. Select option as Material Request from the Get Items From drop-down list. The system will show the filters, using that we can pull the Material Requests for the production.
 
-![Material Request Filters](/files/material_request_filter.png)
+[Screenshot on the live page: Material Request Filters]
 2. Click on 'Get Material Request' to fetch material requests based on the above filters.
 
-![Material Requests](/files/material_requests.png)
+[Screenshot on the live page: Material Requests]
 3. Click on Get Items for Work Order to fetch the items from the above material requests.
 
-![Material Request Item](/files/material_request_items.png)
+[Screenshot on the live page: Material Request Item]
 
 ### 2.3 Fetching Sub Assembly Items
 
-Clicking on 'Get Sub Assembly Items' will fetch Sub Assembly Items from the BOM of the Finished Good Items, in the table above. ![Get Sub Assembly Items](/files/get-subassembly-items.png)  
+Clicking on 'Get Sub Assembly Items' will fetch Sub Assembly Items from the BOM of the Finished Good Items, in the table above. [Screenshot on the live page: Get Sub Assembly Items]  
 
 
 #### 2.3.1 Sub Assembly Items
 
 User will get option to make In House (Work Order) / Sub-contract Purchase Order / Material Request for Purchase against the Sub-assembly items using Manufacturing Type.
 
-![](/files/Screenshot%202025-04-08%20at%204.43.43%20PM.png)
+[Screenshot on the live page]
 
 
 If user wants to make Material Request for their Sub-assembly items as well their Final Raw Materials then they have to select the Manufacturing Type as "Material Request" for Sub-assembly items and then they have to click on the button "Get Items for Purchase Only" to fetch Sub-assembly items in the Material Request Plan Item table.
 
 
-![](/files/Screenshot%202025-04-08%20at%204.44.08%20PM.png)
+[Screenshot on the live page]
 
 
 #### 2.3.2 Combining Sub Assembly Items
 
 If there are Finished Goods that share the same Sub Assembly Item, the Sub Assembly Items can be combined. The criteria for combination would be to have the same Item, Warehouse, BOM and Manufacturing Type.
 
-![Combine Sub Assemby Items](/files/consolidate-subassembly-items.png)  
+[Screenshot on the live page: Combine Sub Assemby Items]  
 
 
 In this way a common Work Order can be made to bulk create Sub Assemblies for various Finished Goods.
@@ -292,7 +292,7 @@ In this way a common Work Order can be made to bulk create Sub Assemblies for va
 
 
 
-![](/files/Screenshot%202025-04-08%20at%204.24.08%20PM.png)
+[Screenshot on the live page]
 
 
 If users enable the checkbox 'Skip Available Sub-Assembly Items' or 'Skip Available Raw Materials', the system will consider the Projected Qty which is available in the bin to calculate the required quantity for sub-assembly items or raw materials. To understand this, consider the following case.
@@ -320,12 +320,12 @@ To produce 1 qty of Item A, 1 qty of Item B (sub-assembly) is required, and to p
 Clicking on the 'Get Items for Purchase Only' button will fetch the required raw material Items in the Material Request Plan table. For example, to manufacture 200 plastic canes, you need 100 raw plastic Nos but have only 20 in your Warehouse, then clicking this button will add a row with 80 in the Required Quantity column (make sure Skip Available Raw Materials is enabled).
 
 
-![](/files/Screenshot%202025-04-08%20at%204.36.30%20PM.png)
+[Screenshot on the live page]
 
 If partial materials are available in a different warehouse and you want to perform a material transfer and create a purchase entry for the remaining quantity, use the "Get Items for Purchase / Transfer" button. Here, you need to specify the warehouse from which the transfer should be made. If you select the parent warehouse, the system will check stock availability in its child warehouses and suggest transferring materials from those child warehouses.
 
 
-![](/files/Screenshot%202025-04-08%20at%204.42.00%20PM.png)
+[Screenshot on the live page]
 
 
 Use the following checkboxes to perform certain actions:
@@ -347,19 +347,19 @@ Required Qty = BOM Required Qty – Projected Qty
 
 #### 2.4.1 Download Material Request Plan
 
-![](/files/Screenshot%202025-04-08%20at%204.43.08%20PM.png)
+[Screenshot on the live page]
 
 
 On click of "Download Material Request Plan" button the User will get the Excel sheet with the raw materials that are needed to complete this Production Plan. User can select the Warehouse to check the available quantity in the respective Warehouse. On click of "Download Material Request Plan" a popup will open to select warehouses. If user wants to Run plan for multiple warehouses then they can select those warehouses in the Popup to download the plan in the excel sheet format. Excel sheet will look similar to:
 
-![Material Request Plan](/files/material_request_excel.png)  
+[Screenshot on the live page: Material Request Plan]  
 
 
 ### 2.5 After Submitting
 
 Once the Production Plan is submitted, the User gets an option to make Work Orders for the production items and Material Requests for the raw materials. Users can also set the Status as **Closed** in the Production Plan.
 
-![](/files/Screenshot%202025-04-08%20at%204.49.56%20PM.png)
+[Screenshot on the live page]
 
 
 #### 2.5.1 Closing a Production Plan
@@ -371,7 +371,7 @@ There could be occurrences where a Production Plan is partially complete and is 
 
 In cases like these, Users can set the Production Plan status to **Closed**, so that no new Work Orders or Material Requests are created against it.
 
-![Closing a Production Plan](/files/production_plan_status.gif)  
+[Screenshot on the live page: Closing a Production Plan]  
 
 
 The same can be **Re-opened**.
@@ -383,7 +383,7 @@ User will get option to make Work Order / Sub-contract Purchase Order / Material
 
 If user wants to make Work Order for sub-assembly items then select the Manufacturing Type as In House and submit it. After Submit you have to click on the button Create -> Work Order / Subcontract PO
 
-![](/files/Screenshot%202025-04-08%20at%204.44.08%20PM.png)
+[Screenshot on the live page]
 
 
 
@@ -410,7 +410,7 @@ To access the Production Planning Report, go to:
 
 > Home > Manufacturing > Reports > Production Planning Report
 
-![Task](/files/production-planning-report.png)
+[Screenshot on the live page: Task]
 
 This report will help users plan the finished good as well as the raw materials against the Sales Order / Work Order / Material Request (with the request type as Manufactured) data. Mostly, in the case of make to order, this report helps you plan the production of the finished goods as well the raw materials.
 
@@ -449,7 +449,7 @@ Submit the relevant [Sales Invoices](/erpnext/sales-invoice), [Purchase Invoices
 5. Apply Finance Book, Cost Center, Department, Project, or another [Accounting Dimension](/erpnext/accounting-dimensions) only when the question requires that slice.
 6. Refresh and wait for the totals, chart, and account rows to load.
 
-![Loaded Profit and Loss Statement for Nova Industries showing income, expenses and profit](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-profit-and-loss-loaded.png)
+[Screenshot on the live page: Loaded Profit and Loss Statement for Nova Industries showing income, expenses and profit]
 
 ## Interpret the Nova Industries result
 
@@ -471,7 +471,7 @@ Expand Income and Expense groups to see the accounts behind each total. Direct I
 
 Select an account value to drill into the entries that produced it. The linked [General Ledger](/erpnext/general-ledger) should use the same Company, dates, Finance Book, and dimensions as the Profit and Loss Statement.
 
-![General Ledger drill-down opened from a Profit and Loss account value](https://novacompanies.m.frappe.cloud/files/docs-20260814-nova-industries-profit-and-loss-drilldown.png)
+[Screenshot on the live page: General Ledger drill-down opened from a Profit and Loss account value]
 
 ## Understand the important filters
 
@@ -563,7 +563,7 @@ Select **Enable Proforma Invoice**.
 
 You can optionally set a **Default Proforma Print Format** that will be pre-selected whenever a proforma is created.
 
-![](/files/Screenshot 2026-07-19 at 12.27.14 PM.webp)
+[Screenshot on the live page]
 *Enable Proforma Invoice*
 
 ### **Naming Series**
@@ -584,7 +584,7 @@ Open a **submitted** Sales Order and click:
 
 A dialog opens where you configure the proforma.
 
-![](/files/Screenshot 2026-07-19 at 7.07.40 PM.webp)
+[Screenshot on the live page]
 *Proforma creation dialog*
 
 The dialog has the following fields:
@@ -622,7 +622,7 @@ Proforma quantities and amounts are **not** enforced; a proforma is informationa
 
 Once at least one proforma exists for a Sales Order, a **Proforma** tab appears on the Sales Order. It lists every proforma raised against that order, showing the number, date, grand total and status.
 
-![](/files/Screenshot 2026-07-19 at 7.09.53 PM.webp)
+[Screenshot on the live page]
 *Proforma lists*
 
 From this list you can:
@@ -640,7 +640,7 @@ Every proforma has its PDF generated and attached automatically on creation, usi
 - Open the PDF from the **Proforma** tab (**View PDF**) or from the Proforma Invoice record.
 - Email it to the customer using **Send Email** from the tab, or the standard print/email options on the Proforma Invoice record.
 
-![](/files/Screenshot 2026-07-19 at 7.10.31 PM.webp)
+[Screenshot on the live page]
 *Proforma Invoice PDF*
 
 ## Cancel a Proforma Invoice
@@ -671,19 +671,19 @@ Activity Type is a master of services offered by your personnel. You can add a n
 
 > Home > Projects > Activity Type > New
 
-![Screenshot 2024-06-21 at 3.13.26 PM](/files/Screenshot 2024-06-21 at 3.13.26 PM.png)
+[Screenshot on the live page: Screenshot 2024-06-21 at 3.13.26 PM]
 
 ## Activity Cost
 
 Activity Cost is a master where you can track billing and costing rate for each Employee, for each Activity Type.
 
-![](/files/Screenshot 2026-01-09 at 11.59.23 AM.png)
+[Screenshot on the live page]
 
 ## Timesheet
 
 Based on the time spent on the Project-Task, an Employee will create a Timesheet.
 
-![](/files/Screenshot 2026-01-09 at 12.04.13 PM.png)
+[Screenshot on the live page]
 
 On selection of the Activity Type in the Time Log, Billing and Costing Rate will be fetched for that Employee from the respective Activity Cost.
 
@@ -693,11 +693,11 @@ Multiplying these rates with total no. of hours in the Time Log gives Costing Am
 
 Based on all the Timesheets created for specific Tasks, its costing will be updated in the respective Task.
 
-![](/files/Screenshot 2026-01-09 at 12.12.15 PM.png)
+[Screenshot on the live page]
 
 Same way, the Project cost will be updated based on Timesheets created against each of its associated tasks and the cost of the Project gets updated simultaneously.
 
-![](/files/Screenshot 2026-01-09 at 12.49.27 PM.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__project-customer-portal.md -->
 ---
@@ -713,13 +713,13 @@ If you are working on a Project for a Customer, then they need to be updated on 
 
 To access a project from the portal, a customer must be added as a Website User. A Customer can also sign up from the Login Page of your ERPNext account, using the same Email ID as mentioned in the Contact. You can also send an invite to the contact using the **Invite User** button in Contact.
 
-![](/files/Screenshot 2026-01-09 at 12.27.52 PM.png)
+[Screenshot on the live page]
 
 ### Add Customer and User in Project
 
 In the Project, check Customer Details section. Select a Customer and Sales Order associated with this Project.
 
-![](/files/Screenshot 2026-01-09 at 12.24.13 PM.png)
+[Screenshot on the live page]
 
 Under the User table, select the contacts who can access this project.
 
@@ -727,7 +727,7 @@ Under the User table, select the contacts who can access this project.
 
 When a Customer logins from the Portal, they will be able to view all the tasks for that project along with the associated timesheets. Also, the customer will be able to update the status of the tasks or comment when needed.
 
-![](/files/customer_portal.gif)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__project-expense-claims.md -->
 ---
@@ -741,11 +741,11 @@ Employees working on a Project incur various expenses, sometimes from their pock
 
 While filling up the claim, they can specify the Project for which they have made the expense.
 
-![](/files/Screenshot 2026-01-09 at 12.18.22 PM.png)
+[Screenshot on the live page]
 
 Based on the Expense Claims made for a particular project, total Expense Claim Amount is updated in the Project master, under project costing section.
 
-![](/files/Screenshot 2026-01-09 at 12.19.33 PM.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__project-profitability.md -->
 ---
@@ -765,7 +765,7 @@ You can link a Project in all sales transactions like Sales Order, Delivery Note
 
 In sales transactions, Project field is generally available in the More Information section.
 
-![](/files/Screenshot 2026-01-09 at 11.33.39 AM.png)
+[Screenshot on the live page]
 
 #### Project in Purchase Transactions
 
@@ -773,13 +773,13 @@ You can also link your project to the purchase transactions like Purchase Order,
 
 In the purchase transactions, the option to link a project is available in the Item table. This is because you could be procuring material for multiple projects from the same purchase entry.
 
-![](/files/Screenshot 2026-01-09 at 11.39.19 AM.png)
+[Screenshot on the live page]
 
 ### Budgeting against Project
 
 You can create a Budget for a project as well. The expense limit defined in the Budget will be validated in the expense transactions.
 
-![](/files/Screenshot 2026-01-09 at 11.42.35 AM.png)
+[Screenshot on the live page]
 
 ### Project Profitability
 
@@ -789,7 +789,7 @@ Based on all the income and expense entries created for the Project, you can get
 
 You can filter the report by Project to check Project-wise Profitability.
 
-![](/files/Screenshot 2026-01-09 at 11.40.53 AM.png)
+[Screenshot on the live page]
 
 <!-- page: erpnext/erpnext__project-reports.md -->
 ---
@@ -807,28 +807,28 @@ The **Project Summary** provides an overview of key project information, includi
 
 The image below shows the summary of the example we discussed in Getting started for the Rack Storage manufacturing. 
 
-![](/files/project_summary.png)
+[Screenshot on the live page]
 *Project Summary*
 
 ## Daily Timesheet Summary
 
 The **Daily Timesheet Summary** provides a consolidated view of all tasks recorded in a timesheet for a selected time period. It displays the timesheet activities along with the logged hours and the corresponding linked tasks and projects, enabling users to review daily time allocation at a glance.
 
-![](/files/daily_timesheet_summary.png)
+[Screenshot on the live page]
 *Daily Timesheet Summary*
 
 ## Timesheet Billing Summary
 
 This report provides a summary of t**imesheet-based billing** for a selected time period. It displays the total working hours along with the corresponding billable hours, billing rates, and calculated billing amounts, enabling users to review and analyze time-and-material billing at a glance.
 
-![](/files/timesheet_billing_summary.png)
+[Screenshot on the live page]
 *Timesheet Billing Summary*
 
 ## Project Wise Stock Tracking
 
 This report provides visibility into stock movements associated with projects, including purchased items and issued items. It also displays key project information such as the project status, total project value, and the project start and completion dates, enabling effective tracking of material usage and overall project progress.
 
-![](/files/project_wise_stock_tracking.png)
+[Screenshot on the live page]
 *Project wise stock tracking*
 
 ## Delayed Task Summary
@@ -865,5 +865,37 @@ Delay = Current Date - Expected End Date
 
 The chart shows the number of tasks that are On Track or Delayed based on the report generated after applying the filters.
 
-![Delayed Tasks Summary](/files/delayed-tasks-summary.png)
+[Screenshot on the live page: Delayed Tasks Summary]
 *Delayed Tasks Summary*
+
+<!-- page: erpnext/erpnext__project-template.md -->
+---
+title: "Project Template\n"
+space: "ERPNext"
+url: "https://docs.frappe.io/erpnext/project-template"
+updated: "2026-02-26"
+---
+
+**A Project Template is a predefined sequence of tasks arranged in stipulated schedule.**
+
+These templates can be pulled for similar kind of Projects and the tasks therein get auto-populated at the time of creation of each new project.
+
+To access Project Template, go to:
+
+> Home > Projects > Projects > Project Template
+
+[Screenshot on the live page]
+
+## How to Create A New Project Template:
+
+1. Go to the Project Template List and click on New.
+2. Add the following details:
+
+- **Project Template Name**: Title of the Project Template
+- **Project Type**: Project Templates, just like projects can be classified into different project types, e.g., Internal or External.
+- **Tasks**: Each Project Template will have a set of a predefined sequence of tasks. In this table, you can select the tasks you want for this template.
+
+## Related Topics
+
+1. [Project](/erpnext/user/manual/en/project)
+2. [Task](/erpnext/user/manual/en/tasks)

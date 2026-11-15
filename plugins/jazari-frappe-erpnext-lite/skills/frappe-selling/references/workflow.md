@@ -8,11 +8,11 @@ Owner: **Hazim** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Send a quotation** (`sell.quotation`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext-49.md` lines 335–466   (https://docs.frappe.io/erpnext/quotation)
+   read: `docs/erpnext/erpnext-49.md` lines 285–416   (https://docs.frappe.io/erpnext/quotation)
 2. **Confirm a sales order** (`sell.salesorder`, api mode) — SNAPSHOT FIRST, irreversible
    read: `docs/erpnext/erpnext-53.md` lines 3–244   (https://docs.frappe.io/erpnext/sales-order)
 3. **Ship goods with a delivery note** (`sell.deliverynote`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-20.md` lines 476–739   (https://docs.frappe.io/erpnext/delivery-note)
+   read: `docs/erpnext/erpnext-20.md` lines 153–416   (https://docs.frappe.io/erpnext/delivery-note)
 4. **Raise a sales invoice** (`acc.salesinvoice`, api mode) — SNAPSHOT FIRST, irreversible
    read: `docs/erpnext/erpnext-52.md` lines 306–524   (https://docs.frappe.io/erpnext/sales-invoice)
 5. **Record a payment entry** (`acc.paymententry`, api mode) — SNAPSHOT FIRST, irreversible

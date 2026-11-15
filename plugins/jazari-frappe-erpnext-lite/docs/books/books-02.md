@@ -1,131 +1,4 @@
-<!-- Frappe documentation: books, part 2 of 4. Index: docs/INDEX.md -->
-
-<!-- page: books/books__introduction.md -->
----
-title: "Lead"
-space: "Books"
-url: "https://docs.frappe.io/books/introduction"
-updated: "2026-01-30"
----
-
-_Lead_ is a term used in Frappe Books for any potential customer or client who
-has shown interest in the products or services offered.
-
-## Lead Status
-
-A Lead can have various statuses based on the stage of engagement:
-
-| Status         | Description                               |
-| :------------- | :---------------------------------------- |
-| Open           | Newly created and yet to be engaged.      |
-| Replied        | Replied to initial engagement.            |
-| Interested     | Shown interest in the product or service. |
-| Opportunity    | Opportunity for business.                 |
-| Converted      | Converted to a Customer or client.        |
-| Quotation      | To sent a Quotation.                      |
-| Do not Contact | Marked as not to be contacted.            |
-
-
-> Note: Ensure to update the status of the Lead appropriately as it progresses through
-different stages.
-
-## Lead Fields
-
-1. **Name**: The full name of the Lead. This is a required field to uniquely
-   identify each Lead.
-2. **Status**: The current status of the Lead. It indicates the stage of
-   engagement with the Lead and it will be updated automatically based on your
-   actions against the lead.
-3. **Email**: The email address of the Lead. This is used for communication and
-   may be displayed when printing invoices or other documents.
-4. **Mobile**: The mobile phone number of the Lead. This is used for quick
-   contact and may also be displayed when printing invoices or other documents.
-5. **Address**: The physical address associated with the Lead. This can include
-   street, city, state, and postal code, and is useful for sending physical
-   correspondence or deliveries.
-
-## Actions
-
-The Lead Quick Edit Form includes actions to create associated documents like
-Customer or Sales Quote.
-
-![Recent Actions Widget](https://raw.githubusercontent.com/frappe/books_docs/e0ff943f703b37f902f61a0424d1bc2b4cd81183/docs/entries/images/lead.png)
-
-### Create Customer
-
-- Converts the Lead into a Customer, retaining all relevant information.
-- Sets the status of the Lead to **Converted**.
-
-### Create Sales Quote
-
-- Creates a Sales Quote against the Lead.
-- Links the Sales Quote to the Lead as a reference.
-
-<!-- page: books/books__inventory-settings.md -->
----
-title: "Inventory Settings"
-space: "Books"
-url: "https://docs.frappe.io/books/inventory-settings"
-updated: "2026-01-30"
----
-
-Inventory settings will allow you to configure the inventory module to your requirements. To navigate to Inventory Settings: `Setup > Settings` then click on the Inventory tab
-
-[![Inventory Settings](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/inventory-settings.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/inventory-settings.png)  
-
-
-Setting Items
--------------
-
-The following values can be configured
-
-### Valuation Method
-
-This can be used to select either FIFO or Moving Average valuation methods.
-
-The valuation rate displayed in the Stock Ledger or the Stock Balance report is calculated on the basis of the Valuation Method selected.
-
-### Default Location
-
-This is used to set the location that is used whenever an inventory transaction detail is created.
-
-### Stock In Hand Account
-
-This is used to set the default Stock In Hand Account that is debited whenever stock is received.
-
-### Stock Received But Not Billed Account
-
-This is used to set the default Stock Received But Not Billed Account that is debited on making a Purchase Invoice for a tracked item, and credited when a Purchase Receipt is made.
-
-### Cost Of Goods Sold Account
-
-This is used to set the default Cost of Goods Sold Account that is debited whenever a Shipment is made.
-
-### Enable Barcodes
-
-Checking this will allow you to set barcodes on items. It will also display a barcode input in forms (such as Sales Invoice and Shipment) where items are entered.
-
-### Enable Batches
-
-Checking this will allow the usage of Batches. Items will have a Has Batch option if the item is being tracked.
-
-It will also enable the Batch entry type which can be navigated to by using the Quick Search.
-
-### Enable Serial Numbers
-
-Checking this will allow the usage of Serial Numbers. Items will have a Has Serial Number option if the item is being tracked.
-
-It will also enable the Serial Number entry type which can be navigated to by using the Quick Search.
-
-### Enable UOM Conversion
-
-Checking this will allow setting multiple UOMs for an Items. Then when making a entry that involves the Item, one of the other UOMs can be selected to mention its quantity.
-
-### Enable Stock Returns
-
-Checking this will allow you to create Purchase Receipt and Shipment Returns against the original Purchase Receipts or Shipments.
-
-  
+<!-- Frappe documentation: books, part 2 of 3. Index: docs/INDEX.md -->
 
 <!-- page: books/books__items.md -->
 ---
@@ -186,7 +59,7 @@ Inside the modal, users see two sections — **Displayed Fields** and **Availabl
 
   
 
-![Screenshot from 2025 10 23 11 21 45](/files/Screenshot%20from%202025-10-23%2011-21-45.png)
+[Screenshot on the live page: Screenshot from 2025 10 23 11 21 45]
 
 <!-- page: books/books__journal-entries.md -->
 ---
@@ -207,7 +80,7 @@ To create a Journal Entry first navigate to the Journal Entry page
 
 Then click on the blue `+` button to open a new Journal Entry form.
 
-[![Journal Entry Form](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/journal-entry.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/journal-entry.png)  
+[[Screenshot on the live page: Journal Entry Form]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/journal-entry.png)  
 
 
 1. Set the type of Journal Entry.
@@ -275,7 +148,7 @@ To enable Loyalty Program you will have to first check the Enable Loyalty
 Program. To
 > **Setup > Settings > General Tab.**
 
-![Enable Inventory](https://raw.githubusercontent.com/frappe/books_docs/00c35515b24bd93d6d4c3ab24602f549e6b23c66/docs/transactions/images/enable-loyalty-program.png)
+[Screenshot on the live page: Enable Inventory]
 
 Once that is done you will have to restart Frappe Books to see the Loyalty
 Program in the sidebar.
@@ -291,7 +164,7 @@ To create a Loyalty Program first navigate to the Loyalty Program page
 
 Then click on the blue `+` button to open the Loyalty Program form.
 
-![Sales Invoice Form](https://raw.githubusercontent.com/frappe/books_docs/00c35515b24bd93d6d4c3ab24602f549e6b23c66/docs/transactions/images/loyalty-program.png)
+[Screenshot on the live page: Sales Invoice Form]
 
 1. Enter a unique name for the Loyalty Program.
 2. Add the From and To Date for program's validity period.
@@ -313,11 +186,11 @@ Then click on the blue `+` button to open the Loyalty Program form.
 
 Set a Loyalty Program in the Customer to assign a Loyalty Program.
 
-![Sales Invoice Form](https://raw.githubusercontent.com/frappe/books_docs/00c35515b24bd93d6d4c3ab24602f549e6b23c66/docs/transactions/images/choose-loyalty-program.png)
+[Screenshot on the live page: Sales Invoice Form]
 
 Loyalty points earned can be viewed in the Customer.
 
-![Sales Invoice Form](https://raw.githubusercontent.com/frappe/books_docs/00c35515b24bd93d6d4c3ab24602f549e6b23c66/docs/transactions/images/loyalty-points.png)
+[Screenshot on the live page: Sales Invoice Form]
 
 ## Loyalty Program Functionality
 
@@ -335,7 +208,7 @@ Loyalty points earned can be viewed in the Customer.
    this invoice. This acts as a log to give an overview of which Customer
    earned how many points against which Sales Invoice.
 
-![Sales Invoice Form](https://raw.githubusercontent.com/frappe/books_docs/00c35515b24bd93d6d4c3ab24602f549e6b23c66/docs/transactions/images/loyalty-point-entry.png)
+[Screenshot on the live page: Sales Invoice Form]
 
 ### Redeeming Points
 
@@ -348,7 +221,7 @@ Loyalty points earned can be viewed in the Customer.
    points, and you will only need to pay the remaining balance after the points
    have been applied.
 
-![Sales Invoice Form](https://raw.githubusercontent.com/frappe/books_docs/00c35515b24bd93d6d4c3ab24602f549e6b23c66/docs/transactions/images/redeem-loyalty-points.png)
+[Screenshot on the live page: Sales Invoice Form]
 
 <!-- page: books/books__master-data.md -->
 ---
@@ -373,7 +246,7 @@ To create an entry navigate to it's page first, for example for Taxes: `Setup > 
 
 And click on the blue `+` button, this will open the Quick Edit Form.
 
-[![Quick Edit Form](https://github.com/frappe/books_docs/raw/master/docs/entries/images/quick-edit.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/quick-edit.png)  
+[[Screenshot on the live page: Quick Edit Form]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/quick-edit.png)  
 
 
 Enter the values and click the blue Save button. The entry will now be made and can be used in transactions.
@@ -383,7 +256,7 @@ Duplicating an Entry
 
 To create the duplicate of an entry, click on the `...` menu button and select Duplicate.
 
-[![Duplicate Button](https://github.com/frappe/books_docs/raw/master/docs/entries/images/duplicate.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/duplicate.png)  
+[[Screenshot on the live page: Duplicate Button]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/duplicate.png)  
 
 
 This will create a Draft entry, i.e. it is not yet saved, you can change the values and click on Save.
@@ -395,7 +268,7 @@ Deleting an Entry
 
 To delete an entry, click on the `...` menu button and select Delete.
 
-[![Delete Button](https://github.com/frappe/books_docs/raw/master/docs/entries/images/delete.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/delete.png)  
+[[Screenshot on the live page: Delete Button]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/delete.png)  
 
 
 ::: warning Entry Deletion Entries used in transactions cannot be deleted.
@@ -432,7 +305,7 @@ To enable a multi currency invoice you need to do two things:
 
 This will display the [exchange rate](https://github.com/frappe/books_docs/blob/master/transactions/multi-currency-invoicing#exchange-rate) widget.
 
-[![Multi Currency Invoicing](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/multicurrency-invoice.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multicurrency-invoice.png)  
+[[Screenshot on the live page: Multi Currency Invoicing]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multicurrency-invoice.png)  
 
 
 ::: info Fields using Company Currency The Base Grand Total and Outstanding Amounts are displayed in the company currency. :::
@@ -440,7 +313,7 @@ This will display the [exchange rate](https://github.com/frappe/books_docs/blob/
 Printing
 --------
 
-After submitting, on clicking Print, the invoice can be printed in the customers currency. [![Multi Currency Invoice Printing](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/multi-currency-print.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multi-currency-print.png)  
+After submitting, on clicking Print, the invoice can be printed in the customers currency. [[Screenshot on the live page: Multi Currency Invoice Printing]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multi-currency-print.png)  
 
 
 Payments
@@ -448,7 +321,7 @@ Payments
 
 Payments entries are made in the company currency. The exchange rate set when submitting the invoice is used to decide the amount to be paid.
 
-[![Multi Currency Payment](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/multi-currency-payments.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multi-currency-payments.png)  
+[[Screenshot on the live page: Multi Currency Payment]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multi-currency-payments.png)  
 
 
 On making the payment the Outstanding Amount will be updated accordingly, and any rounding differences will be balanced using the [Round Off Account](https://github.com/frappe/books_docs/blob/master/miscellaneous/settings#general-settings).
@@ -458,7 +331,7 @@ Ledger Entries
 
 Ledger Entries are created using the company currency. The exchange rate set when submitting the invoice is used to decide the recorded amounts.
 
-[![Multi Currency Ledger Entries](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/multi-currency-ledger-entries.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multi-currency-ledger-entries.png)  
+[[Screenshot on the live page: Multi Currency Ledger Entries]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/multi-currency-ledger-entries.png)  
 
 
 Exchange Rate
@@ -477,14 +350,14 @@ Multi currency invoice is possible only if the two currencies are different from
 
 This is set when a [Customer](https://github.com/frappe/books_docs/blob/master/entries/party) entry is created.
 
-[![Customer Currency](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/customer-currency.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/customer-currency.png)  
+[[Screenshot on the live page: Customer Currency]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/customer-currency.png)  
 
 
 ### Company Currency
 
 This is set when [initializing](https://github.com/frappe/books_docs/blob/master/setting-up/getting-started) a new Frappe Books instance
 
-[![Company Currency](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/company-currency.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/company-currency.png)  
+[[Screenshot on the live page: Company Currency]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/company-currency.png)  
 
 
   
@@ -499,7 +372,7 @@ updated: "2026-01-30"
 
 Number Series is used as the naming scheme for [transactional entries](https://github.com/frappe/books_docs/blob/master/transactions/transactional-entries). Multiple transactions of a single type for example Journal Entry can be grouped under a single Number Series.
 
-[![Number Series](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/number-series.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/number-series.png)  
+[[Screenshot on the live page: Number Series]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/number-series.png)  
 
 
 Default Number Series
@@ -529,12 +402,12 @@ To create a new Number Series for a specific transactional entry
 2. Enter the new Number Series you would like to use in the field.
 3. Click on Create
 
-[![Number Series Field](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/number-series-field.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/number-series-field.png)  
+[[Screenshot on the live page: Number Series Field]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/number-series-field.png)  
 
 
 This will take you to the Number Series Quick Edit Form where you can change the number series configuration.
 
-[![Number Series Form](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/new-number-series.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/new-number-series.png)  
+[[Screenshot on the live page: Number Series Form]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/new-number-series.png)  
 
 
 Once you are done editing, click on Save, now you can use the new Number Series for the entry.
@@ -597,7 +470,7 @@ Recent Invoices
 
 The Party Quick Edit Form has a Recent Invoices widget. This shows the last three invoices made for a Party.
 
-[![Recent Invoices Widget](https://github.com/frappe/books_docs/raw/master/docs/entries/images/recent-invoices.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/recent-invoices.png)  
+[[Screenshot on the live page: Recent Invoices Widget]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/recent-invoices.png)  
 
 
 Each row shows the following information
@@ -641,7 +514,7 @@ To make a Payment first navigate to the Payment page
 
 Then click on the blue `+` button. This will open the Payment quick edit form.
 
-[![Payment Quick Edit Form](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/payment-quick-edit.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-quick-edit.png)  
+[[Screenshot on the live page: Payment Quick Edit Form]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-quick-edit.png)  
 
 
 You can select the Party and enter other the details of the Payment.
@@ -660,7 +533,7 @@ This will update the Outstanding Amount on the invoice.
 
 The write off amount is a deduction on the payment.
 
-[![Payment Write Off](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/payment-writeoff.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-writeoff.png)  
+[[Screenshot on the live page: Payment Write Off]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-writeoff.png)  
 
 
 This amount is booked under the Write Off Account that can set under General settings: `Setup > Settings > General`
@@ -700,7 +573,7 @@ Enable Price List
 
 The Price List feature needs to be enabled first by checking the **Enable Price List** option in the General Settings.
 
-To navigate: `Setup > Settings > General Tab` [![Enable Price List](https://github.com/frappe/books_docs/raw/master/docs/entries/images/enable-price-list.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/enable-price-list.png)  
+To navigate: `Setup > Settings > General Tab` [[Screenshot on the live page: Enable Price List]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/enable-price-list.png)  
 
 
 Create a Price List
@@ -708,7 +581,7 @@ Create a Price List
 
 To create a Price Lists, go to:`Common > Price List`. And then click on the blue `+` button to open a new Price List creation form.
 
-[![Price List Form](https://github.com/frappe/books_docs/raw/master/docs/entries/images/price-list.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/price-list.png)  
+[[Screenshot on the live page: Price List Form]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/price-list.png)  
 
 
 Add Item Prices to your price list, when done click on the Save button.
@@ -728,7 +601,7 @@ Setting a Price List
 
 To use a Price List, ou need to select **Price List** in the Sales or Purchase Invoice form.
 
-[![Price List Selection](https://github.com/frappe/books_docs/raw/master/docs/entries/images/price-list-selection.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/price-list-selection.png)  
+[[Screenshot on the live page: Price List Selection]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/price-list-selection.png)  
 
 
 Once this is done, when a new item is selected it's price will be fetched from the selected Price List.
@@ -762,14 +635,14 @@ criteria, making your sales promotions more targeted and impactful.
 2. Navigate to the **Features** section.
 3. Check the boxes for the **Enable Discount Accounting** and **Enable Pricing Rule**.
 
-![Enable Pricing Rule](https://raw.githubusercontent.com/frappe/books_docs/3e7792601503e619e94309eb8a7cab9a50bffd2b/docs/entries/images/enable-pricing-rule.png)
+[Screenshot on the live page: Enable Pricing Rule]
 
 ## Creating a Pricing Rule
 
 1. Go to `Common > Pricing Rule`.
 2. Click the `+` button to create a new rule.
 
-![Create Pricing Rule](https://raw.githubusercontent.com/frappe/books_docs/3e7792601503e619e94309eb8a7cab9a50bffd2b/docs/entries/images/create-pricing-rule.png)
+[Screenshot on the live page: Create Pricing Rule]
 
 ## Pricing Rule Fields
 
@@ -834,7 +707,7 @@ The Print Template feature in Frappe Books allows you to create personalized pri
 
 To view and create Print Templates navigate to its page using the sidebar: `Setup > Print Templates`. Or alternatively open the Quick Search, type "Print Template" and hit enter.
 
-[![Print Templates](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/print-templates.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-templates.png)  
+[[Screenshot on the live page: Print Templates]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-templates.png)  
 
 
 :::tip Preloaded Templates
@@ -856,7 +729,7 @@ You can enable the *Edit Mode* by clicking the edit button next to the *Save as 
 
 Next, select the template type. Sales Invoice is selected by default, but you can create Print Templates for other entry types too.
 
-[![Template Type](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/template-type.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/template-type.png)  
+[[Screenshot on the live page: Template Type]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/template-type.png)  
 
 
 :::tip Display Entry
@@ -867,7 +740,7 @@ You can change the example Entry being displayed. By default Frappe Books select
 
 You can adjust the size of the Print Template by clicking on the Set Print Size option in the `···` menu.
 
-[![Custom Print Template Size](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/custom-print-size.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/custom-print-size.png) :::
+[[Screenshot on the live page: Custom Print Template Size]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/custom-print-size.png) :::
 
 Now you are ready to edit the Print Template
 
@@ -876,7 +749,7 @@ Editing the Template
 
 The left pane contains the Template Editor which is used to edit the template. You can remove the preset template and write the template that you want here.
 
-[![Template Editor](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/template-editor.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/template-editor.png)  
+[[Screenshot on the live page: Template Editor]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/template-editor.png)  
 
 
 :::info Template Syntax
@@ -887,7 +760,7 @@ The templates follow the Vue.js template syntax. You can learn more about it [he
 
 You can resize the Template Editor by clicking on the border and dragging it.
 
-[![Resize Template Editor](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/resize-template-editor.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/resize-template-editor.png) :::
+[[Screenshot on the live page: Resize Template Editor]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/resize-template-editor.png) :::
 
 ### Displaying Values
 
@@ -908,7 +781,7 @@ There are two sets of keys to display values:
 
 :::tip Key Hints If you want to see the available values you can click on the **Key Hints** section below the Template Editor.
 
-[![Key Hints](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/key-hints.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/key-hints.png) :::
+[[Screenshot on the live page: Key Hints]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/key-hints.png) :::
 
 ### Template Styling
 
@@ -928,12 +801,12 @@ After you have edited your template and clicked on the blue Save button to save 
 
 To use the template, navigate to the entry and click on the Print button.
 
-[![Print Button](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/print-button.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-button.png)  
+[[Screenshot on the live page: Print Button]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-button.png)  
 
 
 You will now see the print preview. You can change the template to be used from the list on the left.
 
-[![Print View](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/print-view.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-view.png)  
+[[Screenshot on the live page: Print View]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-view.png)  
 
 
 Once you are satisfied with your selection click on the blue Save as PDF button to save it.
@@ -943,7 +816,7 @@ Template Builder Interface
 
 When you open any of the Print Templates or when you click on the blue `+` button to create a new Template, you will be shown the Template Builder tool.
 
-[![Template Builder Interface](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/template-builder-interface.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/template-builder-interface.png)  
+[[Screenshot on the live page: Template Builder Interface]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/template-builder-interface.png)  
 
 
 Here's a list of what each component does:
@@ -971,7 +844,7 @@ If you are not familiar with HTML, CSS and Vue.js Template Syntax then you might
 
 If this is the case, we suggest duplicating one of the Preloaded Templates and editing the duplicate.
 
-[![Duplicating the Templates](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/duplicate-template.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/duplicate-template.png)  
+[[Screenshot on the live page: Duplicating the Templates]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/duplicate-template.png)  
 
 
 This way you can make and apply small changes and see how it affects the Preview and step by step make the template like how you want it to look.
@@ -1004,7 +877,7 @@ The P&L statement for any period reflects all the income minus all the expenses 
 
 To check your P&L statement, navigate to it using the sidebar: `Reports > Profit And Loss`
 
-[![Profit and Loss](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/profit-and-loss.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/profit-and-loss.png)  
+[[Screenshot on the live page: Profit and Loss]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/profit-and-loss.png)  
 
 
 By default the Profit and Loss report will show P&L values for the last 3 months.
@@ -1065,9 +938,114 @@ So clicking on **Hide Group Amounts** will display only the non group account am
 Folding Rows
 ------------
 
-[![Profit and Loss Folded Rows](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/pnl-folded.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/pnl-folded.png)  
+[[Screenshot on the live page: Profit and Loss Folded Rows]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/pnl-folded.png)  
 
 
 Rows in the Profit and Loss report which display group accounts can be clicked to fold all the rows underneath them.
+
+  
+
+<!-- page: books/books__purchase-invoices.md -->
+---
+title: "Purchase Invoices"
+space: "Books"
+url: "https://docs.frappe.io/books/purchase-invoices"
+updated: "2026-01-30"
+---
+
+Purchase Invoices are bills that your supplier sends you when you make a purchase.
+
+It is a transactional entry that denotes a purchase.
+
+Creating Purchase Invoices
+--------------------------
+
+If you have set up your Frappe Books with Accounts, Taxes, Purchase Items, and Suppliers, creating a Purchase Invoice is as simple as it gets.
+
+First navigate to the Purchase Invoices page
+
+`Purchases > Purchase Invoices`
+
+Then click on the blue `+` button to open the Purchase Invoice form.
+
+[[Screenshot on the live page: Purchase Invoice Form]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/purchase-invoice.png)  
+
+
+1. Select the Supplier from whom you will be making a purchase.
+2. Click on Add Row and select the Item being purchased. Default Tax will be fetched you can change it if required.
+3. Enter the Quantity.
+4. You can add more items or if you are done, click on Save.
+5. Once finalized, click on Submit. Frappe Books will do the required ledger entries against the appropriate accounts.
+
+This invoice is now in *“Submitted”* state, it cannot be edited. The purchase transaction has been recorded.
+
+Making Purchase Payments
+------------------------
+
+Once a purchase invoice has been submitted, you’ll need to record payment against it to denote that you’ve paid the money.
+
+To make a Payment first navigate to the Purchase Invoice, then click on the `...` menu button. Then click the Make Payment option.
+
+[[Screenshot on the live page: Purchase Invoice Status]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/purchase-payment.png)  
+
+
+This will open the Payment quick edit form with the outstanding amount auto-filled.
+
+[[Screenshot on the live page: Purchase Invoice Payment]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/purchase-payment-quickedit.png)  
+
+
+You can change the values and click on Save. This will Save and Submit the Payment.
+
+On making the Payment, Frappe Books will make the necessary ledger entries to increase the payment amount in Accounts Payable and decrease the amount in your Bank or Cash Account.
+
+It will also update the Outstanding Amount on the invoice form.
+
+::: info Purchase Invoice Status Until Payments are made to settel the Outstanding Amount, the Purchase Invoice will be in the **Unpaid** state.
+
+Once the Outstanding Amount reaches 0, the status will change to **Paid**. :::
+
+### Auto Payments
+
+You can simplify the *Purchase Invoice → Payment* workflow by using Auto Payments. For this you just need to set the default accounts for Purchase Payment.
+
+This can be done in `Setup > Settings > Defaults > Auto Payments`: [[Screenshot on the live page: Payment Accounts]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-accounts.png)  
+
+
+Once this is set, whenever you Submit a Purchase Invoice a Payment entry will automatically be created.
+
+::: tip Disable Auto Payment for a Purchase Invoice
+
+You can disable Auto Payment for a single Purchase Invoice by unchecking the Make Payment On Submit check box in the Settings tab before Submitting the Purchase Invoice entry.
+
+[[Screenshot on the live page: Disable Auto Payment]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/auto-payment.png) :::
+
+Purchase Invoice Return
+-----------------------
+
+The user can create a Purchase Invoice Return directly from the original Purchase Invoice document or manually from the New Purchase Invoice Entry.
+
+### Creating a Purchase Invoice Return
+
+1. Open the original Purchase Invoice document.
+2. Click on **Create > Return**. [[Screenshot on the live page: Create Purchase Invoice Return]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-create-return.png)
+3. The Party and Item details will be fetched as set in the original Purchase Invoice document. You can set the quantity of Items returned in negative numbers. [[Screenshot on the live page: Purchase Invoice Return Form]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-return-form.png)
+4. Save and Submit.
+
+::: info The Item quantity and Payment amount will be in negative figures to indicate that it's a return. :::
+
+### Creating Manually
+
+1. Navigate to the Purchase Invoice page `Purchases > Purchase Invoice`
+2. Click on **Return Against** then select the target Purchase Invoice against which you returned the Items. [[Screenshot on the live page: Set Is Return]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-select-return-against-invoice.png)
+3. Fill Item details.
+4. Save and Submit.
+
+Purchase Invoice impact on General Ledger
+-----------------------------------------
+
+The Purchase Invoice Return entry will create General Ledger entries to reverse the impact of the original Purchase Invoice.
+
+[[Screenshot on the live page: Purchase Invoice Return in General Ledger]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-return-in-gl.png)  
+
 
   

@@ -1,109 +1,4 @@
-<!-- Frappe documentation: books, part 3 of 4. Index: docs/INDEX.md -->
-
-<!-- page: books/books__purchase-invoices.md -->
----
-title: "Purchase Invoices"
-space: "Books"
-url: "https://docs.frappe.io/books/purchase-invoices"
-updated: "2026-01-30"
----
-
-Purchase Invoices are bills that your supplier sends you when you make a purchase.
-
-It is a transactional entry that denotes a purchase.
-
-Creating Purchase Invoices
---------------------------
-
-If you have set up your Frappe Books with Accounts, Taxes, Purchase Items, and Suppliers, creating a Purchase Invoice is as simple as it gets.
-
-First navigate to the Purchase Invoices page
-
-`Purchases > Purchase Invoices`
-
-Then click on the blue `+` button to open the Purchase Invoice form.
-
-[![Purchase Invoice Form](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/purchase-invoice.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/purchase-invoice.png)  
-
-
-1. Select the Supplier from whom you will be making a purchase.
-2. Click on Add Row and select the Item being purchased. Default Tax will be fetched you can change it if required.
-3. Enter the Quantity.
-4. You can add more items or if you are done, click on Save.
-5. Once finalized, click on Submit. Frappe Books will do the required ledger entries against the appropriate accounts.
-
-This invoice is now in *“Submitted”* state, it cannot be edited. The purchase transaction has been recorded.
-
-Making Purchase Payments
-------------------------
-
-Once a purchase invoice has been submitted, you’ll need to record payment against it to denote that you’ve paid the money.
-
-To make a Payment first navigate to the Purchase Invoice, then click on the `...` menu button. Then click the Make Payment option.
-
-[![Purchase Invoice Status](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/purchase-payment.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/purchase-payment.png)  
-
-
-This will open the Payment quick edit form with the outstanding amount auto-filled.
-
-[![Purchase Invoice Payment](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/purchase-payment-quickedit.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/purchase-payment-quickedit.png)  
-
-
-You can change the values and click on Save. This will Save and Submit the Payment.
-
-On making the Payment, Frappe Books will make the necessary ledger entries to increase the payment amount in Accounts Payable and decrease the amount in your Bank or Cash Account.
-
-It will also update the Outstanding Amount on the invoice form.
-
-::: info Purchase Invoice Status Until Payments are made to settel the Outstanding Amount, the Purchase Invoice will be in the **Unpaid** state.
-
-Once the Outstanding Amount reaches 0, the status will change to **Paid**. :::
-
-### Auto Payments
-
-You can simplify the *Purchase Invoice → Payment* workflow by using Auto Payments. For this you just need to set the default accounts for Purchase Payment.
-
-This can be done in `Setup > Settings > Defaults > Auto Payments`: [![Payment Accounts](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/payment-accounts.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-accounts.png)  
-
-
-Once this is set, whenever you Submit a Purchase Invoice a Payment entry will automatically be created.
-
-::: tip Disable Auto Payment for a Purchase Invoice
-
-You can disable Auto Payment for a single Purchase Invoice by unchecking the Make Payment On Submit check box in the Settings tab before Submitting the Purchase Invoice entry.
-
-[![Disable Auto Payment](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/auto-payment.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/auto-payment.png) :::
-
-Purchase Invoice Return
------------------------
-
-The user can create a Purchase Invoice Return directly from the original Purchase Invoice document or manually from the New Purchase Invoice Entry.
-
-### Creating a Purchase Invoice Return
-
-1. Open the original Purchase Invoice document.
-2. Click on **Create > Return**. [![Create Purchase Invoice Return](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/pinv-create-return.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-create-return.png)
-3. The Party and Item details will be fetched as set in the original Purchase Invoice document. You can set the quantity of Items returned in negative numbers. [![Purchase Invoice Return Form](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/pinv-return-form.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-return-form.png)
-4. Save and Submit.
-
-::: info The Item quantity and Payment amount will be in negative figures to indicate that it's a return. :::
-
-### Creating Manually
-
-1. Navigate to the Purchase Invoice page `Purchases > Purchase Invoice`
-2. Click on **Return Against** then select the target Purchase Invoice against which you returned the Items. [![Set Is Return](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/pinv-select-return-against-invoice.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-select-return-against-invoice.png)
-3. Fill Item details.
-4. Save and Submit.
-
-Purchase Invoice impact on General Ledger
------------------------------------------
-
-The Purchase Invoice Return entry will create General Ledger entries to reverse the impact of the original Purchase Invoice.
-
-[![Purchase Invoice Return in General Ledger](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/pinv-return-in-gl.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/pinv-return-in-gl.png)  
-
-
-  
+<!-- Frappe documentation: books, part 3 of 3. Index: docs/INDEX.md -->
 
 <!-- page: books/books__purchase-receipt.md -->
 ---
@@ -128,7 +23,7 @@ Since a receipt of stock follows a purchase, you can create a Purchase Receipt a
 
 To do this select Purchase Receipt from under the Create menu button.
 
-[![Create Purchase Receipt From a Purchase Invoice](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/from-purchase-invoice.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/from-purchase-invoice.png)  
+[[Screenshot on the live page: Create Purchase Receipt From a Purchase Invoice]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/from-purchase-invoice.png)  
 
 
 ::: tip Back Reference
@@ -149,7 +44,7 @@ This method doesn't create links to any Purchase Invoices and is an isolated ent
 
 After selecting one of the above two methods of creating a Purchase Receipt, you will see the Purchase Receipt form.
 
-[![Purchase Receipt Form](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/purchase-receipt-form.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/purchase-receipt-form.png)  
+[[Screenshot on the live page: Purchase Receipt Form]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/purchase-receipt-form.png)  
 
 
 If you created the Purchase Receipt from a Purchase Invoice, all the rows will be filled out for you. Else you will have to enter the Purchase Receipt details.
@@ -181,8 +76,8 @@ To create Purchase Receipt Returns the Stock Returns feature needs to be enabled
 ### Creating a Purchase Receipt Return
 
 1. Open the Purchase Receipt entry to be returned.
-2. Click on `Create > Return`. [![Create Purchase Receipt Return](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/create-purchase-receipt-return.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/create-purchase-receipt-return.png)
-3. The Party and Item details will be fetched from the original Purchase Receipt entry. You can set the quantity of Items returned. [![Purchase Receipt Return Form](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/purchase-receipt-return-form.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/purchase-receipt-return-form.png)
+2. Click on `Create > Return`. [[Screenshot on the live page: Create Purchase Receipt Return]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/create-purchase-receipt-return.png)
+3. The Party and Item details will be fetched from the original Purchase Receipt entry. You can set the quantity of Items returned. [[Screenshot on the live page: Purchase Receipt Return Form]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/purchase-receipt-return-form.png)
 4. Save and Submit.
 
 ::: info Item quantity and Payment amount will be in negative to indicate that it is a return. :::
@@ -192,7 +87,7 @@ How does Purchase Receipt Return affect General Ledger
 
 The Purchase Receipt Return entry will create General Ledger entries to reverse the impact of the original Purchase Receipt.
 
-[![Purchase Receipt Return in General Ledger](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/purchase-receipt-return-in-general-ledger.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/purchase-receipt-return-in-general-ledger.png)  
+[[Screenshot on the live page: Purchase Receipt Return in General Ledger]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/purchase-receipt-return-in-general-ledger.png)  
 
 
 View Ledger Entries
@@ -202,7 +97,7 @@ After a Purchase Receipt is submitted, both Stock Ledger and General Ledger entr
 
 To view these you can click on the View button and select the one you would like to see.
 
-[![View Ledger Entries](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/view-purchase-receipt-ledger-entries.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/view-purchase-receipt-ledger-entries.png)  
+[[Screenshot on the live page: View Ledger Entries]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/view-purchase-receipt-ledger-entries.png)  
 
 
   
@@ -217,7 +112,7 @@ updated: "2026-01-30"
 
 The Quick Search interface is a quick way to navigate around in Frappe Books. To activate it you can click on the search button in the header:
 
-[![Quick Search Bar](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/search-bar.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/search-bar.png)  
+[[Screenshot on the live page: Quick Search Bar]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/search-bar.png)  
 
 
 Or you can press `Ctrl + K` or `Cmd + K` depending on your operating system.
@@ -225,7 +120,7 @@ Or you can press `Ctrl + K` or `Cmd + K` depending on your operating system.
 Dialog
 ------
 
-[![Quick Search Dialog](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/search-dialog.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/search-dialog.png)  
+[[Screenshot on the live page: Quick Search Dialog]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/search-dialog.png)  
 
 
 To search for anything type what you are looking for in the input bar at the top.
@@ -255,7 +150,7 @@ Filters
 
 Clicking on More Filters will display all the filters.
 
-[![Quick Search Filters](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/search-filters.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/search-filters.png)  
+[[Screenshot on the live page: Quick Search Filters]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/search-filters.png)  
 
 
 There are two kinds of filters here.
@@ -308,7 +203,7 @@ All reports have two sections:
 1. Filter Section
 2. Report Section
 
-[![Report Sections](https://github.com/frappe/books_docs/raw/master/docs/analytics/images/report-sections.png)](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/report-sections.png)  
+[[Screenshot on the live page: Report Sections]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/report-sections.png)  
 
 
 The **Filter Section** allows for setting filters such as the Date Range between which a report is to be generated.
@@ -361,7 +256,7 @@ First navigate to the Sales Invoices page
 
 Then click on the blue `+` button to open the Sales Invoice form.
 
-[![Sales Invoice Form](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sales-invoice.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sales-invoice.png)  
+[[Screenshot on the live page: Sales Invoice Form]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sales-invoice.png)  
 
 
 1. Select the Customer to whom you will be making a sale.
@@ -375,7 +270,7 @@ This invoice is now in *“Submitted”* state, it cannot be edited. The sales t
 Editing an Invoice Item
 -----------------------
 
-To edit the values of an Invoice Item click on the edit button on the item row [![Edit Invoice Item](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/invoice-item.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/invoice-item.png)  
+To edit the values of an Invoice Item click on the edit button on the item row [[Screenshot on the live page: Edit Invoice Item]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/invoice-item.png)  
 
 
 From here you can change the item description, HSN code check the Taxed Amount, etc.
@@ -389,12 +284,12 @@ Once a sales invoice has been submitted, you’ll need to record payment against
 
 To make a Payment first navigate to the Sales Invoice, then click on the `...` menu button. Then click the Make Payment option.
 
-[![Sales Invoice Status](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sales-payment.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sales-payment.png)  
+[[Screenshot on the live page: Sales Invoice Status]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sales-payment.png)  
 
 
 This will open the Payment quick edit form with the outstanding amount auto-filled.
 
-[![Sales Invoice Payment](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sales-payment-quickedit.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sales-payment-quickedit.png)  
+[[Screenshot on the live page: Sales Invoice Payment]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sales-payment-quickedit.png)  
 
 
 You can change the values and click on Save. This will Save and Submit the Payment.
@@ -411,7 +306,7 @@ Once the Outstanding Amount reaches 0, the status will change to **Paid**. :::
 
 You can simplify the *Sales Invoice → Payment* workflow by using Auto Payments. For this you just need to set the default accounts for Sales Payment.
 
-This can be done in `Setup > Settings > Defaults > Auto Payments`: [![Payment Accounts](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/payment-accounts.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-accounts.png)  
+This can be done in `Setup > Settings > Defaults > Auto Payments`: [[Screenshot on the live page: Payment Accounts]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/payment-accounts.png)  
 
 
 Once this is set, whenever you Submit a Sales Invoice a Payment entry will automatically be created.
@@ -420,7 +315,7 @@ Once this is set, whenever you Submit a Sales Invoice a Payment entry will autom
 
 You can disable Auto Payment for a single Sales Invoice by unchecking the Make Payment On Submit check box in the Settings tab before Submitting a Sales Invoice entry.
 
-[![Disable Auto Payment](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/auto-payment.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/auto-payment.png) :::
+[[Screenshot on the live page: Disable Auto Payment]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/auto-payment.png) :::
 
 Sales Invoice Return
 --------------------
@@ -432,8 +327,8 @@ To reflect this you can create a Sales Invoice Return from the original Sales In
 ### Creating a Sales Invoice Return
 
 1. Open the original Sales Invoice document, against which customer returned the Items.
-2. Click on **Create > Return**. [![Create Sales Invoice Return](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sinv-create-return.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-create-return.png)
-3. The Party and Item details will be fetched as set in the original Sales Invoice document. You can set the quantity of Items returned in negative numbers. [![Sales Invoice Return Form](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sinv-return-form.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-return-form.png)
+2. Click on **Create > Return**. [[Screenshot on the live page: Create Sales Invoice Return]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-create-return.png)
+3. The Party and Item details will be fetched as set in the original Sales Invoice document. You can set the quantity of Items returned in negative numbers. [[Screenshot on the live page: Sales Invoice Return Form]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-return-form.png)
 4. Save and Submit.
 
 ::: info The Item quantity and Payment amount will be in negative figures to indicate that it's a return. :::
@@ -441,7 +336,7 @@ To reflect this you can create a Sales Invoice Return from the original Sales In
 ### Creating Manually
 
 1. Navigate to the Sales Invoice page `Sales > Sales Invoice`
-2. Click on **Return Against** then select the target Sales Invoice against which customer returned the Items. [![Select return invoice](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sinv-select-return-against.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-select-return-against.png)
+2. Click on **Return Against** then select the target Sales Invoice against which customer returned the Items. [[Screenshot on the live page: Select return invoice]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-select-return-against.png)
 3. Fill Item details.
 4. Save and Submit.
 
@@ -450,7 +345,7 @@ Sales Invoice Return impact on General Ledger
 
 The Sales Invoice Return entry will create General Ledger entries to reverse the impact of the original Sales Invoice.
 
-[![Sales Invoice Return in General Ledger](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/sinv-return-in-gl.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-return-in-gl.png)  
+[[Screenshot on the live page: Sales Invoice Return in General Ledger]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/sinv-return-in-gl.png)  
 
 
 Printing the Sales Invoice
@@ -460,7 +355,7 @@ To export the Sales Invoice as a PDF, click on the Print button next to the `...
 
 This will open the Print View, you can click on the Customize button to customize it.
 
-[![Print View](https://github.com/frappe/books_docs/raw/master/docs/transactions/images/print-view.png)](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/print-view.png)  
+[[Screenshot on the live page: Print View]](https://github.com/frappe/books_docs/blob/master/docs/transactions/images/print-view.png)  
 
 
 You can now add your company logo and select a brand color that matches your business’ primary color. You can also change the style by selecting one of the given Templates. Choose any that fits your style.
@@ -493,7 +388,7 @@ Serialized Items
 
 Once you've [enabled](https://github.com/frappe/books_docs/blob/master/inventory/serial-number#enable-serial-number) Serial Number, you can mark an item as a serialized item by first checking **Track Item** and then **Has Serial Number**
 
-[![Enable Has Serial Number](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/item-has-serial-number.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/item-has-serial-number.png)  
+[[Screenshot on the live page: Enable Has Serial Number]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/item-has-serial-number.png)  
 
 
 ::: info Track Item **Has Serial Number** can be enabled only if **Track Item** is set. :::
@@ -505,7 +400,7 @@ Once a Serial Number has been enabled for an [Item](https://github.com/frappe/bo
 
 This can be done by clicking the edit button on the table row and entering the Serial Number one per quantity.
 
-[![Mentioning Serial Numbers](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/mentioning-serial-number.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/mentioning-serial-number.png)  
+[[Screenshot on the live page: Mentioning Serial Numbers]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/mentioning-serial-number.png)  
 
 
 ::: info Serial Number Entry For each unit of quantity of a serialized Item a single Serial Number should be provided on a separate line. :::
@@ -562,7 +457,7 @@ There are a few tabs under Settings
 General Settings
 ----------------
 
-[![General Settings](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/general-settings.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/general-settings.png)  
+[[Screenshot on the live page: General Settings]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/general-settings.png)  
 
 
 These settings are used to set and customize accounting defaults.
@@ -592,7 +487,7 @@ Setting this value will enable the GST Reports. :::
 Defaults
 --------
 
-[![Defaults](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/defaults.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/defaults.png)  
+[[Screenshot on the live page: Defaults]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/defaults.png)  
 
 
 These settings are used to set default values that are selected when creating an entry. They allow for quicker creation of entries but can be changed when making entries.
@@ -618,7 +513,7 @@ An Item from an Invoice is included in the auto Stock Transfer only if these con
 Print Settings
 --------------
 
-[![Invoice Settings](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/print-settings.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-settings.png)  
+[[Screenshot on the live page: Invoice Settings]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/print-settings.png)  
 
 
 Settings here can be altered to customize the Print View of an Invoice.
@@ -628,7 +523,7 @@ Settings here can be altered to customize the Print View of an Invoice.
 System Settings
 ---------------
 
-[![System Settings](https://github.com/frappe/books_docs/raw/master/docs/miscellaneous/images/system-settings.png)](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/system-settings.png)  
+[[Screenshot on the live page: System Settings]](https://github.com/frappe/books_docs/blob/master/docs/miscellaneous/images/system-settings.png)  
 
 
 These settings are used to alter how values such as currency and time are displayed.
@@ -677,7 +572,7 @@ First navigate to the **Journal Entry** page.
 
 Then click on the blue `+` button to open the **Journal Entry** form.
 
-[![Journal Entry Form](https://github.com/frappe/books_docs/raw/master/docs/setting-up/images/journal-entry.png)](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/journal-entry.png)  
+[[Screenshot on the live page: Journal Entry Form]](https://github.com/frappe/books_docs/blob/master/docs/setting-up/images/journal-entry.png)  
 
 
 1. Set the Entry Type as Opening Entry.
@@ -723,7 +618,7 @@ Since a shipment of stock follows a sale, you can create a Shipment after submit
 
 To do this select Shipment from under the Create menu button.
 
-[![Create Shipment From a Sales Invoice](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/from-sales-invoice.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/from-sales-invoice.png)  
+[[Screenshot on the live page: Create Shipment From a Sales Invoice]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/from-sales-invoice.png)  
 
 
 ::: tip Back Reference
@@ -744,7 +639,7 @@ This method doesn't create links to any Sales Invoices and is an isolated entry.
 
 After selecting one of the above two methods of creating a Shipment, you will see the Shipment form.
 
-[![Shipment Form](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/shipment-form.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/shipment-form.png)  
+[[Screenshot on the live page: Shipment Form]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/shipment-form.png)  
 
 
 If you created the Shipment from a Sales Invoice, all the rows will be filled out for you. Else you will have to enter the Shipment details.
@@ -776,8 +671,8 @@ To create Shipment Returns the Stock Returns feature needs to be enabled. To do 
 ### Creating a Shipment Return
 
 1. Open the Shipment entry to be returned.
-2. Click on `Create > Return`. [![Create Shipment Return](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/create-shipment-return.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/create-shipment-return.png)
-3. The Party and Item details will be fetched from the original Shipment entry. You can set the quantity of Items returned. [![Shipment Return Form](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/shipment-return-form.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/shipment-return-form.png)
+2. Click on `Create > Return`. [[Screenshot on the live page: Create Shipment Return]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/create-shipment-return.png)
+3. The Party and Item details will be fetched from the original Shipment entry. You can set the quantity of Items returned. [[Screenshot on the live page: Shipment Return Form]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/shipment-return-form.png)
 4. Save and Submit.
 
 ::: info Item quantity and Payment amount will be in negative to indicate that it is a return. :::
@@ -787,7 +682,7 @@ Shipment Return impact on General Ledger
 
 The Shipment Return entry will create General Ledger entries to reverse the impact of the original Shipment.
 
-[![Shipment Return in General Ledger](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/shipment-return-in-general-ledger.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/shipment-return-in-general-ledger.png)  
+[[Screenshot on the live page: Shipment Return in General Ledger]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/shipment-return-in-general-ledger.png)  
 
 
 View Ledger Entries
@@ -797,7 +692,7 @@ After a Shipment is submitted, both Stock Ledger and General Ledger entries are 
 
 To view these you can click on the View button and select the one you would like to see.
 
-[![View Ledger Entries](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/view-shipment-ledger-entries.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/view-shipment-ledger-entries.png)  
+[[Screenshot on the live page: View Ledger Entries]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/view-shipment-ledger-entries.png)  
 
 
   
@@ -812,7 +707,7 @@ updated: "2026-01-30"
 
 Stock Balance is a report that displays the current stock quantities, value and valuation rate by Item and Location.
 
-[![Stock Balance](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/stock-balance.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/stock-balance.png)  
+[[Screenshot on the live page: Stock Balance]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/stock-balance.png)  
 
 
 Filters
@@ -858,7 +753,7 @@ Stock Ledger is a report that displays all the stock entries that are recorded w
 
 The Stock Ledger shows you the change in quantity, value and valuation rate over the course of various inventory transactions.
 
-[![Stock Ledger](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/stock-ledger.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/stock-ledger.png)  
+[[Screenshot on the live page: Stock Ledger]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/stock-ledger.png)  
 
 
 Filters
@@ -952,7 +847,7 @@ Creating Stock Movements
 
 To create a Stock Movement, first navigate to the stock movement List View: `Inventory > Stock Movement` then click on the blue `+` button in the title bar.
 
-[![Stock Movement](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/stock-movement.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/stock-movement.png)  
+[[Screenshot on the live page: Stock Movement]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/stock-movement.png)  
 
 
 After clicking the blue `+` button:
@@ -973,7 +868,7 @@ New entries will be created in the Stock Ledger and the Stock Balance will be up
 
 To View the Stock Ledger entries click on Stock Entries under the `...` menu
 
-[![View Stock Entries](https://github.com/frappe/books_docs/raw/master/docs/inventory/images/view-stock-entries.png)](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/view-stock-entries.png)  
+[[Screenshot on the live page: View Stock Entries]](https://github.com/frappe/books_docs/blob/master/docs/inventory/images/view-stock-entries.png)  
 
 <!-- page: books/books__taxes.md -->
 ---
@@ -985,7 +880,7 @@ updated: "2026-01-30"
 
 To calculate the amount of tax on an Item's purchase or sale, a Tax entry has to be selected on the invoice row.
 
-[![Invoice Row](https://github.com/frappe/books_docs/raw/master/docs/entries/images/invoice-row.png)](https://github.com/frappe/books_docs/blob/master/docs/entries/images/invoice-row.png)  
+[[Screenshot on the live page: Invoice Row]](https://github.com/frappe/books_docs/blob/master/docs/entries/images/invoice-row.png)  
 
 
 ::: tip Auto Set Tax If the Tax has been set on the Item then it will be auto set in the invoice row. :::
@@ -1001,5 +896,215 @@ A Tax entry has just two fields
 2. Tax Detail: a table where the Tax account along with the Tax rate is set.
 
 ::: info Tax Detail Tax Detail is a table as a single tax can have multiple components each with a separate account and rate. :::
+
+  
+
+<!-- page: books/books__transactional-entries.md -->
+---
+title: "Point of Sale (POS)"
+space: "Books"
+url: "https://docs.frappe.io/books/transactional-entries"
+updated: "2026-01-30"
+---
+
+**POS** (Point of Sale) refers to the time and place where retail transactions occur. This system enables efficient sales processing, payment reconciliation, and shift management for retail environments.
+
+### 1. Open POS Shift
+
+   [Screenshot on the live page]
+
+Before initiating sales, a POS shift must be opened to record opening balances and enable accurate tracking of cash and other payment methods throughout the session.
+
+**Steps to Create an Open POS Shift**
+
+1. Cash in Denominations
+
+Enter the quantity of each currency denomination (e.g., ₹1000, ₹500, ₹100). The system will automatically calculate the total opening cash amount based on these inputs.
+
+2. Opening Amounts by Payment Method
+
+* The calculated cash amount is automatically populated under the “Cash” payment method.
+
+* Opening balances for other payment methods (e.g., Card, UPI, Wallet) can be entered if applicable.
+
+3. Once all amounts are verified, click Submit. The POS shift will be marked as open, recording the shift’s opening date and time.
+
+
+### 2. Creating a POS Invoice
+
+[Screenshot on the live page]
+
+After opening a POS shift, sales billing can begin through the POS interface.
+
+**How to create a POS Invoice ?**
+
+1. Go to the POS interface and choose a customer for the sale.
+2. From the item list displayed on the left, click on the items to add them to the cart.
+3. Adjust the quantity for each item as needed.
+4. To change item rates or apply discounts, ensure these options are enabled in the POS Settings.
+5. Verify the grand total and the total quantity in the summary section at the bottom.
+6. Click the Pay button and select the desired payment method.
+7. Submit the sales invoice when prompted to complete the transaction.
+8. Once the invoice is submitted, you can print the POS invoice directly by selecting the Pay and Print option.
+
+
+
+### 3. Adding an Item
+
+   [Screenshot on the live page]
+
+
+Items can be selected in two ways: by clicking on the item name or by scanning the barcode.
+
+* Enter Barcode / Weight-enabled barcode in the box as shown in the image, the item will be automatically added to the cart.
+
+* If the product list in the dropdown is very long, use the search field by typing the product name in the search box.
+
+**Filter by Group:** A field that allows filtering and displaying items based on their assigned item group. When an item group is selected from the dropdown list, only items belonging to that group are shown.
+
+[Screenshot on the live page]
+
+* To change the quantity of an item, click the expand arrow and either enter the desired quantity in the **Transfer Quantity** field or use the up/down arrows to adjust it.
+
+* To remove an item from the cart, click the delete button next to the corresponding item.
+
+### 4. Additional POS Features
+
+
+[Screenshot on the live page]
+
+**1.Grid View:** Displays items in a grid format with images when the grid view icon is clicked.
+
+**2.[Sales Invoice](https://docs.frappe.io/books/sales-invoices) List:** Redirects to the Sales Invoice List.
+
+**3.[Loyalty Program](https://docs.frappe.io/books/loyalty-program):** Shows the loyalty points earned by the selected customer. Points can be redeemed from this view. The button is disabled if the customer has no loyalty points.
+
+**4.[Coupon Code](https://docs.frappe.io/books/coupon-code):** Allows redemption and application of available coupon codes for the selected items. The button is disabled if no coupon codes are available.
+
+**5.[Price List](https://docs.frappe.io/books/price-list):** Displays applicable price lists for the selected items, allowing you to apply them. The button is disabled if no price list is available.
+
+**6.[Item Enquiry](https://docs.frappe.io/books/item-enquiry):** Allows the user to record and track specific item-related queries.This feature helps maintain detailed records of customer enquiries for better follow-up and service.
+
+### 5. Cart Actions
+
+   [Screenshot on the live page]
+   
+* Total Quantity: The Total Quantity refers to the combined number of all items included in a transaction or order.
+
+* Item Discounts: The Item Discounts refer to price reductions applied to specific products or services in the order.
+
+* Grand Total: The Grand Total is the final amount payable after applying all discounts, charges, and taxes to the subtotal.
+
+* Save Button: The system immediately stores the current transaction as a Draft Invoice, retaining all entered details for future review, modification, or completion.
+
+* Cancel Button: The system discards the current transaction and resets the POS interface to its default state, ready for a new entry.
+
+* Held Button: The system displays two sections: 
+
+  * Saved - Shows all transactions that have been saved but not yet submitted.
+  
+  * Submitted – Displays all submitted invoices, including those that are partially paid.
+
+
+[Screenshot on the live page]
+
+A search function is available within the Held section to quickly locate invoices by their invoice name.
+
+* Return Button: It displays a list of all return invoices, and selecting an invoice will redirect the user and add its items to the POS cart.
+
+
+[Screenshot on the live page]
+
+A search function is available to quickly locate invoices by their invoice name.
+
+* PAY Button: After adding items and selecting the customer, click the **Pay** button to view available payment methods, including **Cash**, **Bank**, and **Transfer**; upon selection, the payable amount will be displayed for confirmation.
+
+### 6. Payment Workflow
+
+[Screenshot on the live page]
+
+1. Click Pay after adding items and selecting the customer.
+
+2. Choose a payment method (e.g., Cash, Bank, Transfer). The payable amount is displayed for confirmation.
+
+Available payment actions:
+
+* Submit: Marks the invoice as submitted and saves it under Held > Submitted.
+
+* Cancel: Cancels the payment process and closes the payment interface.
+
+* Pay: Completes the payment and generates the invoice.
+
+* Pay & Print: Completes the payment, generates the invoice, and prints it immediately.
+
+### 7. Close POS Shift
+
+[Screenshot on the live page]
+
+
+The Close POS Shift feature is used to end a POS shift by recording final cash counts, calculating payment totals, and reconciling amounts.
+
+1. Closing Cash
+
+* The cashier can manually enter the quantity of each cash note or coin, with values initially pre-filled from the Opening Cash.
+
+* When the counts are updated, the system automatically recalculates the total Closing Cash and displays the difference between the Closing Amount and the Expected Amount.
+
+2. Closing Amounts
+
+* It displays a read-only table showing the Payment Method, Opening Amount, Expected Amount, Closing Amount, and Difference Amount for each payment type.
+
+* This section is used for reconciliation, helping identify any cash shortages or surpluses by comparing the Closing Amount (entered for Cash; zero for non-cash) against the Expected Amount.
+
+
+The **Submit** button validates all closing amounts, sets the Closing Date, and links the record to the Opening Shift.
+
+<!-- page: books/books__trial-balance.md -->
+---
+title: "Trial Balance"
+space: "Books"
+url: "https://docs.frappe.io/books/trial-balance"
+updated: "2026-01-30"
+---
+
+A Trial Balance is an accounting report which lists account balances for all your Accounts (both Ledger and Group) for any given reporting period.
+
+A company prepares a trial balance periodically, usually at the end of every reporting period. The general purpose of producing a trial balance is to ensure the entries in a company's bookkeeping system are mathematically correct.
+
+The totals of Debit and Credit columns must be the same for any given period, to ensure the entries are correct.
+
+Navigate to this report from the sidebar: `Reports > Trial Balance`
+
+[[Screenshot on the live page: Trial Balance]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/trial-balance.png)  
+
+
+Filters
+-------
+
+The Trial Balance report has filters which can help you narrow the date range between which to display the report.
+
+### From Date
+
+The initial date after which the Trial Balance has to be calculated. The default value is the first day of the current fiscal year.
+
+### To Date
+
+The final date before which all the Trial Balance has to be calculated. The default value is the last day of the current fiscal year.
+
+### Hide Group Amounts
+
+The Trial Balance report format displays the group accounts such as Current Liabilities along with the non group accounts such as Secured Loans and Creditors.
+
+Group account balances depend on the non group account balances under them, group account balances are not directly updated.
+
+So clicking on **Hide Group Amounts** will display only the non group account amounts making the report a bit easier to read.
+
+Folding Rows
+------------
+
+[[Screenshot on the live page: Trial Balance Folded Rows]](https://github.com/frappe/books_docs/blob/master/docs/analytics/images/trial-balance-folded.png)  
+
+
+Rows in the Trial Balance report which display group accounts can be clicked to fold all the rows underneath them.
 
   

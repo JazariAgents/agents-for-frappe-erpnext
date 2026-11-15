@@ -254,12 +254,12 @@ Once you have logged into your site and completed the getting started process fo
 
 For accessing the `OAuth Client` doctype, you can use the awesomebar or press Ctrl + G to invoke the awesomebar and type in "OAuth Client", the autocomplete will show you the list of options.
 
-![Dropdown for OAuth Client](/files/g-2.png)  
+[Screenshot on the live page: Dropdown for OAuth Client]  
 
 
 Select "New OAuth Client" from the dropdown, and you'll be taken to a page for adding the OAuth scopes and settings for the application you want to add OAuth for.
 
-![New OAuth Client](/files/g-3.png)  
+[Screenshot on the live page: New OAuth Client]  
 
 
 Here, you have to configure the:
@@ -272,7 +272,7 @@ The redirect URI for Grafana from their docs is `<grafana-url>/login/generic_oau
 
 Once you have added the details in the respective fields, you will receive an `App Client ID` and `App Client Secret`. These will be used in the Grafana configuration for the OAuth setup.
 
-![OAuth Client details added](/files/g-5.png)  
+[Screenshot on the live page: OAuth Client details added]  
 
 
 ### Configuring Grafana for OAuth
@@ -317,12 +317,12 @@ to restart Grafana on an Ubuntu/Debian system.
 
 That is mostly it. Now reload your Grafana site, and you'll be able to see a "Sign in with Frappe" button on the login page.
 
-![Signin with Frappe Grafana](/files/g-6.png)  
+[Screenshot on the live page: Signin with Frappe Grafana]  
 
 
 If you have done everything correctly, you'll be logged into Grafana with the credentials from your Frappe site.
 
-![Logging in with Frappe GIF](/files/grafana-oauthlogin.gif)  
+[Screenshot on the live page: Logging in with Frappe GIF]  
 
 <!-- page: framework/framework__user__en__videos.md -->
 ---
@@ -351,7 +351,7 @@ updated: "2026-06-26"
 
 Frappe provides an easy way to generate forms for your website with very little configuration. These forms may be public (anyone can fill them up), can be configured to require login, or can be made available through private request links.
 
-![Web Form](/files/v-14-webform-conference-register.png)
+[Screenshot on the live page: Web Form]
 
 ## Creating a Web Form
 
@@ -363,9 +363,9 @@ To create a Web Form, type "new web form" in awesomebar and hit enter.
 4. Click on "Get Fields" button to get all fields from selected doctype OR select fields for your web form.
 5. Publish it and you are good to go.
 
-![Create Web Form](/files/v-14-webform.png)
+[Screenshot on the live page: Create Web Form]
 
-![Web Form Fields](/files/v-14-webform-fields.png)
+[Screenshot on the live page: Web Form Fields]
 
 [Customize Web Form →](/framework/v14/user/en/web-form/customization)
 
@@ -395,9 +395,9 @@ You can customize your webform to make it more unique and enable functionalities
 
 You can add `Column Breaks` & `Section Breaks` in webform fields table to change the layout of the form fields.
 
-![Web Form Field Layout](/files/v-14-webform-field-layout.png)
+[Screenshot on the live page: Web Form Field Layout]
 
-![Web Form Layout](/files/v-14-webform-layout.png)
+[Screenshot on the live page: Web Form Layout]
 
 ## Multi Step Webform
 
@@ -406,11 +406,11 @@ We can add `Page Breaks` to segregate the sections in different pages (called as
 
 > You can add maximum 9 Page Breaks which will only allow 10 Pages.
 
-![Web Form Page Break](/files/v-14-webform-page-break.png)
+[Screenshot on the live page: Web Form Page Break]
 
-![Step Web Form Page 1](/files/v-14-step-webform-page1.png)
+[Screenshot on the live page: Step Web Form Page 1]
 
-![Step Web Form Page 2](/files/v-14-step-webform-page2.png)
+[Screenshot on the live page: Step Web Form Page 2]
 
 > All the customization options mentioned below can be done from the Customization Tab of webform document.
 
@@ -418,13 +418,13 @@ We can add `Page Breaks` to segregate the sections in different pages (called as
 
 You can change the label of submit button on the webform.
 
-![Web Form Submit Label](/files/v-14-webform-submit-label.png)
+[Screenshot on the live page: Web Form Submit Label]
 
 ## Banner Image
 
 You can now add banner image on webform.
 
-![Banner Image](/files/v-14-webform-banner-image.png)
+[Screenshot on the live page: Banner Image]
 
 ## Breadcrumbs
 
@@ -434,17 +434,17 @@ You can customize the breadcrumbs in a Web Form by adding JSON object.
 
 Example:
 
-![Custom Breadcrumbs](/files/v-14-webform-custom-breadcrumbs.png)
+[Screenshot on the live page: Custom Breadcrumbs]
 
-![Webform Breadcrumbs](/files/v-14-webform-breadcrumbs.png)
+[Screenshot on the live page: Webform Breadcrumbs]
 
 ## After Submit Page
 
 You can give custom success title and message which will appear after user has submitted the webform.
 
-![Webform Success Title & Message](/files/v-14-success-title-message.png)
+[Screenshot on the live page: Webform Success Title & Message]
 
-![Webform Success Page](/files/v-14-success-page.png)
+[Screenshot on the live page: Webform Success Page]
 
 Based on the access extra buttons will be visible on the submit page like 
 
@@ -457,13 +457,13 @@ Based on the access extra buttons will be visible on the submit page like
 
  Submit another response
 
-![Webform Success Page](/files/v-14-success-actions.png)
+[Screenshot on the live page: Webform Success Page]
 
 If the Web Form is opened through a [Web Form Request](vscode-file://vscode-app/framework/user/en/web-form/web-form-request), these action links preserve the request key where needed.
 
 Configure your webform to redirect to a specific URL after 5 seconds after it has been submitted by setting `success_url` field.
 
-![Webform Breadcrumbs](/files/SuccessURLGif.gif)
+[Screenshot on the live page: Webform Breadcrumbs]
 
 
 
@@ -493,7 +493,7 @@ Example:
 }
 ```
 
-![Web Form Custom CSS](/files/v-14-webform-custom-css.png)
+[Screenshot on the live page: Web Form Custom CSS]
 
 ## Client Script
 
@@ -666,7 +666,7 @@ It will allow submission of forms even if mandatory fields are not populated.
 
 ## List Settings
 
-![Web Form](/files/v-14-web-form-list-settings.png)
+[Screenshot on the live page: Web Form]
 
 
 
@@ -674,7 +674,7 @@ It will allow submission of forms even if mandatory fields are not populated.
 
 It will enable `List View` where you can see all the submitted forms. You can only open the form that you own. 
 
-![Web Form](/files/v-14-web-form-list-view.png)
+[Screenshot on the live page: Web Form]
 
 
 
@@ -686,17 +686,17 @@ It will enable `List View` where you can see all the submitted forms. You can on
 
 You can change the title of the list and also can add/remove/arrange list view columns 
 
-![Web Form](/files/v-14-web-form-update-title-list-columns.png)
+[Screenshot on the live page: Web Form]
 
 
 
-![Web Form](/files/v-14-web-form-updated-list-view.png)
+[Screenshot on the live page: Web Form]
 
 
 
 ## Sidebar Settings
 
-![Web Form](/files/v-14-web-form-show-sidebar.png)
+[Screenshot on the live page: Web Form]
 
 
 
@@ -704,7 +704,7 @@ You can change the title of the list and also can add/remove/arrange list view c
 
 Show webform with sidebar. Select or create a website sidebar where you can add link to current webform and other related webforms or webpages. 
 
-![Web Form](/files/v-14-web-form-with-sidebar.png)
+[Screenshot on the live page: Web Form]
 
 <!-- page: framework/framework__user__en__zero-_downtime_migrations.md -->
 ---
@@ -727,7 +727,7 @@ In either case writes on your database are disabled until maintenance mode is li
 
 Both web pages and Desk will show persisten read only warnings during updates. All forms are also made read only so you can not modify any data.
 
-![zero downtime migration](/files/zero-downtime-migration.png)
+[Screenshot on the live page: zero downtime migration]
 
 ### Caveats to keep in mind
 
@@ -797,7 +797,7 @@ the steps below to set it up.
 Navigate to the Page DocType (at `/app/page`) and create a new Page entry.
 New files will be created for your page in the module you select.
 
-![Page DocType!](/files/page.png)
+[Screenshot on the live page: Page DocType!]
 
 ### Check created files
 
@@ -937,4 +937,4 @@ trigger a hot reload in your browser.
 
 If you've done everything right you should see your page show the Vue app's message:
 
-![Vue Works](/files/It-works.png)
+[Screenshot on the live page: Vue Works]

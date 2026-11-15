@@ -1,55 +1,5 @@
 <!-- Frappe documentation: erpnext, part 49 of 69. Index: docs/INDEX.md -->
 
-<!-- page: erpnext/erpnext__quality_procedure.md -->
----
-title: "Quality Procedure"
-space: "ERPNext"
-url: "https://docs.frappe.io/erpnext/quality_procedure"
-updated: "2026-02-26"
----
-
-**A Quality Procedure is a Standard Operating Procedure (SOP) used as a reference to carry out routine actions**
-
-A standard operating procedure (SOP) is a set of step-by-step instructions compiled by an organization to help the employees execute routine operations. SOPs aim to achieve efficiency, quality output and uniformity of performance while reducing miscommunication and failure to comply with industry regulations.
-
-A Quality Procedure can be of two types:
-
-1. A Procedure consisting of simple steps that you must follow to achieve a [Quality Goal](https://docs.frappe.io/erpnext/user/manual/en/quality_goal)
-2. A procedure having sub-Procedures which may also have its own steps
-
-To access the Quality Procedure list, go to:
-
-> Home > Quality > Goal and Procedure > Quality Procedure
-
-## How to create a Quality Procedure
-
-1. Go to the Quality Procedure list, click on New.
-2. Enter a name for the Quality Procedure.
-3. In the Processes table, enter Process Descriptions.
-4. **Child Procedure**: If the Quality Procedure being created a is a parent procedure that contains sub-procedures, link the sub-procedure here. On doing this, the current procedure becomes a parent and the 'Is Group' checkbox is enabled.
-5. Save.
-  Quality Procedure can also be saved without entering the Process descriptions if the title is self explanatory.
-
-![](/files/Screenshot 2026-01-22 at 11.12.11 PM.png)
-
-The 'Parent Procedure' is linked to the child procedure. For example 'Issue Classification' needs to be done before a resolution and hence 'Issue Resolution' is the parent here:
-
-![](/files/Screenshot 2026-01-22 at 11.16.49 PM.png)
-
-## Features
-
-#### 1. Using Quality Procedure in Quality Goal
-
-Once a Quality Procedure is created, it can be used in a [Quality Goal](https://docs.frappe.io/erpnext/user/manual/en/quality_goal):
-
-![](/files/Area3ae47b.gif)
-
-#### 2. Sub Procedures
-
-Process can either be just a instruction or a different Quality Procedure. You can link a Quality Procedure as a sub-procedure to another one:
-
-![](/files/Screenshot 2026-01-22 at 11.24.39 PM.png)
-
 <!-- page: erpnext/erpnext__quality_review.md -->
 ---
 title: "Quality Review\n"
@@ -79,7 +29,7 @@ Before creating and using a Quality Review it is advised to create the following
 3. In the Review section of the Reviews table, leave a review about a Quality Objective.
 4. Save.
 
-![](/files/review63e6d1.gif)
+[Screenshot on the live page]
 
 > Note: If the Quality Procedure is linked to the Quality Goal, the Quality Procedure will be fetched in the Quality Review.
 
@@ -120,13 +70,13 @@ To access this tool, go to:
 ## 1. Using Quick Stock Balance
 Item and Warehouse are the basic fields required to fully utilize Quick Stock Balance. Item Barcode can also be used to fetch stock details.
 
-![Quick Stock Balance](/files/quick-stock-balance.png)
+[Screenshot on the live page: Quick Stock Balance]
 
 You can opt to select a different warehouse or date. The stock value and quantity, will be fetched real-time according to the specified values.
 
 You can also view the Stock Balance report by clicking on 'Stock Balance Report' . It will redirect you to the report with the Item and Warehouse filters populated.
 
-![Stock Balance Report](/files/stock-balance-report.png)
+[Screenshot on the live page: Stock Balance Report]
 
 ### 2. Related Topics
 1. [Stock Level Report](/erpnext/stock-level-report)
@@ -343,7 +293,7 @@ updated: "2026-07-24"
 
 A Quotation in ERPNext records the products or services, quantities, prices, taxes, validity, delivery expectations, and commercial terms offered to a Lead or Customer. It is a submittable sales transaction that can be shared as a proposal and converted into a [Sales Order](/erpnext/sales-order) after acceptance.
 
-![](/files/order-to-cash-quotation.webp)
+[Screenshot on the live page]
 *Quotation highlighted within the ERPNext CRM and sales flow.*
 
 ## Before you begin
@@ -367,13 +317,13 @@ Create or confirm the following records:
 7. Add taxes, shipping, discounts, payment terms, and terms and conditions as applicable.
 8. Review the totals, then save the draft.
 
-![Example Quotation for Northstar Retail with products, services, quantities, rates, and totals.](https://novacompanies.m.frappe.cloud/files/quotation-details.png)
+[Screenshot on the live page: Example Quotation for Northstar Retail with products, services, quantities, rates, and totals.]
 
 The example quotation combines laptops, accessories, and a setup service. In an Item row, the stock indicator before the Item Code is green when the item is in stock and red when it is out of stock. Select the row's pencil icon to open the full row editor when additional item fields are required.
 
-![The highlighted pencil icon opens the complete Quotation item row.](/files/quotation-item-pencil.webp)
+[Screenshot on the live page: The highlighted pencil icon opens the complete Quotation item row.]
 
-![The Quotation item row with item details, quantity, UOM, rate, and alternative-item settings.](/files/quotation-item-row.webp)
+[Screenshot on the live page: The Quotation item row with item details, quantity, UOM, rate, and alternative-item settings.]
 
 ## Alternative ways to create a Quotation
 
@@ -501,7 +451,7 @@ To create a new print format for Raw Printing:
 5. Fill in the **Raw Commands** field with the required raw commands to be sent to the printer.
 6. Click Save.
 
- ![Raw Commands Print Format](/files/raw-command-print-format.png)
+ [Screenshot on the live page: Raw Commands Print Format]
 
 Currently, any string-based printer languages can be used in the `Raw Commands` field in the print format. Writing raw commands requires knowledge of the printer's native language provided by the printer manufacturer. Please refer to the developer manual provided by the printer manufacturer on how to write their native commands.
 
@@ -524,15 +474,15 @@ To print a raw command print format from the Document print view:
 1. Select appropriate print format. For print format in Raw Commands, "No Preview available" message is shown in place of the print preview.
 2. Click on the print button.
 3. Please allow the connection prompt from the QZ Tray for the actions that you initiated (Keyboard Shortcut: Alt + A).
- - ![QZ Tray Prompt](/files/qz-tray-prompt.png)
+ - [Screenshot on the live page: QZ Tray Prompt]
 4. You may be asked to select the "print format - printer mapping".
  - This mapping is used to send the print commands to the appropriate printer.
  - The printer needs to be installed on your computer to be able to map it to a print format.
- ![print format - printer mapping](/files/printer-settings.png)
+ [Screenshot on the live page: print format - printer mapping]
  - This mapping is stored locally on the same computer and will have to be set on each client machine.
  - You can also edit this by clicking on the **Printer Settings** button.
 
- ![Raw Printing from Print View](/files/raw-printing-from-print-view.gif)
+ [Screenshot on the live page: Raw Printing from Print View]
 
 ### 2.2 Calling Raw Print functions from a client script
 
@@ -601,21 +551,21 @@ To setup RazorPay,
 
 `Explore > Integrations > RazorPay Settings`
 
-![Razorpay Settings](/files/razorpay-api.gif)
+[Screenshot on the live page: Razorpay Settings]
 
 #### Setup RazorPay
 
 To enable RazorPay payment service, you need to configure parameters like API Key, API Secret
 
-![Razorpay Settings](/files/razorpay_settings.png)
+[Screenshot on the live page: Razorpay Settings]
 
 On enabling service, the system will create Payment Gateway record and Account head in the Chart of Account with account type as Bank.
 
-![Razorpay COA](/files/razorpay_coa.png)
+[Screenshot on the live page: Razorpay COA]
 
 Also, it will create Payment Gateway Account entry. Payment Gateway Account is configuration hub from this you can set account head from existing COA, default Payment Request email body template.
 
-![Payment Gateway Account](/files/payment_gateway_account_razorpay.png)
+[Screenshot on the live page: Payment Gateway Account]
 
 After enabling service and configuring Payment Gateway Account your system is able to accept online payments.
 
@@ -667,12 +617,12 @@ Do not edit internal left and right tree-index values through the database. Rebu
 2. Select the affected Company.
 3. Review the visible root groups and confirm the hierarchy is the one you expect.
 
-![Chart of Accounts tree for Nova Electronics Trading](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-rebuild-tree-chart-of-accounts-tree.png)
+[Screenshot on the live page: Chart of Accounts tree for Nova Electronics Trading]
 
 4. Select the three-dot menu in the upper-right corner.
 5. Select **Rebuild Tree**.
 
-![Chart of Accounts menu with Rebuild Tree highlighted](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-rebuild-tree-rebuild-tree-action.png)
+[Screenshot on the live page: Chart of Accounts menu with Rebuild Tree highlighted]
 
 ERPNext recalculates the Account tree indexes. The tool does not create a [Journal Entry](https://docs.frappe.io/erpnext/journal-entry), change debit or credit amounts, move an Account to a different parent, or rewrite existing General Ledger postings.
 
@@ -682,7 +632,7 @@ Reopen the report that showed the problem and use the same filters as before. In
 
 
 
-![General Ledger filtered to Office Maintenance Expenses after checking the tree](https://novacompanies.m.frappe.cloud/files/docs-gl-refresh-20260803-rebuild-tree-general-ledger-after-rebuild.png)
+[Screenshot on the live page: General Ledger filtered to Office Maintenance Expenses after checking the tree]
 
 Confirm that:
 
@@ -770,14 +720,14 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 1. Create a **Receive** Payment Entry for the Customer.
 2. Enter the actual bank amount and reference.
 
-![Receive Payment Entry for a bulk customer payment in ERPNext](https://novacompanies.m.frappe.cloud/files/bulk-payment-01-bulk-receipt-overview.png)
+[Screenshot on the live page: Receive Payment Entry for a bulk customer payment in ERPNext]
 
 3. Select **Get Outstanding Invoices**.
 4. Choose the invoices covered by the remittance advice.
 5. Enter the allocated amount for each row.
 6. Confirm that the total allocation, deductions, and unallocated balance explain the receipt, then submit.
 
-![Allocate a bulk customer payment across multiple invoices in ERPNext](https://novacompanies.m.frappe.cloud/files/bulk-payment-02-bulk-receipt-invoice-allocations.png)
+[Screenshot on the live page: Allocate a bulk customer payment across multiple invoices in ERPNext]
 
 ## Important fields and what they mean
 
@@ -866,7 +816,7 @@ Confirm the correct Company, currency, receivable or payable account, and bank o
 4. Enter the amount to allocate and reconcile.
 5. Verify the Purchase Invoice outstanding amount and Supplier ledger.
 
-![Reconcile Advance Payment Made to the Supplier in ERPNext](https://novacompanies.m.frappe.cloud/files/payments-11-payment-reconciliation.png)
+[Screenshot on the live page: Reconcile Advance Payment Made to the Supplier in ERPNext]
 
 ## Important fields and what they mean
 

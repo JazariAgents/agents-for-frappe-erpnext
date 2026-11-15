@@ -8,7 +8,7 @@ Owner: **Mizan** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Raise a material request** (`buy.materialrequest`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext-37.md` lines 3–128   (https://docs.frappe.io/erpnext/material-request)
+   read: `docs/erpnext/erpnext-36.md` lines 615–740   (https://docs.frappe.io/erpnext/material-request)
 2. **Place a purchase order** (`buy.purchaseorder`, api mode) — SNAPSHOT FIRST, irreversible
    read: `docs/erpnext/erpnext-47.md` lines 204–398   (https://docs.frappe.io/erpnext/purchase-order)
 3. **Receive goods** (`buy.purchasereceipt`, api mode) — SNAPSHOT FIRST, irreversible

@@ -30,9 +30,9 @@ Confirm:
 6. Review the resulting Rate, Net Rate, and Amount.
 7. Save.
 
-![A Sales Order item row with the pencil icon highlighted.](https://novacompanies.m.frappe.cloud/files/discount-item-pencil.png)
+[Screenshot on the live page: A Sales Order item row with the pencil icon highlighted.]
 
-![The item row editor with Discount Percentage and Discount Amount visible.](https://novacompanies.m.frappe.cloud/files/discount-item-fields-v2c94055.png)
+[Screenshot on the live page: The item row editor with Discount Percentage and Discount Amount visible.]
 
 Item-level discounts are calculated against the Price List Rate. Use them when different lines require different discounts.
 
@@ -43,7 +43,7 @@ Item-level discounts are calculated against the Price List Rate. Use them when d
 3. Enter an **Additional Discount Percentage** or **Additional Discount Amount**.
 4. Review taxes, Net Total, Grand Total, and rounding before submission.
 
-![The expanded Additional Discount section with the calculation basis and percentage visible.](https://novacompanies.m.frappe.cloud/files/discount-additional-section-v2e41c13.png)
+[Screenshot on the live page: The expanded Additional Discount section with the calculation basis and percentage visible.]
 
 ### Discount on Net Total
 
@@ -124,7 +124,7 @@ updated: "2026-07-23"
 
 You can find all settings related to booking appointments in Appointment Booking Settings.
 
-![Appointment Booking Settings](/files/appointment-booking-settings.png)
+[Screenshot on the live page: Appointment Booking Settings]
 
 ## Enable Appointment scheduling
 
@@ -202,7 +202,7 @@ To access Appointment list, go to:
 - Select scheduled time of the appointment
 - Enter customer details
 - In linked documents, if you have already created a Lead for the Customer you can set it here. Otherwise the system will automatically create a new lead with the customer details from previous step.
-- Save.[New Appointment](/files/new-appointment.png)
+- Save.New Appointment (picture on the live page)
 
 ### Creating appointments via website
 
@@ -210,11 +210,11 @@ Your Customers/Leads can create appointment using the webpage yoursitename.com/b
 
 First they need to set a date, time.
 
-![Appointment Webform](/files/appointment-webform.png)
+[Screenshot on the live page: Appointment Webform]
 
 Then, add more details:
 
-![Appointment Details](/files/appointment-details.png)
+[Screenshot on the live page: Appointment Details]
 
 It'll match the customer email with leads in the system and if one is found, it is linked with the document.  
 If no lead is found, the appointment is marked as "Unverified" and an email is sent to the customer to confirm their email
@@ -255,19 +255,19 @@ Confirm the target fixed-asset Item and category, source assets, available stock
 3. Choose a target Item and enter a recognizable target Asset Name, or select an eligible composite target Asset.
 4. Select the Finance Book when required.
 
-![Target Asset details in ERPNext Asset Capitalization](https://novacompanies.m.frappe.cloud/files/19-asset-capitalization-target.png)
+[Screenshot on the live page: Target Asset details in ERPNext Asset Capitalization]
 
 ## Add source costs
 
 Add stock items, consumed assets, and service expenses. The example combines an existing conveyor with setup services. Use the pencil icon whenever a child row needs account, warehouse, quantity, rate, or cost-center detail.
 
-![Consumed asset and service cost tables in Asset Capitalization](https://novacompanies.m.frappe.cloud/files/20-asset-capitalization-costs.png)
+[Screenshot on the live page: Consumed asset and service cost tables in Asset Capitalization]
 
 ## Submit and verify
 
 ERPNext reduces or updates the source values according to the transaction and capitalizes the total into the target. Verify the target Asset, source Asset statuses, stock impact, Journal Entry or Stock Ledger effect, and future depreciation schedule.
 
-![Asset report used to verify capitalized value](https://novacompanies.m.frappe.cloud/files/23-asset-depreciations-balances-v2.png)
+[Screenshot on the live page: Asset report used to verify capitalized value]
 
 ## Troubleshooting
 
@@ -334,13 +334,13 @@ Confirm the company [Chart of Accounts](https://docs.frappe.io/erpnext/chart-of-
 3. Enable **Capital Work in Progress Accounting** when purchases should remain in CWIP until the asset becomes available for use.
 4. Enable **Non Depreciable Category** only for categories such as land where depreciation does not apply.
 
-![Asset Category depreciation options for IT Equipment](https://novacompanies.m.frappe.cloud/files/02-asset-category-overview.png)
+[Screenshot on the live page: Asset Category depreciation options for IT Equipment]
 
 ## Set depreciation defaults by Finance Book
 
 Add one row for every reporting basis you need. Nova Industries uses Straight Line for Statutory Reporting and Double Declining Balance for Management Reporting. Open the row editor with the pencil icon when you need fields that are not visible in the grid.
 
-![Finance Book depreciation defaults in an ERPNext Asset Category](https://novacompanies.m.frappe.cloud/files/03-asset-category-finance-books.png)
+[Screenshot on the live page: Finance Book depreciation defaults in an ERPNext Asset Category]
 
 
 | Field                             | What it means                                                              |
@@ -358,7 +358,7 @@ Add one row for every reporting basis you need. Nova Industries uses Straight Li
 
 Each company row determines where acquisition, depreciation, and CWIP entries post. Do not use an inventory account as the Fixed Asset Account.
 
-![Company accounting defaults for an ERPNext Asset Category](https://novacompanies.m.frappe.cloud/files/04-asset-category-accounts.png)
+[Screenshot on the live page: Company accounting defaults for an ERPNext Asset Category]
 
 
 | Field                                | What it means                                                 |
@@ -456,11 +456,11 @@ A submitted depreciation entry debits Depreciation Expense and credits Accumulat
 
 The submitted schedule below belongs to Nova Industries' $48,000 NovaPack labeler. Each $760 monthly row has produced a linked depreciation Journal Entry, while future rows remain unposted.
 
-![Submitted Asset Depreciation Schedule with posted Journal Entries](https://novacompanies.m.frappe.cloud/files/26-asset-depreciation-schedule-v2.png)
+[Screenshot on the live page: Submitted Asset Depreciation Schedule with posted Journal Entries]
 
 The Asset Depreciation Ledger then shows how the monthly expense increases accumulated depreciation and reduces the asset's carrying value.
 
-![Asset Depreciation Ledger with seven posted entries](https://novacompanies.m.frappe.cloud/files/22-asset-depreciation-ledger-v2.png)
+[Screenshot on the live page: Asset Depreciation Ledger with seven posted entries]
 
 ## Troubleshooting
 
@@ -519,7 +519,7 @@ Asset Locations create a simple map of where company assets are kept. When the l
 3. Add operational locations such as **Nova Headquarters**, **Packaging Floor**, and **Service Workshop** below it.
 4. Use [Asset Movement](https://docs.frappe.io/erpnext/asset-movement) when an asset changes location so the history remains auditable.
 
-![ERPNext Asset Location tree for Nova Industries facilities](https://novacompanies.m.frappe.cloud/files/05-asset-location-tree.png)
+[Screenshot on the live page: ERPNext Asset Location tree for Nova Industries facilities]
 
 
 | Field                      | What it means                                                                                                               |
@@ -589,7 +589,7 @@ An Asset Maintenance Log records the actual maintenance event. It turns a planne
 
 Use the Maintenance Log section of the [Asset Maintenance](https://docs.frappe.io/erpnext/asset-maintenance) record or open the Asset Maintenance Log list.
 
-![Planned Asset Maintenance Logs in ERPNext](https://novacompanies.m.frappe.cloud/files/13-maintenance-log-list.png)
+[Screenshot on the live page: Planned Asset Maintenance Logs in ERPNext]
 
 ## Complete the log
 
@@ -599,7 +599,7 @@ Use the Maintenance Log section of the [Asset Maintenance](https://docs.frappe.i
 4. Attach the certificate when the task requires one.
 5. Save the log and review the next due date on the maintenance plan.
 
-![Maintenance plan linked to its recurring logs](https://novacompanies.m.frappe.cloud/files/11-asset-maintenance-plan.png)
+[Screenshot on the live page: Maintenance plan linked to its recurring logs]
 
 
 | Field         | What it means                                                        |
@@ -668,7 +668,7 @@ An Asset Maintenance Team groups the people who can perform a type of maintenanc
 4. Add members and their maintenance roles.
 5. Save, then use the team in [Asset Maintenance](https://docs.frappe.io/erpnext/asset-maintenance) plans.
 
-![Nova Facilities Team in ERPNext Asset Maintenance](https://novacompanies.m.frappe.cloud/files/10-maintenance-team.png)
+[Screenshot on the live page: Nova Facilities Team in ERPNext Asset Maintenance]
 
 
 | Field                   | What it means                                                   |
@@ -740,17 +740,17 @@ Enable **Maintenance Required** on the Asset and create an [Asset Maintenance Te
 3. Mark whether a certificate is required.
 4. Save the plan. ERPNext creates planned [Asset Maintenance Logs](https://docs.frappe.io/erpnext/asset-maintenance-log) for the schedule.
 
-![Preventive maintenance plan for a Nova Industries laptop](https://novacompanies.m.frappe.cloud/files/11-asset-maintenance-plan.png)
+[Screenshot on the live page: Preventive maintenance plan for a Nova Industries laptop]
 
 Use the pencil icon to open the complete child-row editor when the grid hides task fields.
 
-![Pencil icon for the Asset Maintenance task row](https://novacompanies.m.frappe.cloud/files/12-maintenance-task-pencil.png)
+[Screenshot on the live page: Pencil icon for the Asset Maintenance task row]
 
 ## Follow the work
 
 Open the generated log, record actions performed, add a certificate when required, and mark the work completed.
 
-![ERPNext Asset Maintenance Log list](https://novacompanies.m.frappe.cloud/files/13-maintenance-log-list.png)
+[Screenshot on the live page: ERPNext Asset Maintenance Log list]
 
 ## Troubleshooting
 
@@ -821,17 +821,17 @@ Asset Movement records every transfer, issue, and receipt as a separate event. T
 4. Enter the target location or employee required by the purpose.
 5. Submit the movement.
 
-![Asset transfer from Nova Headquarters to Service Workshop](https://novacompanies.m.frappe.cloud/files/14-asset-movement-transfer.png)
+[Screenshot on the live page: Asset transfer from Nova Headquarters to Service Workshop]
 
 Use the pencil icon to review all source, target, employee, and department fields in the child row.
 
-![Asset Movement child-row pencil icon](https://novacompanies.m.frappe.cloud/files/15-asset-movement-pencil.png)
+[Screenshot on the live page: Asset Movement child-row pencil icon]
 
 ## Verify the result
 
 Open the Asset or Asset list and confirm the current location and status reflect the submitted movement.
 
-![Asset list used to verify current locations](https://novacompanies.m.frappe.cloud/files/01-assets-overview-list.png)
+[Screenshot on the live page: Asset list used to verify current locations]
 
 ## Troubleshooting
 
@@ -891,19 +891,19 @@ Asset Repair records the failure, repair work, cost, and completion. It also con
 4. Add supplier invoices or consumed stock items where applicable.
 5. Record actions performed and completion date.
 
-![Pending Asset Repair for a Nova Industries laptop](https://novacompanies.m.frappe.cloud/files/16-asset-repair-details.png)
+[Screenshot on the live page: Pending Asset Repair for a Nova Industries laptop]
 
 ## Record cost and capitalization
 
 Routine repair is normally an expense. Enable **Capitalize Repair Cost** only when the cost meets the organization's capitalization policy and increases future economic benefit. If the repair extends useful life, enter the increase in asset life and review the depreciation schedule.
 
-![Repair cost and capitalization fields in ERPNext](https://novacompanies.m.frappe.cloud/files/17-asset-repair-cost.png)
+[Screenshot on the live page: Repair cost and capitalization fields in ERPNext]
 
 ## Complete and verify
 
 Set the repair to **Completed**, confirm downtime, and open the Asset. A pending failure can place the asset out of order; completion should restore the correct operating state.
 
-![Asset status after repair workflow activity](https://novacompanies.m.frappe.cloud/files/01-assets-overview-list.png)
+[Screenshot on the live page: Asset status after repair workflow activity]
 
 ## Troubleshooting
 

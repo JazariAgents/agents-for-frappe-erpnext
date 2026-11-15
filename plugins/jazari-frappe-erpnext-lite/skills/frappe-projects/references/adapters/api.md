@@ -120,10 +120,10 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Run a project | Project | `POST /api/v2/document/Project` (and the list/read/update calls above) | `docs/erpnext/erpnext-46.md` lines 144–285 |
-| Manage tasks | Task | `POST /api/v2/document/Task` (and the list/read/update calls above) | `docs/erpnext/erpnext-62.md` lines 741–834 |
+| Run a project | Project | `POST /api/v2/document/Project` (and the list/read/update calls above) | `docs/erpnext/erpnext-46.md` lines 112–253 |
+| Manage tasks | Task | `POST /api/v2/document/Task` (and the list/read/update calls above) | `docs/erpnext/erpnext-62.md` lines 665–758 |
 | Record timesheets | Timesheet | `POST /api/v2/document/Timesheet` (and the list/read/update calls above) | `docs/erpnext/erpnext-65.md` lines 408–502 |
-| Start from a project template | Project Template | `POST /api/v2/document/Project%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-46.md` lines 3–33 |
+| Start from a project template | Project Template | `POST /api/v2/document/Project%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-45.md` lines 871–901 |
 | Set activity costs | Activity Cost | `POST /api/v2/document/Activity%20Cost` (and the list/read/update calls above) | `docs/erpnext/erpnext-03.md` lines 757–784 |
 
 ## Capabilities that need a schema lookup first

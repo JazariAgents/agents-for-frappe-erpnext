@@ -10,7 +10,7 @@ updated: "2026-02-16"
 
 If your deploy has failed at an **Install Apps** step or at the **Run Validations - Pre-build** step, chances are that there is some kind of error in one (or several) of the apps on your bench group.
 
-![](/files/6inBnfg.png)  
+[Screenshot on the live page]  
 
 
 In such a case, retrying the deploy on Frappe Cloud without making any changes will lead to it failing in the same way.
@@ -135,7 +135,7 @@ updated: "2026-02-16"
 
 If you've forgotten your Frappe Cloud password, you can use the **forgot password** link in the login page to obtain instructions to recover your account
 
-![](/files/zxILVOH.png)
+[Screenshot on the live page]
 
 <!-- page: cloud/cloud__common-issues__incompatible-app-version.md -->
 ---
@@ -147,7 +147,7 @@ updated: "2026-02-16"
 
 If you have been seeing a message such as this it means that an app on your bench group is not compatible with some other apps.
 
-![](/files/dsrx1dI.png)  
+[Screenshot on the live page]  
 
 
 Going forward, I'll use the example of *HRMS*.
@@ -156,7 +156,7 @@ Going forward, I'll use the example of *HRMS*.
 
 This requirement is mentioned in an apps `pyproject.toml` file. For [example](https://github.com/frappe/hrms/blob/c1704c9767b9c78b23d67cb6b0514afc084cc0dd/pyproject.toml#L69):
 
-![](/files/JGEWytA.png)  
+[Screenshot on the live page]  
 
 
 To fix this, you will have to change to the correct branch**:**
@@ -165,10 +165,10 @@ To fix this, you will have to change to the correct branch**:**
 * Locate the app to be updated
 * Click on **Change Branch** under the `···` menu button:
 
-![](/files/OFMGoDr.png)  
+[Screenshot on the live page]  
 
 
-If you are unsure which branch to change to, you can check the app's version by checking it's `__init__.py` file, [example](https://github.com/frappe/frappe/blob/6fb6c4035cb4bd17e22143f7c483af34a296ca0c/frappe/__init__.py#L52):![](/files/xY9UkHC.png)  
+If you are unsure which branch to change to, you can check the app's version by checking it's `__init__.py` file, [example](https://github.com/frappe/frappe/blob/6fb6c4035cb4bd17e22143f7c483af34a296ca0c/frappe/__init__.py#L52):[Screenshot on the live page]  
 
 
 
@@ -203,7 +203,7 @@ To fix this issue:
 * Locate the **Node Version** entry. Or the entry to which ever dependency you need to correct.
 * Click on **Edit** under the `···` menu button:
 
-![](/files/xuXDeMs.png)  
+[Screenshot on the live page]  
 
 
 
@@ -215,7 +215,7 @@ To fix this issue:
 
 You should see an **Edit Dependency** dialog pop up:
 
-![](/files/Uma6lVx.png)  
+[Screenshot on the live page]  
 
 
 Select the correct **Node Version,** click on **Edit** to save the setting. Then try updating your Bench Group.
@@ -251,7 +251,7 @@ To fix this issue:
 * Locate the **Node Version** entry
 * Click on **Edit** under the `···` menu button:
 
-![](/files/xuXDeMs.png)  
+[Screenshot on the live page]  
 
 
 
@@ -263,7 +263,7 @@ To fix this issue:
 
 You should see an **Edit Dependency** dialog pop up:
 
-![](/files/Uma6lVx.png)  
+[Screenshot on the live page]  
 
 
 Select the correct **Node Version,** click on **Edit** to save the setting. Then try updating your Bench Group.
@@ -353,7 +353,7 @@ updated: "2026-02-16"
 
 If you have been seeing a message such as this, it means that your bench group is missing a required Frappe app that is a dependency of another app on your bench group.
 
-![](/files/R0Aw7pM.png)  
+[Screenshot on the live page]  
 
 
 What does this mean?
@@ -377,14 +377,14 @@ To fix this, you will have to remove the existing app (with the incorrect org) f
 
 To do so, navigate to the **Apps** tab on your bench group, scroll to your app, then click on the `···` menu button and click on **Remove App**:
 
-![](/files/ceICxKm.png)  
+[Screenshot on the live page]  
 
 
 After this is done, you will have to add the correct app. Check the next section (**App is not present**) for this.
 
 ### App is not present
 
-To fix this navigate to the **Apps** tab on your bench group and then click on **Add App**:![](/files/S6IlTRy.png)  
+To fix this navigate to the **Apps** tab on your bench group and then click on **Add App**:[Screenshot on the live page]  
 
 
 after that navigate through the Add App dialog to add the missing app.
@@ -439,7 +439,7 @@ updated: "2026-02-16"
 
 If you build has been failing at the **Install Apps** stage with `vite: not found` in the build output, such as this:
 
-![](/files/GHCwZ91.png)  
+[Screenshot on the live page]  
 
 
 Then it means that the `vite` build dependency wasn't installed when your app was being installed.
@@ -449,7 +449,7 @@ Why does this happen?
 
 This can happen if your project has two `package.json` files such as this ([repository](https://github.com/frappe/gameplan)):
 
-![](/files/od75sCA.png)  
+[Screenshot on the live page]  
 
 
 And if the **outer** `package.json` does not have a `postinstall` script that installs packages mentioned in the **inner** `package.json`.
@@ -484,19 +484,19 @@ updated: "2026-02-16"
 
 Typically, it takes a few seconds to configure the database user. Once it's complete, click on **View Credential**
 
-![Screenshot 2025-01-31 at 1.15.44 PM](/files/Screenshot 2025-01-31 at 1.15.44 PM.png "Screenshot 2025-01-31 at 1.15.44 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 2. Open your Superset dashboard and go ahead with connecting a new database.
 
-![Screenshot 2025-01-31 at 2.53.56 PM](/files/Screenshot 2025-01-31 at 2.53.56 PM.png "Screenshot 2025-01-31 at 2.53.56 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 2.53.56 PM]
 3. Choose **MySQL** as database type.
 
-![Screenshot 2025-01-31 at 2.54.49 PM](/files/Screenshot 2025-01-31 at 2.54.49 PM.png "Screenshot 2025-01-31 at 2.54.49 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 2.54.49 PM]
 4. Fill in all the required details and ensure the **SSL** checkbox is checked. Then, proceed.
 
-![Screenshot 2025-01-31 at 2.56.20 PM](/files/Screenshot 2025-01-31 at 2.56.20 PM.png "Screenshot 2025-01-31 at 2.56.20 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 2.56.20 PM]
 5. You will see this message upon a successful connection.
 
-![Screenshot 2025-01-31 at 3.19.46 PM](/files/Screenshot 2025-01-31 at 3.19.46 PM.png "Screenshot 2025-01-31 at 3.19.46 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 3.19.46 PM]
 6. Now, you can refer to the [official documentation](https://superset.apache.org/) to create a dashboard in Superset.
 
 <!-- page: cloud/cloud__connect-looker-studio.md -->
@@ -519,13 +519,13 @@ updated: "2026-02-16"
 
 Typically, it takes a few seconds to configure the database user. Once it's complete, click on **View Credential**.
 
-![Screenshot 2025-01-31 at 1.15.44 PM](/files/Screenshot 2025-01-31 at 1.15.44 PM.png "Screenshot 2025-01-31 at 1.15.44 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 2. Go to Looker Studio and click on **Create New Data Source** !
 
-![Screenshot 2025-01-31 at 1.39.14 PM](/files/Screenshot 2025-01-31 at 1.39.14 PM.png "Screenshot 2025-01-31 at 1.39.14 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.39.14 PM]
 3. Search for **mysql** in connector list and choose the connector from Google.
 
-![Screenshot 2025-01-31 at 1.40.34 PM](/files/Screenshot 2025-01-31 at 1.40.34 PM.png "Screenshot 2025-01-31 at 1.40.34 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.40.34 PM]
 4. Fill up the database user's info and click on **Authenticate**. 
 
   
@@ -536,11 +536,11 @@ Typically, it takes a few seconds to configure the database user. Once it's comp
   
 
 
-![Screenshot 2025-01-31 at 1.45.07 PM](/files/Screenshot 2025-01-31 at 1.45.07 PM.png "Screenshot 2025-01-31 at 1.45.07 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.45.07 PM]
 5. Choose the required table and click on **Connect**.
 6. After that, you can see the details of the table and create required reports. 
 
-![Screenshot 2025-01-31 at 1.59.10 PM](/files/Screenshot 2025-01-31 at 1.59.10 PM.png "Screenshot 2025-01-31 at 1.59.10 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.59.10 PM]
 7. Check Looker Studio [office documentation](https://cloud.google.com/looker/docs/intro) to get guidance on creating dashboards and reports.
 
   
@@ -568,7 +568,7 @@ Typically, it takes a few seconds to configure the database user. Once it's comp
   
 
 
-![Screenshot 2025-01-31 at 1.15.44 PM](/files/Screenshot 2025-01-31 at 1.15.44 PM.png "Screenshot 2025-01-31 at 1.15.44 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 2. Open your Metabase dashboard and click on **Add database**.
 3. Choose **MySQL** as Database Type and fill all the database user related information.  
   
@@ -581,14 +581,14 @@ Typically, it takes a few seconds to configure the database user. Once it's comp
 
 For **Server SSL certificate Chain**, check the **Step 1** and download the certificate first. Next, open your operating system's default text editor and copy- paste to metabase. 
 
-![Screenshot 2025-01-31 at 2.14.10 PM](/files/Screenshot 2025-01-31 at 2.14.10 PM.png "Screenshot 2025-01-31 at 2.14.10 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 2.14.10 PM]
 4. Once all the details filled, click on **Save**.
 5. If everything works fine, you will see your database in the list.
 
-![Screenshot 2025-01-31 at 2.19.23 PM](/files/Screenshot 2025-01-31 at 2.19.23 PM.png "Screenshot 2025-01-31 at 2.19.23 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 2.19.23 PM]
 6. Wait a few minutes for the table schema to sync, then you can view the metadata.
 
-![Screenshot 2025-01-31 at 2.26.22 PM](/files/Screenshot 2025-01-31 at 2.26.22 PM.png "Screenshot 2025-01-31 at 2.26.22 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 2.26.22 PM]
 7. Once this step is complete, you can follow the [official documentation](https://www.metabase.com/docs/latest/) to create the dashboard and reports.
 
 <!-- page: cloud/cloud__connect-power-bi-desktop.md -->
@@ -610,7 +610,7 @@ Step 1: Create Site Database User
 1. You need to first generate a database user for your site. Follow this [documentation](https://frappecloud.com/docs/database-users-and-permission-manager) to create a read-only user.
 2. Typically, it takes a few seconds to configure the database user. Once it's complete, click on **View Credential**.
 
-![Screenshot 2025-01-31 at 1.15.44 PM](/files/Screenshot 2025-01-31 at 1.15.44 PM.png "Screenshot 2025-01-31 at 1.15.44 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 
 Step 2: Install MariaDB ODBC connector
 --------------------------------------
@@ -622,16 +622,16 @@ Step 2: Install MariaDB ODBC connector
 > 
 > 
 
-![256](/files/256.png "256.png")
+[Screenshot on the live page: 256]
 2. Install ODBC Connector.
 
-![ss2 1](/files/ss2 1.png "ss2 1.png")  
+[Screenshot on the live page: ss2 1]  
 
 
-![ss3](/files/ss3.png "ss3.png")  
+[Screenshot on the live page: ss3]  
 
 
-![ss5](/files/ss5.png "ss5.png")
+[Screenshot on the live page: ss5]
 
 Step 3: Setup Credentials in ODBC
 ---------------------------------
@@ -643,13 +643,13 @@ Step 3: Setup Credentials in ODBC
 > 
 > 
 
-![ss12](/files/ss12.png "ss12.png")
+[Screenshot on the live page: ss12]
 2. Click on **Add** button in **User DSN** tab.
 
-![ss19](/files/ss19.png "ss19.png")
+[Screenshot on the live page: ss19]
 3. Choose **MariaDB ODBC 3.1 Driver**.
 
-![27](/files/27.png "27.png")
+[Screenshot on the live page: 27]
 4. Put the **Server Name** , **Port**, **Use Name** , **Password**, **Database** in the required fields and go to next page.
 
 
@@ -657,38 +657,38 @@ Step 3: Setup Credentials in ODBC
 > 
 > 
 
-![ss14](/files/ss14.png "ss14.png")
+[Screenshot on the live page: ss14]
 5. No information is needed on the current page. Proceed to the next page.
 
-![17](/files/17.png "17.png")
+[Screenshot on the live page: 17]
 6. No information is needed on the current page. Proceed to the next page.
 
-![18](/files/18.png "18.png")
+[Screenshot on the live page: 18]
 7. In current page, make sure to check **Verify Certificate** & **Force TLS Use** checkbox.
 
-![ss17](/files/ss17.png "ss17.png")
+[Screenshot on the live page: ss17]
 8. No information is needed on the current page. Click on **Finish** to save it.
 
-![ss18](/files/ss18.png "ss18.png")
+[Screenshot on the live page: ss18]
 
 Step 4: Configure MariaDB ODBC In Power BI Desktop
 --------------------------------------------------
 
 1. Open Power BI and click on **Get Data From Other Sources**.
 
-![ss6](/files/ss6.png "ss6.png")
+[Screenshot on the live page: ss6]
 2. Search for **ODBC** and click on **Connect**.
 
-![ss20](/files/ss20.png "ss20.png")
+[Screenshot on the live page: ss20]
 3. Choose the ODBC connection from the list. It should be the same you have created in **ODBC Data Sources Administrator** in **Step 3**.
 
-![21](/files/21.png "21.png")
+[Screenshot on the live page: 21]
 4. Now, it might ask you for username and password. Choose **Windows** from the sidebar and click on **Connect**.
 
-![25](/files/25.png "25.png")
+[Screenshot on the live page: 25]
 5. Once connected, you will be able to view all the tables and their previews.
 
-![257](/files/257.png "257.png")
+[Screenshot on the live page: 257]
 6. Now, follow the [official documentation](https://learn.microsoft.com/en-us/power-bi/) to create dashboards and reports in Power BI.
 
 <!-- page: cloud/cloud__connect-zoho-analytics.md -->
@@ -711,21 +711,21 @@ updated: "2026-02-16"
 
 Typically, it takes a few seconds to configure the database user. Once it's complete, click on **View Credential**.
 
-![Screenshot 2025-01-31 at 1.15.44 PM](https://frappecloud.com/files/Screenshot%202025-01-31%20at%201.15.44%20PM.png)
+[Screenshot on the live page: Screenshot 2025-01-31 at 1.15.44 PM]
 2. Open your Zoho Analytics dashboard and go to **Import Data** page.
 
 Search & Select **MariaDB** from the list**.**  
-![Screenshot 2025-01-31 at 3.28.14 PM](/files/Screenshot 2025-01-31 at 3.28.14 PM.png "Screenshot 2025-01-31 at 3.28.14 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 3.28.14 PM]
 3. Change **Cloud Service Provider** to **Other Cloud Services** and fill all the required details.   
 Make sure to check **SSL** checkbox.
 
-![Screenshot 2025-01-31 at 3.37.43 PM](/files/Screenshot 2025-01-31 at 3.37.43 PM.png "Screenshot 2025-01-31 at 3.37.43 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 3.37.43 PM]
 4. Choose the tables to import and Schedule it.
 
-![Screenshot 2025-01-31 at 3.39.33 PM](/files/Screenshot 2025-01-31 at 3.39.33 PM.png "Screenshot 2025-01-31 at 3.39.33 PM.png")![Screenshot 2025-01-31 at 3.41.40 PM](/files/Screenshot 2025-01-31 at 3.41.40 PM.png "Screenshot 2025-01-31 at 3.41.40 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 3.39.33 PM][Screenshot on the live page: Screenshot 2025-01-31 at 3.41.40 PM]
 5. You will be able to see the data sources in your dashboard.
 
-![Screenshot 2025-01-31 at 3.48.50 PM](/files/Screenshot 2025-01-31 at 3.48.50 PM.png "Screenshot 2025-01-31 at 3.48.50 PM.png")
+[Screenshot on the live page: Screenshot 2025-01-31 at 3.48.50 PM]
 6. Now, you can refer to the [Zoho Analytics official documentation](https://www.zoho.com/analytics/help/) to create reports and dashboards.
 
 <!-- page: cloud/cloud__control-resources-allocated-for-site.md -->
@@ -744,7 +744,7 @@ From the site detail page, under **Dangerous Actions**, you can toggle performan
 
 
 
-![Configure compute allocation in Dangerous Actions](https://github.com/user-attachments/assets/1ac674d7-34c7-44e5-9209-efd76c17a776)
+[Screenshot on the live page: Configure compute allocation in Dangerous Actions]
 
 
 
@@ -878,7 +878,7 @@ This ensures the platform can validate whether the app is compatible with the ta
 
 Indicates that no `pyproject.toml` file exists in the root of the application repository.
 
-![](/files/imagee17cda.png)
+[Screenshot on the live page]
 
 **Resolution**
 
@@ -892,7 +892,7 @@ Create the file and add the required dependency section.
 
 The `pyproject.toml` exists, but the required dependency section is not defined or not in the exact format as mentioned above.
 
-![](/files/image7f70a5.png)
+[Screenshot on the live page]
 
 **Resolution**
 
@@ -919,7 +919,7 @@ Example scenario:
 
 This branch will be rejected.
 
-![](/files/image49e8dc.png)
+[Screenshot on the live page]
 
 **Resolution**
 
@@ -1105,7 +1105,7 @@ We do not provide support for modified versions of the framework.
 
 You can do so by simply following the add app flow inside your Bench Groups.
 
-![Screenshot 2024-11-20 112324](/files/Screenshot 2024-11-20 112324.png "Screenshot 2024-11-20 112324.png")
+[Screenshot on the live page: Screenshot 2024-11-20 112324]
 
 This will replace the Vanilla Frappe Framework with your custom fork / version.
 
@@ -1117,19 +1117,19 @@ url: "https://docs.frappe.io/cloud/daily-usage-limit-reached"
 updated: "2026-05-25"
 ---
 
-![](/files/image1ab73f.png)
+[Screenshot on the live page]
 
 This happens when you exceed CPU hours allotted for your site. If you're confused as to how you reached your CPU hours limit, you can check the **Insights** tab of your site.
 
-![](/files/image59cb58.png)
+[Screenshot on the live page]
 
 Here, you can scroll down to **Advanced analytics** to see:the **Slowest Requests** and **Slowest Background Jobs** graphs. This will give you an idea of which endpoints in your site take most time/requests. We can take a look at the following graphs as an example
 
-![](/files/hyEEfqL.png)
+[Screenshot on the live page]
 
 Here, the red bars are seem to take relatively long and should be looked into.
 
-![](/files/uhKZI97.png)
+[Screenshot on the live page]
 
 It is sorted in descending order, so the first endpoints in the list are usually slowest.
 
@@ -1149,7 +1149,7 @@ Visit frappecloud.com/dashboard and check the sidebar. From Sidebar > Dev Tools 
 
 Or, you can simply visit - [https://frappecloud.com/dashboard/database-analyzer](https://frappecloud.com/dashboard/database-analyzer)
 
-![](/files/image26b043.png)
+[Screenshot on the live page]
 
 ## Storage Breakdown
 
@@ -1157,13 +1157,13 @@ If you want to check disk usage by every table in your database, you can click o
 
 You can then view usage by each table
 
-![](/files/Screenshot%20from%202025-05-30%2018-07-06.png)
+[Screenshot on the live page]
 
 ## Database Processes
 
 If you want to view all the active database queries, you can view them from the same page and even kill the query if it's stuck.
 
-![](/files/Screenshot%20from%202025-05-30%2018-08-50.png)
+[Screenshot on the live page]
 
 
 
@@ -1171,13 +1171,13 @@ If you want to view all the active database queries, you can view them from the 
 
 MairaDB lock report helps to find active locks on the specific database. This helps with investigating `lock timeout error` issues.
 
-![](/files/image7740af.png)
+[Screenshot on the live page]
 
 ## Slow Queries
 
 Slow queries usually affect the performance of your site. You can find all the information about slow queries.
 
-![](/files/Screenshot%20from%202025-05-30%2018-09-10.png)
+[Screenshot on the live page]
 
 ## Time Consuming Queries
 
@@ -1185,7 +1185,7 @@ Sometimes there are queries that execute very fast but run very frequently and, 
 
 These queries don't always affect database performance, but the results can help you further optimize your code.
 
-![](/files/Screenshot%20from%202025-05-30%2018-09-20.png)
+[Screenshot on the live page]
 
 ## Full Table Scan Queries
 
@@ -1193,10 +1193,10 @@ If queries lack indexing or have issues, they can cause full table scans, which 
 
 You can find these kinds of queries and optimize them for better performance.
 
-![](/files/Screenshot%20from%202025-05-30%2018-09-27.png)
+[Screenshot on the live page]
 
 ## Index Analysis
 
 Other than that, you can click on `Suggest Indexes`, and the system will try to analyze slow queries and provide suggestions based on that.
 
-![](/files/Screenshot%20from%202025-05-30%2018-09-49.png)
+[Screenshot on the live page]

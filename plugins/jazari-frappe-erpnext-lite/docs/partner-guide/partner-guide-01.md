@@ -111,7 +111,7 @@ updated: "2026-03-31"
 
 ### Here’s how success stories make your profile page look.
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=fhksckisvv)
+[Screenshot on the live page]
 
 <!-- page: partner-guide/partner-guide__frequently-asked-questions__how-to-enable-paid-by-partner-option-for-customer-account.md -->
 ---
@@ -135,7 +135,7 @@ The customer can access this option from Billing > Overview > Mode of payment. C
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=b3n2ee8m9v)
+[Screenshot on the live page]
 
 <!-- page: partner-guide/partner-guide__frequently-asked-questions__how-to-link-more-certificates.md -->
 ---
@@ -147,7 +147,7 @@ updated: "2026-03-31"
 
 ### Step 1: Go to Partnership > Certificate > Click on “Link Certificate”
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=bmf6h534r6)
+[Screenshot on the live page]
 
 ### Step 2: Enter Certificate Type (ERPNext / Frappe Framework) > Enter Email ID > Done
 
@@ -155,7 +155,7 @@ The email ID of your team member should match the email ID registered and certif
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=2mgggs9ui2)
+[Screenshot on the live page]
 
 <!-- page: partner-guide/partner-guide__frequently-asked-questions__how-to-link-partner-code-to-customer-account.md -->
 ---
@@ -177,7 +177,7 @@ Partners can access their unique code from the PRM portal. From Partnerships > O
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=4lp3gp2v34)
+[Screenshot on the live page]
 
 **Step 2:  Customer adds partner code to their account**
 
@@ -185,7 +185,7 @@ Customers can find the option to do so from Settings > Profile > Frappe Partner.
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=17m8i1n05o)
+[Screenshot on the live page]
 
 **Step 3: Partner accepts the link request**
 
@@ -203,7 +203,7 @@ Partners will be able to see the linked customer invoices and plans in the **Par
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=91g8qqpn8o)
+[Screenshot on the live page]
 
 <!-- page: partner-guide/partner-guide__frequently-asked-questions__what-is-prm-portal.md -->
 ---
@@ -221,7 +221,7 @@ To access Partner portal on FC, click on the **Partnership** section on the dash
 
 
 
-![Partnership section](https://drive.frappe.io/api/method/drive.api.embed.get_file_content?embed_name=9ov6n4dics&parent_entity_name=8vvrjnhdjf)
+[Screenshot on the live page: Partnership section]
 
 Partner Lead
 
@@ -237,21 +237,21 @@ Dashboard helps you visualise your progress with the number cards and charts sho
 
 
 
-![](https://drive.frappe.io/api/method/drive.api.embed.get_file_content?embed_name=18oiln6rm0&parent_entity_name=8vvrjnhdjf)
+[Screenshot on the live page]
 
 ### **Certifications**
 
 Find all the certificate details in the certification tab. You can also add your certificates.  
 
 
-![Link Certificate](https://drive.frappe.io/api/method/drive.api.embed.get_file_content?embed_name=365cmljd48&parent_entity_name=8vvrjnhdjf)
+[Screenshot on the live page: Link Certificate]
 
 You can apply for Free certifications directly by clicking on **Apply for Certification**.
 
   
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=frrqqj06qv)
+[Screenshot on the live page]
 
 ### **Partner Member**
 
@@ -260,19 +260,19 @@ Your Frappe Cloud team members are considered as Partner Members. You can view t
   
 
 
-![](https://drive.frappe.io/api/method/drive.api.embed.get_file_content?embed_name=7dpu2he15r&parent_entity_name=8vvrjnhdjf)
+[Screenshot on the live page]
 
 You add a new Partner member click on **Add Member** and send an Invite to them to join your team. You can also assign a predefined role to the member while inviting the member.
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=2s4h12l3s2)
+[Screenshot on the live page]
 
 Note: *As a member of a partner team, if you have your own Frappe Cloud team, please **Switch to Partner Team** to access PRM.*
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=7s7mvlhmlg)
+[Screenshot on the live page]
 
 ### **Permissions**
 
@@ -283,13 +283,13 @@ To create new roles, navigate to **Settings** > **Permissions**.
   
 
 
-![](https://drive.frappe.io/api/method/drive.api.embed.get_file_content?embed_name=5hc4qbaum1&parent_entity_name=8vvrjnhdjf)
+[Screenshot on the live page]
 
 Once the role is created, click on ‘**+**‘ icon to add members to the new role created.
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=0sks92mqq9)
+[Screenshot on the live page]
 
 From the settings tab, you can choose which access to be given to which role. Under ‘**Allow Partner Access**‘, you can configure more granular access in partnership tab.
 
@@ -299,7 +299,7 @@ You can see revenue contributions from all your customers here. You can also bre
 
 
 
-![](https://drive.frappe.io/api/method/writer.api.embed.get?id=7sqr8gl3du)
+[Screenshot on the live page]
 
 <!-- page: partner-guide/partner-guide__guide-for-new-partners.md -->
 ---
@@ -402,11 +402,11 @@ Once you’re done with all these, you can accept the partnership agreement and 
 
 **Step 1: Enrol for Partner Program**
 
-![](/files/Screenshot 2026-06-10 at 8.24.44 PM.png)
+[Screenshot on the live page]
 
 **Step 2: Complete the guided flow to confirm that you meet the eligibility criteria**
 
-![](/files/Screenshot 2026-06-10 at 8.25.13 PM.png)
+[Screenshot on the live page]
 
 **Step 3: Once approved, you’re added as an Entry Level Partner in the Frappe Partner listing**
 

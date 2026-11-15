@@ -23,7 +23,7 @@ To access the Loan Write Off, go to:
 
 On submitting the Loan Write Off entry the loan is marked as written off and the accounting entries are posted as below.
 
-![](/files/aH2TgZJ.png)
+[Screenshot on the live page]
 
 
 ### Write-off amount validation
@@ -68,7 +68,7 @@ url: "https://docs.frappe.io/lending/loan"
 updated: "2026-01-06"
 ---
 
-![Loan Cycle](/files/Loan Cycle.png)  
+[Screenshot on the live page: Loan Cycle]  
 
 
 **Loan booking refers to the process of officially recording a loan in the financial institution's system after it has been approved and the terms have been finalized. This is a critical step in the loan lifecycle, as it marks the point at which the loan becomes an active obligation for both the lender and the borrower.**
@@ -101,7 +101,7 @@ Before creating a Loan Product, it is advised to create the following:
 
 Irrespective of the repayment schedule type users can select a frequency like Monthly, Weekly, Bi-weekly, Quarterly, One Time as per their requirement. Based on this frequency the repayment schedule will be generated.
 
-![](/files/loan-repayment-frequency.png)  
+[Screenshot on the live page]  
 
 
 4. Adding moratorium during loan booking
@@ -111,7 +111,7 @@ A **moratorium** in a loan context refers to a temporary suspension or postponem
 
 To add a moratorium, the user can mention the Moratorium Tenure and moratorium type at the loan booking stage
 
-![](/files/chocp3b.png)  
+[Screenshot on the live page]  
 
 
 There are two moratorium types available, if EMI is selected, both interest and principal are not applicable and if the Principal is selected the only interest is payable, and the principal component is not applicable.
@@ -121,7 +121,7 @@ There are two moratorium types available, if EMI is selected, both interest and 
 
 **Revolving limits** in **line of credit loans** refer to the maximum amount of credit that a borrower can access and use on a recurring basis. A **line of credit (LOC)** is a flexible loan option that allows borrowers to draw funds as needed, up to a specified credit limit, repay the borrowed amount, and then access the credit again without having to apply for a new loan. This process is known as revolving credit because the credit becomes available again as the borrower repays it, up to the original limit.
 
-![](/files/MuuLwuj.png)  
+[Screenshot on the live page]  
 
 
 6. Loan Account Freezing (Death Marking)
@@ -129,7 +129,7 @@ There are two moratorium types available, if EMI is selected, both interest and 
 
 If the borrower dies or is unable to make the repayments due to any circumstances the loan account can be frozen. Upon freezing the accounts the loan interest accrual and demand generation stops.
 
-![Freeze Loan Account](/files/Freeze Loan Account.png)  
+[Screenshot on the live page: Freeze Loan Account]  
 
 <!-- page: lending/lending__masters.md -->
 ---
@@ -284,11 +284,11 @@ Frappe Lending has out-of-the-box NPA classification processes that help users m
 
 Loan Classification process runs every day and updates the count of Days Past Due (DPD) for each active loan. This count is also updated in near real-time when repayment and related loan events are processed.
 
-![](/files/I6hNEJV.png)
+[Screenshot on the live page]
 
 Users can also track historical day-wise DPD data in **Days Past Due Logs**.
 
-![](/files/FCMD2WD.png)
+[Screenshot on the live page]
 
 ## 2. NPA Marking
 
@@ -301,11 +301,11 @@ Important correction:
 
 When DPD crosses the configured NPA limit, loan is auto-marked as NPA.
 
-![](/files/ZfADryn.png)
+[Screenshot on the live page]
 
 This threshold is evaluated based on the oldest overdue EMI demand path used in classification processing.
 
-![](/files/xL1t3ZO.png)
+[Screenshot on the live page]
 
 ## 3. Manual NPA marking and unmarking
 
@@ -354,7 +354,7 @@ updated: "2026-01-06"
 The **Past Cashflow Report** helps track all repayments made by a borrower on or before a selected date. It shows details of each loan, including the applicant name, loan product, and the amounts paid toward principal, interest, additional interest, charges, penalties, and any excess payments. This report is useful for reviewing past repayment history and understanding how much has already been collected from borrowers.
 
 
-![](/files/past_cashflow_report.png)
+[Screenshot on the live page]
 
 <!-- page: lending/lending__process-loan-classification.md -->
 ---
@@ -366,12 +366,12 @@ updated: "2026-01-06"
 
 The loan classification process is a daily process that is used to classify the loans for credit bureau reporting. This one single process updates multiple parameters of a loan like days past due, marking or unmarking the loan as NPA, and updating the classification codes. Users can also run this process manually to do an ad-hoc classification.
 
-![Process Loan Classification](/files/Process Loan Classification.png)  
+[Screenshot on the live page: Process Loan Classification]  
 
 
 The classification codes and bucket can be configured in the Company master under the loan tab
 
-![Loan Classification Ranges](/files/Loan Classification Ranges.png)  
+[Screenshot on the live page: Loan Classification Ranges]  
 
 <!-- page: lending/lending__process-loan-demand.md -->
 ---
@@ -386,7 +386,7 @@ Demands are generated by a demand generation process the doctype for which is ca
   
 
 
-![Process Loan Demand](/files/Process Loan Demand.png)  
+[Screenshot on the live page: Process Loan Demand]  
 
 <!-- page: lending/lending__process-loan-interest-accrual.md -->
 ---
@@ -401,7 +401,7 @@ Loan interest accruals are done via a process called “Process Loan Interest Ac
   
 
 
-![Process Loan Interest Accrual](/files/Process Loan Interest Accrual.png)  
+[Screenshot on the live page: Process Loan Interest Accrual]  
 
 <!-- page: lending/lending__repayment-schedules.md -->
 ---
@@ -424,7 +424,7 @@ To access the Loan Repayment Schedule, go to:
 
 No user input is needed for this. This is by default generated based on the information captured at the Loan Booking and Disbursement stage. This helps customers visualize a tentative payment schedule and helps in keeping track of the demands and interest accruals. An example of this can be seen in the below image.
 
-![Repayment Schedule](/files/Repayment Schedule.png)  
+[Screenshot on the live page: Repayment Schedule]  
 
 
   
@@ -443,12 +443,12 @@ Frappe Lending comes with automated suspense accounting for NPA Loans for both i
 
 Users have to configure the appropriate suspense accounts in the respective Loan Product.
 
-![Suspense Account](/files/Suspense Account.png)  
+[Screenshot on the live page: Suspense Account]  
 
 
 Once the accounts are configured, as soon as the loan becomes NPA, a Journal Entry is automatically passed for the outstanding interest, penalty or charge amount and the amount is moved from regular income to suspense account.
 
-![](/files/rOuGyGM.png)  
+[Screenshot on the live page]  
 
 
 On receiving the payment the amount is again moved back to the regular income account.
@@ -469,7 +469,7 @@ This page focuses only on Lending-specific usage. For full setup and general con
 
 Below is the default workflow on the Loan Lead document.
 
-![](/files/imagefa2bc7.png)
+[Screenshot on the live page]
 
 ## Transition Tasks in Lending
 
@@ -578,13 +578,13 @@ Configure task in Workflow Transition Tasks:
 - Enabled: Yes
 - Asynchronous: No
 
-![](/files/imagefddc9f.png)
+[Screenshot on the live page]
 
 Then map in Workflow transitions:
 
 - Scrubbing -> Pre-Qualification -> Transition Tasks = Loan Lead - Pre-Qualification Tasks
 
-![](/files/image5abb72.png)
+[Screenshot on the live page]
 
 ## References
 

@@ -72,7 +72,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Print Format Builder
 - **PDF engine:** how the format comes out as a PDF depends on **Print Settings → PDF Generator** (`wkhtmltopdf`, `chrome` or `PlutoPrint`). Sites created on Frappe 16.55 or later start on `chrome`. Check a real PDF, not only the screen preview, before calling a format finished.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 811–871  (https://docs.frappe.io/erpnext/print-format-builder)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 757–817  (https://docs.frappe.io/erpnext/print-format-builder)
 
 ### Add a custom field
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Custom Field**, or type *Custom Field* in the search bar at the top
@@ -89,7 +89,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. You will be redirected to a page wherein you will be asked to Enter Form Type
   3. Once you enter the Form Type in this field, the page further expands and you will be able to see multiple features
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 184–286  (https://docs.frappe.io/erpnext/customize-form)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 86–188  (https://docs.frappe.io/erpnext/customize-form)
 
 ### Add a client script
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Scripting > Client Script**, or type *Client Script* in the search bar at the top
@@ -104,7 +104,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Workflow > Workflow**, or type *Workflow* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
 - **Full page, bundled offline:** `docs/erpnext/erpnext-69.md` lines 536–551  (https://docs.frappe.io/erpnext/workflow)
-- **Also read:** `docs/erpnext/erpnext-23.md` lines 745–770 — the step-by-step page for this
+- **Also read:** `docs/erpnext/erpnext-23.md` lines 84–109 — the step-by-step page for this
 - **Also read:** `docs/erpnext/erpnext-69.md` lines 553–684 — the step-by-step page for this
 
 ### Design an app screen in Frappe Studio
