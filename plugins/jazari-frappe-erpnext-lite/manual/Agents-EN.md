@@ -4,8 +4,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 Nine agents, the same faces across every Jazari Agents product. What changes per system is what each one knows.
 
-![Rukaz](assets/rukaz.png)
-
 ### Rukaz
 
 Setup & Configuration · 32 capabilities
@@ -26,8 +24,6 @@ Skills: `frappe-cloud`, `frappe-restore`, `frappe-setup`, `frappe-users-permissi
 | Add and manage users | In the interface | safe — reads or creates | `frappe-users-permissions` |
 
 … and 24 more — see the manual.
-
-![Wafir](assets/wafir.png)
 
 ### Wafir
 
@@ -50,8 +46,6 @@ Skills: `frappe-accounting`, `frappe-data-import`, `frappe-inventory`
 
 … and 5 more — see the manual.
 
-![Imran](assets/imran.png)
-
 ### Imran
 
 App Builder & Customizer · 47 capabilities
@@ -72,8 +66,6 @@ Skills: `frappe-app-builder`, `frappe-buying`, `frappe-inventory`, `frappe-manuf
 | Choose the right kind of DocType | Guided | safe — reads or creates | `frappe-app-builder` |
 
 … and 39 more — see the manual.
-
-![Dhukhr](assets/dhukhr.png)
 
 ### Dhukhr
 
@@ -96,8 +88,6 @@ Skills: `frappe-buying`, `frappe-inventory`
 
 … and 11 more — see the manual.
 
-![Mizan](assets/mizan.png)
-
 ### Mizan
 
 Accounting, Tax & Reporting · 70 capabilities
@@ -118,8 +108,6 @@ Skills: `frappe-accounting`, `frappe-buying`, `frappe-inventory`, `frappe-learni
 | Raise a sales invoice | API | cannot be undone | `frappe-accounting` |
 
 … and 62 more — see the manual.
-
-![Zahir](assets/zahir.png)
 
 ### Zahir
 
@@ -142,8 +130,6 @@ Skills: `frappe-crm`, `frappe-selling`, `frappe-setup`, `frappe-website`
 
 … and 14 more — see the manual.
 
-![Hazim](assets/hazim.png)
-
 ### Hazim
 
 Sales Operations & Projects · 17 capabilities
@@ -165,8 +151,6 @@ Skills: `frappe-helpdesk`, `frappe-projects`, `frappe-reports`, `frappe-selling`
 
 … and 9 more — see the manual.
 
-![Anees](assets/anees.png)
-
 ### Anees
 
 Customers, Support & People · 60 capabilities
@@ -187,8 +171,6 @@ Skills: `frappe-crm`, `frappe-helpdesk`, `frappe-hr`, `frappe-learning`, `frappe
 | Organise territories | In the interface | restores exactly | `frappe-selling` |
 
 … and 52 more — see the manual.
-
-![Urwah](assets/urwah.png)
 
 ### Urwah
 

@@ -4,8 +4,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 تسعة وكلاء، نفس الوجوه في كل منتجات Jazari Agents.
 
-![Rukaz](assets/rukaz.png)
-
 ### Rukaz
 
 الإعداد والتهيئة · 32 قدرة
@@ -26,8 +24,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 | Add and manage users | من الواجهة | آمن — قراءة أو إنشاء | `frappe-users-permissions` |
 
 … و 24 قدرة أخرى — انظر الدليل.
-
-![Wafir](assets/wafir.png)
 
 ### Wafir
 
@@ -50,8 +46,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 … و 5 قدرة أخرى — انظر الدليل.
 
-![Imran](assets/imran.png)
-
 ### Imran
 
 بناء التطبيقات والتخصيص · 47 قدرة
@@ -72,8 +66,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 | Choose the right kind of DocType | إرشاد | آمن — قراءة أو إنشاء | `frappe-app-builder` |
 
 … و 39 قدرة أخرى — انظر الدليل.
-
-![Dhukhr](assets/dhukhr.png)
 
 ### Dhukhr
 
@@ -96,8 +88,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 … و 11 قدرة أخرى — انظر الدليل.
 
-![Mizan](assets/mizan.png)
-
 ### Mizan
 
 المحاسبة والضرائب والتقارير · 70 قدرة
@@ -118,8 +108,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 | Raise a sales invoice | واجهة API | لا يمكن التراجع | `frappe-accounting` |
 
 … و 62 قدرة أخرى — انظر الدليل.
-
-![Zahir](assets/zahir.png)
 
 ### Zahir
 
@@ -142,8 +130,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 … و 14 قدرة أخرى — انظر الدليل.
 
-![Hazim](assets/hazim.png)
-
 ### Hazim
 
 العمليات والمشاريع · 17 قدرة
@@ -165,8 +151,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 … و 9 قدرة أخرى — انظر الدليل.
 
-![Anees](assets/anees.png)
-
 ### Anees
 
 العملاء والدعم والموظفون · 60 قدرة
@@ -187,8 +171,6 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 | Organise territories | من الواجهة | يُستعاد كما كان | `frappe-selling` |
 
 … و 52 قدرة أخرى — انظر الدليل.
-
-![Urwah](assets/urwah.png)
 
 ### Urwah
 

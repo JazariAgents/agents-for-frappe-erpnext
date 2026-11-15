@@ -92,15 +92,11 @@ To stop a flow, ask for it to be switched off. A flow that has already run canno
 
 ## The agents
 
-![Rukaz](assets/rukaz.png)
-
 ### Rukaz
 
 Setup & Configuration
 
 Gets a new site into a state where real work can happen: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud.
-
-![Wafir](assets/wafir.png)
 
 ### Wafir
 
@@ -108,15 +104,11 @@ Bulk Import & Migration
 
 Moves data in by the thousand — spreadsheets, opening balances, a whole chart of accounts, or a migration from another system. Always dry-runs first.
 
-![Imran](assets/imran.png)
-
 ### Imran
 
 App Builder & Customizer
 
 Builds on the framework itself: new apps, DocTypes, fields, controllers, workflows and print formats — and the manufacturing side, where a bill of materials is its own kind of blueprint.
-
-![Dhukhr](assets/dhukhr.png)
 
 ### Dhukhr
 
@@ -124,15 +116,11 @@ Inventory & Stock
 
 Knows where every item is and what it is worth: warehouses, stock entries, reconciliation, batches, serial numbers and valuation.
 
-![Mizan](assets/mizan.png)
-
 ### Mizan
 
 Accounting, Tax & Reporting
 
 The money: invoices, payments, journals, reconciliation, budgets, assets, tax and VAT, loans, and every report the business is judged by.
-
-![Zahir](assets/zahir.png)
 
 ### Zahir
 
@@ -140,23 +128,17 @@ Marketing & Website
 
 The public face: website pages, blogs, themes and SEO, the shop, pricing rules, coupons, loyalty, campaigns and newsletters.
 
-![Hazim](assets/hazim.png)
-
 ### Hazim
 
 Sales Operations & Projects
 
 Keeps orders moving: quotations, sales orders, picking, packing, delivery, point of sale, and the projects and timesheets behind service work.
 
-![Anees](assets/anees.png)
-
 ### Anees
 
 Customers, Support & People
 
 Everyone the business deals with: leads and deals, support tickets and SLAs, employees, leave, attendance and payroll, students and learners.
-
-![Urwah](assets/urwah.png)
 
 ### Urwah
 

@@ -25,15 +25,15 @@ The same nine faces across every Jazari Agents product. Each one owns a set of s
 
 | Agent | Role |
 |---|---|
-| ![Rukaz](manual/assets/rukaz.png) **Rukaz** | Setup & Configuration: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud. |
-| ![Wafir](manual/assets/wafir.png) **Wafir** | Bulk Import & Migration: spreadsheets, opening balances, a whole chart of accounts, a migration from another system. Always dry-runs first. |
-| ![Imran](manual/assets/imran.png) **Imran** | App Builder & Customizer: new apps, DocTypes, fields, controllers, workflows and print formats, and manufacturing. |
-| ![Dhukhr](manual/assets/dhukhr.png) **Dhukhr** | Inventory & Stock: warehouses, stock entries, reconciliation, batches, serial numbers and valuation. |
-| ![Mizan](manual/assets/mizan.png) **Mizan** | Accounting, Tax & Reporting: invoices, payments, journals, reconciliation, budgets, assets, tax and VAT, loans, and reports. |
-| ![Zahir](manual/assets/zahir.png) **Zahir** | Marketing & Website: pages, blogs, themes and SEO, the shop, pricing rules, coupons, loyalty and campaigns. |
-| ![Hazim](manual/assets/hazim.png) **Hazim** | Sales Operations & Projects: quotations, orders, delivery, point of sale, projects and timesheets. |
-| ![Anees](manual/assets/anees.png) **Anees** | Customers, Support & People: leads and deals, tickets and SLAs, employees, leave, attendance and payroll. |
-| ![Urwah](manual/assets/urwah.png) **Urwah** | API, Bench & Automation: the connection, webhooks and background jobs, the bench CLI, backups, and putting things back. |
+| **Rukaz** | Setup & Configuration: company, fiscal year, chart of accounts, users, naming, and hosting on Frappe Cloud. |
+| **Wafir** | Bulk Import & Migration: spreadsheets, opening balances, a whole chart of accounts, a migration from another system. Always dry-runs first. |
+| **Imran** | App Builder & Customizer: new apps, DocTypes, fields, controllers, workflows and print formats, and manufacturing. |
+| **Dhukhr** | Inventory & Stock: warehouses, stock entries, reconciliation, batches, serial numbers and valuation. |
+| **Mizan** | Accounting, Tax & Reporting: invoices, payments, journals, reconciliation, budgets, assets, tax and VAT, loans, and reports. |
+| **Zahir** | Marketing & Website: pages, blogs, themes and SEO, the shop, pricing rules, coupons, loyalty and campaigns. |
+| **Hazim** | Sales Operations & Projects: quotations, orders, delivery, point of sale, projects and timesheets. |
+| **Anees** | Customers, Support & People: leads and deals, tickets and SLAs, employees, leave, attendance and payroll. |
+| **Urwah** | API, Bench & Automation: the connection, webhooks and background jobs, the bench CLI, backups, and putting things back. |
 
 Full profiles: [Agents (English)](manual/Agents-EN.md) · [الوكلاء (بالعربية)](manual/Agents-AR.md)
 
