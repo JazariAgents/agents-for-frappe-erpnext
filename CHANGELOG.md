@@ -1,5 +1,42 @@
 # Changelog
 
+## 1.1.11 — a Lite edition for Claude's plugin directory, and fixes from its review (2026-11-15)
+
+**New: Jazari Agents for Frappe & ERPNext Lite** (`jazari-frappe-erpnext-lite`), in `plugins/jazari-frappe-erpnext-lite`.
+Anthropic's plugin directory accepts plugins that carry code only from organizations it has verified, so the
+Lite edition carries none: no hooks, no scripts, no HTML. It has the same 23 skills, nine agents and 1,612
+bundled pages, plus `frappe-safe-change`, which holds the safety steps. It never handles an API key: it
+connects through Frappe's MCP server, frappectl or the Desk. Its rules are instructions Claude follows, not
+locks in code. When you connect, it asks to add a short note to `CLAUDE.md` in your folder: in real sessions,
+without that note quick changes went straight to the site, and with it every change waited for a snapshot and
+your reply. It is generated from the full edition by a build script, so the two stay in step. Install one
+edition, not both.
+
+**Fixed in both editions** (found by an independent review of the Lite edition; the full edition had the same
+text):
+
+- Generating a user's API key, and creating an OAuth client, are now the user's job only. The pages had listed
+  both as reachable over the API, which would have put a secret in front of Claude.
+- A restore now reads the record first and stops if someone changed it after the snapshot, saves a snapshot of
+  the current state before asking, checks again just before writing, keeps the IDs of child-table rows (so
+  links to them hold), and says exactly which fields are written back. A deleted record is brought back with
+  Frappe's own Deleted Document restore where one exists (on an auto-named DocType it gets a new ID; tested).
+- Every change re-reads the record just before it is made; if it changed while you were being asked, the
+  snapshot and the question are repeated. The audit log records each record's new `modified` time.
+- `bench --site <site> show-config` prints the database password and the encryption key, so the agent no longer
+  runs it: you do, and tell it the one setting it needs. `bench new-site` is given to you to run, so its
+  passwords never pass through the chat.
+- Changes through frappectl now follow the same steps as changes through the MCP server: snapshot (attachments
+  included, with `frappectl file download`), ask, and act only after your reply. In the full edition the code
+  locks cover the MCP tools and the API helper; frappectl relies on these steps in both editions.
+- Switching on an Automation Flow is a change to an existing record: snapshot first, then your reply.
+- A data import sample is followed by a file with the remaining rows, not the full file again, which would have
+  imported the first rows twice.
+- Three safety classes corrected: calling a whitelisted method on a document, loading opening stock and
+  importing advances and balances are now marked as changes that cannot simply be undone.
+- One page said frappectl-free MCP users cannot run reports; `call_method` with `frappe.desk.query_report.run`
+  does (checked on a live site).
+
 ## 1.1.10 — the no-Python fallback asks everywhere (2026-11-14)
 
 - In 1.1.9 the fallback that asks you when Python is missing could only see the current folder, so from a

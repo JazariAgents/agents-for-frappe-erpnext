@@ -60,7 +60,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.10</span>
+<header class="top"><div class="wrap"><div class="brand"><img src="assets/jazariagents-symbol.png" alt=""><div>Jazari<em>Agents</em></div></div><span class="pill">Jazari Agents for Frappe &amp; ERPNext · v1.1.11</span>
 <h1>Manual</h1><p class="sub">Nine agents that build on the Frappe framework and run the business on top of it. 335 capabilities across 22 skills, each traced to an official Frappe page, plus a one-page dashboard of your business.</p></div></header>
 <div class="wrap">
 
@@ -199,7 +199,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 </tbody></table></div><h3 style="color:#7c5cff">Wafir — Bulk Import & Migration (13 capabilities)</h3><p>Moves data in by the thousand — spreadsheets, opening balances, a whole chart of accounts, or a migration from another system. Always dry-runs first.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-accounting</code>, <code>frappe-data-import</code>, <code>frappe-inventory</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
 <tr><td>Enter opening balances</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
 <tr><td>Import opening invoices</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-accounting</code></td></tr>
-<tr><td>Import advances, payments and balances</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
+<tr><td>Import advances, payments and balances</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-data-import</code></td></tr>
 <tr><td>Rename records in bulk</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
 <tr><td>Update many records at once</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
 <tr><td>Import a chart of accounts</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
@@ -209,7 +209,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <tr><td>Import accounting masters</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
 <tr><td>Migrate from QuickBooks</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-data-import</code></td></tr>
 <tr><td>Validate a migration</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-data-import</code></td></tr>
-<tr><td>Load opening stock</td><td>In the interface</td><td>restores exactly</td><td><code>frappe-inventory</code></td></tr>
+<tr><td>Load opening stock</td><td>In the interface</td><td>cannot be undone</td><td><code>frappe-inventory</code></td></tr>
 </tbody></table></div><h3 style="color:#6366f1">Imran — App Builder & Customizer (47 capabilities)</h3><p>Builds on the framework itself: new apps, DocTypes, fields, controllers, workflows and print formats — and the manufacturing side, where a bill of materials is its own kind of blueprint.</p><p style="color:#6b7583;font-size:14px">Skills: <code>frappe-app-builder</code>, <code>frappe-buying</code>, <code>frappe-inventory</code>, <code>frappe-manufacturing</code>, <code>frappe-website</code></p><div class="tablewrap"><table><thead><tr><th>What it can do</th><th>How</th><th>Undo</th><th>Skill</th></tr></thead><tbody>
 <tr><td>Understand the framework architecture</td><td>Guided</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
 <tr><td>Bundle app assets</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-app-builder</code></td></tr>
@@ -469,7 +469,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:v
 <tr><td>Read DocType metadata to discover a site's schema</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
 <tr><td>Upload a file through the API</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
 <tr><td>Generate API key and secret for a user</td><td>In the interface</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
-<tr><td>Call a whitelisted method on a document</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
+<tr><td>Call a whitelisted method on a document</td><td>API</td><td>cannot be undone</td><td><code>frappe-api</code></td></tr>
 <tr><td>Respect the site's rate limits</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-connect</code></td></tr>
 <tr><td>Publish and listen to realtime events</td><td>API</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
 <tr><td>Diagnose the scheduler</td><td>bench CLI</td><td>safe — reads or creates</td><td><code>frappe-api</code></td></tr>
@@ -548,7 +548,7 @@ claude plugin update jazari-frappe-erpnext@jazari-agents</code></pre>
 <p><strong>What if Frappe has changed since this was built?</strong> The agents check labels before clicking and say plainly when your site and this pack disagree. See "Staying up to date".</p>
 <p><strong>How do I see what it did?</strong> Ask "what have you done?" It reads <code>.frappe/tasklog.md</code> and <code>.frappe/audit.log</code>. The Agents screen of the dashboard shows the same history as a page.</p>
 <p><strong>Is this made by Frappe?</strong> No. It is an independent, MIT-licensed project by Jazari Agents. Frappe and ERPNext are trademarks of Frappe Technologies.</p>
-<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.10 · <a href="https://jazariagents.com">jazariagents.com</a> · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on a live Frappe v16.56 / ERPNext v16.55 site on 2026-11-14 · <a href="Manual-AR.html">بالعربية</a></footer>
+<footer>Jazari Agents for Frappe &amp; ERPNext v1.1.11 · <a href="https://jazariagents.com">jazariagents.com</a> · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on a live Frappe v16.56 / ERPNext v16.55 site on 2026-11-14 · <a href="Manual-AR.html">بالعربية</a></footer>
 
 </div>
 </body>

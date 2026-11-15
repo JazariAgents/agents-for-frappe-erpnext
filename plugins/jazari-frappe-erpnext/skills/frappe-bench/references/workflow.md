@@ -1,6 +1,6 @@
 # Back up and restore a site
 
-Owner: **Urwah** · verified: docs (documentation, not a live probe)
+Owner: **Urwah** · verified: documentation; the screens, record types and API calls were checked on live sites on 2026-11-14
 
 ## Preconditions
 - `.frappe/state.json` exists (run frappe-connect first)

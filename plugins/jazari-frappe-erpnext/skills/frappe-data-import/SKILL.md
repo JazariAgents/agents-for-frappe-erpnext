@@ -41,7 +41,7 @@ This skill can change or destroy existing data (7 of its 10 capabilities are mar
 1. Write a snapshot to `.frappe/snapshots/<date>_<time>_<op>_<rand4>/` containing `SNAPSHOT.md` (when, site, environment, the user's verbatim request, restore instruction, reversibility class), `raw.json` (the untouched API response for every affected record) and `images/` for any attachments.
 2. **Verify** the snapshot exists and parses. If it cannot be written and verified, the action does not happen.
 3. State the reversibility class to the user, and the count of affected records, and wait for a clear yes.
-4. Only then act. Append one line to `.frappe/audit.log` with the snapshot reference.
+4. Only then act. Append one line to `.frappe/audit.log` with the snapshot reference and each changed record's new `modified` time.
 
 Anything over 25 records stops and shows the count first, even if something similar was approved earlier. To put a snapshot back, use the **frappe-restore** skill.
 
@@ -106,7 +106,7 @@ Most of these can be done either through the API or by clicking; the column show
 | Rename records in bulk | browser | reversible |
 | Import a chart of accounts | browser | reversible |
 | Import accounting masters | browser | reversible |
-| Import advances, payments and balances | browser | reversible |
+| Import advances, payments and balances | browser | irreversible |
 | Prepare and map legacy data | guide | safe (read or create) |
 | Validate a migration | guide | safe (read or create) |
 | Migrate from QuickBooks | browser | reversible |

@@ -1,6 +1,6 @@
 # Close the month
 
-Owner: **Mizan** · verified: docs (documentation, not a live probe)
+Owner: **Mizan** · verified: documentation; the screens, record types and API calls were checked on live sites on 2026-11-14
 
 ## Preconditions
 - `.frappe/state.json` exists (run frappe-connect first)

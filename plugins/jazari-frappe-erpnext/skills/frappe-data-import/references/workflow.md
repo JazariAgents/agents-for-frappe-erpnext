@@ -1,6 +1,6 @@
 # Load data in bulk from spreadsheets
 
-Owner: **Wafir** · verified: docs (documentation, not a live probe)
+Owner: **Wafir** · verified: documentation; the screens, record types and API calls were checked on live sites on 2026-11-14
 
 ## Preconditions
 - `.frappe/state.json` exists (run frappe-connect first)
@@ -13,7 +13,7 @@ Owner: **Wafir** · verified: docs (documentation, not a live probe)
    read: `docs/erpnext/erpnext__bulk-update.md`   (https://docs.frappe.io/erpnext/bulk-update)
 3. **Import a chart of accounts** (`imp.coaimport`, browser mode) — SNAPSHOT FIRST, reversible
    read: `docs/erpnext/erpnext__chart-of-accounts-importer.md`   (https://docs.frappe.io/erpnext/chart-of-accounts-importer)
-4. **Load opening stock** (`stock.openingstock`, browser mode) — SNAPSHOT FIRST, reversible
+4. **Load opening stock** (`stock.openingstock`, browser mode) — SNAPSHOT FIRST, irreversible
    read: `docs/erpnext/erpnext__opening-stock.md`   (https://docs.frappe.io/erpnext/opening-stock)
 
 ## Failure modes

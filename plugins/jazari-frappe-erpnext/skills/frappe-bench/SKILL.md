@@ -8,7 +8,7 @@ description: >-
 ---
 # Run bench — sites, apps, backups, deploys (Frappe)
 
-bench is the command line that creates and runs everything on a self-hosted Frappe stack. It is also where the most dangerous commands live, so every destructive command here is snapshot-gated and confirmed before it runs.
+bench is the command line that creates and runs everything on a self-hosted Frappe stack. It is also where the most dangerous commands live, so every destructive command here gets a backup or a snapshot first, and is confirmed before it runs.
 
 Owned by **Urwah** — API, Bench & Automation.
 
@@ -41,7 +41,7 @@ This skill can change or destroy existing data (13 of its 22 capabilities are ma
 1. Write a snapshot to `.frappe/snapshots/<date>_<time>_<op>_<rand4>/` containing `SNAPSHOT.md` (when, site, environment, the user's verbatim request, restore instruction, reversibility class), `raw.json` (the untouched API response for every affected record) and `images/` for any attachments.
 2. **Verify** the snapshot exists and parses. If it cannot be written and verified, the action does not happen.
 3. State the reversibility class to the user, and the count of affected records, and wait for a clear yes.
-4. Only then act. Append one line to `.frappe/audit.log` with the snapshot reference.
+4. Only then act. Append one line to `.frappe/audit.log` with the snapshot reference and each changed record's new `modified` time.
 
 Anything over 25 records stops and shows the count first, even if something similar was approved earlier. To put a snapshot back, use the **frappe-restore** skill.
 

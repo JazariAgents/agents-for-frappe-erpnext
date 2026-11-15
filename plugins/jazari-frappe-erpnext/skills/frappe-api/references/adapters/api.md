@@ -172,8 +172,8 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Authenticate with OAuth 2 | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__oauth2.md` |
-| Generate API key and secret for a user | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__guides__integration__how_to_setup_token_based_auth.md` |
+| Authenticate with OAuth 2 | **the user only**: they set up an OAuth Client in the Desk (`browser.md`); never create one yourself, because the answer holds its client secret | `docs/framework/framework__oauth2.md` |
+| Generate API key and secret for a user | **the user only**, in the Desk (`browser.md`): never call `generate_keys` or any method that returns a secret | `docs/framework/framework__user__en__guides__integration__how_to_setup_token_based_auth.md` |
 | Respect the site's rate limits | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__rate-limiting.md` |
 | Create a webhook on document events | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__guides__integration__webhooks.md` |
 | Secure a webhook with a shared secret | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__guides__integration__webhooks.md` |

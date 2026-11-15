@@ -162,7 +162,7 @@ It gives the dry run this skill promises: the preview checks every row and saves
    (it refuses an `.xlsx` or a Google Sheet, because it cannot read their rows). Through Frappe's MCP
    server an update import is refused, because the plugin cannot list those records there: start it with
    `frappe_call.py`, or ask the user to start it from the Data Import screen. Import a file with the first
-   few rows, check them, then the full file:
+   few rows, check them, then a file with the remaining rows (the full file again would import the first rows twice):
    `POST /api/v2/method/frappe.core.doctype.data_import.data_import.form_start_import` with
    `{"data_import": "<name>"}`. It runs in the background, so the scheduler and workers must be running.
 6. **Check the result.** Read the record's `status` (`Success`, `Partial Success`, `Error`) and the log:

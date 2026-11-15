@@ -1,0 +1,121 @@
+{
+  "pack_version": "1.1.11",
+  "knowledge": {
+    "what": "the capability tables, walkthroughs and 1,607 of the 1,612 bundled documentation pages",
+    "date": "2026-08-31",
+    "frappe": "16.32.0",
+    "erpnext": "16.33.0"
+  },
+  "checked": {
+    "what": "every capability's screen path, record type and API call, the main business workflows (sales, buying, stock, manufacturing, accounting, import, HR, payroll, lending), the agents' safety rules and the connection routes, run on two live sites; plus five newer official pages (Automations, the new BOM Creator) added to the bundle",
+    "date": "2026-11-14",
+    "frappe": "16.56.0",
+    "erpnext": "16.55.0",
+    "hrms": "16.53.2",
+    "live_site": {
+      "date": "2026-11-14",
+      "frappe": "16.56.0",
+      "erpnext": "16.55.0",
+      "how": "Frappe's official Docker images, a throwaway company, API key, built-in MCP server and frappectl 0.24.0",
+      "apps": "ERPNext, HR, CRM, Helpdesk, Learning, Lending, Insights, Webshop, Builder, Wiki, Blog, Payments, Telephony",
+      "not_checked": "Frappe Cloud; the Education, Drive, Studio, WhatsApp and Newsletter apps; bench production setup; version 15"
+    }
+  },
+  "features": [
+    {
+      "name": "API v2 (/api/v2/...)",
+      "app": "frappe",
+      "from": "15.0.0"
+    },
+    {
+      "name": "frappectl",
+      "app": "frappe",
+      "from": "16.0.0"
+    },
+    {
+      "name": "the built-in MCP server",
+      "app": "frappe",
+      "from": "16.53.0"
+    }
+  ],
+  "changes": [
+    {
+      "app": "frappe",
+      "since": "16.33.0",
+      "covered": true,
+      "what": "A user's Restrict IP list also applies to API-key and OAuth requests. The pack recognises that refusal (HTTP 401, Access not allowed from this IP Address) and says the key itself is fine."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.35.0",
+      "covered": true,
+      "what": "The Print IRS 1099 Forms button was removed from the IRS 1099 report. The reports skill no longer promises printed forms."
+    },
+    {
+      "app": "frappe",
+      "since": "16.36.0",
+      "covered": true,
+      "what": "Automation Flows exist (triggers, waits, branches). The API skill builds them switched off, test-runs them on a real record, and turns them on only after a yes."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.36.0",
+      "covered": true,
+      "what": "More actions and record lookups check permissions, so an API user may need extra roles. The pack names the record type it was refused on instead of retrying."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.50.0",
+      "covered": true,
+      "what": "Permissions are checked on the records used in accounting, stock, asset, manufacturing and project actions. The pack names the record type it was refused on instead of retrying."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.51.0",
+      "covered": true,
+      "what": "Profit and Loss and Balance Sheet can be grouped by accounting dimension. The reports skill uses Group by Dimension where the site has it."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.52.0",
+      "covered": true,
+      "what": "In BOM, Work Order and Job Card, Track Semi Finished Goods / Make in Stages was renamed (Produce Item per Operation, or Produce an Item at Each Operation, depending on the patch). The manufacturing skill uses the unchanged field name and reads the label from the screen; older bundled pages still show the old name."
+    },
+    {
+      "app": "frappe",
+      "since": "16.53.0",
+      "covered": true,
+      "what": "Frappe has a built-in MCP server, and lists can be grouped with totals."
+    },
+    {
+      "app": "frappe",
+      "since": "16.53.0",
+      "covered": true,
+      "what": "A method's rate limit follows the method, not the address used to reach it. The pack waits for Retry-After instead of trying another path."
+    },
+    {
+      "app": "erpnext",
+      "since": "16.53.0",
+      "covered": true,
+      "what": "BOM Creator was rebuilt as a design workspace. The manufacturing skill tells the two screens apart and has the steps for the new one."
+    },
+    {
+      "app": "frappe",
+      "since": "16.55.0",
+      "covered": true,
+      "what": "The Desk has Delete All, which removes a record together with everything linked to it. Treat it as irreversible."
+    },
+    {
+      "app": "frappe",
+      "since": "16.55.0",
+      "covered": true,
+      "what": "API responses leave out fields the signed-in user may not view, so a missing field is not an empty one."
+    },
+    {
+      "app": "frappe",
+      "since": "16.55.0",
+      "covered": true,
+      "what": "New sites use Chrome to make PDFs from print formats. The print format guidance checks Print Settings, PDF Generator, before blaming a format."
+    }
+  ]
+}

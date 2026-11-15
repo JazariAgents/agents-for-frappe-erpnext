@@ -18,7 +18,7 @@ Every row was confirmed against an official Frappe documentation page fetched on
 | `stock.warehouse` | Set up warehouses | api | yes | reversible | `docs/erpnext/erpnext__warehouse.md` | https://docs.frappe.io/erpnext/warehouse |
 | `stock.entry` | Make a stock entry | api | yes | irreversible | `docs/erpnext/erpnext__stock-entry.md` | https://docs.frappe.io/erpnext/stock-entry |
 | `stock.reconciliation` | Reconcile physical stock | api | yes | irreversible | `docs/erpnext/erpnext__stock-reconciliation.md` | https://docs.frappe.io/erpnext/stock-reconciliation |
-| `stock.openingstock` | Load opening stock | browser | yes | reversible | `docs/erpnext/erpnext__opening-stock.md` | https://docs.frappe.io/erpnext/opening-stock |
+| `stock.openingstock` | Load opening stock | browser | yes | irreversible | `docs/erpnext/erpnext__opening-stock.md` | https://docs.frappe.io/erpnext/opening-stock |
 | `stock.batch` | Track batches | api | yes | reversible | `docs/erpnext/erpnext__batch.md` | https://docs.frappe.io/erpnext/batch |
 | `stock.serial` | Track serial numbers | api | yes | reversible | `docs/erpnext/erpnext__serial-no.md` | https://docs.frappe.io/erpnext/serial-no |
 | `stock.bundleserial` | Use the serial and batch bundle | api | yes | reversible | `docs/erpnext/erpnext__serial-and-batch-bundle.md` | https://docs.frappe.io/erpnext/serial-and-batch-bundle |

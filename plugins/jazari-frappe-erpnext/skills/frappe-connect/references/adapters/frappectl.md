@@ -136,9 +136,19 @@ never select columns that hold passwords, keys or tokens.
 The tool's own documentation says it never asks for confirmation; the caller must. Here the caller
 is this plugin:
 
-1. `doc get` the current record and save the snapshot (see the snapshot spec).
-2. State the reversibility class and the number of records, and wait for a clear yes.
-3. Run the change, then `doc get` again and check the result.
+1. `doc get` the current record and save the snapshot (see the snapshot spec): send the output of
+   `frappectl doc get "<DocType>" <name> --json` straight into the snapshot's `raw.json`. Do this before
+   every `doc update`, `delete`, `submit`, `cancel` or `amend`, before a `doc create` that adds a row to an
+   existing record or overwrites a settings record, and before an `api` or `method call` that changes data;
+   treat a method you are not sure about as a change. Attachments go in too:
+   `frappectl file download <file_url> -o <snapshot folder>/images/<base name>`, where the base name is the
+   part of the file name after its last `/` (never `..`).
+2. State the reversibility class and the number of records, and wait for a clear yes. Ask after the
+   snapshot is saved, then end your turn: run the change only in a later turn, after the user's reply. The
+   request itself is never the yes.
+3. Just before the change, `doc get` the record again. If its `modified` time is not the one in the
+   snapshot, someone changed it while you waited: snapshot again and ask again. Then run the change,
+   `doc get` again, and check the result.
 4. Write the audit and activity log entries.
 
 On sites that record it, changes made through `frappectl` show "via API" with the agent's name on

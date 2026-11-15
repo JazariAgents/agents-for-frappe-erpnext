@@ -164,7 +164,7 @@ rule applies as everywhere else in this plugin. Before the change:
 3. State the reversibility class and wait for a clear yes. The request itself is never the yes. The plugin
    holds a change until the user has replied after the snapshot was saved: through Frappe's MCP tools the
    user gets a permission prompt, and the API helper refuses the call.
-4. Act, then append one line to `.frappe/audit.log`.
+4. Act, then append one line to `.frappe/audit.log`, with each changed record's new `modified` time.
 
 Credentials are never written into a snapshot. To put one back, use the **frappe-restore** skill.
 

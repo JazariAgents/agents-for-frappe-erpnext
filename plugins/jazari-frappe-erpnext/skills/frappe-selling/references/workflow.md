@@ -1,6 +1,6 @@
 # Run order to cash
 
-Owner: **Hazim** · verified: docs (documentation, not a live probe)
+Owner: **Hazim** · verified: documentation; the screens, record types and API calls were checked on live sites on 2026-11-14
 
 ## Preconditions
 - `.frappe/state.json` exists (run frappe-connect first)

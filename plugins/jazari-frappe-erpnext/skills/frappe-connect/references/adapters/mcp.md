@@ -84,7 +84,9 @@ actions cannot be undone. All of that is still this plugin's job:
 2. State the reversibility class and the number of records, and wait for a clear yes. Do this after the
    snapshot is saved, never in the same turn as the change: if the user has not replied since the snapshot,
    the hook puts the change to them as a permission prompt instead of letting it through.
-3. Make the change, then `get_document` again and check it says what was intended.
+3. Just before the change, read the record again. If its `modified` time is not the one in the snapshot,
+   someone changed it while you waited: snapshot again and ask again. Then make the change,
+   `get_document` again, and check it says what was intended.
 4. Write the audit and activity log entries.
 
 A submitted document cannot be edited through `update_document`; use `call_document_method` with
@@ -94,8 +96,9 @@ deletes a record together with every record linked to it — treat any request f
 
 ## What MCP cannot do
 
-- **Reports are not documents.** There is no report tool. Run a report through `frappectl report
-  run` (see `frappectl.md`) or in the Desk.
+- **Reports are not documents.** There is no report tool, but `call_method` with
+  `frappe.desk.query_report.run` runs one (see **frappe-reports**, `api.md`; checked on 2026-11-15).
+  `frappectl report run` and the Desk work too.
 - **No bench.** Site backups, restores, migrations and app installs run on the server.
 - **No files.** Uploading or downloading attachments needs `frappectl file` or the Desk.
 - **Bulk reads.** See "Lists and paging".

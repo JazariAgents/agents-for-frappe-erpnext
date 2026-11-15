@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/licence-MIT-23E0C5?style=flat-square" alt="MIT licence">
-  <img src="https://img.shields.io/badge/version-1.1.10-087DB9?style=flat-square" alt="Version 1.1.10">
+  <img src="https://img.shields.io/badge/version-1.1.11-087DB9?style=flat-square" alt="Version 1.1.11">
   <img src="https://img.shields.io/badge/built%20for-ERPNext%20%26%20Frappe%20v16-06152D?style=flat-square" alt="Built for ERPNext and Frappe v16">
   <img src="https://img.shields.io/badge/languages-English%20%C2%B7%20Arabic-00B8D9?style=flat-square" alt="English and Arabic">
 </p>
@@ -147,6 +147,20 @@ Python 3.8 or later, and either a `frappectl` profile or an API key. The page lo
 Google Fonts when you open it; everything else is inside the file.
 
 </details>
+
+### Two editions
+
+| | **Full** (`jazari-frappe-erpnext`) | **Lite** (`jazari-frappe-erpnext-lite`) |
+|---|---|---|
+| Skills, agents, 1,612 bundled pages | All | All, plus one that holds the safety steps |
+| Snapshot and your yes before a change | Locked in code | Rules Claude follows, through a note it adds to your `CLAUDE.md` |
+| API key | Through a local helper that never shows it | Never: you sign in with Frappe's MCP server or frappectl |
+| Dashboard | Jazari Pulse, one page with six screens | A table of counts in the chat |
+| Needs Python | For the locks, the key helper and the dashboard | No |
+
+The Lite edition exists for Claude's plugin directory, which for now accepts plugins that carry code only
+from organizations Anthropic has verified. Install one of them, not both. Lite from here:
+`/plugin install jazari-frappe-erpnext-lite@jazari-agents`.
 
 ## Your first five minutes
 

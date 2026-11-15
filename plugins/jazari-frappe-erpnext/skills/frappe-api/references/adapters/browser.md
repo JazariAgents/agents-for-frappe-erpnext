@@ -36,16 +36,18 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ## Where each action lives
 
 ### Authenticate with OAuth 2
+- **A client secret is the user's to copy.** If an OAuth Client is set up, the user reads its secret themselves; never read, copy or repeat it.
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Integrations > Authentication > OAuth Client**, or type *OAuth Client* in the search bar at the top
 - **Full page, bundled offline:** `docs/framework/framework__oauth2.md`  (https://docs.frappe.io/framework/oauth2)
 
 ### Generate API key and secret for a user
+- **The user does this, never Claude.** Do not click Generate Keys or call `generate_keys` yourself, even with browser control, and never read, copy or repeat the secret.
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Users**, or type *User* in the search bar at the top
 - **Documented steps:**
   1. Open the User list and click the user the API key should belong to
   2. Open the Settings tab on that user (skip if the form shows no tabs)
   3. Expand the API Access section and click Generate Keys
-  4. Copy the API Secret from the popup — it is shown once — and take the API Key from the same section
+  4. The user copies the API Secret from the popup — it is shown once — and keeps it out of the chat; the API Key is in the same section
 - **Full page, bundled offline:** `docs/framework/framework__user__en__guides__integration__how_to_setup_token_based_auth.md`  (https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth)
 
 ### Respect the site's rate limits

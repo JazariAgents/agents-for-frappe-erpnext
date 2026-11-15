@@ -1,0 +1,13 @@
+Jazari Agents for Frappe & ERPNext Lite v1.1 (plugin 1.1.11), built from the full edition 1.1.11
+Built against: Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31)
+Built: 2026-11-15 · Jazari Agents
+Edition: Lite, for Claude's plugin directory. No code of its own: no scripts, no hooks. The full edition is at https://github.com/JazariAgents/agents-for-frappe-erpnext
+Capabilities: 335 documented (90 API / 195 dashboard / 26 bench / 24 guided), each traced to an official documentation page
+Coverage: 100.0% of in-scope documentation pages read at build time
+Verified: the knowledge shared with the full edition on two live sites on 2026-11-14 (see the manual); this edition itself in real Claude sessions on 2026-11-15 (see the manual, "What was tested").
+Licence: MIT (bundled documentation in docs/: CC BY-SA, Frappe Technologies and contributors)
+Languages: EN, AR · Modes: mcp, frappectl, browser, bench, guide
+Connection: Frappe's built-in MCP server (v16.53+) or frappectl (v16+); never an API key handled by the plugin
+Checked against: Frappe v16.56.0 / ERPNext v16.55.0; all 13 changes since the reference pages are covered (see compat.json)
+Bundled documentation: 1,612 official pages, offline, in docs/ (1,607 from 2026-08-31, 5 added 2026-11-14)
+Manual: ask any agent "show the manual"

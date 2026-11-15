@@ -17,7 +17,7 @@ directory: use the dashboard equivalents in the frappe-cloud skill.
 | Understand bench and the bench directory | `bench version` | no | `docs/framework/framework__user__en__bench.md` |
 | Run bench CLI commands | `bench --help` | no | `docs/framework/framework__user__en__bench__bench-commands.md` |
 | Run site-scoped framework commands | `bench --site {site} --help` | no | `docs/framework/framework__user__en__bench__frappe-commands.md` |
-| Create a site with bench new-site | `bench new-site {site}` | no | `docs/framework/framework__user__en__bench__reference__new-site.md` |
+| Create a site with bench new-site | `bench new-site {site}`: give the user this command without `--admin-password` or `--db-root-password`, so bench asks them, and let them run it | no | `docs/framework/framework__user__en__bench__reference__new-site.md` |
 | Drop a site | `bench drop-site {site}` | YES — recreate | `docs/framework/framework__user__en__bench__reference__drop-site.md` |
 | Back up a site | `bench --site {site} backup` | no | `docs/framework/framework__user__en__bench__reference__backup.md` |
 | Restore a site from a backup | `bench --site {site} restore {path}` | YES — irreversible: replaces the whole database, take a fresh backup first | `docs/framework/framework__user__en__bench__reference__restore.md` |
@@ -27,7 +27,7 @@ directory: use the dashboard equivalents in the frappe-cloud skill.
 | List the apps installed on a site | `bench --site {site} list-apps` | no | `docs/framework/framework__user__en__bench__reference__list-apps.md` |
 | Uninstall an app from a site | `bench --site {site} uninstall-app {app}` | YES — recreate | `docs/framework/framework__user__en__bench__reference__uninstall-app.md` |
 | Read and change site configuration | `bench --site {site} set-config {key} {value}` | YES — reversible | `docs/framework/framework__user__en__bench__reference__set-config.md` |
-| Show the current site configuration | `bench --site {site} show-config` | no | `docs/framework/framework__user__en__bench__reference__show-config.md` |
+| Show the current site configuration | `bench --site {site} show-config`: do not run it yourself, because its output holds the database password and the encryption key; ask the user to run it and tell you the one setting they need | no | `docs/framework/framework__user__en__bench__reference__show-config.md` |
 | Execute a Python method on a site | `bench --site {site} execute {dotted.path}` | YES — irreversible | `docs/framework/framework__user__en__bench__reference__execute.md` |
 | Trim unused database tables | `bench --site {site} trim-database` | YES — recreate | `docs/framework/framework__user__en__bench__reference__trim-database.md` |
 | Set up a production environment | `sudo bench setup production {user}` | YES — reversible | `docs/framework/framework__user__en__bench__guides__setup-production.md` |

@@ -53,7 +53,9 @@ the user approves.
    nothing on the site. Reversibility: safe.
 2. **Test-run it** against one real record. The site runs every step and then rolls everything
    back; a webhook is shown, not sent. Show the user each step's result. Reversibility: safe.
-3. **Turn it on** only after a clear yes. From this moment it acts without anyone watching.
+3. **Turn it on** only after a clear yes. Switching it on changes an existing record: save a snapshot of
+   the flow first, ask, end your turn, and switch it on only after the user's reply. From this moment it
+   acts without anyone watching.
    Reversibility: **irreversible** — an email it sends or a webhook it calls cannot be recalled,
    even though the flow itself can be switched off again in a second.
 4. **Check the first real run** in the run history and report it.

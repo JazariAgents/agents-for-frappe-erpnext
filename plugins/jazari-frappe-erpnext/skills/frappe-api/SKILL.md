@@ -40,12 +40,12 @@ Append one entry to `.frappe/tasklog.md` for this request before acting — what
 
 ## Snapshot first
 
-This skill can change or destroy existing data (5 of its 27 capabilities are marked destructive). Before any of them:
+This skill can change or destroy existing data (6 of its 27 capabilities are marked destructive). Before any of them:
 
 1. Write a snapshot to `.frappe/snapshots/<date>_<time>_<op>_<rand4>/` containing `SNAPSHOT.md` (when, site, environment, the user's verbatim request, restore instruction, reversibility class), `raw.json` (the untouched API response for every affected record) and `images/` for any attachments.
 2. **Verify** the snapshot exists and parses. If it cannot be written and verified, the action does not happen.
 3. State the reversibility class to the user, and the count of affected records, and wait for a clear yes.
-4. Only then act. Append one line to `.frappe/audit.log` with the snapshot reference.
+4. Only then act. Append one line to `.frappe/audit.log` with the snapshot reference and each changed record's new `modified` time.
 
 Anything over 25 records stops and shows the count first, even if something similar was approved earlier. To put a snapshot back, use the **frappe-restore** skill.
 
@@ -126,7 +126,7 @@ Most of these can be done either through the API or by clicking; the column show
 | Cancel a submitted document | api | irreversible |
 | Read DocType metadata to discover a site's schema | api | safe (read or create) |
 | Count records of a DocType | api | safe (read or create) |
-| Call a whitelisted method on a document | api | safe (read or create) |
+| Call a whitelisted method on a document | api | irreversible |
 | Upload a file through the API | api | safe (read or create) |
 | Respect the site's rate limits | api | safe (read or create) |
 | Create a webhook on document events | browser | safe (read or create) |
