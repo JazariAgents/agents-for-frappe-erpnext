@@ -40,7 +40,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path:** open https://your-site/crm → **Leads** in the sidebar
 - **Record type:** CRM Lead
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 1885–1963  (https://docs.frappe.io/crm/lead)
+- **Full page, bundled offline:** `docs/crm/crm-02.md` lines 672–750  (https://docs.frappe.io/crm/lead)
 
 ### Move deals through the pipeline
 - **Path (checked on v16.55 with the app installed):** https://your-site/crm → **Deals** in the sidebar
@@ -53,23 +53,23 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Task* — the documentation page below shows the screen
 - **Record type:** CRM Task
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 2466–2506  (https://docs.frappe.io/crm/task)
+- **Full page, bundled offline:** `docs/crm/crm-03.md` lines 196–236  (https://docs.frappe.io/crm/task)
 
 ### Keep notes on a deal
 - **Path:** open https://your-site/crm → **Notes** in the sidebar
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 2035–2072  (https://docs.frappe.io/crm/note)
+- **Full page, bundled offline:** `docs/crm/crm-02.md` lines 822–859  (https://docs.frappe.io/crm/note)
 
 ### Track organizations
 - **Path (checked on v16.55 with the app installed):** https://your-site/crm → **Organizations** in the sidebar
 - **Record type:** CRM Organization
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 2110–2139  (https://docs.frappe.io/crm/organization)
+- **Full page, bundled offline:** `docs/crm/crm-02.md` lines 897–926  (https://docs.frappe.io/crm/organization)
 
 ### Reply with email templates
 - **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Email Template* — the documentation page below shows the screen
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 1216–1249  (https://docs.frappe.io/crm/email-template)
+- **Full page, bundled offline:** `docs/crm/crm-02.md` lines 3–36  (https://docs.frappe.io/crm/email-template)
 
 ### Log calls against a deal
 - **Path:** open https://your-site/crm (the Frappe CRM interface) and find *Call Log* — the documentation page below shows the screen
@@ -81,7 +81,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to Settings > SLA Policies and click on +New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 2273–2318  (https://docs.frappe.io/crm/service-level-agreement)
+- **Full page, bundled offline:** `docs/crm/crm-03.md` lines 3–48  (https://docs.frappe.io/crm/service-level-agreement)
 
 ### Customize deal statuses
 - **Path (checked on v16.55 with the app installed):** https://your-site/desk → type *CRM Lead Status* or *CRM Deal Status* in the search bar at the top
@@ -98,7 +98,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Invite your sales team
 - **Path (checked on v16.55 with the app installed):** https://your-site/crm → your name at the top left → **Settings** → **Users**, then **Invite User**
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 1786–1816  (https://docs.frappe.io/crm/inviting-your-team)
+- **Full page, bundled offline:** `docs/crm/crm-02.md` lines 573–603  (https://docs.frappe.io/crm/inviting-your-team)
 
 ### Message a contact on WhatsApp
 - **Path (checked on v16.55):** **Needs Frappe's WhatsApp integration app**, which is not part of Frappe CRM and was not on the test site. Check `installed_apps` first; if it is missing, say so instead of looking for the screen
@@ -107,29 +107,29 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Click on Add WhatsApp Template
   3. Fill in the required details for your template message
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/crm/crm-01.md` lines 2643–2709  (https://docs.frappe.io/crm/whatsapp)
+- **Full page, bundled offline:** `docs/crm/crm-03.md` lines 373–439  (https://docs.frappe.io/crm/whatsapp)
 
 ### Work an opportunity in ERPNext
 - **Path:** https://your-site/app → **Home > CRM > Sales Pipeline > Opportunity**
 - **Record type:** Opportunity
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-10.md` lines 2809–2898  (https://docs.frappe.io/erpnext/opportunity)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-39.md` lines 762–851  (https://docs.frappe.io/erpnext/opportunity)
 
 ### Run a campaign
 - **Path:** https://your-site/app → **Home > CRM > Campaign > Campaign**
 - **Record type:** Campaign
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-04.md` lines 3–79  (https://docs.frappe.io/erpnext/campaign)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 504–580  (https://docs.frappe.io/erpnext/campaign)
 
 ### Send an email campaign
 - **Path:** https://your-site/app → **Home > CRM > Campaign > Email Campaign**
 - **Record type:** Email Campaign
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-06.md` lines 2952–3045  (https://docs.frappe.io/erpnext/email-campaign)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-24.md` lines 131–224  (https://docs.frappe.io/erpnext/email-campaign)
 
 ### Send a newsletter
 - **Path (checked on v16.55):** **Not part of Frappe v16 itself**: Newsletter moved out of the framework into a separate app. Check `installed_apps` first; if it is missing, say so instead of looking for the screen
 - **Record type:** Newsletter
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-10.md` lines 1890–1947  (https://docs.frappe.io/erpnext/newsletter)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-38.md` lines 700–757  (https://docs.frappe.io/erpnext/newsletter)
 

@@ -120,13 +120,13 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Handle support tickets | HD Ticket | `POST /api/v2/document/HD%20Ticket` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-01.md` lines 3623–3657 |
-| Route tickets to teams | HD Team | `POST /api/v2/document/HD%20Team` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-01.md` lines 3345–3374 |
-| Set ticket priorities | HD Ticket Priority | `POST /api/v2/document/HD%20Ticket%20Priority` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-01.md` lines 3376–3435 |
-| Define ticket types | HD Ticket Type | `POST /api/v2/document/HD%20Ticket%20Type` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-01.md` lines 3590–3621 |
-| Track an issue in ERPNext | Issue | `POST /api/v2/document/Issue` (and the list/read/update calls above) | `docs/erpnext/erpnext-08.md` lines 3191–3326 |
-| Handle a warranty claim | Warranty Claim | `POST /api/v2/document/Warranty%20Claim` (and the list/read/update calls above) | `docs/erpnext/erpnext-18.md` lines 110–211 |
-| Schedule maintenance visits | Maintenance Schedule | `POST /api/v2/document/Maintenance%20Schedule` (and the list/read/update calls above) | `docs/erpnext/erpnext-09.md` lines 2371–2420 |
+| Handle support tickets | HD Ticket | `POST /api/v2/document/HD%20Ticket` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-04.md` lines 500–534 |
+| Route tickets to teams | HD Team | `POST /api/v2/document/HD%20Team` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-04.md` lines 222–251 |
+| Set ticket priorities | HD Ticket Priority | `POST /api/v2/document/HD%20Ticket%20Priority` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-04.md` lines 253–312 |
+| Define ticket types | HD Ticket Type | `POST /api/v2/document/HD%20Ticket%20Type` (and the list/read/update calls above) | `docs/helpdesk/helpdesk-04.md` lines 467–498 |
+| Track an issue in ERPNext | Issue | `POST /api/v2/document/Issue` (and the list/read/update calls above) | `docs/erpnext/erpnext-32.md` lines 359–494 |
+| Handle a warranty claim | Warranty Claim | `POST /api/v2/document/Warranty%20Claim` (and the list/read/update calls above) | `docs/erpnext/erpnext-67.md` lines 747–848 |
+| Schedule maintenance visits | Maintenance Schedule | `POST /api/v2/document/Maintenance%20Schedule` (and the list/read/update calls above) | `docs/erpnext/erpnext-35.md` lines 742–791 |
 
 ## Capabilities that need a schema lookup first
 
@@ -137,9 +137,9 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Set service level agreements | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-01.md` lines 2844–3104 |
-| Route tickets automatically | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-01.md` lines 3437–3502 |
+| Set service level agreements | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-03.md` lines 684–944 |
+| Route tickets automatically | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-04.md` lines 314–379 |
 | Invite and manage agents | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-01.md` lines 3–51 |
-| Answer faster with saved replies | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-01.md` lines 2647–2842 |
-| Publish knowledge base articles | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-01.md` lines 1811–1848 |
+| Answer faster with saved replies | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-03.md` lines 487–682 |
+| Publish knowledge base articles | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-02.md` lines 754–791 |
 | Connect a support email account | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/helpdesk/helpdesk-01.md` lines 890–961 |

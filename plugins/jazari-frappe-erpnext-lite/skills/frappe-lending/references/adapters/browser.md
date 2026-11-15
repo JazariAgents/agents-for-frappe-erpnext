@@ -42,7 +42,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Loan Product List, and click on Add Loan Product
   2. Enter the loan product details like product code, product name, rate of interest, repayment schedule type, etc
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/lending/lending-01.md` lines 1781–1887  (https://docs.frappe.io/lending/loan-product)
+- **Full page, bundled offline:** `docs/lending/lending-02.md` lines 449–555  (https://docs.frappe.io/lending/loan-product)
 
 ### Process a loan application
 - **Path (checked on v16.55):** https://your-site/desk → type *Loan Application* in the search bar at the top and open the doctype
@@ -75,7 +75,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Loan Repayment List, and click on Add Loan Repayment
   2. Enter the loan account, repayment type and the amount to be repaid
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/lending/lending-01.md` lines 1917–2011  (https://docs.frappe.io/lending/loan-repayment)
+- **Full page, bundled offline:** `docs/lending/lending-02.md` lines 585–679  (https://docs.frappe.io/lending/loan-repayment)
 
 ### Accrue interest
 - **Path (checked on v16.55):** https://your-site/desk → type *Loan Interest Accrual* in the search bar at the top and open the doctype
@@ -89,5 +89,5 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Loan Security List, and click on Add Loan Security
   2. Enter the loan security name/code, loan security type
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/lending/lending-01.md` lines 2173–2206  (https://docs.frappe.io/lending/loan-security)
+- **Full page, bundled offline:** `docs/lending/lending-02.md` lines 841–874  (https://docs.frappe.io/lending/loan-security)
 

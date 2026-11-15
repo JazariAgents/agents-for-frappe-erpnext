@@ -72,7 +72,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Click the + Create button
   2. In the form that appears, enter the Title of the quiz and click Save
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/learning/learning-01.md` lines 1503–1560  (https://docs.frappe.io/learning/quizzes)
+- **Full page, bundled offline:** `docs/learning/learning-02.md` lines 384–441  (https://docs.frappe.io/learning/quizzes)
 
 ### Set assignments
 - **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Assignments** in the sidebar
@@ -82,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Issue certificates
 - **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Certifications** in the sidebar
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/learning/learning-01.md` lines 1335–1355  (https://docs.frappe.io/learning/issue-a-certificate)
+- **Full page, bundled offline:** `docs/learning/learning-02.md` lines 216–236  (https://docs.frappe.io/learning/issue-a-certificate)
 
 ### Group courses into a program
 - **Path (checked on v16.55 with the app installed):** https://your-site/lms → **Programs** in the sidebar
@@ -100,7 +100,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Charge for a course
 - **Path:** open https://your-site/lms → **Payment Gateway** in the sidebar
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/learning/learning-01.md` lines 1594–1621  (https://docs.frappe.io/learning/setting-up-payment-gateway)
+- **Full page, bundled offline:** `docs/learning/learning-02.md` lines 475–502  (https://docs.frappe.io/learning/setting-up-payment-gateway)
 
 ### Enrol students
 - **Path:** https://your-site/app → **Home > Education > Student > Student**
@@ -111,7 +111,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Enter the First Name, Middle Name and Last Name of the student
   3. Enter other details like Student Email Address, User ID(If Applicable) and Joining Date
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/education/education-01.md` lines 1962–2062  (https://docs.frappe.io/education/student)
+- **Full page, bundled offline:** `docs/education/education-02.md` lines 723–823  (https://docs.frappe.io/education/student)
 
 ### Set up programs and courses
 - **Path:** https://your-site/app → **Home > Education > Masters > Program**
@@ -124,7 +124,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Select and add the courses within the Program
   5. Save
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/education/education-01.md` lines 1321–1383  (https://docs.frappe.io/education/program)
+- **Full page, bundled offline:** `docs/education/education-02.md` lines 82–144  (https://docs.frappe.io/education/program)
 
 ### Collect fees
 - **Path:** https://your-site/app → **Home > Education > Fees > Fees**

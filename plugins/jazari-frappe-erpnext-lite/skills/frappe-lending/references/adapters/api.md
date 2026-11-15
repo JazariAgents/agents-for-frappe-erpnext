@@ -125,7 +125,7 @@ Run on a live Frappe Lending 16.8 site on 2026-11-14, start to finish.
 1. A **Loan Demand Offset Order** (the order in which a collection pays off what is due), for example
    `{"title": "Standard", "components": [{"demand_type": "EMI (Principal + Interest)"}, {"demand_type": "Penalty"}, {"demand_type": "Charges"}]}`.
 2. On the **Company**, Lending tab: set the four `collection_offset_sequence_for_...` fields to it.
-   Page: `docs/lending/lending-01.md` lines 1435–1540.
+   Page: `docs/lending/lending-02.md` lines 103–208.
 3. The accounts the product posts to: a loan account and interest and penalty receivable and accrued
    accounts (Asset), interest, penalty and suspense income accounts (Income), plus the disbursement and
    payment accounts. Ask the user which accounts to use; create any that are missing only after a yes.
@@ -150,11 +150,11 @@ Submitting a loan, a disbursement or a repayment posts to the ledger: irreversib
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Set up a loan product | Loan Product | `POST /api/v2/document/Loan%20Product` (and the list/read/update calls above) | `docs/lending/lending-01.md` lines 1781–1887 |
+| Set up a loan product | Loan Product | `POST /api/v2/document/Loan%20Product` (and the list/read/update calls above) | `docs/lending/lending-02.md` lines 449–555 |
 | Process a loan application | Loan Application | `POST /api/v2/document/Loan%20Application` (and the list/read/update calls above) | `docs/lending/lending-01.md` lines 493–561 |
 | Disburse a loan | Loan Disbursement | `POST /api/v2/document/Loan%20Disbursement` (and the list/read/update calls above) | `docs/lending/lending-01.md` lines 588–625 |
-| Record a loan repayment | Loan Repayment | `POST /api/v2/document/Loan%20Repayment` (and the list/read/update calls above) | `docs/lending/lending-01.md` lines 1917–2011 |
-| Manage loan security | Loan Security | `POST /api/v2/document/Loan%20Security` (and the list/read/update calls above) | `docs/lending/lending-01.md` lines 2173–2206 |
+| Record a loan repayment | Loan Repayment | `POST /api/v2/document/Loan%20Repayment` (and the list/read/update calls above) | `docs/lending/lending-02.md` lines 585–679 |
+| Manage loan security | Loan Security | `POST /api/v2/document/Loan%20Security` (and the list/read/update calls above) | `docs/lending/lending-02.md` lines 841–874 |
 
 ## Capabilities that need a schema lookup first
 

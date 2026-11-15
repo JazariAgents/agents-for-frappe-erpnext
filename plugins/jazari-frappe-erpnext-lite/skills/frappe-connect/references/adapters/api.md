@@ -120,11 +120,11 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Test the site connection | — | `GET /api/v2/method/ping` | `docs/framework/framework-02.md` lines 2844–3347 |
-| Authenticate with API key and secret | — | `GET /api/method/frappe.auth.get_logged_user` | `docs/framework/framework-02.md` lines 2844–3347 |
-| Log in with username and password | — | `POST /api/method/login` — reference only: the user runs it, never ask for, type or send a password | `docs/framework/framework-02.md` lines 2844–3347 |
-| Read DocType metadata to discover a site's schema | — | `GET /api/v2/doctype/{doctype}/meta` | `docs/framework/framework-05.md` lines 373–492 |
-| Count records of a DocType | — | `GET /api/v2/doctype/{doctype}/count` | `docs/framework/framework-05.md` lines 373–492 |
+| Test the site connection | — | `GET /api/v2/method/ping` | `docs/framework/framework-06.md` lines 660–1163 |
+| Authenticate with API key and secret | — | `GET /api/method/frappe.auth.get_logged_user` | `docs/framework/framework-06.md` lines 660–1163 |
+| Log in with username and password | — | `POST /api/method/login` — reference only: the user runs it, never ask for, type or send a password | `docs/framework/framework-06.md` lines 660–1163 |
+| Read DocType metadata to discover a site's schema | — | `GET /api/v2/doctype/{doctype}/meta` | `docs/framework/framework-17.md` lines 373–492 |
+| Count records of a DocType | — | `GET /api/v2/doctype/{doctype}/count` | `docs/framework/framework-17.md` lines 373–492 |
 
 ## Capabilities that need a schema lookup first
 
@@ -135,6 +135,6 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Authenticate with OAuth 2 | **the user only**: they set up an OAuth Client in the Desk (`browser.md`); never create one yourself, because the answer holds its client secret | `docs/framework/framework-01.md` lines 2663–2736 |
-| Generate API key and secret for a user | **the user only**, in the Desk (`browser.md`): never call `generate_keys` or any method that returns a secret | `docs/framework/framework-05.md` lines 246–291 |
-| Respect the site's rate limits | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-06.md` lines 2072–2132 |
+| Authenticate with OAuth 2 | **the user only**: they set up an OAuth Client in the Desk (`browser.md`); never create one yourself, because the answer holds its client secret | `docs/framework/framework-03.md` lines 288–361 |
+| Generate API key and secret for a user | **the user only**, in the Desk (`browser.md`): never call `generate_keys` or any method that returns a secret | `docs/framework/framework-17.md` lines 246–291 |
+| Respect the site's rate limits | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-22.md` lines 333–393 |

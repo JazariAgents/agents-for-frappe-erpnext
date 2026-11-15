@@ -44,7 +44,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Leave Account and Party blank to review all postings, or narrow the report to the balance you are investigating
   4. Use Voucher No when you already know the source transaction. Select a categorization option when you want entries arranged by Account, Voucher, or Party
   5. Refresh the report and confirm that the result has fully loaded before interpreting it
-- **Full page, bundled offline:** `docs/erpnext/erpnext-07.md` lines 2829–2964  (https://docs.frappe.io/erpnext/general-ledger)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-28.md` lines 3–138  (https://docs.frappe.io/erpnext/general-ledger)
 
 ### Produce a balance sheet
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Balance Sheet**, or type *Balance Sheet* in the search bar at the top
@@ -55,7 +55,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Apply Finance Book, Cost Center, Project, Department, or another Accounting Dimension only when required
   5. To get one column per cost center, project or other accounting dimension, choose it in **Group by Dimension** (ERPNext 16.51 and later; absent on older sites)
   6. Refresh and wait for totals, chart, and account rows to load
-- **Full page, bundled offline:** `docs/erpnext/erpnext-02.md` lines 3209–3312  (https://docs.frappe.io/erpnext/balance-sheet)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-08.md` lines 264–367  (https://docs.frappe.io/erpnext/balance-sheet)
 
 ### Produce a profit and loss report
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Profit and Loss**, or type *Profit and Loss Statement* in the search bar at the top
@@ -67,7 +67,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Apply Finance Book, Cost Center, Department, Project, or another Accounting Dimension only when the question requires that slice
   6. To get one column per cost center, project or other accounting dimension, choose it in **Group by Dimension** (ERPNext 16.51 and later; absent on older sites)
   7. Refresh and wait for the totals, chart, and account rows to load
-- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 1110–1222  (https://docs.frappe.io/erpnext/profit-and-loss-report)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-45.md` lines 425–537  (https://docs.frappe.io/erpnext/profit-and-loss-report)
 
 ### Produce a cash flow report
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Cash Flow**, or type *Cash Flow* in the search bar at the top
@@ -77,7 +77,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Choose periodicity and optional Finance Book, Cost Center, Project, Department, or Accounting Dimension
   4. Enable opening and closing balances when the cash reconciliation requires them
   5. Refresh and wait for totals, chart, and report sections to load
-- **Full page, bundled offline:** `docs/erpnext/erpnext-04.md` lines 194–286  (https://docs.frappe.io/erpnext/cash-flow-report)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 695–787  (https://docs.frappe.io/erpnext/cash-flow-report)
 
 ### Age receivables and payables
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > Accounts Receivable**, or type *Accounts Receivable* in the search bar at the top
@@ -87,12 +87,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Choose ageing based on Due Date or Posting Date according to the review
   4. Optionally filter by Party, Account, Territory, Supplier Group, Cost Center, Project, Finance Book, currency, or another available dimension
   5. Refresh the report and open significant invoice references
-- **Full page, bundled offline:** `docs/erpnext/erpnext-01.md` lines 1792–1883  (https://docs.frappe.io/erpnext/accounts-receivable-and-payable)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-03.md` lines 358–449  (https://docs.frappe.io/erpnext/accounts-receivable-and-payable)
 
 ### Use the standard accounting reports
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Accounts > Reports > General Ledger**, or type *General Ledger* in the search bar at the top
 - **On this screen:** The other statements sit beside it in the same Reports section, and in the **Financial Reports** sidebar.
-- **Full page, bundled offline:** `docs/erpnext/erpnext-01.md` lines 1273–1435  (https://docs.frappe.io/erpnext/accounting-reports)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-02.md` lines 485–647  (https://docs.frappe.io/erpnext/accounting-reports)
 
 ### Analyse sales
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > CRM > Reports > Sales Analytics**, or type *Sales Analytics* in the search bar at the top
@@ -100,12 +100,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Open the Selling workspace
   2. Select a report, or search for it by name
   3. Set Company, date range, and other filters
-- **Full page, bundled offline:** `docs/erpnext/erpnext-14.md` lines 3–131  (https://docs.frappe.io/erpnext/sales-analytics)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-52.md` lines 3–131  (https://docs.frappe.io/erpnext/sales-analytics)
 
 ### Build a custom report
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Views > Report**, or type *Report* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-09.md` lines 2526–2559  (https://docs.frappe.io/erpnext/making-custom-reports)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-35.md` lines 897–930  (https://docs.frappe.io/erpnext/making-custom-reports)
 
 ### Email a report on a schedule
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Automation > Auto Email Report**, or type *Auto Email Report* in the search bar at the top
@@ -114,7 +114,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Select the Report for which you want to generate emails
   3. Select the user for which you want to create this report (permissions will apply for this user)
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-02.md` lines 2717–2776  (https://docs.frappe.io/erpnext/auto-email-reports)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-07.md` lines 735–794  (https://docs.frappe.io/erpnext/auto-email-reports)
 
 ### Build ERPNext dashboards
 - **Path (checked on v16.55):** https://your-site/desk → type *Dashboard* in the search bar at the top and open the doctype
@@ -128,7 +128,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   7. Use Support Reports for customer support review
   8. Use Insights Dashboards when you need custom dashboards across modules
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-07.md` lines 188–347  (https://docs.frappe.io/erpnext/erpnext-dashboards)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-25.md` lines 3–162  (https://docs.frappe.io/erpnext/erpnext-dashboards)
 
 ### Connect a data source in Insights
 - **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Data Sources** in the sidebar
@@ -142,12 +142,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. SQL Editor Write SQL directly (for SQL experts)
   3. Script Editor Python scripts for complex transformations
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/insights/insights-01.md` lines 2209–2260  (https://docs.frappe.io/insights/querying/overview)
+- **Full page, bundled offline:** `docs/insights/insights-02.md` lines 694–745  (https://docs.frappe.io/insights/querying/overview)
 
 ### Use expressions in a query
 - **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Workbooks** → open the query → **Column Expression**
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/insights/insights-01.md` lines 1518–1884  (https://docs.frappe.io/insights/querying/expressions)
+- **Full page, bundled offline:** `docs/insights/insights-02.md` lines 3–369  (https://docs.frappe.io/insights/querying/expressions)
 
 ### Chart a result in Insights
 - **Path (checked on v16.55 with the app installed):** https://your-site/insights → **Workbooks** → open the workbook and add a chart to the query

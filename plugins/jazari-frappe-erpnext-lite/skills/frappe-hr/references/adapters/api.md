@@ -126,7 +126,7 @@ entry. Creating a Payroll Entry alone makes no slips; these are the steps the De
 1. **Holiday lists are assigned, not just set.** On Frappe HR 16 an employee's or company's holiday list
    comes from a submitted **Holiday List Assignment** (`applicable_for` Company or Employee, `assigned_to`,
    `holiday_list`, `from_date`). Setting `holiday_list` on the Employee or the Company is not enough.
-   Page: `docs/frappe-hr/frappe-hr-01.md` lines 3525–3559.
+   Page: `docs/frappe-hr/frappe-hr-04.md` lines 232–266.
 2. **The payroll payable account must have account type Payable.** ERPNext's standard chart creates
    "Payroll Payable" without it.
 3. **Every salary component needs an account for the company** (its `accounts` table).
@@ -152,26 +152,26 @@ on their Salary Structure Assignment. If none are found, check those match.
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Create employee records | Employee | `POST /api/v2/document/Employee` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 2444–2596 |
-| Onboard a new employee | Employee Onboarding | `POST /api/v2/document/Employee%20Onboarding` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 1810–1906 |
-| Run employee separation | Employee Separation | `POST /api/v2/document/Employee%20Separation` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 2129–2218 |
+| Create employee records | Employee | `POST /api/v2/document/Employee` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 190–342 |
+| Onboard a new employee | Employee Onboarding | `POST /api/v2/document/Employee%20Onboarding` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 641–737 |
+| Run employee separation | Employee Separation | `POST /api/v2/document/Employee%20Separation` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 960–1049 |
 | Mark attendance | Attendance | `POST /api/v2/document/Attendance` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 537–612 |
-| Record employee check-ins | Employee Checkin | `POST /api/v2/document/Employee%20Checkin` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 1403–1478 |
-| Plan shifts | Shift Type | `POST /api/v2/document/Shift%20Type` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 1042–1107 |
-| Define leave types | Leave Type | `POST /api/v2/document/Leave%20Type` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 2462–2578 |
-| Set a leave policy | Leave Policy | `POST /api/v2/document/Leave%20Policy` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 2423–2460 |
-| Allocate leave | Leave Allocation | `POST /api/v2/document/Leave%20Allocation` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 1510–1571 |
-| Approve a leave application | Leave Application | `POST /api/v2/document/Leave%20Application` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 1573–1684 |
-| Maintain the holiday list | Holiday List | `POST /api/v2/document/Holiday%20List` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 3163–3245 |
-| Build a salary structure | Salary Structure | `POST /api/v2/document/Salary%20Structure` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 476–571 |
-| Define salary components | Salary Component | `POST /api/v2/document/Salary%20Component` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 96–230 |
-| Run payroll | Payroll Entry | follow "Run payroll: the tested recipe" above | `docs/frappe-hr/frappe-hr-02.md` lines 3169–3277 |
-| Issue salary slips | Salary Slip | `POST /api/v2/document/Salary%20Slip` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 232–304 |
-| Process expense claims | Expense Claim | `POST /api/v2/document/Expense%20Claim` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 2718–2816 |
-| Give an employee advance | Employee Advance | `POST /api/v2/document/Employee%20Advance` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 1172–1287 |
+| Record employee check-ins | Employee Checkin | `POST /api/v2/document/Employee%20Checkin` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 234–309 |
+| Plan shifts | Shift Type | `POST /api/v2/document/Shift%20Type` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-10.md` lines 51–116 |
+| Define leave types | Leave Type | `POST /api/v2/document/Leave%20Type` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-07.md` lines 658–774 |
+| Set a leave policy | Leave Policy | `POST /api/v2/document/Leave%20Policy` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-07.md` lines 619–656 |
+| Allocate leave | Leave Allocation | `POST /api/v2/document/Leave%20Allocation` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-06.md` lines 764–825 |
+| Approve a leave application | Leave Application | `POST /api/v2/document/Leave%20Application` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-06.md` lines 827–938 |
+| Maintain the holiday list | Holiday List | `POST /api/v2/document/Holiday%20List` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 909–991 |
+| Build a salary structure | Salary Structure | `POST /api/v2/document/Salary%20Structure` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-09.md` lines 383–478 |
+| Define salary components | Salary Component | `POST /api/v2/document/Salary%20Component` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-09.md` lines 3–137 |
+| Run payroll | Payroll Entry | follow "Run payroll: the tested recipe" above | `docs/frappe-hr/frappe-hr-08.md` lines 237–345 |
+| Issue salary slips | Salary Slip | `POST /api/v2/document/Salary%20Slip` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-09.md` lines 139–211 |
+| Process expense claims | Expense Claim | `POST /api/v2/document/Expense%20Claim` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-03.md` lines 464–562 |
+| Give an employee advance | Employee Advance | `POST /api/v2/document/Employee%20Advance` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 3–118 |
 | Run an appraisal cycle | Appraisal Cycle | `POST /api/v2/document/Appraisal%20Cycle` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-01.md` lines 119–211 |
-| Post a job opening | Job Opening | `POST /api/v2/document/Job%20Opening` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 1259–1321 |
-| Track job applicants | Job Applicant | `POST /api/v2/document/Job%20Applicant` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-02.md` lines 1133–1202 |
+| Post a job opening | Job Opening | `POST /api/v2/document/Job%20Opening` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-06.md` lines 513–575 |
+| Track job applicants | Job Applicant | `POST /api/v2/document/Job%20Applicant` (and the list/read/update calls above) | `docs/frappe-hr/frappe-hr-06.md` lines 387–456 |
 
 ## Capabilities that need a schema lookup first
 
@@ -183,4 +183,4 @@ Do not guess the name.
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
 | Automate attendance from check-ins | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/frappe-hr/frappe-hr-01.md` lines 614–721 |
-| Collect tax exemption declarations | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/frappe-hr/frappe-hr-01.md` lines 2257–2345 |
+| Collect tax exemption declarations | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/frappe-hr/frappe-hr-03.md` lines 3–91 |

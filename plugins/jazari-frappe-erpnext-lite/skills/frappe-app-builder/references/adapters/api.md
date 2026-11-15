@@ -120,7 +120,7 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Add a custom field | Custom Field | `POST /api/v2/document/Custom%20Field` (and the list/read/update calls above) | `docs/erpnext/erpnext-05.md` lines 274–360 |
+| Add a custom field | Custom Field | `POST /api/v2/document/Custom%20Field` (and the list/read/update calls above) | `docs/erpnext/erpnext-17.md` lines 3–89 |
 
 ## Capabilities that need a schema lookup first
 
@@ -131,16 +131,16 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Create a DocType | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-06.md` lines 2809–2983 |
-| Turn on DocType features | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-06.md` lines 3300–3367 |
-| Pick the right field type | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-02.md` lines 5645–5988 |
-| Set how documents are named | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-02.md` lines 6075–6250 |
-| Use a child table | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-02.md` lines 5249–5293 |
-| Publish a web form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-06.md` lines 4277–4315 |
-| Build a print format | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 2840–2900 |
-| Customize a form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-05.md` lines 1175–1277 |
-| Add a client script | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-04.md` lines 951–984 |
-| Set up an approval workflow | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 1906–1921 |
+| Create a DocType | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-23.md` lines 3–177 |
+| Turn on DocType features | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-23.md` lines 494–561 |
+| Pick the right field type | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-08.md` lines 399–742 |
+| Set how documents are named | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-08.md` lines 829–1004 |
+| Use a child table | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-08.md` lines 3–47 |
+| Publish a web form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-24.md` lines 344–382 |
+| Build a print format | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 811–871 |
+| Customize a form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 184–286 |
+| Add a client script | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 456–489 |
+| Set up an approval workflow | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-69.md` lines 536–551 |
 | Design an app screen in Frappe Studio | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/studio/studio-01.md` lines 3–71 |
 
 ## Not an API job

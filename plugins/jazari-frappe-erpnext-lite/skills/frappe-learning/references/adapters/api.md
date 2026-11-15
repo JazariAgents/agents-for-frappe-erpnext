@@ -120,8 +120,8 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Enrol students | Student | `POST /api/v2/document/Student` (and the list/read/update calls above) | `docs/education/education-01.md` lines 1962–2062 |
-| Set up programs and courses | Program | `POST /api/v2/document/Program` (and the list/read/update calls above) | `docs/education/education-01.md` lines 1321–1383 |
+| Enrol students | Student | `POST /api/v2/document/Student` (and the list/read/update calls above) | `docs/education/education-02.md` lines 723–823 |
+| Set up programs and courses | Program | `POST /api/v2/document/Program` (and the list/read/update calls above) | `docs/education/education-02.md` lines 82–144 |
 | Collect fees | Fees | `POST /api/v2/document/Fees` (and the list/read/update calls above) | `docs/education/education-01.md` lines 848–960 |
 
 ## Capabilities that need a schema lookup first
@@ -137,9 +137,9 @@ Do not guess the name.
 | Add chapters and lessons | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 3–62 |
 | Run a batch of learners | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 702–794 |
 | Host a live class | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 919–979 |
-| Assess learners with quizzes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 1503–1560 |
+| Assess learners with quizzes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-02.md` lines 384–441 |
 | Set assignments | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 156–187 |
-| Issue certificates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 1335–1355 |
+| Issue certificates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-02.md` lines 216–236 |
 | Group courses into a program | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 64–110 |
-| Charge for a course | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 1594–1621 |
+| Charge for a course | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-02.md` lines 475–502 |
 | Run assessments | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/education/education-01.md` lines 86–105 |

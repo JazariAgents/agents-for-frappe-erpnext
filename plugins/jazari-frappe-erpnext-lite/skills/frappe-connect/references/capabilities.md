@@ -9,14 +9,14 @@ Every row was confirmed against an official Frappe documentation page fetched on
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
-| `api.connect` | Test the site connection | api | no | reversible | `docs/framework/framework-02.md` lines 2844–3347 | https://docs.frappe.io/framework/user/en/api/rest |
-| `api.auth.token` | Authenticate with API key and secret | api | no | reversible | `docs/framework/framework-02.md` lines 2844–3347 | https://docs.frappe.io/framework/user/en/api/rest |
-| `api.auth.password` | Log in with username and password | api | no | reversible | `docs/framework/framework-02.md` lines 2844–3347 | https://docs.frappe.io/framework/user/en/api/rest |
-| `api.auth.oauth2` | Authenticate with OAuth 2 | api | no | reversible | `docs/framework/framework-01.md` lines 2663–2736 | https://docs.frappe.io/framework/oauth2 |
-| `api.keys.generate` | Generate API key and secret for a user | browser | no | reversible | `docs/framework/framework-05.md` lines 246–291 | https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth |
-| `api.doctype.meta` | Read DocType metadata to discover a site's schema | api | no | reversible | `docs/framework/framework-05.md` lines 373–492 | https://docs.frappe.io/framework/user/en/guides/integration/rest_api |
-| `api.doctype.count` | Count records of a DocType | api | no | reversible | `docs/framework/framework-05.md` lines 373–492 | https://docs.frappe.io/framework/user/en/guides/integration/rest_api |
-| `api.ratelimit` | Respect the site's rate limits | api | no | reversible | `docs/framework/framework-06.md` lines 2072–2132 | https://docs.frappe.io/framework/user/en/rate-limiting |
+| `api.connect` | Test the site connection | api | no | reversible | `docs/framework/framework-06.md` lines 660–1163 | https://docs.frappe.io/framework/user/en/api/rest |
+| `api.auth.token` | Authenticate with API key and secret | api | no | reversible | `docs/framework/framework-06.md` lines 660–1163 | https://docs.frappe.io/framework/user/en/api/rest |
+| `api.auth.password` | Log in with username and password | api | no | reversible | `docs/framework/framework-06.md` lines 660–1163 | https://docs.frappe.io/framework/user/en/api/rest |
+| `api.auth.oauth2` | Authenticate with OAuth 2 | api | no | reversible | `docs/framework/framework-03.md` lines 288–361 | https://docs.frappe.io/framework/oauth2 |
+| `api.keys.generate` | Generate API key and secret for a user | browser | no | reversible | `docs/framework/framework-17.md` lines 246–291 | https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth |
+| `api.doctype.meta` | Read DocType metadata to discover a site's schema | api | no | reversible | `docs/framework/framework-17.md` lines 373–492 | https://docs.frappe.io/framework/user/en/guides/integration/rest_api |
+| `api.doctype.count` | Count records of a DocType | api | no | reversible | `docs/framework/framework-17.md` lines 373–492 | https://docs.frappe.io/framework/user/en/guides/integration/rest_api |
+| `api.ratelimit` | Respect the site's rate limits | api | no | reversible | `docs/framework/framework-22.md` lines 333–393 | https://docs.frappe.io/framework/user/en/rate-limiting |
 
 ## Version notes
 

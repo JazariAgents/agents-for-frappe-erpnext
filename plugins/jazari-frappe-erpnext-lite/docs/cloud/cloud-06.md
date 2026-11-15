@@ -1,0 +1,824 @@
+<!-- Frappe documentation: cloud, part 6 of 9. Index: docs/INDEX.md -->
+
+<!-- page: cloud/cloud__private-benches__common-issues__pkg-resources-error-when-updating-site.md -->
+---
+title: "pkg_resources error when updating site"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/private-benches/common-issues/pkg-resources-error-when-updating-site"
+updated: "2026-08-04"
+---
+
+# Update fails with "No module named 'pkg\_resources'"
+
+Your site update failed and the traceback ends with:
+
+```
+ModuleNotFoundError: No module named 'pkg_resources'
+```
+
+The update is rolled back, so your site is still running on the old bench. Nothing is lost — but the update will keep failing until you do one of the things below.
+
+## Why it happens
+
+`pkg_resources` used to ship with **setuptools**. setuptools removed it in version 82.
+
+Every deploy builds a fresh bench with a fresh Python environment, and that environment now gets a setuptools that no longer has `pkg_resources`. Any app that still imports it — older **Frappe** versions, and **Payments** and **LMS** (both pull it in through `razorpay`) — breaks the moment the site is migrated.
+
+## Fix: update the app
+
+All three apps have newer releases that don't import `pkg_resources` any more. This is the fix — the rest of this page is for when you can't take it.
+
+Open your bench group and go to the **Apps** tab. If an update is available you will see the **Update Available** button.
+
+![](/files/image3b6df7.webp)
+
+Click it, tick **Frappe Framework**, **Payments** and **LMS** — whichever are listed as having an update — and go through **Next** until you can deploy.
+
+![](/files/imaged87cec.webp)
+
+Once the deploy finishes, retry the site update.
+
+## If you don't want to update those apps
+
+Some teams pin app versions deliberately. In that case you have two options.
+
+### Option 1: install the older setuptools yourself
+
+The deploy creates a **new bench**. You can SSH into it and put the older setuptools back before the site is migrated.
+
+1. Open the bench group, go to the **Sites** tab, click the `...` next to the new bench and choose **SSH Access**.  
+![](/files/imaged7cf64.webp)
+2. Run the two commands the dialog gives you — the first stores a certificate that is valid for 6 hours, the second opens the SSH session.  
+![](/files/imagef339b1.webp)
+
+  If the dialog says your SSH public key is missing, add it under **Settings → Developer** first.
+3. Once you are in, run:
+  ```bash
+   cd /home/frappe/frappe-bench
+   env/bin/pip install setuptools==80.9.0
+  ```
+4. Retry the site update from the dashboard.
+
+> **This is not a one-time fix.** Every deploy creates a brand new bench with a brand new environment, so you have to do this again after *every* update. If that isn't practical, use Option 2.
+
+### Option 2: change the Bench version
+
+The bench CLI used to pull in the newest setuptools when it built the environment, without telling anyone. Newer bench releases pin it back below 82, but the versions in between will keep picking up the broken one.
+
+You can move your bench group to a Bench version that isn't affected. Go to the **Dependencies** tab of your bench group.
+
+![](/files/image5d5471.webp)
+
+Click the `...` next to **Bench Version**, choose **Edit**, pick **5.26.0** from the list and click **Update**. Deploy afterwards for it to take effect.
+
+![](/files/image467bde.webp)
+
+If 5.26.0 is not in the list for your Frappe version, pick the highest version below it that is.
+
+This survives future deploys, so you won't have to repeat Option 1 every time. Updating the app is still the better long-term answer.
+
+<!-- page: cloud/cloud__private-benches__common-issues__request-timed-out.md -->
+---
+title: "Request Timed Out"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/private-benches/common-issues/request-timed-out"
+updated: "2026-08-24"
+---
+
+# Request Timed Out
+
+*(screenshot — not bundled; see the live page URL in this file's front matter)*
+
+One action took longer than the HTTP timeout of the bench. The default timeout is 120 seconds. The proxy stopped the request and returned 504. The dialog has the title **Message** and the text **Request Timed Out**.
+
+The server is not at fault. The code behind that one action is too slow.
+
+If the site shows **Request Timeout: Server was too busy**, read [that page](https://docs.frappe.io/cloud/site/common-issues/request-timeout-server-was-too-busy-to-process-this-request) instead. That error is a database lock.
+
+## Find the cause
+
+1. Read the [slow queries](https://docs.frappe.io/cloud/faq/mariadb-slow-queries-in-your-site) of your site. A slow query is the usual cause.
+2. If the queries are fast, the Python code is slow. Do the same action from `bench console` after you [connect with SSH](https://docs.frappe.io/cloud/benches/ssh).
+3. Time each step of the action there. The step that takes the most time is the one to correct.
+
+## Correct it
+
+- Make the slow code faster. Add an index, or remove work from the loop.
+- Move work that is always slow to a [background job](https://docs.frappe.io/framework/user/en/api/background_jobs). The user then does not wait for it.
+- If you cannot change the code now, increase `http_timeout` in the [bench config](https://docs.frappe.io/cloud/benches/bench-config). This hides the error. It does not correct it.
+
+<!-- page: cloud/cloud__public-bench-update-schedule.md -->
+---
+title: "Public Bench Update Schedule"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/public-bench-update-schedule"
+updated: "2026-02-16"
+---
+
+Public/Shared benches update every Wednesday. Sites get auto updated soon after. Your site on public bench should get auto updated by the end of thursday.
+
+<!-- page: cloud/cloud__recent-issues.md -->
+---
+title: "Recent Issues"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/recent-issues"
+updated: "2026-08-31"
+---
+
+## Intermittent downtime in KSA and Johannesburg regions (2026-08-29)
+
+Due to an apparent network issue at DigitalOcean, sites started facing 504 and 502 errors in their sites intermittently. This started from 11 AM and went on till 5 PM. Upon investigation, we observed packet loss between the servers. We have applied a configuration change on all servers along with our NAT gateways to resolve the issue. Sites should be up now.
+
+
+
+KSA region was proxying it's registry requests through another OCI instance in Johannesburg. This was added as a fix to an earlier incident. We removed the proxy and traffic is back to normal now.
+
+## India Compliance API / E-invoicing failures (2026-07-26)
+
+One 2026-07-26 we had updated our servers in Hetzner (Falkenstein and Nuremberg) as a part of scheduled maintenance. As a side effect of the same MTU on the network had reduced. This led to outbound requests from benches on the servers failing -- notably, requests to India Compliance API.  
+
+Our engineers fixed investigated and identified the issue on **2026-07-27** and fixed the issue by **2:35 PM IST** on all affected servers. 
+
+## Deploy failures across multiple regions (2026-07-20)
+
+On 2026-07-20, 14:00 IST we noticed, docker pushes failing for our global docker registry which directly or indirectly caters to all our regions.
+
+After investigation we noticed the issue was with DigitalOcean our upstream storage provider for our Docker registry.
+
+
+
+DigitalOcean object storage enforces a silent cap on the allowed bucket size — which is not documented anywhere.
+
+
+
+We performed the following actions for restoring normalcy
+
+1. Immediately paused all deploys to ensure that no more failed deploys go through.
+2. Raised a formal complaint with the upstream provider.
+3. Started manual garbage collection to freaup space if possible
+
+While the GC failed due to the volume of data and synchronous nature of docker registry's garbage collection, we managed to get the upstream providers to increase our storage quota.
+
+
+
+Normalcy was restored on 2026-07-21 02:30 IST.
+
+
+
+## TLS incident across multiple regions (2026-07-13)
+
+There was a TLS issue affecting multiple proxies from **11:56 AM IST** to **1:43 PM IST**
+
+The issue had transpired due to an update that went to our older proxies. These proxies were still in use for certain regions including Singapore, Frankfurt, Virginia, Jakarta, London and Johannesburg. Custom domains pointing to older proxies' IP were also affected.
+
+Additionally, TLS certificates for some subdomains (l.frappe.cloud, z.frappe.cloud, v.frappe.cloud, s.frappe.cloud) were not renewed. This was happening due to another bug.
+
+New TLS certificates were obtained for the affected domains and the faulty update was rolled back on all proxies to resolve the issue. All wildcard domains have also been pointed to the newer proxies so that such incident may not recur.  
+We are taking measures to
+
+- Prevent updates on older proxies
+- Ensure TLS renewal success for all wildcard domains
+- Ensure new proxy IP used everywhere
+
+## Downtime in Nuremberg (2026-06-05)
+
+Recently our proxy in the Nuremberg faced a networking drop, due to an upstream issue therefore, some sites might have been down intermittently
+
+## Downtime in Virginia (2026-06-05)
+
+Our proxy in Virginia lost communication with our central monitoring system, which might have caused intermittent false incidents on some of the Virginia servers however, systems are stable now.
+
+## Downtime in Mumbai (2026-05-21)
+
+One of our servers in the Mumbai region went down completely on 2025-05-21 from 01:02 PM IST to 02:58 PM IST . The issue was with respect to nginx unable to server any requests completely as all requests to the server would get stuck at nginx without any logging. After investigation from our engineers the culprit was observed to be an nginx plugin we use to tracking metrics of nginx. After disabling the same, we were able to restart the server and bring it back up.
+
+## Downtime on f1-falkenstein2 (2026-05-15)
+
+On 15 May 2026, services on `f1-falkenstein2` went down because the server disk became full. This caused Redis and Docker services to stop working properly. The main reason was unused Docker images taking up too much space over time.
+
+To fix the issue, we attached extra storage and moved bench data to it. We also removed unused Docker images and restarted the services. Sites started coming back online gradually after recovery.
+
+All the sites on the server has faced around \~2hr of downtime.
+
+To avoid this in the future, we are improving [Docker image cleanup](https://github.com/frappe/agent/pull/508), and will move storage to Hetzner Volumes for easier maintenance
+
+## Downtime in Nuremberg and Ashburn (2026-05-13)
+
+The sites are back up and running.
+
+RCA - Proxies going down  
+(All timings are in IST)  
+
+
+
+2:25am - A new root subdomain \*.nvi.frappe.cloud is created by an engineer.  
+2:25am - A race condition sends empty TLS certificates to all proxies.  
+6:00am - A Setup TLS certificate job triggers the restart of nginx `systemctl restart nginx` in a few proxy servers.  
+6:00am - The regions of Ashburn, Nuremberg and Navi Mumbai start going down as Nginx fails to start due to missing certificates for the root subdomain.  
+9:38am - The root cause is identified.  
+11:41am - A [code fix](https://github.com/frappe/press/pull/6420) is merged which ensures the old configuration keeps running if the new Nginx configuration is invalid.  
+11:43am - The TLS certificates are propagated to the servers.  
+12:14pm - TLS setup is triggered on all proxy servers and they are operational.
+
+
+
+## Deploys Affected in KSA and Europe (2026-05-12)
+
+On May 12th, we experienced a network disruption affecting incoming international traffic from Europe and the KSA region to our Bangalore server, which **hosts** our central Docker registry. This issue was caused by upstream providers experiencing extreme packet loss at the international-to-domestic handoff.
+
+Once detected, we raised support tickets with **our** upstream providers and **provisioned** HTTP proxies to relay the traffic. This proxy setup allowed us to resume deployments with minimal further disruption.
+
+## Data Rollback Temporary Issue On m4-virginia (2026-04-21)
+
+At 10:17 AM IST, the m4-virginia server experienced high resource usage, which triggered an automated recovery process and caused the server to reboot.
+
+During the reboot, a leftover backup disk (intended for restoration purposes) was mistakenly mounted with higher priority than the live disk. As a result, the system temporarily started serving outdated data.
+
+At 12:13 PM IST, our engineers identified and resolved the issue. Since then, the system has been serving the correct and up-to-date data.
+
+If you are still experiencing any issues or have concerns, please reach out to support at support.frappe.io.
+
+## Downtime in Frankfurt (2026-04-20)
+
+###### One of our Frankfurt servers had unexpected downtime due to a network issue. We are investigating the same. We shall keep you posted once fixed.
+
+**Edit**:- The issue has been fixed, will share the RCA soon, and we will continue to investigate the source of the issue.
+
+## Outbound IP Change for AWS regions (2026-04-01)
+
+We are in the process of updating the outbound IP addresses for most of our AWS-hosted servers.
+
+**Regions affected:**
+
+- Singapore
+- Frankfurt
+- Cape Town
+- Virginia
+- London
+- Mumbai
+- Sydney
+- Zurich
+- Jakarta
+
+**Status &amp; Timeline:**
+
+- Zurich, Jakarta, and Sydney: **Completed**
+- All remaining regions (except Mumbai): ~~Scheduled for completion by 2026-04-01, 11:59 PM IST~~ **Completed**
+- Mumbai: ~~**Will begin on 2026-04-02, 10:00 AM IST**  and may take **1–2 days** to fully complete~~ **Completed**
+
+**Unaffected Servers:**
+
+- Self-hosted servers
+- Servers with static IP addresses
+
+If you have any IP-based allowlists or firewall rules, please ensure they are updated accordingly.
+
+Example: IF you have whitelisted your server's IP on a bank portal such as ICICI bank, you will have to reach out to the same to get this new IP added to the whitelist
+
+The new outbound IP (post updation) can be checked in the Site Overview page. Please Refer: [https://docs.frappe.io/cloud/faq/site#inbound-and-outbound-ips](https://docs.frappe.io/cloud/faq/site#inbound-and-outbound-ips) 
+
+## Disruptions in AWS Bahrain (2026-03-24)
+
+Multiple servers in Bahrain region (me-south-1a) are down due to an issue in AWS datacenter.
+
+You can track the health status here : [https://health.aws.amazon.com/health/status](https://health.aws.amazon.com/health/status)
+
+For existing customers on Bahrain region, as per recent [advisory from AWS](https://health.aws.amazon.com/health/status) , if you have not already moved your site, we suggest you to move your sites to other regions on Frappe Cloud (Eg: **Mumbai, Frankfurt, Virginia**) to continue services without disruption. Since the servers are already down,  [direct site migration](https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-region) will not work. You will have to move using your **last backup available**. This implies some data loss.
+
+### Steps to move
+
+1. [Create a new site](https://docs.frappe.io/cloud/sites/creating-a-new-site) in one of the regions that are active
+2. Go to backups dashboard of your existing site in Bahrain region and follow [these instructions](https://docs.frappe.io/cloud/sites/migrate-an-existing-site#restore-backup-on-another-site) to restore backup onto the newly created site.
+3. Following these steps will create a copy of your site using your last backup.
+4. If you have [custom domains](https://frappecloud.com/docs/sites/custom-domains), you can now point the same to the new site you created.
+
+Please reach out to us at [support.frappe.io/helpdesk](https://cloud.frappe.io/support.frappe.io/helpdesk) if you have any questions or concerns regarding the same.
+
+## Disruptions in AWS Middle East (2026-03-04)
+
+Our UAE and Bahrain region is backed by AWS, and as per recent [advisory from AWS](https://health.aws.amazon.com/health/status) , we **strongly** suggest you to move your sites to other regions on Frappe Cloud (Eg: **Mumbai, Frankfurt, Virginia**) to continue services without disruption.
+
+You can check [this doc](https://docs.frappe.io/cloud/sites/move-site-across-region) on how you can move your site to other regions at the click of a button.
+
+NOTE: There will be DOWNTIME when moving your site across region, but a planned downtime is much better than unplanned downtime and data loss.
+
+Please reach out to us at [support.frappe.io/helpdesk](https://cloud.frappe.io/support.frappe.io/helpdesk) if you have any questions or concerns regarding the same.
+
+## Downtime in Mumbai region (2026-02-09)
+
+There was a downtime from **12:14 PM IST** to **12:22 PM IST** in the Mumbai region. This had happened due to a DoS attack on the same. We have identified the source and blocked their IP.  
+
+
+
+The attack vector was through one of our old used Github pages that we used for serving documentation. It seems an attacker abused a type of vulnerability here to DoS our proxy server. We have dropped these unused domains to prevent this from happening again.
+
+## Downtime in Singapore region (2026-02-09)
+
+We recently faced another downtime in Singapore region as nginx was consuming too much memory on the proxy server. We will be upgrading this server soon to prevent this from happening again. For the time being, we have applied some limits for the process so itself doesn't halt the server.
+
+## Delay in agent jobs and site updates (2026-02-03 - 2026-02-04)
+
+Users may have observed agent jobs remaining in pending state, or site update not happening after new bench is deployed (after bench update). We have found the source of the issue to be a memory contention on our app server. We have found one of the possible sources of the problem and disabled the same. We continue to investigate further sources and solutions of the issue. 
+
+## MariaDB down on few database servers (2026-02-02)
+
+There was a recent outage affecting multiple database servers. This happened due to a change meant for all database servers, but failed for some of them.  
+
+The change was intended to use the data volume present in the servers for [tmpdir](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#tmpdir) . This is required as some database servers don't have enough memory and need to use the disk for storing temporary tables during large query computations.
+
+The failure happened as the [tmp](https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables#tmpdir) directory itself for MariaDB was not present in some servers. This seems to have happened as a side effect of a previous change.
+
+We have reverted the change on affected servers to resolve the issue. We will be rolling out a fix to make the change persist on the affected servers.
+
+## Downtime in Singapore region (2026-02-02)
+
+There was a 15-minute downtime affecting all sites in Singapore region. This had happened due to a memory outage in the reverse proxy server of the same region. We have narrowed the source of the issue down to an auxiliary service on the server. We've memory limited the same to resolve the issue for future. 
+
+## India Compliance App `branch:version` Mismatch (2025-12-05)
+
+We have had a recent issue on Frappe Cloud Marketplace with India Compliance Apps version and branch mismatch. If you triggered a Migrate / Site Update, your site must've been broken due to this issue.
+
+Please fetch the latest branch of India Compliance (for version 15 of the app) on your bench and [update your site](https://docs.frappe.io/cloud/sites/how-to-update-an-app-site-on-a-private-bench). 
+
+## Deploys slow/not happening due to Digital Ocean (2025-10-30)
+
+There appears to be some packet loss between servers from other regions and DigitalOceans servers where our Docker Registry resides. Due to this, builds have started to fail at the last step. We are checking with the provider for an RCA and resolution
+
+## KSA region inaccessible from other regions (2025-10-30)
+
+It seems OCI has faced an incident around **1:02 PM IST** and as a result the servers in the region are inaccessible. For more information regarding the OCI incident you can refer [here](https://ocistatus.oraclecloud.com/#/incidents/ocid1.oraclecloudincident.oc1.phx.amaaaaaanfxwrmaa2pox7nkmzwxleeibdwzsw2u2cj33qajyiap44re4jf6q).
+
+#### Update (October 30, 2025) - 1:55 PM IST
+
+All the sites down on Frappe Cloud under KSA Regions are back up and functional. The down time happened due to Oracle Cloud Infrastructure's KSA Region being down for 35-40 Minutes.
+
+[Incident acknowledgement report](https://ocistatus.oraclecloud.com/#/incidents/ocid1.oraclecloudincident.oc1.phx.amaaaaaanfxwrmaa2pox7nkmzwxleeibdwzsw2u2cj33qajyiap44re4jf6q) from OCI.
+
+## Sites down with redis Auth error (2025-10-29)
+
+Due to a recent change on Frappe Cloud, few benches (89) got affected with a faulty redis config. We have pushed a fix for the same and it should take effect in a few minutes.
+
+Recurrence: The issue reoccured an hour later due to a worker which didn't receive the fix and affected approximately 30 more benches. We have retroactively fixed those as well. We are working on taking better measures for such deployments.
+
+## Bench deploy failures on custom apps (2025-10-28)
+
+If you have imported frappe or other apps within `__init__.py` , deploys will have started to fail with message 'No module named frappe' since 25th October due to recent [pip update](https://pip.pypa.io/en/stable/news/#deprecations-and-removals). Please update your bench to use older version of pip (25.2) to resolve the issue.
+
+## New Bench Failures (2025-10-20)
+
+There was an incident on Frappe Cloud due to which all New Bench jobs started to fail from **2:00 PM IST** to **3:00PM IST**. The incident seemingly resolved itself afterwards. We have taken some measures to prevent the possible cause of the same. We continue to monitor for further occurence.  
+Affected users can redeploy the bench to resolve the issue.
+
+> edit: This seems to have been a [side-effect](https://status.digitalocean.com/incidents/sxlrj088l11b) of aforementioned AWS incident also
+
+## AWS N.Virginia Incident (2025-10-20)
+
+There appears to be an [incident](https://health.aws.amazon.com/health/status) started **Oct 20 12:11 AM PDT** in the Virginia region. This will affect:
+
+- Site updates that use physical backups, which are mostly large sites.
+- Server actions such as Reboot, Creation of server, Drop server, Snapshots, etc.
+
+> edit: Physical backups have been disabled everywhere on Frappe Cloud for the time being so updates for already deployed benches can proceed
+
+Please refrain from performing these operations till the issue is resolved at AWS side.
+
+## Frankfurt sites down issue (2025-07-22)
+
+Sites were reported being down and agent jobs failing on the sites with a 404 error.  
+The issue had happened due to an nginx config limit being reached. We've updated the same on all proxies to prevent same issues going forward.
+
+## .frappe.cloud redirect issue (2025-07-15)
+
+Around midnight 2025-07-15 IST time, frappe.cloud sites started to not resolve correctly and redirect to the Frappe Cloud dashboard instead. We identified the source as a bug in a DNS cleanup job.
+
+Only **x.frappe.cloud** sites that are not in Mumbai region were affected. **erpnext.com** and **frappe.cloud** subdomain sites (**abc.m.frappe.cloud**, **abc.k.frappe.cloud**,etc.) were unaffected. Sites with custom domains that had A records were also unaffected.
+
+The same has been resolved as of 1:34 am IST time. Missing DNS records were re-added for the sites affected to resolve the issue.
+
+---
+
+# New deployment issue in KSA region (2025-04-30)
+
+KSA region has some issues with the networking in orcale cloud and impacting new deployments. [Refernece](https://ocistatus.oraclecloud.com/#/incidents/ocid1.oraclecloudincident.oc1.phx.amaaaaaavwew44aag4f4xhfscggbw74x3sff6jadk73e2rwjbpwykpyipa) 
+
+Our technical team is actively investigating the same and will keep you posted once fixed.
+
+---
+
+# Frappe Cloud dashboard slow (2025-03-12)
+
+We have noticed Frappe Cloud dashboard being slow due to some resource constraints from our end. We're performing an upgrade of the same. The analytics page may not load for some time
+
+## Slow deploys (2025-03-10)
+
+There is an i/o block on our build server causing the deploys slow/stuck, our technical team is investigating this further, The ongoing deploys will take some time to complete. Once the load get reduced on the build server, it will be completed automatically.
+
+## Builds with Marley (healthcare) app broken (2025-02-19)
+
+Due to new release of [flit](https://flit.pypa.io/en/stable/history.html#version-3-11), deploys of benches with Marley app is now broken. Please wait until Marley team fixes the issue.  
+Edit:- The issue has been [resolved](https://github.com/earthians/marley/commit/924d48185a216ba559b96d10e199c1bb0621414c) by the Marley team, redeploying the update on your bench group should work.
+
+## Issue with pending jobs on 1 server in Mumbai region (2025-10-02)
+
+A server had an incident where all jobs were stuck. This had gone on for 4 days until it came to our attention on 2025-10-02. We're unsure of the cause of this. We have fixed it and jobs have continued for time being. Further investigation is pending.
+
+## Issue with pending jobs on some servers (2024-12-15)
+
+A few of our shared servers are having issues processing Jobs. If you're affected, you'll see the jobs going to **Pending**.
+
+This is because of some traffic restrictions imposed by our cloud provider due to an abuse report. We're working with them to resolve this as soon as possible.  
+
+Edit: Due to the lack of response from the provider. We fixed the issue ourselves by performing an emergency replacement of the virtual machines. This caused **downtime** between 10:00 AM GMT to 10:41 AM GMT across the 5 servers that were affected.
+
+## Downtime in Frankfurt region (2024-12-09)
+
+There was an issue affecting one of our proxy servers, in the Frankfurt region due to which sites in the region were affected from 16:20 GMT to 16:44 GMT during which we resolved the same. We are taking preventive measures.
+
+## Sites unreachable in KSA region (2024-11-24)
+
+Between 10:48 GMT and 11:08 GMT. One of our proxy servers in the KSA region was down which resulted in downtime for all the sites in the region. We suspect the cause to be a memory spike of an internal service and applied controls to mitigate the same. We continue to monitor the server
+
+## Sites down with internal server error (2024-10-29)
+
+Between Tue, 29 Oct 2024 10:29:06 GMT and Tue, 29 Oct 2024 10:58:00 GMT, a subset of EC2 instances were unavailable in the **Mumbai** Region. The issue has been resolved by AWS and the service is operating normally.  
+
+## Reduced uptime for sites hosted in Virginia Region (2024-10-18)
+
+We've observed a network connectivity issue due to which uptime monitoring of sites in the Virginia region is affected and may show as **red** in the dashboard even when the site is still up. We expect the network providers to fix this soon.  
+edit: The issue has been resolved
+
+<!-- page: cloud/cloud__reliability.md -->
+---
+title: "Reliability"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/reliability"
+updated: "2026-05-30"
+---
+
+Frappe Cloud undertakes multiple measures to ensure reliability: 
+
+## Infrastructure & Operations
+
+- Runs on established cloud providers such as AWS and OCI. Uptime commitments for all providers on Frappe Cloud can be seen [here](https://docs.frappe.io/cloud/getting-started/uptime). 
+- Continuous monitoring of infrastructure and platform services by Frappe engineers. 
+- Incident tracking, root-cause analysis, and preventive fixes to reduce repeat failures. 
+- 24×7 incident response support for critical infrastructure issues.
+
+## High Availability
+
+- Proactive detection and resolution of infrastructure issues before they impact users. 
+- Resource monitoring and operational alerts help identify issues early.
+
+Overall, Frappe Cloud maintains a **best-effort uptime of 99.9%**. 
+
+## Reliable Deployments & Upgrades
+
+- Automated and repeatable deployment workflows reduce human error. 
+- Most deployments are designed for zero or near-zero downtime. 
+- Large upgrades can be scheduled during non-working hours. 
+- Automated backups are created before upgrades and migrations. 
+- Rollback mechanisms allow recovery to a known working state if a deployment fails.
+
+## Backup & Disaster Recovery
+
+- Automatic daily site backups. 
+- Automatic server snapshots. 
+- Configurable backup schedules and retention policies. 
+- Off-site backup support on eligible plans. 
+- Backup files can be downloaded for additional protection. 
+- Server snapshots stored separately help support disaster recovery scenarios.
+
+## Recovery & Failover
+
+- Automated recovery workflows help restore services quickly after failures. 
+- Systems can be restored from recent backups when required. 
+- Automated fallback mechanisms reduce recovery effort and downtime. 
+- Disaster recovery procedures are designed to minimise both recovery time and data loss.
+
+## Observability & Monitoring
+
+- Real-time visibility into resource utilisation and infrastructure health. 
+- Monitoring of storage consumption trends and performance metrics. 
+- Built-in alerts notify users when resource thresholds are approaching limits. 
+- Developer tools provide deeper diagnostics when troubleshooting is required.
+
+## Capacity Planning
+
+- Resource utilisation analytics help identify growth trends before they become bottlenecks. 
+- Threshold-based alerts allow teams to scale infrastructure proactively. 
+- Visibility into usage patterns helps prevent outages caused by resource exhaustion.
+
+---
+
+Watch this video to know more: 
+
+<iframe src="https://www.youtube.com/embed/rxsdcRYS0T0?si=CE07A92eA5L0lMfN" width="800" height="450" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0" allowfullscreen></iframe>
+
+<!-- page: cloud/cloud__role-permissions.md -->
+---
+title: "Role and Permissions"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/role-permissions"
+updated: "2026-08-10"
+---
+
+### Introduction
+
+Why? Because there might be too many people in your organisation that it becomes hard to manage. The team owner must be a person with utmost authority. This person (or organisation) must be the sole authority to do anything on team level. That includes actions like deleting, renaming or transferring a team. But there will be others who want to work on other areas of activities. This may be actions like updating a site, a bench or a server. This person must not be able to do team level actions but they still should be able to what they are supposed to do. There will be also times when a person should see only one resource (a site, for example) and nothing else.
+
+
+
+All this means roles and permissions are a way to restrict people, not a way to make it convenient for them. Your authority as the owner gives you the power to set rules that will act as barriers. These barriers are our promise of safety and security.
+
+### Understanding Roles
+
+Two questions arise when talking about roles.
+
+
+
+- What if I don’t want to use roles at all?
+- What happens when I create a role and add nothing in it.
+
+
+
+The first question is relatively simple and that is what we mostly face. Let’s say your team has ten members. You trust all of them and you believe none of them could do anything wrong. You are okay with all ten members having unrestricted access to everything under the team. Good for you, because you don’t have to do anything. Because of absence of any role results in deactivation of the barrier. This is a basic scenario where people don’t care about roles at all, mostly in small teams.
+
+
+
+The second question is tricky. Because the moment you create a role, you are opting in to use them. That means from that moment on, the barrier will be active and it will prevent team members from accessing resources they were not cleared for. There is one thing to keep in mind though. All permissions has to be explicit. That means if a member want to access a resource (for example, `foobar.frappe.cloud`), they must be a member of a role that includes said resource (`foobar.frappe.cloud`). That means the barrier denies access by default and permits a member only if there is explicit rules.
+
+### Listing and creating roles
+
+You can access roles from the team settings page.
+
+![image92687f](/files/image92687f.png)
+
+You can also create a new role with users and resources.
+
+![image8a260f](/files/image8a260f.png)
+
+### Gettting members and resources
+
+Click on individual roles to get a detailed view of members and resources.
+
+![imagee94032](/files/imagee94032.png)
+
+![imagef5473f](/files/imagef5473f.png)
+
+### Permissions
+
+Each role can be tweaked to allow or deny certain permissions. These can be seen along with members and resources.
+
+![imageb6db2e](/files/imageb6db2e.png)
+
+### Notes
+
+Roles and permissions are currently in beta. Please expect some rough edges. If you find any issues, please report them. We will fix them as soon as possible.
+
+<!-- page: cloud/cloud__server-notification-configuration.md -->
+---
+title: "Notification Configuration"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/server-notification-configuration"
+updated: "2026-02-16"
+---
+
+You can configure multiple notifications at the server level to ensure that alerts are delivered through the right channels.
+
+### Accessing Notification Settings
+
+- Go to Server Overview → Application Server Actions.
+- Under Notification Settings, click `Manage` to open the configuration screen.
+
+
+![](/files/Screenshot%202025-10-06%20at%2015-51-41%20Settings%20-%20Profile.png)
+
+### Configuring Notifications
+
+The Notification Configuration screen allows you to set up how and where notifications are sent.
+
+
+![](/files/Screenshot%202025-10-06%20at%2015-52-53%20Settings%20-%20Profile.png)
+
+### Notification Flow Logic
+
+The notification delivery follows a top-down hierarchy:
+
+- Check if a specific notification type (e.g., Billing, Incident) is configured.
+- If not found, use the General notification configuration.
+- If General is also not configured, fallback to the Team-level configuration.
+
+
+![](/files/shapes%20at%2025-10-06%2015.57.22.png)
+
+<!-- page: cloud/cloud__server-snapshot.md -->
+---
+title: "Server Snapshot"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/server-snapshot"
+updated: "2026-02-25"
+---
+
+A **Server Snapshot** is a time-based copy of server's disks. It can be used to create a new server or recover your data in the future. 
+
+Snapshots are useful for **disaster recovery** and can be kept for as long as you want, even after the server is archived.
+
+### Charges
+
+Snapshots are charged at **6.5 INR / GB / Month** or **0.08 USD / GB / Month**.
+
+### FC Server Snapshot Policy
+
+Frappe Cloud automatically takes snapshots of all servers every **24 hours** and **48 hours**. These automated snapshots are free of cost and are automatically deleted after **48 hours**.
+
+### View Snapshots
+
+You can go to the **Server Overview** page and open the **Snapshots** tab.  
+Here you can view all your snapshots along with their details (for AWS servers).
+
+![](/files/view-snapshots.png)
+
+### Create Snapshot
+
+You can create a snapshot with just one click. There are two types of snapshots
+
+- **Consistent Snapshot**: In this mode, Docker and MariaDB on the server are stopped, and the disk is flushed before taking the snapshot. This ensures reliable data recovery but causes **2–5 minutes of downtime** for your deployed sites.  
+- **Inconsistent Snapshot**: In this mode, the snapshot is taken without stopping services. This avoids downtime, but in rare cases, recovery may be more complex and require manual help.
+
+
+
+To create a snapshot, click on the **New Snapshot** icon, choose the snapshot type, and submit.
+
+![](/files/create-snapshot.png)
+
+### View Snapshot Details
+
+Each snapshot shows important information such as the size, exact timestamp, status, and the list of sites that can be recovered from it.
+
+![](/files/view-snapshot-details-in-list.png)
+
+![](/files/view-snapshot-details.png)
+
+### Recover Sites
+
+You can recover sites by clicking on the **Recover Sites** button and selecting the sites you want. This process does not directly restore data to your deployed site. Instead, you will receive database and file backups.
+
+![](/files/recover-site-0.png)
+
+![](/files/recover-site-1.png)
+
+![](/files/recover-site-2.png)
+
+![](/files/recover-site-3.png)
+
+Once the recovery is completed, you will get an email notification, and the backups will be available to download for **24 hours**.
+
+![](/files/recover-site-4.png)
+
+You can visit the snapshot list and open the `Recover Sites` tab. You will be able to view the status and options to download the backups and view the encryption keys (in case that's available). 
+
+![](/files/recover-site-5.png)
+
+![](/files/recover-site-6.png)
+
+### Lock / Unlock Snapshot
+
+To avoid accidental deletion, you can lock snapshots. Once locked, they cannot be deleted unless unlocked first. 
+
+However, only snapshots created manually by you can be locked. Automated 24h/48h snapshots from Frappe Cloud cannot be locked.
+
+##### Steps For Locking Snapshot
+
+![](/files/lock-snapshot-0.png)
+
+![](/files/lock-snapshot-1.png)
+
+##### Steps For Unlocking Snapshot
+
+![](/files/unlock-snapshot-0.png)
+
+![](/files/unlock-snapshot-1.png)
+
+### Delete Snapshot
+
+If you no longer need a snapshot, you can delete it. Any charges linked to the snapshot will stop once it is deleted.
+
+![](/files/delete-snapshot-0.png)
+
+![](/files/delete-snapshot-1.png)
+
+### Accessing Snapshots of Archived Servers
+
+Even if a server is archived, you can still access its snapshots from the **sidebar**, where all server snapshots are listed, including those from archived servers.
+
+![](/private/files/snapshot-list.png)
+
+### Supported Cloud Providers
+
+Currently, Frappe Cloud supports snapshots on **AWS**, **OCI** and **Hetzner**, but this feature is available only for **AWS-hosted servers**.
+
+ For **OCI-hosted servers**, disk snapshots are also created every **24/48 hours**, but they are **not visible in the dashboard** at the moment.
+
+<!-- page: cloud/cloud__server-storage-breakdown.md -->
+---
+title: "Server Storage Breakdown"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/server-storage-breakdown"
+updated: "2026-03-02"
+---
+
+# Database Server
+
+If you want to know, what is consuming storage on your dedicated database server, you can use this option.
+
+1. Click on the `pie` icon in your server overview page.
+
+![](/files/Screenshot 2026-03-02 at 14.30.58.png)
+
+2. You will get storage breakdown in this way.
+
+![](/files/Screenshot%20from%202025-05-28%2018-56-28.png)
+
+3. You can click on the `Site Name` to view tablewise usage in the database.
+
+
+
+#### Some Terminology -
+
+- **Operating System :** On each dedicated database server, we have Ubuntu operating system installed. The operating system, it's generated logs and installed software take some amount of storage.
+- **Binary Log :** Binlogs are important part of database. It helps in database replication. But if you are not using binary log, this can help in point in time recovery and disaster recovery.
+- **MariaDB Core :** It includes various kind of files that database required for it's internal operation like ibdata1, ibtmp1, aria_log etc.
+- **MariaDB Slow Log :** This log holds slow query of your servers. Frappe Cloud periodically send slow logs to centralized elasticsearch server and purge the file.
+- **MariaDB Slow Log :** Holds errors and deadlock of database. Like as slow log, this is also synced to elasticsearch and purged from server daily.
+- **MariaDB Owned System Files :** Except this, MariaDB generate some other files as per requirement of operation (like ddl_recover_log, coredump etc.)
+
+# Application Server
+
+Similar to the database server, if you want to know, what is consuming storage on your dedicated application server, you can use this option.
+
+The way to display the storage breakdown is same as for the database server
+
+1. Click on the `pie` icon on your application server's storage section
+2. You will get the storage breakdown as such
+  ![](/files/Screenshot%202025-08-01%20at%2012.08.10%E2%80%AFPM.png)
+3. This can be further expanded to represent the storage of each bench in a hierarchical tree structure.
+  ![](/files/Screenshot%202025-08-01%20at%2012.10.14%E2%80%AFPM.png)
+
+#### Additional Usage disclaimer -
+
+As detailed in the Storage Breakdown dialog, the storage calculation is split into two parts:
+
+**Bench Size :** This includes core files and folders necessary for your application including logs, private and public files etc.
+
+**Additional Disk Usage :** This includes disk space consumed by directories that are excluded from the main bench size calculation, such as:
+
+- env – Python virtual environment files
+- node_modules – Node.js dependencies
+- assets – Static files such as images, stylesheets, or compiled assets
+
+These directories are excluded from the main calculation primarily for performance reasons. Folders like `node_modules` and `assets` can contain tens of thousands of files, and scanning them in real-time significantly slows down storage analysis.
+
+Additionally, for Docker, only active containers and images are considered in the storage breakdown. Docker metadata and unused layers are ignored to focus on what's actively used.
+
+<!-- page: cloud/cloud__servers__create-a-new-site-on-a-dedicated-server.md -->
+---
+title: "Creating a new site on a dedicated server"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/servers/create-a-new-site-on-a-dedicated-server"
+updated: "2026-02-16"
+---
+
+If you want to create a new site under your dedicated server, you need to follow the steps given below.
+
+1. Click on the server dashboard and select the server under which you want your site to be.
+  ![](/files/imageb4e79d.png)
+2. Click on the bench group on the selected server under which you want your site.
+  ![](/files/imagef9bcca.png)
+3. Click on create a new site under the selected bench group.
+  ![](/files/image911390.png)
+4. Select the apps you want and the region, and then select the plan.
+  ![](/files/image8d59c9.png)
+
+> Note:- Only 5 sites can be **Unlimited - Supported**, those site will be supported by the apps team for app related support.
+
+<!-- page: cloud/cloud__servers__delete.md -->
+---
+title: "Delete Servers"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/servers/delete"
+updated: "2026-02-16"
+---
+
+Deleting a server will delete both the application and the database server immediately. Be careful when deleting servers since you can **NOT** recover a server after deleting it.
+
+> Note: You must delete all sites and bench groups before deleting the server.
+
+Go to the Server Dashboard>**Actions**>Dangerous Actions>Drop Server
+
+![](/files/image709561.png)
+
+![](/private/files/Screenshot%202025-06-18%20at%201.40.00%E2%80%AFPMf5f2e6.png)
+
+Type in the entire server's name or title to confirm, and click on **Drop Server**
+
+![](/files/image0225e7.png)

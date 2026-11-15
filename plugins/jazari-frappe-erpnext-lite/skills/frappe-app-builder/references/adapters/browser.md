@@ -38,16 +38,16 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Create a DocType
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 2809–2983  (https://docs.frappe.io/framework/user/en/tutorial/create-a-doctype)
-- **Also read:** `docs/framework/framework-02.md` lines 5054–5111 — the step-by-step page for this
+- **Full page, bundled offline:** `docs/framework/framework-23.md` lines 3–177  (https://docs.frappe.io/framework/user/en/tutorial/create-a-doctype)
+- **Also read:** `docs/framework/framework-07.md` lines 1345–1402 — the step-by-step page for this
 
 ### Turn on DocType features
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 3300–3367  (https://docs.frappe.io/framework/user/en/tutorial/doctype-features)
+- **Full page, bundled offline:** `docs/framework/framework-23.md` lines 494–561  (https://docs.frappe.io/framework/user/en/tutorial/doctype-features)
 
 ### Pick the right field type
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 5645–5988  (https://docs.frappe.io/framework/user/en/basics/doctypes/fieldtypes)
+- **Full page, bundled offline:** `docs/framework/framework-08.md` lines 399–742  (https://docs.frappe.io/framework/user/en/basics/doctypes/fieldtypes)
 
 ### Set how documents are named
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
@@ -56,15 +56,15 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Document Type it is being applied on
   2. Priority of the rule (rules with higher priority will be applied first)
   3. Conditions to apply the rule
-- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 6075–6250  (https://docs.frappe.io/framework/user/en/basics/doctypes/naming)
+- **Full page, bundled offline:** `docs/framework/framework-08.md` lines 829–1004  (https://docs.frappe.io/framework/user/en/basics/doctypes/naming)
 
 ### Use a child table
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > DocType**, or type *DocType* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 5249–5293  (https://docs.frappe.io/framework/user/en/basics/doctypes/child-doctype)
+- **Full page, bundled offline:** `docs/framework/framework-08.md` lines 3–47  (https://docs.frappe.io/framework/user/en/basics/doctypes/child-doctype)
 
 ### Publish a web form
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Website > Web Form**, or type *Web Form* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 4277–4315  (https://docs.frappe.io/framework/user/en/web-form)
+- **Full page, bundled offline:** `docs/framework/framework-24.md` lines 344–382  (https://docs.frappe.io/framework/user/en/web-form)
 
 ### Build a print format
 - **Path (checked on v16.55):** https://your-site/desk → type *Print Format Builder* in the search bar at the top and open the page
@@ -72,7 +72,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Print Format Builder
 - **PDF engine:** how the format comes out as a PDF depends on **Print Settings → PDF Generator** (`wkhtmltopdf`, `chrome` or `PlutoPrint`). Sites created on Frappe 16.55 or later start on `chrome`. Check a real PDF, not only the screen preview, before calling a format finished.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-11.md` lines 2840–2900  (https://docs.frappe.io/erpnext/print-format-builder)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-43.md` lines 811–871  (https://docs.frappe.io/erpnext/print-format-builder)
 
 ### Add a custom field
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Custom Field**, or type *Custom Field* in the search bar at the top
@@ -80,7 +80,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Custom Field list and click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-05.md` lines 274–360  (https://docs.frappe.io/erpnext/custom-field)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-17.md` lines 3–89  (https://docs.frappe.io/erpnext/custom-field)
 
 ### Customize a form
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Customize Form**, or type *Customize Form* in the search bar at the top
@@ -89,7 +89,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. You will be redirected to a page wherein you will be asked to Enter Form Type
   3. Once you enter the Form Type in this field, the page further expands and you will be able to see multiple features
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-05.md` lines 1175–1277  (https://docs.frappe.io/erpnext/customize-form)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 184–286  (https://docs.frappe.io/erpnext/customize-form)
 
 ### Add a client script
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Scripting > Client Script**, or type *Client Script* in the search bar at the top
@@ -98,14 +98,14 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. You will be redirected to a page wherein you will be asked to enter the DocType for which you wish to create a Custom Script
   3. Type your Custom Script and make sure it is enabled
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-04.md` lines 951–984  (https://docs.frappe.io/erpnext/client-scripts)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-13.md` lines 456–489  (https://docs.frappe.io/erpnext/client-scripts)
 
 ### Set up an approval workflow
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Workflow > Workflow**, or type *Workflow* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 1906–1921  (https://docs.frappe.io/erpnext/workflow)
-- **Also read:** `docs/erpnext/erpnext-06.md` lines 2672–2697 — the step-by-step page for this
-- **Also read:** `docs/erpnext/erpnext-18.md` lines 1923–2054 — the step-by-step page for this
+- **Full page, bundled offline:** `docs/erpnext/erpnext-69.md` lines 536–551  (https://docs.frappe.io/erpnext/workflow)
+- **Also read:** `docs/erpnext/erpnext-23.md` lines 745–770 — the step-by-step page for this
+- **Also read:** `docs/erpnext/erpnext-69.md` lines 553–684 — the step-by-step page for this
 
 ### Design an app screen in Frappe Studio
 - **Path:** open https://your-site/studio (Frappe Studio) and find *Editor Interface* — the documentation page below shows the screen

@@ -8,15 +8,15 @@ Owner: **Imran** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Build a bill of materials** (`mfg.bom`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext-03.md` lines 933–1125   (https://docs.frappe.io/erpnext/bill-of-materials)
+   read: `docs/erpnext/erpnext-09.md` lines 610–802   (https://docs.frappe.io/erpnext/bill-of-materials)
 2. **Plan production** (`mfg.productionplan`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext-12.md` lines 886–1083   (https://docs.frappe.io/erpnext/production-plan)
+   read: `docs/erpnext/erpnext-45.md` lines 201–398   (https://docs.frappe.io/erpnext/production-plan)
 3. **Run a work order** (`mfg.workorder`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-18.md` lines 1517–1749   (https://docs.frappe.io/erpnext/work-order)
+   read: `docs/erpnext/erpnext-69.md` lines 147–379   (https://docs.frappe.io/erpnext/work-order)
 4. **Record work on a job card** (`mfg.jobcard`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-09.md` lines 982–1140   (https://docs.frappe.io/erpnext/job-card)
+   read: `docs/erpnext/erpnext-34.md` lines 55–213   (https://docs.frappe.io/erpnext/job-card)
 5. **Make a stock entry** (`stock.entry`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-15.md` lines 3057–3241   (https://docs.frappe.io/erpnext/stock-entry)
+   read: `docs/erpnext/erpnext-59.md` lines 568–752   (https://docs.frappe.io/erpnext/stock-entry)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

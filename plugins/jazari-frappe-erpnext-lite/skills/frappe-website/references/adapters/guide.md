@@ -15,5 +15,5 @@ that follow from the answer.
 ### Set up SEO for the website
 - **What the page says:** SEO stands for **Search Engine Optimisation** and is the process of increasing the quality and quantity of website traffic by increasing the visibility of a website or a web page to users of a web search engine. SEO refers to the improvement of unpaid results and excludes direct traffic/visitors and the purchase of pai
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/erpnext/erpnext-08.md` lines 1224–1246  (https://docs.frappe.io/erpnext/how-to-setup-seo-for-your-website-on-erpnext)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-30.md` lines 27–49  (https://docs.frappe.io/erpnext/how-to-setup-seo-for-your-website-on-erpnext)
 

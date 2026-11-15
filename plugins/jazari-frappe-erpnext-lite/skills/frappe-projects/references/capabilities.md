@@ -9,14 +9,14 @@ Every row was confirmed against an official Frappe documentation page fetched on
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
-| `proj.project` | Run a project | api | yes | reversible | `docs/erpnext/erpnext-12.md` lines 1697–1838 | https://docs.frappe.io/erpnext/project |
-| `proj.task` | Manage tasks | api | yes | reversible | `docs/erpnext/erpnext-16.md` lines 2564–2657 | https://docs.frappe.io/erpnext/tasks |
-| `proj.timesheet` | Record timesheets | api | yes | reversible | `docs/erpnext/erpnext-17.md` lines 1379–1473 | https://docs.frappe.io/erpnext/timesheets |
-| `proj.template` | Start from a project template | browser | yes | reversible | `docs/erpnext/erpnext-12.md` lines 1556–1586 | https://docs.frappe.io/erpnext/project-template |
-| `proj.costing` | Track project costing | browser | no | reversible | `docs/erpnext/erpnext-12.md` lines 1343–1385 | https://docs.frappe.io/erpnext/project-costing |
-| `proj.profitability` | Measure project profitability | browser | no | reversible | `docs/erpnext/erpnext-12.md` lines 1435–1477 | https://docs.frappe.io/erpnext/project-profitability |
-| `proj.billing` | Bill a customer from a timesheet | api | yes | irreversible | `docs/erpnext/erpnext-14.md` lines 133–172 | https://docs.frappe.io/erpnext/sales-invoice-from-timesheet |
-| `proj.activitycost` | Set activity costs | browser | yes | reversible | `docs/erpnext/erpnext-01.md` lines 2191–2218 | https://docs.frappe.io/erpnext/activity-cost |
+| `proj.project` | Run a project | api | yes | reversible | `docs/erpnext/erpnext-46.md` lines 144–285 | https://docs.frappe.io/erpnext/project |
+| `proj.task` | Manage tasks | api | yes | reversible | `docs/erpnext/erpnext-62.md` lines 741–834 | https://docs.frappe.io/erpnext/tasks |
+| `proj.timesheet` | Record timesheets | api | yes | reversible | `docs/erpnext/erpnext-65.md` lines 408–502 | https://docs.frappe.io/erpnext/timesheets |
+| `proj.template` | Start from a project template | browser | yes | reversible | `docs/erpnext/erpnext-46.md` lines 3–33 | https://docs.frappe.io/erpnext/project-template |
+| `proj.costing` | Track project costing | browser | no | reversible | `docs/erpnext/erpnext-45.md` lines 658–700 | https://docs.frappe.io/erpnext/project-costing |
+| `proj.profitability` | Measure project profitability | browser | no | reversible | `docs/erpnext/erpnext-45.md` lines 750–792 | https://docs.frappe.io/erpnext/project-profitability |
+| `proj.billing` | Bill a customer from a timesheet | api | yes | irreversible | `docs/erpnext/erpnext-52.md` lines 133–172 | https://docs.frappe.io/erpnext/sales-invoice-from-timesheet |
+| `proj.activitycost` | Set activity costs | browser | yes | reversible | `docs/erpnext/erpnext-03.md` lines 757–784 | https://docs.frappe.io/erpnext/activity-cost |
 
 ## Version notes
 

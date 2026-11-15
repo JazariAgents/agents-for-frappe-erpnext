@@ -1,631 +1,852 @@
-<!-- Frappe documentation: cloud, part 3 of 3. Index: docs/INDEX.md -->
+<!-- Frappe documentation: cloud, part 3 of 9. Index: docs/INDEX.md -->
 
-<!-- page: cloud/cloud__sites__move-site-to-private-bench.md -->
+<!-- page: cloud/cloud__database-server-actions.md -->
 ---
-title: "Move site to private bench"
+title: "Database Server Actions"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/move-site-to-private-bench"
-updated: "2026-06-17"
+url: "https://docs.frappe.io/cloud/database-server-actions"
+updated: "2026-08-13"
 ---
 
-**Note:** This option is now part of the **Site Migration** feature.
+On **Server Actions** page, you will find several options for database configuration.
 
-For instructions on moving a site to a different server / bench, see the documentation : [https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench](https://docs.frappe.io/cloud/site/site-migrations/move-site-to-different-server-or-bench)
+![image9765dc](/files/image9765dc.png)
 
+## What is Binlog &amp; Why It's required ?
+
+The **Binary Log (Binlog)** in MariaDB is a crucial logging mechanism that records all changes to the database - such as SQL statements that modify data (INSERT, UPDATE, DELETE). It does **not** log SELECT queries.
+
+Binlogs are primarily used for:
+
+- **Replication**: Keeping replicas in sync with the primary database.
+- **Point-in-time recovery**: Restoring a database to a specific moment in time.
+
+For example, if a site is accidentally deleted or broken due to a faulty SQL query, in that case binlogs combined with the last available backup—allow you to **roll back to a specific time** and recover your data.
+
+## View &amp; Purge Binlogs
+
+You can view binary log file sizes by date. If you're running low on storage, it's possible to **purge old binlogs** that are no longer needed.
+
+![](/files/482719248-8eb4ca2d-b434-42c8-bf76-0e672384f3e5.png)
+
+![](/files/img2.png)
+
+![](/files/img3.png)
+
+## Manage Binlog Retention
+
+By default, when Frappe Cloud provisions a server, MariaDB has a **binlog retention period of 14 days**.
+
+If your site handles a large volume of transactions and binlogs are filling up your storage quickly, you may choose to **reduce the retention period**.
+
+Alternatively, for compliance or auditing purposes, you can **increase binlog retention** as needed.
+
+You can manage these settings directly from the interface:
+
+![](/files/482719805-9d2688b7-0a96-458e-aba1-186e417a56a9.png)
+
+## Binlog Auto-Purging Based on Size Limit
+
+Binlog files can occasionally grow rapidly, consuming a significant portion of your disk space. If Auto Add-on Storage is not enabled, this may lead to storage exhaustion and potential downtime for your server or application.
+
+The Binlog Auto-Purging feature helps prevent such issues by allowing you to define a size limit for binlogs. When the total binlog size exceeds this limit, the system automatically purges older binlogs to bring usage back within the specified threshold.
+
+![image3b13b3](/files/image3b13b3.png)
+
+## Enable / Disable Binlog Indexer
+
+The **Binlog Indexer** converts binary logs into a readable, searchable format, allowing end-users to explore and query binlogs using the **Binlog Browser**.
+
+To **enable** the binlog indexer and browser, click on `Enable Binlog Indexer` under `Database Server Actions`, then confirm the action.
+
+![image16cc0f](/files/image16cc0f.png)
+
+To **disable** the binlog indexer and browser, click on `Disable Binlog Indexer` under `Database Server Actions`, then confirm the action.
+
+![image7a1581](/files/image7a1581.png)
+
+## **Default Configuration for Database Servers:**
+
+- When a server is created with Auto Add-on Storage enabled, binlogs can use up to 75% of the total disk capacity.
+- When a server is created with Auto Add-on Storage disabled, binlogs can use up to 20% of the total disk capacity.
+
+These are the default limits, but you can adjust them based on your requirements.
+
+**Note :** This feature is not available for database servers configured with replicas.
+
+## Performance Schema
+
+If you own some dedicated server, you can enable/disable the performance schema as per requirement.
+
+![](/files/Screenshot%20from%202025-04-09%2023-05-01.png)
+
+## Manage InnoDB Buffer Pool Size
+
+If you want to change innodb buffer pool size, you can now do that from Frappe Cloud dashboard.
+
+![](/files/Screenshot%20from%202025-04-09%2023-06-19.png)
+
+## Manage Max Database Connections
+
+When you create a database server, Frappe Cloud set a default max connections based on the total memory on the server. In case if you need more database connection, you can increase that from dashboard.
+
+![](/files/Screenshot%20from%202025-04-09%2023-11-58.png)
+
+## View Database Configurations
+
+If you want to check all the configuration of your dedicated database server, you can use the `View Database Configuration` option.
+
+![](/files/Screenshot%20from%202025-04-09%2023-13-16.png)
+
+Currently, it's not allowed to change in variable. If you need some special configuration, please reach out to support.frappe.io
+
+## Database Audit Trail
+
+For compliance purposes, if you need a database audit trail, you can enable it from **Server Actions** in the Frappe Cloud dashboard.
+
+
+
+Database audit trail has two capture modes:
+
+1. **Only write queries :** Captures queries that modify the database, such as changes to databases, tables, or rows. Read queries are not logged.
+2. **Read and write queries :** Captures all queries running on the database, including `SELECT` queries. Since read queries are also logged, the log size can be **at least 3X larger**.
+
+![](/files/image701fa8.webp)
+
+The cost is **2 INR per GB per month**, based on your log's storage usage. All audit logs are uploaded to S3, so they won't use additional disk space on the server.
+
+
+
+We recommend keeping **at least 20 GB of free disk space** for audit logging. Audit logs are rotated and uploaded every **2 hours**, so you should have enough free space to store up to 2 hours of logs locally on the server.
+
+### Accessing Database Audit Logs
+
+From the server actions, you can view all the stored audit logs.
+
+![](/files/imagea17bff.webp)
+
+You can download the required ones from dashboard itself.
+
+**Sample audit log format -**
+
+```
+20260812 06:31:18,ip-10-3-4-101,_99d3ba2c63387bd7,ip-10-3-3-101.eu-west-2.compute.internal,54,0,CONNECT,_99d3ba2c63387bd7,,0
+20260812 06:31:18,ip-10-3-4-101,_99d3ba2c63387bd7,ip-10-3-3-101.eu-west-2.compute.internal,54,0,DISCONNECT,_99d3ba2c63387bd7,,0
+20260812 06:32:01,ip-10-3-4-101,_99d3ba2c63387bd7,ip-10-3-3-101.eu-west-2.compute.internal,55,0,CONNECT,_99d3ba2c63387bd7,,0
+20260812 06:32:01,ip-10-3-4-101,_99d3ba2c63387bd7,ip-10-3-3-101.eu-west-2.compute.internal,55,621,QUERY,_99d3ba2c63387bd7,'SELECT module,custom,is_tree FROM tabDocType WHERE name='Scheduled Job Type' ORDER BY creation DESC LIMIT 1',0
+20260812 06:32:01,ip-10-3-4-101,_99d3ba2c63387bd7,ip-10-3-3-101.eu-west-2.compute.internal,55,622,QUERY,_99d3ba2c63387bd7,'SELECT * FROM tabScheduled Job Type WHERE stopped=0 ORDER BY creation ASC LIMIT 1000',0
+20260812 06:32:01,ip-10-3-4-101,_99d3ba2c63387bd7,ip-10-3-3-101.eu-west-2.compute.internal,55,623,QUERY,_99d3ba2c63387bd7,'SELECT * FROM tabScheduled Job Type WHERE stopped=0 ORDER BY creation ASC LIMIT 1000 OFFSET 1000',0
+```
+
+Check the official MariaDB documentation to know more about audit log structure : 
+
+[https://mariadb.com/docs/server/reference/plugins/mariadb-audit-plugin/mariadb-audit-plugin-log-format#audit-log-format-with-syslog](https://mariadb.com/docs/server/reference/plugins/mariadb-audit-plugin/mariadb-audit-plugin-log-format#audit-log-format-with-syslog)
+
+<!-- page: cloud/cloud__database-users-and-permission-manager.md -->
 ---
-
-> If you want to move to a dedicated server refer [Move site across server](https://frappecloud.com/docs/sites/move-site-across-server)
->
-> **Note:** If you need to move to a bench on another server, you need to move the current bench [to the server](https://frappecloud.com/docs/sites/move-site-across-server) first, and after that is done, do **Change bench** by following this doc.
-
-You can directly schedule Site Migration to a private bench from a site's dashboard.
-
-1. To change your site to a private bench, go to your site Dashboard>Actions>Change Bench
-
-![](/files/Ceb7DH0.png)
-
-2. If you don't have an available private bench, click on Clone current Bench to create a compatible private bench for your site to move to.
-
-![](/files/UvskiT2.png)
-
-3. If there's a compatible private bench, click on Change Bench to start moving the site to the chosen bench.
-
-![](/files/5KyGxnV.png)
-
-<!-- page: cloud/cloud__sites__site-config.md -->
----
-title: "Site Config"
+title: "Database Users And Permission Manager"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/site-config"
-updated: "2026-02-19"
+url: "https://docs.frappe.io/cloud/database-users-and-permission-manager"
+updated: "2026-03-19"
 ---
 
-[Site Config](https://frappeframework.com/docs/v13/user/en/basics/sites#site-config) is the Frappe Framework way of specifying environment variables.
+> **Database Access is available for sites on USD 50 and above plans**
 
-Site Config let's you configure options that is specific to a single site.
+## Available Permissions
 
-For e.g.
+There are three types of permissions that can be assigned to database users:
 
-- Configure an Email account to send emails from.
-- Disable Website Cache
-- Disable [Global Search](https://docs.erpnext.com/docs/user/manual/en/using-erpnext/Global-search)
-- Enable [Server Scripts](https://docs.erpnext.com/docs/user/manual/en/customize-erpnext/server-script)
+1. **Read Only**: The user can view data but cannot modify it. They have access to all tables and columns in the database for reading purposes only.
+2. **Read Write**: The user can both view and modify data. They have full access to all tables and columns in the database for reading and writing.
+3. **Granular**: This permission mode allows for fine-grained control over a user's access. You can grant access to specific tables and, if needed, even restrict access to specific columns within those tables.
 
-## Update Site Config
+## Manage Database Users
 
-1. Go to the **Site Config** tab.
-2. Enter values in the corresponding input field.
-3. Click on **Update Configuration**.
+Go to Site Dashboard > Actions > Manage database users
 
-![](/files/w9v6T9E.png)
+From here, you can view all the existing users of your site's database and manage their permissions and access settings.
 
-# FAQ
-
-## Why can't I enable developer mode?
-
-Developer Mode lets you create standard documents like DocType, Page, Report, Workspace, etc. These are standard as they are persisted on disk as JSON files. These must be part of an app. You cannot add these files to the standard Frappe and ERPNext apps. Therefore, you will need to [create your own app](https://frappecloud.com/docs/benches/custom-app).
+![](/files/oAAWNad.png)
 
 
 
-Furthermore, apps on Frappe Cloud are ephemeral. We pull a fresh copy from Github every time a new bench is deployed.Therefore, even if you do manage to enable developer mode, your changes shall not persist.  
- 
+## Create Database User
 
-That is why you cannot enable developer mode on Frappe Cloud. You must create those features as a part of a custom app and then upload it on Frappe Cloud to use it.
+Click on `Add User` button to open the modal for creating database users.
 
-<!-- page: cloud/cloud__sites__version-upgrade.md -->
+1. **Read Only Mode :**
+
+![](/files/LIaAMBi.png)
+
+2. **Read Write Mode :**
+
+![](/files/rnKuRtd.png)
+
+3. **Granular Mode :**
+
+> When you begin configuring `Granular Access`, the system will load your database's table schema. This process may take anywhere from 30 seconds to 5 minutes, depending on the number of tables in your database.
+
+You can set the **Read Only** or **Read Write** mode for each table individually. Additionally, if needed, you can restrict access to specific columns within a table by selecting the columns you want to grant access to.
+
+
+
+
+
+![](/files/0GCIfFc.png)
+
+## Edit Database User
+
+If you want to modify the permissions for a specific database user, you can easily do so by selecting the **Configure User** option in the row menu. This will allow you to adjust the user’s access levels and permissions as needed.
+
+![](/files/7yIJjuJ.png)
+
+
+
+You can make the changes to the user's permissions and save them. Once saved, it may take some time for the updates to take effect.
+
+> Please note that if the database user previously had **Read Only** or **Read Write** global privileges, any changes you make to their permissions will not take effect immediately. These changes will only apply to new connections created after the update.
+
+## View Database Credential
+
+Click on the three dots in the row and select **View Credential** to view the details for that specific user’s credentials.
+
+![Screenshot 2024-12-03 at 12.18.52 PM](/files/Screenshot 2024-12-03 at 12.18.52 PM.png "Screenshot 2024-12-03 at 12.18.52 PM.png")
+
+
+
+After selecting **View Credential**, a modal will appear displaying all the necessary information to connect to your site database.
+
+![Screenshot 2025-01-31 at 1.15.44 PM](https://frappecloud.com/files/Screenshot%202025-01-31%20at%201.15.44%20PM.png)
+
+
+
+## Delete Database User
+
+Click on the three dots in the row and select **Delete User** to remove the database user.
+
+![Screenshot 2024-12-03 at 12.16.58 PM](/files/Screenshot 2024-12-03 at 12.16.58 PM.png "Screenshot 2024-12-03 at 12.16.58 PM.png")
+
+
+
+When you click to delete a user, a confirmation modal will appear. Once you confirm the deletion, the selected database user will be deleted.
+
+![](/files/EMGuv7B.png)
+
+
+
+## Access Logs
+
+If you want to view all the SQL query pass through FC SQL Proxy service, you can click on `View Logs` button.
+
+![](/files/Screenshot%20from%202025-05-29%2015-09-12.png)
+
+You can filter search result by some keywords or client IP.
+
+![](/files/Screenshot%20from%202025-05-29%2015-08-47.png)
+
+## Connect External Tools to the Database
+
+### Connect Popular Analytics or Business Intelligence tool
+
+
+| **Tool Name**    | **Documentation**                                                   |
+| ---------------- | ------------------------------------------------------------------- |
+| Frappe Insights  | [Click Here](https://frappecloud.com/docs/frappe-insights)          |
+| Metabase         | [Click Here](https://frappecloud.com/docs/connect-metabase)         |
+| Apache Superset  | [Click Here](https://frappecloud.com/docs/connect-apache-superset)  |
+| Looker Studio    | [Click Here](https://frappecloud.com/docs/connect-looker-studio)    |
+| Power BI Desktop | [Click Here](https://frappecloud.com/docs/connect-power-bi-desktop) |
+| Zoho Analytics   | [Click Here](https://frappecloud.com/docs/connect-zoho-analytics)   |
+
+
+
+
+### Other Analytics or Business Intelligence tool
+
+Copy the credentials shown to your analytics tool.
+
+We only allow TLS connections. If you're having issues while connecting then please ensure that the analytics tool is using SSL/TLS and our certificate [chain.pem](https://frappecloud.com/files/chain.pem) for `*.frappe.cloud` (Signed by [Let's Encrypt](https://letsencrypt.org/)).
+
+### MariaDB command line client
+
+![Database Access CLI](https://frappecloud.com/files/database-access-cli.png)
+
+
+
+Copy the command to your console and paste the password when prompted.
+
+You will need to install [mariadb-client or mysql-client](https://mariadb.com/docs/server/connect/clients/mariadb-client/) on your machine.
+
+
+
+
+
+
+
+
+
 ---
-title: "Version Upgrade"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/sites/version-upgrade"
-updated: "2026-03-12"
----
-
-You can directly schedule version upgrades from a site's dashboard.
-
-### Sites on Private Benches
-
-1. To upgrade the version for your site, go to your Frappe cloud site Dashboard > **Actions** > **Version** **Upgrade**.
-  ![](/files/Z2MWPOI.png)
-2. If you have any custom frappe apps on your bench, you will be prompted to select the branch.
-  ![](/files/Screenshot 2026-02-26 at 1.40.13 PM.png)
-3. Click on Upgrade.
-4. A new bench will be created and the site will be moved there.
-
-### Sites on Public Bench
-
-1. To upgrade the version for your site, go to your Frappe cloud site Dashboard > **Actions** > **Version** **Upgrade**.
-2. Click on Upgrade if your site is not on the latest version.
-
-![](/files/flBiOZD.png)
-
-<!-- page: cloud/cloud__soc-2-report.md -->
----
-title: "SOC 2 (Systems and Organization Controls) Report"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/soc-2-report"
-updated: "2026-02-16"
----
-
-Frappe has successfully attained SOC 2 Type II attestation for the review period of 1st June 2024 to 31st May 2025, in addition to its existing ISO 27001:2022 certification.
-
-The SOC 2 Type II report, issued by an independent audit firm indicating that Frappe’s internal controls related to security, availability, and confidentiality have been effectively designed and operated throughout the review period in a satisfactory manner.
-
-This milestone highlights our commitment and continual improvement related to data security and privacy. With both ISO 27001 and SOC 2 Type II in place, Frappe provides customers and partners with increased assurance that their data is handled securely and responsibly.
-
-Frappe's ISO 9001 and ISO 27001 certifications along with the SOC 2 Type II attestation report are available [here](https://frappe.io/quality-and-information-security).
-
-<!-- page: cloud/cloud__storage-addons.md -->
----
-title: "Storage Addons"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/storage-addons"
-updated: "2026-05-10"
----
-
-## Introduction
-
-In case the base storage included in the Server's plan is not enough, you can always add more storage to your server as required at an additional cost of $0.2/GB per month. Note that [AWS does not allow us](https://repost.aws/questions/QUPe0ekJ79TpaI-TNGoPXIKQ/can-i-reduce-an-over-sized-ebs-volume) to revert the storage added to a volume. So, if it turns out that you don't need the additional storage that's been added to your server, you can create a new server and move your sites over to the same.
-
-## Steps to add storage manually
-
-1. Click on the + button adjacent to the server you want to add storage to
-
-![](/files/lqujBfZ.png)
-
-2. Select the amount of storage you want to add. Note that you can't add storage again for a period of 6 hours.
-
-![](/files/NcZAh9c.png)
-
-3. Select confirm to increase the storage
-
-&gt; Before the addons were introduced, Frappe Cloud itself was handling the additional storage being added on the server. The system automatically adds additional storage as and when required in order to prevent downtimes and other issues (mainly redis) from happening. If you wish to opt-out of this feature, you can disable it following the below steps. Note that if you do choose to do this, the downtimes on the server will be ignored by the system.  
-&gt;  
-&gt; 
-
-## Steps to disable Auto Increase Storage
-
-1. Click on the spanner icon adjacent to the server you want to disable auto add storage
-
-![](/files/lqujBfZ.png)
-
-2. Uncheck the box
-
-![](/files/Screenshot%202025-07-29%20at%2017-57-51%20Frappe%20Cloud.png)
-
-3. Click on confirm to disable the feature.
 
 ## FAQ
 
-### Why does application server storage take so much more than sum of sites' storage
+## Error when running mysql query
 
-![](/files/gfTicLd.png)
+Sometimes you may get errors such as
+
+```
+lost connection to server during query
+```
+
+In such cases, the application with which you're connecting to the database may not be showing the exact error mysql server is throwing. If you run into any errors when running queries, it's best to try the same query over [mysql client](https://frappecloud.com/docs/sites/database-access#mariadb-mysql-command-line-client) in the command line.  
 
 
 
-You may notice that the storage consumed in your application server is much larger than sum of storage of all the sites you have on the same. This is because the total storage consumed also includes all the benches (and therefore code and it's dependencies) deployed on your server.
+With the error thrown there, you'll be able to tell what exactly went wrong, and if anything is needed from our end, you can take a screenshot of the same and raise support ticket with it.
 
-Once you drop a Bench Group, you may notice that the storage doesn't go down immediately. This is because of docker cache. This should get cleared [within 6 hours](https://github.com/frappe/press/blob/873be0859355f2328dd0b265608d38022554acc1/press/hooks.py#L248-L249) when scheduled cleanup for the same happens.
+## Timezone doesn't match the timezone of the site
 
-### Why does storage increase during bench/site update
+The [system-time-zone](https://mariadb.com/kb/en/time-zones/#system-time-zone) mariadb variable will not be set to the timezone you see under System Settings. This is simply because that is not how timezone is implemented in Frappe. This is not an issue.
 
-This happens majorly as we take table-wise backup of the site during update. This is done so that in case of any failure during migration (eg: some breaking patch), all the changes done so far to the tables can be quickly rolled back. They're stored in the .migrate folder. This files in this folder should **NOT** be removed/updated manually as this can cause data loss
-
-![.migrate folder](/files/Screenshot_20250724_191323.png)
-
-You may therefore find it useful to update sites one at a time to reduce this increase in storage.
-
-Moreover, deploying new bench also downloads a new image onto the app server. This has the newer code deployed in your updated apps. This will also take some space.
-
-### Why does storage increase more than the limit
-
-The feature automatically increases available storage as it reaches over **90%** of its capacity. The limits apply for each such increase and does not impose an overall limit as of now. This is done to ensure uptime. In the future, we will allow imposing a hard limit on storage increased automatically.
-
-### How to force cleanup unused files
-
-Under server actions, you can find option to **Cleanup Server**. If you have performed too many site updates recently, you can force cleanup of older bench versions from your server.
-
-![](/files/image0d8c65.png)
-
-![](/files/imageca30a8.png)
-
-<!-- page: cloud/cloud__switching_between_teams.md -->
+<!-- page: cloud/cloud__devtools__log-browser.md -->
 ---
-title: "Switching between Teams"
+title: "Log Browser"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/switching_between_teams"
+url: "https://docs.frappe.io/cloud/devtools/log-browser"
 updated: "2026-02-16"
 ---
 
-You can switch easily between teams from the Team section in Settings.
+Log Browser is a handy tool to debug what has happened in your site or bench.
 
-![](/files/cTjeBOU.png)  
+There are 2 modes in Log Browser - Site and Bench
+
+In Site mode you can view and browse through the logs generated by a site and in Bench mode you can view and browse through the logs generated by a bench (not a bench group).
+
+### Steps to use the Log Browser
+
+* Select the mode from the dropdown.
+* Select the site/bench you want to view logs from the dropdown in the top right corner
+
+![](/files/mSVGlQQ.png)
+* Select the log you want to view from the log list
+
+![](/files/1xDxcYJ.png)
+* Filter, sort and search through the log file as you need
+
+![](/files/6dMT07r.png)
 
 
-If you want to leave a team, first switch to some other team and then click on the Switch button under the Change Team action.![](/files/fCpXfpP.png)  
+> Currently we don't support merged rotated log files yet.
+> 
+> 
 
-
-Rememeber you can't leave your own team(created when you signup) since your the owner of that team.
-
-<!-- page: cloud/cloud__tiny-plan.md -->
+<!-- page: cloud/cloud__dropping-a-bench-group.md -->
 ---
-title: "Tiny Plan ($5 / month)"
+title: "Dropping a Bench"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/tiny-plan"
+url: "https://docs.frappe.io/cloud/dropping-a-bench-group"
+updated: "2026-03-10"
+---
+
+> You cannot drop a Bench which has active sites under it
+
+1. From your Bench dashboard go to Actions > Dangerous Actions.
+2. Click on the Drop button.
+
+![](/files/Screenshot 2026-03-10 at 11.01.58 AM.png)
+
+3. You will be asked to confirm the name of the Bench you want to drop.
+
+![](/files/Screenshot 2026-03-10 at 11.02.35 AM.png)
+
+4. Once you have typed in the name click on the `Drop` button
+
+<!-- page: cloud/cloud__enable-server-script.md -->
+---
+title: "Enable Server Script"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/enable-server-script"
 updated: "2026-02-16"
 ---
 
-### Why is it so cheap ?
+Starting from version 15, Server Scripts are disabled by default to improve security on shared bench groups.
 
-This plan has a couple of constraints on resource usage, deployment location, and the ability to install only selected apps. Custom apps are also not permitted.
+You need to [create a private bench](https://frappecloud.com/docs/benches) to enable server scripts. Public shared bench groups **DO NOT** allow the use of server scripts.
 
-This plan provides
+You can refer to this [documentation](https://frappeframework.com/docs/user/en/desk/scripting/server-script) for more information regarding server scripts.  
+  
+Once your v15 site is moved from public/shared to private bench group, server script will be enabled automatically.![](/files/nRVHZHi.png)  
 
-* 0.5 compute hour / day
-* 250 MB of database storage
-* 2.5 GB of disk storage
-
-It has several limitations
-
-* Currently, this plan is available only on Mumbai, KSA & Virginia region.
-* Background jobs will be scheduled every 10 minutes, rather than every minute
-* Incoming HTTP requests will be timed out in 30 seconds instead of 120 seconds.
-* You can only specific apps on site. (scroll below to check the allowed apps list)
-* We can add some other limitations on this plan as per requirement.
-
-There are also some restrictions -
-
-* You can't disable auto update of your site
-* This plan is unavailable for private bench groups
-* You can't downgrade to this plan from other plans
-
-### Why is this plan available only in specific regions ?
-
-Out of all the accessible regions, the Mumbai, KSA & Virginia Regions have servers at affordable rates to provide this 5$ plan.
-
-### Why are there restrictions on the installation of apps ?
-
-Tiny Plan allows only a limited number of apps to be installed. To ensure low-cost deployment, all apps must be optimized so that they do not cause issues for other sites, as the site will be placed on a shared server.
-
-### Why can't I downgrade to this plan ?
-
-Because of the limitations imposed, moving to this plan is not as easy as others, therefore, it is best to take a backup and restore it on a new 5$ plan site if you desire to do so.
-
-### Why can't I upgrade to this plan ?
-
-Same reason as above. Please do a backup/restore.
-
-### **Allowed Apps**
-
-Currently, these apps are allowed to install in $5 plan.
-
-* Frappe
-* ERPNext
-* HRMS
-* Frappe CRM
-* Builder
-* Insights
-* Gameplan
-* LMS
-* Wiki
-* Raven
-* Helpdesk
-* Print Designer
-* India Compliance
-* Education
-* Drive
-* Email Delivery Service
-* Payments
-* Lending
-* Webshop
-* KSA Compliance
-* Burundi Compliance
-* erpnext_germany
-* erpnext_france
-* Swiss accounting software
-* ERPNext Egypt Compliance
-* Kenya Compliance via Slade
-* ERPNext Indonesia Compliance
-* Uganda Compliance
-* EU einvoice
 
   
 
-<!-- page: cloud/cloud__two-factor-authentication-2fa.md -->
+<!-- page: cloud/cloud__faq__app-installation-issue.md -->
 ---
-title: "Two-factor authentication (2FA)"
+title: "App Installation Issue"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/two-factor-authentication-2fa"
+url: "https://docs.frappe.io/cloud/faq/app-installation-issue"
 updated: "2026-02-16"
 ---
 
-Two-Factor Authentication (2FA) is a security measure that requires two different methods of verification to access an account.
+If you have been seeing the *Attention Required* status badge next to your apps:
+
+![](/files/j6PGkOJ.png)  
 
 
-> At the moment you can only use an authenticator app to enable 2FA
-> 
-> 
+It means that Frappe Cloud could not fetch the source code of your application.
 
-Authenticator App
------------------
+This can be because of multiple reasons, here are two:
 
-We use [TOTP](https://en.wikipedia.org/wiki/Time-based_One-Time_Password) method, that generates a unique password that is valid for a limited time, for 2FA.
+1. The **App Installation ID** of your app is missing or is invalid.
+2. An **invalid URL** is being used to fetch your app.
 
-### Enable 2FA
+Please see the specific sections to find out and fix the cause.
 
-1. Go to Settings and click on enable beside the enable 2FA option.
-2. Download an authenticator app on your phone, such as [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2) or [Aegis](https://github.com/beemdevelopment/Aegis) or use a browser extension like [1Password](https://support.1password.com/one-time-passwords/).
-3. Scan the QR code using the app or extension.
-4. Enter the code that's generated in the app to enable 2FA for your Frappe Cloud account.
+Invalid URL
+-----------
 
+To figure out if your app has an invalid URL, navigate to **Apps** under your Bench Group's page and ensure that the *repository path* of your app is correct:
 
-> Make sure to backup your vault/keys through the app as losing it means you could potentially get locked out of your Frappe Cloud account
-> 
->
-
-### Disable 2FA
-
-1. Go to Settings and click on disable beside the disable 2FA option.
-2. Open your authenticator app.
-3. Enter the code that's generated in the app to disable 2FA for your Frappe Cloud account.
+![](/files/bw19HP3.png)  
 
 
-> Disabling 2FA makes your account less secure
-> 
->
+The *repository path* could have changed due to a repository rename or other reasons.
 
-### Enforce 2FA for the whole team
+If the *repository path* is invalid, you can first remove the App by clicking on the three-dots menu button and selecting **Remove App**:
 
-1. Go to Settings and navigate to team tab.
-2. Click on Settings button.
-3. Switch Enforce 2FA button to enable it. Users will now be asked to enable 2FA when they visit the dashboard.
-
-<!-- page: cloud/cloud__unknown-command-.md -->
----
-title: "Unknown command -"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/unknown-command-"
-updated: "2026-02-16"
----
-
-When restoring a backup, you may see a command like so:
+![](/files/bzqZifI.png)  
 
 
-```
-Restoring Database file...
-ERROR at line 7: Unknown command '\-'.
-```
-This happens when backup from newer MariaDB is attempted to restore on an older version. This has been fixed in [**frappe**](https://github.com/frappe/frappe/) already. To rectify this, you should update your site to latest [supported](https://github.com/frappe/erpnext/wiki/Supported-Versions) version of frappe and try again.
+Then re-add it back in by clicking on **Add App** and then **Add from GitHub**:
+
+![](/files/CuJcgo1.png)  
+
+
+If your App has been re-added in correctly you should not see the *Attention Required* status badge anymore.
+
+App Installation ID issue
+-------------------------
+
+If the *repository path* is valid, you might be seeing the *Attention Required* badge because of a missing or invalid **App Installation ID**.
+
+This could be due to one of these reasons:
+
+1. The repository visibility has been changed.
+2. Repository access has not been granted to Frappe Cloud.
+3. Frappe Cloud has not been added as an app.
 
   
 
-<!-- page: cloud/cloud__webhook-attempt-logs.md -->
+
+To help us fix this issue you will have to re-install Frappe Cloud as a GitHub app. To do so, follow these steps:
+
+1. Visit the Installed GitHub Apps page ([link](https://github.com/settings/installations)), and click on configure next to Frappe Cloud:![](/files/cckfzkr.png)
+2. Ensure that your app is present in the list below if you have not checked **All repositories,** if your app is present then move onto step 3.![](/files/BJgiZQm.png)
+3. Uninstall Frappe Cloud:![](/files/C2DqXWK.png)
+4. Reinstall it by clicking on **Connect To GitHub** from the apps page on Frappe Cloud:![](/files/N7PHguf.png)
+5. Complete the authorization flow:![](/files/TotaLcx.png)
+6. Return to the Installed GitHub Apps page ([link](https://github.com/settings/installations)), and click on configure next to Frappe Cloud as shown in step 1. You will find that your address in your browser will be of the form: `https://github.com/settings/installations/INSTALLATION_ID` keep a note of this `INSTALLATION_ID` (this is the **App Installation ID**)
+
+If you have re-installed the App correctly, **your App Installation ID should be reset on Frappe Cloud within 30** **minutes** of having completed the steps above, and you should not be seeing the *Attention Required* badge anymore.
+
+If you are still seeing the Attention Required badge then p**lease raise a support ticket with us with the following information**:
+
+* **Bench Group name** where the app cannot be installed
+* **Repository URL** of the app
+* `INSTALLATION_ID` from the URL mentioned above
+
+If you have followed through with the above steps, we'll take care of the rest.
+
+<!-- page: cloud/cloud__faq__architecture-and-security.md -->
 ---
-title: "Webhook Attempt Logs"
+title: "FAQ - Security"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/webhook-attempt-logs"
+url: "https://docs.frappe.io/cloud/faq/architecture-and-security"
+updated: "2026-07-27"
+---
+
+## Network Security &amp; Access Control
+
+### How is network security implemented?
+
+We use a combination of security groups and firewalls to secure networks. VPCs isolate resources and restrict access. Only necessary ports are open to the public internet; all other ports are blocked by default.
+
+### How do you manage server access?
+
+We use SSH with certificates and/or public keys for server access. Passwords are not used. Users can only access benches with SSH certificates.
+
+### Is there a WAF protecting applications?
+
+No, but a server level firewall is available.
+
+### Is there any firewall imposed for outgoing connections?
+
+As of now, we do not have any restrictions for outgoing requests.
+
+### Is there an IPS/IDS solution in place?
+
+No, there is no Intrusion Prevention/Detection System currently implemented.
+
+### What DDoS mitigation measures are in place?
+
+We do not have specific DDoS mitigation measures in place currently.
+
+### Port 3306 is open. Why?
+
+We use [ProxySQL](https://proxysql.com/) for our [database users feature](https://docs.frappe.io/cloud/database-users-and-permission-manager). This requires the port to be open.
+
+## Data Protection &amp; Encryption
+
+### What database is used? (RDS, Aurora, etc.)
+
+We use MariaDB as the database for Frappe Cloud instances. We manage the database directly on the server on an AWS EC2 instance, not using services like RDS or Aurora.
+
+### Is there High Availability for databases?
+
+There is no High Availability setup for databases by default. We allow [dedicated server](https://docs.frappe.io/cloud/servers/servers-introduction) users to set up their own replication on request basis. You can raise a ticket for the same on our [support portal](https://support.frappe.io).
+
+### Is there automated failover for databases?
+
+No, there is no automated failover for databases on Frappe Cloud.
+
+### What is the RPO and RTO for databases?
+
+The RPO (Recovery Point Objective) for databases is up to 24 hours, as backups are taken daily. The RTO (Recovery Time Objective) can vary based on the size of the database and the time taken to restore from backups, typically ranging from a few hours to several hours. It is noted to be under 15 mintues as per our drills.
+
+### Is point-in-time recovery available?
+
+No, point-in-time recovery is not available for databases on Frappe Cloud.
+
+### What encryption is used for communication?
+
+We use HTTPS for all internet communication. SSH connections are also encrypted.
+
+### Are databases encrypted at rest?
+
+No, MariaDB databases are not encrypted at rest.
+
+### Are backups encrypted?
+
+Backups are unencrypted by default. Users can enable encryption by following our [backup encryption documentation](https://docs.frappe.io/framework/user/en/guides/basics/how-to-enable-backup-encryption). This uses fernet encryption (AES + HMAC).
+
+### Is EBS volume/storage encrypted?
+
+No, EBS volumes/storage attached to Frappe Cloud instances are not encrypted.
+
+## Security Monitoring &amp; Management
+
+### What antimalware software is used?
+
+We use ClamAV for antimalware protection on all servers. Virus definitions are updated manually as needed. Regular scans are not implemented to maintain performance.
+
+### Is there an EDR solution monitoring servers?
+
+No, there is no Endpoint Detection and Response solution currently implemented.
+
+### Are containers scanned for vulnerabilities?
+
+No, containers are not scanned for malware or vulnerabilities.
+
+### Do you use multi-factor authentication?
+
+Yes, we have 2FA enabled for all logins to third-party services.
+
+## Patch Management &amp; Updates
+
+### How are OS security patches managed?
+
+We use unattended upgrades to deploy patches automatically on a daily basis across all servers.
+
+### How are Frappe Framework updates handled?
+
+On shared benches, Frappe Framework updates are managed by the Frappe Cloud team, typically occurring weekly or with major updates. Private bench users can manage updates themselves. See [bench documentation](https://docs.frappe.io/cloud/benches) for details.
+
+### How are MariaDB updates managed?
+
+MariaDB security updates are handled via Ubuntu's unattended-upgrades system.
+
+### How are Python and dependency updates managed?
+
+Python and other dependencies are managed via benches. Users can manage them through `Bench` &gt; `Dependencies`.
+
+### Do you have a formal patch management policy?
+
+Yes, we have a comprehensive patch management process that covers implementation and tracking of ongoing patch compliance for all systems within our IT scope.
+
+**Process Triggers:**
+
+- Ongoing patch updating process
+- Vulnerability assessment results
+- Vulnerability alerts from vendors/OEM/security forums
+
+**Server Patch Deployment Process:**
+
+- Critical security patches applied automatically via Ubuntu's unattended upgrades
+- Previous backups or application utilities used for system rollback when needed
+
+### Where can I check for recent security patches?
+
+You can check security advisories on relevant GitHub repositories:
+
+- Frappe Framework: [Security Board](https://github.com/frappe/frappe/security/advisories)
+- Frappe Cloud: [Security Board](https://github.com/frappe/press/security/advisories)
+
+## Version Information
+
+### How can I check current Frappe version?
+
+You can check the current Frappe version by going to `Bench` &gt; `Apps`.
+
+### How can I check current MariaDB version?
+
+You can check the current MariaDB version by going to `Server` &gt; `Actions` &gt; `View Database Configuration`.
+
+### How can I check current Python version?
+
+You can check the current Python version by going to `Bench` &gt; `Dependencies`.
+
+## Backup &amp; Disaster Recovery
+
+### What backup policy do you follow?
+
+We take logical site backups as per our [backup policy](https://frappecloud.com/docs/sites/backups). Server-wide snapshots (including data volume) are taken daily, and are retained for 2 days.
+
+### What disaster recovery measures are in place?
+
+We maintain server-wide multi-AZ snapshots taken daily. In case of disaster, we plan to restore from these snapshots.
+
+## Compliance &amp; Certifications
+
+### What certifications do you have?
+
+Yes, we are certified under ISO 9001:2015, ISO 27001:2022, and SOC-2 Type-2 standards. Check [our compliance page](https://frappe.io/quality-and-information-security) for more information.
+
+### Do you conduct penetration testing?
+
+Yes, the Frappe Cloud platform undergone formal third-party penetration testing within the last 12-18 months.
+
+### Do you conduct vulnerability scans?
+
+Yes, we conduct regular internal and external vulnerability scans on our cloud infrastructure as part of our ongoing vulnerability management program.
+
+<!-- page: cloud/cloud__faq__architecture.md -->
+---
+title: "Architecture"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/faq/architecture"
+updated: "2026-05-07"
+---
+
+## What's under the hood?
+
+1. **Frappe Framework**: A full-stack web application framework written in Python and Javascript. The framework provides a robust foundation for building web applications, including a database abstraction layer, user authentication, and a REST API.
+2. **Frappe UI**: A Vue-based UI library to provide a modern user interface. The Frappe UI library provides a variety of components that can be used to build single-page applications on top of the Frappe Framework.
+3. **Agent**: A flask app designed to work along with Press. It provides a CLI interface for Press to communicate with the sites and benches.
+4. **Docker**: An open-source platform that enables developers to build, package, and deploy applications in lightweight, portable containers.
+5. **Ansible**: An open-source IT automation tool that simplifies the management, configuration, and deployment of systems and applications.
+
+---
+
+## Architecture Diagram
+
+Typical Frappe Cloud (FC) cluster has a similar architecture:
+
+![FC Cluster](/files/fc-cluster.png)
+
+A more complex architecture would explain the redundancy for each server along with the network cluster.
+
+---
+
+
+
+Watch this video to know more. 
+
+<iframe src="https://www.youtube.com/embed/KIohic6ML5o?si=TSFcTWhxF-YNe_fd" width="800" height="473.333333333" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" frameborder="0" allowfullscreen></iframe>
+
+
+
+---
+
+<!-- page: cloud/cloud__faq__billing.md -->
+---
+title: "FAQ - Billing"
+space: "Cloud"
+url: "https://docs.frappe.io/cloud/faq/billing"
 updated: "2026-02-16"
 ---
 
-Webhook attempt logs are essential for diagnosing issues on the webhook backend. They allow the end-user to review the request payload, response, and status code, enabling more effective troubleshooting.
+### How is site usage calculated and charged?
 
+Let's say you create a site with the $25/month plan. For every day your site is active, we will charge $25 / 30 = $0.83 per day. That means if you use a site for only 20 days, we will charge only for 20 days.
 
-> You can only view logs of last 24 hours only.
-> 
-> 
+### Is there a User limit?
 
-From the webhook record's actions button, you will be able to open the `Webhook Attempts List`
+Sites created with any of the plans do not have any user limit. However, these sites are limited by CPU hours per day. This means if there are a lot of users using the site, the site may slow down if the CPU usage limit is reached. For a detailed explanation read this [blog post on Pricing](https://frappecloud.com/blog/frappe-cloud/frappe-cloud-pricing).
 
-![Screenshot 2024-09-25 at 4.54.33 PM](/files/Screenshot 2024-09-25 at 4.54.33 PM.png "Screenshot 2024-09-25 at 4.54.33 PM.png")  
+### How is CPU usage calculated and throttled?
 
+We log every request that you make to your site. For e.g, if you open the General Ledger Report in your site and it takes 2 seconds for the report to generate, we log that time. This is the CPU usage time. This time will add up as you use your site.
 
-![Screenshot 2024-09-25 at 5.00.30 PM](/files/Screenshot 2024-09-25 at 5.00.30 PM.png "Screenshot 2024-09-25 at 5.00.30 PM.png")  
+Now, based on the plan you chose, we will check if the total CPU usage time is used up, if it is we will drop the request and all the subsequent requests. If this is happening frequently to your site, it is an indication that you should switch to a higher plan.
 
+### How do I stop billing in my account?
 
-You can click on a row to view the details of a specific webhook attempt.
+You are charged based on the number of sites you have created. If you delete all your sites, you won't be billed anything.
 
-![Screenshot 2024-09-25 at 5.01.41 PM](/files/Screenshot 2024-09-25 at 5.01.41 PM.png "Screenshot 2024-09-25 at 5.01.41 PM.png")  
+### Is there downtime involved in changing plan?
 
-<!-- page: cloud/cloud__webhook-events.md -->
+Changing plan of your **site** is instantaneous without any downtime involved. On the other hand, when you change plan of your **dedicated server**, regardless of upgrade or downgrade, there will be downtime. This is because changing plan means replacing the virtual machine running your sites.
+
+<!-- page: cloud/cloud__faq__custom_apps.md -->
 ---
-title: "Webhook Events"
+title: "Attention required in Custom Apps"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/webhook-events"
-updated: "2026-02-16"
+url: "https://docs.frappe.io/cloud/faq/custom_apps"
+updated: "2026-06-18"
 ---
 
-Site Status Update
-------------------
+![Attention Required badge](/files/Screenshot%202022-08-16%20at%2012.36.46%20PM.png)
 
-This event is triggered whenever the status of a site changes.
+This means that we are **not able to fetch the latest updates from the associated GitHub repository** for the app. This happens most probably because the Frappe Cloud GitHub app does not have the permission to access the repository. 
 
-Sample Payload -
+Please make sure Frappe Cloud app has proper permissions from GitHub settings:  
 
+![](/files/EDYZBF1.png)
 
-```json
-{
-   "doctype":"Site",
-   "name":"ytest.tanmoy.fc.frappe.dev",
-   "owner":"Administrator",
-   "creation":"2024-09-13 10:04:41.244578",
-   "modified":"2024-09-26 10:49:34.381793",
-   "modified_by":"Administrator",
-   "docstatus":0,
-   "idx":7,
-   "ip":"None",
-   "status":"Active",
-   "group":"bench-0008",
-   "notify_email":"admin@example.com",
-   "team":"dnjt4bkes2",
-   "plan":"ERPNext Trial",
-   "setup_wizard_complete":0,
-   "archive_failed":0,
-   "cluster":"Default",
-   "bench":"bench-0008-000005-f1",
-   "is_database_access_enabled":0,
-   "trial_end_date":"2024-09-27",
-   "tags":[
-      
-   ],
-   "server":"f1.tanmoy.fc.frappe.dev",
-   "host_name":"ytest.tanmoy.fc.frappe.dev",
-   "skip_auto_updates":0,
-   "additional_system_user_created":1
-}
+![](/files/sSXn2kA.png)
+
+You can then retry fetching the latest update:  
+
+![Fetch Latest Updates in dropdown](/files/fetch_updates.png)
+
+### Workaround: Attention required even after trying the above
+
+If you're getting the error even after adding and removing the app on Frappe Cloud, please visit <[https://github.com/settings/installations/](https://github.com/settings/installations/)> and then click the configure button next to the **Frappe Cloud** Github App.  
+
+![Configure Frappe Cloud Github](/files/Screenshot%202023-04-04%20at%2023-03-52%20Build%20software%20better%20together.png)
+
+It should take you to another page with a URL like `https://github.com/settings/installations/<unique_number>`. Copy this number (or the URL as a whole).
+
+Now, you can raise a support ticket stating the problem (or linking this doc page) with the number you copied so that we can quickly resolve the issue from our end.
+
+### How to add python dependencies to my custom app? Eg: pandas
+
+If you require to install pandas or any other python package for that matter, you need to add them in your dependency file rather than doing `pip install pandas`.
+
+You can add python dependencies to your app by adding the name of the same in [pyproject.toml](https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/)  
+file under `dependencies` or [requirements.txt](https://pip.pypa.io/en/stable/reference/requirements-file-format/) file (only one of the files should be present) present in the root folder of your custom app.
+
 ```
-Site Plan Change
-----------------
-
-This event is triggered whenever a site is upgraded or downgraded to a different site plan.
-
-Sample Payload -
-
-
-```json
-{
-   "event":"Site Plan Change",
-   "data":{
-      "doctype":"Site Plan Change",
-      "name":"368704046d",
-      "owner":"tanmoy@frappe.io",
-      "creation":"2024-09-24 11:29:41.596739",
-      "modified":"2024-09-24 11:29:41.596739",
-      "modified_by":"tanmoy@frappe.io",
-      "docstatus":0,
-      "idx":0,
-      "from_plan":"USD 10",
-      "to_plan":"USD 25",
-      "type":"Upgrade",
-      "site":"test465.frappe.cloud",
-      "timestamp":"2024-09-24 11:29:41.596639"
-   }
-}
+[project]
+name = "insights"
+authors = [
+    { name = "Powerful Reporting Tool for Frappe Apps", email = "hello@frappe.io"}
+]
+description = "Open Source Business Intelligence Tool"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "pandas~=2.3.3",
+    "SQLAlchemy==2.0.41",
+    "python-telegram-bot==21.4",
+    "duckdb~=1.4.3",
+    "sqlglot<28.0.0"
+]
 ```
 
-Bench Deploy Status Update
---------------------------
+You can check ERPNext's [pyproject.toml](https://github.com/frappe/erpnext/blob/develop/pyproject.toml) for reference.
 
-The event is trigerred whenever a new bench created under a Bench Group. It will notify your backend about all the status update for a new Bench.
-
-Draft -> Scheduled -> Pending -> Preparing -> Running -> Success -> Failure
-
-Sample Payload -
-
-```json
-{
-    "event": "Bench Deploy Status Update",
-    "data": {
-        "doctype": "Deploy Candidate",
-        "name": "deploy-0019-000059",
-        "owner": "Administrator",
-        "creation": "2025-04-09 13:24:33.597587",
-        "modified": "2025-04-09 13:25:16.659627",
-        "modified_by": "Administrator",
-        "docstatus": 0,
-        "idx": 0,
-        "status": "Success",
-        "deployed": "None",
-        "build_start": "2025-04-09 13:24:34.864515",
-        "build_end": "2025-04-09 13:25:16.659052",
-        "build_duration": "0:00:41.794537",
-        "build_error": "None",
-        "group": "bench-0019",
-        "retry_count": 0
-    }
-}
-```
-
-Bench Status Update
--------------------
-
-This event is trigerred whenever some actions are got performed on the bench and status got updated.
-
-Pending -> Installing -> Updating -> Active -> Broken -> Archived
-
-Sample Payload -
-
-```json
-{
-    "event": "Bench Status Update",
-    "data": {
-        "doctype": "Bench",
-        "name": "bench-0019-000059-f2-london",
-        "owner": "Administrator",
-        "creation": "2025-04-09 13:25:16.930474",
-        "modified": "2025-04-09 13:27:21.992663",
-        "modified_by": "Administrator",
-        "docstatus": 0,
-        "idx": 0,
-        "group": "bench-0019",
-        "status": "Pending",
-        "cluster": "London",
-        "is_ssh_proxy_setup": 1,
-        "inplace_update_docker_image": "None"
-    }
-}
-```
-
-
-If you have a requirement for other events, please [raise a feature request on github](https://github.com/frappe/press/issues/new).
-
-<!-- page: cloud/cloud__webhook-introduction.md -->
+<!-- page: cloud/cloud__faq__installing-app-apt-dependencies.md -->
 ---
-title: "Introduction"
+title: "Installing App APT Dependencies"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/webhook-introduction"
-updated: "2026-02-16"
----
-
-Frappe Cloud Webhooks help deliver events related to various resources directly to your backend service.
-
-![webhook-slide](/files/webhook-slide.png "webhook-slide.png")  
-
-
-This makes it easier to build tools and custom SaaS workflows on top of Frappe Cloud using the Frappe Cloud API and webhook events.
-
-Notes
------
-
-1. Webhook configurations are specific to each team.
-2. A team can have a maximum of 5 webhook endpoints configured.
-3. If 70% of webhook requests to your endpoint fail within the past hour, the webhook will be disabled, and the team will be notified. You can re-enable the webhook from the dashboard after resolving the issue on your end.
-
-<!-- page: cloud/cloud__what-are-benches-and-bench-groups.md -->
----
-title: "What are Benches?"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/what-are-benches-and-bench-groups"
+url: "https://docs.frappe.io/cloud/faq/installing-app-apt-dependencies"
 updated: "2026-02-27"
 ---
 
-A **Bench** is a collection of apps and sites. All sites on a **Bench** share the same configuration, such as the version of apps, or version of dependencies.
+While developing your app, you may use certain python dependencies; which you would add to your `requirements.txt` or `pyproject.toml` file. Some of these may require you to additionally install certain system level packages with some command, like:
 
-Frappe Cloud creates the benches from templates which can be viewed under the **Benches** menu.
+```
+sudo apt install ffmpeg
+```
 
-![](/files/Screenshot 2026-02-27 at 3.20.37 PM.png)
+To do the same for Frappe Cloud, i.e, if your app has dependencies installable using Ubuntu's [APT](https://ubuntu.com/server/docs/package-management) package manager, you can list them in your custom app's `pyproject.toml` file like this:
 
-> For a more technical explanation of what a **Bench** is, see the [Bench confusion](#bench-confusion) section.
+```
+[deploy.dependencies.apt]
+packages = [
+    "ffmpeg",
+]
+```
 
-The template holds information such as:
+Frappe Cloud will check if it is present and install it if it is.
 
-- Which apps to install.![](/files/WtN8r0p.png)
-- What common site config flags to be set for benches deployed from the current template.
-- The version of dependencies to be used for the benches.
+Here is an example from Frappe Drive: [github.com/frappe/drive](https://github.com/frappe/drive/blob/d5a0d33813885e59e49643c4c4b73f0af9f432a4/pyproject.toml#L33C1-L36C2)
 
-> **Private Bench"**
->
-> If you are using a [private bench](https://frappecloud.com/docs/benches) then all of the above information can be set and updated by you.
-
-### **When is a Bench created?**
-
-A bench template by itself does not run your site. For this you have to *deploy* that template. This takes place when you click on *Deploy* or *Update Available* on your **Bench** page.
-
-1. When you do this, a *Deploy* job (visible in the **Deploys** tab) is created. This job builds a [Docker image](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image) from the template and uploads it to the Frappe Cloud [Docker registry](https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-registry).
-  ![](/files/Screenshot 2026-02-27 at 2.44.37 PM.png)
-2. After the Deploy job succeeds, a *New Bench* job (visible in the **Jobs** tab) is created. This job downloads the template’s image and runs it on the server.
-  ![](/files/Screenshot 2026-02-27 at 2.52.20 PM.png)
-
-Once the **Bench** is up and running, a new site can be created on it, or an existing site can be moved to it from another **Bench**.
-
-## **Bench confusion**
-
-If you are familiar with [Frappe Framework](https://frappe.io/framework) development then term "bench" may not be a new one and might cause some confusion. This is a perfectly sane response to our shortcomings when it comes to naming things. To help clear this, I'll try and differentiate between the different benches:
-
-
-
-
-| **Term**       | **Context**      | **Description**                                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------------------------------- |
-| *Frappe Bench* | Frappe Framework | Directory that holds a collection of Frappe Framework apps and sites on which they may be installed. |
-| `frappe/bench` | Frappe Framework | [CLI tool](https://github.com/frappe/bench) used to manage a *Frappe Bench*.                         |
-| **Bench**      | Frappe Cloud     | *Frappe Bench* running inside a container from which your site is served.                            |
-
-
-In the context of Frappe, all benches are conceptually linked (unless you are talking about a [regular bench](https://en.wikipedia.org/wiki/Bench_(furniture))).
-
-<!-- page: cloud/cloud__whats-new.md -->
+<!-- page: cloud/cloud__faq__mariadb-slow-queries-in-your-site.md -->
 ---
-title: "What's New"
+title: "MariaDB slow queries in your site"
 space: "Cloud"
-url: "https://docs.frappe.io/cloud/whats-new"
-updated: "2026-05-30"
+url: "https://docs.frappe.io/cloud/faq/mariadb-slow-queries-in-your-site"
+updated: "2026-07-25"
 ---
 
-## Major updates from 2026
+[Slow queries](https://mariadb.com/kb/en/slow-query-log-overview/) take up lots of CPU on your database server. Ideally there should be none.
 
-The biggest update from this year is that Frappe Cloud has added 2 new providers - Hetzner and DigitalOcean, and an option to host App and Database on one server - also called Unified Server deployment. 
+In the **analytics** tab of your site dashboard, you'll be able to see slow queries (tracked by MariaDB) being run on your site database. These usually mean that the queries can be optimized to improve performance (and reduce CPU usage!)
 
-Watch this video to know more about it. 
-
-<iframe width="800" height="450" src="https://www.youtube.com/embed/mRRfPPeurY8?si=fAcECAVwWtV89Duh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+![](/files/sXSiPap.png)
 
 
 
----
+You can also see queries that aren't necessary slow, but frequent enough to increase cpu usage from the [Database Analyzer](https://docs.frappe.io/cloud/database-analyzer) tab of your site dashboard:
 
-## Recap of 2025
+![](/files/v2VTZt7.png)
 
-2025 was an year of continuous improvement. You can read about them in [this blog](https://frappe.io/blog/engineering/frappe-cloud-in-2025-a-year-of-magic-under-the-hood) or watch the video below. 
 
-<iframe width="800" height="450" src="https://www.youtube.com/embed/4DMeDg3YYl0?si=Jil2EDOcerSkRAMO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
----
+
+
+> Prerequisites: You need to be on a [private bench](https://frappecloud.com/docs/benches#private-benches) and on Version 14 or higher for the following
+
+### Adding composite database indexes
+
+> Version 15 users can also follow the doc here for easier experience: [https://frappeframework.com/docs/user/en/profiling#query-optimization-using-recorder](https://frappeframework.com/docs/user/en/profiling#query-optimization-using-recorder)  
+> Version 14 users can also try out this [feature](https://frappecloud.com/docs/performance-tuning) out on Frappe Cloud  
+>
+> Note: The above feature only adds singular indexes and may be suboptimal. Please try out below steps to add **composite** indexes if it doesn't yield good results.
+
+One of the easier ways to speed up queries is to add indexes to the filtered columns. Usually, adding composite indexes rather than single column indexes is a good idea. MariaDB has an [article](https://mariadb.com/kb/en/compound-composite-indexes/) explaining the same.
+
+You can see existing indexes on your site with:
+
+```
+SHOW INDEXES FROM `tab<doctype_name>`
+```
+
+after going to mariadb console with:
+
+```
+bench --site <site_name> mariadb
+```
+
+In frappe (since v14), it's easy to index columns with the **bench add-database-index** command. Simply find the columns that need indexing and run
+
+```
+bench --site <site_name> add-database-index --doctype "<doctype_name>" --column <column_1> --column <column_2> ...
+```
+
+```
+#example
+bench --site <site_name> add-database-index --doctype "Sales Order" --column order_type --column status ...
+```
+
+This index creates a **Property Setter** document as well, so the changes persist across migrations and restores.
+
+> Note: Adding too many indexes will slow down insertion of records into the table. If you run into any problems, you can remove indexes added by deleting them from the Property Setter doctype and running bench migrate on your site
+
+### Side effect of coalesce
+
+Use of [COALESCE](https://mariadb.com/kb/en/coalesce/) on an index column and most other functions in mysql tends to not make use of the index and hence slow down the query. If you're writing the query with frappe ORM, you can set `ignore_ifnull=True` in your `get_list` query to remove the COALESCE from the generated query.
+
+If you're running report from report view, you may want to consider writing a [custom report](https://frappeframework.com/docs/user/en/desk/reports/query-report) in SQL by modifying the SQL query (without the COALESCE functions) you got from the slow query reports.

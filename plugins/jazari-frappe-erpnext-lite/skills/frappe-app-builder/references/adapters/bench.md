@@ -14,9 +14,9 @@ directory: use the dashboard equivalents in the frappe-cloud skill.
 
 | Capability | Command | Destroys? | Bundled page (read this) |
 |---|---|---|---|
-| Create a new Frappe app | `bench new-app {app}` | no | `docs/framework/framework-06.md` lines 3202–3298 |
-| Create a new site for an app | `bench new-site {site} --install-app {app}` | no | `docs/framework/framework-06.md` lines 2985–3200 |
-| Bundle app assets | `bench build --app {app}` | no | `docs/framework/framework-02.md` lines 4688–4933 |
+| Create a new Frappe app | `bench new-app {app}` | no | `docs/framework/framework-23.md` lines 396–492 |
+| Create a new site for an app | `bench new-site {site} --install-app {app}` | no | `docs/framework/framework-23.md` lines 179–394 |
+| Bundle app assets | `bench build --app {app}` | no | `docs/framework/framework-07.md` lines 979–1224 |
 
 ## The three that end sites
 

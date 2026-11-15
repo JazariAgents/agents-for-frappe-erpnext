@@ -149,15 +149,15 @@ or reconcile the two afterwards with Payment Reconciliation. Say which to the us
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Send a quotation | Quotation | `POST /api/v2/document/Quotation` (and the list/read/update calls above) | `docs/erpnext/erpnext-13.md` lines 1206–1337 |
-| Confirm a sales order | Sales Order | `POST /api/v2/document/Sales%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext-14.md` lines 674–915 |
-| Ship goods with a delivery note | Delivery Note | `POST /api/v2/document/Delivery%20Note` (and the list/read/update calls above) | `docs/erpnext/erpnext-06.md` lines 3–266 |
-| Pick stock for an order | Pick List | `POST /api/v2/document/Pick%20List` (and the list/read/update calls above) | `docs/erpnext/erpnext-11.md` lines 1916–2030 |
-| Pack an order | Packing Slip | `POST /api/v2/document/Packing%20Slip` (and the list/read/update calls above) | `docs/erpnext/erpnext-10.md` lines 3023–3088 |
-| Book a shipment | Shipment | `POST /api/v2/document/Shipment` (and the list/read/update calls above) | `docs/erpnext/erpnext-15.md` lines 1812–1893 |
-| Create and manage customers | Customer | `POST /api/v2/document/Customer` (and the list/read/update calls above) | `docs/erpnext/erpnext-05.md` lines 820–992 |
-| Organise territories | Territory | `POST /api/v2/document/Territory` (and the list/read/update calls above) | `docs/erpnext/erpnext-17.md` lines 974–1144 |
-| Configure a POS profile | POS Profile | `POST /api/v2/document/POS%20Profile` (and the list/read/update calls above) | `docs/erpnext/erpnext-11.md` lines 2205–2340 |
+| Send a quotation | Quotation | `POST /api/v2/document/Quotation` (and the list/read/update calls above) | `docs/erpnext/erpnext-49.md` lines 335–466 |
+| Confirm a sales order | Sales Order | `POST /api/v2/document/Sales%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext-53.md` lines 3–244 |
+| Ship goods with a delivery note | Delivery Note | `POST /api/v2/document/Delivery%20Note` (and the list/read/update calls above) | `docs/erpnext/erpnext-20.md` lines 476–739 |
+| Pick stock for an order | Pick List | `POST /api/v2/document/Pick%20List` (and the list/read/update calls above) | `docs/erpnext/erpnext-42.md` lines 792–906 |
+| Pack an order | Packing Slip | `POST /api/v2/document/Packing%20Slip` (and the list/read/update calls above) | `docs/erpnext/erpnext-39.md` lines 976–1041 |
+| Book a shipment | Shipment | `POST /api/v2/document/Shipment` (and the list/read/update calls above) | `docs/erpnext/erpnext-58.md` lines 274–355 |
+| Create and manage customers | Customer | `POST /api/v2/document/Customer` (and the list/read/update calls above) | `docs/erpnext/erpnext-17.md` lines 549–721 |
+| Organise territories | Territory | `POST /api/v2/document/Territory` (and the list/read/update calls above) | `docs/erpnext/erpnext-65.md` lines 3–173 |
+| Configure a POS profile | POS Profile | `POST /api/v2/document/POS%20Profile` (and the list/read/update calls above) | `docs/erpnext/erpnext-43.md` lines 176–311 |
 
 ## Capabilities that need a schema lookup first
 
@@ -168,16 +168,16 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Plan a delivery trip | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-06.md` lines 268–305 |
-| Process a sales return | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-14.md` lines 1643–1836 |
-| Group customers | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-05.md` lines 544–698 |
-| Maintain price lists | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 2650–2689 |
-| Set item prices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-09.md` lines 155–229 |
-| Apply a pricing rule | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 2691–2838 |
-| Run a promotional scheme | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-12.md` lines 2015–2128 |
-| Issue coupon codes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-04.md` lines 2467–2590 |
-| Run a loyalty program | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-09.md` lines 2122–2250 |
-| Track sales people and commission | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-14.md` lines 1331–1480 |
-| Enforce a customer credit limit | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-04.md` lines 2690–2874 |
-| Sell at the point of sale | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 2122–2143 |
-| Consolidate POS invoices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 2174–2203 |
+| Plan a delivery trip | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-20.md` lines 741–778 |
+| Process a sales return | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-54.md` lines 315–508 |
+| Group customers | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-17.md` lines 273–427 |
+| Maintain price lists | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 621–660 |
+| Set item prices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-32.md` lines 858–932 |
+| Apply a pricing rule | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 662–809 |
+| Run a promotional scheme | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-46.md` lines 462–575 |
+| Issue coupon codes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-15.md` lines 306–429 |
+| Run a loyalty program | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-35.md` lines 493–621 |
+| Track sales people and commission | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-54.md` lines 3–152 |
+| Enforce a customer credit limit | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-15.md` lines 529–713 |
+| Sell at the point of sale | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 93–114 |
+| Consolidate POS invoices | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-43.md` lines 145–174 |

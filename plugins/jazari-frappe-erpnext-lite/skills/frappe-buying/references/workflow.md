@@ -8,15 +8,15 @@ Owner: **Mizan** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Raise a material request** (`buy.materialrequest`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext-10.md` lines 316–441   (https://docs.frappe.io/erpnext/material-request)
+   read: `docs/erpnext/erpnext-37.md` lines 3–128   (https://docs.frappe.io/erpnext/material-request)
 2. **Place a purchase order** (`buy.purchaseorder`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-12.md` lines 2554–2748   (https://docs.frappe.io/erpnext/purchase-order)
+   read: `docs/erpnext/erpnext-47.md` lines 204–398   (https://docs.frappe.io/erpnext/purchase-order)
 3. **Receive goods** (`buy.purchasereceipt`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-12.md` lines 2750–3011   (https://docs.frappe.io/erpnext/purchase-receipt)
+   read: `docs/erpnext/erpnext-47.md` lines 400–661   (https://docs.frappe.io/erpnext/purchase-receipt)
 4. **Record a purchase invoice** (`acc.purchaseinvoice`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-12.md` lines 2353–2552   (https://docs.frappe.io/erpnext/purchase-invoice)
+   read: `docs/erpnext/erpnext-47.md` lines 3–202   (https://docs.frappe.io/erpnext/purchase-invoice)
 5. **Record a payment entry** (`acc.paymententry`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext-11.md` lines 3–201   (https://docs.frappe.io/erpnext/payment-entry)
+   read: `docs/erpnext/erpnext-40.md` lines 353–551   (https://docs.frappe.io/erpnext/payment-entry)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

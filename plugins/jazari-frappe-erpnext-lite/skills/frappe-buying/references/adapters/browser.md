@@ -44,7 +44,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   3. Select the supplier group whether Pharmaceutical, Hardware etc
   4. Save. !Supplier Master
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-16.md` lines 2091–2251  (https://docs.frappe.io/erpnext/supplier)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 268–428  (https://docs.frappe.io/erpnext/supplier)
 
 ### Raise a material request
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Material Request**, or type *Material Request* in the search bar at the top
@@ -59,7 +59,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   7. You can change the Required By date for individual Items in this table
   8. Save and Submit
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-10.md` lines 316–441  (https://docs.frappe.io/erpnext/material-request)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-37.md` lines 3–128  (https://docs.frappe.io/erpnext/material-request)
 
 ### Send a request for quotation
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Request for Quotation**, or type *Request for Quotation* in the search bar at the top
@@ -72,7 +72,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. The *Warehouse* can be left blank if *Maintain Stock* is not enabled for the item
   6. If you want to send the Request for Quotation to your suppliers as an email, you can create an Email Template and select it here. In the template, you can use special variables for supplier specific data:
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-13.md` lines 2736–2901  (https://docs.frappe.io/erpnext/request-for-quotation)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-51.md` lines 3–168  (https://docs.frappe.io/erpnext/request-for-quotation)
 
 ### Record a supplier quotation
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Supplier Quotation**, or type *Supplier Quotation* in the search bar at the top
@@ -80,7 +80,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. You can also make a Supplier Quotation directly from
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-16.md` lines 1902–1986  (https://docs.frappe.io/erpnext/supplier-quotation)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 79–163  (https://docs.frappe.io/erpnext/supplier-quotation)
 
 ### Place a purchase order
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Order**, or type *Purchase Order* in the search bar at the top
@@ -93,7 +93,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Set taxes
   6. Save and Submit
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 2554–2748  (https://docs.frappe.io/erpnext/purchase-order)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-47.md` lines 204–398  (https://docs.frappe.io/erpnext/purchase-order)
 
 ### Receive goods
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Receipt**, or type *Purchase Receipt* in the search bar at the top
@@ -108,26 +108,26 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   7. You can expand the item row to change the Accepted Warehouse for an Item
   8. Save and submit
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 2750–3011  (https://docs.frappe.io/erpnext/purchase-receipt)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-47.md` lines 400–661  (https://docs.frappe.io/erpnext/purchase-receipt)
 
 ### Return goods to a supplier
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Purchase Receipt**, or type *Purchase Receipt* in the search bar at the top
 - **Documented steps:**
   1. First open the original Purchase Receipt, against which supplier delivered the Items
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 3013–3068  (https://docs.frappe.io/erpnext/purchase-return)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-47.md` lines 663–718  (https://docs.frappe.io/erpnext/purchase-return)
 
 ### Add landed costs
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Stock > Tools > Landed Cost Voucher**, or type *Landed Cost Voucher* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-09.md` lines 1495–1516  (https://docs.frappe.io/erpnext/landed-cost-voucher)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-34.md` lines 568–589  (https://docs.frappe.io/erpnext/landed-cost-voucher)
 
 ### Run subcontracting
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Subcontracting > Subcontracting Order**, or type *Subcontracting Order* in the search bar at the top
 - **Documented steps:**
   1. Create a Service Item (Non-stock Item). It represents the service cost of the subcontracted operation
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-16.md` lines 1282–1499  (https://docs.frappe.io/erpnext/subcontracting)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-61.md` lines 296–513  (https://docs.frappe.io/erpnext/subcontracting)
 
 ### Score suppliers
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Buying > Setup > Supplier Scorecard**, or type *Supplier Scorecard* in the search bar at the top
@@ -139,7 +139,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Setup the scoring function (details in next section)
   5. A supplier scorecard is created for each supplier individually. Only one supplier scorecard can be created for each supplier
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-16.md` lines 1988–2089  (https://docs.frappe.io/erpnext/supplier-scorecard)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-62.md` lines 165–266  (https://docs.frappe.io/erpnext/supplier-scorecard)
 
 ### Agree a blanket order
 - **Path (checked on v16.55):** https://your-site/desk → type *Blanket Order* in the search bar at the top and open the doctype
@@ -152,5 +152,5 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Add each Item, committed Quantity, Rate, and item-specific Terms and Conditions
   6. Save and submit the Blanket Order
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext-03.md` lines 1127–1238  (https://docs.frappe.io/erpnext/blanket-order)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-10.md` lines 3–114  (https://docs.frappe.io/erpnext/blanket-order)
 

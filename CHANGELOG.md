@@ -5,10 +5,10 @@
 The Lite edition only; the full edition stays at 1.1.11.
 
 - Claude's plugin directory holds a plugin with more than 512 files for review. The Lite edition had 1,752,
-  almost all of them the 1,612 bundled documentation pages. The pages are now packed into 47 files, a few per
-  product, each page whole and marked with its original name. Every reference in the skills, and
+  almost all of them the 1,612 bundled documentation pages. The pages are now packed into 146 files of about
+  48 KB, each page whole and marked with its original name. Every reference in the skills, and
   `docs/INDEX.md`, says which file and which lines hold a page, so Claude still reads just that page. The
-  plugin is now 185 files.
+  plugin is now 284 files.
 - Two Frappe Cloud pages showed SSH key file paths (`~/.ssh/id_rsa`), which the directory reads as a plugin
   reaching for a credential. In the Lite edition those paths are replaced with a description; `NOTICE.md`
   says so.
