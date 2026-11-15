@@ -20,23 +20,23 @@ that follow from the answer.
   2. Library Member - Link to Library Member
   3. Type - Select with 2 options: Issue and Return
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__tutorial__types-of-doctype.md`  (https://docs.frappe.io/framework/user/en/tutorial/types-of-doctype)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 3587–3907  (https://docs.frappe.io/framework/user/en/tutorial/types-of-doctype)
 
 ### Write controller methods
 - **What the page says:** Controller methods allow you to write business logic during the lifecycle of a document.
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__tutorial__controller-methods.md`  (https://docs.frappe.io/framework/user/en/tutorial/controller-methods)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 2754–2807  (https://docs.frappe.io/framework/user/en/tutorial/controller-methods)
 
 ### Add a form script
 - **What the page says:** Form Scripts are client-side javascript code that enhances the UX of your Forms.
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__tutorial__form-scripts.md`  (https://docs.frappe.io/framework/user/en/tutorial/form-scripts)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 3369–3416  (https://docs.frappe.io/framework/user/en/tutorial/form-scripts)
 
 ### Use virtual doc fields
 - **What the page says:** A Virtual DocField is a dynamic attribute of a given Document (or Record). It's a calculated attribute that isn't stored in the site database. This could be used for representing values that may be functions of other static Document attributes.
 - **It covers:** How to use Virtual DocFields, 1. Define a Virtual DocField, 2. Define a source for the field, Impact on internals, Backend API, REST API, Database, Virtual Tables on Non-virtual DocTypes
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__basics__virtual_docfield.md`  (https://docs.frappe.io/framework/user/en/basics/virtual_docfield)
+- **Full page, bundled offline:** `docs/framework/framework-03.md` lines 741–859  (https://docs.frappe.io/framework/user/en/basics/virtual_docfield)
 
 ### Wire app behaviour with hooks
 - **What the page says:** Hooks allow you to "hook" into functionality and events of core parts of the Frappe Framework. This page documents all of the hooks provided by the framework.
@@ -45,19 +45,19 @@ that follow from the answer.
   1. app_name - slugified name of the app
   2. app_title - presentable app name
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__python-api__hooks.md`  (https://docs.frappe.io/framework/user/en/python-api/hooks)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 3–1740  (https://docs.frappe.io/framework/user/en/python-api/hooks)
 
 ### Query data with the database API
 - **What the page says:** `frappe.db.get_list(doctype, filters, or_filters, fields, order_by, group_by, start, page_length, run)`
 - **It covers:** frappe.db.get_list, frappe.db.get_all, frappe.db.get_value, frappe.db.getsinglevalue, frappe.db.set_value, frappe.db.exists, frappe.db.count, frappe.db.delete
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__api__database.md`  (https://docs.frappe.io/framework/user/en/api/database)
+- **Full page, bundled offline:** `docs/framework/framework-01.md` lines 4260–4717  (https://docs.frappe.io/framework/user/en/api/database)
 
 ### Work with documents in Python
 - **What the page says:** A Document is an instance of a DocType. It is derived from the `frappe.model.Document` class and represents a single record in the database table.
 - **It covers:** frappe.get_doc, frappe.get_last_doc, frappe.get_cached_doc, frappe.new_doc, frappe.delete_doc, frappe.rename_doc, frappe.get_meta, frappe.only_for
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__api__document.md`  (https://docs.frappe.io/framework/user/en/api/document)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 3–480  (https://docs.frappe.io/framework/user/en/api/document)
 
 ### Build safe queries with the query builder
 - **What the page says:** `frappe.qb` is a query builder written around PyPika to build a single interface for cross-db queries
@@ -67,13 +67,13 @@ that follow from the answer.
   2. Read scalar/text values for filtering
   3. Check whether JSON object/array contains a value
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__api__query-builder.md`  (https://docs.frappe.io/framework/user/en/api/query-builder)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 2187–2566  (https://docs.frappe.io/framework/user/en/api/query-builder)
 
 ### Render templates with the Jinja API
 - **What the page says:** These are the whitelisted methods that frappe provides to use them in Jinja Templates.
 - **It covers:** frappe.format, frappe.format_date, frappe.get_url, frappe.get_doc, frappe.get_all, {{ task.title }}, Redesign Website, Add meta tags on websites
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__api__jinja.md`  (https://docs.frappe.io/framework/user/en/api/jinja)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 1136–1430  (https://docs.frappe.io/framework/user/en/api/jinja)
 
 ### Build portal and web pages
 - **What the page says:** Frappe Framework not only provides a rich admin interface via the [Desk](/framework/v14/user/en/desk) which is an SPA but also static server rendered web pages. These pages are generally built for your website visitors. They can be public or can require login.
@@ -81,7 +81,7 @@ that follow from the answer.
 - **Documented detail:**
   1. Portal Settings (this will be for logged in users)
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__portal-pages.md`  (https://docs.frappe.io/framework/user/en/portal-pages)
+- **Full page, bundled offline:** `docs/framework/framework-05.md` lines 3229–3512  (https://docs.frappe.io/framework/user/en/portal-pages)
 
 ### Test an app before release
 - **What the page says:** Frappe provides some basic tooling to write automated tests. There are some basic rules:
@@ -89,18 +89,18 @@ that follow from the answer.
 - **Documented detail:**
   1. The test runner will automatically build test records for dependent DocTypes
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__testing.md`  (https://docs.frappe.io/framework/user/en/testing)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 2208–2485  (https://docs.frappe.io/framework/user/en/testing)
 
 ### Understand the framework architecture
 - **What the page says:** Frappe Framework is a full-stack web based framework and it includes all the tools needed to deploy a site into production. Database, caching, background jobs, realtime notifications, etc are all configured when you set up a Frappe site.
 - **Documented detail:**
   1. Create a directory called frappe-bench and frappe-bench/sites, frappe-bench/apps within it
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__basics__architecture.md`  (https://docs.frappe.io/framework/user/en/basics/architecture)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 4643–4686  (https://docs.frappe.io/framework/user/en/basics/architecture)
 
 ### Read an app's directory structure
 - **What the page says:** When you initialize a new **frappe-bench** directory, you will have a directory structure similar to:
 - **It covers:** apps, sites, logs, config, env, Procfile
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__basics__directory-structure.md`  (https://docs.frappe.io/framework/user/en/basics/directory-structure)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 4935–5052  (https://docs.frappe.io/framework/user/en/basics/directory-structure)
 

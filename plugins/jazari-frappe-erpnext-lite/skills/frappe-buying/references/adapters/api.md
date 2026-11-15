@@ -149,14 +149,14 @@ or reconcile the two afterwards with Payment Reconciliation. Say which to the us
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Create and manage suppliers | Supplier | `POST /api/v2/document/Supplier` (and the list/read/update calls above) | `docs/erpnext/erpnext__supplier.md` |
-| Raise a material request | Material Request | `POST /api/v2/document/Material%20Request` (and the list/read/update calls above) | `docs/erpnext/erpnext__material-request.md` |
-| Send a request for quotation | Request for Quotation | `POST /api/v2/document/Request%20for%20Quotation` (and the list/read/update calls above) | `docs/erpnext/erpnext__request-for-quotation.md` |
-| Record a supplier quotation | Supplier Quotation | `POST /api/v2/document/Supplier%20Quotation` (and the list/read/update calls above) | `docs/erpnext/erpnext__supplier-quotation.md` |
-| Place a purchase order | Purchase Order | `POST /api/v2/document/Purchase%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext__purchase-order.md` |
-| Receive goods | Purchase Receipt | `POST /api/v2/document/Purchase%20Receipt` (and the list/read/update calls above) | `docs/erpnext/erpnext__purchase-receipt.md` |
-| Score suppliers | Supplier Scorecard | `POST /api/v2/document/Supplier%20Scorecard` (and the list/read/update calls above) | `docs/erpnext/erpnext__supplier-scorecard.md` |
-| Agree a blanket order | Blanket Order | `POST /api/v2/document/Blanket%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext__blanket-order.md` |
+| Create and manage suppliers | Supplier | `POST /api/v2/document/Supplier` (and the list/read/update calls above) | `docs/erpnext/erpnext-16.md` lines 2091–2251 |
+| Raise a material request | Material Request | `POST /api/v2/document/Material%20Request` (and the list/read/update calls above) | `docs/erpnext/erpnext-10.md` lines 316–441 |
+| Send a request for quotation | Request for Quotation | `POST /api/v2/document/Request%20for%20Quotation` (and the list/read/update calls above) | `docs/erpnext/erpnext-13.md` lines 2736–2901 |
+| Record a supplier quotation | Supplier Quotation | `POST /api/v2/document/Supplier%20Quotation` (and the list/read/update calls above) | `docs/erpnext/erpnext-16.md` lines 1902–1986 |
+| Place a purchase order | Purchase Order | `POST /api/v2/document/Purchase%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext-12.md` lines 2554–2748 |
+| Receive goods | Purchase Receipt | `POST /api/v2/document/Purchase%20Receipt` (and the list/read/update calls above) | `docs/erpnext/erpnext-12.md` lines 2750–3011 |
+| Score suppliers | Supplier Scorecard | `POST /api/v2/document/Supplier%20Scorecard` (and the list/read/update calls above) | `docs/erpnext/erpnext-16.md` lines 1988–2089 |
+| Agree a blanket order | Blanket Order | `POST /api/v2/document/Blanket%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext-03.md` lines 1127–1238 |
 
 ## Capabilities that need a schema lookup first
 
@@ -167,6 +167,6 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Return goods to a supplier | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__purchase-return.md` |
-| Add landed costs | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__landed-cost-voucher.md` |
-| Run subcontracting | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__subcontracting.md` |
+| Return goods to a supplier | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-12.md` lines 3013–3068 |
+| Add landed costs | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-09.md` lines 1495–1516 |
+| Run subcontracting | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-16.md` lines 1282–1499 |

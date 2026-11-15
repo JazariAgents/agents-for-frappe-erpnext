@@ -42,19 +42,19 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Employee list, and click on New
   2. Enter the Employee's personal details such as Name, Gender, Date of Birth, and Date of Joining
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__employee.md`  (https://docs.frappe.io/hr/employee)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 2444–2596  (https://docs.frappe.io/hr/employee)
 
 ### Onboard a new employee
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Tenure > Employee Onboarding**, or type *Employee Onboarding* in the search bar at the top
 - **Record type:** Employee Onboarding
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__employee-onboarding.md`  (https://docs.frappe.io/hr/employee-onboarding)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 1810–1906  (https://docs.frappe.io/hr/employee-onboarding)
 
 ### Run employee separation
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Tenure > Employee Separation**, or type *Employee Separation* in the search bar at the top
 - **Record type:** Employee Separation
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__employee-separation.md`  (https://docs.frappe.io/hr/employee-separation)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 2129–2218  (https://docs.frappe.io/hr/employee-separation)
 
 ### Mark attendance
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Shift & Attendance > Attendance > Attendance**, or type *Attendance* in the search bar at the top
@@ -62,18 +62,18 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Attendance list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__attendance.md`  (https://docs.frappe.io/hr/attendance)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 537–612  (https://docs.frappe.io/hr/attendance)
 
 ### Automate attendance from check-ins
 - **Path (checked on v16.55 with the app installed):** https://your-site/desk → type *Shift Type* in the search bar at the top, open the shift, and tick **Enable Auto Attendance**
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__auto-attendance.md`  (https://docs.frappe.io/hr/auto-attendance)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 614–721  (https://docs.frappe.io/hr/auto-attendance)
 
 ### Record employee check-ins
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Shift & Attendance > Attendance > Employee Checkin**, or type *Employee Checkin* in the search bar at the top
 - **Record type:** Employee Checkin
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__employee-checkin.md`  (https://docs.frappe.io/hr/employee-checkin)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 1403–1478  (https://docs.frappe.io/hr/employee-checkin)
 
 ### Plan shifts
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Shift & Attendance > Shift Setup > Shift Type**, or type *Shift Type* in the search bar at the top
@@ -82,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. First Check-in and Last Check-out
   2. Every Valid Check-in and Check-out
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__shift-type.md`  (https://docs.frappe.io/hr/shift-type)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-03.md` lines 1042–1107  (https://docs.frappe.io/hr/shift-type)
 
 ### Define leave types
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Leaves > Leave Setup > Leave Type**, or type *Leave Type* in the search bar at the top
@@ -90,7 +90,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to Leave Type list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__leave-type.md`  (https://docs.frappe.io/hr/leave-type)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 2462–2578  (https://docs.frappe.io/hr/leave-type)
 
 ### Set a leave policy
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Leaves > Leave Setup > Leave Policy**, or type *Leave Policy* in the search bar at the top
@@ -99,7 +99,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to Leave Policy list, click on New
   2. Select the Leave Type and enter its Annual Allocation
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__leave-policy.md`  (https://docs.frappe.io/hr/leave-policy)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 2423–2460  (https://docs.frappe.io/hr/leave-policy)
 
 ### Allocate leave
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Leaves > Leave Allocations > Leave Allocation**, or type *Leave Allocation* in the search bar at the top
@@ -109,7 +109,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Select the Employee, Leave Type, From Date and To Date
   3. Enter the number of New Leaves Allocated for that particular Leave Type
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__leave-allocation.md`  (https://docs.frappe.io/hr/leave-allocation)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 1510–1571  (https://docs.frappe.io/hr/leave-allocation)
 
 ### Approve a leave application
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Leaves > Leave Application**, or type *Leave Application* in the search bar at the top
@@ -128,7 +128,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   11. Click on Save. Once the Employee saves the Leave Application, the status of the Leave Application changes to 'Open', and an email is sent to the Leave Approver for approval. The Leave Approval Notification Template can be configured in HR Settings under the Leave Settings section
   12. Once the Leave Approver receives the email, they can Approve, Reject, or Cancel the Leave Application. Once this is done, the Leave Approver can submit the Leave Application. On submission, the status of the document changes accordingly, and an email is sent to the Employee notifying them the same
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__leave-application.md`  (https://docs.frappe.io/hr/leave-application)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 1573–1684  (https://docs.frappe.io/hr/leave-application)
 
 ### Maintain the holiday list
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Leaves > Holidays > Holiday List**, or type *Holiday List* in the search bar at the top
@@ -138,7 +138,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Enter Holiday List Name. It can be based on the Fiscal Year or Location or Department as per the requirement
   3. Select From Date and To Date for the Holiday List
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__holiday-list.md`  (https://docs.frappe.io/hr/holiday-list)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 3163–3245  (https://docs.frappe.io/hr/holiday-list)
 
 ### Build a salary structure
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Payroll > Setup > Salary Structure**, or type *Salary Structure* in the search bar at the top
@@ -148,7 +148,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Enter the Salary Structure Name
   3. Select the Company Name and Payroll Frequency
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__salary-structure.md`  (https://docs.frappe.io/hr/salary-structure)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-03.md` lines 476–571  (https://docs.frappe.io/hr/salary-structure)
 
 ### Define salary components
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Payroll > Setup > Salary Component**, or type *Salary Component* in the search bar at the top
@@ -160,7 +160,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Enter the Company name and the Default Account of the Salary Component in the Accounts table
   5. Save
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__salary-component.md`  (https://docs.frappe.io/hr/salary-component)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-03.md` lines 96–230  (https://docs.frappe.io/hr/salary-component)
 
 ### Run payroll
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Payroll > Payroll Entry**, or type *Payroll Entry* in the search bar at the top
@@ -174,9 +174,9 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   6. Select the Payment Account to make the Bank Entry
   7. Save
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__payroll-entry.md`  (https://docs.frappe.io/hr/payroll-entry)
-- **Also read:** `docs/frappe-hr/hr__salary-structure.md` — the step-by-step page for this
-- **Also read:** `docs/frappe-hr/hr__salary-slip.md` — the step-by-step page for this
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 3169–3277  (https://docs.frappe.io/hr/payroll-entry)
+- **Also read:** `docs/frappe-hr/frappe-hr-03.md` lines 476–571 — the step-by-step page for this
+- **Also read:** `docs/frappe-hr/frappe-hr-03.md` lines 232–304 — the step-by-step page for this
 
 ### Issue salary slips
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Payroll > Salary Slip**, or type *Salary Slip* in the search bar at the top
@@ -184,19 +184,19 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to Salary Slip, Click on New
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__salary-slip.md`  (https://docs.frappe.io/hr/salary-slip)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-03.md` lines 232–304  (https://docs.frappe.io/hr/salary-slip)
 
 ### Process expense claims
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Expenses > Expenses & Advances > Expense Claim**, or type *Expense Claim* in the search bar at the top
 - **Record type:** Expense Claim
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__expense-claim.md`  (https://docs.frappe.io/hr/expense-claim)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 2718–2816  (https://docs.frappe.io/hr/expense-claim)
 
 ### Give an employee advance
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Expenses > Expenses & Advances > Employee Advance**, or type *Employee Advance* in the search bar at the top
 - **Record type:** Employee Advance
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__employee-advance.md`  (https://docs.frappe.io/hr/employee-advance)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 1172–1287  (https://docs.frappe.io/hr/employee-advance)
 
 ### Run an appraisal cycle
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Performance > Appraisal Cycle**, or type *Appraisal Cycle* in the search bar at the top
@@ -208,7 +208,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Click on the Create Appraisals button. This will create all the Appraisal documents for the selected employees
   5. Click on Start button to start the cycle
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__appraisal-cycle.md`  (https://docs.frappe.io/hr/appraisal-cycle)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 119–211  (https://docs.frappe.io/hr/appraisal-cycle)
 
 ### Post a job opening
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Recruitment > Job Opening**, or type *Job Opening* in the search bar at the top
@@ -216,7 +216,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to Job Opening list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__job-opening.md`  (https://docs.frappe.io/hr/job-opening)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 1259–1321  (https://docs.frappe.io/hr/job-opening)
 
 ### Track job applicants
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Recruitment > Job Applicant**, or type *Job Applicant* in the search bar at the top
@@ -225,7 +225,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to Job Applicant list, click on New
   2. Enter Applicant Name and Email Address
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__job-applicant.md`  (https://docs.frappe.io/hr/job-applicant)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-02.md` lines 1133–1202  (https://docs.frappe.io/hr/job-applicant)
 
 ### Collect tax exemption declarations
 - **Path (checked on v16.55):** https://your-site/desk → **Frappe HR > Tax & Benefits > Income Tax > Exemption Declaration**, or type *Employee Tax Exemption Declaration* in the search bar at the top
@@ -234,5 +234,5 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Employee Benefit Application
   3. Employee Benefit Claim
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/frappe-hr/hr__employee-tax-exemption-declaration.md`  (https://docs.frappe.io/hr/employee-tax-exemption-declaration)
+- **Full page, bundled offline:** `docs/frappe-hr/frappe-hr-01.md` lines 2257–2345  (https://docs.frappe.io/hr/employee-tax-exemption-declaration)
 

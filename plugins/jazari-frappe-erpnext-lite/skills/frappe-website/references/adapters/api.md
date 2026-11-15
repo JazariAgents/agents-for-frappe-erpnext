@@ -120,11 +120,11 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Publish a web page | Web Page | `POST /api/v2/document/Web%20Page` (and the list/read/update calls above) | `docs/erpnext/erpnext__web-page.md` |
-| Publish a blog post | Blog Post | `POST /api/v2/document/Blog%20Post` (and the list/read/update calls above) | `docs/erpnext/erpnext__blog-post.md` |
-| Change the website theme | Website Theme | `POST /api/v2/document/Website%20Theme` (and the list/read/update calls above) | `docs/erpnext/erpnext__website-theme.md` |
-| Run the shopping cart | Webshop Settings | Needs the Webshop app. `PUT /api/v2/document/Webshop%20Settings/Webshop%20Settings` — Single DocType, update only | `docs/erpnext/erpnext__shopping-cart.md` |
-| Publish items to the shop | Website Item | `POST /api/v2/document/Website%20Item` (and the list/read/update calls above) | `docs/erpnext/erpnext__website_item.md` |
+| Publish a web page | Web Page | `POST /api/v2/document/Web%20Page` (and the list/read/update calls above) | `docs/erpnext/erpnext-18.md` lines 397–522 |
+| Publish a blog post | Blog Post | `POST /api/v2/document/Blog%20Post` (and the list/read/update calls above) | `docs/erpnext/erpnext-03.md` lines 1240–1353 |
+| Change the website theme | Website Theme | `POST /api/v2/document/Website%20Theme` (and the list/read/update calls above) | `docs/erpnext/erpnext-18.md` lines 815–888 |
+| Run the shopping cart | Webshop Settings | Needs the Webshop app. `PUT /api/v2/document/Webshop%20Settings/Webshop%20Settings` — Single DocType, update only | `docs/erpnext/erpnext-15.md` lines 2128–2176 |
+| Publish items to the shop | Website Item | `POST /api/v2/document/Website%20Item` (and the list/read/update calls above) | `docs/erpnext/erpnext-18.md` lines 905–1009 |
 
 ## Capabilities that need a schema lookup first
 
@@ -135,13 +135,13 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Set up the website | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__website.md` |
-| Build pages with Frappe Builder | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder__setting-up.md` |
-| Bind data to a Builder page | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder__data-script.md` |
-| Publish a wiki space | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/wiki/wiki-v2__wiki-settings.md` |
-| Share files with Frappe Drive | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive__files.md` |
-| Share a Drive team folder | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive__teams.md` |
-| Control file access in Drive | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive__file-access.md` |
+| Set up the website | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 890–903 |
+| Build pages with Frappe Builder | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder-01.md` lines 242–270 |
+| Bind data to a Builder page | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/builder/builder-01.md` lines 3–150 |
+| Publish a wiki space | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/wiki/wiki-01.md` lines 198–240 |
+| Share files with Frappe Drive | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive-01.md` lines 49–71 |
+| Share a Drive team folder | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive-01.md` lines 323–340 |
+| Control file access in Drive | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/drive/drive-01.md` lines 3–47 |
 
 ## Not an API job
 

@@ -120,25 +120,25 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Test the site connection | — | `GET /api/v2/method/ping` | `docs/framework/framework__user__en__api__rest.md` |
-| Authenticate with API key and secret | — | `GET /api/method/frappe.auth.get_logged_user` | `docs/framework/framework__user__en__api__rest.md` |
-| Log in with username and password | — | `POST /api/method/login` — reference only: the user runs it, never ask for, type or send a password | `docs/framework/framework__user__en__api__rest.md` |
-| List documents of any DocType | — | `GET /api/v2/document/{doctype}` | `docs/framework/framework__user__en__guides__integration__rest_api__listing_documents.md` |
-| Filter and select fields in a list call | — | `GET /api/resource/{doctype}` | `docs/framework/framework__user__en__guides__integration__rest_api__listing_documents.md` |
-| Create a document through the API | — | `POST /api/v2/document/{doctype}` | `docs/framework/framework__user__en__guides__integration__rest_api__manipulating_documents.md` |
-| Read one document through the API | — | `GET /api/v2/document/{doctype}/{name}` | `docs/framework/framework__user__en__guides__integration__rest_api__manipulating_documents.md` |
-| Update a document through the API | — | `PUT /api/v2/document/{doctype}/{name}` | `docs/framework/framework__user__en__guides__integration__rest_api__manipulating_documents.md` |
-| Delete a document through the API | — | `DELETE /api/v2/document/{doctype}/{name}` | `docs/framework/framework__user__en__guides__integration__rest_api__manipulating_documents.md` |
-| Submit a document through the API | — | `POST /api/v2/document/{doctype}/{name}/method/submit` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
-| Cancel a submitted document | — | `POST /api/v2/document/{doctype}/{name}/method/cancel` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
-| Read DocType metadata to discover a site's schema | — | `GET /api/v2/doctype/{doctype}/meta` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
-| Count records of a DocType | — | `GET /api/v2/doctype/{doctype}/count` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
-| Call a whitelisted method on a document | — | `POST /api/v2/method/run_doc_method` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
-| Upload a file through the API | — | `POST /api/v2/method/upload_file` | `docs/framework/framework__user__en__guides__integration__rest_api.md` |
-| Build an Automation Flow, switched off | Automation Flow | `POST /api/v2/document/Automation%20Flow` — read `../automation-flows.md` first | `docs/framework/framework__automations.md` |
-| Test-run an Automation Flow on a real record | Automation Flow | `POST /api/v2/method/frappe.automation_engine.api.trial_run` | `docs/framework/framework__automations__steps-and-actions.md` |
-| Turn an Automation Flow on or off | Automation Flow | `PUT /api/v2/document/Automation%20Flow/{name}` with `enabled` 1 or 0 — only after a clear yes | `docs/framework/framework__automations__triggers-and-conditions.md` |
-| Read an Automation Flow's run history | Automation Run | `GET /api/v2/method/frappe.automation_engine.api.get_runs` | `docs/framework/framework__automations.md` |
+| Test the site connection | — | `GET /api/v2/method/ping` | `docs/framework/framework-02.md` lines 2844–3347 |
+| Authenticate with API key and secret | — | `GET /api/method/frappe.auth.get_logged_user` | `docs/framework/framework-02.md` lines 2844–3347 |
+| Log in with username and password | — | `POST /api/method/login` — reference only: the user runs it, never ask for, type or send a password | `docs/framework/framework-02.md` lines 2844–3347 |
+| List documents of any DocType | — | `GET /api/v2/document/{doctype}` | `docs/framework/framework-05.md` lines 494–559 |
+| Filter and select fields in a list call | — | `GET /api/resource/{doctype}` | `docs/framework/framework-05.md` lines 494–559 |
+| Create a document through the API | — | `POST /api/v2/document/{doctype}` | `docs/framework/framework-05.md` lines 561–734 |
+| Read one document through the API | — | `GET /api/v2/document/{doctype}/{name}` | `docs/framework/framework-05.md` lines 561–734 |
+| Update a document through the API | — | `PUT /api/v2/document/{doctype}/{name}` | `docs/framework/framework-05.md` lines 561–734 |
+| Delete a document through the API | — | `DELETE /api/v2/document/{doctype}/{name}` | `docs/framework/framework-05.md` lines 561–734 |
+| Submit a document through the API | — | `POST /api/v2/document/{doctype}/{name}/method/submit` | `docs/framework/framework-05.md` lines 373–492 |
+| Cancel a submitted document | — | `POST /api/v2/document/{doctype}/{name}/method/cancel` | `docs/framework/framework-05.md` lines 373–492 |
+| Read DocType metadata to discover a site's schema | — | `GET /api/v2/doctype/{doctype}/meta` | `docs/framework/framework-05.md` lines 373–492 |
+| Count records of a DocType | — | `GET /api/v2/doctype/{doctype}/count` | `docs/framework/framework-05.md` lines 373–492 |
+| Call a whitelisted method on a document | — | `POST /api/v2/method/run_doc_method` | `docs/framework/framework-05.md` lines 373–492 |
+| Upload a file through the API | — | `POST /api/v2/method/upload_file` | `docs/framework/framework-05.md` lines 373–492 |
+| Build an Automation Flow, switched off | Automation Flow | `POST /api/v2/document/Automation%20Flow` — read `../automation-flows.md` first | `docs/framework/framework-01.md` lines 125–221 |
+| Test-run an Automation Flow on a real record | Automation Flow | `POST /api/v2/method/frappe.automation_engine.api.trial_run` | `docs/framework/framework-01.md` lines 395–545 |
+| Turn an Automation Flow on or off | Automation Flow | `PUT /api/v2/document/Automation%20Flow/{name}` with `enabled` 1 or 0 — only after a clear yes | `docs/framework/framework-01.md` lines 547–667 |
+| Read an Automation Flow's run history | Automation Run | `GET /api/v2/method/frappe.automation_engine.api.get_runs` | `docs/framework/framework-01.md` lines 125–221 |
 
 ## Capabilities that need a schema lookup first
 
@@ -149,13 +149,13 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Authenticate with OAuth 2 | **the user only**: they set up an OAuth Client in the Desk (`browser.md`); never create one yourself, because the answer holds its client secret | `docs/framework/framework__oauth2.md` |
-| Generate API key and secret for a user | **the user only**, in the Desk (`browser.md`): never call `generate_keys` or any method that returns a secret | `docs/framework/framework__user__en__guides__integration__how_to_setup_token_based_auth.md` |
-| Respect the site's rate limits | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__rate-limiting.md` |
-| Create a webhook on document events | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__guides__integration__webhooks.md` |
-| Secure a webhook with a shared secret | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__guides__integration__webhooks.md` |
-| Publish and listen to realtime events | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__api__realtime.md` |
-| Queue and monitor background jobs | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__api__background_jobs.md` |
+| Authenticate with OAuth 2 | **the user only**: they set up an OAuth Client in the Desk (`browser.md`); never create one yourself, because the answer holds its client secret | `docs/framework/framework-01.md` lines 2663–2736 |
+| Generate API key and secret for a user | **the user only**, in the Desk (`browser.md`): never call `generate_keys` or any method that returns a secret | `docs/framework/framework-05.md` lines 246–291 |
+| Respect the site's rate limits | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-06.md` lines 2072–2132 |
+| Create a webhook on document events | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-05.md` lines 1333–1478 |
+| Secure a webhook with a shared secret | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-05.md` lines 1333–1478 |
+| Publish and listen to realtime events | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-02.md` lines 2568–2842 |
+| Queue and monitor background jobs | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-01.md` lines 3674–3883 |
 
 ## Not an API job
 

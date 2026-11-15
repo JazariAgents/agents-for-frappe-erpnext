@@ -8,15 +8,15 @@ Owner: **Hazim** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Send a quotation** (`sell.quotation`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__quotation.md`   (https://docs.frappe.io/erpnext/quotation)
+   read: `docs/erpnext/erpnext-13.md` lines 1206–1337   (https://docs.frappe.io/erpnext/quotation)
 2. **Confirm a sales order** (`sell.salesorder`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext__sales-order.md`   (https://docs.frappe.io/erpnext/sales-order)
+   read: `docs/erpnext/erpnext-14.md` lines 674–915   (https://docs.frappe.io/erpnext/sales-order)
 3. **Ship goods with a delivery note** (`sell.deliverynote`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext__delivery-note.md`   (https://docs.frappe.io/erpnext/delivery-note)
+   read: `docs/erpnext/erpnext-06.md` lines 3–266   (https://docs.frappe.io/erpnext/delivery-note)
 4. **Raise a sales invoice** (`acc.salesinvoice`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext__sales-invoice.md`   (https://docs.frappe.io/erpnext/sales-invoice)
+   read: `docs/erpnext/erpnext-14.md` lines 306–524   (https://docs.frappe.io/erpnext/sales-invoice)
 5. **Record a payment entry** (`acc.paymententry`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext__payment-entry.md`   (https://docs.frappe.io/erpnext/payment-entry)
+   read: `docs/erpnext/erpnext-11.md` lines 3–201   (https://docs.frappe.io/erpnext/payment-entry)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

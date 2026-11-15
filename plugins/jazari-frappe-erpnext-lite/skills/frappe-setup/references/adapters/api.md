@@ -120,14 +120,14 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Set the fiscal year | Fiscal Year | `POST /api/v2/document/Fiscal%20Year` (and the list/read/update calls above) | `docs/erpnext/erpnext__fiscal-year.md` |
-| Configure naming series | Document Naming Settings | Single DocType. `PUT /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings` with `transaction_type` and `naming_series_options`, then `POST /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings/method/update_series` to apply. Read the current list first. | `docs/erpnext/erpnext__naming-series.md` |
-| Add a letter head | Letter Head | `POST /api/v2/document/Letter%20Head` (and the list/read/update calls above) | `docs/erpnext/erpnext__letter-head.md` |
-| Connect an email account | Email Account | `POST /api/v2/document/Email%20Account` (and the list/read/update calls above) | `docs/erpnext/erpnext__email-account.md` |
-| Create an email template | Email Template | `POST /api/v2/document/Email%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext__email-template.md` |
-| Assign documents automatically | Assignment Rule | `POST /api/v2/document/Assignment%20Rule` (and the list/read/update calls above) | `docs/erpnext/erpnext__assignment-rule.md` |
-| Repeat a document on a schedule | Auto Repeat | `POST /api/v2/document/Auto%20Repeat` (and the list/read/update calls above) | `docs/erpnext/erpnext__auto-repeat.md` |
-| Send notifications on events | Notification | `POST /api/v2/document/Notification` (and the list/read/update calls above) | `docs/erpnext/erpnext__notifications.md` |
+| Set the fiscal year | Fiscal Year | `POST /api/v2/document/Fiscal%20Year` (and the list/read/update calls above) | `docs/erpnext/erpnext-07.md` lines 2480–2549 |
+| Configure naming series | Document Naming Settings | Single DocType. `PUT /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings` with `transaction_type` and `naming_series_options`, then `POST /api/v2/document/Document%20Naming%20Settings/Document%20Naming%20Settings/method/update_series` to apply. Read the current list first. | `docs/erpnext/erpnext-10.md` lines 1806–1888 |
+| Add a letter head | Letter Head | `POST /api/v2/document/Letter%20Head` (and the list/read/update calls above) | `docs/erpnext/erpnext-09.md` lines 1845–1899 |
+| Connect an email account | Email Account | `POST /api/v2/document/Email%20Account` (and the list/read/update calls above) | `docs/erpnext/erpnext-06.md` lines 2824–2950 |
+| Create an email template | Email Template | `POST /api/v2/document/Email%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-06.md` lines 3285–3327 |
+| Assign documents automatically | Assignment Rule | `POST /api/v2/document/Assignment%20Rule` (and the list/read/update calls above) | `docs/erpnext/erpnext-02.md` lines 2416–2499 |
+| Repeat a document on a schedule | Auto Repeat | `POST /api/v2/document/Auto%20Repeat` (and the list/read/update calls above) | `docs/erpnext/erpnext-02.md` lines 2849–2946 |
+| Send notifications on events | Notification | `POST /api/v2/document/Notification` (and the list/read/update calls above) | `docs/erpnext/erpnext-10.md` lines 2050–2276 |
 
 ## Capabilities that need a schema lookup first
 
@@ -138,11 +138,11 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Set up a company | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__company-setup.md` |
-| Set up the chart of accounts | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__chart-of-accounts.md` |
-| Configure currencies and exchange rates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__currency-exchange-settings.md` |
-| Change system settings | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__system-settings.md` |
-| Set global defaults | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__global-defaults.md` |
+| Set up a company | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-04.md` lines 1546–1628 |
+| Set up the chart of accounts | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-04.md` lines 775–860 |
+| Configure currencies and exchange rates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-04.md` lines 3249–3398 |
+| Change system settings | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-16.md` lines 2363–2521 |
+| Set global defaults | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-07.md` lines 3078–3170 |
 
 ## Not an API job
 

@@ -1,8 +1,0 @@
----
-title: "Work-horse terminated unexpectedly; Waitpid returned 9/15 (signal 9/15)"
-space: "Cloud"
-url: "https://docs.frappe.io/cloud/site/common-issues/work-horse-terminated-unexpectedly"
-updated: "2026-02-16"
----
-
-You may see this as the output of **RQ Job** . This happens when a background worker gets killed. Usually by the [OOM Killer](https://linux-mm.org/OOM_Killer) as the result of consuming too much memory. In such cases, you may consider optimizing your code to use less memory. If that is not possible, you'll have to upgrade your **application** server for more memory.

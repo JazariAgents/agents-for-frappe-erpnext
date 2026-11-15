@@ -1,4 +1,4 @@
-Jazari Agents for Frappe & ERPNext Lite · v1.1.11
+Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 # The cast
 
@@ -211,4 +211,4 @@ Skills: `frappe-api`, `frappe-bench`, `frappe-cloud`, `frappe-connect`, `frappe-
 
 … and 43 more — see the manual.
 
-Jazari Agents for Frappe & ERPNext Lite v1.1.11 · Jazari Agents · 2026-11-14
+Jazari Agents for Frappe & ERPNext Lite v1.1.12 · Jazari Agents · 2026-11-14

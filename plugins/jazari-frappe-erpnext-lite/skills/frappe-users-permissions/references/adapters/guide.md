@@ -20,5 +20,5 @@ that follow from the answer.
   2. Developer adds permission checks in code where the action happens
   3. System Manager assigns the permission to roles in the Desk UI
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/framework/framework__permission-types.md`  (https://docs.frappe.io/framework/permission-types)
+- **Full page, bundled offline:** `docs/framework/framework-01.md` lines 2738–2815  (https://docs.frappe.io/framework/permission-types)
 

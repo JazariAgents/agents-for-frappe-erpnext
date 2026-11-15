@@ -21,10 +21,10 @@ offer a Notification, a Webhook or an Assignment Rule instead.
 This file was checked against a live Frappe **16.56** site on 2026-11-14: every call below was run
 and behaved as written. The official pages are bundled:
 
-- `docs/framework/framework__automations.md` — overview, run history, settings
-- `docs/framework/framework__automations__triggers-and-conditions.md`
-- `docs/framework/framework__automations__steps-and-actions.md`
-- `docs/framework/framework__automations__extending-automations.md` — for app developers
+- `docs/framework/framework-01.md` lines 125–221 — overview, run history, settings
+- `docs/framework/framework-01.md` lines 547–667
+- `docs/framework/framework-01.md` lines 395–545
+- `docs/framework/framework-01.md` lines 223–393 — for app developers
 
 ## Use the simplest tool that does the job
 

@@ -147,11 +147,11 @@ Most of these can be done either through the API or by clicking; the column show
 
 Every page behind this skill's 14 capabilities ships inside the plugin, as the exact markdown Frappe publishes. No internet access is needed and nothing has to be summarised from memory.
 
-- The path in each adapter row (`docs/...`) is relative to the plugin root: `${CLAUDE_PLUGIN_ROOT}/docs/<space>/<file>.md`, or the `docs/` folder two levels above this skill file.
+- Each adapter row names a file in `docs/` and the lines that hold its page, relative to the plugin root (`${CLAUDE_PLUGIN_ROOT}/docs/...`, or the `docs/` folder two levels above this skill file). Read only those lines, with an offset and a limit: each file holds many pages.
 - **Before doing anything non-trivial, open the bundled page for that capability and read it.** The adapter row is the index; the page is the instruction.
 - Each file keeps its original front matter — `title`, the live `url`, and the date Frappe last updated it. If the site disagrees with the page, say so and cite the date rather than improvising.
-- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
-- **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, convert one to a filename by replacing `/` with `__` (`/erpnext/credit-note` becomes `docs/erpnext/erpnext__credit-note.md`).
+- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title, its file and its lines.
+- **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, search `docs/INDEX.md` for the page name (`/erpnext/credit-note` is listed as `erpnext__credit-note`).
 
 ## Gotchas
 

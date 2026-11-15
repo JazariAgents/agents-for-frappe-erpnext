@@ -38,7 +38,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Authenticate with OAuth 2
 - **A client secret is the user's to copy.** If an OAuth Client is set up, the user reads its secret themselves; never read, copy or repeat it.
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Integrations > Authentication > OAuth Client**, or type *OAuth Client* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework__oauth2.md`  (https://docs.frappe.io/framework/oauth2)
+- **Full page, bundled offline:** `docs/framework/framework-01.md` lines 2663–2736  (https://docs.frappe.io/framework/oauth2)
 
 ### Generate API key and secret for a user
 - **The user does this, never Claude.** Do not click Generate Keys or call `generate_keys` yourself, even with browser control, and never read, copy or repeat the secret.
@@ -48,31 +48,31 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Open the Settings tab on that user (skip if the form shows no tabs)
   3. Expand the API Access section and click Generate Keys
   4. The user copies the API Secret from the popup — it is shown once — and keeps it out of the chat; the API Key is in the same section
-- **Full page, bundled offline:** `docs/framework/framework__user__en__guides__integration__how_to_setup_token_based_auth.md`  (https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth)
+- **Full page, bundled offline:** `docs/framework/framework-05.md` lines 246–291  (https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth)
 
 ### Respect the site's rate limits
 - **Path (checked on v16.55):** No screen: rate limits are set by the server administrator in `site_config.json` (see the page), and the agent only reads the limit headers.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__rate-limiting.md`  (https://docs.frappe.io/framework/user/en/rate-limiting)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 2072–2132  (https://docs.frappe.io/framework/user/en/rate-limiting)
 
 ### Create a webhook on document events
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Integrations > Webhook**, or type *Webhook* in the search bar at the top
 - **Documented steps:**
   1. Select the DocType for which the Webhook needs to be triggered (e.g. Quotation)
-- **Full page, bundled offline:** `docs/framework/framework__user__en__guides__integration__webhooks.md`  (https://docs.frappe.io/framework/user/en/guides/integration/webhooks)
+- **Full page, bundled offline:** `docs/framework/framework-05.md` lines 1333–1478  (https://docs.frappe.io/framework/user/en/guides/integration/webhooks)
 
 ### Secure a webhook with a shared secret
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Integrations > Webhook**, or type *Webhook* in the search bar at the top
 - **Documented steps:**
   1. Select the DocType for which the Webhook needs to be triggered (e.g. Quotation)
-- **Full page, bundled offline:** `docs/framework/framework__user__en__guides__integration__webhooks.md`  (https://docs.frappe.io/framework/user/en/guides/integration/webhooks)
+- **Full page, bundled offline:** `docs/framework/framework-05.md` lines 1333–1478  (https://docs.frappe.io/framework/user/en/guides/integration/webhooks)
 
 ### Publish and listen to realtime events
 - **Path (checked on v16.55):** No screen: realtime events are used from app code (see the page); there is nothing to click.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__api__realtime.md`  (https://docs.frappe.io/framework/user/en/api/realtime)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 2568–2842  (https://docs.frappe.io/framework/user/en/api/realtime)
 
 ### Queue and monitor background jobs
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > System > Jobs > RQ Job**, or type *RQ Job* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework__user__en__api__background_jobs.md`  (https://docs.frappe.io/framework/user/en/api/background_jobs)
+- **Full page, bundled offline:** `docs/framework/framework-01.md` lines 3674–3883  (https://docs.frappe.io/framework/user/en/api/background_jobs)
 
 ### Build, test and switch on an Automation Flow
 - **Path:** https://your-site/app → type **Automation Flow** in the search box at the top → **New** (Frappe v16.36 and later)
@@ -86,7 +86,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   6. Only after the user says yes: tick **Enabled** and save again
 - **Before step 6**, say what the flow will do on its own and who it acts as (Run As is Automation User, which is Administrator unless changed). See `../automation-flows.md`.
 - **Snapshot first** — reversibility: irreversible once enabled (what it sends cannot be recalled); the flow itself is switched off again by clearing Enabled
-- **Full page, bundled offline:** `docs/framework/framework__automations.md`  (https://docs.frappe.io/framework/automations)
+- **Full page, bundled offline:** `docs/framework/framework-01.md` lines 125–221  (https://docs.frappe.io/framework/automations)
 
 ## What cannot be done in the interface
 

@@ -38,7 +38,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Authenticate with OAuth 2
 - **A client secret is the user's to copy.** If an OAuth Client is set up, the user reads its secret themselves; never read, copy or repeat it.
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Integrations > Authentication > OAuth Client**, or type *OAuth Client* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework__oauth2.md`  (https://docs.frappe.io/framework/oauth2)
+- **Full page, bundled offline:** `docs/framework/framework-01.md` lines 2663–2736  (https://docs.frappe.io/framework/oauth2)
 
 ### Generate API key and secret for a user
 - **The user does this, never Claude.** Do not click Generate Keys or call `generate_keys` yourself, even with browser control, and never read, copy or repeat the secret.
@@ -48,11 +48,11 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Open the Settings tab on that user (skip if the form shows no tabs)
   3. Expand the API Access section and click Generate Keys
   4. The user copies the API Secret from the popup — it is shown once — and keeps it out of the chat; the API Key is in the same section
-- **Full page, bundled offline:** `docs/framework/framework__user__en__guides__integration__how_to_setup_token_based_auth.md`  (https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth)
+- **Full page, bundled offline:** `docs/framework/framework-05.md` lines 246–291  (https://docs.frappe.io/framework/user/en/guides/integration/how_to_setup_token_based_auth)
 
 ### Respect the site's rate limits
 - **Path (checked on v16.55):** No screen: rate limits are set by the server administrator in `site_config.json` (see the page), and the agent only reads the limit headers.
-- **Full page, bundled offline:** `docs/framework/framework__user__en__rate-limiting.md`  (https://docs.frappe.io/framework/user/en/rate-limiting)
+- **Full page, bundled offline:** `docs/framework/framework-06.md` lines 2072–2132  (https://docs.frappe.io/framework/user/en/rate-limiting)
 
 ## What cannot be done in the interface
 

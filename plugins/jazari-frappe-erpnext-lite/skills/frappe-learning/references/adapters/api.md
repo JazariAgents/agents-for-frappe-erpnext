@@ -120,9 +120,9 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Enrol students | Student | `POST /api/v2/document/Student` (and the list/read/update calls above) | `docs/education/education__student.md` |
-| Set up programs and courses | Program | `POST /api/v2/document/Program` (and the list/read/update calls above) | `docs/education/education__program.md` |
-| Collect fees | Fees | `POST /api/v2/document/Fees` (and the list/read/update calls above) | `docs/education/education__fees.md` |
+| Enrol students | Student | `POST /api/v2/document/Student` (and the list/read/update calls above) | `docs/education/education-01.md` lines 1962–2062 |
+| Set up programs and courses | Program | `POST /api/v2/document/Program` (and the list/read/update calls above) | `docs/education/education-01.md` lines 1321–1383 |
+| Collect fees | Fees | `POST /api/v2/document/Fees` (and the list/read/update calls above) | `docs/education/education-01.md` lines 848–960 |
 
 ## Capabilities that need a schema lookup first
 
@@ -133,13 +133,13 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Create a course | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__create-a-course.md` |
-| Add chapters and lessons | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__add-a-chapter.md` |
-| Run a batch of learners | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__create-a-batch.md` |
-| Host a live class | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__create-a-live-class.md` |
-| Assess learners with quizzes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__quizzes.md` |
-| Set assignments | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__assignments.md` |
-| Issue certificates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__issue-a-certificate.md` |
-| Group courses into a program | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__add-a-program.md` |
-| Charge for a course | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning__setting-up-payment-gateway.md` |
-| Run assessments | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/education/education__assessment-introduction.md` |
+| Create a course | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 796–917 |
+| Add chapters and lessons | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 3–62 |
+| Run a batch of learners | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 702–794 |
+| Host a live class | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 919–979 |
+| Assess learners with quizzes | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 1503–1560 |
+| Set assignments | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 156–187 |
+| Issue certificates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 1335–1355 |
+| Group courses into a program | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 64–110 |
+| Charge for a course | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/learning/learning-01.md` lines 1594–1621 |
+| Run assessments | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/education/education-01.md` lines 86–105 |

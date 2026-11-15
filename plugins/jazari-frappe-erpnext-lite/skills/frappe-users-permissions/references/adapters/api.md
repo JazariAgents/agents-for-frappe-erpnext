@@ -120,7 +120,7 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Restrict a user to specific records | User Permission | `POST /api/v2/document/User%20Permission` (and the list/read/update calls above) | `docs/erpnext/erpnext__user-permissions.md` |
+| Restrict a user to specific records | User Permission | `POST /api/v2/document/User%20Permission` (and the list/read/update calls above) | `docs/erpnext/erpnext-17.md` lines 2928–3033 |
 
 ## Capabilities that need a schema lookup first
 
@@ -131,12 +131,12 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Add and manage users | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__basics__users-and-permissions.md` |
-| Set role-based permissions | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__role-based-permissions.md` |
-| Hide fields with permission levels | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__perm-levels.md` |
-| Group roles into a role profile | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__role-and-role-profile.md` |
-| Turn on two-factor authentication | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__setup-two-factor-authentication.md` |
-| Read the audit trail | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework__user__en__audit-trail.md` |
+| Add and manage users | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-03.md` lines 578–739 |
+| Set role-based permissions | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 3285–3358 |
+| Hide fields with permission levels | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 1254–1326 |
+| Group roles into a role profile | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 3243–3283 |
+| Turn on two-factor authentication | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-15.md` lines 1484–1539 |
+| Read the audit trail | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/framework/framework-02.md` lines 4259–4300 |
 
 ## Not an API job
 

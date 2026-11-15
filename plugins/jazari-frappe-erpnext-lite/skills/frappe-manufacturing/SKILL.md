@@ -120,11 +120,11 @@ Most of these can be done either through the API or by clicking; the column show
 
 Every page behind this skill's 13 capabilities ships inside the plugin, as the exact markdown Frappe publishes. No internet access is needed and nothing has to be summarised from memory.
 
-- The path in each adapter row (`docs/...`) is relative to the plugin root: `${CLAUDE_PLUGIN_ROOT}/docs/<space>/<file>.md`, or the `docs/` folder two levels above this skill file.
+- Each adapter row names a file in `docs/` and the lines that hold its page, relative to the plugin root (`${CLAUDE_PLUGIN_ROOT}/docs/...`, or the `docs/` folder two levels above this skill file). Read only those lines, with an offset and a limit: each file holds many pages.
 - **Before doing anything non-trivial, open the bundled page for that capability and read it.** The adapter row is the index; the page is the instruction.
 - Each file keeps its original front matter — `title`, the live `url`, and the date Frappe last updated it. If the site disagrees with the page, say so and cite the date rather than improvising.
-- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title and filename.
-- **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, convert one to a filename by replacing `/` with `__` (`/erpnext/credit-note` becomes `docs/erpnext/erpnext__credit-note.md`).
+- 1,612 pages are bundled in total, covering the framework, ERPNext, HR, CRM, Helpdesk, Insights, Cloud, Lending, Learning, Education, Books, Wiki, Drive, Builder and Studio. For anything outside this skill's rows, open `docs/INDEX.md` — it lists every bundled page with its title, its file and its lines.
+- **Screenshots are not bundled** (the pages point at images on Frappe's servers). Where a documented step is only a picture, say so plainly instead of inventing what it shows. Links between bundled pages are live URLs; offline, search `docs/INDEX.md` for the page name (`/erpnext/credit-note` is listed as `erpnext__credit-note`).
 
 ## Gotchas
 
@@ -133,7 +133,7 @@ Every page behind this skill's 13 capabilities ships inside the plugin, as the e
 - A 401 that says *Access not allowed from this IP Address* is not a bad sign-in. The user has a Restrict IP list, which also applies to API keys from Frappe 16.33; the address has to be added on the User record.
 - HTTP 429 means a rate limit was hit: the site's overall budget, or one method's own. Wait for the time in `Retry-After`; do not hammer the site.
 - The BOM, Work Order and Job Card option once labelled *Track Semi Finished Goods* or *Make in Stages* was renamed in ERPNext 16.52. Depending on the patch it reads *Produce Item per Operation* or *Produce an Item at Each Operation*. The field underneath is still `track_semi_finished_goods`: use that name through the API, and read the label from the screen before saying it to the user.
-- ERPNext 16.53 rebuilt the BOM Creator. A form with a **Design File** field is the new one (`docs/erpnext/erpnext__bom-creator-new.md`); a plain tree is the older one (`docs/erpnext/erpnext__bom-creator.md`). Its **Create BOMs** button submits a BOM for every assembly at once, so state the count and get a yes first.
+- ERPNext 16.53 rebuilt the BOM Creator. A form with a **Design File** field is the new one (`docs/erpnext/erpnext-03.md` lines 1416–1805); a plain tree is the older one (`docs/erpnext/erpnext-03.md` lines 1807–1852). Its **Create BOMs** button submits a BOM for every assembly at once, so state the count and get a yes first.
 - Make each document **from the one before it** with ERPNext's mapper (table in `references/adapters/api.md`, "Create the next document from the previous one"). A document posted fresh is not linked, so the order it belongs to never shows as delivered or billed.
 - Docs describe the current version. If the live site disagrees with this skill, say so plainly rather than improvising.
 

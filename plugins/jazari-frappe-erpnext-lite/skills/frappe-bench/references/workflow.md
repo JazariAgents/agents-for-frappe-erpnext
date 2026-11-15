@@ -8,11 +8,11 @@ Owner: **Urwah** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Back up a site** (`bench.backup`, bench mode)
-   read: `docs/framework/framework__user__en__bench__reference__backup.md`   (https://docs.frappe.io/framework/user/en/bench/reference/backup)
+   read: `docs/framework/framework-03.md` lines 2396–2493   (https://docs.frappe.io/framework/user/en/bench/reference/backup)
 2. **Restore a site from a backup** (`bench.restore`, bench mode) — FRESH BACKUP FIRST, irreversible
-   read: `docs/framework/framework__user__en__bench__reference__restore.md`   (https://docs.frappe.io/framework/user/en/bench/reference/restore)
+   read: `docs/framework/framework-03.md` lines 3195–3290   (https://docs.frappe.io/framework/user/en/bench/reference/restore)
 3. **Back up a Frappe Cloud site** (`cloud.site.backup`, browser mode)
-   read: `docs/cloud/cloud__sites__backups.md`   (https://docs.frappe.io/cloud/sites/backups)
+   read: `docs/cloud/cloud-02.md` lines 2833–2952   (https://docs.frappe.io/cloud/sites/backups)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

@@ -8,13 +8,13 @@ Owner: **Wafir** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Import records from a spreadsheet** (`imp.dataimport`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__data-import.md`   (https://docs.frappe.io/erpnext/data-import)
+   read: `docs/erpnext/erpnext-05.md` lines 1481–1721   (https://docs.frappe.io/erpnext/data-import)
 2. **Update many records at once** (`imp.bulkupdate`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__bulk-update.md`   (https://docs.frappe.io/erpnext/bulk-update)
+   read: `docs/erpnext/erpnext-03.md` lines 2885–2915   (https://docs.frappe.io/erpnext/bulk-update)
 3. **Import a chart of accounts** (`imp.coaimport`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__chart-of-accounts-importer.md`   (https://docs.frappe.io/erpnext/chart-of-accounts-importer)
+   read: `docs/erpnext/erpnext-04.md` lines 720–773   (https://docs.frappe.io/erpnext/chart-of-accounts-importer)
 4. **Load opening stock** (`stock.openingstock`, browser mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/erpnext/erpnext__opening-stock.md`   (https://docs.frappe.io/erpnext/opening-stock)
+   read: `docs/erpnext/erpnext-10.md` lines 2730–2770   (https://docs.frappe.io/erpnext/opening-stock)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

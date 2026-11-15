@@ -144,12 +144,12 @@ or reconcile the two afterwards with Payment Reconciliation. Say which to the us
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Build a bill of materials | BOM | `POST /api/v2/document/BOM` (and the list/read/update calls above) | `docs/erpnext/erpnext__bill-of-materials.md` |
-| Update BOMs in bulk | BOM Update Tool | `PUT /api/v2/document/BOM%20Update%20Tool/BOM%20Update%20Tool` — Single DocType, update only | `docs/erpnext/erpnext__bom-update-tool.md` |
-| Run a work order | Work Order | `POST /api/v2/document/Work%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext__work-order.md` |
-| Record work on a job card | Job Card | `POST /api/v2/document/Job%20Card` (and the list/read/update calls above) | `docs/erpnext/erpnext__job-card.md` |
-| Plan production | Production Plan | `POST /api/v2/document/Production%20Plan` (and the list/read/update calls above) | `docs/erpnext/erpnext__production-plan.md` |
-| Configure manufacturing settings | Manufacturing Settings | `PUT /api/v2/document/Manufacturing%20Settings/Manufacturing%20Settings` — Single DocType, update only | `docs/erpnext/erpnext__manufacturing-settings.md` |
+| Build a bill of materials | BOM | `POST /api/v2/document/BOM` (and the list/read/update calls above) | `docs/erpnext/erpnext-03.md` lines 933–1125 |
+| Update BOMs in bulk | BOM Update Tool | `PUT /api/v2/document/BOM%20Update%20Tool/BOM%20Update%20Tool` — Single DocType, update only | `docs/erpnext/erpnext-03.md` lines 1951–2011 |
+| Run a work order | Work Order | `POST /api/v2/document/Work%20Order` (and the list/read/update calls above) | `docs/erpnext/erpnext-18.md` lines 1517–1749 |
+| Record work on a job card | Job Card | `POST /api/v2/document/Job%20Card` (and the list/read/update calls above) | `docs/erpnext/erpnext-09.md` lines 982–1140 |
+| Plan production | Production Plan | `POST /api/v2/document/Production%20Plan` (and the list/read/update calls above) | `docs/erpnext/erpnext-12.md` lines 886–1083 |
+| Configure manufacturing settings | Manufacturing Settings | `PUT /api/v2/document/Manufacturing%20Settings/Manufacturing%20Settings` — Single DocType, update only | `docs/erpnext/erpnext-10.md` lines 125–280 |
 
 ## Capabilities that need a schema lookup first
 
@@ -160,11 +160,11 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Design a BOM with the BOM creator | the DocType is `BOM Creator`; read the bundled page, then `GET /api/v2/doctype/BOM%20Creator/meta` — a `design_file` field means the rebuilt screen (ERPNext 16.53 and later) | `docs/erpnext/erpnext__bom-creator-new.md`, older: `docs/erpnext/erpnext__bom-creator.md` |
-| Set up workstations | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__workstation.md` |
-| Define operations and routing | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__routing.md` |
-| Watch the plant floor | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__plant-floor.md` |
-| Handle scrap and disassembly | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__scrap-management.md` |
+| Design a BOM with the BOM creator | the DocType is `BOM Creator`; read the bundled page, then `GET /api/v2/doctype/BOM%20Creator/meta` — a `design_file` field means the rebuilt screen (ERPNext 16.53 and later) | `docs/erpnext/erpnext-03.md` lines 1416–1805, older: `docs/erpnext/erpnext-03.md` lines 1807–1852 |
+| Set up workstations | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-18.md` lines 2099–2228 |
+| Define operations and routing | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 3450–3501 |
+| Watch the plant floor | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-11.md` lines 2086–2120 |
+| Handle scrap and disassembly | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-14.md` lines 2279–2308 |
 
 ## Not an API job
 

@@ -41,7 +41,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 ### Set up the website
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Website > Settings**, or type *Website Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__website.md`  (https://docs.frappe.io/erpnext/website)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 890–903  (https://docs.frappe.io/erpnext/website)
 
 ### Publish a web page
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Website > Web Page**, or type *Web Page* in the search bar at the top
@@ -50,7 +50,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Go to the Web Page list and click on New
   2. Enter a Title and add content in Main Section. The route will auto generated but you can change it
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__web-page.md`  (https://docs.frappe.io/erpnext/web-page)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 397–522  (https://docs.frappe.io/erpnext/web-page)
 
 ### Publish a blog post
 - **Path (checked on v16.55):** **Needs Frappe's Blog app** (on v16 the blog moved out of the framework). With it installed: https://your-site/desk → type *Blog Post* in the search bar at the top
@@ -58,7 +58,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Blog Post list and click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__blog-post.md`  (https://docs.frappe.io/erpnext/blog-post)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-03.md` lines 1240–1353  (https://docs.frappe.io/erpnext/blog-post)
 
 ### Change the website theme
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Website > Customize > Website Theme**, or type *Website Theme* in the search bar at the top
@@ -66,24 +66,24 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Website Theme list and click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__website-theme.md`  (https://docs.frappe.io/erpnext/website-theme)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 815–888  (https://docs.frappe.io/erpnext/website-theme)
 
 ### Run the shopping cart
 - **Path (checked on v16.55):** **Needs the Webshop app** (the shop moved out of ERPNext in v15). With it installed: https://your-site/desk → type *Webshop Settings* in the search bar at the top
 - **Record type:** Webshop Settings (called E Commerce Settings before it moved to the Webshop app)
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__shopping-cart.md`  (https://docs.frappe.io/erpnext/shopping-cart)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-15.md` lines 2128–2176  (https://docs.frappe.io/erpnext/shopping-cart)
 
 ### Publish items to the shop
 - **Path (checked on v16.55):** **Needs the Webshop app.** With it installed: https://your-site/desk → type *Website Item* in the search bar at the top
 - **Record type:** Website Item
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__website_item.md`  (https://docs.frappe.io/erpnext/website_item)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 905–1009  (https://docs.frappe.io/erpnext/website_item)
 
 ### Build pages with Frappe Builder
 - **Path (checked on v16.55 with the app installed):** https://your-site/builder → **All Pages** → **New**
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/builder/builder__setting-up.md`  (https://docs.frappe.io/builder/setting-up)
+- **Full page, bundled offline:** `docs/builder/builder-01.md` lines 242–270  (https://docs.frappe.io/builder/setting-up)
 
 ### Bind data to a Builder page
 - **Path (checked on v16.55 with the app installed):** https://your-site/builder → open the page → page settings → **Data Script**
@@ -92,30 +92,30 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. In your data script, access the route parameter using frappe.form_dict.<parameter_name >
   3. Use this parameter to fetch the relevant data
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/builder/builder__data-script.md`  (https://docs.frappe.io/builder/data-script)
+- **Full page, bundled offline:** `docs/builder/builder-01.md` lines 3–150  (https://docs.frappe.io/builder/data-script)
 
 ### Publish a wiki space
 - **Path (checked on v16.55 with the app installed):** https://your-site/wiki-app → **Create Wiki Space**. Site-wide options are in *Wiki Settings* (type it in the Desk search bar)
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/wiki/wiki-v2__wiki-settings.md`  (https://docs.frappe.io/wiki-v2/wiki-settings)
+- **Full page, bundled offline:** `docs/wiki/wiki-01.md` lines 198–240  (https://docs.frappe.io/wiki-v2/wiki-settings)
 
 ### Share files with Frappe Drive
 - **Path:** open https://your-site/drive (Frappe Drive) and find *Files* — the documentation page below shows the screen
 - **Not checked on a live site:** the Drive app was not on the test site; this path is the documentation's.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/drive/drive__files.md`  (https://docs.frappe.io/drive/files)
+- **Full page, bundled offline:** `docs/drive/drive-01.md` lines 49–71  (https://docs.frappe.io/drive/files)
 
 ### Share a Drive team folder
 - **Path:** open https://your-site/drive (Frappe Drive) and find *Teams* — the documentation page below shows the screen
 - **Not checked on a live site:** the Drive app was not on the test site; this path is the documentation's.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/drive/drive__teams.md`  (https://docs.frappe.io/drive/teams)
+- **Full page, bundled offline:** `docs/drive/drive-01.md` lines 323–340  (https://docs.frappe.io/drive/teams)
 
 ### Control file access in Drive
 - **Path:** open https://your-site/drive (Frappe Drive) and find *Sharing* — the documentation page below shows the screen
 - **Not checked on a live site:** the Drive app was not on the test site; this path is the documentation's.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/drive/drive__file-access.md`  (https://docs.frappe.io/drive/file-access)
+- **Full page, bundled offline:** `docs/drive/drive-01.md` lines 3–47  (https://docs.frappe.io/drive/file-access)
 
 ## What cannot be done in the interface
 

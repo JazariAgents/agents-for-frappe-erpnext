@@ -76,7 +76,8 @@ a second check.
   change. Most carry step-by-step guides for the connection and for the browser; the bench guides cover
   the server.
 - 1,612 pages of official Frappe documentation in `docs/`, so the agent reads the real page instead of
-  guessing. They are Frappe's, under CC BY-SA; see `NOTICE.md`.
+  guessing. They are packed into a few files per product, and `docs/INDEX.md` says which file and lines hold
+  each page. They are Frappe's, under CC BY-SA; see `NOTICE.md`.
 - A manual in English and Arabic (`manual/`): ask any agent to "show the manual".
 
 ## Lite or full?

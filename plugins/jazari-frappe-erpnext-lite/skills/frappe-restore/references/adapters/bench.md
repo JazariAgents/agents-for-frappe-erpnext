@@ -14,9 +14,9 @@ directory: use the dashboard equivalents in the frappe-cloud skill.
 
 | Capability | Command | Destroys? | Bundled page (read this) |
 |---|---|---|---|
-| Back up a site | `bench --site {site} backup` | no | `docs/framework/framework__user__en__bench__reference__backup.md` |
-| Restore a site from a backup | `bench --site {site} restore {path}` | YES — irreversible: replaces the whole database, take a fresh backup first | `docs/framework/framework__user__en__bench__reference__restore.md` |
-| Restore selected tables only | `bench --site {site} partial-restore /full/path/to/<name>-partial-database.sql.gz` — needs a **partial** backup made with `bench --site {site} backup --only "DocType A,DocType B"` (a full backup is refused: *Full backup file detected*), and the backup's full path (a path relative to the bench folder is refused as *Invalid path*). Tested on Frappe 16.56: only the backed-up tables went back; everything else was kept. | YES — irreversible: overwrites the selected tables, take a fresh backup first | `docs/framework/framework__user__en__bench__reference__partial-restore.md` |
+| Back up a site | `bench --site {site} backup` | no | `docs/framework/framework-03.md` lines 2396–2493 |
+| Restore a site from a backup | `bench --site {site} restore {path}` | YES — irreversible: replaces the whole database, take a fresh backup first | `docs/framework/framework-03.md` lines 3195–3290 |
+| Restore selected tables only | `bench --site {site} partial-restore /full/path/to/<name>-partial-database.sql.gz` — needs a **partial** backup made with `bench --site {site} backup --only "DocType A,DocType B"` (a full backup is refused: *Full backup file detected*), and the backup's full path (a path relative to the bench folder is refused as *Invalid path*). Tested on Frappe 16.56: only the backed-up tables went back; everything else was kept. | YES — irreversible: overwrites the selected tables, take a fresh backup first | `docs/framework/framework-03.md` lines 3096–3137 |
 
 ## The three that end sites
 

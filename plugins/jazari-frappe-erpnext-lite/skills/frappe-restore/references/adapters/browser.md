@@ -37,7 +37,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Back up a Frappe Cloud site
 - **Path:** open https://frappecloud.com/dashboard → **Backups** in the sidebar
-- **Full page, bundled offline:** `docs/cloud/cloud__sites__backups.md`  (https://docs.frappe.io/cloud/sites/backups)
+- **Full page, bundled offline:** `docs/cloud/cloud-02.md` lines 2833–2952  (https://docs.frappe.io/cloud/sites/backups)
 
 ## What cannot be done in the interface
 

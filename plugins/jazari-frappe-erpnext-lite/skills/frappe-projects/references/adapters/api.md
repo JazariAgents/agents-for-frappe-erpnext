@@ -120,11 +120,11 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Run a project | Project | `POST /api/v2/document/Project` (and the list/read/update calls above) | `docs/erpnext/erpnext__project.md` |
-| Manage tasks | Task | `POST /api/v2/document/Task` (and the list/read/update calls above) | `docs/erpnext/erpnext__tasks.md` |
-| Record timesheets | Timesheet | `POST /api/v2/document/Timesheet` (and the list/read/update calls above) | `docs/erpnext/erpnext__timesheets.md` |
-| Start from a project template | Project Template | `POST /api/v2/document/Project%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext__project-template.md` |
-| Set activity costs | Activity Cost | `POST /api/v2/document/Activity%20Cost` (and the list/read/update calls above) | `docs/erpnext/erpnext__activity-cost.md` |
+| Run a project | Project | `POST /api/v2/document/Project` (and the list/read/update calls above) | `docs/erpnext/erpnext-12.md` lines 1697–1838 |
+| Manage tasks | Task | `POST /api/v2/document/Task` (and the list/read/update calls above) | `docs/erpnext/erpnext-16.md` lines 2564–2657 |
+| Record timesheets | Timesheet | `POST /api/v2/document/Timesheet` (and the list/read/update calls above) | `docs/erpnext/erpnext-17.md` lines 1379–1473 |
+| Start from a project template | Project Template | `POST /api/v2/document/Project%20Template` (and the list/read/update calls above) | `docs/erpnext/erpnext-12.md` lines 1556–1586 |
+| Set activity costs | Activity Cost | `POST /api/v2/document/Activity%20Cost` (and the list/read/update calls above) | `docs/erpnext/erpnext-01.md` lines 2191–2218 |
 
 ## Capabilities that need a schema lookup first
 
@@ -135,6 +135,6 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Track project costing | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__project-costing.md` |
-| Measure project profitability | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__project-profitability.md` |
-| Bill a customer from a timesheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__sales-invoice-from-timesheet.md` |
+| Track project costing | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-12.md` lines 1343–1385 |
+| Measure project profitability | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-12.md` lines 1435–1477 |
+| Bill a customer from a timesheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-14.md` lines 133–172 |

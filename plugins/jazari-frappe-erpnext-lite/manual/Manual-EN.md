@@ -1,4 +1,4 @@
-Jazari Agents for Frappe & ERPNext Lite · v1.1.11
+Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 # Manual
 
@@ -674,4 +674,4 @@ claude plugin update jazari-frappe-erpnext-lite@jazari-agents
 
 **Is this made by Frappe?** No. It is an independent, MIT-licensed project by Jazari Agents. Frappe and ERPNext are trademarks of Frappe Technologies.
 
-Jazari Agents for Frappe & ERPNext Lite v1.1.11 · [jazariagents.com](https://jazariagents.com) · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on live Frappe v16.56 / ERPNext v16.55 sites on 2026-11-14 and 2026-11-15 · [بالعربية](Manual-AR.md)
+Jazari Agents for Frappe & ERPNext Lite v1.1.12 · [jazariagents.com](https://jazariagents.com) · reference pages from 2026-08-31 (Frappe v16.32 / ERPNext v16.33) · checked on live Frappe v16.56 / ERPNext v16.55 sites on 2026-11-14 and 2026-11-15 · [بالعربية](Manual-AR.md)

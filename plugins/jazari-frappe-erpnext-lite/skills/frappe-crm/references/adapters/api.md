@@ -120,14 +120,14 @@ Source: https://docs.frappe.io/framework/user/en/guides/integration/rest_api/lis
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Capture leads | CRM Lead | `POST /api/v2/document/CRM%20Lead` (and the list/read/update calls above) | `docs/crm/crm__lead.md` |
-| Move deals through the pipeline | CRM Deal | `POST /api/v2/document/CRM%20Deal` (and the list/read/update calls above) | `docs/crm/crm__deal.md` |
-| Track CRM tasks | CRM Task | `POST /api/v2/document/CRM%20Task` (and the list/read/update calls above) | `docs/crm/crm__task.md` |
-| Track organizations | CRM Organization | `POST /api/v2/document/CRM%20Organization` (and the list/read/update calls above) | `docs/crm/crm__organization.md` |
-| Work an opportunity in ERPNext | Opportunity | `POST /api/v2/document/Opportunity` (and the list/read/update calls above) | `docs/erpnext/erpnext__opportunity.md` |
-| Run a campaign | Campaign | `POST /api/v2/document/Campaign` (and the list/read/update calls above) | `docs/erpnext/erpnext__campaign.md` |
-| Send an email campaign | Email Campaign | `POST /api/v2/document/Email%20Campaign` (and the list/read/update calls above) | `docs/erpnext/erpnext__email-campaign.md` |
-| Send a newsletter | Newsletter | `POST /api/v2/document/Newsletter` (and the list/read/update calls above) | `docs/erpnext/erpnext__newsletter.md` |
+| Capture leads | CRM Lead | `POST /api/v2/document/CRM%20Lead` (and the list/read/update calls above) | `docs/crm/crm-01.md` lines 1885–1963 |
+| Move deals through the pipeline | CRM Deal | `POST /api/v2/document/CRM%20Deal` (and the list/read/update calls above) | `docs/crm/crm-01.md` lines 1069–1144 |
+| Track CRM tasks | CRM Task | `POST /api/v2/document/CRM%20Task` (and the list/read/update calls above) | `docs/crm/crm-01.md` lines 2466–2506 |
+| Track organizations | CRM Organization | `POST /api/v2/document/CRM%20Organization` (and the list/read/update calls above) | `docs/crm/crm-01.md` lines 2110–2139 |
+| Work an opportunity in ERPNext | Opportunity | `POST /api/v2/document/Opportunity` (and the list/read/update calls above) | `docs/erpnext/erpnext-10.md` lines 2809–2898 |
+| Run a campaign | Campaign | `POST /api/v2/document/Campaign` (and the list/read/update calls above) | `docs/erpnext/erpnext-04.md` lines 3–79 |
+| Send an email campaign | Email Campaign | `POST /api/v2/document/Email%20Campaign` (and the list/read/update calls above) | `docs/erpnext/erpnext-06.md` lines 2952–3045 |
+| Send a newsletter | Newsletter | `POST /api/v2/document/Newsletter` (and the list/read/update calls above) | `docs/erpnext/erpnext-10.md` lines 1890–1947 |
 
 ## Capabilities that need a schema lookup first
 
@@ -138,11 +138,11 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Keep notes on a deal | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__note.md` |
-| Reply with email templates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__email-template.md` |
-| Log calls against a deal | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__call-log.md` |
-| Set a CRM service level agreement | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__service-level-agreement.md` |
-| Customize deal statuses | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__custom-statuses.md` |
-| Capture leads from a web form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__capturing-leads__web-form.md` |
-| Invite your sales team | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__inviting-your-team.md` |
-| Message a contact on WhatsApp | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm__whatsapp.md` |
+| Keep notes on a deal | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 2035–2072 |
+| Reply with email templates | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 1216–1249 |
+| Log calls against a deal | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 42–90 |
+| Set a CRM service level agreement | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 2273–2318 |
+| Customize deal statuses | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 878–1049 |
+| Capture leads from a web form | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 92–176 |
+| Invite your sales team | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 1786–1816 |
+| Message a contact on WhatsApp | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/crm/crm-01.md` lines 2643–2709 |

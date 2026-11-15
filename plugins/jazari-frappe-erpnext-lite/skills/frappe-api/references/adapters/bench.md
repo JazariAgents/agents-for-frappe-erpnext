@@ -14,7 +14,7 @@ directory: use the dashboard equivalents in the frappe-cloud skill.
 
 | Capability | Command | Destroys? | Bundled page (read this) |
 |---|---|---|---|
-| Diagnose the scheduler | `bench --site {site} doctor` | no | `docs/framework/framework__user__en__bench__guides__diagnosing-the-scheduler.md` |
+| Diagnose the scheduler | `bench --site {site} doctor` | no | `docs/framework/framework-03.md` lines 2023–2059 |
 
 ## The three that end sites
 

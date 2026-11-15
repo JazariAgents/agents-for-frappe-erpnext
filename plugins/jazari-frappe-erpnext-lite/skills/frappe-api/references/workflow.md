@@ -8,11 +8,11 @@ Owner: **Urwah** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Test the site connection** (`api.connect`, api mode)
-   read: `docs/framework/framework__user__en__api__rest.md`   (https://docs.frappe.io/framework/user/en/api/rest)
+   read: `docs/framework/framework-02.md` lines 2844–3347   (https://docs.frappe.io/framework/user/en/api/rest)
 2. **Sign in through Frappe's MCP connector or frappectl** (see **frappe-connect**; this edition never handles a key)
-   read: `docs/framework/framework__user__en__api__rest.md`   (https://docs.frappe.io/framework/user/en/api/rest)
+   read: `docs/framework/framework-02.md` lines 2844–3347   (https://docs.frappe.io/framework/user/en/api/rest)
 3. **Read DocType metadata to discover a site's schema** (`api.doctype.meta`, api mode)
-   read: `docs/framework/framework__user__en__guides__integration__rest_api.md`   (https://docs.frappe.io/framework/user/en/guides/integration/rest_api)
+   read: `docs/framework/framework-05.md` lines 373–492   (https://docs.frappe.io/framework/user/en/guides/integration/rest_api)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

@@ -8,17 +8,17 @@ Owner: **Rukaz** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Set up a company** (`setup.company`, browser mode)
-   read: `docs/erpnext/erpnext__company-setup.md`   (https://docs.frappe.io/erpnext/company-setup)
+   read: `docs/erpnext/erpnext-04.md` lines 1546–1628   (https://docs.frappe.io/erpnext/company-setup)
 2. **Set the fiscal year** (`setup.fiscalyear`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__fiscal-year.md`   (https://docs.frappe.io/erpnext/fiscal-year)
+   read: `docs/erpnext/erpnext-07.md` lines 2480–2549   (https://docs.frappe.io/erpnext/fiscal-year)
 3. **Set up the chart of accounts** (`setup.coa`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__chart-of-accounts.md`   (https://docs.frappe.io/erpnext/chart-of-accounts)
+   read: `docs/erpnext/erpnext-04.md` lines 775–860   (https://docs.frappe.io/erpnext/chart-of-accounts)
 4. **Add and manage users** (`perm.users`, browser mode)
-   read: `docs/framework/framework__user__en__basics__users-and-permissions.md`   (https://docs.frappe.io/framework/user/en/basics/users-and-permissions)
+   read: `docs/framework/framework-03.md` lines 578–739   (https://docs.frappe.io/framework/user/en/basics/users-and-permissions)
 5. **Import records from a spreadsheet** (`imp.dataimport`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__data-import.md`   (https://docs.frappe.io/erpnext/data-import)
+   read: `docs/erpnext/erpnext-05.md` lines 1481–1721   (https://docs.frappe.io/erpnext/data-import)
 6. **Enter opening balances** (`acc.openingbalance`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/erpnext/erpnext__opening-balance.md`   (https://docs.frappe.io/erpnext/opening-balance)
+   read: `docs/erpnext/erpnext-10.md` lines 2437–2540   (https://docs.frappe.io/erpnext/opening-balance)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

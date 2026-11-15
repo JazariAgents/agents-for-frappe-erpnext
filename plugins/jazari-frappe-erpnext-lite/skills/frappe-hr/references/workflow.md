@@ -8,13 +8,13 @@ Owner: **Anees** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Mark attendance** (`hr.attendance`, api mode) — SNAPSHOT FIRST, reversible
-   read: `docs/frappe-hr/hr__attendance.md`   (https://docs.frappe.io/hr/attendance)
+   read: `docs/frappe-hr/frappe-hr-01.md` lines 537–612   (https://docs.frappe.io/hr/attendance)
 2. **Build a salary structure** (`hr.salarystructure`, browser mode) — SNAPSHOT FIRST, reversible
-   read: `docs/frappe-hr/hr__salary-structure.md`   (https://docs.frappe.io/hr/salary-structure)
+   read: `docs/frappe-hr/frappe-hr-03.md` lines 476–571   (https://docs.frappe.io/hr/salary-structure)
 3. **Run payroll** (`hr.payrollentry`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/frappe-hr/hr__payroll-entry.md`   (https://docs.frappe.io/hr/payroll-entry)
+   read: `docs/frappe-hr/frappe-hr-02.md` lines 3169–3277   (https://docs.frappe.io/hr/payroll-entry)
 4. **Issue salary slips** (`hr.salaryslip`, api mode) — SNAPSHOT FIRST, irreversible
-   read: `docs/frappe-hr/hr__salary-slip.md`   (https://docs.frappe.io/hr/salary-slip)
+   read: `docs/frappe-hr/frappe-hr-03.md` lines 232–304   (https://docs.frappe.io/hr/salary-slip)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

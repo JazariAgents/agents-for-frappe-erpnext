@@ -1,7 +1,7 @@
 {
   "name": "jazari-frappe-erpnext-lite",
   "displayName": "Jazari Agents for Frappe & ERPNext Lite",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "description": "Nine agents that run a Frappe stack for you, with no code of their own: build apps and DocTypes, operate ERPNext accounting, selling, buying, stock and manufacturing, run Frappe HR payroll, CRM, Helpdesk, Insights and the website, manage bench and Frappe Cloud, import data in bulk, undo changes from local snapshots, and give a read-only overview of the business in the chat. Connects through Frappe's built-in MCP server or frappectl and never handles an API key. English and Arabic. Built against Frappe and ERPNext v16. The full edition, with a one-page dashboard and its safety rules locked in code, is on GitHub.",
   "author": {
     "name": "Jazari Agents",

@@ -26,7 +26,7 @@
       "name": "jazari-frappe-erpnext-lite",
       "source": "./plugins/jazari-frappe-erpnext-lite",
       "description": "The same nine agents and know-how with no code of their own: no scripts, no hooks, never an API key. Connects through Frappe's MCP server or frappectl. English and Arabic. Install this or the full edition, not both.",
-      "version": "1.1.11",
+      "version": "1.1.12",
       "author": {
         "name": "Jazari Agents",
         "url": "https://jazariagents.com"

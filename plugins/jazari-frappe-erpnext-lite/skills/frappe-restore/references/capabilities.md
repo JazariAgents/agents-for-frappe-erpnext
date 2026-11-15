@@ -9,10 +9,10 @@ Every row was confirmed against an official Frappe documentation page fetched on
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
-| `bench.backup` | Back up a site | bench | no | reversible | `docs/framework/framework__user__en__bench__reference__backup.md` | https://docs.frappe.io/framework/user/en/bench/reference/backup |
-| `bench.restore` | Restore a site from a backup | bench | yes | irreversible | `docs/framework/framework__user__en__bench__reference__restore.md` | https://docs.frappe.io/framework/user/en/bench/reference/restore |
-| `bench.partialrestore` | Restore selected tables only | bench | yes | irreversible | `docs/framework/framework__user__en__bench__reference__partial-restore.md` | https://docs.frappe.io/framework/user/en/bench/reference/partial-restore |
-| `cloud.site.backup` | Back up a Frappe Cloud site | browser | no | reversible | `docs/cloud/cloud__sites__backups.md` | https://docs.frappe.io/cloud/sites/backups |
+| `bench.backup` | Back up a site | bench | no | reversible | `docs/framework/framework-03.md` lines 2396–2493 | https://docs.frappe.io/framework/user/en/bench/reference/backup |
+| `bench.restore` | Restore a site from a backup | bench | yes | irreversible | `docs/framework/framework-03.md` lines 3195–3290 | https://docs.frappe.io/framework/user/en/bench/reference/restore |
+| `bench.partialrestore` | Restore selected tables only | bench | yes | irreversible | `docs/framework/framework-03.md` lines 3096–3137 | https://docs.frappe.io/framework/user/en/bench/reference/partial-restore |
+| `cloud.site.backup` | Back up a Frappe Cloud site | browser | no | reversible | `docs/cloud/cloud-02.md` lines 2833–2952 | https://docs.frappe.io/cloud/sites/backups |
 
 ## Version notes
 

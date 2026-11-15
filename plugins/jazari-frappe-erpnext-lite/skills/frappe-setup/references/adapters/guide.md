@@ -15,5 +15,5 @@ that follow from the answer.
 ### Run the ERPNext getting-started checklist
 - **What the page says:** Getting started with ERPNext can seem overwhelming, but focusing on these steps will help you set up and integrate the system effectively. Here’s a streamlined approach to kickstart your ERPNext journey.
 - **Read the site's current answer before advising.** Check what this site already does, say so, then explain the alternatives from the page above and let the user choose.
-- **Full page, bundled offline:** `docs/erpnext/erpnext__getting-started-with-erpnext.md`  (https://docs.frappe.io/erpnext/getting-started-with-erpnext)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-07.md` lines 3032–3076  (https://docs.frappe.io/erpnext/getting-started-with-erpnext)
 

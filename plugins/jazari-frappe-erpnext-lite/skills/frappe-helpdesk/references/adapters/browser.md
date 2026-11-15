@@ -40,23 +40,23 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → **Tickets** in the sidebar
 - **Record type:** HD Ticket
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket.md`  (https://docs.frappe.io/helpdesk/ticket)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 3623–3657  (https://docs.frappe.io/helpdesk/ticket)
 
 ### Set service level agreements
 - **Path:** open https://your-site/helpdesk (the Frappe Helpdesk interface) and find *Service Level Agreement* — the documentation page below shows the screen
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__service-level-agreement.md`  (https://docs.frappe.io/helpdesk/service-level-agreement)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 2844–3104  (https://docs.frappe.io/helpdesk/service-level-agreement)
 
 ### Route tickets to teams
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Teams**
 - **Record type:** HD Team
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__team.md`  (https://docs.frappe.io/helpdesk/team)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 3345–3374  (https://docs.frappe.io/helpdesk/team)
 
 ### Route tickets automatically
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Assignment Rules**
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket-routing.md`  (https://docs.frappe.io/helpdesk/ticket-routing)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 3437–3502  (https://docs.frappe.io/helpdesk/ticket-routing)
 
 ### Set ticket priorities
 - **Path:** open https://your-site/helpdesk → **HD Ticket Priority** in the sidebar
@@ -66,13 +66,13 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Click + Add HD Ticket Priority
   3. Enter a name, choose a level, and optionally add a description
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket-priority.md`  (https://docs.frappe.io/helpdesk/ticket-priority)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 3376–3435  (https://docs.frappe.io/helpdesk/ticket-priority)
 
 ### Define ticket types
 - **Path (checked on v16.55 with the app installed):** https://your-site/desk → type *HD Ticket Type* in the search bar at the top
 - **Record type:** HD Ticket Type
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__ticket-type.md`  (https://docs.frappe.io/helpdesk/ticket-type)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 3590–3621  (https://docs.frappe.io/helpdesk/ticket-type)
 
 ### Invite and manage agents
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Agents**, then **Invite Agents**
@@ -83,7 +83,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. They will be sent an email link to add there password, once they setup there password, they can login into your Helpdesk system
   5. Agent is added to your helpdesk system
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__agent.md`  (https://docs.frappe.io/helpdesk/agent)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 3–51  (https://docs.frappe.io/helpdesk/agent)
 
 ### Answer faster with saved replies
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Saved Replies** (record type *HD Saved Reply*)
@@ -94,19 +94,19 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. Use the row menu on the right to delete a row
   5. Save the saved reply
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__saved-replies.md`  (https://docs.frappe.io/helpdesk/saved-replies)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 2647–2842  (https://docs.frappe.io/helpdesk/saved-replies)
 
 ### Publish knowledge base articles
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → **Knowledge Base** in the sidebar
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__knowledge-base.md`  (https://docs.frappe.io/helpdesk/knowledge-base)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 1811–1848  (https://docs.frappe.io/helpdesk/knowledge-base)
 
 ### Connect a support email account
 - **Path (checked on v16.55 with the app installed):** https://your-site/helpdesk → your name at the top left → **Settings** → **Email Accounts**
 - **Documented steps:**
   1. Locate the Reply Button: On the Ticket page, find the "Reply" button, typically situated at the bottom of the page
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/helpdesk/helpdesk__email-communication.md`  (https://docs.frappe.io/helpdesk/email-communication)
+- **Full page, bundled offline:** `docs/helpdesk/helpdesk-01.md` lines 890–961  (https://docs.frappe.io/helpdesk/email-communication)
 
 ### Track an issue in ERPNext
 - **Path:** https://your-site/app → **Home > Support > Issues > Issue**
@@ -114,7 +114,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Issue list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__issue.md`  (https://docs.frappe.io/erpnext/issue)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-08.md` lines 3191–3326  (https://docs.frappe.io/erpnext/issue)
 
 ### Handle a warranty claim
 - **Path:** https://your-site/app → **Home > Support > Warranty > Warranty Claim**
@@ -122,7 +122,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Warranty Claim list, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__warranty-claim.md`  (https://docs.frappe.io/erpnext/warranty-claim)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 110–211  (https://docs.frappe.io/erpnext/warranty-claim)
 
 ### Schedule maintenance visits
 - **Path:** https://your-site/app → **Home > Support > Maintenance > Maintenance Schedule**
@@ -130,5 +130,5 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Documented steps:**
   1. Go to the Maintenance Schedule, click on New
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__maintenance-schedule.md`  (https://docs.frappe.io/erpnext/maintenance-schedule)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-09.md` lines 2371–2420  (https://docs.frappe.io/erpnext/maintenance-schedule)
 

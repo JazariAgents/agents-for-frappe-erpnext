@@ -9,19 +9,19 @@ Every row was confirmed against an official Frappe documentation page fetched on
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
-| `lms.course` | Create a course | browser | yes | reversible | `docs/learning/learning__create-a-course.md` | https://docs.frappe.io/learning/create-a-course |
-| `lms.chapter` | Add chapters and lessons | browser | yes | reversible | `docs/learning/learning__add-a-chapter.md` | https://docs.frappe.io/learning/add-a-chapter |
-| `lms.batch` | Run a batch of learners | browser | yes | reversible | `docs/learning/learning__create-a-batch.md` | https://docs.frappe.io/learning/create-a-batch |
-| `lms.liveclass` | Host a live class | browser | yes | reversible | `docs/learning/learning__create-a-live-class.md` | https://docs.frappe.io/learning/create-a-live-class |
-| `lms.quiz` | Assess learners with quizzes | browser | yes | reversible | `docs/learning/learning__quizzes.md` | https://docs.frappe.io/learning/quizzes |
-| `lms.assignment` | Set assignments | browser | yes | reversible | `docs/learning/learning__assignments.md` | https://docs.frappe.io/learning/assignments |
-| `lms.certificate` | Issue certificates | browser | yes | irreversible | `docs/learning/learning__issue-a-certificate.md` | https://docs.frappe.io/learning/issue-a-certificate |
-| `lms.program` | Group courses into a program | browser | yes | reversible | `docs/learning/learning__add-a-program.md` | https://docs.frappe.io/learning/add-a-program |
-| `lms.payments` | Charge for a course | browser | yes | reversible | `docs/learning/learning__setting-up-payment-gateway.md` | https://docs.frappe.io/learning/setting-up-payment-gateway |
-| `edu.student` | Enrol students | browser | yes | reversible | `docs/education/education__student.md` | https://docs.frappe.io/education/student |
-| `edu.program` | Set up programs and courses | browser | yes | reversible | `docs/education/education__program.md` | https://docs.frappe.io/education/program |
-| `edu.fees` | Collect fees | browser | yes | irreversible | `docs/education/education__fees.md` | https://docs.frappe.io/education/fees |
-| `edu.assessment` | Run assessments | browser | yes | reversible | `docs/education/education__assessment-introduction.md` | https://docs.frappe.io/education/assessment-introduction |
+| `lms.course` | Create a course | browser | yes | reversible | `docs/learning/learning-01.md` lines 796–917 | https://docs.frappe.io/learning/create-a-course |
+| `lms.chapter` | Add chapters and lessons | browser | yes | reversible | `docs/learning/learning-01.md` lines 3–62 | https://docs.frappe.io/learning/add-a-chapter |
+| `lms.batch` | Run a batch of learners | browser | yes | reversible | `docs/learning/learning-01.md` lines 702–794 | https://docs.frappe.io/learning/create-a-batch |
+| `lms.liveclass` | Host a live class | browser | yes | reversible | `docs/learning/learning-01.md` lines 919–979 | https://docs.frappe.io/learning/create-a-live-class |
+| `lms.quiz` | Assess learners with quizzes | browser | yes | reversible | `docs/learning/learning-01.md` lines 1503–1560 | https://docs.frappe.io/learning/quizzes |
+| `lms.assignment` | Set assignments | browser | yes | reversible | `docs/learning/learning-01.md` lines 156–187 | https://docs.frappe.io/learning/assignments |
+| `lms.certificate` | Issue certificates | browser | yes | irreversible | `docs/learning/learning-01.md` lines 1335–1355 | https://docs.frappe.io/learning/issue-a-certificate |
+| `lms.program` | Group courses into a program | browser | yes | reversible | `docs/learning/learning-01.md` lines 64–110 | https://docs.frappe.io/learning/add-a-program |
+| `lms.payments` | Charge for a course | browser | yes | reversible | `docs/learning/learning-01.md` lines 1594–1621 | https://docs.frappe.io/learning/setting-up-payment-gateway |
+| `edu.student` | Enrol students | browser | yes | reversible | `docs/education/education-01.md` lines 1962–2062 | https://docs.frappe.io/education/student |
+| `edu.program` | Set up programs and courses | browser | yes | reversible | `docs/education/education-01.md` lines 1321–1383 | https://docs.frappe.io/education/program |
+| `edu.fees` | Collect fees | browser | yes | irreversible | `docs/education/education-01.md` lines 848–960 | https://docs.frappe.io/education/fees |
+| `edu.assessment` | Run assessments | browser | yes | reversible | `docs/education/education-01.md` lines 86–105 | https://docs.frappe.io/education/assessment-introduction |
 
 ## Version notes
 

@@ -37,12 +37,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 
 ### Add and manage users
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Users**, or type *User* in the search bar at the top
-- **Full page, bundled offline:** `docs/framework/framework__user__en__basics__users-and-permissions.md`  (https://docs.frappe.io/framework/user/en/basics/users-and-permissions)
+- **Full page, bundled offline:** `docs/framework/framework-03.md` lines 578–739  (https://docs.frappe.io/framework/user/en/basics/users-and-permissions)
 
 ### Set role-based permissions
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Users > Permissions > Role Permissions Manager**, or type *Role Permissions Manager* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__role-based-permissions.md`  (https://docs.frappe.io/erpnext/role-based-permissions)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-13.md` lines 3285–3358  (https://docs.frappe.io/erpnext/role-based-permissions)
 
 ### Restrict a user to specific records
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Access > User Permissions**, or type *User Permissions* in the search bar at the top
@@ -51,7 +51,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. Allowing user to access data belonging to one Company
   2. Allowing user to access data related to a specific Customer or Territory
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__user-permissions.md`  (https://docs.frappe.io/erpnext/user-permissions)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-17.md` lines 2928–3033  (https://docs.frappe.io/erpnext/user-permissions)
 
 ### Hide fields with permission levels
 - **Path (checked on v16.55):** https://your-site/desk → **Framework > Build > Customization > Customize Form**, or type *Customize Form* in the search bar at the top
@@ -59,7 +59,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   1. A field is assigned a perm level in the DocType or Customize Form
   2. Role Permission Manager is used to define what each role can do at each perm level
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__perm-levels.md`  (https://docs.frappe.io/erpnext/perm-levels)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-11.md` lines 1254–1326  (https://docs.frappe.io/erpnext/perm-levels)
 
 ### Group roles into a role profile
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Access > Role**, or type *Role* in the search bar at the top
@@ -68,12 +68,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Enter a name for the Role
   3. Choose whether the Role has desk access. A role that has desk access can access ERPNext modules and the company's documents. The level of access depends on the roles assigned to the user
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__role-and-role-profile.md`  (https://docs.frappe.io/erpnext/role-and-role-profile)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-13.md` lines 3243–3283  (https://docs.frappe.io/erpnext/role-and-role-profile)
 
 ### Turn on two-factor authentication
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Setup > Settings > System**, or type *System Settings* in the search bar at the top
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__setup-two-factor-authentication.md`  (https://docs.frappe.io/erpnext/setup-two-factor-authentication)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-15.md` lines 1484–1539  (https://docs.frappe.io/erpnext/setup-two-factor-authentication)
 
 ### Read the audit trail
 - **Path (checked on v16.55):** https://your-site/desk → type *Audit Trail* in the search bar at the top and open the doctype
@@ -82,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Select the name of the document in the Document field
   3. Optionally, select the start and end dates in order to show the amended documents within the specified date range
   4. Click on the Compare button to view the Audit Trail for the selected document
-- **Full page, bundled offline:** `docs/framework/framework__user__en__audit-trail.md`  (https://docs.frappe.io/framework/user/en/audit-trail)
+- **Full page, bundled offline:** `docs/framework/framework-02.md` lines 4259–4300  (https://docs.frappe.io/framework/user/en/audit-trail)
 
 ## What cannot be done in the interface
 

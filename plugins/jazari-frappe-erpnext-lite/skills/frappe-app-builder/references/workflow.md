@@ -8,17 +8,17 @@ Owner: **Imran** · verified: documentation; the screens, record types and API c
 
 ## Steps
 1. **Create a new Frappe app** (`app.create`, bench mode)
-   read: `docs/framework/framework__user__en__tutorial__create-an-app.md`   (https://docs.frappe.io/framework/user/en/tutorial/create-an-app)
+   read: `docs/framework/framework-06.md` lines 3202–3298   (https://docs.frappe.io/framework/user/en/tutorial/create-an-app)
 2. **Create a new site for an app** (`app.site.create`, bench mode)
-   read: `docs/framework/framework__user__en__tutorial__create-a-site.md`   (https://docs.frappe.io/framework/user/en/tutorial/create-a-site)
+   read: `docs/framework/framework-06.md` lines 2985–3200   (https://docs.frappe.io/framework/user/en/tutorial/create-a-site)
 3. **Create a DocType** (`doctype.create`, browser mode)
-   read: `docs/framework/framework__user__en__tutorial__create-a-doctype.md`   (https://docs.frappe.io/framework/user/en/tutorial/create-a-doctype)
+   read: `docs/framework/framework-06.md` lines 2809–2983   (https://docs.frappe.io/framework/user/en/tutorial/create-a-doctype)
 4. **Pick the right field type** (`doctype.fieldtypes`, browser mode)
-   read: `docs/framework/framework__user__en__basics__doctypes__fieldtypes.md`   (https://docs.frappe.io/framework/user/en/basics/doctypes/fieldtypes)
+   read: `docs/framework/framework-02.md` lines 5645–5988   (https://docs.frappe.io/framework/user/en/basics/doctypes/fieldtypes)
 5. **Write controller methods** (`doctype.controller`, guide mode)
-   read: `docs/framework/framework__user__en__tutorial__controller-methods.md`   (https://docs.frappe.io/framework/user/en/tutorial/controller-methods)
+   read: `docs/framework/framework-06.md` lines 2754–2807   (https://docs.frappe.io/framework/user/en/tutorial/controller-methods)
 6. **Run migrations after an update** (`bench.migrate`, bench mode) — SNAPSHOT FIRST, reversible
-   read: `docs/framework/framework__user__en__bench__reference__migrate.md`   (https://docs.frappe.io/framework/user/en/bench/reference/migrate)
+   read: `docs/framework/framework-03.md` lines 2937–2995   (https://docs.frappe.io/framework/user/en/bench/reference/migrate)
 
 ## Failure modes
 - HTTP 403: the signed-in user lacks the role for that DocType — say which role is missing, do not retry blindly

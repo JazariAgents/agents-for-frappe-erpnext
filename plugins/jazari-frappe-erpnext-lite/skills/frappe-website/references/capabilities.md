@@ -9,19 +9,19 @@ Every row was confirmed against an official Frappe documentation page fetched on
 
 | id | Capability | Mode | Destructive | Reversibility | Bundled page | Source URL |
 |---|---|---|---|---|---|---|
-| `web.website` | Set up the website | browser | yes | reversible | `docs/erpnext/erpnext__website.md` | https://docs.frappe.io/erpnext/website |
-| `web.webpage` | Publish a web page | browser | yes | reversible | `docs/erpnext/erpnext__web-page.md` | https://docs.frappe.io/erpnext/web-page |
-| `web.blog` | Publish a blog post | browser | yes | reversible | `docs/erpnext/erpnext__blog-post.md` | https://docs.frappe.io/erpnext/blog-post |
-| `web.theme` | Change the website theme | browser | yes | reversible | `docs/erpnext/erpnext__website-theme.md` | https://docs.frappe.io/erpnext/website-theme |
-| `web.seo` | Set up SEO for the website | guide | no | reversible | `docs/erpnext/erpnext__how-to-setup-seo-for-your-website-on-erpnext.md` | https://docs.frappe.io/erpnext/how-to-setup-seo-for-your-website-on-erpnext |
-| `web.shoppingcart` | Run the shopping cart | browser | yes | reversible | `docs/erpnext/erpnext__shopping-cart.md` | https://docs.frappe.io/erpnext/shopping-cart |
-| `web.websiteitem` | Publish items to the shop | browser | yes | reversible | `docs/erpnext/erpnext__website_item.md` | https://docs.frappe.io/erpnext/website_item |
-| `web.builder` | Build pages with Frappe Builder | browser | yes | reversible | `docs/builder/builder__setting-up.md` | https://docs.frappe.io/builder/setting-up |
-| `web.builderdata` | Bind data to a Builder page | browser | yes | reversible | `docs/builder/builder__data-script.md` | https://docs.frappe.io/builder/data-script |
-| `web.wiki` | Publish a wiki space | browser | yes | reversible | `docs/wiki/wiki-v2__wiki-settings.md` | https://docs.frappe.io/wiki-v2/wiki-settings |
-| `web.drive` | Share files with Frappe Drive | browser | yes | reversible | `docs/drive/drive__files.md` | https://docs.frappe.io/drive/files |
-| `web.driveteams` | Share a Drive team folder | browser | yes | reversible | `docs/drive/drive__teams.md` | https://docs.frappe.io/drive/teams |
-| `web.driveaccess` | Control file access in Drive | browser | yes | reversible | `docs/drive/drive__file-access.md` | https://docs.frappe.io/drive/file-access |
+| `web.website` | Set up the website | browser | yes | reversible | `docs/erpnext/erpnext-18.md` lines 890–903 | https://docs.frappe.io/erpnext/website |
+| `web.webpage` | Publish a web page | browser | yes | reversible | `docs/erpnext/erpnext-18.md` lines 397–522 | https://docs.frappe.io/erpnext/web-page |
+| `web.blog` | Publish a blog post | browser | yes | reversible | `docs/erpnext/erpnext-03.md` lines 1240–1353 | https://docs.frappe.io/erpnext/blog-post |
+| `web.theme` | Change the website theme | browser | yes | reversible | `docs/erpnext/erpnext-18.md` lines 815–888 | https://docs.frappe.io/erpnext/website-theme |
+| `web.seo` | Set up SEO for the website | guide | no | reversible | `docs/erpnext/erpnext-08.md` lines 1224–1246 | https://docs.frappe.io/erpnext/how-to-setup-seo-for-your-website-on-erpnext |
+| `web.shoppingcart` | Run the shopping cart | browser | yes | reversible | `docs/erpnext/erpnext-15.md` lines 2128–2176 | https://docs.frappe.io/erpnext/shopping-cart |
+| `web.websiteitem` | Publish items to the shop | browser | yes | reversible | `docs/erpnext/erpnext-18.md` lines 905–1009 | https://docs.frappe.io/erpnext/website_item |
+| `web.builder` | Build pages with Frappe Builder | browser | yes | reversible | `docs/builder/builder-01.md` lines 242–270 | https://docs.frappe.io/builder/setting-up |
+| `web.builderdata` | Bind data to a Builder page | browser | yes | reversible | `docs/builder/builder-01.md` lines 3–150 | https://docs.frappe.io/builder/data-script |
+| `web.wiki` | Publish a wiki space | browser | yes | reversible | `docs/wiki/wiki-01.md` lines 198–240 | https://docs.frappe.io/wiki-v2/wiki-settings |
+| `web.drive` | Share files with Frappe Drive | browser | yes | reversible | `docs/drive/drive-01.md` lines 49–71 | https://docs.frappe.io/drive/files |
+| `web.driveteams` | Share a Drive team folder | browser | yes | reversible | `docs/drive/drive-01.md` lines 323–340 | https://docs.frappe.io/drive/teams |
+| `web.driveaccess` | Control file access in Drive | browser | yes | reversible | `docs/drive/drive-01.md` lines 3–47 | https://docs.frappe.io/drive/file-access |
 
 ## Version notes
 

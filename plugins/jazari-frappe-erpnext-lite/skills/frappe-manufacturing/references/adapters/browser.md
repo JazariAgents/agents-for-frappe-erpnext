@@ -43,12 +43,12 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Select the Item to be manufactured. The Item name, UoM, company, and currency will be fetched automatically
   3. Enter the quantity of the Item that will be manufactured from this Bill of Materials
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__bill-of-materials.md`  (https://docs.frappe.io/erpnext/bill-of-materials)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-03.md` lines 933–1125  (https://docs.frappe.io/erpnext/bill-of-materials)
 
 ### Design a BOM with the BOM creator
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Tools > BOM Creator**, or type *BOM Creator* in the search bar at the top
 - **Record type:** BOM Creator
-- **Two screens exist. Look before you click.** ERPNext 16.53 rebuilt this tool. If the form has a **Design File** field and the tabs Design, Costing and Details, it is the new one and the steps below apply. If it shows only a tree with an item dialog, the site is older: follow `docs/erpnext/erpnext__bom-creator.md` instead.
+- **Two screens exist. Look before you click.** ERPNext 16.53 rebuilt this tool. If the form has a **Design File** field and the tabs Design, Costing and Details, it is the new one and the steps below apply. If it shows only a tree with an item dialog, the site is older: follow `docs/erpnext/erpnext-03.md` lines 1807–1852 instead.
 - **Documented steps (new screen):**
   1. Go to the BOM Creator list and click Add BOM Creator
   2. In Finished Good, select the item that the design makes, and check that Company is correct
@@ -61,13 +61,13 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
 - **Producing an item at each operation:** the tick box is labelled *Produce Item per Operation* or *Produce an Item at Each Operation* depending on the patch. Tick it only when each operation makes an item the user keeps in stock. It needs Operation and Workstation Type records, and creates a single BOM that lists the operations and what each one makes.
 - **If it fails:** the status turns Failed, the reason is in Error Log on the Details tab, and no BOM from that run is kept. Fix the cause and click Create BOMs again.
 - **Snapshot first** — reversibility: reversible until Create BOMs is clicked, irreversible after (the BOMs are submitted)
-- **Full page, bundled offline:** `docs/erpnext/erpnext__bom-creator-new.md`  (https://docs.frappe.io/erpnext/bom-creator-new) — older screen: `docs/erpnext/erpnext__bom-creator.md`
+- **Full page, bundled offline:** `docs/erpnext/erpnext-03.md` lines 1416–1805  (https://docs.frappe.io/erpnext/bom-creator-new) — older screen: `docs/erpnext/erpnext-03.md` lines 1807–1852
 
 ### Update BOMs in bulk
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Tools > BOM Update Tool**, or type *BOM Update Tool* in the search bar at the top
 - **Record type:** BOM Update Tool
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__bom-update-tool.md`  (https://docs.frappe.io/erpnext/bom-update-tool)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-03.md` lines 1951–2011  (https://docs.frappe.io/erpnext/bom-update-tool)
 
 ### Run a work order
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Work Order**, or type *Work Order* in the search bar at the top
@@ -82,7 +82,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   7. Use Multi-Level BOM: This is enabled by default. If you want to plan materials for sub-assemblies of the Item you're manufacturing leave this enabled. If you plan and manufacture the sub-assemblies separately, you can disable this checkbox. To know more, visit this page
   8. Select Warehouses:
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__work-order.md`  (https://docs.frappe.io/erpnext/work-order)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 1517–1749  (https://docs.frappe.io/erpnext/work-order)
 
 ### Record work on a job card
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Job Card**, or type *Job Card* in the search bar at the top
@@ -95,7 +95,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   5. Add more rows in the Time Logs table and record time using the Start/Completed buttons
   6. Click on Submit
 - **Snapshot first** — reversibility: irreversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__job-card.md`  (https://docs.frappe.io/erpnext/job-card)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-09.md` lines 982–1140  (https://docs.frappe.io/erpnext/job-card)
 
 ### Plan production
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Production Plan**, or type *Production Plan* in the search bar at the top
@@ -107,7 +107,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   4. On expanding a row in the Items to Manufacture table, you'll see an option to 'Include Exploded Items'. Ticking this includes raw materials of the sub-assembly items in the production process
   5. If "Consolidate Items" is ticked and saved, items with the same BOM are combined into a single item with the combined total planned quantity
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__production-plan.md`  (https://docs.frappe.io/erpnext/production-plan)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-12.md` lines 886–1083  (https://docs.frappe.io/erpnext/production-plan)
 
 ### Set up workstations
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Workstation**, or type *Workstation* in the search bar at the top
@@ -116,7 +116,7 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Enter a name for the Workstation
   3. Under Operating Costs, enter operating component with the cost
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__workstation.md`  (https://docs.frappe.io/erpnext/workstation)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-18.md` lines 2099–2228  (https://docs.frappe.io/erpnext/workstation)
 
 ### Define operations and routing
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Routing**, or type *Routing* in the search bar at the top
@@ -125,23 +125,23 @@ Frappe Cloud is a different site entirely. Use the base that matches the capabil
   2. Enter a name for the Routing
   3. Enter the Operations in the BOM Operation table
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__routing.md`  (https://docs.frappe.io/erpnext/routing)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-13.md` lines 3450–3501  (https://docs.frappe.io/erpnext/routing)
 
 ### Watch the plant floor
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Plant Floor**, or type *Plant Floor* in the search bar at the top
-- **Full page, bundled offline:** `docs/erpnext/erpnext__plant-floor.md`  (https://docs.frappe.io/erpnext/plant-floor)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-11.md` lines 2086–2120  (https://docs.frappe.io/erpnext/plant-floor)
 
 ### Handle scrap and disassembly
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > BOM**, or type *BOM* in the search bar at the top
 - **On this screen:** Scrap items are a table on the BOM; whether scrap is taken from the BOM is set in **Manufacturing Settings**.
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__scrap-management.md`  (https://docs.frappe.io/erpnext/scrap-management)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-14.md` lines 2279–2308  (https://docs.frappe.io/erpnext/scrap-management)
 
 ### Configure manufacturing settings
 - **Path (checked on v16.55):** https://your-site/desk → **ERPNext > Manufacturing > Setup > Settings**, or type *Manufacturing Settings* in the search bar at the top
 - **Record type:** Manufacturing Settings
 - **Snapshot first** — reversibility: reversible
-- **Full page, bundled offline:** `docs/erpnext/erpnext__manufacturing-settings.md`  (https://docs.frappe.io/erpnext/manufacturing-settings)
+- **Full page, bundled offline:** `docs/erpnext/erpnext-10.md` lines 125–280  (https://docs.frappe.io/erpnext/manufacturing-settings)
 
 ## What cannot be done in the interface
 

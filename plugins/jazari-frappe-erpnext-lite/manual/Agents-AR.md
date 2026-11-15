@@ -1,4 +1,4 @@
-Jazari Agents for Frappe & ERPNext Lite · v1.1.11
+Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 # الفريق
 
@@ -211,4 +211,4 @@ Jazari Agents for Frappe & ERPNext Lite · v1.1.11
 
 … و 43 قدرة أخرى — انظر الدليل.
 
-Jazari Agents for Frappe & ERPNext Lite v1.1.11 · Jazari Agents · 2026-11-14
+Jazari Agents for Frappe & ERPNext Lite v1.1.12 · Jazari Agents · 2026-11-14

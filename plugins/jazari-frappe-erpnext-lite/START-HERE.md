@@ -1,4 +1,4 @@
-Jazari Agents for Frappe & ERPNext Lite · v1.1.11
+Jazari Agents for Frappe & ERPNext Lite · v1.1.12
 
 # Nine agents that run your Frappe stack
 
@@ -73,7 +73,7 @@ Every change is appended to `.frappe/audit.log`, and every request you make — 
 
 ## What is in this build
 
-| Version | Jazari Agents for Frappe & ERPNext Lite v1.1 (plugin 1.1.11), built from the full edition 1.1.11 |
+| Version | Jazari Agents for Frappe & ERPNext Lite v1.1 (plugin 1.1.12), built from the full edition 1.1.11 |
 |---|---|
 | Built against | Frappe Framework v16.32.0 / ERPNext v16.33.0 (docs fetched 2026-08-31) |
 | Capabilities | 335 documented, every one traced to an official Frappe documentation page, plus a read-only overview of the business in the chat |

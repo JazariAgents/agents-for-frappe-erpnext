@@ -151,7 +151,7 @@ not undo itself. To remove an import, the records it made must be deleted one by
 
 | Capability | DocType | Call | Docs |
 |---|---|---|---|
-| Import a chart of accounts | Chart of Accounts Importer | `PUT /api/v2/document/Chart%20of%20Accounts%20Importer/Chart%20of%20Accounts%20Importer` — Single DocType, update only | `docs/erpnext/erpnext__chart-of-accounts-importer.md` |
+| Import a chart of accounts | Chart of Accounts Importer | `PUT /api/v2/document/Chart%20of%20Accounts%20Importer/Chart%20of%20Accounts%20Importer` — Single DocType, update only | `docs/erpnext/erpnext-04.md` lines 720–773 |
 
 ## Capabilities that need a schema lookup first
 
@@ -162,13 +162,13 @@ Do not guess the name.
 
 | Capability | Where to look | Bundled page (read this) |
 |---|---|---|
-| Import records from a spreadsheet | Data Import — follow "Import a spreadsheet: the tested recipe" above | `docs/erpnext/erpnext__data-import.md` |
-| Export records to a spreadsheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__data-export.md` |
-| Update many records at once | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__bulk-update.md` |
-| Rename records in bulk | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__bulk-rename.md` |
-| Import accounting masters | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__import-accounting-masters.md` |
-| Import advances, payments and balances | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__import-advances-unallocated-payments-bank-stock-and-asset-balances.md` |
-| Migrate from QuickBooks | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext__quickbooks-migrator.md` |
+| Import records from a spreadsheet | Data Import — follow "Import a spreadsheet: the tested recipe" above | `docs/erpnext/erpnext-05.md` lines 1481–1721 |
+| Export records to a spreadsheet | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-05.md` lines 1453–1479 |
+| Update many records at once | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-03.md` lines 2885–2915 |
+| Rename records in bulk | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-03.md` lines 2821–2883 |
+| Import accounting masters | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-08.md` lines 1738–1840 |
+| Import advances, payments and balances | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-08.md` lines 1842–1950 |
+| Migrate from QuickBooks | read the bundled page, then `GET /api/v2/doctype/<name>/meta` to confirm | `docs/erpnext/erpnext-13.md` lines 1006–1204 |
 
 ## Not an API job
 
